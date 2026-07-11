@@ -343,16 +343,19 @@ body::after {
     flex-direction: column;
     gap: 1.2rem;
     padding: 3rem 1rem 3rem 1.5rem;
+    margin-left: 4rem;
     position: relative;
 }
 
 .math-background__column--right {
     align-items: flex-end;
     padding: 3rem 1.5rem 3rem 1rem;
+    margin-left: 0;
+    margin-right: 4rem;
 }
 
 .math-background .bg-equation {
-    font-size: 0.65rem;
+    font-size: 0.85rem;
     color: var(--text);
     line-height: 1.5;
     font-family: "Latin Modern Math", Georgia, "Palatino Linotype", serif;
@@ -361,22 +364,22 @@ body::after {
     filter: blur(0px);
     transform-origin: center;
     transition: opacity 0.3s ease, filter 0.3s ease;
-    max-width: 260px;
+    max-width: 320px;
 }
 
 .math-background .bg-equation:nth-child(odd) {
-    font-size: 0.62rem;
+    font-size: 0.82rem;
     opacity: 0.9;
 }
 
 .math-background .bg-equation:nth-child(even) {
-    font-size: 0.68rem;
+    font-size: 0.88rem;
     opacity: 0.7;
 }
 
 .math-background .bg-equation .eq-label {
     font-weight: 600;
-    font-size: 0.55rem;
+    font-size: 0.68rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--accent);
@@ -386,7 +389,7 @@ body::after {
 }
 
 .math-background .bg-equation .eq-name {
-    font-size: 0.52rem;
+    font-size: 0.65rem;
     color: var(--muted);
     display: block;
     margin-bottom: 0.15rem;
@@ -404,11 +407,17 @@ body.accessibility-mode .math-background {
     .math-background__column {
         flex: 0 0 220px;
         padding: 2rem 0.5rem;
+        margin-left: 2rem;
     }
-    
+
+    .math-background__column--right {
+        margin-left: 0;
+        margin-right: 2rem;
+    }
+
     .math-background .bg-equation {
-        font-size: 0.55rem;
-        max-width: 180px;
+        font-size: 0.72rem;
+        max-width: 200px;
     }
 }
 
