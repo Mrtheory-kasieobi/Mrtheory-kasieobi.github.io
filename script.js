@@ -481,12 +481,16 @@ function initAccessibilityToggle() {
     // Restore persisted state on page load
     if (localStorage.getItem("accessibility-mode") === "enabled") {
         document.body.classList.add("accessibility-mode");
+        document.documentElement.classList.add("accessibility-mode");
         toggle.setAttribute("aria-pressed", "true");
         toggle.textContent = "Standard Mode";
     }
 
     toggle.addEventListener("click", function () {
         const isEnabled = document.body.classList.toggle("accessibility-mode");
+        // Also toggle on <html> so rem-based font sizes (relative to the
+        // root element) scale up site-wide, not just properties on <body>.
+        document.documentElement.classList.toggle("accessibility-mode", isEnabled);
         this.setAttribute("aria-pressed", isEnabled);
         this.textContent = isEnabled ? "Standard Mode" : "Accessibility Mode";
         // Persist the preference across page refreshes
@@ -514,10 +518,10 @@ function initMathBackground() {
         // Commutative Algebra
         { field: "Commutative Algebra", name: "Hilbert's Nullstellensatz", latex: "\\sqrt{I} = I(V(I)) \\text{ and } I \\subset \\mathbb{C}[x_1,\\ldots,x_n]" },
         { field: "Commutative Algebra", name: "Nakayama's Lemma", latex: "IM = M \\implies (1 + x)M = 0 \\text{ for some } x \\in I" },
-        { field: "Commutative Algebra", name: "Lasker–Noether Theorem", latex: "I = \\bigcap_{i=1}^n \\mathfrak{q}_i \\text{ with } \\mathfrak{q}_i \text{ primary}" },
-        { field: "Commutative Algebra", name: "Krull's Principal Ideal Theorem", latex: "\\operatorname{ht}(P) = 1 \\text{ for } P \text{ minimal over principal ideal}" },
-        { field: "Commutative Algebra", name: "Noether Normalization", latex: "R \text{ is integral over } S \\cong K[x_1, \\dots, x_d]" },
-        { field: "Commutative Algebra", name: "Going-Up Theorem", latex: "\\mathfrak{p} \\subset R \\implies \\exists \\, \\mathfrak{q} \\subset S \text{ with } \\mathfrak{q} \\cap R = \\mathfrak{p}" },
+        { field: "Commutative Algebra", name: "Lasker–Noether Theorem", latex: "I = \\bigcap_{i=1}^n \\mathfrak{q}_i \\text{ with } \\mathfrak{q}_i \\text{ primary}" },
+        { field: "Commutative Algebra", name: "Krull's Principal Ideal Theorem", latex: "\\operatorname{ht}(P) = 1 \\text{ for } P \\text{ minimal over principal ideal}" },
+        { field: "Commutative Algebra", name: "Noether Normalization", latex: "R \\text{ is integral over } S \\cong K[x_1, \\dots, x_d]" },
+        { field: "Commutative Algebra", name: "Going-Up Theorem", latex: "\\mathfrak{p} \\subset R \\implies \\exists \\, \\mathfrak{q} \\subset S \\text{ with } \\mathfrak{q} \\cap R = \\mathfrak{p}" },
         { field: "Commutative Algebra", name: "Primary Decomposition", latex: "I = \\bigcap_{i=1}^{n} \\mathfrak{q}_i \\quad \\text{where each } \\mathfrak{q}_i \\text{ is primary}" },
         
         // Arithmetic Geometry
@@ -525,7 +529,7 @@ function initMathBackground() {
         { field: "Arithmetic Geometry", name: "Riemann–Roch Theorem", latex: "\\deg(\\mathcal{L}) - g + 1 = h^0(\\mathcal{L}) - h^1(\\mathcal{L})" },
         { field: "Arithmetic Geometry", name: "Hasse's Theorem", latex: "|E(\\mathbb{F}_q)| = q + 1 - t \\text{ with } t^2 \\leq 4q" },
         { field: "Arithmetic Geometry", name: "Weil Conjectures", latex: "|X(\\mathbb{F}_q)| = q^n + a_1 q^{n-1} + \\cdots + a_n \\quad \\text{with } |a_i| \\leq C \\cdot q^{i/2}" },
-        { field: "Arithmetic Geometry", name: "Bézout's Theorem", latex: "\\sum_{P \\in C \\cap D} \operatorname{mult}_P(C) \\cdot \operatorname{mult}_P(D) = \\deg(C) \\cdot \\deg(D)" },
+        { field: "Arithmetic Geometry", name: "Bézout's Theorem", latex: "\\sum_{P \\in C \\cap D} \\operatorname{mult}_P(C) \\cdot \\operatorname{mult}_P(D) = \\deg(C) \\cdot \\deg(D)" },
         { field: "Arithmetic Geometry", name: "Faltings' Theorem", latex: "\\text{Curves of genus } g \\geq 2 \\text{ have finitely many } \\mathbb{Q}\\text{-points}" }
     ];
 
