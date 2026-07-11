@@ -121,86 +121,284 @@ document.addEventListener("DOMContentLoaded", function () {
             { label: "P12 Problem Set 7", url: "courses/problem-set-7-p12.html", keywords: ["problem set", "rational", "math 12"] },
             { label: "P12 Problem Set 8", url: "courses/problem-set-8-p12.html", keywords: ["problem set", "function", "math 12"] },
             { label: "P12 Problem Set 9", url: "courses/problem-set-9-p12.html", keywords: ["problem set", "permutations", "math 12"] },
-            { label: "P12 Problem Set 10", url: "courses/problem-set-10-p12.html", keywords: ["problem set", "binomial", "math 12"] }
+            { label: "P12 Problem Set 10", url: "courses/problem-set-10-p12.html", keywords: ["problem set", "binomial", "math 12"] },
+            // Calculus 1
+            { label: "Calculus I", url: "courses/calculus-1.html", keywords: ["calculus", "calculus 1", "limits", "derivatives"] },
+            { label: "Functions and Their Representations", url: "courses/lecture-notes-functions-calc1.html", keywords: ["functions", "representations", "calculus 1"] },
+            { label: "Limits and Derivatives", url: "courses/lecture-notes-limits-calc1.html", keywords: ["limits", "derivatives", "calculus 1"] },
+            { label: "Differentiation Rules", url: "courses/lecture-notes-differentiation-calc1.html", keywords: ["differentiation", "rules", "derivatives", "calculus 1"] },
+            { label: "Applications of Integration", url: "courses/lecture-notes-applications-integration-calc1.html", keywords: ["applications", "integration", "calculus 1"] },
+            { label: "Integration", url: "courses/lecture-notes-integration-calc1.html", keywords: ["integration", "integrals", "calculus 1"] },
+            // Calculus 2
+            { label: "Calculus II", url: "courses/calculus-2.html", keywords: ["calculus", "calculus 2", "series", "integration"] },
+            { label: "Sequences and Series (Calc 2)", url: "courses/lecture-notes-series-calc2.html", keywords: ["sequences", "series", "calculus 2"] },
+            { label: "Techniques of Integration", url: "courses/lecture-notes-techniques-integration-calc2.html", keywords: ["techniques", "integration", "calculus 2"] },
+            // Calculus 3
+            { label: "Calculus III", url: "courses/calculus-3.html", keywords: ["calculus", "calculus 3", "multivariable"] },
+            { label: "Multivariable Calculus", url: "courses/lecture-notes-multivariable-calc3.html", keywords: ["multivariable", "calculus", "calculus 3", "partial derivatives"] },
+            // Other courses
+            { label: "Introduction to Proofs", url: "courses/introduction-to-proofs.html", keywords: ["proofs", "logic", "induction", "introduction"] },
+            { label: "Number Theory", url: "courses/number-theory.html", keywords: ["number theory", "primes", "modular arithmetic"] },
+            { label: "Real Analysis", url: "courses/real-analysis.html", keywords: ["real analysis", "analysis", "sequences", "continuity"] },
+            // Solutions - Precalculus 11
+            { label: "Problem Set 1 Solutions (Precalc 11)", url: "courses/problem-set-1-solutions.html", keywords: ["solutions", "sequences", "series", "precalculus 11"] },
+            { label: "Problem Set 2 Solutions (Precalc 11)", url: "courses/problem-set-2-solutions.html", keywords: ["solutions", "trigonometry", "precalculus 11"] },
+            { label: "Problem Set 3 Solutions (Precalc 11)", url: "courses/problem-set-3-solutions.html", keywords: ["solutions", "quadratic functions", "precalculus 11"] },
+            { label: "Problem Set 4 Solutions (Precalc 11)", url: "courses/problem-set-4-solutions.html", keywords: ["solutions", "quadratic equations", "precalculus 11"] },
+            { label: "Problem Set 5 Solutions (Precalc 11)", url: "courses/problem-set-5-solutions.html", keywords: ["solutions", "radical", "rational", "absolute value", "precalculus 11"] },
+            { label: "Problem Set 6 Solutions (Precalc 11)", url: "courses/problem-set-6-solutions.html", keywords: ["solutions", "systems", "inequalities", "precalculus 11"] },
+            // Solutions - Math 10
+            { label: "M10 Problem Set 1 Solutions", url: "courses/problem-set-1-m10-solutions.html", keywords: ["solutions", "measurement", "math 10"] },
+            { label: "M10 Problem Set 2 Solutions", url: "courses/problem-set-2-m10-solutions.html", keywords: ["solutions", "trigonometry", "math 10"] },
+            { label: "M10 Problem Set 3 Solutions", url: "courses/problem-set-3-m10-solutions.html", keywords: ["solutions", "factors", "products", "math 10"] },
+            { label: "M10 Problem Set 4 Solutions", url: "courses/problem-set-4-m10-solutions.html", keywords: ["solutions", "roots", "powers", "math 10"] },
+            { label: "M10 Problem Set 5 Solutions", url: "courses/problem-set-5-m10-solutions.html", keywords: ["solutions", "relations", "functions", "math 10"] },
+            { label: "M10 Problem Set 6 Solutions", url: "courses/problem-set-6-m10-solutions.html", keywords: ["solutions", "linear functions", "math 10"] },
+            { label: "M10 Problem Set 7 Solutions", url: "courses/problem-set-7-m10-solutions.html", keywords: ["solutions", "systems", "linear equations", "math 10"] },
+            // Other site pages
+            { label: "Blog", url: "blog.html", keywords: ["blog", "research notebook", "journal", "updates"] },
+            { label: "Publications", url: "publications.html", keywords: ["publications", "papers", "articles"] },
+            { label: "Recent Updates", url: "Recent-Updates.html", keywords: ["recent updates", "changelog", "news"] }
         ];
 
-        const resultsBox = document.createElement("div");
-        resultsBox.className = "search-results";
-        searchInput.parentElement.style.position = "relative";
-        searchInput.parentElement.appendChild(resultsBox);
-
-        searchInput.addEventListener("input", function () {
-            const query = this.value.trim().toLowerCase();
-            if (!query) {
-                resultsBox.innerHTML = "";
-                resultsBox.classList.remove("visible");
-                return;
-            }
-
-            // Score each item based on match quality
-            const scored = searchableItems.map((item) => {
-                const labelLower = item.label.toLowerCase();
-                const keywordsLower = item.keywords.map(k => k.toLowerCase());
-                
-                // Check for prefix match on label (highest priority)
-                if (labelLower.startsWith(query)) {
-                    return { item, score: 1000 };
-                }
-                
-                // Check for prefix match on any keyword
-                for (const kw of keywordsLower) {
-                    if (kw.startsWith(query)) {
-                        return { item, score: 900 };
-                    }
-                }
-                
-                // Check for word-start match (query matches start of any word in label)
-                const words = labelLower.split(/[\s\-]+/);
-                for (const word of words) {
-                    if (word.startsWith(query)) {
-                        return { item, score: 800 };
-                    }
-                }
-                
-                // Check for contains match on label
-                if (labelLower.includes(query)) {
-                    return { item, score: 500 };
-                }
-                
-                // Check for contains match on any keyword
-                for (const kw of keywordsLower) {
-                    if (kw.includes(query)) {
-                        return { item, score: 400 };
-                    }
-                }
-                
-                return null;
-            }).filter(result => result !== null);
-
-            // Sort by score (highest first)
-            scored.sort((a, b) => b.score - a.score);
-
-            if (!scored.length) {
-                resultsBox.innerHTML = '<div class="search-results__item">No matching pages found.</div>';
-                resultsBox.classList.add("visible");
-                return;
-            }
-
-            resultsBox.innerHTML = scored.map(({ item }) => `
-                <a class="search-results__item" href="${item.url}">
-                    <strong>${item.label}</strong>
-                </a>
-            `).join("");
-            resultsBox.classList.add("visible");
-        });
-
-        document.addEventListener("click", function (event) {
-            if (!searchInput.parentElement.contains(event.target)) {
-                resultsBox.classList.remove("visible");
-            }
-        });
+        initSiteSearch(searchInput, searchableItems);
     }
 });
+
+/**
+ * Site-wide search with ranked, typed-ahead results.
+ *
+ * Ranking tiers (highest to lowest):
+ *   1. Exact label match
+ *   2. Label starts with the query (prefix match)
+ *   3. Any word within the label starts with the query (word-start match)
+ *   4. Keyword prefix / word-start match
+ *   5. Substring match anywhere in the label or keywords
+ *   6. Fuzzy match (subsequence + edit-distance) to tolerate typos
+ */
+function initSiteSearch(searchInput, searchableItems) {
+    const resultsBox = document.createElement("div");
+    resultsBox.className = "search-results";
+    resultsBox.setAttribute("role", "listbox");
+    searchInput.setAttribute("role", "combobox");
+    searchInput.setAttribute("aria-expanded", "false");
+    searchInput.setAttribute("aria-autocomplete", "list");
+    searchInput.setAttribute("aria-controls", "site-search-results");
+    resultsBox.id = "site-search-results";
+    searchInput.parentElement.style.position = "relative";
+    searchInput.parentElement.appendChild(resultsBox);
+
+    // Pre-normalize items once so every keystroke reuses this work.
+    const index = searchableItems.map((item, i) => ({
+        item,
+        id: "search-result-" + i,
+        labelLower: item.label.toLowerCase(),
+        wordsLower: item.label.toLowerCase().split(/[\s\-\/]+/).filter(Boolean),
+        keywordsLower: item.keywords.map((k) => k.toLowerCase())
+    }));
+
+    let activeIndex = -1;
+    let currentResults = [];
+    let debounceTimer = null;
+
+    function escapeHtml(str) {
+        return str.replace(/[&<>"']/g, (c) => ({
+            "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+        }[c]));
+    }
+
+    // Levenshtein distance, capped early for performance on short strings.
+    function editDistance(a, b) {
+        const m = a.length, n = b.length;
+        if (Math.abs(m - n) > 3) return Infinity; // cheap short-circuit
+        const dp = new Array(n + 1);
+        for (let j = 0; j <= n; j++) dp[j] = j;
+        for (let i = 1; i <= m; i++) {
+            let prev = dp[0];
+            dp[0] = i;
+            for (let j = 1; j <= n; j++) {
+                const temp = dp[j];
+                dp[j] = a[i - 1] === b[j - 1]
+                    ? prev
+                    : 1 + Math.min(prev, dp[j], dp[j - 1]);
+                prev = temp;
+            }
+        }
+        return dp[n];
+    }
+
+    // Does `text` contain the letters of `query` in order (not necessarily contiguous)?
+    function isSubsequence(query, text) {
+        let qi = 0;
+        for (let i = 0; i < text.length && qi < query.length; i++) {
+            if (text[i] === query[qi]) qi++;
+        }
+        return qi === query.length;
+    }
+
+    // Best fuzzy score across a label's words: compares the query against
+    // each word with edit distance, tolerating a couple of typos.
+    function fuzzyScore(query, words) {
+        let best = 0;
+        for (const word of words) {
+            if (!word) continue;
+            const maxAllowed = query.length <= 4 ? 1 : query.length <= 7 ? 2 : 3;
+            const dist = editDistance(query, word.slice(0, query.length + maxAllowed));
+            if (dist <= maxAllowed) {
+                const closeness = 1 - dist / Math.max(query.length, word.length);
+                best = Math.max(best, 200 * closeness);
+            } else if (isSubsequence(query, word)) {
+                best = Math.max(best, 120);
+            }
+        }
+        return best;
+    }
+
+    function scoreItem(entry, query) {
+        const { labelLower, wordsLower, keywordsLower } = entry;
+
+        if (labelLower === query) return 1200;
+        if (labelLower.startsWith(query)) return 1000;
+
+        for (const word of wordsLower) {
+            if (word.startsWith(query)) return 850;
+        }
+
+        for (const kw of keywordsLower) {
+            if (kw.startsWith(query)) return 800;
+            const kwWords = kw.split(/[\s\-\/]+/);
+            for (const w of kwWords) {
+                if (w.startsWith(query)) return 750;
+            }
+        }
+
+        if (labelLower.includes(query)) return 550;
+
+        for (const kw of keywordsLower) {
+            if (kw.includes(query)) return 450;
+        }
+
+        // Fuzzy tier: typo tolerance against label words, then keywords.
+        const labelFuzzy = fuzzyScore(query, wordsLower);
+        if (labelFuzzy > 0) return labelFuzzy;
+
+        const keywordFuzzy = fuzzyScore(query, keywordsLower.flatMap((k) => k.split(/[\s\-\/]+/)));
+        if (keywordFuzzy > 0) return keywordFuzzy * 0.8;
+
+        return 0;
+    }
+
+    // Wrap the substring of `label` that matches `query` (prefix/contains only;
+    // fuzzy matches aren't highlighted since there's no contiguous span).
+    function highlightLabel(label, query) {
+        const labelLower = label.toLowerCase();
+        const idx = labelLower.indexOf(query);
+        if (idx === -1) return escapeHtml(label);
+        return (
+            escapeHtml(label.slice(0, idx)) +
+            "<mark>" + escapeHtml(label.slice(idx, idx + query.length)) + "</mark>" +
+            escapeHtml(label.slice(idx + query.length))
+        );
+    }
+
+    function closeResults() {
+        resultsBox.classList.remove("visible");
+        searchInput.setAttribute("aria-expanded", "false");
+        searchInput.removeAttribute("aria-activedescendant");
+        activeIndex = -1;
+        currentResults = [];
+    }
+
+    function setActive(newIndex) {
+        const links = resultsBox.querySelectorAll(".search-results__item");
+        if (!links.length) return;
+        links.forEach((el) => el.classList.remove("is-active"));
+        activeIndex = ((newIndex % links.length) + links.length) % links.length;
+        const activeLink = links[activeIndex];
+        activeLink.classList.add("is-active");
+        activeLink.scrollIntoView({ block: "nearest" });
+        searchInput.setAttribute("aria-activedescendant", activeLink.id);
+    }
+
+    function renderResults(query) {
+        const scored = index
+            .map((entry) => ({ entry, score: scoreItem(entry, query) }))
+            .filter((r) => r.score > 0)
+            .sort((a, b) => b.score - a.score || a.entry.labelLower.localeCompare(b.entry.labelLower));
+
+        currentResults = scored;
+        activeIndex = -1;
+
+        if (!scored.length) {
+            resultsBox.innerHTML = '<div class="search-results__empty">No results found for "' + escapeHtml(query) + '".</div>';
+            resultsBox.classList.add("visible");
+            searchInput.setAttribute("aria-expanded", "true");
+            searchInput.removeAttribute("aria-activedescendant");
+            return;
+        }
+
+        const topResults = scored.slice(0, 12);
+        resultsBox.innerHTML = topResults.map(({ entry }) => `
+            <a class="search-results__item" id="${entry.id}" role="option" href="${entry.item.url}">
+                <strong>${highlightLabel(entry.item.label, query)}</strong>
+            </a>
+        `).join("");
+        resultsBox.classList.add("visible");
+        searchInput.setAttribute("aria-expanded", "true");
+    }
+
+    searchInput.addEventListener("input", function () {
+        const query = this.value.trim().toLowerCase();
+        clearTimeout(debounceTimer);
+
+        if (!query) {
+            resultsBox.innerHTML = "";
+            closeResults();
+            return;
+        }
+
+        // Debounce very slightly so a burst of keystrokes only re-ranks once;
+        // the index is tiny so this is mostly to smooth out fast typers.
+        debounceTimer = setTimeout(() => renderResults(query), 16);
+    });
+
+    searchInput.addEventListener("keydown", function (event) {
+        const isOpen = resultsBox.classList.contains("visible") && currentResults.length;
+
+        if (event.key === "ArrowDown") {
+            if (!isOpen) return;
+            event.preventDefault();
+            setActive(activeIndex + 1);
+        } else if (event.key === "ArrowUp") {
+            if (!isOpen) return;
+            event.preventDefault();
+            setActive(activeIndex - 1);
+        } else if (event.key === "Enter") {
+            if (isOpen && activeIndex >= 0) {
+                event.preventDefault();
+                window.location.href = currentResults[activeIndex].entry.item.url;
+            } else if (isOpen) {
+                event.preventDefault();
+                window.location.href = currentResults[0].entry.item.url;
+            }
+        } else if (event.key === "Escape") {
+            closeResults();
+            this.blur();
+        }
+    });
+
+    searchInput.addEventListener("focus", function () {
+        if (this.value.trim() && resultsBox.innerHTML) {
+            resultsBox.classList.add("visible");
+        }
+    });
+
+    document.addEventListener("click", function (event) {
+        if (!searchInput.parentElement.contains(event.target)) {
+            closeResults();
+        }
+    });
+}
 
 function renderMathFactWithMathJax(textElement, latex) {
     textElement.innerHTML = latex;
@@ -2491,14 +2689,14 @@ function initMathLabSimulations() {
     }
     
     // Quadratic Function Grapher
-    const quadraticSim = document.getElementById("quadratic-sim");
-    if (quadraticSim) {
-        const aInput = quadraticSim.querySelector("#qa-input");
-        const bInput = quadraticSim.querySelector("#qb-input");
-        const cInput = quadraticSim.querySelector("#qc-input");
-        const calculateBtn = quadraticSim.querySelector("#qcalculate-btn");
-        const canvas = quadraticSim.querySelector("#quadratic-canvas");
-        const resultsDiv = quadraticSim.querySelector("#quadratic-results");
+    const quadraticGrapherSim = document.getElementById("quadratic-sim");
+    if (quadraticGrapherSim) {
+        const aInput = quadraticGrapherSim.querySelector("#qa-input");
+        const bInput = quadraticGrapherSim.querySelector("#qb-input");
+        const cInput = quadraticGrapherSim.querySelector("#qc-input");
+        const calculateBtn = quadraticGrapherSim.querySelector("#qcalculate-btn");
+        const canvas = quadraticGrapherSim.querySelector("#quadratic-canvas");
+        const resultsDiv = quadraticGrapherSim.querySelector("#quadratic-results");
         
         if (canvas) {
             const ctx = canvas.getContext("2d");

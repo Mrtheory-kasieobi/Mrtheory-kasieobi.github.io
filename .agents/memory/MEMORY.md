@@ -1,0 +1,1 @@
+- [Static site script.js duplicate const](script-js-duplicate-const.md) — script.js had a duplicate top-level `const` across two features (both matched via the same DOM element id on different pages), which is a parse-time SyntaxError that silently kills the *entire* file in every browser. Always run `node --check` on shared static JS after edits.

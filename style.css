@@ -815,7 +815,8 @@ body::after {
 }
 
 .search-results__item:hover,
-.search-results__item:focus-visible {
+.search-results__item:focus-visible,
+.search-results__item.is-active {
     background: rgba(140, 200, 255, 0.12);
     color: var(--accent);
 }
@@ -823,6 +824,19 @@ body::after {
 
 .search-results__item strong {
     font-weight: 700;
+}
+
+.search-results__item mark {
+    background: rgba(140, 200, 255, 0.35);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 1px;
+}
+
+.search-results__empty {
+    padding: 0.7rem 1rem;
+    color: var(--muted);
+    font-size: 0.88rem;
 }
 
 header .header-content {
