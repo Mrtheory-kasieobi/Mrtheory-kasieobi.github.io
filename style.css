@@ -364,23 +364,13 @@ body::after {
     padding: 3rem 1.5rem 3rem 1rem;
     margin-left: 0;
     margin-right: 5.5rem;
+    text-align: right;
 }
 
-/* Gentle stagger so the two columns don't read as a rigid grid */
-.math-background .bg-equation:nth-child(3n+1) {
-    transform: translateX(0.4rem);
-}
-
-.math-background .bg-equation:nth-child(3n+2) {
-    transform: translateX(-0.6rem);
-}
-
-.math-background__column--right .bg-equation:nth-child(3n+1) {
-    transform: translateX(-0.4rem);
-}
-
-.math-background__column--right .bg-equation:nth-child(3n+2) {
-    transform: translateX(0.6rem);
+/* All theorem cards share one fixed width and stay flush to their column's
+   inner edge, so every entry lines up cleanly instead of drifting left/right. */
+.math-background .bg-equation {
+    width: 100%;
 }
 
 .math-background .bg-equation {
