@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal mathematics portfolio and research site by Kasieobi Udumaga.">
+    <title>Kasieobi Udumaga | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+
+        <div class="header-content">
+            <h1 data-content="index.header">Kasieobi Udumaga</h1>
+            <p data-content="index.subtitle">High School Student | Mathematics Enthusiast | Also a sprinter :) </p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li class="dropdown">
+                <a href="expository.html">Expository Writing</a>
+                <ul class="dropdown-menu" aria-label="Expository submenu">
+                    <li><a href="olympiad.html">Olympiad</a></li>
+                    <li><a href="undergraduate.html">Undergraduate</a></li>
+                    <li><a href="graduate.html">Graduate</a></li>
+                </ul>
+            </li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2 data-content="index.welcome">Welcome</h2>
+
+        <p data-content="index.paragraphs.0">
+            Hello! I'm Kasieobi Udumaga, a high school student from Canada with a strong interest in pure mathematics.
+        </p>
+
+        <p data-content="index.paragraphs.1">
+            My primary interests include algebra, algebraic number theory, commutative algebra, and arithmetic geometry. This website documents my learning, research projects, expository writing, and mathematical notes.
+        </p>
+
+        <p data-content="index.paragraphs.2">
+            Outside Mathematics, I am a sprinter and enjoy track and field. I am a 13 time provincial champion in the 100m and 200m sprints, and I hold the tied provincial record in the 100m sprint(electronically timed) for 14 year olds.
+        </p>
+    </main>
+
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga v1.0 <span class="site-version" data-site-version></span></p>
+    </footer>
+
+    <script src="content-loader.js"></script>
+    <script src="math-simulator.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

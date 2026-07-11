@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 4: Roots and Powers | Mathematics 10</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .theorem-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .theorem-title,
+    body.accessibility-mode .example-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      border-left-color: #0055cc !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Mathematics 10</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Lecture 4: Roots and Powers</h1>
+      <div class="subtitle">Mathematics 10 - Chapter 4</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>4.1 The Real Number System</h2>
+      <p>
+        The real number system includes rational and irrational numbers. Rational numbers can be 
+        expressed as fractions, while irrational numbers cannot.
+      </p>
+      <p><strong>Why This Classification Matters:</strong> Understanding the different types of 
+      numbers helps us know what operations are valid and what answers to expect. For example, 
+      the square root of a non-perfect square is irrational, which affects how we express answers.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Number Classification</div>
+        <p><strong>Natural Numbers:</strong> 1, 2, 3, 4, ... (counting numbers)</p>
+        <p><strong>Whole Numbers:</strong> 0, 1, 2, 3, ... (natural numbers plus zero)</p>
+        <p><strong>Rational Numbers:</strong> Can be written as \(\frac{a}{b}\) where \(b \neq 0\)</p>
+        <p><strong>Irrational Numbers:</strong> Cannot be written as fractions; decimal never ends or repeats</p>
+        <p><strong>Real Numbers:</strong> All rational and irrational numbers</p>
+      </div>
+
+      <h2>4.2 Simplifying Powers</h2>
+      <p>
+        Powers represent repeated multiplication. The rules for simplifying powers are essential 
+        for working with exponential expressions.
+      </p>
+      <p><strong>Connection to Real World:</strong> Powers appear in compound interest, 
+      population growth, radioactive decay, and computer memory. Understanding them is crucial 
+      for financial literacy and scientific applications.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Laws of Exponents</div>
+        <p><strong>Product Rule:</strong> \(a^m \times a^n = a^{m+n}\)</p>
+        <p><strong>Quotient Rule:</strong> \(\frac{a^m}{a^n} = a^{m-n}\)</p>
+        <p><strong>Power Rule:</strong> \((a^m)^n = a^{mn}\)</p>
+        <p><strong>Negative Exponent:</strong> \(a^{-n} = \frac{1}{a^n}\)</p>
+        <p><strong>Zero Exponent:</strong> \(a^0 = 1\) (for \(a \neq 0\))</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 1: Simplifying Powers</div>
+        <p>Simplify: \(\frac{(x^3 y^{-2})^4}{x^5 y^2}\)</p>
+        <p>\(= \frac{x^{12} y^{-8}}{x^5 y^2} = x^{12-5} y^{-8-2} = x^7 y^{-10} = \frac{x^7}{y^{10}}\)</p>
+        <p><strong>Motivation:</strong> This skill is essential for simplifying algebraic expressions 
+        in calculus and physics.</p>
+      </div>
+
+      <h2>4.3 Exponent Laws with Numeric Bases</h2>
+      <p>
+        When working with numbers, we can use calculators to verify our exponent laws. This helps 
+        build intuition for the rules.
+      </p>
+      <p><strong>Real-World Example:</strong> The Richter scale for earthquakes uses powers. 
+      An earthquake of magnitude 6 is 10 times more powerful than one of magnitude 5.</p>
+
+      <h2>4.4 Math Lab: Exploring Powers</h2>
+      <p>
+        In this lab, you'll explore patterns in powers and verify the exponent laws using 
+        numerical examples.
+      </p>
+      <p><strong>Key Insight:</strong> The exponent laws work because of the fundamental 
+      definition of multiplication. When we multiply \(a^m \times a^n\), we're adding \(m\) 
+      factors of \(a\) to \(n\) factors of \(a\), giving \(m+n\) total factors.</p>
+
+      <h2>4.5 Negative Exponents and Reciprocals</h2>
+      <p>
+        A negative exponent means we take the reciprocal of the base. This extends the exponent 
+        laws to all integers.
+      </p>
+      <p><strong>Why This Makes Sense:</strong> If \(a^3 \times a^{-3} = a^0 = 1\), then 
+      \(a^{-3}\) must equal \(\frac{1}{a^3}\). This maintains consistency in the exponent laws.</p>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Working with Negative Exponents</div>
+        <p>Simplify: \(\frac{3x^{-2}y^3}{2x^4y^{-1}}\)</p>
+        <p>\(= \frac{3y^3y^1}{2x^4x^2} = \frac{3y^4}{2x^6}\)</p>
+        <p><strong>Motivation:</strong> Negative exponents appear in scientific notation and 
+        in formulas for things like electrical resistance and gravitational force.</p>
+      </div>
+
+      <h2>4.6 Evaluating Powers with Rational Bases</h2>
+      <p>
+        When the base is a fraction, we apply the exponent to both numerator and denominator.
+      </p>
+      <p><strong>Application:</strong> In probability, we often work with fractions raised to 
+      powers. For example, the probability of getting 3 heads in a row is \((\frac{1}{2})^3 = \frac{1}{8}\).</p>
+
+      <h2>4.7 Combining Laws of Exponents</h2>
+      <p>
+        Complex expressions may require multiple exponent laws. Work systematically from the 
+        innermost expressions outward.
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Complex Power Simplification</div>
+        <p>Simplify: \(\left(\frac{a^{-2}b^3}{a^4b^{-1}}\right)^{-2}\)</p>
+        <p>Step 1: Simplify inside parentheses: \(a^{-6}b^4\)</p>
+        <p>Step 2: Apply outer exponent: \(a^{12}b^{-8} = \frac{a^{12}}{b^8}\)</p>
+        <p><strong>Motivation:</strong> This type of manipulation is essential in calculus 
+        for differentiating and integrating exponential functions.</p>
+      </div>
+
+      <h2>4.8 Scientific Notation</h2>
+      <p>
+        Scientific notation expresses very large or very small numbers as a product of a number 
+        between 1 and 10 and a power of 10.
+      </p>
+      <p><strong>Why Scientific Notation?</strong> It makes calculations with extreme values 
+      manageable and clearly shows the order of magnitude. The distance to the sun is about 
+      \(1.5 \times 10^8\) km, and the size of an atom is about \(1 \times 10^{-10}\) m.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Scientific Notation Operations</div>
+        <p>To multiply: \((a \times 10^m) \times (b \times 10^n) = (ab) \times 10^{m+n}\)</p>
+        <p>To divide: \(\frac{a \times 10^m}{b \times 10^n} = \frac{a}{b} \times 10^{m-n}\)</p>
+      </div>
+
+      <div class="math-lab" id="scientific-sim">
+        <h3 class="math-lab__title">Scientific Notation Calculator</h3>
+        <p class="math-lab__description">
+          Convert numbers to and from scientific notation.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Number:</span>
+            <input type="number" id="snum-input" class="math-lab__input" value="1500000" step="any">
+          </label>
+          <button id="scalculate-btn" class="math-lab__button">Convert</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter a number to see its scientific notation form.</p>
+        </div>
+      </div>
+
+      <div class="math-lab" id="exponent-sim">
+        <h3 class="math-lab__title">Exponent Laws Simulator</h3>
+        <p class="math-lab__description">
+          Explore and verify the laws of exponents with interactive calculations.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Base (a):</span>
+            <input type="number" id="exp-base" class="math-lab__input" value="2" step="any">
+          </label>
+          <label>
+            <span>Exponent 1 (m):</span>
+            <input type="number" id="exp-m" class="math-lab__input" value="3" step="any">
+          </label>
+          <label>
+            <span>Exponent 2 (n):</span>
+            <input type="number" id="exp-n" class="math-lab__input" value="4" step="any">
+          </label>
+          <label>
+            <span>Operation:</span>
+            <select id="exp-op" class="math-lab__input">
+              <option value="product">Product (a^m × a^n)</option>
+              <option value="quotient">Quotient (a^m ÷ a^n)</option>
+              <option value="power">Power ((a^m)^n)</option>
+            </select>
+          </label>
+          <button id="exp-calculate-btn" class="math-lab__button">Calculate</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter values to see the exponent law in action.</p>
+          <div id="exp-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="radical-sim">
+        <h3 class="math-lab__title">Radical and Exponent Converter</h3>
+        <p class="math-lab__description">
+          Convert between radical form and exponent form, and simplify expressions.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Value:</span>
+            <input type="number" id="rad-value" class="math-lab__input" value="8" min="0" step="any">
+          </label>
+          <label>
+            <span>Root (n):</span>
+            <input type="number" id="rad-n" class="math-lab__input" value="3" min="2" step="1">
+          </label>
+          <button id="rad-calculate-btn" class="math-lab__button">Calculate</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter a value and root to see radical and exponent forms.</p>
+          <div id="rad-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="scientific-calc-sim">
+        <h3 class="math-lab__title">Scientific Notation Operations</h3>
+        <p class="math-lab__description">
+          Perform calculations with numbers in scientific notation.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>First Number (a × 10^m):</span>
+            <input type="number" id="sci-a1" class="math-lab__input" value="3" step="any"> × 10^
+            <input type="number" id="sci-m1" class="math-lab__input" value="5" step="1">
+          </label>
+          <label>
+            <span>Second Number (b × 10^n):</span>
+            <input type="number" id="sci-a2" class="math-lab__input" value="2" step="any"> × 10^
+            <input type="number" id="sci-m2" class="math-lab__input" value="3" step="1">
+          </label>
+          <label>
+            <span>Operation:</span>
+            <select id="sci-op" class="math-lab__input">
+              <option value="multiply">Multiply</option>
+              <option value="divide">Divide</option>
+            </select>
+          </label>
+          <button id="sci-calculate-btn" class="math-lab__button">Calculate</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter two numbers in scientific notation to perform operations.</p>
+          <div id="sci-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="mathematics-10.html">← Back to Course</a>
+        <a href="lecture-notes-relations-m10.html">Next Lecture →</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+<script src="../math-simulator.js"></script>
+   </body>
+</html>

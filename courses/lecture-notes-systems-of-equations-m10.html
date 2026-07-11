@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 7: Systems of Linear Equations | Mathematics 10</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .theorem-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .theorem-title,
+    body.accessibility-mode .example-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      border-left-color: #0055cc !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Mathematics 10</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Lecture 7: Systems of Linear Equations</h1>
+      <div class="subtitle">Mathematics 10 - Chapter 7</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>7.1 Solving Systems by Graphing</h2>
+      <p>
+        A system of linear equations consists of two or more linear equations with the same 
+        variables. The solution is the point where the lines intersect.
+      </p>
+      <p><strong>Why Systems Matter:</strong> Many real-world problems involve multiple 
+      constraints. For example, if you have $100 to spend on two types of items, you need 
+      to find the combination that satisfies both your budget and your needs. This is a system 
+      of equations.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Types of Solutions</div>
+        <p><strong>One Solution:</strong> Lines intersect at exactly one point (consistent, independent)</p>
+        <p><strong>No Solution:</strong> Lines are parallel and never intersect (inconsistent)</p>
+        <p><strong>Infinitely Many Solutions:</strong> Lines are the same (consistent, dependent)</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 1: Graphing a System</div>
+        <p>Solve: \(y = 2x + 1\) and \(y = -x + 4\)</p>
+        <p>Graph both lines. They intersect at approximately (1, 3).</p>
+        <p>Check: \(3 = 2(1) + 1\) ✓ and \(3 = -(1) + 4\) ✓</p>
+        <p><strong>Motivation:</strong> This is used in business to find break-even points where 
+        revenue equals cost.</p>
+      </div>
+
+      <h2>7.2 Solving Systems by Substitution</h2>
+      <p>
+        The substitution method involves solving one equation for one variable and substituting 
+        into the other equation.
+      </p>
+      <p><strong>When to Use Substitution:</strong> When one equation is already solved for 
+      a variable, or when coefficients are 1 or -1, making substitution straightforward.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Substitution Method Steps</div>
+        <ol>
+          <li>Solve one equation for one variable (if not already done)</li>
+          <li>Substitute this expression into the other equation</li>
+          <li>Solve the resulting single-variable equation</li>
+          <li>Substitute back to find the other variable</li>
+          <li>Check the solution in both original equations</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Substitution Method</div>
+        <p>Solve: \(y = 3x - 2\) and \(2x + y = 8\)</p>
+        <p>Substitute: \(2x + (3x - 2) = 8\)</p>
+        <p>\(5x - 2 = 8\), so \(x = 2\)</p>
+        <p>Then \(y = 3(2) - 2 = 4\)</p>
+        <p>Solution: (2, 4)</p>
+        <p><strong>Motivation:</strong> This is used in chemistry to find concentrations 
+        in mixtures and in economics to find equilibrium points.</p>
+      </div>
+
+      <h2>7.3 Solving Systems by Elimination</h2>
+      <p>
+        The elimination method involves adding or subtracting equations to eliminate one variable.
+      </p>
+      <p><strong>Why Elimination Works:</strong> If \(a = b\) and \(c = d\), then \(a + c = b + d\). 
+      This allows us to combine equations strategically to eliminate variables.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Elimination Method Steps</div>
+        <ol>
+          <li>Multiply one or both equations to get opposite coefficients for one variable</li>
+          <li>Add the equations to eliminate that variable</li>
+          <li>Solve for the remaining variable</li>
+          <li>Substitute back to find the eliminated variable</li>
+          <li>Check the solution in both original equations</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Elimination Method</div>
+        <p>Solve: \(3x + 2y = 12\) and \(5x - 2y = 8\)</p>
+        <p>Add equations: \(8x = 20\), so \(x = 2.5\)</p>
+        <p>Substitute: \(3(2.5) + 2y = 12\), so \(y = 3\)</p>
+        <p>Solution: (2.5, 3)</p>
+        <p><strong>Motivation:</strong> This is used in engineering to solve for forces 
+        in structures and in finance to find portfolio allocations.</p>
+      </div>
+
+      <h2>7.4 Solving Systems with Fractions and Decimals</h2>
+      <p>
+        When equations have fractions or decimals, multiply to clear them before solving.
+      </p>
+      <p><strong>Strategy:</strong> Multiply each equation by the LCD of all fractions to 
+      work with integers, making arithmetic easier and less error-prone.</p>
+
+      <div class="example-box">
+        <div class="example-title">Example 4: Clearing Fractions</div>
+        <p>Solve: \(\frac{1}{2}x + \frac{1}{3}y = 2\) and \(\frac{1}{4}x - y = -1\)</p>
+        <p>Multiply first by 6: \(3x + 2y = 12\)</p>
+        <p>Multiply second by 4: \(x - 4y = -4\)</p>
+        <p>Now solve using elimination or substitution.</p>
+        <p><strong>Motivation:</strong> This technique is used in chemistry for balancing 
+        equations and in physics for solving equations with many constants.</p>
+      </div>
+
+      <h2>7.5 Real-World Applications of Systems</h2>
+      <p>
+        Systems of equations model situations with multiple constraints or conditions.
+      </p>
+      <p><strong>Common Applications:</strong></p>
+      <ul>
+        <li><strong>Mixture Problems:</strong> Finding amounts of different solutions to mix</li>
+        <li><strong>Investment Problems:</strong> Finding amounts invested at different rates</li>
+        <li><strong>Distance Problems:</strong> Finding speeds or times for different routes</li>
+        <li><strong>Break-Even Analysis:</strong> Finding when revenue equals cost</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-title">Example 5: Investment Problem</div>
+        <p>$5000 is invested in two accounts paying 3% and 5% interest. If total interest 
+        is $210, how much is in each account?</p>
+        <p>Let \(x\) = amount at 3%, \(y\) = amount at 5%</p>
+        <p>\(x + y = 5000\) and \(0.03x + 0.05y = 210\)</p>
+        <p>Solving: \(x = 2000\), \(y = 3000\)</p>
+        <p><strong>Motivation:</strong> This is used in personal finance and business 
+        planning to optimize returns.</p>
+      </div>
+
+      <h2>7.6 Math Lab: Exploring Systems</h2>
+      <p>
+        In this lab, you'll use graphing technology to explore how changing coefficients affects 
+        the solution to a system.
+      </p>
+      <p><strong>Key Insights:</strong> Small changes in coefficients can dramatically 
+      change the solution. This is important in numerical analysis and computer modeling, where 
+      rounding errors can accumulate.</p>
+
+      <h2>7.7 Solving Systems with Three Variables</h2>
+      <p>
+        Systems with three variables can be solved using elimination, working with pairs of 
+        equations to reduce to a 2-variable system.
+      </p>
+      <p><strong>Application:</strong> Three-variable systems appear in chemistry for 
+      balancing complex reactions, in economics for market equilibrium with three products, 
+      and in engineering for 3D force analysis.</p>
+
+      <div class="example-box">
+        <div class="example-title">Example 6: Three-Variable System</div>
+        <p>Solve: \(x + y + z = 6\), \(2x - y + z = 3\), \(x + 2y - z = 2\)</p>
+        <p>Using elimination: Solution is (1, 2, 3)</p>
+        <p><strong>Motivation:</strong> This extends to n-variable systems used in 
+      computer algorithms, optimization, and data science.</p>
+      </div>
+
+      <div class="math-lab" id="systems-solver">
+        <h3 class="math-lab__title">Systems of Equations Solver</h3>
+        <p class="math-lab__description">
+          Solve systems of two linear equations using substitution or elimination.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Equation 1 (ax + by = c):</span>
+            <input type="number" id="sys-a1" class="math-lab__input" value="2" step="any">x +
+            <input type="number" id="sys-b1" class="math-lab__input" value="-1" step="any">y =
+            <input type="number" id="sys-c1" class="math-lab__input" value="4" step="any">
+          </label>
+          <label>
+            <span>Equation 2 (ax + by = c):</span>
+            <input type="number" id="sys-a2" class="math-lab__input" value="1" step="any">x +
+            <input type="number" id="sys-b2" class="math-lab__input" value="1" step="any">y =
+            <input type="number" id="sys-c2" class="math-lab__input" value="3" step="any">
+          </label>
+          <label>
+            <span>Method:</span>
+            <select id="sys-method" class="math-lab__input">
+              <option value="graphing">Graphing</option>
+              <option value="substitution">Substitution</option>
+              <option value="elimination">Elimination</option>
+            </select>
+          </label>
+          <button id="sys-calculate-btn" class="math-lab__button">Solve</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter coefficients to solve the system.</p>
+          <canvas id="sys-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 8px; margin-top: 1rem;"></canvas>
+          <div id="sys-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="three-var-solver">
+        <h3 class="math-lab__title">Three-Variable System Solver</h3>
+        <p class="math-lab__description">
+          Solve systems of three linear equations.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Equation 1:</span>
+            <input type="number" id="t3-a1" class="math-lab__input" value="1" step="any">x +
+            <input type="number" id="t3-b1" class="math-lab__input" value="1" step="any">y +
+            <input type="number" id="t3-c1" class="math-lab__input" value="1" step="any">z =
+            <input type="number" id="t3-d1" class="math-lab__input" value="6" step="any">
+          </label>
+          <label>
+            <span>Equation 2:</span>
+            <input type="number" id="t3-a2" class="math-lab__input" value="2" step="any">x +
+            <input type="number" id="t3-b2" class="math-lab__input" value="-1" step="any">y +
+            <input type="number" id="t3-c2" class="math-lab__input" value="1" step="any">z =
+            <input type="number" id="t3-d2" class="math-lab__input" value="3" step="any">
+          </label>
+          <label>
+            <span>Equation 3:</span>
+            <input type="number" id="t3-a3" class="math-lab__input" value="1" step="any">x +
+            <input type="number" id="t3-b3" class="math-lab__input" value="2" step="any">y +
+            <input type="number" id="t3-c3" class="math-lab__input" value="-1" step="any">z =
+            <input type="number" id="t3-d3" class="math-lab__input" value="2" step="any">
+          </label>
+          <button id="t3-calculate-btn" class="math-lab__button">Solve</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter coefficients to solve the 3-variable system.</p>
+          <div id="t3-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="mixture-solver">
+        <h3 class="math-lab__title">Mixture Problem Solver</h3>
+        <p class="math-lab__description">
+          Solve mixture problems with two solutions.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Total amount:</span>
+            <input type="number" id="mix-total" class="math-lab__input" value="10" step="any">
+          </label>
+          <label>
+            <span>Concentration 1 (%):</span>
+            <input type="number" id="mix-c1" class="math-lab__input" value="30" step="any">
+          </label>
+          <label>
+            <span>Concentration 2 (%):</span>
+            <input type="number" id="mix-c2" class="math-lab__input" value="50" step="any">
+          </label>
+          <label>
+            <span>Desired concentration (%):</span>
+            <input type="number" id="mix-desired" class="math-lab__input" value="40" step="any">
+          </label>
+          <button id="mix-calculate-btn" class="math-lab__button">Calculate</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter values to find the mixture amounts.</p>
+          <div id="mix-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="mathematics-10.html">← Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+<script src="../math-simulator.js"></script>
+   </body>
+</html>

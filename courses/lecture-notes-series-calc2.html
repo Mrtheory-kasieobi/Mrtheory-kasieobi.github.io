@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture Notes: Sequences and Series - Calculus II">
+  <title>Kasieobi Udumaga | Sequences and Series</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box {
+      border-left: 4px solid var(--accent);
+    }
+    .example-box {
+      border-left: 4px solid #f0ad4e;
+    }
+    .important-note {
+      border-left: 4px solid #d9534f;
+    }
+    .theorem-box {
+      border-left: 4px solid #5cb85c;
+    }
+    .proof-box {
+      border-left: 4px solid #5bc0de;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border-left: 4px solid var(--accent);
+    }
+    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus II</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Sequences and Series</h1>
+      <div class="subtitle">Calculus II - Chapter 11.1-11.11</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>1. Sequences</h2>
+
+      <div class="definition-box">
+        <strong>Sequence:</strong>
+        A sequence is a function \(a_n\) with domain the positive integers.
+      </div>
+
+      <div class="definition-box">
+        <strong>Limit of a Sequence:</strong>
+        \(\lim_{n \to \infty} a_n = L\) if for every \(\varepsilon > 0\), there exists \(N\) such that \(|a_n - L| < \varepsilon\) for all \(n > N\).
+      </div>
+
+      <h2>2. Series</h2>
+
+      <div class="definition-box">
+        <strong>Series:</strong>
+        A series is the sum of a sequence: \(\sum_{n=1}^{\infty} a_n = a_1 + a_2 + a_3 + \cdots\)
+      </div>
+
+      <div class="important-note">
+        <strong>Convergence:</strong>
+        A series converges if the sequence of partial sums \(S_n = \sum_{k=1}^{n} a_k\) converges.
+      </div>
+
+      <h2>3. The Integral Test</h2>
+
+      <div class="theorem-box">
+        <strong>Integral Test:</strong>
+        If \(f(n) = a_n\) where \(f\) is continuous, positive, and decreasing, then \(\sum a_n\) and \(\int_1^{\infty} f(x) \, dx\) either both converge or both diverge.
+      </div>
+
+      <h2>4. Comparison Tests</h2>
+
+      <div class="important-note">
+        <strong>Comparison Test:</strong>
+        If \(0 \leq a_n \leq b_n\) for all \(n\), then:
+        <ul>
+          <li>If \(\sum b_n\) converges, then \(\sum a_n\) converges</li>
+          <li>If \(\sum a_n\) diverges, then \(\sum b_n\) diverges</li>
+        </ul>
+      </div>
+
+      <h2>5. Alternating Series</h2>
+
+      <div class="definition-box">
+        <strong>Alternating Series:</strong>
+        \(\sum (-1)^{n-1} b_n = b_1 - b_2 + b_3 - b_4 + \cdots\)
+      </div>
+
+      <div class="theorem-box">
+        <strong>Alternating Series Test:</strong>
+        If \(b_n > 0\), \(b_{n+1} \leq b_n\), and \(b_n \to 0\), then the series converges.
+      </div>
+
+      <h2>6. Ratio and Root Tests</h2>
+
+      <div class="theorem-box">
+        <strong>Ratio Test:</strong>
+        If \(\lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right| = L\), then:
+        <ul>
+          <li>If \(L < 1\), the series converges absolutely</li>
+          <li>If \(L > 1\), the series diverges</li>
+          <li>If \(L = 1\), the test is inconclusive</li>
+        </ul>
+      </div>
+
+      <h2>7. Power Series</h2>
+
+      <div class="definition-box">
+        <strong>Power Series:</strong>
+        \(\sum_{n=0}^{\infty} c_n (x - a)^n\)
+      </div>
+
+      <div class="important-note">
+        <strong>Radius of Convergence:</strong>
+        The series converges when \(|x - a| < R\) and diverges when \(|x - a| > R\).
+      </div>
+
+      <h2>8. Taylor and Maclaurin Series</h2>
+
+      <div class="theorem-box">
+        <strong>Taylor Series:</strong>
+        \(f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n\)
+      </div>
+
+      <div class="formula-box">
+        <strong>Common Taylor Series:</strong>
+        <ul>
+          <li>\(\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n\) for \(|x| < 1\)</li>
+          <li>\(e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!}\)</li>
+          <li>\(\sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}\)</li>
+          <li>\(\cos x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}\)</li>
+        </ul>
+      </div>
+
+      <div class="navigation">
+        <a href="calculus-2.html">← Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

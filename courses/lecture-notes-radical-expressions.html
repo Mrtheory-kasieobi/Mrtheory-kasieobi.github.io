@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radical Expressions and Equations - Lecture Notes | Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Accessibility mode overrides for dyslexic readers */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note,
+    body.accessibility-mode table {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2,
+    body.accessibility-mode .lecture-content h3 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note {
+      border-left-color: #0055cc !important;
+    }
+
+    body.accessibility-mode .definition-box strong,
+    body.accessibility-mode .example-title,
+    body.accessibility-mode .important-note-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode th {
+      background: #e6f0ff !important;
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode table {
+      background: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Radical Expressions and Equations</h1>
+      <div class="subtitle">Precalculus 11 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Radicals</h2>
+  
+  <p>A <strong>radical expression</strong> is an expression that contains a square root, cube root, or any other root. The most common radical is the square root.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> The square root of a number \(x\) is a number \(y\) such that \(y^2 = x\). It is written as \(\sqrt{x}\) or \(x^{1/2}\).
+  </div>
+
+  <h3>1.1 Radical Notation</h3>
+  <p>The general form of a radical is:</p>
+
+  <div class="formula-box">
+    \[\sqrt[n]{a} = a^{1/n}\]
+  </div>
+
+  <p>Where \(n\) is the index of the radical and \(a\) is the radicand.</p>
+
+  <h3>1.2 Properties of Radicals</h3>
+  <ul>
+    <li>\(\sqrt{ab} = \sqrt{a} \cdot \sqrt{b}\) (product property)</li>
+    <li>\(\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}\) (quotient property)</li>
+    <li>\(\sqrt{a^2} = |a|\) (square root of a square)</li>
+  </ul>
+
+  <h2>2. Working with Radicals</h2>
+
+  <h3>2.1 Simplifying Radicals</h3>
+  <p>To simplify a radical, factor the radicand into perfect squares:</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Simplifying Radicals</div>
+    <p>Simplify \(\sqrt{72}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Factor 72: \(72 = 36 \times 2 = 6^2 \times 2\)</p>
+    <p>\[\sqrt{72} = \sqrt{36 \times 2} = \sqrt{36} \cdot \sqrt{2} = 6\sqrt{2}\]</p>
+  </div>
+
+  <h3>2.2 Rationalizing the Denominator</h3>
+  <p>To rationalize a denominator containing a radical, multiply numerator and denominator by the radical:</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Rationalizing the Denominator</div>
+    <p>Simplify \(\frac{3}{\sqrt{5}}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[\frac{3}{\sqrt{5}} \cdot \frac{\sqrt{5}}{\sqrt{5}} = \frac{3\sqrt{5}}{5}\]</p>
+  </div>
+
+  <h2>3. Multiplying and Dividing Radical Expressions</h2>
+
+  <h3>3.1 Multiplying Radicals</h3>
+  <p>Use the product property: \(\sqrt{a} \cdot \sqrt{b} = \sqrt{ab}\)</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Multiplying Radicals</div>
+    <p>Simplify: \(\sqrt{3} \cdot \sqrt{12}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[\sqrt{3} \cdot \sqrt{12} = \sqrt{3 \times 12} = \sqrt{36} = 6\]</p>
+  </div>
+
+  <h3>3.2 Dividing Radicals</h3>
+  <p>Use the quotient property: \(\frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}}\)</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Dividing Radicals</div>
+    <p>Simplify: \(\frac{\sqrt{50}}{\sqrt{2}}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[\frac{\sqrt{50}}{\sqrt{2}} = \sqrt{\frac{50}{2}} = \sqrt{25} = 5\]</p>
+  </div>
+
+  <h3>3.3 Multiplying Binomials with Radicals</h3>
+  <p>Use FOIL method and combine like terms:</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Multiplying Binomials</div>
+    <p>Expand: \((2 + \sqrt{3})(3 - \sqrt{3})\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[= 6 - 2\sqrt{3} + 3\sqrt{3} - 3\]</p>
+    <p>\[= 3 + \sqrt{3}\]</p>
+  </div>
+
+  <h2>4. Radical Equations</h2>
+
+  <p>A <strong>radical equation</strong> is an equation that contains a radical expression with the variable in the radicand.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A radical equation is an equation in which the variable appears under a radical sign.
+  </div>
+
+  <h3>4.1 Solving Radical Equations</h3>
+  <p>To solve a radical equation:</p>
+  <ol>
+    <li>Isolate the radical on one side</li>
+    <li>Square both sides (or cube, etc.)</li>
+    <li>Solve the resulting equation</li>
+    <li>Check all solutions in the original equation (extraneous solutions may occur)</li>
+  </ol>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Solving a Radical Equation</div>
+    <p>Solve: \(\sqrt{x + 3} = x - 1\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Square both sides:</p>
+    <p>\[x + 3 = (x - 1)^2\]</p>
+    <p>Step 2: Expand and simplify:</p>
+    <p>\[x + 3 = x^2 - 2x + 1\]</p>
+    <p>\[0 = x^2 - 3x - 2\]</p>
+    <p>Step 3: Factor: \((x - 1)(x - 2) = 0\)</p>
+    <p>Step 4: Check solutions: \(x = 1\) or \(x = 2\)</p>
+    <p>Check \(x = 1\): \(\sqrt{1 + 3} = 0\) → \(2 \neq 0\) (extraneous)</p>
+    <p>Check \(x = 2\): \(\sqrt{2 + 3} = 1\) → \(\sqrt{5} \neq 1\) (extraneous)</p>
+    <p><strong>No solution</strong></p>
+  </div>
+
+  <h3>4.2 Equations with Multiple Radicals</h3>
+  <p>When an equation has multiple radicals, isolate one radical at a time:</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Multiple Radicals</div>
+    <p>Solve: \(\sqrt{x + 2} + \sqrt{x - 1} = 3\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Isolate one radical: \(\sqrt{x + 2} = 3 - \sqrt{x - 1}\)</p>
+    <p>Step 2: Square both sides and simplify</p>
+    <p>Step 3: Isolate the remaining radical and square again</p>
+    <p>Step 4: Solve the resulting quadratic equation</p>
+    <p>Step 5: Check all solutions</p>
+  </div>
+
+  <h2>5. Summary of Key Concepts</h2>
+
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Formula/Definition</th>
+    </tr>
+    <tr>
+      <td>Radical Notation</td>
+      <td>\(\sqrt[n]{a} = a^{1/n}\)</td>
+    </tr>
+    <tr>
+      <td>Product Property</td>
+      <td>\(\sqrt{ab} = \sqrt{a} \cdot \sqrt{b}\)</td>
+    </tr>
+    <tr>
+      <td>Quotient Property</td>
+      <td>\(\sqrt{\frac{a}{b}} = \frac{\sqrt{a}}{\sqrt{b}}\)</td>
+    </tr>
+    <tr>
+      <td>Rationalizing</td>
+      <td>Multiply by conjugate or same radical</td>
+    </tr>
+    <tr>
+      <td>Solving Radical Equations</td>
+      <td>Isolate, square, solve, check</td>
+    </tr>
+  </table>
+
+  <h2>6. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Simplify: \(\sqrt{48} + \sqrt{27}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Rationalize the denominator: \(\frac{5}{\sqrt{3} + 1}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Solve: \(\sqrt{2x + 5} = 7\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Solve: \(\sqrt{x + 4} + 2 = x\)</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-11.html">← Back to Course</a>
+  </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../math-simulator.js"></script>
+ </body>

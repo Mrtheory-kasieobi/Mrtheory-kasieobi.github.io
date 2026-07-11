@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 6: Linear Functions | Mathematics 10</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .theorem-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .theorem-title,
+    body.accessibility-mode .example-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      border-left-color: #0055cc !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Mathematics 10</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Lecture 6: Linear Functions</h1>
+      <div class="subtitle">Mathematics 10 - Chapter 6</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>6.1 Representing Linear Functions</h2>
+      <p>
+        A linear function has the form \(f(x) = mx + b\) where \(m\) is the slope and \(b\) is 
+        the y-intercept. The graph is a straight line.
+      </p>
+      <p><strong>Why Linear Functions Are Important:</strong> Linear functions model situations 
+      with constant rate of change. They're used in economics for supply and demand, in physics 
+      for uniform motion, and in everyday life for calculating costs, distances, and simple 
+      interest.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Linear Function Forms</div>
+        <p><strong>Slope-Intercept Form:</strong> \(y = mx + b\)</p>
+        <p><strong>Point-Slope Form:</strong> \(y - y_1 = m(x - x_1)\)</p>
+        <p><strong>Standard Form:</strong> \(Ax + By = C\)</p>
+        <p>where \(m\) is the slope and \(b\) is the y-intercept.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 1: Identifying Linear Functions</div>
+        <p>Which of these are linear? \(f(x) = 3x - 2\), \(g(x) = x^2 + 1\), \(h(x) = \frac{1}{x} + 5\)</p>
+        <p>Only \(f(x) = 3x - 2\) is linear. The others have variables with exponents other than 1.</p>
+        <p><strong>Motivation:</strong> Linear functions are the foundation for understanding 
+        more complex functions and for linear approximation in calculus.</p>
+      </div>
+
+      <h2>6.2 Interpreting Slope and Intercepts</h2>
+      <p>
+        The slope represents the rate of change. A positive slope means increasing, negative 
+        means decreasing. The y-intercept is the starting value when \(x = 0\).
+      </p>
+      <p><strong>Real-World Meaning:</strong> If \(C(t) = 50t + 1000\) represents the cost 
+      of production after \(t\) items, the slope 50 is the cost per item, and 1000 is the 
+      fixed cost.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Slope Formula</div>
+        <p>\(m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}}\)</p>
+        <p><strong>Interpretation:</strong> For each unit increase in \(x\), \(y\) changes by \(m\) units.</p>
+      </div>
+
+      <h2>6.3 Linear Interpolation and Extrapolation</h2>
+      <p>
+        Interpolation estimates values between known data points. Extrapolation estimates values 
+        beyond the known data.
+      </p>
+      <p><strong>Important Note:</strong> Extrapolation can be dangerous! Just because data 
+      follows a linear pattern in one range doesn't mean it will continue that way. Population 
+      growth looks linear for a short time but eventually becomes exponential.</p>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Linear Interpolation</div>
+        <p>A car travels 60 km in 1 hour and 120 km in 2 hours. Estimate the distance at 1.5 hours.</p>
+        <p>Using the linear model: \(d = 60t\), at \(t = 1.5\): \(d = 90\) km</p>
+        <p><strong>Motivation:</strong> This is used in science to estimate values between 
+        measurements and in business to predict sales.</p>
+      </div>
+
+      <h2>6.4 Solving Linear Function Equations</h2>
+      <p>
+        To solve a linear equation, isolate the variable. The goal is to get \(x\) alone on one side.
+      </p>
+      <p><strong>Systematic Approach:</strong></p>
+      <ol>
+        <li>Collect like terms on each side</li>
+        <li>Move the variable term to one side</li>
+        <li>Move the constant term to the other side</li>
+        <li>Divide by the coefficient of the variable</li>
+      </ol>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Solving a Linear Equation</div>
+        <p>Solve: \(3(x - 2) + 5 = 2x + 10\)</p>
+        <p>\(3x - 6 + 5 = 2x + 10\)</p>
+        <p>\(3x - 1 = 2x + 10\)</p>
+        <p>\(x = 11\)</p>
+        <p><strong>Motivation:</strong> This is used to find break-even points, solve for 
+        unknown quantities, and find intersection points of lines.</p>
+      </div>
+
+      <h2>6.5 Linear Inequalities</h2>
+      <p>
+        Linear inequalities are solved like equations, but the inequality sign flips when we 
+        multiply or divide by a negative number.
+      </p>
+      <p><strong>Real-World Application:</strong> If you need to sell at least 50 items to 
+      break even, and you sell 5 per day, you need \(5d \geq 50\), so \(d \geq 10\) days.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Inequality Symbols</div>
+        <p>\(a < b\): a is less than b</p>
+        <p>\(a \leq b\): a is less than or equal to b</p>
+        <p>\(a > b\): a is greater than b</p>
+        <p>\(a \geq b\): a is greater than or equal to b</p>
+      </div>
+
+      <h2>6.6 Graphing Linear Inequalities</h2>
+      <p>
+        To graph a linear inequality:
+      </p>
+      <ol>
+        <li>Graph the corresponding equation as a boundary line</li>
+        <li>Use a solid line for \(\leq\) or \(\geq\), dashed for \(<\) or \(>\)</li>
+        <li>Test a point not on the line to determine which side to shade</li>
+      </ol>
+
+      <div class="example-box">
+        <div class="example-title">Example 4: Graphing an Inequality</div>
+        <p>Graph \(2x + 3y < 6\)</p>
+        <p>Boundary line: \(2x + 3y = 6\) or \(y = -\frac{2}{3}x + 2\)</p>
+        <p>Test point (0,0): \(2(0) + 3(0) = 0 < 6\) ✓</p>
+        <p>Shade the side containing (0,0) with a dashed line.</p>
+        <p><strong>Motivation:</strong> This is used in optimization problems, business constraints, 
+        and engineering design limits.</p>
+      </div>
+
+      <h2>6.7 Linear Function Applications</h2>
+      <p>
+        Linear functions model many real-world situations with constant rates of change.
+      </p>
+      <p><strong>Common Applications:</strong></p>
+      <ul>
+        <li>Cost functions: \(C(x) = \text{fixed cost} + (\text{cost per item}) \times x\)</li>
+        <li>Distance-speed-time: \(d = vt\) (constant speed)</li>
+        <li>Simple interest: \(I = P \times r \times t\)</li>
+        <li>Temperature conversion: \(C = \frac{5}{9}(F - 32)\)</li>
+      </ul>
+
+      <div class="math-lab" id="linear-grapher">
+        <h3 class="math-lab__title">Linear Function Grapher</h3>
+        <p class="math-lab__description">
+          Visualize linear functions and see their slope and y-intercept.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Slope (m):</span>
+            <input type="number" id="lm-input" class="math-lab__input" value="2" step="any">
+          </label>
+          <label>
+            <span>Y-intercept (b):</span>
+            <input type="number" id="lb-input" class="math-lab__input" value="1" step="any">
+          </label>
+          <button id="lcalculate-btn" class="math-lab__button">Graph</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter slope and y-intercept to see the line.</p>
+          <canvas id="linear-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 8px; margin-top: 1rem;"></canvas>
+          <div id="linear-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="slope-calculator">
+        <h3 class="math-lab__title">Slope Calculator</h3>
+        <p class="math-lab__description">
+          Calculate the slope between two points.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Point 1 (x₁, y₁):</span>
+            <input type="number" id="sp1x" class="math-lab__input" value="1" step="any">,
+            <input type="number" id="sp1y" class="math-lab__input" value="2" step="any">
+          </label>
+          <label>
+            <span>Point 2 (x₂, y₂):</span>
+            <input type="number" id="sp2x" class="math-lab__input" value="3" step="any">,
+            <input type="number" id="sp2y" class="math-lab__input" value="8" step="any">
+          </label>
+          <button id="scalculate-btn" class="math-lab__button">Calculate</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter two points to find the slope.</p>
+          <div id="slope-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="inequality-grapher">
+        <h3 class="math-lab__title">Linear Inequality Grapher</h3>
+        <p class="math-lab__description">
+          Graph linear inequalities and see the solution region.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Inequality:</span>
+            <input type="text" id="ineq-expr" class="math-lab__input" value="2*x + 3*y < 6" placeholder="e.g., 2*x + 3*y < 6">
+          </label>
+          <button id="ineq-calculate-btn" class="math-lab__button">Graph</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter a linear inequality to see its graph.</p>
+          <canvas id="ineq-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 8px; margin-top: 1rem;"></canvas>
+          <div id="ineq-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="mathematics-10.html">← Back to Course</a>
+        <a href="lecture-notes-systems-of-equations-m10.html">Next Lecture →</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+<script src="../math-simulator.js"></script>
+   </body>
+</html>

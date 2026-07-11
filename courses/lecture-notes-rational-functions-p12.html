@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rational Functions - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Rational Functions</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Rational Functions</h2>
+  
+  <p>A <strong>rational function</strong> is a ratio of two polynomial functions.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A rational function is a function of the form \(f(x) = \frac{P(x)}{Q(x)}\) where \(P(x)\) and \(Q(x)\) are polynomials and \(Q(x) \neq 0\).
+  </div>
+
+  <h3>1.1 Domain and Asymptotes</h3>
+  <p>The domain excludes values where the denominator equals zero. These zeros create vertical asymptotes.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Finding Domain and Asymptotes</div>
+    <p>For \(f(x) = \frac{x + 1}{x - 2}\):</p>
+    <p>Domain: all real numbers except \(x = 2\)</p>
+    <p>Vertical asymptote: \(x = 2\)</p>
+    <p>Horizontal asymptote: \(y = 0\) (degree of numerator < degree of denominator)</p>
+  </div>
+
+  <h2>2. Analysing Rational Functions</h2>
+
+  <h3>2.1 Finding Asymptotes</h3>
+  <p>To find horizontal asymptotes, compare the degrees of numerator and denominator.</p>
+
+  <div class="formula-box">
+    <strong>Horizontal Asymptotes:</strong><br>
+    <ul style="text-align: left; margin: 0;">
+      <li>If degree(numerator) < degree(denominator): \(y = 0\)</li>
+      <li>If degree(numerator) = degree(denominator): \(y = \frac{a_n}{b_m}\)</li>
+      <li>If degree(numerator) > degree(denominator): no horizontal asymptote</li>
+    </ul>
+  </div>
+
+  <h3>2.2 Oblique Asymptotes</h3>
+  <p>When the degree of numerator is exactly one more than the denominator, there is an oblique (slant) asymptote found by polynomial long division.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Oblique Asymptote</div>
+    <p>Find the asymptote of \(f(x) = \frac{x^2 + 3x + 2}{x - 1}\).</p>
+    <p>Perform long division: \(f(x) = x + 4 + \frac{6}{x - 1}\)</p>
+    <p>Oblique asymptote: \(y = x + 4\)</p>
+    <p>Vertical asymptote: \(x = 1\)</p>
+  </div>
+
+  <h2>3. Connecting Graphs and Rational Equations</h2>
+
+  <h3>3.1 Solving Rational Equations</h3>
+  <p>To solve rational equations, multiply both sides by the LCD to eliminate denominators.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Solving Rational Equations</div>
+    <p>Solve \(\frac{2}{x} + \frac{3}{x + 1} = 1\).</p>
+    <p>Multiply by LCD \(x(x + 1)\):</p>
+    <p>\(2(x + 1) + 3x = x(x + 1)\)</p>
+    <p>\(2x + 2 + 3x = x^2 + x\)</p>
+    <p>\(5x + 2 = x^2 + x\)</p>
+    <p>\(x^2 - 4x - 2 = 0\)</p>
+    <p>\(x = 2 \pm \sqrt{6}\) (check: \(x \neq 0, -1\))</p>
+  </div>
+
+  <h2>4. Key Features Summary</h2>
+
+  <table>
+    <tr>
+      <th>Feature</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Vertical Asymptotes</td>
+      <td>Values where denominator = 0 (and numerator ≠ 0)</td>
+    </tr>
+    <tr>
+      <td>Horizontal Asymptotes</td>
+      <td>Determined by comparing degrees of numerator and denominator</td>
+    </tr>
+    <tr>
+      <td>X-intercepts</td>
+      <td>Values where numerator = 0 (and denominator ≠ 0)</td>
+    </tr>
+    <tr>
+      <td>Holes</td>
+      <td>Values that make both numerator and denominator = 0</td>
+    </tr>
+    <tr>
+      <td>Domain</td>
+      <td>All real numbers except where denominator = 0</td>
+    </tr>
+  </table>
+
+  <h2>5. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Find the domain, vertical asymptotes, and horizontal asymptotes of \(f(x) = \frac{2x^2 - 5x + 1}{x^2 - 4}\).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Solve \(\frac{x + 2}{x - 3} = \frac{2x - 1}{x + 4}\) and check for extraneous solutions.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Find the oblique asymptote of \(f(x) = \frac{x^3 - 2x}{x^2 + 1}\).</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>

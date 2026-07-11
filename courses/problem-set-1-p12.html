@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Set 1: Function Transformations | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .problem-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .problem-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .problem-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .problem-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .problem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .problem-number {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    .difficulty {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-left: 1rem;
+    }
+
+    .difficulty.medium {
+      background: rgba(240, 173, 78, 0.2);
+      color: #f0ad4e;
+      border: 1px solid rgba(240, 173, 78, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="problem-header">
+      <h1>Problem Set 1: Function Transformations</h1>
+      <div class="subtitle">Precalculus 12 - Problem Set</div>
+      <div class="subtitle">Topics: Function Transformations, Inverses <span class="difficulty medium">Medium</span></div>
+    </div>
+
+    <div class="problem-content">
+
+      <h2>Problems</h2>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 1</div>
+        <p>Describe the transformations that map \(f(x) = x^2\) to \(g(x) = -2(x - 3)^2 + 4\). Then find the domain, range, and vertex of \(g(x)\).</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 2</div>
+        <p>Write the equation of a function that is obtained by reflecting \(f(x) = \sqrt{x}\) across the y-axis, then shifting 2 units up and 3 units to the right.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 3</div>
+        <p>Find the inverse of \(f(x) = \frac{2x - 1}{x + 3}\). State the domain and range of both functions.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 4</div>
+        <p>A Ferris wheel has height modeled by \(h(t) = 25\sin(0.2t) + 27\) where \(t\) is in minutes. Find the maximum and minimum heights, and the time for one complete revolution.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 5</div>
+        <p>Graph \(f(x) = |x - 2| + 1\) by hand. Identify the vertex, domain, range, and any transformations from the parent function \(f(x) = |x|\).</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 6</div>
+        <p>Given \(f(x) = 3x - 2\) and \(g(x) = x^2 - 1\), find \(f(g(x))\) and \(g(f(x))\). Determine which composition represents a vertical stretch of the original function.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 7</div>
+        <p>A company's profit is modeled by \(P(x) = -x^3 + 6x^2 - 9x + 4\) where \(x\) is thousands of units. Find the break-even points and interpret them in context.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 8</div>
+        <p>Find the domain and range of \(f(x) = \frac{1}{\sqrt{x - 2}} + 3\). Explain why the domain is restricted.</p>
+      </div>
+
+      <div class="navigation">
+        <a href="precalculus-12.html">← Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

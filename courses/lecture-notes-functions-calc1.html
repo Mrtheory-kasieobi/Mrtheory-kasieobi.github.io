@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Functions and Their Representations - Calculus I">
+  <title>Kasieobi Udumaga | Functions and Their Representations - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box {
+      border-left: 4px solid var(--accent);
+    }
+    .example-box {
+      border-left: 4px solid #f0ad4e;
+    }
+    .important-note {
+      border-left: 4px solid #d9534f;
+    }
+    .theorem-box {
+      border-left: 4px solid #5cb85c;
+    }
+    .proof-box {
+      border-left: 4px solid #5bc0de;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border-left: 4px solid var(--accent);
+    }
+    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Functions and Their Representations</h1>
+      <div class="subtitle">Calculus I - Chapter 1.1-1.5 (Detailed Notes)</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>1. Four Ways to Represent a Function</h2>
+
+      <div class="definition-box">
+        <strong>Definition: Function</strong>
+        A function \(f\) is a rule that assigns to each element \(x\) in a set \(D\) (the domain) exactly one element \(f(x)\) in a set \(R\) (the range or codomain). We write \(y = f(x)\) to indicate that \(y\) is the image of \(x\) under \(f\).
+      </div>
+
+      <p><strong>Key Terminology:</strong></p>
+      <ul>
+        <li><strong>Domain:</strong> The set of all possible input values</li>
+        <li><strong>Range (or Codomain):</strong> The set of all possible output values</li>
+        <li><strong>Independent Variable:</strong> The input variable (usually \(x\))</li>
+        <li><strong>Dependent Variable:</strong> The output variable (usually \(y\) or \(f(x)\))</li>
+      </ul>
+
+      <p>Functions can be represented in four main ways:</p>
+
+      <h3>1.1 Verbal Representation</h3>
+      <p>Describing the relationship in words. For example: "The area of a circle depends on its radius" or "The temperature decreases by 2 degrees for each meter of altitude."</p>
+
+      <h3>1.2 Algebraic Representation</h3>
+      <p>Using an explicit formula. For example: \(A(r) = \pi r^2\) for the area of a circle, or \(T(h) = T_0 - 2h\) for temperature at altitude.</p>
+
+      <h3>1.3 Visual Representation</h3>
+      <p>Using a graph. The graph of a function \(f\) consists of all points \((x, y)\) in the plane such that \(y = f(x)\) and \(x\) is in the domain.</p>
+
+      <div class="important-note">
+        <strong>Vertical Line Test:</strong>
+        A curve in the \(xy\)-plane is the graph of a function if and only if no vertical line intersects the curve more than once.
+      </div>
+
+      <h3>1.4 Numerical Representation</h3>
+      <p>Using a table of values. This is useful when the function is defined by experimental data or when an explicit formula is not available.</p>
+
+      <div class="example-box">
+        <strong>Example 1.1:</strong>
+        The area of a circle with radius \(r\) is given by \(A(r) = \pi r^2\). This is an algebraic representation. The domain is \(r \geq 0\) and the range is \(A \geq 0\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.2:</strong>
+        The human population of the world as a function of time can be represented:
+        <ul>
+          <li>Verbally: "Population increases by about 1.5% per year"</li>
+          <li>Numerically: A table of population counts for each year</li>
+          <li>Visually: A graph showing population growth over time</li>
+        </ul>
+      </div>
+
+      <h2>2. Mathematical Models: A Catalog of Essential Functions</h2>
+
+      <p>Mathematical models use functions to describe real-world phenomena. Here are the essential types:</p>
+
+      <h3>2.1 Linear Functions</h3>
+      <div class="formula-box">
+        <strong>Linear Function:</strong>
+        \(f(x) = mx + b\) where \(m\) is the slope and \(b\) is the y-intercept.
+      </div>
+      <p>Linear functions model constant rate changes. Examples: distance at constant speed, cost with fixed rate.</p>
+
+      <h3>2.2 Polynomials</h3>
+      <div class="formula-box">
+        <strong>Polynomial Function:</strong>
+        \(P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\)
+      </div>
+      <p>Polynomials are used to model smooth curves and approximate other functions. The degree \(n\) determines the shape.</p>
+
+      <h3>2.3 Rational Functions</h3>
+      <div class="definition-box">
+        <strong>Rational Function:</strong>
+        \(f(x) = \frac{P(x)}{Q(x)}\) where \(P\) and \(Q\) are polynomials.
+      </div>
+      <p>Rational functions have vertical asymptotes where \(Q(x) = 0\) and horizontal asymptotes determined by the leading terms.</p>
+
+      <h3>2.4 Trigonometric Functions</h3>
+      <p>The six basic trigonometric functions: \(\sin x, \cos x, \tan x, \csc x, \sec x, \cot x\). These model periodic phenomena like sound waves, tides, and seasonal variations.</p>
+
+      <h3>2.5 Exponential Functions</h3>
+      <div class="definition-box">
+        <strong>Exponential Function:</strong>
+        \(f(x) = a^x\) where \(a > 0, a \neq 1\).
+      </div>
+      <p>Exponential functions model growth and decay: population growth, radioactive decay, compound interest.</p>
+
+      <h3>2.6 Logarithmic Functions</h3>
+      <div class="definition-box">
+        <strong>Logarithm:</strong>
+        \(f(x) = \log_a x\) is the inverse of the exponential function \(a^x\).
+      </div>
+      <p>Logarithms model phenomena that grow slowly: pH scale, Richter scale, decibel scale.</p>
+
+      <h2>3. New Functions from Old Functions</h2>
+
+      <p>Given functions \(f\) and \(g\), we can create new functions through transformations and combinations.</p>
+
+      <h3>3.1 Transformations</h3>
+      <ul>
+        <li><strong>Vertical Translation:</strong> \(f(x) + c\) shifts the graph up by \(c\) units</li>
+        <li><strong>Horizontal Translation:</strong> \(f(x - c)\) shifts the graph right by \(c\) units</li>
+        <li><strong>Vertical Scaling:</strong> \(cf(x)\) stretches/compresses vertically by factor \(c\)</li>
+        <li><strong>Horizontal Scaling:</strong> \(f(cx)\) stretches/compresses horizontally by factor \(1/c\)</li>
+        <li><strong>Reflection:</strong> \(-f(x)\) reflects across x-axis, \(f(-x)\) reflects across y-axis</li>
+      </ul>
+
+      <div class="example-box">
+        <strong>Example 3.1:</strong>
+        If \(f(x) = \sqrt{x}\), then:
+        <ul>
+          <li>\(f(x) + 2 = \sqrt{x} + 2\) shifts up 2 units</li>
+          <li>\(f(x - 3) = \sqrt{x - 3}\) shifts right 3 units</li>
+          <li>\(-f(x) = -\sqrt{x}\) reflects across x-axis</li>
+        </ul>
+      </div>
+
+      <h3>3.2 Combinations of Functions</h3>
+      <ul>
+        <li><strong>Sum:</strong> \((f + g)(x) = f(x) + g(x)\)</li>
+        <li><strong>Difference:</strong> \((f - g)(x) = f(x) - g(x)\)</li>
+        <li><strong>Product:</strong> \((fg)(x) = f(x) \cdot g(x)\)</li>
+        <li><strong>Quotient:</strong> \(\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}\) (where \(g(x) \neq 0\))</li>
+        <li><strong>Composition:</strong> \((f \circ g)(x) = f(g(x))\)</li>
+      </ul>
+
+      <div class="formula-box">
+        <strong>Composition Formula:</strong>
+        \((f \circ g)(x) = f(g(x))\)
+      </div>
+
+      <div class="important-note">
+        <strong>Domain of Composition:</strong>
+        The domain of \(f \circ g\) consists of all \(x\) in the domain of \(g\) such that \(g(x)\) is in the domain of \(f\).
+      </div>
+
+      <h2>4. Exponential Functions</h2>
+
+      <div class="definition-box">
+        <strong>Definition: Exponential Function</strong>
+        The exponential function with base \(a\) is \(f(x) = a^x\) where \(a > 0, a \neq 1\).
+      </div>
+
+      <h3>4.1 Properties of \(a^x\)</h3>
+      <ul>
+        <li>\(a^0 = 1\) for all \(a > 0\)</li>
+        <li>\(a^1 = a\)</li>
+        <li>\(a^{x+y} = a^x \cdot a^y\)</li>
+        <li>\((a^x)^y = a^{xy}\)</li>
+        <li>\((ab)^x = a^x b^x\)</li>
+      </ul>
+
+      <h3>4.2 The Natural Exponential Function</h3>
+      <div class="important-note">
+        <strong>The Number \(e\):</strong>
+        The number \(e \approx 2.71828...\) is defined as:
+        \(e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = \sum_{n=0}^{\infty} \frac{1}{n!}\)
+      </div>
+
+      <p>The function \(e^x\) is its own derivative: \(\frac{d}{dx}e^x = e^x\). This makes it fundamental in calculus.</p>
+
+      <h3>4.3 Applications of Exponential Functions</h3>
+      <ul>
+        <li><strong>Compound Interest:</strong> \(A = P\left(1 + \frac{r}{n}\right)^{nt}\)</li>
+        <li><strong>Continuous Compounding:</strong> \(A = Pe^{rt}\)</li>
+        <li><strong>Population Growth:</strong> \(P(t) = P_0 e^{kt}\)</li>
+        <li><strong>Radioactive Decay:</strong> \(N(t) = N_0 e^{-\lambda t}\)</li>
+      </ul>
+
+      <div class="example-box">
+        <strong>Example 4.1:</strong>
+        A population of bacteria doubles every 3 hours. If there are initially 1000 bacteria, find the population after 12 hours.
+        <p>Solution: \(P(t) = 1000 \cdot 2^{t/3} = 1000 \cdot e^{(t/3)\ln 2}\). After 12 hours: \(P(12) = 1000 \cdot 2^4 = 16000\).</p>
+      </div>
+
+      <h2>5. Inverse Functions and Logarithms</h2>
+
+      <div class="definition-box">
+        <strong>Definition: Inverse Function</strong>
+        Two functions \(f\) and \(g\) are inverses if \(f(g(x)) = x\) and \(g(f(x)) = x\) for all \(x\) in their domains. We write \(g = f^{-1}\).
+      </div>
+
+      <h3>5.1 Finding Inverse Functions</h3>
+      <p>To find the inverse of \(y = f(x)\):</p>
+      <ol>
+        <li>Swap \(x\) and \(y\): \(x = f(y)\)</li>
+        <li>Solve for \(y\) in terms of \(x\)</li>
+        <li>Verify that \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)</li>
+      </ol>
+
+      <div class="example-box">
+        <strong>Example 5.1:</strong>
+        Find the inverse of \(f(x) = 2x + 3\).
+        <p>Solution: \(y = 2x + 3\), swap: \(x = 2y + 3\), solve: \(y = \frac{x-3}{2}\). So \(f^{-1}(x) = \frac{x-3}{2}\).</p>
+      </div>
+
+      <h3>5.2 Horizontal Line Test</h3>
+      <div class="theorem-box">
+        <strong>Horizontal Line Test:</strong>
+        A function \(f\) has an inverse if and only if every horizontal line intersects the graph of \(f\) at most once.
+      </div>
+
+      <h3>5.3 Logarithm Definition and Properties</h3>
+      <div class="definition-box">
+        <strong>Definition: Logarithm</strong>
+        The logarithm \(\log_a x\) is the inverse of the exponential function \(a^x\). That is, \(y = \log_a x\) means \(a^y = x\).
+      </div>
+
+      <p>Key properties of logarithms:</p>
+      <ul>
+        <li>\(\log_a(xy) = \log_a x + \log_a y\)</li>
+        <li>\(\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y\)</li>
+        <li>\(\log_a(x^r) = r\log_a x\)</li>
+        <li>\(\log_a a = 1\) and \(\log_a 1 = 0\)</li>
+        <li>\(\log_{a^r} x = \frac{1}{r} \log_a x\)</li>
+      </ul>
+
+      <h3>5.4 Natural Logarithm</h3>
+      <div class="important-note">
+        <strong>Natural Logarithm:</strong>
+        The natural logarithm \(\ln x = \log_e x\) has derivative \(\frac{d}{dx}\ln x = \frac{1}{x}\).
+      </div>
+
+      <h3>5.5 Applications of Logarithms</h3>
+      <ul>
+        <li><strong>pH Scale:</strong> \(pH = -\log[H^+]\)</li>
+        <li><strong>Richter Scale:</strong> \(M = \log\frac{A}{A_0}\)</li>
+        <li><strong>Decibels:</strong> \(dB = 10\log\frac{I}{I_0}\)</li>
+      </ul>
+
+      <div class="navigation">
+        <a href="calculus-1.html">← Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

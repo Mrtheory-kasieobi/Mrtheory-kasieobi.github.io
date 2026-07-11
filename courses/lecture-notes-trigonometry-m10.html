@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 2: Trigonometry | Mathematics 10</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .theorem-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .theorem-title,
+    body.accessibility-mode .example-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      border-left-color: #0055cc !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Mathematics 10</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Lecture 2: Trigonometry</h1>
+      <div class="subtitle">Mathematics 10 - Chapter 2</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>2.1 The Tangent Ratio</h2>
+      <p>
+        In a right triangle, the tangent ratio relates the opposite side to the adjacent side. 
+        The tangent function is one of the three primary trigonometric ratios.
+      </p>
+      <p><strong>Why Trigonometry Matters:</strong> Trigonometry is the study of relationships 
+      between angles and sides in triangles. It's used in navigation, engineering, physics, 
+      computer graphics, and many other fields. The ancient Greeks used it to measure the Earth's 
+      circumference and distances to stars.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Tangent Ratio Definition</div>
+        <p>
+          For angle \(\theta\) in a right triangle:
+        </p>
+        <p>\(\tan \theta = \frac{\text{opposite}}{\text{adjacent}}\)</p>
+        <p><strong>Memory tip:</strong> "TOA" from SOH-CAH-TOA - Tangent is Opposite over Adjacent</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 1: Finding Height of a Tree</div>
+        <p>A surveyor stands 20 meters from a tree and measures the angle to the top as 35°. 
+        How tall is the tree?</p>
+        <p>Using \(\tan 35° = \frac{\text{height}}{20}\), we get height = \(20 \times \tan 35° \approx 14\) meters</p>
+        <p><strong>Motivation:</strong> This technique is used by surveyors, foresters, and arborists 
+        to measure heights of trees, buildings, and mountains without climbing them.</p>
+      </div>
+
+      <h2>2.2 Using the Tangent Ratio to Calculate Lengths</h2>
+      <p>
+        To find a missing length using tangent, follow these steps:
+      </p>
+      <ol>
+        <li>Draw and label the right triangle, identifying the given angle and known side</li>
+        <li>Identify which side you need to find (opposite or adjacent)</li>
+        <li>Use the tangent ratio to set up an equation: \(\tan \theta = \frac{\text{known}}{\text{unknown}}\)</li>
+        <li>Solve for the unknown length</li>
+      </ol>
+      <p><strong>Real-World Applications:</strong> Trigonometry is used in construction to ensure 
+      structures are square, in navigation to find distances, and in sports to calculate trajectories.</p>
+
+      <h2>2.3 Math Lab: Measuring an Inaccessible Height</h2>
+      <p>
+        Trigonometry allows us to measure heights and distances that are difficult to measure directly. 
+        The key is to create a right triangle where one dimension is accessible.
+      </p>
+      <p><strong>Procedure:</strong></p>
+      <ol>
+        <li>Measure a distance from the object (baseline)</li>
+        <li>Measure the angle of elevation to the top of the object</li>
+        <li>Use the tangent ratio to calculate the height</li>
+      </ol>
+      <p><strong>Accuracy Considerations:</strong> The angle measurement is the biggest source of error. 
+      A small error in angle can lead to large errors in calculated height. Using a longer baseline 
+      improves accuracy.</p>
+
+      <h2>2.4 The Sine and Cosine Ratios</h2>
+      <p>
+        The sine ratio relates the opposite side to the hypotenuse. The cosine ratio relates 
+        the adjacent side to the hypotenuse.
+      </p>
+      <p><strong>Connection to Real World:</strong> These ratios are essential for understanding 
+      waves, sound, light, and alternating current. The sine function describes the vertical 
+      displacement of a point on a spinning wheel.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">SOH-CAH-TOA</div>
+        <p>
+          \(\sin \theta = \frac{\text{Opposite}}{\text{Hypotenuse}}\)<br>
+          \(\cos \theta = \frac{\text{Adjacent}}{\text{Hypotenuse}}\)<br>
+          \(\tan \theta = \frac{\text{Opposite}}{\text{Adjacent}}\)
+        </p>
+        <p><strong>Memory tip:</strong> SOH (sine is opposite over hypotenuse), CAH (cosine is 
+        adjacent over hypotenuse), TOA (tangent is opposite over adjacent)</p>
+      </div>
+
+      <h2>2.5 Using the Sine and Cosine Ratios to Calculate Lengths</h2>
+      <p>
+        To find a missing length using sine or cosine:
+      </p>
+      <ol>
+        <li>Draw and label the right triangle</li>
+        <li>Identify the angle and the known side</li>
+        <li>Choose the appropriate ratio (sine or cosine) based on which sides are involved</li>
+        <li>Set up the equation and solve for the unknown</li>
+      </ol>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Finding the Hypotenuse</div>
+        <p>A right triangle has an angle of 40° and the adjacent side is 8 cm. Find the hypotenuse.</p>
+        <p>Using \(\cos 40° = \frac{8}{\text{hypotenuse}}\), we get hypotenuse = \(\frac{8}{\cos 40°} \approx 10.9\) cm</p>
+        <p><strong>Motivation:</strong> This is used in construction to find the length of rafters, 
+        and in navigation to find the direct distance between two points.</p>
+      </div>
+
+      <h2>2.6 Applying the Trigonometric Ratios</h2>
+      <p>
+        Trigonometry is used to measure inaccessible heights such as buildings, trees, and mountains. 
+        It's also used in navigation, surveying, and engineering.
+      </p>
+      <p><strong>Common Applications:</strong></p>
+      <ul>
+        <li>Height of buildings or trees (using angle of elevation)</li>
+        <li>Distance across rivers or lakes (using triangulation)</li>
+        <li>Angles of elevation and depression in architecture</li>
+        <li>Navigation and bearings in aviation and maritime</li>
+        <li>Calculating forces in physics (horizontal and vertical components)</li>
+      </ul>
+
+      <h2>2.7 Solving Problems Involving More than One Right Triangle</h2>
+      <p>
+        Some problems require working with multiple right triangles. Break the problem into 
+        smaller triangles and apply trigonometric ratios to each one.
+      </p>
+      <p><strong>Example:</strong> A person observes two buildings. The angle to the top of the first 
+      building is 30°, and the angle to the top of the second building (behind the first) is 45°. 
+      Use the difference in angles to find the height of the second building.</p>
+      
+      <div class="example-box">
+        <div class="example-title">Example 3: Two Building Problem</div>
+        <p>From 50 m away, the angle to the top of building A is 30° and to building B (taller) 
+        is 45°. What is the height difference?</p>
+        <p>Height of A: \(50 \times \tan 30° \approx 28.9\) m</p>
+        <p>Height of B: \(50 \times \tan 45° = 50\) m</p>
+        <p>Difference: \(50 - 28.9 = 21.1\) m</p>
+        <p><strong>Motivation:</strong> This technique is used in surveying to find relative heights 
+        of structures.</p>
+      </div>
+
+      <div class="math-lab" id="trig-sim">
+        <h3 class="math-lab__title">Trigonometry Graph Visualizer</h3>
+        <p class="math-lab__description">
+          Visualize sine, cosine, and tangent functions on an interactive graph.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Function:</span>
+            <select id="tfunc-select" class="math-lab__input">
+              <option value="sin">Sine (sin)</option>
+              <option value="cos">Cosine (cos)</option>
+              <option value="tan">Tangent (tan)</option>
+            </select>
+          </label>
+          <label>
+            <span>Amplitude (A):</span>
+            <input type="number" id="tamp-input" class="math-lab__input" value="1" step="any">
+          </label>
+          <label>
+            <span>Frequency (B):</span>
+            <input type="number" id="tfreq-input" class="math-lab__input" value="1" step="any">
+          </label>
+          <label>
+            <span>Phase Shift (C):</span>
+            <input type="number" id="tphase-input" class="math-lab__input" value="0" step="any">
+          </label>
+          <label>
+            <span>Vertical Shift (D):</span>
+            <input type="number" id="tshift-input" class="math-lab__input" value="0" step="any">
+          </label>
+          <button id="tcalculate-btn" class="math-lab__button">Update Graph</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Adjust the parameters to see how the trigonometric function changes.</p>
+          <canvas id="trig-canvas" width="400" height="250" style="width: 100%; height: 250px; border-radius: 8px; margin-top: 1rem; background: #1a2639;"></canvas>
+          <div id="trig-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="triangle-sim">
+        <h3 class="math-lab__title">Right Triangle Trigonometry Simulator</h3>
+        <p class="math-lab__description">
+          Enter an angle and one side to calculate the other sides and see the triangle.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Angle (degrees):</span>
+            <input type="number" id="angle-input" class="math-lab__input" value="30" min="1" max="89" step="any">
+          </label>
+          <label>
+            <span>Known Side:</span>
+            <select id="known-side-select" class="math-lab__input">
+              <option value="opposite">Opposite</option>
+              <option value="adjacent">Adjacent</option>
+              <option value="hypotenuse">Hypotenuse</option>
+            </select>
+          </label>
+          <label>
+            <span>Side Length:</span>
+            <input type="number" id="side-input" class="math-lab__input" value="10" min="0" step="any">
+          </label>
+          <button id="triangle-calculate-btn" class="math-lab__button">Calculate</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter values to see the triangle and calculate missing sides.</p>
+          <canvas id="triangle-canvas" width="300" height="250" style="width: 100%; height: 250px; border-radius: 8px; margin-top: 1rem;"></canvas>
+          <div id="triangle-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="sohcahtoa-sim">
+        <h3 class="math-lab__title">SOH-CAH-TOA Calculator</h3>
+        <p class="math-lab__description">
+          Calculate sine, cosine, and tangent values for any angle, and solve for missing sides.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Angle (degrees):</span>
+            <input type="number" id="soh-angle-input" class="math-lab__input" value="45" min="0" max="360" step="any">
+          </label>
+          <button id="soh-calculate-btn" class="math-lab__button">Calculate Ratios</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter an angle to see all three trigonometric ratios.</p>
+          <div id="soh-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="mathematics-10.html">← Back to Course</a>
+        <a href="lecture-notes-factoring-m10.html">Next Lecture →</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+<script src="../script.js"></script>
+<script src="../math-simulator.js"></script>
+   </body>
+</html>

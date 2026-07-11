@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometry and the Unit Circle - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Trigonometry and the Unit Circle</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Angles and Angle Measure</h2>
+  
+  <h3>1.1 Why Study Angles?</h3>
+  <p>Angles are fundamental to understanding periodic phenomena in nature - from the rotation of planets to the oscillation of waves. The study of angles connects geometry with algebra through the unit circle, providing a bridge to more advanced mathematics.</p>
+
+  <h3>1.2 Angle Measurement Systems</h3>
+  <p>Angles can be measured in degrees or radians. The radian measure is based on the radius of a circle, making it the natural choice for higher mathematics.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Why Radians?</div>
+    <p>Radians are preferred in calculus and higher mathematics because they create a direct relationship between arc length and angle measure. When an angle is measured in radians, the arc length equals the radius times the angle: s = rθ.</p>
+  </div>
+
+  <div class="formula-box">
+    <strong>Conversion Formulas:</strong><br>
+    \[180° = \pi \text{ radians}\]
+    \[\text{radians} = \text{degrees} \times \frac{\pi}{180}\]
+    \[\text{degrees} = \text{radians} \times \frac{180}{\pi}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Converting Between Units</div>
+    <p>Convert \(120°\) to radians.</p>
+    <p>\[120° \times \frac{\pi}{180} = \frac{2\pi}{3} \text{ radians}\]</p>
+    <p><strong>Motivation:</strong> This conversion is essential for working with trigonometric functions in calculus, where all formulas assume radian measure.</p>
+  </div>
+
+  <h3>1.3 Arc Length and Sector Area</h3>
+  <p>For a circle of radius \(r\) and central angle \(\theta\) in radians, we can calculate the arc length and sector area.</p>
+
+  <div class="formula-box">
+    <strong>Arc Length:</strong> \(s = r\theta\)<br>
+    <strong>Sector Area:</strong> \(A = \frac{1}{2}r^2\theta\)
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Real-World Application</div>
+    <p>A Ferris wheel has radius 20 meters. If it completes one full revolution in 4 minutes, what is the angular speed in radians per minute?</p>
+    <p>One revolution = \(2\pi\) radians, so angular speed = \(\frac{2\pi}{4} = \frac{\pi}{2}\) rad/min</p>
+    <p><strong>Motivation:</strong> Understanding angular speed helps us model periodic motion in physics and engineering.</p>
+  </div>
+
+  <h2>2. The Unit Circle</h2>
+
+  <h3>2.1 Definition and Properties</h3>
+  <p>The unit circle is a circle with radius 1 centered at the origin. This simple geometric object is the foundation for all trigonometric functions and connects right triangle trigonometry to the coordinate plane.</p>
+
+  <div class="definition-box">
+    <strong>Unit Circle Definition:</strong> For any angle \(\theta\) in standard position (vertex at origin, initial side on positive x-axis), the point where the terminal arm intersects the unit circle has coordinates \((\cos\theta, \sin\theta)\).
+  </div>
+
+  <h3>2.2 Why the Unit Circle Matters</h3>
+  <p>The unit circle extends trigonometry beyond acute angles. While right triangle definitions only work for angles between 0° and 90°, the unit circle allows us to define trigonometric functions for any real number.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Understanding the Unit Circle</div>
+    <p>Consider angle \(\theta = \frac{5\pi}{6}\) (150°). This angle is in the second quadrant, where x-coordinates are negative and y-coordinates are positive. Therefore, \(\cos\theta < 0\) and \(\sin\theta > 0\).</p>
+    <p><strong>Motivation:</strong> This explains why cosine is negative and sine is positive for obtuse angles - a key insight for understanding trigonometric signs in different quadrants.</p>
+  </div>
+
+  <h3>2.3 Special Angles and Symmetry</h3>
+  <p>Key angles and their trigonometric values on the unit circle. These values are derived from special right triangles (30-60-90 and 45-45-90).</p>
+
+  <table>
+    <tr>
+      <th>Angle (rad)</th>
+      <th>Angle (°)</th>
+      <th>\(\cos\theta\)</th>
+      <th>\(\sin\theta\)</th>
+      <th>\(\tan\theta\)</th>
+    </tr>
+    <tr>
+      <td>0</td>
+      <td>0°</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>\(\pi/6\)</td>
+      <td>30°</td>
+      <td>\(\sqrt{3}/2\)</td>
+      <td>1/2</td>
+      <td>\(\sqrt{3}/3\)</td>
+    </tr>
+    <tr>
+      <td>\(\pi/4\)</td>
+      <td>45°</td>
+      <td>\(\sqrt{2}/2\)</td>
+      <td>\(\sqrt{2}/2\)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>\(\pi/3\)</td>
+      <td>60°</td>
+      <td>1/2</td>
+      <td>\(\sqrt{3}/2\)</td>
+      <td>\(\sqrt{3}\)</td>
+    </tr>
+    <tr>
+      <td>\(\pi/2\)</td>
+      <td>90°</td>
+      <td>0</td>
+      <td>1</td>
+      <td>undefined</td>
+    </tr>
+  </table>
+
+  <h3>2.4 Reference Angles</h3>
+  <p>For any angle, we can find its reference angle - the acute angle to the x-axis. This helps us determine trigonometric values in all quadrants.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Reference Angle Rules:</div>
+    <ul>
+      <li>Quadrant I: Reference angle = \(\theta\)</li>
+      <li>Quadrant II: Reference angle = \(\pi - \theta\)</li>
+      <li>Quadrant III: Reference angle = \(\theta - \pi\)</li>
+      <li>Quadrant IV: Reference angle = \(2\pi - \theta\)</li>
+    </ul>
+  </div>
+
+  <h2>3. Trigonometric Ratios</h2>
+
+  <h3>3.1 Definitions on the Unit Circle</h3>
+  <p>For any angle \(\theta\) in standard position, the six trigonometric functions are defined as ratios of the coordinates on the unit circle.</p>
+
+  <div class="formula-box">
+    \[\sin\theta = y\text{-coordinate of point on unit circle}\]
+    \[\cos\theta = x\text{-coordinate of point on unit circle}\]
+    \[\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{y}{x}}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Finding Trig Values</div>
+    <p>Find \(\sin\frac{3\pi}{4}\), \(\cos\frac{3\pi}{4}\), and \(\tan\frac{3\pi}{4}\).</p>
+    <p>The angle \(\frac{3\pi}{4}\) is in quadrant II, with reference angle \(\frac{\pi}{4}\).</p>
+    <p>\(\sin\frac{3\pi}{4} = \frac{\sqrt{2}}{2}\) (positive in QII)</p>
+    <p>\(\cos\frac{3\pi}{4} = -\frac{\sqrt{2}}{2}\) (negative in QII)</p>
+    <p>\(\tan\frac{3\pi}{4} = -1\) (negative in QII)</p>
+    <p><strong>Motivation:</strong> Understanding how signs change by quadrant is crucial for solving trigonometric equations and analyzing wave behavior.</p>
+  </div>
+
+  <h3>3.2 Reciprocal and Quotient Identities</h3>
+  <p>The remaining four trigonometric functions are defined as reciprocals of the primary functions. These relationships are essential for simplifying complex trigonometric expressions.</p>
+
+  <div class="formula-box">
+    \[\csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{1}{\tan\theta} = \frac{\cos\theta}{\sin\theta}\]
+  </div>
+
+  <h3>3.3 Signs of Trigonometric Functions</h3>
+  <p>The signs of trigonometric functions depend on the quadrant. This is summarized by the acronym "All Students Take Calculus":</p>
+
+  <table>
+    <tr>
+      <th>Quadrant</th>
+      <th>\(\sin\theta\)</th>
+      <th>\(\cos\theta\)</th>
+      <th>\(\tan\theta\)</th>
+    </tr>
+    <tr>
+      <td>I</td>
+      <td>+</td>
+      <td>+</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>II</td>
+      <td>+</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>III</td>
+      <td>-</td>
+      <td>-</td>
+      <td>+</td>
+    </tr>
+    <tr>
+      <td>IV</td>
+      <td>-</td>
+      <td>+</td>
+      <td>-</td>
+    </tr>
+  </table>
+
+  <h2>4. Introduction to Trigonometric Equations</h2>
+
+  <h3>4.1 Solving Basic Trigonometric Equations</h3>
+  <p>To solve equations like \(\sin\theta = a\) or \(\cos\theta = a\), we use the unit circle to find all solutions. This process connects algebraic problem-solving with geometric intuition.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Solving Trigonometric Equations</div>
+    <p>Solve \(\sin\theta = \frac{1}{2}\) for \(\theta \in [0, 2\pi)\).</p>
+    <p>From the unit circle, \(\sin\theta = \frac{1}{2}\) at \(\theta = \frac{\pi}{6}\) and \(\theta = \frac{5\pi}{6}\).</p>
+    <p><strong>Motivation:</strong> These solutions represent the two angles in the first and second quadrants where the y-coordinate equals 1/2. This geometric interpretation helps us understand wave interference and signal processing.</p>
+  </div>
+
+  <h3>4.2 General Solutions</h3>
+  <p>Trigonometric equations have infinitely many solutions due to the periodic nature of trigonometric functions. We express them using the period.</p>
+
+  <div class="formula-box">
+    <strong>General Solution for Sine:</strong><br>
+    \[\sin\theta = a \Rightarrow \theta = \arcsin(a) + 2\pi n \text{ or } \theta = \pi - \arcsin(a) + 2\pi n\]<br><br>
+    <strong>General Solution for Cosine:</strong><br>
+    \[\cos\theta = a \Rightarrow \theta = \pm\arccos(a) + 2\pi n\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: General Solutions</div>
+    <p>Find all solutions to \(\sin\theta = \frac{1}{2}\).</p>
+    <p>Principal solutions: \(\theta = \frac{\pi}{6}, \frac{5\pi}{6}\)</p>
+    <p>General solutions: \(\theta = \frac{\pi}{6} + 2\pi n\) or \(\theta = \frac{5\pi}{6} + 2\pi n\) for any integer \(n\)</p>
+    <p><strong>Motivation:</strong> This infinite family of solutions models periodic phenomena like the times when a pendulum reaches a certain height.</p>
+  </div>
+
+  <h2>5. Applications of Trigonometry</h2>
+
+  <h3>5.1 Real-World Applications</h3>
+  <p>Trigonometry is essential for modeling periodic phenomena. From the height of tides to the voltage in alternating current, trigonometric functions describe oscillations in nature and technology.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Modeling with Trigonometry</div>
+    <p>A Ferris wheel with radius 25 meters completes one revolution every 4 minutes. If you board at the bottom, what is your height after 90 seconds?</p>
+    <p>Angular position: \(\theta = \frac{\pi}{2} \times \frac{90}{60} = \frac{3\pi}{4}\) radians</p>
+    <p>Height: \(h = 25 + 25\sin\frac{3\pi}{4} = 25 + 25 \times \frac{\sqrt{2}}{2} \approx 39.3\) meters</p>
+    <p><strong>Motivation:</strong> This demonstrates how trigonometry models circular motion, which is fundamental to understanding waves, rotations, and oscillations.</p>
+  </div>
+
+  <h2>6. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Convert \(\frac{5\pi}{6}\) radians to degrees and find the reference angle.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Find all six trigonometric values for \(\theta = \frac{7\pi}{4}\) and explain the signs in each quadrant.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Solve \(\cos\theta = -\frac{\sqrt{3}}{2}\) for \(\theta \in [0, 2\pi)\) and give the general solution.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>A lighthouse is located on a small island 2 km from the nearest point P on a straight shoreline. The light rotates at 5 revolutions per minute. Find the rate at which the beam moves along the shore when it is 1 km from point P.</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>

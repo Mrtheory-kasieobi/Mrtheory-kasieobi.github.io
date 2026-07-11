@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequences and Series - Lecture Notes | Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .proof-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2,
+    body.accessibility-mode .lecture-content h3 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .definition-box strong,
+    body.accessibility-mode .example-title,
+    body.accessibility-mode .important-note strong,
+    body.accessibility-mode .theorem-box strong {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .important-note,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .proof-box {
+      border-left-color: #0055cc !important;
+    }
+
+    body.accessibility-mode .formula-box {
+      background: #e6f0ff !important;
+      border-color: #0055cc !important;
+    }
+
+    body.accessibility-mode .important-note-title {
+      color: #0055cc !important;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    .print-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      border: none;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      font-weight: 700;
+      z-index: 1000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .print-button:hover {
+      transform: translateY(-2px);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Sequences and Series</h1>
+      <div class="subtitle">Precalculus 11 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Sequences</h2>
+  
+  <p>A <strong>sequence</strong> is an ordered list of numbers that follow a specific pattern or rule. Each number in the sequence is called a <strong>term</strong>. Sequences can be finite (having a specific number of terms) or infinite (continuing indefinitely).</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A sequence is a function whose domain is the set of positive integers (or a subset thereof). The value of the function at each positive integer is called a term of the sequence.
+  </div>
+
+  <h3>1.1 Notation</h3>
+  <p>Sequences are typically denoted using subscript notation:</p>
+  <ul>
+    <li>\(a_1\) represents the first term</li>
+    <li>\(a_2\) represents the second term</li>
+    <li>\(a_n\) represents the \(n\)th term (general term)</li>
+  </ul>
+
+  <p>A sequence can be written as: \(\{a_1, a_2, a_3, \ldots, a_n, \ldots\}\)</p>
+
+  <h3>1.2 Examples of Sequences</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 1: Natural Numbers</div>
+    <p>Sequence: \(1, 2, 3, 4, 5, \ldots\)</p>
+    <p>General term: \(a_n = n\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Even Numbers</div>
+    <p>Sequence: \(2, 4, 6, 8, 10, \ldots\)</p>
+    <p>General term: \(a_n = 2n\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Squares</div>
+    <p>Sequence: \(1, 4, 9, 16, 25, \ldots\)</p>
+    <p>General term: \(a_n = n^2\)</p>
+  </div>
+
+  <h2>2. Arithmetic Sequences</h2>
+
+  <p>An <strong>arithmetic sequence</strong> is a sequence in which the difference between consecutive terms is constant. This constant difference is called the <strong>common difference</strong> and is denoted by <strong>d</strong>.</p>
+
+  <div class="formula-box">
+    <strong>General Term:</strong><br>
+    \[a_n = a_1 + (n - 1)d\]
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li>\(a_n\) = the \(n\)th term</li>
+    <li>\(a_1\) = the first term</li>
+    <li>\(n\) = the term number</li>
+    <li>\(d\) = the common difference</li>
+  </ul>
+
+  <h3>2.1 Finding the Common Difference</h3>
+  <p>The common difference is found by subtracting any term from the next consecutive term:</p>
+  <div class="formula">
+    \[d = a_2 - a_1 = a_3 - a_2 = a_n - a_{n-1}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Arithmetic Sequence</div>
+    <p>Consider the sequence: \(3, 7, 11, 15, 19, \ldots\)</p>
+    <p><strong>Find the common difference:</strong></p>
+    <p>\(d = 7 - 3 = 4\)</p>
+    <p><strong>Find the 10th term:</strong></p>
+    <p>\[a_{10} = 3 + (10 - 1)(4) = 3 + 36 = 39\]</p>
+  </div>
+
+  <h3>2.2 Recursive and Explicit Formulas</h3>
+  
+  <div class="important-note">
+    <div class="important-note-title">Recursive Formula:</div>
+    <p>\[a_n = a_{n-1} + d\], where \(a_1\) is given</p>
+    <p style="margin-top: 10px;"><strong>Explicit Formula:</strong></p>
+    <p>\[a_n = a_1 + (n - 1)d\]</p>
+  </div>
+
+  <h2>3. Geometric Sequences</h2>
+
+  <p>A <strong>geometric sequence</strong> is a sequence in which the ratio between consecutive terms is constant. This constant ratio is called the <strong>common ratio</strong> and is denoted by <strong>r</strong>.</p>
+
+  <div class="formula-box">
+    <strong>General Term:</strong><br>
+    \[a_n = a_1 \cdot r^{n-1}\]
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li>\(a_n\) = the \(n\)th term</li>
+    <li>\(a_1\) = the first term</li>
+    <li>\(r\) = the common ratio</li>
+    <li>\(n\) = the term number</li>
+  </ul>
+
+  <h3>3.1 Finding the Common Ratio</h3>
+  <p>The common ratio is found by dividing any term by the previous term:</p>
+  <div class="formula">
+    \[r = \frac{a_2}{a_1} = \frac{a_3}{a_2} = \frac{a_n}{a_{n-1}}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Geometric Sequence</div>
+    <p>Consider the sequence: \(2, 6, 18, 54, 162, \ldots\)</p>
+    <p><strong>Find the common ratio:</strong></p>
+    <p>\(r = 6/2 = 3\)</p>
+    <p><strong>Find the 8th term:</strong></p>
+    <p>\[a_8 = 2 \cdot 3^{8-1} = 2 \cdot 3^7 = 2 \cdot 2187 = 4374\]</p>
+  </div>
+
+  <h3>3.2 Special Cases</h3>
+  <ul>
+    <li>If |r| > 1, the terms grow without bound</li>
+    <li>If |r| < 1, the terms approach zero</li>
+    <li>If r = 1, all terms are equal</li>
+    <li>If r = -1, the terms alternate between a₁ and -a₁</li>
+  </ul>
+
+  <h2>4. Series and Summation Notation</h2>
+
+  <p>A <strong>series</strong> is the sum of the terms of a sequence. If we add the terms of a sequence \(\{a_n\}\), we get a series.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A series is the sum of the terms of a sequence. If the sequence is finite, the series is finite. If the sequence is infinite, the series is infinite.
+  </div>
+
+  <h3>4.1 Summation Notation</h3>
+  <p>The Greek letter sigma (Σ) is used to denote summation:</p>
+  
+  <div class="formula-box">
+    \[\sum_{i=1}^{n} a_i = a_1 + a_2 + a_3 + \ldots + a_n\]
+  </div>
+
+  <p>Where:</p>
+  <ul>
+    <li>\(i\) is the index of summation</li>
+    <li>\(1\) is the lower limit</li>
+    <li>\(n\) is the upper limit</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Summation Notation</div>
+    <p>Evaluate: \(\sum_{i=1}^{5} (2i + 1)\)</p>
+    <p>\[= (2(1) + 1) + (2(2) + 1) + (2(3) + 1) + (2(4) + 1) + (2(5) + 1)\]</p>
+    <p>\[= 3 + 5 + 7 + 9 + 11 = 35\]</p>
+  </div>
+
+  <h2>5. Arithmetic Series</h2>
+
+  <p>An <strong>arithmetic series</strong> is the sum of the terms of an arithmetic sequence.</p>
+
+  <div class="formula-box">
+    <strong>Sum of First \(n\) Terms:</strong><br>
+    \[S_n = \frac{n}{2}(a_1 + a_n)\]<br><br>
+    <strong>Alternative Formula:</strong><br>
+    \[S_n = \frac{n}{2}[2a_1 + (n - 1)d]\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Arithmetic Series</div>
+    <p>Find the sum of the first 20 terms of the arithmetic sequence: \(5, 9, 13, 17, \ldots\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\(a_1 = 5\), \(d = 4\), \(n = 20\)</p>
+    <p>\[a_{20} = 5 + (20 - 1)(4) = 5 + 76 = 81\]</p>
+    <p>\[S_{20} = \frac{20}{2}(5 + 81) = 10 \cdot 86 = 860\]</p>
+  </div>
+
+  <h2>6. Geometric Series</h2>
+
+  <p>A <strong>geometric series</strong> is the sum of the terms of a geometric sequence.</p>
+
+  <div class="formula-box">
+    <strong>Sum of First \(n\) Terms:</strong><br>
+    \[S_n = \frac{a_1(1 - r^n)}{1 - r}, \text{ where } r \neq 1\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: Geometric Series</div>
+    <p>Find the sum of the first 8 terms of the geometric sequence: \(3, 6, 12, 24, \ldots\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\(a_1 = 3\), \(r = 2\), \(n = 8\)</p>
+    <p>\[S_8 = \frac{3(1 - 2^8)}{1 - 2} = \frac{3(1 - 256)}{-1} = \frac{3(-255)}{-1} = 765\]</p>
+  </div>
+
+  <h3>6.1 Infinite Geometric Series</h3>
+  
+  <div class="important-note">
+    <div class="important-note-title">Convergence Criterion:</div>
+    <p>An infinite geometric series converges (has a finite sum) if and only if \(|r| < 1\).</p>
+  </div>
+
+  <div class="formula-box">
+    <strong>Sum of Infinite Geometric Series (\(|r| < 1\)):</strong><br>
+    \[S_\infty = \frac{a_1}{1 - r}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 9: Infinite Geometric Series</div>
+    <p>Find the sum of the infinite geometric series: \(8 + 4 + 2 + 1 + \ldots\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\(a_1 = 8\), \(r = 1/2\)</p>
+    <p>Since \(|r| = 0.5 < 1\), the series converges.</p>
+    <p>\[S_\infty = \frac{8}{1 - 1/2} = \frac{8}{1/2} = 16\]</p>
+  </div>
+
+  <h2>7. Sigma Notation Properties</h2>
+
+  <p>Sigma notation has several useful properties:</p>
+
+  <h3>7.1 Linearity</h3>
+  <div class="formula-box">
+    \[\sum_{i=1}^{n} [a \cdot f(i) + b \cdot g(i)] = a \sum_{i=1}^{n} f(i) + b \sum_{i=1}^{n} g(i)\]
+  </div>
+
+  <h3>7.2 Sum of Constants</h3>
+  <div class="formula-box">
+    \[\sum_{i=1}^{n} c = n \cdot c\]
+  </div>
+
+  <h3>7.3 Sum of First \(n\) Integers</h3>
+  <div class="formula-box">
+    \[\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}\]
+  </div>
+
+  <h3>7.4 Sum of Squares</h3>
+  <div class="formula-box">
+    \[\sum_{i=1}^{n} i^2 = \frac{n(n + 1)(2n + 1)}{6}\]
+  </div>
+
+  <h3>7.5 Sum of Cubes</h3>
+  <div class="formula-box">
+    \[\sum_{i=1}^{n} i^3 = \left[\frac{n(n + 1)}{2}\right]^2\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 10: Using Summation Properties</div>
+    <p>Evaluate: \(\sum_{i=1}^{5} (3i^2 + 2i - 1)\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[= 3\sum_{i=1}^{5} i^2 + 2\sum_{i=1}^{5} i - \sum_{i=1}^{5} 1\]</p>
+    <p>\[= 3\left[\frac{5(6)(11)}{6}\right] + 2\left[\frac{5(6)}{2}\right] - 5\]</p>
+    <p>\[= 3[55] + 2[15] - 5\]</p>
+    <p>\[= 165 + 30 - 5 = 190\]</p>
+  </div>
+
+  <h2>8. Applications of Sequences and Series</h2>
+
+  <h3>8.1 Financial Mathematics</h3>
+  <p><strong>Compound Interest:</strong></p>
+  <div class="formula-box">
+    \[A = P\left(1 + \frac{r}{n}\right)^{nt}\]
+  </div>
+  <p>Where \(A\) is the amount, \(P\) is the principal, \(r\) is the annual interest rate, \(n\) is the number of compounding periods per year, and \(t\) is time in years.</p>
+
+  <h3>8.2 Population Growth</h3>
+  <p>Geometric sequences model population growth when there's a constant growth rate.</p>
+
+  <h3>8.3 Depreciation</h3>
+  <p>Geometric sequences also model depreciation of assets over time.</p>
+
+  <h2>9. Summary of Key Formulas</h2>
+
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Formula</th>
+    </tr>
+    <tr>
+      <td>Arithmetic Sequence (nth term)</td>
+      <td>\[a_n = a_1 + (n - 1)d\]</td>
+    </tr>
+    <tr>
+      <td>Geometric Sequence (nth term)</td>
+      <td>\[a_n = a_1 \cdot r^{n-1}\]</td>
+    </tr>
+    <tr>
+      <td>Arithmetic Series (sum)</td>
+      <td>\[S_n = \frac{n}{2}(a_1 + a_n)\]</td>
+    </tr>
+    <tr>
+      <td>Geometric Series (sum)</td>
+      <td>\[S_n = \frac{a_1(1 - r^n)}{1 - r}\]</td>
+    </tr>
+    <tr>
+      <td>Infinite Geometric Series</td>
+      <td>\[S_\infty = \frac{a_1}{1 - r}, |r| < 1\]</td>
+    </tr>
+    <tr>
+      <td>Sum of first \(n\) integers</td>
+      <td>\[\sum_{i=1}^{n} i = \frac{n(n + 1)}{2}\]</td>
+    </tr>
+    <tr>
+      <td>Sum of squares</td>
+      <td>\[\sum_{i=1}^{n} i^2 = \frac{n(n + 1)(2n + 1)}{6}\]</td>
+    </tr>
+  </table>
+
+  <h2>10. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Find the 15th term of the arithmetic sequence: \(7, 11, 15, 19, \ldots\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Find the sum of the first 12 terms of the geometric sequence: \(5, 10, 20, 40, \ldots\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Evaluate: \(\sum_{k=1}^{10} (4k - 3)\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Find the sum of the infinite geometric series: \(1 + \frac{1}{3} + \frac{1}{9} + \frac{1}{27} + \ldots\)</p>
+  </div>
+
+  <div class="math-lab" id="arithmetic-sim">
+    <h3 class="math-lab__title">Arithmetic Sequence Simulator</h3>
+    <p class="math-lab__description">
+      Enter values to calculate terms and sums of arithmetic sequences.
+    </p>
+    <div class="math-lab__controls">
+      <label>
+        <span>First term (a₁):</span>
+        <input type="number" id="a1-input" class="math-lab__input" value="1" step="any">
+      </label>
+      <label>
+        <span>Common difference (d):</span>
+        <input type="number" id="d-input" class="math-lab__input" value="1" step="any">
+      </label>
+      <label>
+        <span>Term number (n):</span>
+        <input type="number" id="n-input" class="math-lab__input" value="5" min="1">
+      </label>
+      <button id="calculate-btn" class="math-lab__button">Calculate</button>
+    </div>
+    <div class="math-lab__output">
+      <p>Enter values and click Calculate to see results.</p>
+    </div>
+  </div>
+
+  <div class="math-lab" id="geometric-sim">
+    <h3 class="math-lab__title">Geometric Sequence Simulator</h3>
+    <p class="math-lab__description">
+      Enter values to calculate terms and sums of geometric sequences.
+    </p>
+    <div class="math-lab__controls">
+      <label>
+        <span>First term (a₁):</span>
+        <input type="number" id="ga1-input" class="math-lab__input" value="1" step="any">
+      </label>
+      <label>
+        <span>Common ratio (r):</span>
+        <input type="number" id="r-input" class="math-lab__input" value="2" step="any">
+      </label>
+      <label>
+        <span>Term number (n):</span>
+        <input type="number" id="gn-input" class="math-lab__input" value="5" min="1">
+      </label>
+      <button id="gcalculate-btn" class="math-lab__button">Calculate</button>
+    </div>
+    <div class="math-lab__output">
+      <p>Enter values and click Calculate to see results.</p>
+    </div>
+  </div>
+
+   <div class="navigation">
+     <a href="precalculus-11.html">← Back to Course</a>
+   </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../math-simulator.js"></script>
+ </body>

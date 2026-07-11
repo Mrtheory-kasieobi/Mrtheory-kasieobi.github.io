@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometric Identities - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Trigonometric Identities</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Trigonometric Identities</h2>
+  
+  <h3>1.1 What Are Identities and Why Do We Need Them?</h3>
+  <p>An identity is an equation that is true for all values of the variable for which both sides are defined. Trigonometric identities are essential tools for simplifying expressions, solving equations, and understanding the deep relationships between trigonometric functions.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Why Identities Matter:</div>
+    <p>Identities allow us to transform complex trigonometric expressions into simpler forms. They are used in calculus to find derivatives and integrals, in physics to analyze wave interference, and in engineering to design signal processing systems.</p>
+  </div>
+
+  <h3>1.2 Basic vs. Derived Identities</h3>
+  <p>Basic identities come directly from definitions, while derived identities are combinations of basic ones. Understanding the derivation helps us remember and apply them correctly.</p>
+
+  <h2>2. Reciprocal and Quotient Identities</h2>
+
+  <h3>2.1 Reciprocal Identities</h3>
+  <p>These identities express the relationship between each trigonometric function and its reciprocal. They are fundamental for converting between different forms of trigonometric expressions.</p>
+
+  <div class="formula-box">
+    <strong>Reciprocal Identities:</strong><br>
+    \[\csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{1}{\tan\theta}\]
+  </div>
+
+  <h3>2.2 Quotient Identities</h3>
+  <p>These identities express tangent and cotangent in terms of sine and cosine. This is crucial for simplifying expressions and solving equations.</p>
+
+  <div class="formula-box">
+    <strong>Quotient Identities:</strong><br>
+    \[\tan\theta = \frac{\sin\theta}{\cos\theta}, \quad \cot\theta = \frac{\cos\theta}{\sin\theta}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Using Reciprocal and Quotient Identities</div>
+    <p>Simplify \(\frac{\sin\theta \cdot \sec\theta}{\tan\theta}\).</p>
+    <p>\[= \frac{\sin\theta \cdot \frac{1}{\cos\theta}}{\frac{\sin\theta}{\cos\theta}} = \frac{\frac{\sin\theta}{\cos\theta}}{\frac{\sin\theta}{\cos\theta}} = 1\]</p>
+    <p><strong>Motivation:</strong> This simplification is essential for solving complex trigonometric equations in calculus and physics.</p>
+  </div>
+
+  <h2>3. Pythagorean Identities</h2>
+
+  <h3>3.1 The Fundamental Pythagorean Identity</h3>
+  <p>The Pythagorean identities derive from the Pythagorean theorem. The fundamental identity \(\sin^2\theta + \cos^2\theta = 1\) is the basis for all other trigonometric identities.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Derivation from Unit Circle:</div>
+    <p>On the unit circle, any point has coordinates \((\cos\theta, \sin\theta)\) and satisfies \(x^2 + y^2 = 1\). This gives us \(\cos^2\theta + \sin^2\theta = 1\) directly from the equation of the circle.</p>
+  </div>
+
+  <div class="formula-box">
+    <strong>Pythagorean Identities:</strong><br>
+    \[\sin^2\theta + \cos^2\theta = 1\]
+    \[1 + \tan^2\theta = \sec^2\theta\]
+    \[1 + \cot^2\theta = \csc^2\theta\]
+  </div>
+
+  <h3>3.2 Why These Are Useful</h3>
+  <p>The Pythagorean identities allow us to find one trigonometric function given another. This is essential for solving problems where we know some but not all values.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Using Pythagorean Identities</div>
+    <p>If \(\sin\theta = \frac{3}{5}\) and \(\theta\) is in quadrant II, find \(\cos\theta\) and \(\tan\theta\).</p>
+    <p>From \(\sin^2\theta + \cos^2\theta = 1\): \(\cos^2\theta = 1 - \frac{9}{25} = \frac{16}{25}\)</p>
+    <p>Since \(\theta\) is in quadrant II, \(\cos\theta = -\frac{4}{5}\)</p>
+    <p>\(\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{3/5}{-4/5} = -\frac{3}{4}\)</p>
+    <p><strong>Motivation:</strong> This process is used in navigation and surveying to find missing distances and angles.</p>
+  </div>
+
+  <h2>4. Sum and Difference Identities</h2>
+
+  <h3>4.1 Why We Need Sum and Difference Formulas</h3>
+  <p>Sum and difference identities allow us to find the sine and cosine of sums and differences of angles. This is essential for analyzing wave interference and solving complex trigonometric equations.</p>
+
+  <div class="formula-box">
+    <strong>Sum Identities:</strong><br>
+    \[\sin(A + B) = \sin A \cos B + \cos A \sin B\]
+    \[\cos(A + B) = \cos A \cos B - \sin A \sin B\]<br><br>
+    <strong>Difference Identities:</strong><br>
+    \[\sin(A - B) = \sin A \cos B - \cos A \sin B\]
+    \[\cos(A - B) = \cos A \cos B + \sin A \sin B\]
+  </div>
+
+  <h3>4.2 Derivation Using the Unit Circle</h3>
+  <p>These identities can be derived geometrically using the unit circle. The key insight is that rotating by angle \(A + B\) is the same as rotating by \(A\) then by \(B\).</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Using Sum Identities</div>
+    <p>Find \(\sin(75°)\) exactly using sum identities.</p>
+    <p>\(\sin(75°) = \sin(45° + 30°) = \sin 45° \cos 30° + \cos 45° \sin 30°\)</p>
+    <p>\(= \frac{\sqrt{2}}{2} \cdot \frac{\sqrt{3}}{2} + \frac{\sqrt{2}}{2} \cdot \frac{1}{2} = \frac{\sqrt{6} + \sqrt{2}}{4}\)</p>
+    <p><strong>Motivation:</strong> This allows us to compute exact values for angles not in the standard table, which is essential for precise calculations in engineering.</p>
+  </div>
+
+  <h3>4.3 Tangent Sum and Difference</h3>
+  <p>The tangent sum formula is derived from the sine and cosine formulas. It's particularly useful for analyzing phase differences in waves.</p>
+
+  <div class="formula-box">
+    \[\tan(A + B) = \frac{\tan A + \tan B}{1 - \tan A \tan B}\]
+  </div>
+
+  <h2>5. Double Angle Identities</h2>
+
+  <h3>5.1 Why Double Angle Formulas Are Important</h3>
+  <p>Double angle formulas express trigonometric functions of \(2\theta\) in terms of \(\theta\). They are essential for simplifying expressions and solving equations involving double angles.</p>
+
+  <div class="formula-box">
+    <strong>Double Angle Identities:</strong><br>
+    \[\sin(2\theta) = 2\sin\theta\cos\theta\]
+    \[\cos(2\theta) = \cos^2\theta - \sin^2\theta = 2\cos^2\theta - 1 = 1 - 2\sin^2\theta\]
+    \[\tan(2\theta) = \frac{2\tan\theta}{1 - \tan^2\theta}\]
+  </div>
+
+  <h3>5.2 Multiple Forms of \(\cos(2\theta)\)</h3>
+  <p>The three forms of \(\cos(2\theta)\) are equivalent but useful in different contexts. The choice depends on what we know about \(\theta\).</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Using Double Angle Identities</div>
+    <p>If \(\sin\theta = \frac{1}{2}\) and \(\cos\theta = \frac{\sqrt{3}}{2}\), find \(\sin(2\theta)\) and \(\cos(2\theta)\).</p>
+    <p>\(\sin(2\theta) = 2 \cdot \frac{1}{2} \cdot \frac{\sqrt{3}}{2} = \frac{\sqrt{3}}{2}\)</p>
+    <p>\(\cos(2\theta) = \cos^2\theta - \sin^2\theta = \frac{3}{4} - \frac{1}{4} = \frac{1}{2}\)</p>
+    <p><strong>Motivation:</strong> This is used in computer graphics to rotate objects by double angles and in physics to analyze harmonic motion.</p>
+  </div>
+
+  <h2>6. Half Angle Identities</h2>
+
+  <h3>6.1 Why Half Angle Formulas Matter</h3>
+  <p>Half angle formulas allow us to find trigonometric values for \(\frac{\theta}{2}\) given values for \(\theta\). This is essential for solving equations and finding exact values.</p>
+
+  <div class="formula-box">
+    <strong>Half Angle Identities:</strong><br>
+    \[\sin\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{2}}\]
+    \[\cos\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 + \cos\theta}{2}}\]
+    \[\tan\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos\theta}{1 + \cos\theta}}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Using Half Angle Identities</div>
+    <p>Find \(\sin(22.5°)\) exactly.</p>
+    <p>\(\sin(22.5°) = \sin\left(\frac{45°}{2}\right) = \sqrt{\frac{1 - \cos 45°}{2}} = \sqrt{\frac{1 - \frac{\sqrt{2}}{2}}{2}} = \frac{\sqrt{2 - \sqrt{2}}}{2}\)</p>
+    <p><strong>Motivation:</strong> This allows us to find exact values for angles that appear in geometric constructions and engineering applications.</p>
+  </div>
+
+  <h2>7. Proving Trigonometric Identities</h2>
+
+  <h3>7.1 Strategy for Proving Identities</h3>
+  <p>Proving identities requires strategic manipulation. The key is to work from one side and transform it into the other, or to work on both sides until they meet.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Proving Strategy:</div>
+    <ol>
+      <li>Start with the more complicated side</li>
+      <li>Replace all functions with sine and cosine if helpful</li>
+      <li>Use identities to simplify step by step</li>
+      <li>Factor, multiply by conjugates, or combine fractions as needed</li>
+      <li>Work toward the target expression</li>
+    </ol>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Proving an Identity</div>
+    <p>Prove: \(\frac{\sin\theta}{1 - \cos\theta} + \frac{1 - \cos\theta}{\sin\theta} = \frac{2}{\sin\theta \cdot \csc\theta - \cos\theta \cdot \sec\theta}\)</p>
+    <p>Left side: \(\frac{\sin^2\theta + (1 - \cos\theta)^2}{\sin\theta(1 - \cos\theta)}\)</p>
+    <p>\(= \frac{\sin^2\theta + 1 - 2\cos\theta + \cos^2\theta}{\sin\theta(1 - \cos\theta)} = \frac{2 - 2\cos\theta}{\sin\theta(1 - \cos\theta)} = \frac{2}{\sin\theta}\)</p>
+    <p>Right side: \(\frac{2}{\sin\theta \cdot \frac{1}{\sin\theta} - \cos\theta \cdot \frac{1}{\cos\theta}} = \frac{2}{1 - 1} = \frac{2}{\sin\theta}\) ✓</p>
+    <p><strong>Motivation:</strong> This skill is essential for calculus, where we often need to simplify complex expressions before differentiating or integrating.</p>
+  </div>
+
+  <h2>8. Applications and Connections</h2>
+
+  <h3>8.1 Wave Interference</h3>
+  <p>Trigonometric identities are essential for understanding wave interference. When two waves meet, their sum creates constructive or destructive interference patterns.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Wave Interference</div>
+    <p>Two waves \(y_1 = \sin(x)\) and \(y_2 = \sin(x + \frac{\pi}{3})\) interfere. Find the amplitude of the resultant wave.</p>
+    <p>Using sum formula: \(y_1 + y_2 = \sin(x) + \sin(x + \frac{\pi}{3})\)</p>
+    <p>\(= \sin(x) + \sin x \cos\frac{\pi}{3} + \cos x \sin\frac{\pi}{3}\)</p>
+    <p>\(= \sin x(1 + \frac{1}{2}) + \cos x \cdot \frac{\sqrt{3}}{2} = \frac{3}{2}\sin x + \frac{\sqrt{3}}{2}\cos x\)</p>
+    <p>Amplitude: \(\sqrt{(\frac{3}{2})^2 + (\frac{\sqrt{3}}{2})^2} = \sqrt{3}\)</p>
+    <p><strong>Motivation:</strong> This explains why two sound waves can combine to create a louder or quieter sound.</p>
+  </div>
+
+  <h3>8.2 Real-World Application: AC Circuit Analysis</h3>
+  <p>In electrical engineering, trigonometric identities help analyze alternating current circuits. The phase difference between voltage and current affects power consumption.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: AC Circuit Analysis</div>
+    <p>Voltage \(V(t) = 120\sin(120\pi t)\) and current \(I(t) = 5\cos(120\pi t - \frac{\pi}{6})\). Find the average power.</p>
+    <p>Using \(\cos(x - \frac{\pi}{6}) = \cos x \cos\frac{\pi}{6} + \sin x \sin\frac{\pi}{6}\):</p>
+    <p>\(I(t) = 5(\frac{\sqrt{3}}{2}\sin(120\pi t) + \frac{1}{2}\cos(120\pi t))\)</p>
+    <p>Power: \(P(t) = V(t) \cdot I(t) = 120 \cdot 5 \cdot \frac{\sqrt{3}}{2}\sin^2(120\pi t) + ...\)</p>
+    <p>Average power: \(P_{avg} = \frac{120 \cdot 5 \cdot \sqrt{3}}{2} \cdot \frac{1}{2} = 150\sqrt{3}\) watts</p>
+    <p><strong>Motivation:</strong> This is crucial for understanding how electrical power is calculated and why power factor matters in AC circuits.</p>
+  </div>
+
+  <h2>9. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Prove: \(\frac{1 + \tan^2\theta}{1 + \cot^2\theta} = \tan^2\theta\). Explain each step using identities.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Find \(\cos(15°)\) exactly using difference identities. Show your work.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>If \(\sin(2\theta) = \frac{3}{4}\) and \(\cos(2\theta) = \frac{\sqrt{7}}{4}\), find \(\sin\theta\) and \(\cos\theta\).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Two waves interfere: \(y_1 = 3\sin(2x)\) and \(y_2 = 4\cos(2x)\). Find the amplitude and phase of the resultant wave.</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>
