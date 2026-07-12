@@ -33,3 +33,8 @@ effect on page reload.
 
 ## User preferences
 None recorded yet.
+
+## Notes on environment setup
+The imported `.replit` workflow runs `python3 -m http.server 5000`, but the base
+image doesn't include Python by default — the `python-3.11` module was installed
+so the workflow can start.
