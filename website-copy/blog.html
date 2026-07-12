@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research notebook and learning journal by Kasieobi Udumaga.">
+  <title>Kasieobi Udumaga | Research Notebook</title>
+  <link rel="stylesheet" href="style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body.blog-page {
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    body.blog-page::before {
+      background: radial-gradient(circle at top left, rgba(140, 200, 255, 0.12), transparent 28%),
+                  radial-gradient(circle at bottom right, rgba(140, 200, 255, 0.08), transparent 30%);
+    }
+
+    body.blog-page header,
+    body.blog-page nav,
+    body.blog-page main,
+    body.blog-page footer {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .notebook-container {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 2rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .notebook-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .notebook-main {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.99), rgba(20, 30, 45, 0.96));
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-3d), var(--shadow-inset);
+      border: 1px solid var(--border);
+    }
+
+    .notebook-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .notebook-header h2 {
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    }
+
+    .notebook-header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      font-style: italic;
+    }
+
+    .blog-search {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .blog-search input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.6rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(8, 16, 28, 0.92);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .category-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .category-filters button {
+      padding: 0.4rem 0.9rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(8, 16, 28, 0.92);
+      color: var(--text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .category-filters button:hover,
+    .category-filters button.active {
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      border-color: var(--accent);
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.75rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-entry {
+      position: relative;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .timeline-entry::before {
+      content: "";
+      position: absolute;
+      left: -2.15rem;
+      top: 0.3rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid #07111d;
+    }
+
+    .notebook-card {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .notebook-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .entry-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .entry-category {
+      background: var(--accent-soft);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .entry-title {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.3rem;
+      color: var(--text);
+    }
+
+    .entry-preview {
+      margin: 0 0 1rem 0;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .entry-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .read-more {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 2rem;
+      align-self: start;
+    }
+
+    .sidebar-section {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .sidebar-title {
+      margin: 0 0 1rem 0;
+      font-size: 1rem;
+      color: var(--text);
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .progress-bar {
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), #4aa8f5);
+      border-radius: 3px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    .current-question {
+      font-style: italic;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .quick-links a,
+    .archive-nav a {
+      display: block;
+      padding: 0.3rem 0;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .quick-links a:hover,
+    .archive-nav a:hover {
+      color: var(--accent);
+    }
+
+    .related-topics {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .related-topics h3 {
+      margin: 0 0 1rem 0;
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .related-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .related-links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.4rem 0.9rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
+    }
+
+    .related-links a:hover {
+      background: var(--accent);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .notebook-main,
+    body.accessibility-mode .notebook-card,
+    body.accessibility-mode .sidebar-section {
+      background: #ffffff !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .notebook-header h2,
+    body.accessibility-mode .entry-title,
+    body.accessibility-mode .sidebar-title {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .notebook-header p,
+    body.accessibility-mode .entry-meta,
+    body.accessibility-mode .entry-preview,
+    body.accessibility-mode .current-question,
+    body.accessibility-mode .quick-links a,
+    body.accessibility-mode .archive-nav a {
+      color: #2a3a5a !important;
+    }
+
+    body.accessibility-mode .read-more,
+    body.accessibility-mode .entry-category,
+    body.accessibility-mode .related-links a {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .blog-search input,
+    body.accessibility-mode .category-filters button {
+      background: #ffffff !important;
+      color: #0a1a3a !important;
+      border-color: #0055cc !important;
+    }
+
+    @media (max-width: 700px) {
+      .notebook-container {
+        padding: 0 1rem;
+      }
+
+      .notebook-main {
+        padding: 1.5rem;
+      }
+
+      .sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body class="blog-page">
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1 data-content="blog.header">Research Notebook</h1>
+      <p data-content="blog.subtitle">Learning journal and mathematical musings</p>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="notes.html">Notes</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li class="dropdown">
+        <a href="expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="olympiad.html">Olympiad</a></li>
+          <li><a href="undergraduate.html">Undergraduate</a></li>
+          <li><a href="graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="Track.html">Track and field</a></li>
+      <li><a href="blog.html" class="active" aria-current="page">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="notebook-container">
+      <div class="notebook-main">
+        <div class="notebook-header">
+          <h2 data-content="blog.notebookTitle">Research Notebook</h2>
+          <p data-content="blog.notebookSubtitle">Personal learning journal and mathematical explorations</p>
+        </div>
+
+        <div class="blog-search">
+          <input type="search" id="blog-search" placeholder="Search blog posts...">
+        </div>
+
+        <div class="category-filters">
+          <button class="active">All</button>
+          <button>Learning Journal</button>
+          <button>Research Log</button>
+          <button>Reflection</button>
+          <button>Book Notes</button>
+        </div>
+
+        <div class="timeline" id="blog-timeline">
+          <div class="timeline-entry">
+            <div class="notebook-card">
+              <div class="entry-meta">
+                <span class="entry-category">Learning Journal</span>
+                <span>Month Year</span>
+                <span class="reading-time">~X min read</span>
+              </div>
+              <h3 class="entry-title">Entry Title</h3>
+              <p class="entry-preview">Entry preview text...</p>
+              <div class="entry-footer">
+                <a href="#" class="read-more">Read entry →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="related-topics">
+          <h3>Related Topics</h3>
+          <div class="related-links">
+            <a href="notes.html">Notes</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="expository.html">Expository Writing</a>
+            <a href="research.html">Research</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Currently Reading</h3>
+          <p><strong data-content="blog.currentlyReading1Title">Abstract Algebra</strong><br>
+          <span class="muted" data-content="blog.currentlyReading1Author">Dummit and Foote, 3rd edition</span></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 2%"></div>
+          </div>
+          <p class="muted" style="font-size: 0.85rem; margin-top: 0.25rem;" data-content="blog.currentlyReading1Progress">2% complete</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Currently Reading</h3>
+          <p><strong data-content="blog.currentlyReading2Title">Linear Algebra Done Right</strong><br>
+          <span class="muted" data-content="blog.currentlyReading2Author">Sheldon Axler</span></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 22%"></div>
+          </div>
+          <p class="muted" style="font-size: 0.85rem; margin-top: 0.25rem;" data-content="blog.currentlyReading2Progress">22% complete</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Currently Reading</h3>
+          <p><strong data-content="blog.currentlyReading3Title">Book Title</strong><br>
+          <span class="muted" data-content="blog.currentlyReading3Author">Author Name</span></p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 0%"></div>
+          </div>
+          <p class="muted" style="font-size: 0.85rem; margin-top: 0.25rem;" data-content="blog.currentlyReading3Progress">0% complete</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Current Question</h3>
+          <p class="current-question" data-content="blog.currentQuestion">Current mathematical question or problem I'm exploring...</p>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Quick Links</h3>
+          <div class="quick-links">
+            <a href="#">Topic 1</a>
+            <a href="#">Topic 2</a>
+            <a href="#">Topic 3</a>
+            <a href="#">Topic 4</a>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">Archive</h3>
+          <div class="archive-nav">
+            <a href="#">Year (0)</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer>
+    <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+  </footer>
+  <script src="content-loader.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const entries = document.querySelectorAll(".timeline-entry");
+      entries.forEach((entry, i) => {
+        setTimeout(() => {
+          entry.classList.add("visible");
+        }, i * 100);
+      });
+    });
+  </script>
+</body>
+</html>

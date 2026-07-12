@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture Notes: Applications of Integration - Calculus I">
+  <title>Kasieobi Udumaga | Applications of Integration</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box {
+      border-left: 4px solid var(--accent);
+    }
+    .example-box {
+      border-left: 4px solid #f0ad4e;
+    }
+    .important-note {
+      border-left: 4px solid #d9534f;
+    }
+    .theorem-box {
+      border-left: 4px solid #5cb85c;
+    }
+    .proof-box {
+      border-left: 4px solid #5bc0de;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border-left: 4px solid var(--accent);
+    }
+    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Applications of Integration</h1>
+      <div class="subtitle">Calculus I - Chapter 6.1-6.5</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>1. Areas Between Curves</h2>
+
+      <div class="definition-box">
+        <strong>Area Between Curves:</strong>
+        If \(f(x) \geq g(x)\) on \([a,b]\), the area between the curves is:
+        \(A = \int_a^b [f(x) - g(x)] \, dx\)
+      </div>
+
+      <div class="example-box">
+        <strong>Example:</strong>
+        Find the area between \(y = x^2\) and \(y = x\). The curves intersect at \(x = 0, 1\).
+        \(A = \int_0^1 (x - x^2) \, dx = \frac{1}{2} - \frac{1}{3} = \frac{1}{6}\)
+      </div>
+
+      <h2>2. Volumes</h2>
+
+      <div class="definition-box">
+        <strong>Disk Method:</strong>
+        For rotation about the x-axis: \(V = \pi \int_a^b [f(x)]^2 \, dx\)
+      </div>
+
+      <div class="definition-box">
+        <strong>Shell Method:</strong>
+        For rotation about the y-axis: \(V = 2\pi \int_a^b x \cdot f(x) \, dx\)
+      </div>
+
+      <h2>3. Work</h2>
+
+      <div class="definition-box">
+        <strong>Work Formula:</strong>
+        If a force \(F(x)\) moves an object from \(x = a\) to \(x = b\):
+        \(W = \int_a^b F(x) \, dx\)
+      </div>
+
+      <div class="example-box">
+        <strong>Example:</strong>
+        Work to lift a chain weighing 10 lb/ft from ground to 20 ft:
+        \(W = \int_0^{20} 10x \, dx = 10 \cdot \frac{20^2}{2} = 2000\) foot-pounds
+      </div>
+
+      <h2>4. Average Value of a Function</h2>
+
+      <div class="definition-box">
+        <strong>Average Value:</strong>
+        \(\bar{f} = \frac{1}{b-a} \int_a^b f(x) \, dx\)
+      </div>
+
+      <h2>5. Differential Equations</h2>
+
+      <div class="definition-box">
+        <strong>Differential Equation:</strong>
+        An equation involving derivatives, such as \(\frac{dy}{dx} = f(x)\)
+      </div>
+
+      <div class="important-note">
+        <strong>Solution Strategy:</strong>
+        Integrate both sides: \(y = \int f(x) \, dx + C\)
+      </div>
+
+      <div class="navigation">
+        <a href="calculus-1.html">← Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

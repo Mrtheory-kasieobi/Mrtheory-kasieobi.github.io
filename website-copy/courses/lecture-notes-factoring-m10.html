@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 3: Factors and Products | Mathematics 10</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .theorem-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .theorem-title,
+    body.accessibility-mode .example-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      border-left-color: #0055cc !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Mathematics 10</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Lecture 3: Factors and Products</h1>
+      <div class="subtitle">Mathematics 10 - Chapter 3</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>3.1 Factors and Multiples of Whole Numbers</h2>
+      <p>
+        A factor of a number divides that number evenly. A multiple is the product of a number 
+        and an integer. Understanding factors and multiples is fundamental to number theory.
+      </p>
+      <p><strong>Why This Matters:</strong> Factors and multiples are the building blocks of 
+      arithmetic. They help us understand divisibility, simplify fractions, and solve many 
+      real-world problems. For example, if you want to arrange chairs in equal rows, you need 
+      to find factors of the total number of chairs.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Prime Factorization</div>
+        <p>
+          Every positive integer greater than 1 can be expressed uniquely as a product of prime numbers.
+        </p>
+        <p><strong>Example:</strong> \(60 = 2^2 \times 3 \times 5\)</p>
+        <p><strong>Application:</strong> This is used in cryptography to create secure codes.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 1: Finding All Factors</div>
+        <p>Find all factors of 36.</p>
+        <p>Using prime factorization: \(36 = 2^2 \times 3^2\)</p>
+        <p>Factors: 1, 2, 3, 4, 6, 9, 12, 18, 36</p>
+        <p><strong>Motivation:</strong> This helps in organizing groups, arranging objects, 
+        and solving many practical problems.</p>
+      </div>
+
+      <h2>3.2 Factoring Polynomials</h2>
+      <p>
+        Polynomials can be factored using techniques similar to factoring numbers. The goal is to 
+        express a polynomial as a product of simpler polynomials.
+      </p>
+      <p><strong>Why Factor Polynomials?</strong> Factoring helps us solve equations, simplify 
+      expressions, and understand the behavior of functions. When we factor a quadratic, we can 
+      find its zeros, which tell us where the graph crosses the x-axis.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Common Factoring Patterns</div>
+        <p><strong>Common Factor:</strong> \(ax + ay = a(x + y)\)</p>
+        <p><strong>Difference of Squares:</strong> \(a^2 - b^2 = (a-b)(a+b)\)</p>
+        <p><strong>Trinomial (a=1):</strong> \(x^2 + bx + c = (x + m)(x + n)\) where \(m \times n = c\) and \(m + n = b\)</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Factoring a Trinomial</div>
+        <p>Factor \(x^2 + 7x + 12\).</p>
+        <p>We need two numbers that multiply to 12 and add to 7: 3 and 4.</p>
+        <p>\(x^2 + 7x + 12 = (x + 3)(x + 4)\)</p>
+        <p><strong>Motivation:</strong> This allows us to solve \(x^2 + 7x + 12 = 0\) by 
+        setting each factor to zero: \(x = -3\) or \(x = -4\).</p>
+      </div>
+
+      <h2>3.3 Factoring Quadratic Expressions</h2>
+      <p>
+        Quadratic expressions of the form \(ax^2 + bx + c\) can be factored when we can find 
+        two numbers that multiply to \(ac\) and add to \(b\).
+      </p>
+      <p><strong>Real-World Application:</strong> Projectile motion follows a parabolic path 
+      described by a quadratic equation. Factoring helps us find when the projectile hits the ground.</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">AC Method for Factoring</div>
+        <p>To factor \(ax^2 + bx + c\) where \(a \neq 1\):</p>
+        <ol>
+          <li>Find two numbers that multiply to \(ac\) and add to \(b\)</li>
+          <li>Split the middle term using these numbers</li>
+          <li>Factor by grouping</li>
+        </ol>
+      </div>
+
+      <h2>3.4 Math Lab: Factoring with Algebra Tiles</h2>
+      <p>
+        Algebra tiles provide a visual way to understand factoring. Each tile represents a 
+        different term, and arranging them helps us see the factors.
+      </p>
+      <p><strong>Connection to Geometry:</strong> The area model connects factoring to 
+      finding the area of rectangles. If we can arrange tiles into a rectangle, the dimensions 
+      give us the factors.</p>
+
+      <h2>3.5 Powers and Products in Factoring</h2>
+      <p>
+        When factoring expressions with powers, we use the same principles but must be careful 
+        with exponents.
+      </p>
+      <p><strong>Key Rules:</strong></p>
+      <ul>
+        <li>\(a^m \times a^n = a^{m+n}\)</li>
+        <li>\(a^m \div a^n = a^{m-n}\)</li>
+        <li>\((a^m)^n = a^{mn}\)</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Factoring with Powers</div>
+        <p>Factor \(2x^3 + 4x^2 - 6x\).</p>
+        <p>Common factor: \(2x(x^2 + 2x - 3)\)</p>
+        <p>Factor the quadratic: \(2x(x + 3)(x - 1)\)</p>
+        <p><strong>Motivation:</strong> This helps us understand the behavior of polynomial functions 
+        and find their zeros.</p>
+      </div>
+
+      <h2>3.6 Factoring with Rational Coefficients</h2>
+      <p>
+        When coefficients are fractions, we can multiply by the LCD to make factoring easier, 
+        then divide by the LCD at the end.
+      </p>
+      <p><strong>Why This Technique Works:</strong> Multiplying by a constant doesn't change 
+      the roots of the equation, but it makes the arithmetic simpler.</p>
+
+      <h2>3.7 Factoring Special Cases</h2>
+      <p>
+        Some special cases make factoring easier:
+      </p>
+      <ul>
+        <li><strong>Perfect Square Trinomials:</strong> \(a^2 + 2ab + b^2 = (a + b)^2\)</li>
+        <li><strong>Difference of Squares:</strong> \(a^2 - b^2 = (a - b)(a + b)\)</li>
+        <li><strong>Sum of Squares:</strong> Does not factor over real numbers</li>
+      </ul>
+
+      <div class="example-box">
+        <div class="example-title">Example 4: Perfect Square Trinomial</div>
+        <p>Factor \(9x^2 + 24x + 16\).</p>
+        <p>Notice: \(9x^2 = (3x)^2\), \(16 = 4^2\), and \(24x = 2(3x)(4)\)</p>
+        <p>\(9x^2 + 24x + 16 = (3x + 4)^2\)</p>
+        <p><strong>Motivation:</strong> This pattern appears in completing the square, a key 
+        technique for solving quadratic equations and finding vertex form.</p>
+      </div>
+
+      <div class="math-lab" id="factoring-sim">
+        <h3 class="math-lab__title">Polynomial Factoring Calculator</h3>
+        <p class="math-lab__description">
+          Factor quadratic expressions of the form ax² + bx + c.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Coefficient a:</span>
+            <input type="number" id="fa-input" class="math-lab__input" value="1" step="any">
+          </label>
+          <label>
+            <span>Coefficient b:</span>
+            <input type="number" id="fb-input" class="math-lab__input" value="5" step="any">
+          </label>
+          <label>
+            <span>Coefficient c:</span>
+            <input type="number" id="fc-input" class="math-lab__input" value="6" step="any">
+          </label>
+          <button id="fcalculate-btn" class="math-lab__button">Factor</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter coefficients to factor the quadratic expression.</p>
+        </div>
+      </div>
+
+      <div class="math-lab" id="prime-factor-sim">
+        <h3 class="math-lab__title">Prime Factorization Visualizer</h3>
+        <p class="math-lab__description">
+          Find the prime factorization of any number and see all its factors.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Number:</span>
+            <input type="number" id="pfnum-input" class="math-lab__input" value="36" min="2" step="1">
+          </label>
+          <button id="pfcalculate-btn" class="math-lab__button">Factorize</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter a number to see its prime factorization and all factors.</p>
+          <div id="pf-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="math-lab" id="algebra-tiles-sim">
+        <h3 class="math-lab__title">Algebra Tiles Visualizer</h3>
+        <p class="math-lab__description">
+          Visualize factoring using the area model with algebra tiles.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Expression:</span>
+            <input type="text" id="tile-expr-input" class="math-lab__input" value="x^2 + 5x + 6" placeholder="e.g., x^2 + 5x + 6">
+          </label>
+          <button id="tile-calculate-btn" class="math-lab__button">Visualize</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter a quadratic expression to see the algebra tiles representation.</p>
+          <canvas id="tile-canvas" width="300" height="200" style="width: 100%; height: 200px; border-radius: 8px; margin-top: 1rem;"></canvas>
+          <div id="tile-results" style="margin-top: 1rem;"></div>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="mathematics-10.html">← Back to Course</a>
+        <a href="lecture-notes-roots-m10.html">Next Lecture →</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+<script src="../math-simulator.js"></script>
+   </body>
+</html>

@@ -1,0 +1,170 @@
+{
+  "index": {
+    "header": "Kasieobi Udumaga",
+    "subtitle": "High School Student | Mathematics Enthusiast | Also a sprinter :)",
+    "welcome": "Welcome",
+    "paragraphs": [
+      "Hello! I'm Kasieobi Udumaga, a high school student from Canada with a strong interest in pure mathematics.",
+      "My primary interests include algebra, algebraic number theory, commutative algebra, and arithmetic geometry. This website documents my learning, research projects, expository writing, and mathematical notes.",
+      "Outside Mathematics, I am a sprinter and enjoy track and field. I also have some interest in computer science, though not as much as mathematics :)"
+    ]
+  },
+  "about": {
+    "header": "About Me",
+    "paragraphs": [
+      "Hello! I'm Kasieobi Udumaga, a high school student from Canada with a strong passion for pure mathematics. I've been fascinated by numbers, patterns, and mathematical structures since the first grade, and I'm particularly drawn to the beauty and depth of algebraic number theory and commutative algebra.",
+      "My goal is to pursue a career in mathematics research and contribute to the field through original work and expository writing.",
+      "I'm always happy to connect with fellow mathematics enthusiasts. Please feel free to reach out via the contact page.",
+      "To be continued..."
+    ]
+  },
+  "contact": {
+    "header": "Contact",
+    "subtitle": "I'd love to hear from you. Whether you have a question about mathematics, feedback on my notes, or just want to say hello — feel free to reach out.",
+    "welcome": {
+      "heading": "Get in Touch",
+      "paragraphs": [
+        "I'm always happy to connect with fellow mathematics enthusiasts, students, and researchers. Whether you'd like to discuss a mathematical idea, ask about my notes, share feedback on the website, or explore potential collaborations — please don't hesitate to write.",
+        "I do my best to respond to all messages, though it may take me a few days during busy periods."
+      ]
+    }
+  },
+  "research": {
+    "header": "Research",
+    "paragraphs": [
+      "Research details coming soon."
+    ]
+  },
+  "teaching": {
+    "header": "Teaching",
+    "intro": "I love teaching people! Teaching concepts and presenting ideas is part of how we can grow as a society.",
+    "courses": [
+      {
+        "title": "Mathematics 10",
+        "level": "High School",
+        "description": "Linear relations, polynomials, trigonometry, and data analysis foundations.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "British Columbia Precalculus 11",
+        "level": "High School",
+        "description": "Foundations of algebra, functions, and trigonometry for high school students.",
+        "status": "Complete",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "British Columbia Precalculus 12",
+        "level": "High School",
+        "description": "Advanced functions, calculus concepts, and mathematical analysis preparation.",
+        "status": "Complete",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "Calculus I",
+        "level": "Undergraduate",
+        "description": "Limits, continuity, derivatives, and applications of differential calculus.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "Calculus II",
+        "level": "Undergraduate",
+        "description": "Integration techniques, sequences, series, and multivariable calculus.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "Calculus III",
+        "level": "Undergraduate",
+        "description": "Multivariable calculus: partial derivatives, multiple integrals, and vector calculus.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "Introduction to Proofs",
+        "level": "Undergraduate",
+        "description": "Logic, set theory, and fundamental techniques of mathematical proof.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "Number Theory",
+        "level": "Undergraduate",
+        "description": "Divisibility, primes, congruences, and classical number-theoretic problems.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      },
+      {
+        "title": "Real Analysis",
+        "level": "Undergraduate",
+        "description": "Rigorous foundations of calculus: sequences, series, continuity, and integration.",
+        "status": "In Progress",
+        "lastUpdated": "2026"
+      }
+    ]
+  },
+  "notes": {
+    "header": "Notes",
+    "intro": "Welcome to my collection of mathematical notes. Here I document ideas, definitions, theorems, proofs, examples, and problem-solving techniques from a wide range of topics, spanning olympiad mathematics through undergraduate and graduate mathematics. These notes are continually revised and expanded as my understanding develops."
+  },
+  "blog": {
+    "header": "Research Notebook",
+    "subtitle": "Learning journal and mathematical musings",
+    "notebookTitle": "Research Notebook",
+    "notebookSubtitle": "Personal learning journal and mathematical explorations",
+    "currentlyReading1Title": "Abstract Algebra",
+    "currentlyReading1Author": "Dummit and Foote, 3rd edition",
+    "currentlyReading1Progress": "2%",
+    "currentlyReading2Title": "Linear Algebra Done Right",
+    "currentlyReading2Author": "Sheldon Axler",
+    "currentlyReading2Progress": "22%",
+    "currentlyReading3Title": "Book Title",
+    "currentlyReading3Author": "Author Name",
+    "currentlyReading3Progress": "0%",
+    "currentQuestion": "Current mathematical question or problem I'm exploring..."
+  },
+  "Track": {
+    "header": "Track and Field",
+    "paragraphs": [
+      "Track and field details coming soon."
+    ]
+  },
+  "expository": {
+    "header": "Expository Writing",
+    "subtitle": "Mathematical exposition, problem analysis, and experimental mathematics.",
+    "paragraphs": [
+      "Content will appear here as articles are added."
+    ]
+  },
+  "olympiad": {
+    "header": "Olympiad",
+    "subtitle": "Problem solving and contest exposition in number theory, algebra, combinatorics, and Geometry.",
+    "archiveTitle": "Articles",
+    "archiveIntro": "Browse Olympiad expository writing in reverse chronological order."
+  },
+  "undergraduate": {
+    "header": "Undergraduate",
+    "subtitle": "Expository material aimed at undergraduate mathematics, with proofs and interesting concepts.",
+    "archiveTitle": "Articles",
+    "archiveIntro": "Browse undergraduate expository writing in reverse chronological order."
+  },
+  "graduate": {
+    "header": "Graduate",
+    "subtitle": "Advanced expository writing for graduate-level mathematics, focusing on proofs and exposition.",
+    "archiveTitle": "Articles",
+    "archiveIntro": "Browse graduate expository writing in reverse chronological order."
+  },
+  "publications": {
+    "header": "Publications",
+    "paragraphs": [
+      "Publications coming soon."
+    ]
+  },
+  "Recent-Updates": {
+    "header": "Recent Updates",
+    "paragraphs": [
+      "Recent updates coming soon."
+    ]
+  }
+}

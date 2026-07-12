@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Limits and Derivatives - Calculus I">
+  <title>Kasieobi Udumaga | Limits and Derivatives - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box {
+      border-left: 4px solid var(--accent);
+    }
+    .example-box {
+      border-left: 4px solid #f0ad4e;
+    }
+    .important-note {
+      border-left: 4px solid #d9534f;
+    }
+    .theorem-box {
+      border-left: 4px solid #5cb85c;
+    }
+    .proof-box {
+      border-left: 4px solid #5bc0de;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border-left: 4px solid var(--accent);
+    }
+    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Limits and Derivatives</h1>
+      <div class="subtitle">Calculus I - Chapter 2.1-2.8 (Detailed Notes)</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>1. The Tangent and Velocity Problems</h2>
+
+      <h3>1.1 The Tangent Line Problem</h3>
+      <div class="definition-box">
+        <strong>Tangent Line:</strong>
+        The tangent line to a curve \(y = f(x)\) at point \(P(a, f(a))\) is the line that best approximates the curve near \(P\). Its slope is the limit of secant line slopes.
+      </div>
+
+      <p>Given a point \(P(a, f(a))\) on the curve, consider a nearby point \(Q(a+h, f(a+h))\). The slope of the secant line through \(P\) and \(Q\) is:</p>
+      <p>\(m_{secant} = \frac{f(a+h) - f(a)}{h}\)</p>
+
+      <p>As \(h \to 0\), the secant line approaches the tangent line, giving us the derivative formula.</p>
+
+      <div class="example-box">
+        <strong>Example 1.1:</strong>
+        Find the tangent line to \(y = x^2\) at point \((2, 4)\).
+        <p>Solution: The slope is \(f'(2) = \lim_{h \to 0} \frac{(2+h)^2 - 4}{h} = \lim_{h \to 0} \frac{4 + 4h + h^2 - 4}{h} = \lim_{h \to 0} (4 + h) = 4\)</p>
+        <p>The tangent line is \(y - 4 = 4(x - 2)\), or \(y = 4x - 4\).</p>
+      </div>
+
+      <h3>1.2 The Velocity Problem</h3>
+      <div class="definition-box">
+        <strong>Velocity:</strong>
+        If \(s(t)\) represents the position of an object at time \(t\), the velocity at time \(t = a\) is:
+        \(v(a) = \lim_{h \to 0} \frac{s(a+h) - s(a)}{h} = s'(a)\)
+      </div>
+
+      <p>This is the same limit as the tangent line problem! Both involve the derivative.</p>
+
+      <div class="example-box">
+        <strong>Example 1.2:</strong>
+        A ball is dropped from a height of 100 meters. Its position is \(s(t) = 100 - 4.9t^2\). Find its velocity after 3 seconds.
+        <p>Solution: \(v(t) = s'(t) = -9.8t\). After 3 seconds: \(v(3) = -29.4\) m/s (downward).</p>
+      </div>
+
+      <h2>2. The Limit of a Function</h2>
+
+      <div class="definition-box">
+        <strong>Definition: Limit</strong>
+        We write \(\lim_{x \to a} f(x) = L\) if we can make \(f(x)\) arbitrarily close to \(L\) by taking \(x\) sufficiently close to \(a\) (but not equal to \(a\)).
+      </div>
+
+      <h3>2.1 Intuitive Definition</h3>
+      <p>\(\lim_{x \to a} f(x) = L\) means: For every \(\varepsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |x - a| < \delta\), then \(|f(x) - L| < \varepsilon\).</p>
+
+      <h3>2.2 One-sided Limits</h3>
+      <div class="important-note">
+        <strong>One-sided Limits:</strong>
+        <ul>
+          <li>\(\lim_{x \to a^-} f(x) = L\) (left-hand limit): \(x\) approaches \(a\) from below</li>
+          <li>\(\lim_{x \to a^+} f(x) = L\) (right-hand limit): \(x\) approaches \(a\) from above</li>
+        </ul>
+      </div>
+
+      <h3>2.3 Limit Laws</h3>
+      <div class="theorem-box">
+        <strong>Limit Laws:</strong>
+        If \(\lim_{x \to a} f(x) = L\) and \(\lim_{x \to a} g(x) = M\), then:
+        <ul>
+          <li>\(\lim_{x \to a} [f(x) + g(x)] = L + M\)</li>
+          <li>\(\lim_{x \to a} [f(x) - g(x)] = L - M\)</li>
+          <li>\(\lim_{x \to a} [f(x) \cdot g(x)] = LM\)</li>
+          <li>\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}\) (if \(M \neq 0\))</li>
+          <li>\(\lim_{x \to a} [c \cdot f(x)] = cL\)</li>
+        </ul>
+      </div>
+
+      <h2>3. Calculating Limits Using Limit Laws</h2>
+
+      <h3>3.1 Direct Substitution</h3>
+      <p>If \(f\) is a polynomial or rational function and \(a\) is in the domain, then \(\lim_{x \to a} f(x) = f(a)\).</p>
+
+      <h3>3.2 Indeterminate Forms</h3>
+      <div class="important-note">
+        <strong>Indeterminate Forms:</strong>
+        The forms \(\frac{0}{0}\) and \(\frac{\infty}{\infty}\) require further analysis.
+      </div>
+
+      <h3>3.3 Techniques for Evaluating Limits</h3>
+      <ul>
+        <li><strong>Factoring:</strong> For polynomials, factor and cancel common terms</li>
+        <li><strong>Rationalization:</strong> Multiply by conjugate to eliminate radicals</li>
+        <li><strong>Trigonometric limits:</strong> Use \(\lim_{x \to 0} \frac{\sin x}{x} = 1\)</li>
+      </ul>
+
+      <div class="example-box">
+        <strong>Example 3.1:</strong>
+        \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2} = \lim_{x \to 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \to 2} (x+2) = 4\)
+      </div>
+
+      <h2>4. The Precise Definition of a Limit</h2>
+
+      <div class="definition-box">
+        <strong>Epsilon-Delta Definition:</strong>
+        \(\lim_{x \to a} f(x) = L\) means: For every \(\varepsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |x - a| < \delta\), then \(|f(x) - L| < \varepsilon\).
+      </div>
+
+      <h3>4.1 How to Use the Definition</h3>
+      <p>To prove \(\lim_{x \to a} f(x) = L\), we need to find \(\delta\) in terms of \(\varepsilon\).</p>
+
+      <div class="example-box">
+        <strong>Example 4.1:</strong>
+        Prove \(\lim_{x \to 3} (2x + 1) = 7\).
+        <p>We need: \(|2x + 1 - 7| < \varepsilon\) when \(0 < |x - 3| < \delta\).</p>
+        <p>\(|2x - 6| = 2|x - 3| < \varepsilon\) when \(|x - 3| < \frac{\varepsilon}{2}\).</p>
+        <p>Choose \(\delta = \frac{\varepsilon}{2}\).</p>
+      </div>
+
+      <h2>5. Continuity</h2>
+
+      <div class="definition-box">
+        <strong>Definition: Continuity</strong>
+        A function \(f\) is continuous at \(a\) if:
+        <ol>
+          <li>\(f(a)\) is defined</li>
+          <li>\(\lim_{x \to a} f(x)\) exists</li>
+          <li>\(\lim_{x \to a} f(x) = f(a)\)</li>
+        </ol>
+      </div>
+
+      <h3>5.1 Types of Discontinuities</h3>
+      <ul>
+        <li><strong>Removable discontinuity:</strong> Limit exists but doesn't equal function value</li>
+        <li><strong>Jump discontinuity:</strong> Left and right limits exist but are different</li>
+        <li><strong>Infinite discontinuity:</strong> Function approaches \(\pm\infty\)</li>
+      </ul>
+
+      <h3>5.2 Intermediate Value Theorem</h3>
+      <div class="theorem-box">
+        <strong>Intermediate Value Theorem:</strong>
+        If \(f\) is continuous on \([a, b]\) and \(f(a) < k < f(b)\), then there exists \(c \in (a, b)\) such that \(f(c) = k\).
+      </div>
+
+      <h2>6. Limits at Infinity; Horizontal Asymptotes</h2>
+
+      <div class="definition-box">
+        <strong>Limit at Infinity:</strong>
+        \(\lim_{x \to \infty} f(x) = L\) if \(f(x)\) approaches \(L\) as \(x\) becomes large.
+      </div>
+
+      <h3>6.1 Horizontal Asymptotes</h3>
+      <p>If \(\lim_{x \to \infty} f(x) = L\) or \(\lim_{x \to -\infty} f(x) = L\), then \(y = L\) is a horizontal asymptote.</p>
+
+      <h3>6.2 Limits for Rational Functions</h3>
+      <div class="important-note">
+        <strong>Rule for Rational Functions:</strong>
+        For \(f(x) = \frac{P(x)}{Q(x)}\), compare degrees:
+        <ul>
+          <li>If deg(P) < deg(Q): limit is 0</li>
+          <li>If deg(P) = deg(Q): limit is ratio of leading coefficients</li>
+          <li>If deg(P) > deg(Q): limit is \(\pm\infty\)</li>
+        </ul>
+      </div>
+
+      <h2>7. Derivatives and Rates of Change</h2>
+
+      <div class="definition-box">
+        <strong>Definition: Derivative</strong>
+        The derivative of \(f\) at \(a\) is:
+        \(f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}\)
+      </div>
+
+      <h3>7.1 Alternative Forms</h3>
+      <div class="formula-box">
+        <strong>Alternative Form:</strong>
+        \(f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}\)
+      </div>
+
+      <h3>7.2 Notation</h3>
+      <ul>
+        <li>\(f'(x)\) - Lagrange notation</li>
+        <li>\(\frac{dy}{dx}\) - Leibniz notation</li>
+        <li>\(\frac{d}{dx}f(x)\) - Operator notation</li>
+        <li>\(Df(x)\) - Euler notation</li>
+      </ul>
+
+      <h3>7.3 Interpretation</h3>
+      <div class="important-note">
+        <strong>Interpretation:</strong>
+        <ul>
+          <li>Instantaneous rate of change of \(f\) with respect to \(x\)</li>
+          <li>Slope of the tangent line to the curve \(y = f(x)\)</li>
+          <li>If \(f\) represents position, \(f'\) represents velocity</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 7.1:</strong>
+        Find the derivative of \(f(x) = x^2 - 3x + 2\).
+        <p>Solution: \(f'(x) = \lim_{h \to 0} \frac{(x+h)^2 - 3(x+h) + 2 - (x^2 - 3x + 2)}{h}\)</p>
+        <p>\(= \lim_{h \to 0} \frac{2xh + h^2 - 3h}{h} = \lim_{h \to 0} (2x + h - 3) = 2x - 3\)</p>
+      </div>
+
+      <h2>8. The Derivative as a Function</h2>
+
+      <h3>8.1 Differentiability</h3>
+      <div class="definition-box">
+        <strong>Differentiable Function:</strong>
+        A function \(f\) is differentiable on an interval if \(f'(a)\) exists for all \(a\) in that interval.
+      </div>
+
+      <h3>8.2 Higher Derivatives</h3>
+      <ul>
+        <li>\(f''(x) = (f'(x))'\) - Second derivative (concavity)</li>
+        <li>\(f'''(x) = (f''(x))'\) - Third derivative</li>
+        <li>\(f^{(n)}(x)\) - nth derivative</li>
+      </ul>
+
+      <h3>8.3 Relationship Between Continuity and Differentiability</h3>
+      <div class="important-note">
+        <strong>Important:</strong>
+        Differentiability implies continuity, but not vice versa. A function can be continuous but not differentiable (e.g., \(f(x) = |x|\) at \(x = 0\)).
+      </div>
+
+      <div class="navigation">
+        <a href="calculus-1.html">← Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

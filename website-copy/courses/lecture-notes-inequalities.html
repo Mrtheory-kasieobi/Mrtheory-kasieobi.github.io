@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear and Quadratic Inequalities - Lecture Notes | Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Accessibility mode overrides for dyslexic readers */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note,
+    body.accessibility-mode table {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2,
+    body.accessibility-mode .lecture-content h3 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note {
+      border-left-color: #0055cc !important;
+    }
+
+    body.accessibility-mode .definition-box strong,
+    body.accessibility-mode .example-title,
+    body.accessibility-mode .important-note-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode th {
+      background: #e6f0ff !important;
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode table {
+      background: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Linear and Quadratic Inequalities</h1>
+      <div class="subtitle">Precalculus 11 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Inequalities</h2>
+  
+  <p>An <strong>inequality</strong> is a mathematical statement that compares two expressions using inequality symbols: \(<\), \(>\), \(\leq\), or \(\geq\).</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A linear inequality in one variable can be written in the form \(ax + b < c\), \(ax + b > c\), \(ax + b \leq c\), or \(ax + b \geq c\), where \(a \neq 0\).
+  </div>
+
+  <h3>1.1 Inequality Symbols</h3>
+  <ul>
+    <li>\(<\) : less than</li>
+    <li>\(>\) : greater than</li>
+    <li>\(\leq\) : less than or equal to</li>
+    <li>\(\geq\) : greater than or equal to</li>
+  </ul>
+
+  <h2>2. Linear Inequalities in One Variable</h2>
+
+  <p>Solving linear inequalities is similar to solving linear equations, with one important exception: <strong>when multiplying or dividing by a negative number, reverse the inequality sign</strong>.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Important Rule:</div>
+    <p>When you multiply or divide both sides of an inequality by a negative number, you must <strong>reverse the inequality sign</strong>.</p>
+  </div>
+
+  <h3>2.1 Solving Linear Inequalities</h3>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Basic Linear Inequality</div>
+    <p>Solve: \(3x - 5 < 10\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\(3x < 15\)</p>
+    <p>\(x < 5\)</p>
+    <p><strong>Solution set:</strong> \(\{x \mid x < 5\}\) or \((-\infty, 5)\) in interval notation</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Inequality with Negative Coefficient</div>
+    <p>Solve: \(-2x + 3 \geq 7\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>\(-2x \geq 4\)</p>
+    <p>Divide by -2 (reverse sign): \(x \leq -2\)</p>
+    <p><strong>Solution set:</strong> \(\{x \mid x \leq -2\}\) or \((-\infty, -2]\) in interval notation</p>
+  </div>
+
+  <h3>2.2 Interval Notation</h3>
+  <p>Interval notation provides a concise way to express solution sets:</p>
+  <ul>
+    <li>Parentheses \(( )\) indicate the endpoint is not included</li>
+    <li>Brackets \([ ]\) indicate the endpoint is included</li>
+    <li>\(-\infty\) and \(\infty\) always use parentheses</li>
+  </ul>
+
+  <h3>2.3 Graphing Linear Inequalities</h3>
+  <p>To graph a linear inequality on a number line:</p>
+  <ol>
+    <li>Solve the inequality</li>
+    <li>Use an open circle for \(<\) or \(>\)</li>
+    <li>Use a closed circle for \(\leq\) or \(\geq\)</li>
+    <li>Shade in the appropriate direction</li>
+  </ol>
+
+  <h2>3. Linear Inequalities in Two Variables</h2>
+
+  <p>A linear inequality in two variables has the form \(ax + by < c\), \(ax + by > c\), \(ax + by \leq c\), or \(ax + by \geq c\).</p>
+
+  <h3>3.1 Graphing Linear Inequalities</h3>
+  <p>To graph a linear inequality in two variables:</p>
+  <ol>
+    <li>Graph the boundary line (dashed for \(<\) or \(>\), solid for \(\leq\) or \(\geq\))</li>
+    <li>Choose a test point not on the line</li>
+    <li>Shade the region that satisfies the inequality</li>
+  </ol>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Graphing Linear Inequalities</div>
+    <p>Graph: \(y < 2x + 1\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Graph the line \(y = 2x + 1\) with a dashed line (since \(<\))</p>
+    <p>Step 2: Test point \((0, 0)\): \(0 < 2(0) + 1\) → \(0 < 1\) ✓</p>
+    <p>Step 3: Shade the region below the line</p>
+  </div>
+
+  <h2>4. Systems of Linear Inequalities</h2>
+
+  <p>A system of linear inequalities consists of two or more inequalities. The solution is the region where all inequalities overlap.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: System of Linear Inequalities</div>
+    <p>Solve the system: \(\begin{cases} y > x - 2 \\ y \leq -x + 4 \end{cases}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Graph both inequalities and find the overlapping region.</p>
+    <p>The solution is the region between the two lines.</p>
+  </div>
+
+  <h2>5. Quadratic Inequalities in One Variable</h2>
+
+  <p>A <strong>quadratic inequality</strong> involves a quadratic expression. To solve, find where the quadratic is positive or negative.</p>
+
+  <h3>5.1 Solving Quadratic Inequalities</h3>
+  <p>To solve a quadratic inequality:</p>
+  <ol>
+    <li>Rewrite in standard form: \(ax^2 + bx + c < 0\) or \(ax^2 + bx + c > 0\)</li>
+    <li>Find the roots of the corresponding equation</li>
+    <li>Test intervals determined by the roots</li>
+    <li>Identify where the inequality is satisfied</li>
+  </ol>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Quadratic Inequality</div>
+    <p>Solve: \(x^2 - 5x + 6 > 0\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Find roots: \(x^2 - 5x + 6 = 0\)</p>
+    <p>\((x - 2)(x - 3) = 0\)</p>
+    <p>Roots: \(x = 2\) and \(x = 3\)</p>
+    <p>Step 2: Test intervals: \((-\infty, 2)\), \((2, 3)\), \((3, \infty)\)</p>
+    <p>Test \(x = 0\): \(0^2 - 5(0) + 6 = 6 > 0\) ✓</p>
+    <p>Test \(x = 2.5\): \((2.5)^2 - 5(2.5) + 6 = 6.25 - 12.5 + 6 = -0.25 < 0\) ✗</p>
+    <p>Test \(x = 4\): \(4^2 - 5(4) + 6 = 16 - 20 + 6 = 2 > 0\) ✓</p>
+    <p><strong>Solution:</strong> \(x < 2\) or \(x > 3\), or \((-\infty, 2) \cup (3, \infty)\)</p>
+  </div>
+
+  <h3>5.2 Sign Chart Method</h3>
+  <p>A sign chart helps visualize where a quadratic is positive or negative:</p>
+
+  <div class="formula-box">
+    <strong>Sign Chart for \(x^2 - 5x + 6\):</strong><br>
+    Interval: \((-\infty, 2)\) | \((2, 3)\) | \((3, \infty)\)<br>
+    Sign: \(+\) | \(-\) | \(+\)
+  </div>
+
+  <h2>6. Quadratic Inequalities in Two Variables</h2>
+
+  <p>Quadratic inequalities in two variables involve regions bounded by parabolas.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Quadratic Inequality in Two Variables</div>
+    <p>Graph: \(y \leq x^2 - 4\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Graph the parabola \(y = x^2 - 4\) with a solid line</p>
+    <p>Step 2: Test point \((0, 0)\): \(0 \leq 0^2 - 4\) → \(0 \leq -4\) ✗</p>
+    <p>Step 3: Shade the region outside the parabola</p>
+  </div>
+
+  <h2>7. Summary of Key Concepts</h2>
+
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Key Points</th>
+    </tr>
+    <tr>
+      <td>Linear Inequality (1 var)</td>
+      <td>Solve like equation, reverse sign when multiplying/dividing by negative</td>
+    </tr>
+    <tr>
+      <td>Interval Notation</td>
+      <td>\((a, b)\) exclusive, \([a, b]\) inclusive</td>
+    </tr>
+    <tr>
+      <td>Linear Inequality (2 var)</td>
+      <td>Graph boundary line, test point, shade region</td>
+    </tr>
+    <tr>
+      <td>Quadratic Inequality (1 var)</td>
+      <td>Find roots, test intervals, determine sign</td>
+    </tr>
+    <tr>
+      <td>Quadratic Inequality (2 var)</td>
+      <td>Graph parabola, test point, shade region</td>
+    </tr>
+  </table>
+
+  <h2>8. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Solve: \(4x - 7 > 5\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Solve: \(-3x + 2 \leq 11\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Solve: \(x^2 + 3x - 4 < 0\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Solve: \(2x^2 - 8x + 6 \geq 0\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 5</div>
+    <p>Graph the solution set: \(y \geq x^2 + 2x - 3\)</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-11.html">← Back to Course</a>
+  </div>
+</body>
+</html>

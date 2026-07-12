@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Function Transformations - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Function Transformations</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Function Transformations</h2>
+  
+  <p>Function transformations allow us to modify the graph of a function by shifting, stretching, compressing, or reflecting it. Understanding transformations helps us graph complex functions quickly and analyze their behavior.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A transformation of a function changes its graph in some way while maintaining its basic shape. The parent function is the simplest form of a function family, and transformations create related functions.
+  </div>
+
+  <h2>2. Horizontal and Vertical Translations</h2>
+
+  <h3>2.1 Vertical Translations</h3>
+  <p>Vertical translations shift a function up or down by adding or subtracting a constant to the function output.</p>
+
+  <div class="formula-box">
+    <strong>Vertical Translation:</strong><br>
+    \[f(x) \pm k \text{ shifts the graph } k \text{ units up (or down if negative)}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Vertical Translation</div>
+    <p>Given \(f(x) = x^2\), compare \(f(x) = x^2\) and \(g(x) = x^2 + 3\).</p>
+    <p>The graph of \(g(x)\) is the graph of \(f(x)\) shifted 3 units upward.</p>
+    <p>Key points: \((0,0) \to (0,3)\), \((1,1) \to (1,4)\), \((-1,1) \to (-1,4)\)</p>
+  </div>
+
+  <h3>2.2 Horizontal Translations</h3>
+  <p>Horizontal translations shift a function left or right by adding or subtracting a constant to the input.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Important Note:</div>
+    <p>For horizontal translations, the direction is opposite to the sign! \(f(x + k)\) shifts left, \(f(x - k)\) shifts right.</p>
+  </div>
+
+  <div class="formula-box">
+    <strong>Horizontal Translation:</strong><br>
+    \[f(x \pm k) \text{ shifts the graph } k \text{ units right (or left if negative)}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Horizontal Translation</div>
+    <p>Given \(f(x) = \sqrt{x}\), compare \(f(x) = \sqrt{x}\) and \(g(x) = \sqrt{x - 2}\).</p>
+    <p>The graph of \(g(x)\) is the graph of \(f(x)\) shifted 2 units to the right.</p>
+    <p>Domain changes from \([0, \infty)\) to \([2, \infty)\)</p>
+  </div>
+
+  <h2>3. Reflections and Stretches</h2>
+
+  <h3>3.1 Reflections</h3>
+  <p>Reflections flip the graph across the x-axis or y-axis.</p>
+
+  <div class="formula-box">
+    <strong>Reflections:</strong><br>
+    \[-f(x) \text{ reflects across the x-axis}\]<br>
+    \[f(-x) \text{ reflects across the y-axis}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Reflections</div>
+    <p>Given \(f(x) = x^3\), compare:</p>
+    <p>\(g(x) = -x^3\) (reflection across x-axis)</p>
+    <p>\(h(x) = (-x)^3 = -x^3\) (reflection across y-axis)</p>
+  </div>
+
+  <h3>3.2 Vertical Stretches and Compressions</h3>
+  <p>Multiplying the function by a constant stretches or compresses it vertically.</p>
+
+  <div class="formula-box">
+    <strong>Vertical Transformations:</strong><br>
+    \[a \cdot f(x) \text{ where } |a| > 1 \text{ stretches vertically}\]<br>
+    \[a \cdot f(x) \text{ where } 0 < |a| < 1 \text{ compresses vertically}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Vertical Stretch</div>
+    <p>Given \(f(x) = x^2\), compare \(g(x) = 2x^2\) and \(h(x) = 0.5x^2\).</p>
+    <p>\(g(x)\) is stretched vertically by factor 2</p>
+    <p>\(h(x)\) is compressed vertically by factor 0.5</p>
+  </div>
+
+  <h3>3.3 Horizontal Stretches and Compressions</h3>
+  <p>Multiplying the input by a constant stretches or compresses the graph horizontally.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Important Note:</div>
+    <p>For horizontal transformations, the factor is inverted! \(f(bx)\) where \(b > 1\) compresses, \(0 < b < 1\) stretches.</p>
+  </div>
+
+  <div class="formula-box">
+    <strong>Horizontal Transformations:</strong><br>
+    \[f(bx) \text{ where } b > 1 \text{ compresses horizontally by factor } 1/b\]<br>
+    \[f(bx) \text{ where } 0 < b < 1 \text{ stretches horizontally by factor } 1/b\]
+  </div>
+
+  <h2>4. Combining Transformations</h2>
+
+  <p>When multiple transformations are applied, the order matters. The standard form is:</p>
+
+  <div class="formula-box">
+    <strong>General Form:</strong><br>
+    \[f(x) = a \cdot f(x - h) + k\]<br>
+    where:
+    <ul style="text-align: left; margin-top: 0.5rem;">
+      <li>\(h\) = horizontal shift (right if positive)</li>
+      <li>\(k\) = vertical shift (up if positive)</li>
+      <li>\(a\) = vertical stretch/compression and reflection</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Combining Transformations</div>
+    <p>Analyze \(f(x) = -2(x - 3)^2 + 4\)</p>
+    <p>Starting from \(g(x) = x^2\):</p>
+    <ol>
+      <li>Shift right 3 units: \((x - 3)^2\)</li>
+      <li>Vertical stretch by 2: \(2(x - 3)^2\)</li>
+      <li>Reflect across x-axis: \(-2(x - 3)^2\)</li>
+      <li>Shift up 4 units: \(-2(x - 3)^2 + 4\)</li>
+    </ol>
+    <p>Vertex: \((3, 4)\)</p>
+  </div>
+
+  <h2>5. Transformations of Absolute Value Functions</h2>
+
+  <p>The absolute value function \(f(x) = |x|\) has a characteristic V-shape. Its transformations follow the same rules.</p>
+
+  <div class="formula-box">
+    <strong>Absolute Value Transformations:</strong><br>
+    \[f(x) = a|x - h| + k\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Absolute Value Transformation</div>
+    <p>Graph \(f(x) = -|x + 2| + 3\)</p>
+    <p>Starting from \(g(x) = |x|\):</p>
+    <ol>
+      <li>Shift left 2 units: \(|x + 2|\)</li>
+      <li>Reflect across x-axis: \(-|x + 2|\)</li>
+      <li>Shift up 3 units: \(-|x + 2| + 3\)</li>
+    </ol>
+    <p>Vertex: \((-2, 3)\)</p>
+  </div>
+
+  <h2>6. Inverse of a Relation</h2>
+
+  <h3>6.1 Finding the Inverse</h3>
+  <p>The inverse of a function reverses the input and output. To find the inverse:</p>
+
+  <div class="formula-box">
+    <strong>Steps to Find Inverse:</strong><br>
+    <ol style="text-align: left; margin: 0;">
+      <li>Replace \(f(x)\) with \(y\)</li>
+      <li>Swap \(x\) and \(y\)</li>
+      <li>Solve for \(y\)</li>
+      <li>Replace \(y\) with \(f^{-1}(x)\)</li>
+    </ol>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Finding an Inverse</div>
+    <p>Find the inverse of \(f(x) = 2x + 5\)</p>
+    <p>Step 1: \(y = 2x + 5\)</p>
+    <p>Step 2: \(x = 2y + 5\)</p>
+    <p>Step 3: \(y = \frac{x - 5}{2}\)</p>
+    <p>Step 4: \(f^{-1}(x) = \frac{x - 5}{2}\)</p>
+  </div>
+
+  <h3>6.2 Inverse of a Function with Transformations</h3>
+  <p>For a function in the form \(f(x) = a \cdot g(x - h) + k\), the inverse involves reversing the transformations in reverse order.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: Inverse of Transformed Function</div>
+    <p>Find the inverse of \(f(x) = 3(x - 1)^2 + 2\) for \(x \geq 1\)</p>
+    <p>Step 1: \(y = 3(x - 1)^2 + 2\)</p>
+    <p>Step 2: \(x = 3(y - 1)^2 + 2\)</p>
+    <p>Step 3: \((y - 1)^2 = \frac{x - 2}{3}\)</p>
+    <p>Step 4: \(y - 1 = \sqrt{\frac{x - 2}{3}}\) (positive root since \(x \geq 1\))</p>
+    <p>Step 5: \(f^{-1}(x) = 1 + \sqrt{\frac{x - 2}{3}}\)</p>
+  </div>
+
+  <h2>7. Summary of Transformation Rules</h2>
+
+  <table>
+    <tr>
+      <th>Transformation</th>
+      <th>Effect on Graph</th>
+    </tr>
+    <tr>
+      <td>\(f(x) + k\)</td>
+      <td>Shift up \(k\) units</td>
+    </tr>
+    <tr>
+      <td>\(f(x) - k\)</td>
+      <td>Shift down \(k\) units</td>
+    </tr>
+    <tr>
+      <td>\(f(x + h)\)</td>
+      <td>Shift left \(h\) units</td>
+    </tr>
+    <tr>
+      <td>\(f(x - h)\)</td>
+      <td>Shift right \(h\) units</td>
+    </tr>
+    <tr>
+      <td>\(-f(x)\)</td>
+      <td>Reflect across x-axis</td>
+    </tr>
+    <tr>
+      <td>\(f(-x)\)</td>
+      <td>Reflect across y-axis</td>
+    </tr>
+    <tr>
+      <td>\(a \cdot f(x), a > 1\)</td>
+      <td>Vertical stretch by factor \(a\)</td>
+    </tr>
+    <tr>
+      <td>\(a \cdot f(x), 0 < a < 1\)</td>
+      <td>Vertical compression by factor \(a\)</td>
+    </tr>
+    <tr>
+      <td>\(f(bx), b > 1\)</td>
+      <td>Horizontal compression by factor \(1/b\)</td>
+    </tr>
+    <tr>
+      <td>\(f(bx), 0 < b < 1\)</td>
+      <td>Horizontal stretch by factor \(1/b\)</td>
+    </tr>
+  </table>
+
+  <h2>8. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Describe the transformations applied to \(f(x) = x^2\) to obtain \(g(x) = -2(x + 3)^2 - 1\).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Find the inverse of \(f(x) = \sqrt{x + 4} - 2\) for the appropriate domain.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Write the equation of an absolute value function with vertex at \((-1, 3)\) that is reflected across the y-axis and vertically stretched by factor 2.</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>

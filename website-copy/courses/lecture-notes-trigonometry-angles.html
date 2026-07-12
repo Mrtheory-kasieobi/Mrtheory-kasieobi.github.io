@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometry: Angles and Unit Circle - Lecture Notes | Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Accessibility mode overrides for dyslexic readers */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note,
+    body.accessibility-mode table {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2,
+    body.accessibility-mode .lecture-content h3 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note {
+      border-left-color: #0055cc !important;
+    }
+
+    body.accessibility-mode .definition-box strong,
+    body.accessibility-mode .example-title,
+    body.accessibility-mode .important-note-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode th {
+      background: #e6f0ff !important;
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode table {
+      background: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Trigonometry: Angles and Unit Circle</h1>
+      <div class="subtitle">Precalculus 11 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Angles</h2>
+  
+  <p>An <strong>angle</strong> is formed by two rays sharing a common endpoint called the <strong>vertex</strong>. Trigonometry is the study of relationships between angles and sides of triangles, particularly right triangles.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> An angle is a measure of rotation from one ray to another around a common vertex. Angles are measured in degrees (°) or radians (rad).
+  </div>
+
+  <h3>1.1 Angle Measurement</h3>
+  <p>Angles can be measured in two common units:</p>
+  <ul>
+    <li><strong>Degrees:</strong> One complete rotation = 360°</li>
+    <li><strong>Radians:</strong> One complete rotation = \(2\pi\) radians</li>
+  </ul>
+
+  <div class="formula-box">
+    <strong>Conversion between Degrees and Radians:</strong><br>
+    \[\text{Radians} = \text{Degrees} \times \frac{\pi}{180^\circ}\]<br><br>
+    \[\text{Degrees} = \text{Radians} \times \frac{180^\circ}{\pi}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Converting Degrees to Radians</div>
+    <p>Convert \(90^\circ\) to radians:</p>
+    <p>\[90^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{2} \text{ radians}\]</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Converting Radians to Degrees</div>
+    <p>Convert \(\frac{3\pi}{4}\) radians to degrees:</p>
+    <p>\[\frac{3\pi}{4} \times \frac{180^\circ}{\pi} = 135^\circ\]</p>
+  </div>
+
+  <h3>1.2 Standard Position</h3>
+  <p>An angle is in <strong>standard position</strong> when its vertex is at the origin and its initial side lies along the positive x-axis. The angle is measured counterclockwise from the initial side to the terminal side.</p>
+
+  <h3>1.3 Coterminal Angles</h3>
+  <p>Two angles are <strong>coterminal</strong> if they share the same terminal side. Coterminal angles differ by multiples of \(360^\circ\) or \(2\pi\) radians.</p>
+
+  <div class="formula-box">
+    <strong>Finding Coterminal Angles:</strong><br>
+    \[\theta_{\text{coterminal}} = \theta \pm 360^\circ n\]<br>
+    or<br>
+    \[\theta_{\text{coterminal}} = \theta \pm 2\pi n\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Coterminal Angles</div>
+    <p>Find a positive coterminal angle for \(-45^\circ\):</p>
+    <p>\[-45^\circ + 360^\circ = 315^\circ\]</p>
+  </div>
+
+  <h2>2. The Unit Circle</h2>
+
+  <p>The <strong>unit circle</strong> is a circle with radius 1 centered at the origin of the coordinate plane. It is a fundamental tool in trigonometry for defining trigonometric functions for all angles.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> The unit circle is the set of all points \((x, y)\) such that \(x^2 + y^2 = 1\). For any angle \(\theta\) in standard position, the point where the terminal side intersects the unit circle has coordinates \((\cos \theta, \sin \theta)\).
+  </div>
+
+  <h3>2.1 Coordinates on the Unit Circle</h3>
+  <p>For any angle \(\theta\) in standard position, if the terminal side intersects the unit circle at point \(P(x, y)\), then:</p>
+  <ul>
+    <li>\(x = \cos \theta\) (x-coordinate)</li>
+    <li>\(y = \sin \theta\) (y-coordinate)</li>
+  </ul>
+
+  <h3>2.2 Special Angles on the Unit Circle</h3>
+  <p>There are several special angles whose coordinates on the unit circle are commonly used:</p>
+
+  <table>
+    <tr>
+      <th>Angle (degrees)</th>
+      <th>Angle (radians)</th>
+      <th>\(\cos \theta\)</th>
+      <th>\(\sin \theta\)</th>
+    </tr>
+    <tr>
+      <td>\(0^\circ\)</td>
+      <td>\(0\)</td>
+      <td>\(1\)</td>
+      <td>\(0\)</td>
+    </tr>
+    <tr>
+      <td>\(30^\circ\)</td>
+      <td>\(\frac{\pi}{6}\)</td>
+      <td>\(\frac{\sqrt{3}}{2}\)</td>
+      <td>\(\frac{1}{2}\)</td>
+    </tr>
+    <tr>
+      <td>\(45^\circ\)</td>
+      <td>\(\frac{\pi}{4}\)</td>
+      <td>\(\frac{\sqrt{2}}{2}\)</td>
+      <td>\(\frac{\sqrt{2}}{2}\)</td>
+    </tr>
+    <tr>
+      <td>\(60^\circ\)</td>
+      <td>\(\frac{\pi}{3}\)</td>
+      <td>\(\frac{1}{2}\)</td>
+      <td>\(\frac{\sqrt{3}}{2}\)</td>
+    </tr>
+    <tr>
+      <td>\(90^\circ\)</td>
+      <td>\(\frac{\pi}{2}\)</td>
+      <td>\(0\)</td>
+      <td>\(1\)</td>
+    </tr>
+    <tr>
+      <td>\(180^\circ\)</td>
+      <td>\(\pi\)</td>
+      <td>\(-1\)</td>
+      <td>\(0\)</td>
+    </tr>
+    <tr>
+      <td>\(270^\circ\)</td>
+      <td>\(\frac{3\pi}{2}\)</td>
+      <td>\(0\)</td>
+      <td>\(-1\)</td>
+    </tr>
+    <tr>
+      <td>\(360^\circ\)</td>
+      <td>\(2\pi\)</td>
+      <td>\(1\)</td>
+      <td>\(0\)</td>
+    </tr>
+  </table>
+
+  <div class="important-note">
+    <div class="important-note-title">Memory Aid:</div>
+    <p>A common mnemonic for remembering the special angle values is to use the "hand trick" or memorize the patterns in the table above. Notice that cosine values decrease from 1 to 0 as angles increase from \(0^\circ\) to \(90^\circ\), while sine values increase from 0 to 1.</p>
+  </div>
+
+  <h2>3. Trigonometric Ratios</h2>
+
+  <p>For a right triangle with angle \(\theta\), the three primary trigonometric ratios are defined as follows:</p>
+
+  <div class="formula-box">
+    <strong>Right Triangle Definitions:</strong><br><br>
+    \[\sin \theta = \frac{\text{opposite}}{\text{hypotenuse}} = \frac{o}{h}\]<br><br>
+    \[\cos \theta = \frac{\text{adjacent}}{\text{hypotenuse}} = \frac{a}{h}\]<br><br>
+    \[\tan \theta = \frac{\text{opposite}}{\text{adjacent}} = \frac{o}{a}\]
+  </div>
+
+  <h3>3.1 Reciprocal Trigonometric Functions</h3>
+  <p>In addition to the three primary functions, there are three reciprocal functions:</p>
+
+  <div class="formula-box">
+    \[\csc \theta = \frac{1}{\sin \theta} = \frac{\text{hypotenuse}}{\text{opposite}}\]<br><br>
+    \[\sec \theta = \frac{1}{\cos \theta} = \frac{\text{hypotenuse}}{\text{adjacent}}\]<br><br>
+    \[\cot \theta = \frac{1}{\tan \theta} = \frac{\text{adjacent}}{\text{opposite}}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Finding Trigonometric Ratios</div>
+    <p>In a right triangle, if \(\theta = 30^\circ\) and the hypotenuse is 10 cm, find the opposite and adjacent sides.</p>
+    <p><strong>Solution:</strong></p>
+    <p>Using \(\sin 30^\circ = \frac{1}{2}\):</p>
+    <p>\[\sin 30^\circ = \frac{\text{opposite}}{10} = \frac{1}{2}\]</p>
+    <p>\[\text{opposite} = 10 \times \frac{1}{2} = 5 \text{ cm}\]</p>
+    <p>Using \(\cos 30^\circ = \frac{\sqrt{3}}{2}\):</p>
+    <p>\[\cos 30^\circ = \frac{\text{adjacent}}{10} = \frac{\sqrt{3}}{2}\]</p>
+    <p>\[\text{adjacent} = 10 \times \frac{\sqrt{3}}{2} = 5\sqrt{3} \approx 8.66 \text{ cm}\]</p>
+  </div>
+
+  <h2>4. Reference Angles</h2>
+
+  <p>A <strong>reference angle</strong> is the acute angle formed by the terminal side of an angle and the x-axis. Reference angles are useful for finding trigonometric values of angles in any quadrant.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> The reference angle \(\theta_{\text{ref}}\) is the positive acute angle between the terminal side of \(\theta\) and the x-axis.
+  </div>
+
+  <h3>4.1 Finding Reference Angles</h3>
+  <p>The method for finding the reference angle depends on the quadrant:</p>
+  <ul>
+    <li><strong>Quadrant I:</strong> \(\theta_{\text{ref}} = \theta\)</li>
+    <li><strong>Quadrant II:</strong> \(\theta_{\text{ref}} = 180^\circ - \theta\) or \(\pi - \theta\)</li>
+    <li><strong>Quadrant III:</strong> \(\theta_{\text{ref}} = \theta - 180^\circ\) or \(\theta - \pi\)</li>
+    <li><strong>Quadrant IV:</strong> \(\theta_{\text{ref}} = 360^\circ - \theta\) or \(2\pi - \theta\)</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Finding Reference Angles</div>
+    <p>Find the reference angle for \(\theta = 210^\circ\):</p>
+    <p>Since \(210^\circ\) is in Quadrant III:</p>
+    <p>\[\theta_{\text{ref}} = 210^\circ - 180^\circ = 30^\circ\]</p>
+  </div>
+
+  <h3>4.2 Using Reference Angles</h3>
+  <p>To find the trigonometric value of any angle \(\theta\):</p>
+  <ol>
+    <li>Find the reference angle \(\theta_{\text{ref}}\)</li>
+    <li>Find the trigonometric value of the reference angle</li>
+    <li>Apply the appropriate sign based on the quadrant</li>
+  </ol>
+
+  <div class="important-note">
+    <div class="important-note-title">ASTC Rule (All Students Take Calculus):</div>
+    <p>In Quadrant I: All functions are positive<br>
+    In Quadrant II: Sine and cosecant are positive<br>
+    In Quadrant III: Tangent and cotangent are positive<br>
+    In Quadrant IV: Cosine and secant are positive</p>
+  </div>
+
+  <h2>5. Trigonometric Functions of Any Angle</h2>
+
+  <p>Using the unit circle, we can define the six trigonometric functions for any angle \(\theta\):</p>
+
+  <div class="formula-box">
+    <strong>Unit Circle Definitions:</strong><br><br>
+    \[\sin \theta = y\]<br>
+    \[\cos \theta = x\]<br>
+    \[\tan \theta = \frac{y}{x} = \frac{\sin \theta}{\cos \theta}\]<br><br>
+    \[\csc \theta = \frac{1}{y} = \frac{1}{\sin \theta}\]<br>
+    \[\sec \theta = \frac{1}{x} = \frac{1}{\cos \theta}\]<br>
+    \[\cot \theta = \frac{x}{y} = \frac{\cos \theta}{\sin \theta}\]
+  </div>
+
+  <h3>5.1 Domain and Range</h3>
+  <ul>
+    <li><strong>Sine and Cosine:</strong> Domain is all real numbers, Range is \([-1, 1]\)</li>
+    <li><strong>Tangent and Cotangent:</strong> Domain excludes angles where the function is undefined, Range is all real numbers</li>
+    <li><strong>Secant and Cosecant:</strong> Domain excludes angles where the function is undefined, Range is \((-\infty, -1] \cup [1, \infty)\)</li>
+  </ul>
+
+  <h2>6. The Sine Law</h2>
+
+  <p>The <strong>Sine Law</strong> (also called the Law of Sines) is used to solve oblique triangles (triangles that do not contain a right angle). It relates the sides of a triangle to the sines of its angles.</p>
+
+  <div class="formula-box">
+    <strong>The Sine Law:</strong><br>
+    \[\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\]
+  </div>
+
+  <p>Where \(a\), \(b\), and \(c\) are the side lengths opposite to angles \(A\), \(B\), and \(C\) respectively.</p>
+
+  <h3>6.1 When to Use the Sine Law</h3>
+  <p>The Sine Law can be used when you know:</p>
+  <ul>
+    <li>Two angles and one side (AAS or ASA)</li>
+    <li>Two sides and an angle opposite one of them (SSA) - the ambiguous case</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Using the Sine Law</div>
+    <p>In triangle \(ABC\), \(A = 35^\circ\), \(B = 65^\circ\), and \(a = 12\) cm. Find side \(b\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>First, find angle \(C\):</p>
+    <p>\[C = 180^\circ - 35^\circ - 65^\circ = 80^\circ\]</p>
+    <p>Using the Sine Law:</p>
+    <p>\[\frac{a}{\sin A} = \frac{b}{\sin B}\]</p>
+    <p>\[\frac{12}{\sin 35^\circ} = \frac{b}{\sin 65^\circ}\]</p>
+    <p>\[b = \frac{12 \cdot \sin 65^\circ}{\sin 35^\circ} \approx \frac{12 \cdot 0.9063}{0.5736} \approx 18.97 \text{ cm}\]</p>
+  </div>
+
+  <h3>6.2 The Ambiguous Case (SSA)</h3>
+  <p>When given two sides and a non-included angle (SSA), there may be:</p>
+  <ul>
+    <li><strong>No solution:</strong> If \(a < h\) (where \(h = b \sin A\))</li>
+    <li><strong>One solution:</strong> If \(a \geq b\) or \(a = h\)</li>
+    <li><strong>Two solutions:</strong> If \(h < a < b\)</li>
+  </ul>
+
+  <div class="important-note">
+    <div class="important-note-title">Ambiguous Case:</div>
+    <p>When using SSA, always check if the given information produces one or two possible triangles. The height \(h = b \sin A\) helps determine the number of solutions.</p>
+  </div>
+
+  <h2>7. The Cosine Law</h2>
+
+  <p>The <strong>Cosine Law</strong> (also called the Law of Cosines) is used to solve triangles when the Sine Law cannot be applied. It relates the lengths of the sides of a triangle to the cosine of one of its angles.</p>
+
+  <div class="formula-box">
+    <strong>The Cosine Law:</strong><br>
+    \[a^2 = b^2 + c^2 - 2bc \cos A\]<br>
+    \[b^2 = a^2 + c^2 - 2ac \cos B\]<br>
+    \[c^2 = a^2 + b^2 - 2ab \cos C\]
+  </div>
+
+  <h3>7.1 When to Use the Cosine Law</h3>
+  <p>The Cosine Law can be used when you know:</p>
+  <ul>
+    <li>Three sides (SSS) - to find an angle</li>
+    <li>Two sides and the included angle (SAS) - to find the third side</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Using the Cosine Law</div>
+    <p>In triangle \(ABC\), \(a = 8\) cm, \(b = 10\) cm, and \(C = 60^\circ\). Find side \(c\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>Using the Cosine Law:</p>
+    <p>\[c^2 = a^2 + b^2 - 2ab \cos C\]</p>
+    <p>\[c^2 = 8^2 + 10^2 - 2(8)(10) \cos 60^\circ\]</p>
+    <p>\[c^2 = 64 + 100 - 160(0.5)\]</p>
+    <p>\[c^2 = 164 - 80 = 84\]</p>
+    <p>\[c = \sqrt{84} \approx 9.17 \text{ cm}\]</p>
+  </div>
+
+  <h3>7.2 Finding Angles Using the Cosine Law</h3>
+  <p>To find an angle when all three sides are known, rearrange the formula:</p>
+
+  <div class="formula-box">
+    \[\cos A = \frac{b^2 + c^2 - a^2}{2bc}\]<br>
+    \[\cos B = \frac{a^2 + c^2 - b^2}{2ac}\]<br>
+    \[\cos C = \frac{a^2 + b^2 - c^2}{2ab}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: Finding an Angle</div>
+    <p>In triangle \(ABC\), \(a = 7\) cm, \(b = 8\) cm, and \(c = 9\) cm. Find angle \(C\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>Using the rearranged Cosine Law:</p>
+    <p>\[\cos C = \frac{a^2 + b^2 - c^2}{2ab}\]</p>
+    <p>\[\cos C = \frac{7^2 + 8^2 - 9^2}{2(7)(8)}\]</p>
+    <p>\[\cos C = \frac{49 + 64 - 81}{112} = \frac{32}{112} \approx 0.2857\]</p>
+    <p>\[C = \cos^{-1}(0.2857) \approx 73.4^\circ\]</p>
+  </div>
+
+  <h2>8. Solving Triangle Problems</h2>
+
+  <h3>8.1 Strategy for Solving Triangles</h3>
+  <ol>
+    <li>Draw a diagram and label all known information</li>
+    <li>Determine which law to use (Sine Law or Cosine Law)</li>
+    <li>Apply the appropriate law</li>
+    <li>Solve for the unknown values</li>
+    <li>Check your answer using the triangle angle sum or other relationships</li>
+  </ol>
+
+  <h3>8.2 Applications</h3>
+  <p>The Sine and Cosine Laws are used to solve real-world problems involving:</p>
+  <ul>
+    <li>Navigation and bearings</li>
+    <li>Surveying and mapping</li>
+    <li>Physics (forces, vectors)</li>
+    <li>Engineering problems</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-title">Example 9: Real-World Application</div>
+    <p>A ship leaves port and sails 15 km on a bearing of \(045^\circ\), then changes course and sails 20 km on a bearing of \(135^\circ\). How far is the ship from the port?</p>
+    <p><strong>Solution:</strong></p>
+    <p>This forms a triangle with two sides and the included angle. Use the Cosine Law:</p>
+    <p>\[c^2 = 15^2 + 20^2 - 2(15)(20) \cos 90^\circ\]</p>
+    <p>\[c^2 = 225 + 400 - 0 = 625\]</p>
+    <p>\[c = 25 \text{ km}\]</p>
+  </div>
+
+  <h2>9. Summary of Key Concepts</h2>
+
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Formula/Definition</th>
+    </tr>
+    <tr>
+      <td>Degree to Radian</td>
+      <td>\(\text{rad} = \text{deg} \times \frac{\pi}{180}\)</td>
+    </tr>
+    <tr>
+      <td>Radian to Degree</td>
+      <td>\(\text{deg} = \text{rad} \times \frac{180}{\pi}\)</td>
+    </tr>
+    <tr>
+      <td>Sine Law</td>
+      <td>\(\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\)</td>
+    </tr>
+    <tr>
+      <td>Cosine Law</td>
+      <td>\(a^2 = b^2 + c^2 - 2bc \cos A\)</td>
+    </tr>
+    <tr>
+      <td>Sine</td>
+      <td>\(\sin \theta = \frac{\text{opposite}}{\text{hypotenuse}}\)</td>
+    </tr>
+    <tr>
+      <td>Cosine</td>
+      <td>\(\cos \theta = \frac{\text{adjacent}}{\text{hypotenuse}}\)</td>
+    </tr>
+    <tr>
+      <td>Tangent</td>
+      <td>\(\tan \theta = \frac{\text{opposite}}{\text{adjacent}}\)</td>
+    </tr>
+  </table>
+
+  <h2>10. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Convert \(120^\circ\) to radians.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Convert \(\frac{5\pi}{6}\) radians to degrees.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Find the reference angle for \(\theta = 300^\circ\).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>If \(\sin \theta = \frac{3}{5}\) and \(\theta\) is in Quadrant II, find \(\cos \theta\) and \(\tan \theta\).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 5</div>
+    <p>For the function \(y = 2\cos(3x - \pi) - 1\), find the amplitude, period, phase shift, and vertical shift.</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-11.html">← Back to Course</a>
+  </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../math-simulator.js"></script>
+ </body>

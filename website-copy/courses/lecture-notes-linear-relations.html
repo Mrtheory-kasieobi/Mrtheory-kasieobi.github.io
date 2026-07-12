@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 1: Measurement | Mathematics 10</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .theorem-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    /* Accessibility mode overrides */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .theorem-title,
+    body.accessibility-mode .example-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode .theorem-box,
+    body.accessibility-mode .example-box {
+      border-left-color: #0055cc !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Mathematics 10</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Lecture 1: Measurement</h1>
+      <div class="subtitle">Mathematics 10 - Chapter 1</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>1.1 Imperial Measures of Length</h2>
+      <p>
+        The Imperial system uses inches, feet, yards, and miles for measuring length. Understanding 
+        these units is essential for working with measurements in everyday life and in some technical fields.
+      </p>
+      <p><strong>Why Study Imperial Units?</strong> While most of the world uses metric, the US and some 
+      industries still use Imperial measurements. Construction, real estate, and aviation often use 
+      feet and inches. Being able to convert between systems is a practical life skill.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Imperial Length Conversions</div>
+        <p>
+          <strong>Key Conversion Factors:</strong><br>
+          1 foot = 12 inches<br>
+          1 yard = 3 feet = 36 inches<br>
+          1 mile = 1760 yards = 5280 feet
+        </p>
+      </div>
+      
+      <div class="example-box">
+        <div class="example-title">Example 1: Converting Feet to Inches</div>
+        <p>A room is 15 feet long. How many inches is this?</p>
+        <p>15 feet × 12 inches/foot = 180 inches</p>
+        <p><strong>Motivation:</strong> This conversion is needed when buying flooring or curtains 
+        that are sold by the inch.</p>
+      </div>
+
+      <h2>1.2 Math Lab: Measuring Length and Distance</h2>
+      <p>
+        In this lab, you'll practice measuring objects using rulers, tape measures, and other tools. 
+        You'll learn to:
+      </p>
+      <ul>
+        <li>Read measurements to the nearest fraction of an inch</li>
+        <li>Use significant figures in measurements</li>
+        <li>Estimate measurements before taking them</li>
+        <li>Understand measurement uncertainty and precision</li>
+      </ul>
+      <p><strong>Real-World Connection:</strong> Carpenters, engineers, and scientists all need to 
+      measure accurately. A small error in measurement can lead to a bridge that doesn't fit or a 
+      machine that doesn't work.</p>
+
+      <h2>1.3 Relating SI and Imperial Units</h2>
+      <p>
+        The SI (metric) system uses meters, centimeters, and kilometers. To convert between systems, 
+        we use the exact relationship: 1 inch = 2.54 cm.
+      </p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Conversion Factor</div>
+        <p>
+          <strong>To convert from inches to centimeters:</strong> multiply by 2.54<br>
+          <strong>To convert from centimeters to inches:</strong> divide by 2.54<br>
+          <strong>To convert from feet to meters:</strong> multiply by 0.3048<br>
+          <strong>To convert from meters to feet:</strong> divide by 0.3048
+        </p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Converting Meters to Feet</div>
+        <p>A room is 4.5 meters wide. What is this in feet?</p>
+        <p>4.5 meters ÷ 0.3048 meters/foot ≈ 14.76 feet</p>
+        <p><strong>Motivation:</strong> This is useful when traveling to countries that use different 
+        measurement systems or when working with international specifications.</p>
+      </div>
+
+      <h2>1.4 Surface Areas of Right Pyramids and Right Cones</h2>
+      <p>
+        A right pyramid has a base that is a regular polygon and the apex is directly above the center. 
+        A right cone has a circular base and the apex is directly above the center.
+      </p>
+      <p><strong>Why These Shapes Matter:</strong> Pyramids and cones appear in architecture, 
+      packaging, and nature. The Louvre Pyramid, traffic cones, and even some mountains have these shapes. 
+      Understanding their surface area helps us calculate materials needed for construction or painting.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Surface Area Formulas</div>
+        <p>For a right pyramid with a regular polygonal base: \(SA = B + \frac{1}{2}Ps\)</p>
+        <p>where B is the base area, P is the perimeter, and s is the slant height.</p>
+        <p>For a right cone: \(SA = \pi r^2 + \pi r l\)</p>
+        <p>where r is the radius and l is the slant height.</p>
+      </div>
+
+      <h2>1.5 Volumes of Right Pyramids and Right Cones</h2>
+      <p>
+        The volume of a right pyramid or cone is one-third the volume of a prism or cylinder with 
+        the same base and height.
+      </p>
+      <p><strong>Why One-Third?</strong> This relationship can be understood by filling a cylinder 
+      with water and pouring it into three identical pyramids with the same base and height. This 
+      principle is fundamental to calculus and was discovered by ancient mathematicians.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Volume Formulas</div>
+        <p>For a right pyramid: \(V = \frac{1}{3}Bh\) where B is base area and h is height.</p>
+        <p>For a right cone: \(V = \frac{1}{3}\pi r^2 h\)</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Volume of a Traffic Cone</div>
+        <p>A traffic cone has radius 10 cm and height 35 cm. What is its volume?</p>
+        <p>\(V = \frac{1}{3}\pi(10)^2(35) = \frac{3500\pi}{3} \approx 3665 \text{ cm}^3\)</p>
+        <p><strong>Motivation:</strong> This helps manufacturers determine how much plastic is needed 
+        to make each cone.</p>
+      </div>
+
+      <h2>1.6 Surface Area and Volume of a Sphere</h2>
+      <p>
+        A sphere is a three-dimensional shape where all points on the surface are equidistant from 
+        the center. This distance is called the radius.
+      </p>
+      <p><strong>Why Spheres Are Special:</strong> Spheres have the smallest surface area for a 
+      given volume, which is why soap bubbles and water droplets form spherical shapes. This principle 
+      is used in engineering to minimize material usage.</p>
+      
+      <div class="theorem-box">
+        <div class="theorem-title">Sphere Formulas</div>
+        <p><strong>Formulas for a sphere with radius r:</strong></p>
+        <p>Surface Area: \(SA = 4\pi r^2\)</p>
+        <p>Volume: \(V = \frac{4}{3}\pi r^3\)</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 4: Volume of a Basketball</div>
+        <p>A basketball has radius 12 cm. What is its volume and surface area?</p>
+        <p>\(V = \frac{4}{3}\pi(12)^3 = 724 \text{ cm}^3\)</p>
+        <p>\(SA = 4\pi(12)^2 = 572 \text{ cm}^2\)</p>
+        <p><strong>Motivation:</strong> Manufacturers use these calculations to ensure basketballs 
+        meet official size requirements.</p>
+      </div>
+
+      <h2>1.7 Solving Problems Involving Objects</h2>
+      <p>
+        When solving measurement problems, follow this systematic approach:
+      </p>
+      <ol>
+        <li>Identify the shape and what you need to find</li>
+        <li>Determine the appropriate formula</li>
+        <li>Ensure all measurements are in the same unit</li>
+        <li>Substitute values and calculate</li>
+        <li>Check if your answer is reasonable</li>
+      </ol>
+      <p><strong>Real-World Applications:</strong> These skills are used in construction, 
+      manufacturing, cooking, and many other fields where precise measurements matter.</p>
+
+      <div class="math-lab" id="measurement-sim">
+        <h3 class="math-lab__title">Unit Conversion Calculator</h3>
+        <p class="math-lab__description">
+          Convert between Imperial and SI units for length, area, and volume.
+        </p>
+        <div class="math-lab__controls">
+          <label>
+            <span>Value:</span>
+            <input type="number" id="mvalue-input" class="math-lab__input" value="1" step="any">
+          </label>
+          <label>
+            <span>From:</span>
+            <select id="mfrom-input" class="math-lab__input">
+              <option value="in-cm">Inches to Centimeters</option>
+              <option value="cm-in">Centimeters to Inches</option>
+              <option value="ft-m">Feet to Meters</option>
+              <option value="m-ft">Meters to Feet</option>
+              <option value="yd-m">Yards to Meters</option>
+              <option value="m-yd">Meters to Yards</option>
+            </select>
+          </label>
+          <button id="mcalculate-btn" class="math-lab__button">Convert</button>
+        </div>
+        <div class="math-lab__output">
+          <p>Enter a value and select conversion type to see the result.</p>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <a href="mathematics-10.html">← Back to Course</a>
+        <a href="lecture-notes-trigonometry-m10.html">Next Lecture →</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../math-simulator.js"></script>
+ </body>
+</html>

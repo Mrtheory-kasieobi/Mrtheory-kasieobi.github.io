@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polynomial Functions - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Polynomial Functions</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Polynomial Functions</h2>
+  
+  <h3>1.1 Why Study Polynomials?</h3>
+  <p>Polynomials are among the simplest functions in mathematics, yet they can model incredibly complex phenomena. From the trajectory of a projectile to the growth of populations, polynomials provide a versatile tool for understanding the world around us.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Real-World Applications:</div>
+    <p>Polynomials are used in physics (projectile motion), economics (cost functions), engineering (stress analysis), and computer graphics (Bezier curves). The Fundamental Theorem of Algebra tells us that every polynomial equation has solutions in the complex numbers.</p>
+  </div>
+
+  <h3>1.2 Definition and Form</h3>
+  <p>A <strong>polynomial function</strong> is a function of the form:</p>
+
+  <div class="formula-box">
+    \[P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\]
+  </div>
+
+  <p>where \(n\) is a non-negative integer and the coefficients \(a_i\) are real numbers.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A polynomial function is a sum of powers of \(x\) multiplied by coefficients. The degree of the polynomial is the highest power of \(x\) with a non-zero coefficient.
+  </div>
+
+  <h3>1.3 Types of Polynomials</h3>
+  <ul>
+    <li><strong>Monomial:</strong> One term (e.g., \(3x^2\))</li>
+    <li><strong>Binomial:</strong> Two terms (e.g., \(x^2 + 1\))</li>
+    <li><strong>Trinomial:</strong> Three terms (e.g., \(x^2 + 2x + 1\))</li>
+  </ul>
+
+  <h2>2. Characteristics of Polynomial Functions</h2>
+
+  <h3>2.1 End Behavior and Its Importance</h3>
+  <p>The end behavior of a polynomial function describes what happens to the function values as \(x\) approaches positive or negative infinity. This is crucial for understanding long-term trends in models.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">End Behavior Rules:</div>
+    <ul>
+      <li>If degree is even and leading coefficient is positive: both ends go up</li>
+      <li>If degree is even and leading coefficient is negative: both ends go down</li>
+      <li>If degree is odd and leading coefficient is positive: left down, right up</li>
+      <li>If degree is odd and leading coefficient is negative: left up, right down</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Analyzing a Polynomial</div>
+    <p>Analyze \(f(x) = -x^3 + 2x^2 + 5x - 1\)</p>
+    <p>Degree: 3 (odd), Leading coefficient: -1 (negative)</p>
+    <p>End behavior: as \(x \to -\infty\), \(f(x) \to \infty\); as \(x \to \infty\), \(f(x) \to -\infty\)</p>
+    <p>Maximum turning points: 2</p>
+    <p><strong>Motivation:</strong> This tells us the function will eventually decrease without bound as \(x\) increases, which is important for understanding the long-term behavior of the model.</p>
+  </div>
+
+  <h3>2.2 Number of Turning Points</h3>
+  <p>A polynomial of degree \(n\) can have at most \(n - 1\) turning points. This limits the complexity of the graph's shape.</p>
+
+  <h3>2.3 Behavior Near Zeros</h3>
+  <p>The multiplicity of a zero determines how the graph behaves at that x-intercept:</p>
+  <ul>
+    <li>Odd multiplicity: graph crosses the x-axis</li>
+    <li>Even multiplicity: graph touches but doesn't cross the x-axis</li>
+  </ul>
+
+  <h2>3. The Remainder Theorem</h2>
+
+  <h3>3.1 Why the Remainder Theorem Works</h3>
+  <p>When we divide a polynomial \(P(x)\) by \((x - a)\), we get \(P(x) = (x - a) \cdot Q(x) + R\) where \(R\) is the remainder. Substituting \(x = a\) gives \(P(a) = 0 \cdot Q(a) + R = R\).</p>
+
+  <div class="definition-box">
+    <strong>Remainder Theorem:</strong> If a polynomial \(P(x)\) is divided by \((x - a)\), the remainder is \(P(a)\).
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Using the Remainder Theorem</div>
+    <p>When \(P(x) = x^3 - 2x^2 + 3x - 4\) is divided by \((x - 2)\), find the remainder.</p>
+    <p>By the Remainder Theorem: \(P(2) = 8 - 8 + 6 - 4 = 2\)</p>
+    <p>The remainder is 2.</p>
+    <p><strong>Motivation:</strong> This theorem provides a quick way to check if a value is a zero without doing long division.</p>
+  </div>
+
+  <h2>4. The Factor Theorem</h2>
+
+  <h3>4.1 Connection to the Remainder Theorem</h3>
+  <p>The Factor Theorem is a special case of the Remainder Theorem. If the remainder is zero, then \((x - a)\) is a factor of the polynomial.</p>
+
+  <div class="definition-box">
+    <strong>Factor Theorem:</strong> \((x - a)\) is a factor of polynomial \(P(x)\) if and only if \(P(a) = 0\).
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Using the Factor Theorem</div>
+    <p>Determine if \((x - 1)\) is a factor of \(P(x) = x^3 - 3x^2 + 3x - 1\).</p>
+    <p>Check: \(P(1) = 1 - 3 + 3 - 1 = 0\)</p>
+    <p>Yes, \((x - 1)\) is a factor.</p>
+    <p><strong>Motivation:</strong> This is the foundation for factoring polynomials and finding all their zeros.</p>
+  </div>
+
+  <h2>5. Equations and Graphs of Polynomial Functions</h2>
+
+  <h3>5.1 Finding Zeros Using Rational Root Theorem</h3>
+  <p>The Rational Root Theorem helps us find potential rational zeros. If a polynomial has integer coefficients, any rational zero \(\frac{p}{q}\) must have \(p\) dividing the constant term and \(q\) dividing the leading coefficient.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Finding Zeros</div>
+    <p>Find the zeros of \(f(x) = x^3 - 4x^2 + x + 6\).</p>
+    <p>Potential rational zeros: \(\pm 1, \pm 2, \pm 3, \pm 6\)</p>
+    <p>Testing \(x = 2\): \(f(2) = 8 - 16 + 2 + 6 = 0\) ✓</p>
+    <p>Using synthetic division: \(f(x) = (x - 2)(x^2 - 2x - 3) = (x - 2)(x - 3)(x + 1)\)</p>
+    <p>Zeros: \(x = -1, 2, 3\)</p>
+    <p><strong>Motivation:</strong> Finding zeros is essential for solving optimization problems and understanding where a model changes sign.</p>
+  </div>
+
+  <h3>5.2 Graphing Polynomial Functions</h3>
+  <p>To graph a polynomial, we identify key features that determine its shape:</p>
+
+  <div class="formula-box">
+    <strong>Graphing Checklist:</strong>
+    <ol style="text-align: left; margin: 0;">
+      <li>End behavior (degree and leading coefficient)</li>
+      <li>X-intercepts (zeros and their multiplicities)</li>
+      <li>Y-intercept (value at \(x = 0\))</li>
+      <li>Turning points and inflection points</li>
+      <li>Symmetry (even/odd functions)</li>
+    </ol>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Graphing a Polynomial</div>
+    <p>Graph \(f(x) = (x + 1)(x - 1)^2(x - 3)\)</p>
+    <p>X-intercepts: \(x = -1\) (crosses, odd multiplicity), \(x = 1\) (touches, even multiplicity), \(x = 3\) (crosses)</p>
+    <p>Y-intercept: \(f(0) = (-1)(1)(3) = -3\)</p>
+    <p>End behavior: degree 4 (even), positive leading coefficient, both ends up</p>
+    <p><strong>Motivation:</strong> This graph shows how multiplicity affects the shape near zeros, which is important for understanding resonance in physics and engineering.</p>
+  </div>
+
+  <h2>6. Applications and Modeling</h2>
+
+  <h3>6.1 Real-World Application: Projectile Motion</h3>
+  <p>The height of a projectile follows a polynomial equation. For a ball thrown upward with initial velocity \(v_0\) from height \(h_0\):</p>
+
+  <div class="formula-box">
+    \[h(t) = -\frac{1}{2}gt^2 + v_0t + h_0\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Projectile Motion</div>
+    <p>A ball is thrown upward from 2 meters with velocity 15 m/s. Its height is \(h(t) = -4.9t^2 + 15t + 2\). When does it hit the ground?</p>
+    <p>Solve: \(-4.9t^2 + 15t + 2 = 0\)</p>
+    <p>Using quadratic formula: \(t \approx 3.16\) seconds</p>
+    <p><strong>Motivation:</strong> This shows how polynomials model real-world motion, which is fundamental to physics and engineering.</p>
+  </div>
+
+  <h2>7. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>State the end behavior of \(f(x) = -2x^4 + x^3 + 5x - 1\) and explain what it means for the long-term behavior of the function.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Use the Remainder Theorem to find the remainder when \(P(x) = 2x^3 - 5x + 1\) is divided by \((x + 2)\).</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Find all zeros of \(f(x) = x^3 - 6x^2 + 11x - 6\) and sketch the graph, indicating behavior near each zero.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>A company's profit is modeled by \(P(x) = -0.1x^3 + 2x^2 + 5x - 10\) where \(x\) is thousands of units sold. Find the break-even points and interpret them.</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rational Expressions and Equations - Lecture Notes | Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Accessibility mode overrides for dyslexic readers */
+    body.accessibility-mode .lecture-header,
+    body.accessibility-mode .lecture-content,
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note,
+    body.accessibility-mode table {
+      background: #ffffff !important;
+      color: #2a3a5a !important;
+      border-color: #d0e0ff !important;
+    }
+
+    body.accessibility-mode .lecture-header h1,
+    body.accessibility-mode .lecture-content h2,
+    body.accessibility-mode .lecture-content h3 {
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode .definition-box,
+    body.accessibility-mode .example-box,
+    body.accessibility-mode .formula-box,
+    body.accessibility-mode .important-note {
+      border-left-color: #0055cc !important;
+    }
+
+    body.accessibility-mode .definition-box strong,
+    body.accessibility-mode .example-title,
+    body.accessibility-mode .important-note-title {
+      color: #0055cc !important;
+    }
+
+    body.accessibility-mode th {
+      background: #e6f0ff !important;
+      color: #003366 !important;
+    }
+
+    body.accessibility-mode table {
+      background: #ffffff !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Rational Expressions and Equations</h1>
+      <div class="subtitle">Precalculus 11 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Rational Expressions</h2>
+  
+  <p>A <strong>rational expression</strong> is a fraction in which the numerator and/or denominator are polynomials.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A rational expression is of the form \(\frac{P(x)}{Q(x)}\), where \(P(x)\) and \(Q(x)\) are polynomials and \(Q(x) \neq 0\).
+  </div>
+
+  <h3>1.1 Domain of Rational Expressions</h3>
+  <p>The domain consists of all real numbers except those that make the denominator equal to zero.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Finding the Domain</div>
+    <p>Find the domain of \(\frac{x + 2}{x^2 - 9}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Set denominator equal to zero: \(x^2 - 9 = 0\)</p>
+    <p>\(x^2 = 9\)</p>
+    <p>\(x = \pm 3\)</p>
+    <p><strong>Domain:</strong> All real numbers except \(x \neq \pm 3\)</p>
+  </div>
+
+  <h2>2. Simplifying Rational Expressions</h2>
+
+  <p>To simplify a rational expression, factor the numerator and denominator, then cancel common factors.</p>
+
+  <div class="formula-box">
+    <strong>Steps to Simplify:</strong><br>
+    1. Factor numerator and denominator completely<br>
+    2. Cancel common factors<br>
+    3. State restrictions (values that make the original denominator zero)
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Simplifying Rational Expressions</div>
+    <p>Simplify: \(\frac{x^2 - 9}{x^2 - 6x + 9}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Factor numerator: \(x^2 - 9 = (x + 3)(x - 3)\)</p>
+    <p>Factor denominator: \(x^2 - 6x + 9 = (x - 3)^2\)</p>
+    <p>\[\frac{x^2 - 9}{x^2 - 6x + 9} = \frac{(x + 3)(x - 3)}{(x - 3)(x - 3)} = \frac{x + 3}{x - 3}\]</p>
+    <p><strong>Restriction:</strong> \(x \neq 3\)</p>
+  </div>
+
+  <h2>3. Multiplying and Dividing Rational Expressions</h2>
+
+  <h3>3.1 Multiplying Rational Expressions</h3>
+  <p>To multiply rational expressions, multiply the numerators and denominators, then simplify:</p>
+
+  <div class="formula-box">
+    \[\frac{P(x)}{Q(x)} \cdot \frac{R(x)}{S(x)} = \frac{P(x) \cdot R(x)}{Q(x) \cdot S(x)}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Multiplying Rational Expressions</div>
+    <p>Multiply: \(\frac{x^2 - 4}{x^2 - x - 6} \cdot \frac{x + 2}{x - 2}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Factor: \(\frac{(x + 2)(x - 2)}{(x - 3)(x + 2)} \cdot \frac{x + 2}{x - 2}\)</p>
+    <p>Multiply: \(\frac{(x + 2)(x - 2)(x + 2)}{(x - 3)(x + 2)(x - 2)}\)</p>
+    <p>Cancel: \(\frac{x + 2}{x - 3}\)</p>
+    <p><strong>Restrictions:</strong> \(x \neq 3, x \neq -2, x \neq 2\)</p>
+  </div>
+
+  <h3>3.2 Dividing Rational Expressions</h3>
+  <p>To divide rational expressions, multiply by the reciprocal of the divisor:</p>
+
+  <div class="formula-box">
+    \[\frac{P(x)}{Q(x)} \div \frac{R(x)}{S(x)} = \frac{P(x)}{Q(x)} \cdot \frac{S(x)}{R(x)}\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Dividing Rational Expressions</div>
+    <p>Divide: \(\frac{x^2 - 1}{x^2 + 5x + 6} \div \frac{x - 1}{x + 3}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Multiply by reciprocal: \(\frac{x^2 - 1}{x^2 + 5x + 6} \cdot \frac{x + 3}{x - 1}\)</p>
+    <p>Factor: \(\frac{(x + 1)(x - 1)}{(x + 3)(x + 2)} \cdot \frac{x + 3}{x - 1}\)</p>
+    <p>Cancel: \(\frac{x + 1}{x + 2}\)</p>
+    <p><strong>Restrictions:</strong> \(x \neq -3, x \neq -2, x \neq 1\)</p>
+  </div>
+
+  <h2>4. Adding and Subtracting Rational Expressions</h2>
+
+  <p>To add or subtract rational expressions, find a common denominator, then combine the numerators.</p>
+
+  <h3>4.1 Finding the Least Common Denominator (LCD)</h3>
+  <p>The LCD is the least common multiple of the denominators.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Adding Rational Expressions</div>
+    <p>Add: \(\frac{2}{x - 1} + \frac{3}{x + 2}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>LCD = \((x - 1)(x + 2)\)</p>
+    <p>\[\frac{2(x + 2)}{(x - 1)(x + 2)} + \frac{3(x - 1)}{(x + 2)(x - 1)}\]</p>
+    <p>\[= \frac{2x + 4 + 3x - 3}{(x - 1)(x + 2)}\]</p>
+    <p>\[= \frac{5x + 1}{(x - 1)(x + 2)}\]</p>
+    <p><strong>Restrictions:</strong> \(x \neq 1, x \neq -2\)</p>
+  </div>
+
+  <h3>4.2 Adding with Like Denominators</h3>
+  <p>When denominators are the same, simply add or subtract the numerators:</p>
+
+  <div class="formula-box">
+    \[\frac{P(x)}{Q(x)} \pm \frac{R(x)}{Q(x)} = \frac{P(x) \pm R(x)}{Q(x)}\]
+  </div>
+
+  <h2>5. Rational Equations</h2>
+
+  <p>A <strong>rational equation</strong> is an equation containing rational expressions.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> A rational equation is an equation that involves at least one rational expression.
+  </div>
+
+  <h3>5.1 Solving Rational Equations</h3>
+  <p>To solve a rational equation:</p>
+  <ol>
+    <li>Find the LCD of all denominators</li>
+    <li>Multiply every term by the LCD</li>
+    <li>Solve the resulting polynomial equation</li>
+    <li>Check for extraneous solutions</li>
+  </ol>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Solving a Rational Equation</div>
+    <p>Solve: \(\frac{2}{x} + \frac{3}{x - 1} = 1\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>LCD = \(x(x - 1)\)</p>
+    <p>Multiply by LCD: \(2(x - 1) + 3x = x(x - 1)\)</p>
+    <p>\(2x - 2 + 3x = x^2 - x\)</p>
+    <p>\(5x - 2 = x^2 - x\)</p>
+    <p>\(x^2 - 6x + 2 = 0\)</p>
+    <p>Using quadratic formula: \(x = \frac{6 \pm \sqrt{36 - 8}}{2} = \frac{6 \pm \sqrt{28}}{2}\)</p>
+    <p><strong>Check:</strong> Neither solution makes any denominator zero</p>
+  </div>
+
+  <h3>5.2 Extraneous Solutions</h3>
+  <p>When solving rational equations, always check solutions in the original equation. Solutions that make any denominator zero are extraneous and must be rejected.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Important:</div>
+    <p>Always state the restrictions before solving, and check all solutions in the original equation to avoid extraneous solutions.</p>
+  </div>
+
+  <h2>6. Summary of Key Concepts</h2>
+
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Formula/Definition</th>
+    </tr>
+    <tr>
+      <td>Rational Expression</td>
+      <td>\(\frac{P(x)}{Q(x)}\) where \(Q(x) \neq 0\)</td>
+    </tr>
+    <tr>
+      <td>Multiplying</td>
+      <td>\(\frac{P}{Q} \cdot \frac{R}{S} = \frac{PR}{QS}\)</td>
+    </tr>
+    <tr>
+      <td>Dividing</td>
+      <td>\(\frac{P}{Q} \div \frac{R}{S} = \frac{P}{Q} \cdot \frac{S}{R}\)</td>
+    </tr>
+    <tr>
+      <td>Adding/Subtracting</td>
+      <td>Find LCD, then combine numerators</td>
+    </tr>
+    <tr>
+      <td>Solving Rational Equations</td>
+      <td>Multiply by LCD, solve, check for extraneous solutions</td>
+    </tr>
+  </table>
+
+  <h2>7. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Simplify: \(\frac{x^2 - 16}{x^2 - 5x + 4}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Multiply: \(\frac{x + 3}{x - 2} \cdot \frac{x^2 - 4}{x^2 + 6x + 9}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Add: \(\frac{1}{x + 1} + \frac{2}{x - 1}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Solve: \(\frac{1}{x} + \frac{1}{x + 2} = \frac{3}{4}\)</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-11.html">← Back to Course</a>
+  </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../math-simulator.js"></script>
+ </body>

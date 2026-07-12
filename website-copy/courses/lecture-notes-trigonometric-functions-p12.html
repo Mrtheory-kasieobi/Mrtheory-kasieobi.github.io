@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trigonometric Functions and Graphs - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Trigonometric Functions and Graphs</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Graphing Sine and Cosine Functions</h2>
+  
+  <h3>1.1 Why Sinusoidal Functions Matter</h3>
+  <p>Sinusoidal functions model periodic phenomena - anything that repeats at regular intervals. From the oscillation of springs to the alternating current in electrical systems, sine and cosine functions are fundamental to understanding waves and cycles in nature and technology.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Real-World Applications:</div>
+    <p>Sinusoidal functions model sound waves, light waves, tides, seasonal temperature variations, heartbeats, and the motion of pendulums. Understanding these functions is essential for physics, engineering, and signal processing.</p>
+  </div>
+
+  <h3>1.2 General Forms of Sinusoidal Functions</h3>
+  <p>The general forms of sinusoidal functions are:</p>
+
+  <div class="formula-box">
+    <strong>General Sine Function:</strong><br>
+    \[f(x) = a\sin(bx - c) + d\]<br><br>
+    <strong>General Cosine Function:</strong><br>
+    \[f(x) = a\cos(bx - c) + d\]
+  </div>
+
+  <h3>1.3 Key Parameters and Their Meaning</h3>
+  <ul>
+    <li><strong>Amplitude (\(|a|\)):</strong> The maximum displacement from the midline. This represents the peak value in applications like sound volume or wave height.</li>
+    <li><strong>Period (\(\frac{2\pi}{|b|}\)):</strong> The length of one complete cycle. This tells us how long it takes for the pattern to repeat.</li>
+    <li><strong>Phase Shift (\(\frac{c}{b}\)):</strong> Horizontal shift (right if positive). This represents a time delay or advance in wave phenomena.</li>
+    <li><strong>Vertical Shift (\(d\)):</strong> Shifts the midline up or down. This represents the average value in applications.</li>
+  </ul>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Analyzing a Sine Function</div>
+    <p>Analyze \(f(x) = 3\sin(2x - \pi) + 1\).</p>
+    <p>Amplitude: \(|3| = 3\) (the wave oscillates 3 units above and below the midline)</p>
+    <p>Period: \(\frac{2\pi}{2} = \pi\) (one complete cycle every \(\pi\) units)</p>
+    <p>Phase shift: \(\frac{\pi}{2}\) (shift right by \(\frac{\pi}{2}\))</p>
+    <p>Vertical shift: 1 (midline at \(y = 1\))</p>
+    <p><strong>Motivation:</strong> This function could model a sound wave with amplitude 3, period \(\pi\) seconds, starting \(\frac{\pi}{2}\) seconds late, and average value 1.</p>
+  </div>
+
+  <h2>2. Transformations of Sinusoidal Functions</h2>
+
+  <h3>2.1 Step-by-Step Graphing Process</h3>
+  <p>To graph a transformed sinusoidal function, we follow a systematic approach that helps us understand how each parameter affects the graph:</p>
+
+  <div class="formula-box">
+    <strong>Graphing Strategy:</strong>
+    <ol style="text-align: left; margin: 0;">
+      <li>Identify the amplitude, period, phase shift, and vertical shift</li>
+      <li>Draw the midline (horizontal line at \(y = d\))</li>
+      <li>Mark the maximum and minimum lines at \(d \pm |a|\)</li>
+      <li>Divide the period into four equal parts to find key points</li>
+      <li>Apply the phase shift to all x-coordinates</li>
+      <li>Plot the key points and sketch the smooth curve</li>
+    </ol>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Graphing a Transformed Cosine</div>
+    <p>Graph \(f(x) = 2\cos(\frac{1}{2}x) - 1\) for one period.</p>
+    <p>Amplitude: 2, Period: \(4\pi\), Phase shift: 0, Vertical shift: -1</p>
+    <p>Midline: \(y = -1\), Max: \(y = 1\), Min: \(y = -3\)</p>
+    <p>Key points for one period: \(x = 0, \pi, 2\pi, 3\pi, 4\pi\)</p>
+    <p>Corresponding y-values: \(1, 0, -3, 0, 1\)</p>
+    <p><strong>Motivation:</strong> This slow oscillation (period \(4\pi\)) could model seasonal temperature variations with a 2°C variation around an average of -1°C.</p>
+  </div>
+
+  <h3>2.2 Understanding Phase Shift</h3>
+  <p>Phase shift represents a horizontal translation. For \(f(x) = a\sin(bx - c) + d\), the phase shift is \(\frac{c}{b}\). This is crucial in applications involving wave interference and signal timing.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Phase Shift Interpretation</div>
+    <p>Two sound waves are modeled by \(f_1(x) = \sin(x)\) and \(f_2(x) = \sin(x - \frac{\pi}{2})\). How do they differ?</p>
+    <p>\(f_2(x)\) is shifted \(\frac{\pi}{2}\) units to the right compared to \(f_1(x)\). This represents a time delay in the sound wave.</p>
+    <p><strong>Motivation:</strong> Phase differences between waves create interference patterns, which are fundamental to acoustics and optics.</p>
+  </div>
+
+  <h2>3. The Tangent Function</h2>
+
+  <h3>3.1 Why Study Tangent?</h3>
+  <p>The tangent function completes a full cycle in \(\pi\) instead of \(2\pi\), making it useful for modeling phenomena with shorter periods. It's also essential for understanding slopes and angles in calculus.</p>
+
+  <h3>3.2 Properties of Tangent</h3>
+  <p>The tangent function has the form \(f(x) = \tan x = \frac{\sin x}{\cos x}\). It has vertical asymptotes where \(\cos x = 0\).</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Key Properties of Tangent:</div>
+    <ul>
+      <li>Period: \(\pi\) (shorter than sine/cosine)</li>
+      <li>Vertical asymptotes at \(x = \frac{\pi}{2} + \pi n\)</li>
+      <li>Passes through origin with slope 1</li>
+      <li>Range: all real numbers</li>
+      <li>Odd function: \(\tan(-x) = -\tan(x)\)</li>
+    </ul>
+  </div>
+
+  <div class="formula-box">
+    <strong>Transformed Tangent:</strong><br>
+    \[f(x) = a\tan(bx - c) + d\]
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Tangent Function Analysis</div>
+    <p>Analyze \(f(x) = 2\tan(3x) + 1\).</p>
+    <p>Period: \(\frac{\pi}{3}\), Asymptotes at \(x = \frac{\pi}{6} + \frac{\pi}{3}n\)</p>
+    <p>Midline: \(y = 1\), Vertical stretch by factor 2</p>
+    <p><strong>Motivation:</strong> The tangent function models the relationship between angle and slope in trigonometry, which is essential for understanding derivatives.</p>
+  </div>
+
+  <h2>4. Equations and Graphs of Trigonometric Functions</h2>
+
+  <h3>4.1 Finding the Equation from a Graph</h3>
+  <p>To find the equation of a sinusoidal function from its graph, we need to identify the key parameters. This reverse process helps us model real-world data.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Finding Equation from Graph</div>
+    <p>A cosine function has maximum at \((0, 3)\), minimum at \((\pi, -1)\), and period \(2\pi\).</p>
+    <p>Amplitude: \(\frac{3 - (-1)}{2} = 2\)</p>
+    <p>Midline: \(\frac{3 + (-1)}{2} = 1\)</p>
+    <p>Vertical shift: 1</p>
+    <p>Equation: \(f(x) = 2\cos(x) + 1\)</p>
+    <p><strong>Motivation:</strong> This process is used in data analysis to find mathematical models for periodic phenomena like tides or seasonal sales.</p>
+  </div>
+
+  <h3>4.2 Solving Trigonometric Equations</h3>
+  <p>To solve equations like \(a\sin(bx + c) = d\), we isolate the trigonometric function and find all solutions. This is essential for finding when periodic phenomena reach specific values.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Solving Trigonometric Equations</div>
+    <p>Solve \(2\sin(x) + 1 = 0\) for \(x \in [0, 2\pi)\).</p>
+    <p>\(\sin(x) = -\frac{1}{2}\)</p>
+    <p>\(x = \frac{7\pi}{6}, \frac{11\pi}{6}\)</p>
+    <p><strong>Motivation:</strong> This tells us when a pendulum reaches a specific height below its equilibrium position.</p>
+  </div>
+
+  <h2>5. Applications of Sinusoidal Functions</h2>
+
+  <h3>5.1 Simple Harmonic Motion</h3>
+  <p>Sinusoidal functions model simple harmonic motion, where a restoring force is proportional to displacement. This is fundamental to understanding springs, pendulums, and waves.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Simple Harmonic Motion</div>
+    <p>A mass on a spring oscillates with position \(x(t) = 0.1\cos(8\pi t)\) where \(t\) is in seconds. Find the amplitude, period, and frequency.</p>
+    <p>Amplitude: 0.1 m, Period: \(\frac{2\pi}{8\pi} = \frac{1}{4}\) s, Frequency: 4 Hz</p>
+    <p><strong>Motivation:</strong> This models the motion of a guitar string or a car's suspension system.</p>
+  </div>
+
+  <h3>5.2 Temperature Modeling</h3>
+  <p>Temperature variations throughout the year can be modeled using sinusoidal functions. The phase shift tells us about seasonal timing.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: Temperature Model</div>
+    <p>Temperature in Vancouver is modeled by \(T(d) = 8\sin(\frac{2\pi}{365}d) + 10\) where \(d\) is the day of the year. Find the maximum and minimum temperatures.</p>
+    <p>Maximum: \(10 + 8 = 18°C\), Minimum: \(10 - 8 = 2°C\)</p>
+    <p><strong>Motivation:</strong> This helps us understand climate patterns and design heating/cooling systems.</p>
+  </div>
+
+  <h2>6. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Find the amplitude, period, and phase shift of \(f(x) = 4\cos(\frac{1}{3}x + \frac{\pi}{2})\). What is the midline?</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Graph one period of \(f(x) = -2\sin(\frac{2\pi}{3}x) + 3\). Label the key points and asymptotes.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Solve \(\cos(2x) = \frac{1}{2}\) for \(x \in [0, 2\pi)\). Give the general solution.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>A Ferris wheel has radius 20m and completes one revolution every 4 minutes. If you board at the bottom, find a sinusoidal function for your height above ground after \(t\) minutes.</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>

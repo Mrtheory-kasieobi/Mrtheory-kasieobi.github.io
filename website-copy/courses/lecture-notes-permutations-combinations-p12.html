@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permutations, Combinations, and Binomial Theorem - Lecture Notes | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Permutations, Combinations, and Binomial Theorem</h1>
+      <div class="subtitle">Precalculus 12 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. Introduction to Counting Principles</h2>
+  
+  <h3>1.1 Why Counting Matters</h3>
+  <p>Counting principles are fundamental to probability, statistics, and computer science. They help us understand how many possible outcomes exist in a given situation, which is essential for making predictions and analyzing data.</p>
+
+  <div class="important-note">
+    <div class="important-note-title">Real-World Applications:</div>
+    <p>Counting principles are used in cryptography (how many possible passwords?), genetics (how many possible DNA sequences?), and game theory (how many possible moves?). Understanding these concepts is crucial for data science and machine learning.</p>
+  </div>
+
+  <h3>1.2 The Fundamental Counting Principle</h3>
+  <p>If there are \(m\) ways to do one thing and \(n\) ways to do another, then there are \(m \times n\) ways to do both.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: License Plates</div>
+    <p>How many different license plates can be made with 3 letters followed by 3 digits?</p>
+    <p>There are 26 choices for each letter and 10 choices for each digit.</p>
+    <p>Total = \(26 \times 26 \times 26 \times 10 \times 10 \times 10 = 17,576,000\)</p>
+    <p><strong>Motivation:</strong> This principle is used in computer security to calculate the strength of passwords and encryption keys.</p>
+  </div>
+
+  <h2>2. Permutations</h2>
+
+  <h3>2.1 Definition and Intuition</h3>
+  <p>A <strong>permutation</strong> is an arrangement of objects in a specific order. Order matters in permutations - arranging books A, B, C is different from B, A, C.</p>
+
+  <div class="definition-box">
+    <strong>Permutation Formula:</strong> The number of permutations of \(n\) objects taken \(r\) at a time is:
+    \[P(n, r) = \frac{n!}{(n-r)!}\]
+  </div>
+
+  <h3>2.2 Why This Formula Works</h3>
+  <p>When selecting \(r\) objects from \(n\) in order, we have \(n\) choices for the first position, \(n-1\) for the second, and so on. This gives us \(n(n-1)(n-2)...(n-r+1) = \frac{n!}{(n-r)!}\).</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Race Finishing Orders</div>
+    <p>In a race with 8 runners, how many different ways can the top 3 finish?</p>
+    <p>\(P(8, 3) = \frac{8!}{(8-3)!} = \frac{8!}{5!} = 8 \times 7 \times 6 = 336\)</p>
+    <p><strong>Motivation:</strong> This is used in sports statistics, ranking algorithms, and any situation where order matters.</p>
+  </div>
+
+  <h3>2.3 Circular Permutations</h3>
+  <p>When arranging objects in a circle, we fix one object and arrange the rest, giving \((n-1)!\) arrangements.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Seating Arrangements</div>
+    <p>How many ways can 6 people sit around a circular table?</p>
+    <p>\((6-1)! = 5! = 120\) ways</p>
+    <p><strong>Motivation:</strong> This is important for understanding symmetry in molecular chemistry and computer network topologies.</p>
+  </div>
+
+  <h2>3. Combinations</h2>
+
+  <h3>3.1 Definition and Intuition</h3>
+  <p>A <strong>combination</strong> is a selection of objects where order does not matter. Choosing team members A, B, C is the same as B, A, C.</p>
+
+  <div class="definition-box">
+    <strong>Combination Formula:</strong> The number of combinations of \(n\) objects taken \(r\) at a time is:
+    \[C(n, r) = \binom{n}{r} = \frac{n!}{r!(n-r)!}\]
+  </div>
+
+  <h3>3.2 Why This Formula Works</h3>
+  <p>Each combination of \(r\) objects can be arranged in \(r!\) different orders. Since we don't care about order, we divide the permutation count by \(r!\).</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Selecting Committee Members</div>
+    <p>How many ways can 3 students be selected from a class of 10?</p>
+    <p>\(C(10, 3) = \frac{10!}{3! \cdot 7!} = \frac{10 \times 9 \times 8}{3 \times 2 \times 1} = 120\)</p>
+    <p><strong>Motivation:</strong> This is used in quality control, survey sampling, and any situation where we need to select a group without regard to order.</p>
+  </div>
+
+  <h3>3.3 Pascal's Triangle and Combinations</h3>
+  <p>Pascal's triangle provides a visual way to understand combinations. Each entry is the sum of the two entries above it.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Pascal's Triangle</div>
+    <p>The 5th row of Pascal's triangle gives us the coefficients for \((a + b)^4\):</p>
+    <p>1, 4, 6, 4, 1 correspond to \(\binom{4}{0}, \binom{4}{1}, \binom{4}{2}, \binom{4}{3}, \binom{4}{4}\)</p>
+    <p><strong>Motivation:</strong> This connection between combinations and binomial expansions is fundamental to probability theory and combinatorics.</p>
+  </div>
+
+  <h2>4. The Binomial Theorem</h2>
+
+  <h3>4.1 Statement and Intuition</h3>
+  <p>The binomial theorem provides a formula for expanding \((a + b)^n\). This is a powerful tool for algebra and probability.</p>
+
+  <div class="formula-box">
+    <strong>Binomial Theorem:</strong><br>
+    \[(a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k} b^k\]
+  </div>
+
+  <h3>4.2 Why This Works</h3>
+  <p>When expanding \((a + b)^n\), each term comes from choosing \(k\) factors of \(b\) and \(n-k\) factors of \(a\). The number of ways to make this choice is \(\binom{n}{k}\).</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Using the Binomial Theorem</div>
+    <p>Expand \((x + 2)^4\) using the binomial theorem.</p>
+    <p>\[(x + 2)^4 = \binom{4}{0}x^4(2)^0 + \binom{4}{1}x^3(2)^1 + \binom{4}{2}x^2(2)^2 + \binom{4}{3}x^1(2)^3 + \binom{4}{4}x^0(2)^4\]</p>
+    <p>\[= x^4 + 8x^3 + 24x^2 + 32x + 16\]</p>
+    <p><strong>Motivation:</strong> This theorem is used in probability (binomial distribution), calculus (Taylor series), and computer science (algorithm analysis).</p>
+  </div>
+
+  <h3>4.3 Finding Specific Terms</h3>
+  <p>The \(k\)th term in the expansion of \((a + b)^n\) is \(\binom{n}{k-1} a^{n-k+1} b^{k-1}\).</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Finding a Specific Term</div>
+    <p>Find the 3rd term in the expansion of \((x + 3)^5\).</p>
+    <p>\(k = 3\), so the term is \(\binom{5}{2} x^3(3)^2 = 10 \times x^3 \times 9 = 90x^3\)</p>
+    <p><strong>Motivation:</strong> This is useful in probability when we only need the probability of a specific number of successes.</p>
+  </div>
+
+  <h2>5. Applications and Connections</h2>
+
+  <h3>5.1 Probability and Statistics</h3>
+  <p>Combinations are essential for calculating probabilities in binomial distributions, which model the number of successes in independent trials.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: Binomial Probability</div>
+    <p>If a fair coin is flipped 5 times, what is the probability of getting exactly 3 heads?</p>
+    <p>Number of ways to get 3 heads: \(C(5, 3) = 10\)</p>
+    <p>Total outcomes: \(2^5 = 32\)</p>
+    <p>Probability: \(\frac{10}{32} = \frac{5}{16}\)</p>
+    <p><strong>Motivation:</strong> This is the foundation of statistical inference and hypothesis testing.</p>
+  </div>
+
+  <h3>5.2 Real-World Application: Quality Control</h3>
+  <p>A committee of 4 people is to be formed from 6 men and 5 women. How many ways can this be done if:</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 9: Committee Selection</div>
+    <p>(a) There are no restrictions? \(C(11, 4) = 330\)</p>
+    <p>(b) There must be at least 2 women? \(C(5, 2) \cdot C(6, 2) + C(5, 3) \cdot C(6, 1) + C(5, 4) \cdot C(6, 0) = 150\)</p>
+    <p><strong>Motivation:</strong> This type of counting is used in market research, political polling, and resource allocation problems.</p>
+  </div>
+
+  <h2>6. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>How many different 4-digit PINs can be created using digits 0-9 if repetition is not allowed? Explain why this is a permutation problem.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Expand \((2x - 1)^3\) using the binomial theorem. What is the coefficient of the \(x^2\) term?</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>In how many ways can a pizza shop offer 3-topping pizzas if they have 8 toppings to choose from? Explain why this is a combination problem.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>A deck of cards has 52 cards. If 5 cards are dealt, what is the probability of getting exactly 3 aces? (Hint: Use combinations to count favorable and total outcomes.)</p>
+  </div>
+
+  <div class="navigation">
+    <a href="precalculus-12.html">← Back to Course</a>
+  </div>
+</body>
+</html>
