@@ -584,7 +584,7 @@
           if (!checked) {
             q.classList.add('is-unanswered');
             fb.classList.add('unanswered');
-            fb.textContent = 'Not answered. Correct answer: ' + correct;
+            fb.textContent = 'Not answered.';
           } else if (checked.value === correct) {
             mcMarks += 1;
             q.classList.add('is-correct');
@@ -593,7 +593,7 @@
           } else {
             q.classList.add('is-incorrect');
             fb.classList.add('incorrect');
-            fb.textContent = 'Incorrect. Correct answer: ' + correct;
+            fb.textContent = 'Incorrect.';
           }
           q.appendChild(fb);
         });
@@ -619,11 +619,11 @@
           } else if (matched === 0) {
             q.classList.add('is-incorrect');
             fb.classList.add('incorrect');
-            fb.textContent = 'Review needed. Expected: ' + (q.getAttribute('data-explain') || '');
+            fb.textContent = 'Review needed.';
           } else {
             q.classList.add('is-partial');
             fb.classList.add('partial');
-            fb.textContent = 'Partial (' + earned + '/' + points + '). Expected: ' + (q.getAttribute('data-explain') || '');
+            fb.textContent = 'Partial (' + earned + '/' + points + ').';
           }
           q.appendChild(fb);
         });
