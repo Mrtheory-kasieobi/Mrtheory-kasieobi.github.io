@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Editor - Secure</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
+        .login-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
+        .login-form { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%; max-width: 400px; }
+        .login-form h2 { text-align: center; margin-bottom: 1.5rem; color: #00d4ff; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #aaa; }
+        .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #333; border-radius: 6px; background: #1e1e2f; color: #fff; }
+        .form-group input:focus { outline: none; border-color: #00d4ff; }
+        .btn { width: 100%; padding: 0.75rem; border: none; border-radius: 6px; background: linear-gradient(135deg, #00d4ff, #0099cc); color: #1a1a2e; font-weight: bold; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,212,255,0.3); }
+        .admin-container { display: none; min-height: 100vh; background: #0f0f1a; }
+        .admin-container.active { display: block; }
+        .admin-header { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 100; }
+        .admin-nav { display: flex; gap: 1rem; }
+        .nav-btn { padding: 0.5rem 1rem; border: 1px solid #333; border-radius: 6px; background: #1e1e2f; color: #aaa; cursor: pointer; transition: all 0.2s; }
+        .nav-btn:hover { background: #00d4ff; color: #1a1a2e; }
+        .editor-container { display: flex; height: calc(100vh - 60px); }
+        .sidebar { width: 280px; background: #1a1a2e; padding: 1rem; border-right: 1px solid #333; overflow-y: auto; }
+        .sidebar h3 { color: #00d4ff; margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+        .page-item { padding: 0.75rem; margin-bottom: 0.5rem; background: #16213e; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
+        .page-item:hover { background: #0f0f1a; }
+        .page-item.active { background: #00d4ff; color: #1a1a2e; }
+        .editor-wrapper { flex: 1; display: flex; flex-direction: column; }
+        .toolbar { background: #1a1a2e; padding: 0.5rem; border-bottom: 1px solid #333; display: flex; gap: 0.25rem; flex-wrap: wrap; }
+        .toolbar-btn { width: 32px; height: 32px; border: none; background: #16213e; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #aaa; transition: all 0.2s; }
+        .toolbar-btn:hover { background: #00d4ff; color: #1a1a2e; }
+        .toolbar-separator { width: 1px; height: 24px; background: #333; }
+        .content-editor { flex: 1; padding: 1rem; overflow: auto; }
+        .editor { width: 100%; min-height: 600px; background: #0f0f1a; color: #eee; border: 1px solid #333; border-radius: 8px; padding: 1rem; font-family: Georgia, serif; font-size: 16px; line-height: 1.6; outline: none; }
+        .editor:focus { border-color: #00d4ff; }
+        .actions { padding: 1rem; background: #1a1a2e; border-top: 1px solid #333; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .action-btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
+        .action-btn.save { background: linear-gradient(135deg, #00c853, #00e676); color: #1a1a2e; }
+        .action-btn.preview { background: linear-gradient(135deg, #2196f3, #03a9f4); color: #fff; }
+        .action-btn.cancel { background: linear-gradient(135deg, #f44336, #ff5252); color: #fff; }
+        .action-btn.restore { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #1a1a2e; }
+        .action-btn.publish { background: linear-gradient(135deg, #9c27b0, #ba68c8); color: #fff; }
+        .preview-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 1000; }
+        .preview-modal.active { display: block; }
+        .preview-content { max-width: 900px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 12px; color: #000; }
+        .close-preview { position: absolute; top: 1rem; right: 1rem; background: #f44336; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; }
+        .notification { position: fixed; bottom: 20px; right: 20px; padding: 1rem 1.5rem; border-radius: 8px; background: #333; color: #fff; display: none; z-index: 1000; }
+        .notification.show { display: block; }
+        .notification.success { background: linear-gradient(135deg, #00c853, #00e676); }
+        .notification.error { background: linear-gradient(135deg, #f44336, #ff5252); }
+    </style>
+</head>
+<body>
+    <div class="login-container" id="loginContainer">
+        <div class="login-form">
+            <h2><i class="fas fa-lock"></i> Admin Access</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="admin-container" id="adminContainer">
+        <div class="admin-header">
+            <div><strong>Admin Editor</strong> <span id="currentPage"></span></div>
+            <div class="admin-nav">
+                <span id="userName">admin</span>
+                <button class="nav-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+        <div class="editor-container">
+            <div class="sidebar">
+                <h3>Pages</h3>
+                <div id="pageList"></div>
+            </div>
+            <div class="editor-wrapper">
+                <div class="toolbar">
+                    <button class="toolbar-btn" title="Heading 1" onclick="formatElement('h1')"><i class="fas fa-heading"></i> H1</button>
+                    <button class="toolbar-btn" title="Heading 2" onclick="formatElement('h2')"><i class="fas fa-heading"></i> H2</button>
+                    <button class="toolbar-btn" title="Bold" onclick="formatElement('bold')"><b>B</b></button>
+                    <button class="toolbar-btn" title="Italic" onclick="formatElement('italic')"><i>I</i></button>
+                    <button class="toolbar-btn" title="Bullet List" onclick="formatElement('bullet')"><i class="fas fa-list-ul"></i></button>
+                    <button class="toolbar-btn" title="Numbered List" onclick="formatElement('number')"><i class="fas fa-list-ol"></i></button>
+                    <button class="toolbar-btn" title="Link" onclick="formatElement('link')"><i class="fas fa-link"></i></button>
+                    <button class="toolbar-btn" title="Math Equation" onclick="formatElement('math')"><i class="fas fa-sigma-tilde"></i></button>
+                    <div class="toolbar-separator"></div>
+                    <button class="toolbar-btn" title="Save" onclick="saveContent()"><i class="fas fa-save"></i></button>
+                    <button class="toolbar-btn" title="Preview" onclick="previewContent()"><i class="fas fa-eye"></i></button>
+                    <button class="toolbar-btn" title="Cancel" onclick="cancelEdit()"><i class="fas fa-undo"></i></button>
+                    <button class="toolbar-btn" title="Restore" onclick="restoreVersion()"><i class="fas fa-history"></i></button>
+                </div>
+                <div class="content-editor">
+                    <div id="editor" class="editor" contenteditable="true"></div>
+                </div>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="action-btn save" onclick="saveContent()"><i class="fas fa-save"></i> Save</button>
+            <button class="action-btn preview" onclick="previewContent()"><i class="fas fa-eye"></i> Preview</button>
+            <button class="action-btn cancel" onclick="cancelEdit()"><i class="fas fa-undo"></i> Cancel</button>
+            <button class="action-btn restore" onclick="restoreVersion()"><i class="fas fa-history"></i> Restore Version</button>
+            <button class="action-btn publish" onclick="publishContent()"><i class="fas fa-rocket"></i> Publish</button>
+        </div>
+    </div>
+
+    <div class="preview-modal" id="previewModal">
+        <div class="preview-content" id="previewContent"></div>
+        <button class="close-preview" onclick="closePreview()">×</button>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        const ADMIN_PASSWORD = 'pokgev-4Pimho-wixjep';
+        let currentPage = '';
+        let originalContent = '';
+        let pages = {
+            'index.html': 'Homepage',
+            'teaching.html': 'Teaching',
+            'courses/calculus-1.html': 'Calculus I',
+            'courses/calculus-2.html': 'Calculus II',
+            'courses/calculus-3.html': 'Calculus III',
+            'courses/linear-algebra.html': 'Linear Algebra',
+            'courses/real-analysis.html': 'Real Analysis',
+            'courses/introduction-to-proofs.html': 'Introduction to Proofs',
+            'courses/number-theory.html': 'Elementary Number Theory',
+            'courses/algebra-I.html': 'Algebra I',
+            'courses/algebra-II.html': 'Algebra II',
+            'research.html': 'Research',
+            'about.html': 'About',
+            'contact.html': 'Contact',
+            'notes.html': 'Notes',
+            'blog.html': 'Blog'
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            
+            if (username === 'admin' && password === ADMIN_PASSWORD) {
+                loadPages();
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('adminContainer').classList.add('active');
+            } else {
+                showNotification('Invalid credentials', 'error');
+            }
+        });
+
+        function loadPages() {
+            const pageList = document.getElementById('pageList');
+            Object.keys(pages).forEach(slug => {
+                const item = document.createElement('div');
+                item.className = 'page-item';
+                item.textContent = pages[slug];
+                item.dataset.page = slug;
+                item.addEventListener('click', function() {
+                    selectPage(this.dataset.page);
+                    document.querySelectorAll('.page-item').forEach(el => el.classList.remove('active'));
+                    this.classList.add('active');
+                });
+                pageList.appendChild(item);
+            });
+            if (Object.keys(pages).length > 0) {
+                const firstItem = pageList.querySelector('.page-item');
+                if (firstItem) firstItem.classList.add('active');
+                selectPage(Object.keys(pages)[0]);
+            }
+        }
+
+        function selectPage(page) {
+            currentPage = page;
+            document.getElementById('currentPage').textContent = page;
+            document.getElementById('editor').innerHTML = '';
+            
+            if (!page) return;
+            
+            const url = './' + page;
+            fetch(url)
+                .then(response => response.text())
+                .then(content => {
+                    originalContent = content;
+                    document.getElementById('editor').innerHTML = content;
+                })
+                .catch(() => {
+                    document.getElementById('editor').innerHTML = '<p style="color:#666">Page not found or cannot be loaded locally.</p>';
+                    originalContent = '';
+                });
+        }
+
+        function formatElement(tag) {
+            const editor = document.getElementById('editor');
+            const sel = window.getSelection();
+            if (sel.rangeCount === 0) return;
+            const range = sel.getRangeAt(0);
+            
+            if (tag === 'bold') {
+                const bold = document.createElement('strong');
+                range.deleteContents();
+                range.insertNode(bold);
+                range.setStartAfter(bold);
+                range.setEndAfter(bold);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            } else if (tag === 'italic') {
+                const italic = document.createElement('i');
+                range.deleteContents();
+                range.insertNode(italic);
+                range.setStartAfter(italic);
+                range.setEndAfter(italic);
+                sel.removeAllRanges();
+                sel.addRange(range);
+            } else if (tag === 'bullet') {
+                const ul = document.createElement('ul');
+                const li = document.createElement('li');
+                li.textContent = 'List item';
+                ul.appendChild(li);
+                range.deleteContents();
+                range.insertNode(ul);
+            } else if (tag === 'number') {
+                const ol = document.createElement('ol');
+                const li = document.createElement('li');
+                li.textContent = 'List item';
+                ol.appendChild(li);
+                range.deleteContents();
+                range.insertNode(ol);
+            } else if (tag === 'link') {
+                const url = prompt('Enter URL:');
+                if (url) {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.textContent = url;
+                    range.deleteContents();
+                    range.insertNode(a);
+                }
+            } else if (tag === 'math') {
+                const span = document.createElement('span');
+                span.className = 'math';
+                span.innerHTML = '$$...$$';
+                range.deleteContents();
+                range.insertNode(span);
+            } else {
+                const element = document.createElement(tag);
+                range.deleteContents();
+                range.insertNode(element);
+            }
+        }
+
+        function getContent() {
+            return document.getElementById('editor').innerHTML;
+        }
+
+        function saveContent() {
+            const content = getContent();
+            if (!content || content === '<p></p>') {
+                showNotification('No content to save', 'error');
+                return;
+            }
+            originalContent = content;
+            showNotification('Content saved locally (will be saved to server when deployed)', 'success');
+        }
+
+        function previewContent() {
+            const content = getContent();
+            if (!content || content === '<p></p>') {
+                showNotification('No content to preview', 'error');
+                return;
+            }
+            document.getElementById('previewContent').innerHTML = content;
+            document.getElementById('previewModal').classList.add('active');
+        }
+
+        function closePreview() {
+            document.getElementById('previewModal').classList.remove('active');
+        }
+
+        function cancelEdit() {
+            document.getElementById('editor').innerHTML = originalContent;
+            showNotification('Changes cancelled', 'success');
+        }
+
+        function restoreVersion() {
+            if (confirm('Are you sure you want to restore the previous version?')) {
+                document.getElementById('editor').innerHTML = originalContent;
+                showNotification('Previous version restored', 'success');
+            }
+        }
+
+        function publishContent() {
+            saveContent();
+            showNotification('Content ready to publish (requires server upload)', 'success');
+        }
+
+        function showNotification(message, type) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = 'notification ' + type + ' show';
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('adminContainer').classList.remove('active');
+            document.getElementById('editor').innerHTML = '';
+        });
+
+        $(document).on('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('previewModal').classList.contains('active')) {
+                closePreview();
+            }
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+</html>
