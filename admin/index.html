@@ -41,6 +41,7 @@
         .actions { padding: 1rem; background: #1a1a2e; border-top: 1px solid #333; display: flex; gap: 0.5rem; flex-wrap: wrap; }
         .action-btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
         .action-btn.save { background: linear-gradient(135deg, #00c853, #00e676); color: #1a1a2e; }
+        .action-btn.download { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #1a1a2e; }
         .action-btn.preview { background: linear-gradient(135deg, #2196f3, #03a9f4); color: #fff; }
         .action-btn.cancel { background: linear-gradient(135deg, #f44336, #ff5252); color: #fff; }
         .action-btn.restore { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #1a1a2e; }
@@ -98,6 +99,7 @@
                     <button class="toolbar-btn" title="Math Equation" onclick="formatElement('math')"><i class="fas fa-sigma-tilde"></i></button>
                     <div class="toolbar-separator"></div>
                     <button class="toolbar-btn" title="Save" onclick="saveContent()"><i class="fas fa-save"></i></button>
+                    <button class="toolbar-btn" title="Download" onclick="downloadContent()"><i class="fas fa-download"></i></button>
                     <button class="toolbar-btn" title="Preview" onclick="previewContent()"><i class="fas fa-eye"></i></button>
                     <button class="toolbar-btn" title="Cancel" onclick="cancelEdit()"><i class="fas fa-undo"></i></button>
                     <button class="toolbar-btn" title="Restore" onclick="restoreVersion()"><i class="fas fa-history"></i></button>
@@ -109,6 +111,7 @@
         </div>
         <div class="actions">
             <button class="action-btn save" onclick="saveContent()"><i class="fas fa-save"></i> Save</button>
+            <button class="action-btn download" onclick="downloadContent()"><i class="fas fa-download"></i> Download</button>
             <button class="action-btn preview" onclick="previewContent()"><i class="fas fa-eye"></i> Preview</button>
             <button class="action-btn cancel" onclick="cancelEdit()"><i class="fas fa-undo"></i> Cancel</button>
             <button class="action-btn restore" onclick="restoreVersion()"><i class="fas fa-history"></i> Restore Version</button>
@@ -188,7 +191,17 @@
             
             if (!page) return;
             
-            const url = './' + page;
+            // Check for saved content in localStorage first
+            const savedData = localStorage.getItem('admin_save_' + page);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                originalContent = data.content;
+                document.getElementById('editor').innerHTML = data.content;
+                return;
+            }
+            
+            // Fetch original content
+            const url = '../' + page;
             fetch(url)
                 .then(response => response.text())
                 .then(content => {
@@ -269,8 +282,44 @@
                 showNotification('No content to save', 'error');
                 return;
             }
+            
+            // Save to localStorage for persistence
+            const saveData = {
+                page: currentPage,
+                content: content,
+                timestamp: new Date().toISOString()
+            };
+            localStorage.setItem('admin_save_' + currentPage, JSON.stringify(saveData));
+            
+            // Also save to a combined history
+            let history = JSON.parse(localStorage.getItem('admin_history') || '{}');
+            if (!history[currentPage]) history[currentPage] = [];
+            history[currentPage].push({
+                content: content,
+                timestamp: new Date().toISOString()
+            });
+            // Keep only last 10 versions
+            if (history[currentPage].length > 10) {
+                history[currentPage] = history[currentPage].slice(-10);
+            }
+            localStorage.setItem('admin_history', JSON.stringify(history));
+            
             originalContent = content;
-            showNotification('Content saved locally (will be saved to server when deployed)', 'success');
+            showNotification('Content saved locally (stored in browser)', 'success');
+        }
+        
+        function downloadContent() {
+            const content = getContent();
+            const blob = new Blob([content], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentPage;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showNotification('File downloaded - save it to your project folder', 'success');
         }
 
         function previewContent() {
