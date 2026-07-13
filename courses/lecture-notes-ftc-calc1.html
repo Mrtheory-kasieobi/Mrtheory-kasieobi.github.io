@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Definite Integrals and Fundamental Theorem of Calculus - Calculus I">
+  <title>Kasieobi Udumaga | Definite Integrals and FTC - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Definite Integrals and Fundamental Theorem of Calculus</h1>
+      <div class="subtitle">Calculus I - Week 10</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>1. Definite Integrals</h2>
+      
+      <h3>1.1 Definition via Riemann Sums</h3>
+      <div class="definition-box">
+        <strong>Definite Integral:</strong>
+        The definite integral of \(f\) over \([a,b]\) is:
+        $$\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x$$
+        where \(\Delta x = \frac{b-a}{n}\) and \(x_i^*\) is any point in the \(i\)-th subinterval.
+      </div>
+
+      <h3>1.2 Properties of Definite Integrals</h3>
+      <div class="theorem-box">
+        <strong>Theorem 1.1 (Properties):</strong>
+        For any function \(f\) and constants \(c\):
+        <ol>
+          <li>\(\int_a^b [f(x) + g(x)] \, dx = \int_a^b f(x) \, dx + \int_a^b g(x) \, dx\)</li>
+          <li>\(\int_a^b c \cdot f(x) \, dx = c \int_a^b f(x) \, dx\)</li>
+          <li>\(\int_a^b f(x) \, dx = -\int_b^a f(x) \, dx\)</li>
+          <li>\(\int_a^a f(x) \, dx = 0\)</li>
+          <li>\(\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx\)</li>
+        </ol>
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of Property 3:</strong>
+        By definition, if \(x_i^*\) partitions \([a,b]\), then for \([b,a]\) we have \(a_i^*\) partitioning \([b,a]\).
+        
+        The Riemann sum for \(\int_b^a f(x) \, dx\) is \(\sum f(a_i^*) \cdot \frac{a-b}{n}\).
+        
+        As \(n \to \infty\), this approaches \(-\int_a^b f(x) \, dx\). ∎
+      </div>
+
+      <h3>1.3 Inequalities for Integrals</h3>
+      <div class="theorem-box">
+        <strong>Theorem 1.2:</strong>
+        If \(m \leq f(x) \leq M\) for all \(x \in [a,b]\), then:
+        $$m(b-a) \leq \int_a^b f(x) \, dx \leq M(b-a)$$
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.1:</strong> Estimate \(\int_0^1 x^2 \, dx\) using the inequalities.
+        <p>On \([0,1]\): \(0 \leq x^2 \leq 1\)</p>
+        <p>Therefore: \(0 \leq \int_0^1 x^2 \, dx \leq 1\)</p>
+        <p>Actually: \(\int_0^1 x^2 \, dx = \frac{1}{3}\)</p>
+      </div>
+
+      <h2>2. The Fundamental Theorem of Calculus</h2>
+
+      <h3>2.1 Part 1: Derivative of an Integral</h3>
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part 1:</strong>
+        If \(f\) is continuous on \([a,b]\), define \(F(x) = \int_a^x f(t) \, dt\). Then \(F\) is differentiable on \((a,b)\) and \(F'(x) = f(x)\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof:</strong>
+        Let \(h > 0\) (the case \(h < 0\) is similar). We need to show:
+        $$\lim_{h \to 0} \frac{F(x+h) - F(x)}{h} = f(x)$$
+        
+        Compute:
+        $$\frac{F(x+h) - F(x)}{h} = \frac{1}{h}\left[\int_a^{x+h} f(t) \, dt - \int_a^x f(t) \, dt\right]$$
+        
+        $$= \frac{1}{h} \int_x^{x+h} f(t) \, dt$$
+        
+        By the Mean Value Theorem for integrals, there exists \(c_h \in [x, x+h]\) such that:
+        $$\int_x^{x+h} f(t) \, dt = f(c_h) \cdot h$$
+        
+        Therefore:
+        $$\frac{F(x+h) - F(x)}{h} = f(c_h)$$
+        
+        As \(h \to 0\), \(c_h \to x\), and by continuity of \(f\):
+        $$\lim_{h \to 0} f(c_h) = f(x)$$
+        
+        Hence \(F'(x) = f(x)\). ∎
+      </div>
+
+      <h3>2.2 Part 2: Evaluation of Definite Integrals</h3>
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part 2:</strong>
+        If \(f\) is continuous on \([a,b]\) and \(F\) is any antiderivative of \(f\), then:
+        $$\int_a^b f(x) \, dx = F(b) - F(a)$$
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof:</strong>
+        Let \(G(x) = \int_a^x f(t) \, dt\). By FTC Part 1, \(G'(x) = f(x)\).
+        
+        Also, since \(F\) is an antiderivative of \(f\), we have \(F'(x) = f(x)\).
+        
+        Therefore, \(G'(x) = F'(x)\) for all \(x \in [a,b]\), so \(G(x) - F(x)\) is constant.
+        
+        Let this constant be \(C\). Then \(G(x) = F(x) + C\).
+        
+        Evaluating at \(x = a\):
+        $$G(a) = \int_a^a f(t) \, dt = 0 = F(a) + C$$
+        
+        So \(C = -F(a)\) and \(G(x) = F(x) - F(a)\).
+        
+        Therefore:
+        $$\int_a^b f(x) \, dx = G(b) = F(b) - F(a)$$
+        ∎
+      </div>
+
+      <div class="formula-box">
+        FTC connects differentiation and integration as inverse operations.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1:</strong> Evaluate \(\int_0^{\pi/2} \sin x \, dx\).
+        <p>Antiderivative: \(F(x) = -\cos x\)</p>
+        <p>Result: \(F(\pi/2) - F(0) = -\cos(\pi/2) - (-\cos(0)) = 0 + 1 = 1\)</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2:</strong> Evaluate \(\int_1^e \frac{\ln x}{x} \, dx\).
+        <p>Let \(u = \ln x\), then \(du = \frac{1}{x} dx\)</p>
+        <p>When \(x = 1\): \(u = 0\). When \(x = e\): \(u = 1\).</p>
+        <p>Result: \(\int_0^1 u \, du = \frac{u^2}{2}\Big|_0^1 = \frac{1}{2}\)</p>
+      </div>
+
+      <h2>3. Average Value of a Function</h2>
+
+      <div class="definition-box">
+        <strong>Formula 3.1 (Average Value):</strong>
+        The average value of \(f\) over \([a,b]\) is:
+        $$f_{\text{avg}} = \frac{1}{b-a} \int_a^b f(x) \, dx$$
+      </div>
+
+      <div class="theorem-box">
+        <strong>Mean Value Theorem for Integrals:</strong>
+        If \(f\) is continuous on \([a,b]\), then there exists \(c \in [a,b]\) such that:
+        $$f(c) = \frac{1}{b-a} \int_a^b f(x) \, dx$$
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1:</strong> Find the average value of \(f(x) = x^2\) on \([0, 2]\).
+        <p>\(f_{\text{avg}} = \frac{1}{2} \int_0^2 x^2 \, dx = \frac{1}{2} \cdot \frac{8}{3} = \frac{4}{3}\)</p>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-integration-calc1.html">← Integration</a>
+      <a href="lecture-notes-applications-integration-calc1.html">Applications →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

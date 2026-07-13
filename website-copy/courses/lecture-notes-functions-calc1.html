@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
     .lecture-header {
       text-align: center;
       padding: 2rem 0;
@@ -34,35 +45,87 @@
       padding-bottom: 0.5rem;
       margin-top: 2.5rem;
     }
-    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
       background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
       border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
       border-radius: 12px;
       padding: 1.5rem;
       margin: 1.5rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    .definition-box {
-      border-left: 4px solid var(--accent);
-    }
-    .example-box {
-      border-left: 4px solid #f0ad4e;
-    }
-    .important-note {
-      border-left: 4px solid #d9534f;
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .formula-box {
       background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
     }
-    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
-      color: var(--accent);
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
       display: block;
       margin-bottom: 0.5rem;
     }
@@ -102,7 +165,6 @@
       <h1>Calculus I</h1>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="../index.html">Home</a></li>
@@ -131,238 +193,320 @@
     </div>
 
     <div class="lecture-content">
-
-      <h2>1. Four Ways to Represent a Function</h2>
-
+      <h2>1. Functions: The Foundation of Calculus</h2>
+      
+      <h3>1.1 What is a Function?</h3>
       <div class="definition-box">
-        <strong>Definition: Function</strong>
-        A function \(f\) is a rule that assigns to each element \(x\) in a set \(D\) (the domain) exactly one element \(f(x)\) in a set \(R\) (the range or codomain). We write \(y = f(x)\) to indicate that \(y\) is the image of \(x\) under \(f\).
+        <strong>Formal Definition:</strong>
+        A function \(f\) is a rule that assigns to each element \(x\) in a set \(D\) (called the domain) exactly one element \(f(x)\) in a set \(R\) (called the range or codomain).
       </div>
-
-      <p><strong>Key Terminology:</strong></p>
-      <ul>
-        <li><strong>Domain:</strong> The set of all possible input values</li>
-        <li><strong>Range (or Codomain):</strong> The set of all possible output values</li>
-        <li><strong>Independent Variable:</strong> The input variable (usually \(x\))</li>
-        <li><strong>Dependent Variable:</strong> The output variable (usually \(y\) or \(f(x)\))</li>
-      </ul>
-
-      <p>Functions can be represented in four main ways:</p>
-
-      <h3>1.1 Verbal Representation</h3>
-      <p>Describing the relationship in words. For example: "The area of a circle depends on its radius" or "The temperature decreases by 2 degrees for each meter of altitude."</p>
-
-      <h3>1.2 Algebraic Representation</h3>
-      <p>Using an explicit formula. For example: \(A(r) = \pi r^2\) for the area of a circle, or \(T(h) = T_0 - 2h\) for temperature at altitude.</p>
-
-      <h3>1.3 Visual Representation</h3>
-      <p>Using a graph. The graph of a function \(f\) consists of all points \((x, y)\) in the plane such that \(y = f(x)\) and \(x\) is in the domain.</p>
 
       <div class="important-note">
-        <strong>Vertical Line Test:</strong>
-        A curve in the \(xy\)-plane is the graph of a function if and only if no vertical line intersects the curve more than once.
-      </div>
-
-      <h3>1.4 Numerical Representation</h3>
-      <p>Using a table of values. This is useful when the function is defined by experimental data or when an explicit formula is not available.</p>
-
-      <div class="example-box">
-        <strong>Example 1.1:</strong>
-        The area of a circle with radius \(r\) is given by \(A(r) = \pi r^2\). This is an algebraic representation. The domain is \(r \geq 0\) and the range is \(A \geq 0\).
-      </div>
-
-      <div class="example-box">
-        <strong>Example 1.2:</strong>
-        The human population of the world as a function of time can be represented:
+        <strong>Key Point - The "Exactly One" Rule:</strong>
+        For every input \(x\) in the domain, there must be exactly ONE output. This means:
         <ul>
-          <li>Verbally: "Population increases by about 1.5% per year"</li>
-          <li>Numerically: A table of population counts for each year</li>
-          <li>Visually: A graph showing population growth over time</li>
+          <li>If \(x\) is in the domain, then \(f(x)\) must be defined</li>
+          <li>One input cannot give two different outputs</li>
+          <li>Multiple inputs CAN give the same output</li>
         </ul>
       </div>
 
-      <h2>2. Mathematical Models: A Catalog of Essential Functions</h2>
+      <div class="example-box">
+        <strong>Example 1.1 - Valid Function:</strong>
+        \(f(x) = x^2\)
+        <p>For input \(x = 3\), output is \(f(3) = 9\).</p>
+        <p>For input \(x = -3\), output is \(f(-3) = 9\).</p>
+        <p>Multiple inputs can give the same output - this is allowed!</p>
+      </div>
 
-      <p>Mathematical models use functions to describe real-world phenomena. Here are the essential types:</p>
+      <div class="example-box">
+        <strong>Example 1.2 - NOT a Function:</strong>
+        \(y^2 = x\) solved for \(y\)
+        <p>For \(x = 4\): \(y^2 = 4\) gives \(y = 2\) OR \(y = -2\)</p>
+        <p>One input gives TWO outputs - this violates the definition!</p>
+      </div>
 
-      <h3>2.1 Linear Functions</h3>
-      <div class="formula-box">
+      <h3>1.2 Function Notation and Terminology</h3>
+      <div class="definition-box">
+        <strong>Function Notation:</strong>
+        <ul>
+          <li>\(f: D \to R\) means "f is a function from domain D to codomain R"</li>
+          <li>\(f(x)\) is read as "f of x" or "the value of f at x"</li>
+          <li>\(y = f(x)\) means "y is a function of x"</li>
+        </ul>
+      </div>
+
+      <div class="proof-box">
+        <strong>Understanding Function Equality:</strong>
+        Two functions \(f\) and \(g\) are equal if and only if:
+        <ol>
+          <li>They have the same domain</li>
+          <li>For every \(x\) in the domain, \(f(x) = g(x)\)</li>
+        </ol>
+        <em>Proof: This follows directly from the definition of a function as a rule.</em>
+      </div>
+
+      <h2>2. Four Ways to Represent a Function</h2>
+
+      <h3>2.1 Verbal Description</h3>
+      <p>Describe the relationship using words. This is the most intuitive way but can be ambiguous.</p>
+      <div class="example-box">
+        <strong>Example 2.1:</strong>
+        "The area of a circle as a function of its radius"
+        <p>This means: for each radius \(r\), there is exactly one area \(A\).</p>
+      </div>
+
+      <h3>2.2 Algebraic/Formula Representation</h3>
+      <div class="definition-box">
+        <strong>Algebraic Form:</strong>
+        \(f(x) = \text{expression involving } x\)
+        <p>Examples: \(f(x) = x^2\), \(g(x) = \sin x\), \(h(x) = \frac{1}{x}\)</p>
+      </div>
+
+      <div class="proof-box">
+        <strong>How to Find the Domain from a Formula:</strong>
+        Given a function formula, the domain is the largest set of real numbers for which the formula produces a real number output.
+        
+        <strong>Step-by-step method:</strong>
+        <ol>
+          <li>Identify restrictions (division by zero, square roots of negatives, logarithms of non-positives)</li>
+          <li>Find the values of \(x\) that cause these restrictions</li>
+          <li>The domain is all real numbers EXCEPT those values</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2 - Finding Domain:</strong>
+        \(f(x) = \frac{1}{x-2}\)
+        <p>Restriction: denominator cannot be zero</p>
+        <p>\(x - 2 = 0\) when \(x = 2\)</p>
+        <p>Domain: \( (-\infty, 2) \cup (2, \infty) \) or \( \mathbb{R} \setminus \{2\} \)</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.3 - Multiple Restrictions:</strong>
+        \(f(x) = \sqrt{x-3} + \frac{1}{x-5}\)
+        <p>Restriction 1: \(x - 3 \geq 0 \Rightarrow x \geq 3\)</p>
+        <p>Restriction 2: \(x - 5 \neq 0 \Rightarrow x \neq 5\)</p>
+        <p>Domain: \([3, 5) \cup (5, \infty)\)</p>
+      </div>
+
+      <h3>2.3 Graphical Representation</h3>
+      <div class="definition-box">
+        <strong>Graph of a Function:</strong>
+        The graph of \(y = f(x)\) is the set of all points \((x, y)\) in the plane such that \(y = f(x)\).
+      </div>
+
+      <div class="important-note">
+        <strong>The Vertical Line Test:</strong>
+        A curve in the \(xy\)-plane is the graph of a function if and only if every vertical line intersects the curve at most once.
+        
+        <strong>Why this works:</strong>
+        - If a vertical line intersects at two points, say \((a, y_1)\) and \((a, y_2)\) with \(y_1 \neq y_2\), then the "function" assigns two different outputs to the same input \(a\). This violates the definition!
+      </div>
+
+      <h3>2.4 Numerical/Table Representation</h3>
+      <p>Using a table of input-output pairs. This is useful when we don't have a formula but have data.</p>
+      <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
+        <tr style="background: var(--accent); color: white;">
+          <th style="padding: 0.5rem; border: 1px solid var(--border);">x (input)</th>
+          <th style="padding: 0.5rem; border: 1px solid var(--border);">f(x) (output)</th>
+        </tr>
+        <tr style="background: rgba(15, 24, 37, 0.5);">
+          <td style="padding: 0.5rem; border: 1px solid var(--border);">0</td>
+          <td style="padding: 0.5rem; border: 1px solid var(--border);">1</td>
+        </tr>
+        <tr style="background: rgba(15, 24, 37, 0.5);">
+          <td style="padding: 0.5rem; border: 1px solid var(--border);">1</td>
+          <td style="padding: 0.5rem; border: 1px solid var(--border);">3</td>
+        </tr>
+        <tr style="background: rgba(15, 24, 37, 0.5);">
+          <td style="padding: 0.5rem; border: 1px solid var(--border);">2</td>
+          <td style="padding: 0.5rem; border: 1px solid var(--border);">5</td>
+        </tr>
+      </table>
+      <p>This table represents a function because each input has exactly one output.</p>
+
+      <h2>3. Essential Functions (The Building Blocks)</h2>
+
+      <h3>3.1 Linear Functions</h3>
+      <div class="definition-box">
         <strong>Linear Function:</strong>
-        \(f(x) = mx + b\) where \(m\) is the slope and \(b\) is the y-intercept.
+        \(f(x) = mx + b\) where \(m\) and \(b\) are constants
+        <p>Graph: a straight line with slope \(m\) and y-intercept \(b\)</p>
+        <p>Domain: all real numbers (unless there's a hidden restriction)</p>
       </div>
-      <p>Linear functions model constant rate changes. Examples: distance at constant speed, cost with fixed rate.</p>
-
-      <h3>2.2 Polynomials</h3>
-      <div class="formula-box">
-        <strong>Polynomial Function:</strong>
-        \(P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1x + a_0\)
-      </div>
-      <p>Polynomials are used to model smooth curves and approximate other functions. The degree \(n\) determines the shape.</p>
-
-      <h3>2.3 Rational Functions</h3>
-      <div class="definition-box">
-        <strong>Rational Function:</strong>
-        \(f(x) = \frac{P(x)}{Q(x)}\) where \(P\) and \(Q\) are polynomials.
-      </div>
-      <p>Rational functions have vertical asymptotes where \(Q(x) = 0\) and horizontal asymptotes determined by the leading terms.</p>
-
-      <h3>2.4 Trigonometric Functions</h3>
-      <p>The six basic trigonometric functions: \(\sin x, \cos x, \tan x, \csc x, \sec x, \cot x\). These model periodic phenomena like sound waves, tides, and seasonal variations.</p>
-
-      <h3>2.5 Exponential Functions</h3>
-      <div class="definition-box">
-        <strong>Exponential Function:</strong>
-        \(f(x) = a^x\) where \(a > 0, a \neq 1\).
-      </div>
-      <p>Exponential functions model growth and decay: population growth, radioactive decay, compound interest.</p>
-
-      <h3>2.6 Logarithmic Functions</h3>
-      <div class="definition-box">
-        <strong>Logarithm:</strong>
-        \(f(x) = \log_a x\) is the inverse of the exponential function \(a^x\).
-      </div>
-      <p>Logarithms model phenomena that grow slowly: pH scale, Richter scale, decibel scale.</p>
-
-      <h2>3. New Functions from Old Functions</h2>
-
-      <p>Given functions \(f\) and \(g\), we can create new functions through transformations and combinations.</p>
-
-      <h3>3.1 Transformations</h3>
-      <ul>
-        <li><strong>Vertical Translation:</strong> \(f(x) + c\) shifts the graph up by \(c\) units</li>
-        <li><strong>Horizontal Translation:</strong> \(f(x - c)\) shifts the graph right by \(c\) units</li>
-        <li><strong>Vertical Scaling:</strong> \(cf(x)\) stretches/compresses vertically by factor \(c\)</li>
-        <li><strong>Horizontal Scaling:</strong> \(f(cx)\) stretches/compresses horizontally by factor \(1/c\)</li>
-        <li><strong>Reflection:</strong> \(-f(x)\) reflects across x-axis, \(f(-x)\) reflects across y-axis</li>
-      </ul>
 
       <div class="example-box">
         <strong>Example 3.1:</strong>
-        If \(f(x) = \sqrt{x}\), then:
+        \(f(x) = 2x - 3\)
+        <p>Slope: \(m = 2\) (line rises 2 units for each 1 unit right)</p>
+        <p>y-intercept: \((0, -3)\)</p>
+        <p>Domain: \(\mathbb{R}\)</p>
+      </div>
+
+      <h3>3.2 Polynomial Functions</h3>
+      <div class="definition-box">
+        <strong>Polynomial Function:</strong>
+        \(P(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0\)
+        <p>where \(n\) is a non-negative integer and \(a_n \neq 0\)</p>
+        <p>The highest power \(n\) is called the degree</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Special Polynomial Names:</strong>
         <ul>
-          <li>\(f(x) + 2 = \sqrt{x} + 2\) shifts up 2 units</li>
-          <li>\(f(x - 3) = \sqrt{x - 3}\) shifts right 3 units</li>
-          <li>\(-f(x) = -\sqrt{x}\) reflects across x-axis</li>
+          <li>Degree 0: Constant function \(f(x) = c\)</li>
+          <li>Degree 1: Linear function \(f(x) = mx + b\)</li>
+          <li>Degree 2: Quadratic function \(f(x) = ax^2 + bx + c\)</li>
+          <li>Degree 3: Cubic function \(f(x) = ax^3 + bx^2 + cx + d\)</li>
         </ul>
       </div>
 
-      <h3>3.2 Combinations of Functions</h3>
-      <ul>
-        <li><strong>Sum:</strong> \((f + g)(x) = f(x) + g(x)\)</li>
-        <li><strong>Difference:</strong> \((f - g)(x) = f(x) - g(x)\)</li>
-        <li><strong>Product:</strong> \((fg)(x) = f(x) \cdot g(x)\)</li>
-        <li><strong>Quotient:</strong> \(\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}\) (where \(g(x) \neq 0\))</li>
-        <li><strong>Composition:</strong> \((f \circ g)(x) = f(g(x))\)</li>
-      </ul>
+      <h3>3.3 Rational Functions</h3>
+      <div class="definition-box">
+        <strong>Rational Function:</strong>
+        \(f(x) = \frac{P(x)}{Q(x)}\) where \(P\) and \(Q\) are polynomials and \(Q(x) \neq 0\)
+        <p>Domain: all real numbers except zeros of \(Q(x)\)</p>
+      </div>
 
-      <div class="formula-box">
-        <strong>Composition Formula:</strong>
+      <div class="example-box">
+        <strong>Example 3.2:</strong>
+        \(f(x) = \frac{x^2 - 1}{x - 2}\)
+        <p>Domain restriction: \(x \neq 2\)</p>
+        <p>Can simplify: \(f(x) = \frac{(x-1)(x+1)}{x-2}\)</p>
+        <p>Domain: \(\mathbb{R} \setminus \{2\}\)</p>
+      </div>
+
+      <h3>3.4 Trigonometric Functions</h3>
+      <div class="definition-box">
+        <strong>Trigonometric Functions (from the unit circle):</strong>
+        <ul>
+          <li>\(\sin x\): y-coordinate of point on unit circle at angle \(x\)</li>
+          <li>\(\cos x\): x-coordinate of point on unit circle at angle \(x\)</li>
+          <li>\(\tan x = \frac{\sin x}{\cos x}\)</li>
+        </ul>
+        <p>Domain of \(\sin x\) and \(\cos x\): all real numbers</p>
+        <p>Domain of \(\tan x\): all real numbers except \(x \neq \frac{\pi}{2} + n\pi\) for integer \(n\)</p>
+      </div>
+
+      <h3>3.5 Exponential and Logarithmic Functions</h3>
+      <div class="definition-box">
+        <strong>Exponential Function:</strong>
+        \(f(x) = a^x\) where \(a > 0, a \neq 1\)
+        <p>Natural exponential: \(f(x) = e^x\) where \(e \approx 2.71828...\)</p>
+        <p>Domain: all real numbers</p>
+        <p>Range: \((0, \infty)\)</p>
+      </div>
+
+      <div class="definition-box">
+        <strong>Logarithmic Function:</strong>
+        \(f(x) = \log_a x\) where \(a > 0, a \neq 1\)
+        <p>This is the inverse of \(a^x\)</p>
+        <p>Domain: \((0, \infty)\)</p>
+        <p>Range: all real numbers</p>
+      </div>
+
+      <h2>4. Combining Functions</h2>
+
+      <h3>4.1 Arithmetic Combinations</h3>
+      <div class="definition-box">
+        <strong>Given functions \(f\) and \(g\) with overlapping domains:</strong>
+        <ul>
+          <li>\((f + g)(x) = f(x) + g(x)\)</li>
+          <li>\((f - g)(x) = f(x) - g(x)\)</li>
+          <li>\((fg)(x) = f(x) \cdot g(x)\)</li>
+          <li>\(\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}\) (where \(g(x) \neq 0\))</li>
+        </ul>
+      </div>
+
+      <h3>4.2 Composition of Functions</h3>
+      <div class="definition-box">
+        <strong>Composition:</strong>
         \((f \circ g)(x) = f(g(x))\)
+        <p>Read as "f composed with g" or "f of g of x"</p>
+        <p>The output of \(g\) becomes the input of \(f\)</p>
       </div>
 
-      <div class="important-note">
+      <div class="proof-box">
         <strong>Domain of Composition:</strong>
-        The domain of \(f \circ g\) consists of all \(x\) in the domain of \(g\) such that \(g(x)\) is in the domain of \(f\).
+        The domain of \(f \circ g\) is:
+        \(\{x \in \text{domain of } g \mid g(x) \in \text{domain of } f\}\)
+        
+        <strong>Step-by-step reasoning:</strong>
+        <ol>
+          <li>Start with the domain of \(g\) (we can only input values that \(g\) accepts)</li>
+          <li>Apply \(g\) to get \(g(x)\)</li>
+          <li>Check if \(g(x)\) is in the domain of \(f\)</li>
+          <li>Only keep values where both conditions are satisfied</li>
+        </ol>
       </div>
 
-      <h2>4. Exponential Functions</h2>
+      <div class="example-box">
+        <strong>Example 4.1 - Finding Domain of Composition:</strong>
+        Let \(f(x) = \sqrt{x}\) and \(g(x) = x - 4\)
+        <p>Find the domain of \(f \circ g\):</p>
+        <p>Step 1: Domain of \(g\) is \(\mathbb{R}\)</p>
+        <p>Step 2: \(g(x) = x - 4\)</p>
+        <p>Step 3: Need \(g(x)\) in domain of \(f\), i.e., \(g(x) \geq 0\)</p>
+        <p>Step 4: \(x - 4 \geq 0 \Rightarrow x \geq 4\)</p>
+        <p>Domain of \(f \circ g\): \([4, \infty)\)</p>
+      </div>
 
+      <h2>5. Inverse Functions</h2>
+
+      <h3>5.1 What is an Inverse Function?</h3>
       <div class="definition-box">
-        <strong>Definition: Exponential Function</strong>
-        The exponential function with base \(a\) is \(f(x) = a^x\) where \(a > 0, a \neq 1\).
+        <strong>Inverse Function:</strong>
+        If \(f\) is a function, its inverse \(f^{-1}\) satisfies:
+        \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)
+        
+        <strong>Important:</strong> \(f^{-1}\) does NOT mean \(\frac{1}{f(x)}\)!
       </div>
 
-      <h3>4.1 Properties of \(a^x\)</h3>
-      <ul>
-        <li>\(a^0 = 1\) for all \(a > 0\)</li>
-        <li>\(a^1 = a\)</li>
-        <li>\(a^{x+y} = a^x \cdot a^y\)</li>
-        <li>\((a^x)^y = a^{xy}\)</li>
-        <li>\((ab)^x = a^x b^x\)</li>
-      </ul>
-
-      <h3>4.2 The Natural Exponential Function</h3>
       <div class="important-note">
-        <strong>The Number \(e\):</strong>
-        The number \(e \approx 2.71828...\) is defined as:
-        \(e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n = \sum_{n=0}^{\infty} \frac{1}{n!}\)
-      </div>
-
-      <p>The function \(e^x\) is its own derivative: \(\frac{d}{dx}e^x = e^x\). This makes it fundamental in calculus.</p>
-
-      <h3>4.3 Applications of Exponential Functions</h3>
-      <ul>
-        <li><strong>Compound Interest:</strong> \(A = P\left(1 + \frac{r}{n}\right)^{nt}\)</li>
-        <li><strong>Continuous Compounding:</strong> \(A = Pe^{rt}\)</li>
-        <li><strong>Population Growth:</strong> \(P(t) = P_0 e^{kt}\)</li>
-        <li><strong>Radioactive Decay:</strong> \(N(t) = N_0 e^{-\lambda t}\)</li>
-      </ul>
-
-      <div class="example-box">
-        <strong>Example 4.1:</strong>
-        A population of bacteria doubles every 3 hours. If there are initially 1000 bacteria, find the population after 12 hours.
-        <p>Solution: \(P(t) = 1000 \cdot 2^{t/3} = 1000 \cdot e^{(t/3)\ln 2}\). After 12 hours: \(P(12) = 1000 \cdot 2^4 = 16000\).</p>
-      </div>
-
-      <h2>5. Inverse Functions and Logarithms</h2>
-
-      <div class="definition-box">
-        <strong>Definition: Inverse Function</strong>
-        Two functions \(f\) and \(g\) are inverses if \(f(g(x)) = x\) and \(g(f(x)) = x\) for all \(x\) in their domains. We write \(g = f^{-1}\).
-      </div>
-
-      <h3>5.1 Finding Inverse Functions</h3>
-      <p>To find the inverse of \(y = f(x)\):</p>
-      <ol>
-        <li>Swap \(x\) and \(y\): \(x = f(y)\)</li>
-        <li>Solve for \(y\) in terms of \(x\)</li>
-        <li>Verify that \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)</li>
-      </ol>
-
-      <div class="example-box">
-        <strong>Example 5.1:</strong>
-        Find the inverse of \(f(x) = 2x + 3\).
-        <p>Solution: \(y = 2x + 3\), swap: \(x = 2y + 3\), solve: \(y = \frac{x-3}{2}\). So \(f^{-1}(x) = \frac{x-3}{2}\).</p>
-      </div>
-
-      <h3>5.2 Horizontal Line Test</h3>
-      <div class="theorem-box">
         <strong>Horizontal Line Test:</strong>
         A function \(f\) has an inverse if and only if every horizontal line intersects the graph of \(f\) at most once.
+        
+        <strong>Why:</strong>
+        - If a horizontal line crosses at two points, those points have the same output but different inputs
+        - This means \(f\) is not one-to-one
+        - Without being one-to-one, we can't uniquely reverse the process
       </div>
 
-      <h3>5.3 Logarithm Definition and Properties</h3>
-      <div class="definition-box">
-        <strong>Definition: Logarithm</strong>
-        The logarithm \(\log_a x\) is the inverse of the exponential function \(a^x\). That is, \(y = \log_a x\) means \(a^y = x\).
+      <h3>5.2 Finding Inverse Functions</h3>
+      <div class="theorem-box">
+        <strong>Algorithm for Finding \(f^{-1}\):**</strong>
+        <ol>
+          <li>Write \(y = f(x)\)</li>
+          <li>Swap \(x\) and \(y\): \(x = f(y)\)</li>
+          <li>Solve for \(y\): \(y = f^{-1}(x)\)</li>
+          <li>Verify: Check that \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)</li>
+        </ol>
       </div>
 
-      <p>Key properties of logarithms:</p>
-      <ul>
-        <li>\(\log_a(xy) = \log_a x + \log_a y\)</li>
-        <li>\(\log_a\left(\frac{x}{y}\right) = \log_a x - \log_a y\)</li>
-        <li>\(\log_a(x^r) = r\log_a x\)</li>
-        <li>\(\log_a a = 1\) and \(\log_a 1 = 0\)</li>
-        <li>\(\log_{a^r} x = \frac{1}{r} \log_a x\)</li>
-      </ul>
-
-      <h3>5.4 Natural Logarithm</h3>
-      <div class="important-note">
-        <strong>Natural Logarithm:</strong>
-        The natural logarithm \(\ln x = \log_e x\) has derivative \(\frac{d}{dx}\ln x = \frac{1}{x}\).
+      <div class="example-box">
+        <strong>Example 5.1 - Finding the Inverse:</strong>
+        Find the inverse of \(f(x) = 2x + 3\)
+        
+        <strong>Step 1:** Write \(y = 2x + 3\)</p>
+        <strong>Step 2:** Swap: \(x = 2y + 3\)</p>
+        <strong>Step 3:** Solve for y:</p>
+        <p>\(x - 3 = 2y\)</p>
+        <p>\(y = \frac{x - 3}{2}\)</p>
+        <p>So \(f^{-1}(x) = \frac{x - 3}{2}\)</p>
+        
+        <strong>Step 4:** Verify:</p>
+        <p>\(f(f^{-1}(x)) = f\left(\frac{x-3}{2}\right) = 2 \cdot \frac{x-3}{2} + 3 = (x-3) + 3 = x\) ✓</p>
+        <p>\(f^{-1}(f(x)) = f^{-1}(2x+3) = \frac{(2x+3)-3}{2} = \frac{2x}{2} = x\) ✓</p>
       </div>
 
-      <h3>5.5 Applications of Logarithms</h3>
-      <ul>
-        <li><strong>pH Scale:</strong> \(pH = -\log[H^+]\)</li>
-        <li><strong>Richter Scale:</strong> \(M = \log\frac{A}{A_0}\)</li>
-        <li><strong>Decibels:</strong> \(dB = 10\log\frac{I}{I_0}\)</li>
-      </ul>
-
-      <div class="navigation">
-        <a href="calculus-1.html">← Back to Course</a>
-      </div>
     </div>
+
+    <nav class="navigation">
+      <a href="../calculus-1.html">← Calculus I</a>
+      <a href="lecture-notes-limits-calc1.html">Limits →</a>
+    </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>

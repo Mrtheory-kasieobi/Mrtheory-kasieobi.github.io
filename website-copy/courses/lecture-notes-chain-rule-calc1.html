@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Chain Rule and Implicit Differentiation - Calculus I">
+  <title>Kasieobi Udumaga | Chain Rule and Implicit Differentiation - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Chain Rule and Implicit Differentiation</h1>
+      <div class="subtitle">Calculus I - Chapter 3.5-3.9 (Detailed Notes)</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>1. The Chain Rule</h2>
+      
+      <h3>1.1 Understanding Composite Functions</h3>
+      <div class="definition-box">
+        <strong>Composite Function:</strong>
+        If \(g\) is a function and \(f\) is a function, the composition of \(f\) and \(g\) is:
+        $$(f \circ g)(x) = f(g(x))$$
+        <p>Read as "f composed with g" or "f of g of x"</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Decomposing Composite Functions:</strong>
+        To apply the chain rule, identify:
+        <ul>
+          <li><strong>Outside function:</strong> The "outer" operation</li>
+          <li><strong>Inside function:</strong> The "inner" function that's plugged in</li>
+        </ul>
+        Example: For \(\sin(x^2)\):
+        <ul>
+          <li>Outside: \(\sin(u)\)</li>
+          <li>Inside: \(u = x^2\)</li>
+        </ul>
+      </div>
+
+      <h3>1.2 Statement and Proof of the Chain Rule</h3>
+      <div class="theorem-box">
+        <strong>Chain Rule:</strong>
+        If \(g\) is differentiable at \(a\) and \(f\) is differentiable at \(g(a)\), then \(f \circ g\) is differentiable at \(a\) and:
+        $$(f \circ g)'(a) = f'(g(a)) \cdot g'(a)$$
+        Or equivalently: \(\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)\)
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of the Chain Rule:</strong>
+        
+        We need to show: \(\lim_{h \to 0} \frac{f(g(a+h)) - f(g(a))}{h} = f'(g(a)) \cdot g'(a)\)
+        
+        <strong>Key idea:</strong> Multiply and divide by \(g(a+h) - g(a)\):
+        
+        $$\frac{f(g(a+h)) - f(g(a))}{h} = \frac{f(g(a+h)) - f(g(a))}{g(a+h) - g(a)} \cdot \frac{g(a+h) - g(a)}{h}$$
+        
+        Provided \(g(a+h) \neq g(a)\), this equals:
+        $$\frac{f(g(a+h)) - f(g(a))}{g(a+h) - g(a)} \cdot \frac{g(a+h) - g(a)}{h}$$
+        
+        <strong>Now take the limit as \(h \to 0\):</strong>
+        
+        <strong>First fraction:</strong> As \(h \to 0\), \(g(a+h) \to g(a)\) (by continuity of \(g\)).
+        <p>So \(\lim_{h \to 0} \frac{f(g(a+h)) - f(g(a))}{g(a+h) - g(a)} = f'(g(a))\)</p>
+        
+        <strong>Second fraction:</strong> \(\lim_{h \to 0} \frac{g(a+h) - g(a)}{h} = g'(a)\)</p>
+        
+        <strong>Therefore:</strong>
+        <p>\((f \circ g)'(a) = f'(g(a)) \cdot g'(a)\)</p>
+        
+        <strong>Technical note:</strong> We need to handle the case where \(g(a+h) = g(a)\) for some small \(h\). This can be done by defining an appropriate "error function" that makes the formula work even when \(g(a+h) = g(a)\). ∎
+      </div>
+
+      <h3>1.3 Applying the Chain Rule</h3>
+      <div class="important-note">
+        <strong>Chain Rule Algorithm:</strong>
+        <ol>
+          <li>Identify the outside and inside functions</li>
+          <li>Differentiate the outside function (treat inside as a single variable)</li>
+          <li>Multiply by the derivative of the inside function</li>
+          <li>Simplify if possible</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.1 - Basic Chain Rule:</strong>
+        Find \(\frac{d}{dx}[\sin(x^2)]\)
+        
+        <p><strong>Step 1 - Identify:</strong> Outside: \(\sin(u)\), Inside: \(u = x^2\)</p>
+        <p><strong>Step 2 - Differentiate outside:</strong> \(\frac{d}{du}[\sin u] = \cos u\)</p>
+        <p><strong>Step 3 - Multiply by derivative of inside:</strong> \(\cos(x^2) \cdot \frac{d}{dx}[x^2] = \cos(x^2) \cdot 2x\)</p>
+        <p><strong>Step 4 - Write final answer:</strong> \(\frac{d}{dx}[\sin(x^2)] = 2x\cos(x^2)\)</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.2 - Nested Chain Rule:</strong>
+        Find \(\frac{d}{dx}[e^{\sin(x^2)}]\)
+        
+        <p><strong>Layer 1 (outside to inside):</strong></p>
+        <p>Outermost: \(e^u\) → derivative: \(e^u\)</p>
+        <p>Middle: \(\sin(v)\) → derivative: \(\cos(v)\)</p>
+        <p>Innermost: \(x^2\) → derivative: \(2x\)</p>
+        
+        <p><strong>Chain it together:</strong></p>
+        <p>$$\frac{d}{dx}[e^{\sin(x^2)}] = e^{\sin(x^2)} \cdot \cos(x^2) \cdot 2x = 2xe^{\sin(x^2)}\cos(x^2)$$</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.3 - Chain Rule with Product:</strong>
+        Find \(\frac{d}{dx}[x^2 \sin(x^3)]\)
+        
+        <p>Use product rule: \((uv)' = u'v + uv'\)</p>
+        <p>Let \(u = x^2\), \(v = \sin(x^3)\)</p>
+        <p>\(u' = 2x\)</p>
+        <p>For \(v'\), use chain rule: \(\cos(x^3) \cdot 3x^2\)</p>
+        
+        <p>Result: \(2x \cdot \sin(x^3) + x^2 \cdot 3x^2 \cos(x^3)\)</p>
+        <p>= \(2x\sin(x^3) + 3x^4\cos(x^3)\)</p>
+      </div>
+
+      <h2>2. Implicit Differentiation</h2>
+
+      <h3>2.1 What is Implicit Differentiation?</h3>
+      <div class="definition-box">
+        <strong>Implicit Function:</strong>
+        An equation of the form \(F(x, y) = 0\) where \(y\) is considered an implicit function of \(x\).
+        
+        <strong>Implicit Differentiation:</strong>
+        A technique for finding \(\frac{dy}{dx}\) when \(y\) is defined implicitly as a function of \(x\).
+      </div>
+
+      <div class="important-note">
+        <strong>When to Use Implicit Differentiation:</strong>
+        <ul>
+          <li>The equation cannot be easily solved for \(y\)</li>
+          <li>We want to find \(\frac{dy}{dx}\) without explicit formula for \(y\)</li>
+          <li>The equation relates \(x\) and \(y\) in a complex way</li>
+        </ul>
+      </div>
+
+      <h3>2.2 The Method</h3>
+      <div class="theorem-box">
+        <strong>Implicit Differentiation Formula:</strong>
+        If \(F(x, y) = 0\) defines \(y\) as a function of \(x\), then:
+        $$\frac{dy}{dx} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}$$
+        provided \(F_y \neq 0\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation of the Formula:</strong>
+        
+        Assume \(y\) is a function of \(x\), so \(y = y(x)\).
+        
+        Differentiate \(F(x, y) = 0\) with respect to \(x\):
+        $$\frac{d}{dx}[F(x, y)] = 0$$
+        
+        Using the chain rule for multivariable functions:
+        $$\frac{\partial F}{\partial x} \cdot \frac{dx}{dx} + \frac{\partial F}{\partial y} \cdot \frac{dy}{dx} = 0$$
+        
+        Since \(\frac{dx}{dx} = 1\):
+        $$F_x + F_y \cdot \frac{dy}{dx} = 0$$
+        
+        Solving for \(\frac{dy}{dx}\):
+        $$\frac{dy}{dx} = -\frac{F_x}{F_y}$$ ∎
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1 - Circle:</strong>
+        Find \(\frac{dy}{dx}\) for \(x^2 + y^2 = 25\)
+        
+        <p><strong>Step 1 - Differentiate both sides:</strong></p>
+        <p>\(\frac{d}{dx}[x^2 + y^2] = \frac{d}{dx}[25]\)</p>
+        
+        <p><strong>Step 2 - Apply chain rule to \(y^2\):</strong></p>
+        <p>\(2x + 2y \cdot \frac{dy}{dx} = 0\)</p>
+        
+        <p><strong>Step 3 - Solve for \(\frac{dy}{dx}\):</strong></p>
+        <p>\(2y \cdot \frac{dy}{dx} = -2x\)</p>
+        <p>\(\frac{dy}{dx} = -\frac{x}{y}\)</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2 - More Complex:</strong>
+        Find \(\frac{dy}{dx}\) for \(x^3 + y^3 = 6xy\) (folium of Descartes)
+        
+        <p><strong>Step 1 - Differentiate:</strong></p>
+        <p>\(3x^2 + 3y^2 \cdot \frac{dy}{dx} = 6y + 6x \cdot \frac{dy}{dx}\)</p>
+        
+        <p><strong>Step 2 - Collect \(\frac{dy}{dx}\) terms:</strong></p>
+        <p>\(3y^2 \cdot \frac{dy}{dx} - 6x \cdot \frac{dy}{dx} = 6y - 3x^2\)</p>
+        
+        <p><strong>Step 3 - Factor and solve:</strong></p>
+        <p>\(\frac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2\)</p>
+        <p>\(\frac{dy}{dx} = \frac{6y - 3x^2}{3y^2 - 6x} = \frac{2y - x^2}{y^2 - 2x}\)</p>
+      </div>
+
+      <h2>3. Related Rates (Introduction)</h2>
+
+      <h3>3.1 The Related Rates Method</h3>
+      <div class="definition-box">
+        <strong>Related Rates:</strong>
+        A technique for finding the rate of change of one quantity in terms of the rate of change of another related quantity.
+      </div>
+
+      <div class="important-note">
+        <strong>General Strategy:</strong>
+        <ol>
+          <li><strong>Identify variables:</strong> Let \(x, y, r, \theta\), etc. represent the quantities</li>
+          <li><strong>Identify rates:</strong> Note which rates are given (\(\frac{dx}{dt}, \frac{dy}{dt}\)) and which you need to find</li>
+          <li><strong>Write equation relating variables:</strong> Use geometry, physics, or given information</li>
+          <li><strong>Differentiate with respect to time:</strong> Apply chain rule to both sides</li>
+          <li><strong>Substitute and solve:</strong> Plug in known values and solve for unknown rate</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1 - Classic Related Rates:</strong>
+        A ladder 10 ft long leans against a wall. If the bottom slides away from the wall at 2 ft/s, how fast is the top sliding down when the bottom is 6 ft from the wall?
+        
+        <p><strong>Step 1 - Variables:</strong> \(x\) = distance from wall to bottom, \(y\) = height of top</p>
+        <p><strong>Step 2 - Given rate:</strong> \(\frac{dx}{dt} = 2\) ft/s (bottom sliding away)</p>
+        <p><strong>Step 3 - Relationship:</strong> By Pythagorean theorem: \(x^2 + y^2 = 100\)</p>
+        <p><strong>Step 4 - Differentiate:</strong> \(2x + 2y\frac{dy}{dt} = 0\)</p>
+        <p><strong>Step 5 - Substitute:</strong> When \(x = 6\), \(y = 8\)</p>
+        <p>\(2(6) + 2(8)\frac{dy}{dt} = 0\)</p>
+        <p>\(\frac{dy}{dt} = -\frac{12}{16} = -\frac{3}{4}\)</p>
+        <p><strong>Answer:</strong> The top slides down at \(\frac{3}{4}\) ft/s</p>
+      </div>
+
+      <h3>3.2 Second Derivative Test</h3>
+      <div class="theorem-box">
+        <strong>Second Derivative Test for Extrema:</strong>
+        Suppose \(f'(c) = 0\) and \(f''(c)\) exists.
+        <ul>
+          <li>If \(f''(c) > 0\), then \(f\) has a local minimum at \(c\)</li>
+          <li>If \(f''(c) < 0\), then \(f\) has a local maximum at \(c\)</li>
+          <li>If \(f''(c) = 0\), the test is inconclusive</li>
+        </ul>
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof for the case \(f''(c) > 0\) (local minimum):</strong>
+        
+        Since \(f''(c) = \lim_{h \to 0} \frac{f'(c+h) - f'(c)}{h} > 0\) and \(f'(c) = 0\):
+        
+        For small \(h > 0\): \(\frac{f'(c+h) - 0}{h} > 0 \Rightarrow f'(c+h) > 0\)</p>
+        For small \(h < 0\): \(\frac{f'(c+h) - 0}{h} > 0 \Rightarrow f'(c+h) < 0\)
+        
+        So \(f'\) changes from negative to positive at \(c\), meaning \(f\) has a local minimum there. ∎
+      </div>
+
+    </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-differentiation-calc1.html">← Differentiation</a>
+      <a href="lecture-notes-trig-functions-calc1.html">Trig Derivatives →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

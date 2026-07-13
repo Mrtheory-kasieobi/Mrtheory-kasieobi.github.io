@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture Notes: Differentiation Rules - Calculus I">
-  <title>Kasieobi Udumaga | Differentiation Rules</title>
+  <meta name="description" content="Detailed Lecture Notes: Derivatives - Definition and Rules - Calculus I">
+  <title>Kasieobi Udumaga | Derivatives - Definition and Rules - Detailed Notes</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
     .lecture-header {
       text-align: center;
       padding: 2rem 0;
@@ -34,35 +45,87 @@
       padding-bottom: 0.5rem;
       margin-top: 2.5rem;
     }
-    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
       background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
       border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
       border-radius: 12px;
       padding: 1.5rem;
       margin: 1.5rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    .definition-box {
-      border-left: 4px solid var(--accent);
-    }
-    .example-box {
-      border-left: 4px solid #f0ad4e;
-    }
-    .important-note {
-      border-left: 4px solid #d9534f;
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .formula-box {
       background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
     }
-    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
-      color: var(--accent);
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
       display: block;
       margin-bottom: 0.5rem;
     }
@@ -102,7 +165,6 @@
       <h1>Calculus I</h1>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="../index.html">Home</a></li>
@@ -126,107 +188,302 @@
 
   <main>
     <div class="lecture-header">
-      <h1>Differentiation Rules</h1>
-      <div class="subtitle">Calculus I - Chapter 3.1-3.11</div>
+      <h1>Derivatives: Definition and Rules</h1>
+      <div class="subtitle">Calculus I - Chapter 3.1-3.4 (Detailed Notes)</div>
     </div>
 
     <div class="lecture-content">
+      <h2>1. The Definition of the Derivative</h2>
+      
+      <h3>1.1 What is a Derivative?</h3>
+      <div class="definition-box">
+        <strong>Derivative at a Point:</strong>
+        The derivative of \(f\) at \(a\), denoted \(f'(a)\), is:
+        $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+        
+        provided this limit exists.
+        
+        <strong>Alternative Form:</strong>
+        $$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
+      </div>
 
-      <h2>1. Derivatives of Polynomials and Exponential Functions</h2>
+      <div class="important-note">
+        <strong>Geometric Interpretation:</strong>
+        The derivative \(f'(a)\) is the slope of the tangent line to the curve \(y = f(x)\) at the point \((a, f(a))\).
+        
+        <strong>Physical Interpretation:</strong>
+        If \(s(t)\) is position, then \(s'(t)\) is velocity. If \(v(t)\) is velocity, then \(v'(t)\) is acceleration.
+      </div>
 
+      <h3>1.2 Why the Limit Definition?</h3>
+      <div class="proof-box">
+        <strong>Deriving the Definition from the Slope Formula:</strong>
+        
+        The slope of a line through two points \((x_1, y_1)\) and \((x_2, y_2)\) is:
+        $$m = \frac{y_2 - y_1}{x_2 - x_1}$$
+        
+        For a curve \(y = f(x)\) and two points on the curve:
+        - Point 1: \((a, f(a))\)
+        - Point 2: \((a+h, f(a+h))\) for some small \(h\)
+        
+        The slope of the secant line is:
+        $$m_{secant} = \frac{f(a+h) - f(a)}{(a+h) - a} = \frac{f(a+h) - f(a)}{h}$$
+        
+        As \(h \to 0\), the secant line approaches the tangent line, so:
+        $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+        ∎
+      </div>
+
+      <h3>1.3 Differentiability vs Continuity</h3>
       <div class="theorem-box">
-        <strong>Basic Differentiation Rules:</strong>
-        <ul>
-          <li>\(\frac{d}{dx}[c] = 0\) (constant rule)</li>
-          <li>\(\frac{d}{dx}[x^n] = nx^{n-1}\) (power rule)</li>
-          <li>\(\frac{d}{dx}[e^x] = e^x\) (natural exponential)</li>
-          <li>\(\frac{d}{dx}[a^x] = a^x \ln a\) (general exponential)</li>
-        </ul>
+        <strong>Theorem: Differentiability Implies Continuity</strong>
+        
+        If \(f\) is differentiable at \(a\), then \(f\) is continuous at \(a\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof:</strong>
+        
+        Assume \(f\) is differentiable at \(a\), so \(f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}\) exists.
+        
+        We need to show: \(\lim_{x \to a} f(x) = f(a)\)
+        
+        Let \(x = a + h\). As \(x \to a\), \(h \to 0\).
+        
+        We can write:
+        $$f(a+h) - f(a) = \frac{f(a+h) - f(a)}{h} \cdot h$$
+        
+        Taking limits:
+        $$\lim_{h \to 0} [f(a+h) - f(a)] = \lim_{h \to 0} \left[\frac{f(a+h) - f(a)}{h} \cdot h\right]$$
+        
+        By the product rule for limits:
+        $$= \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} \cdot \lim_{h \to 0} h = f'(a) \cdot 0 = 0$$
+        
+        So \(\lim_{h \to 0} f(a+h) = f(a)\), which means \(\lim_{x \to a} f(x) = f(a)\). ∎
+        
+        <strong>Important Note:</strong> The converse is FALSE! A function can be continuous but not differentiable.
       </div>
 
       <div class="example-box">
-        <strong>Example:</strong>
-        If \(f(x) = 3x^4 - 2x^2 + 5x - 1\), then \(f'(x) = 12x^3 - 4x + 5\).
+        <strong>Example 1.1 - Proof that \(f(x) = x^2\) is differentiable:</strong>
+        
+        $$f'(a) = \lim_{h \to 0} \frac{(a+h)^2 - a^2}{h}$$
+        
+        Expand: \(= \lim_{h \to 0} \frac{a^2 + 2ah + h^2 - a^2}{h}\)
+        
+        Simplify: \(= \lim_{h \to 0} \frac{2ah + h^2}{h}\)
+        
+        Factor: \(= \lim_{h \to 0} \frac{h(2a + h)}{h}\)
+        
+        Cancel: \(= \lim_{h \to 0} (2a + h)\)
+        
+        Evaluate: \(= 2a\)
+        
+        Therefore, \(f'(x) = 2x\) exists for all real \(x\). ∎
       </div>
 
-      <h2>2. The Product and Quotient Rules</h2>
+      <h2>2. Basic Differentiation Rules</h2>
 
-      <div class="formula-box">
+      <h3>2.1 Constant Rule</h3>
+      <div class="theorem-box">
+        <strong>Constant Rule:</strong>
+        If \(f(x) = c\) (a constant), then \(f'(x) = 0\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof:</strong>
+        $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \frac{c - c}{h} = \lim_{h \to 0} \frac{0}{h} = 0$$ ∎
+      </div>
+
+      <h3>2.2 Power Rule</h3>
+      <div class="theorem-box">
+        <strong>Power Rule:</strong>
+        If \(f(x) = x^n\) where \(n\) is any real number, then \(f'(x) = nx^{n-1}\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof for positive integer \(n\) (using binomial theorem):</strong>
+        
+        $$f'(x) = \lim_{h \to 0} \frac{(x+h)^n - x^n}{h}$$
+        
+        By the binomial theorem: \((x+h)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} h^k\)
+        
+        So: \((x+h)^n - x^n = \sum_{k=1}^{n} \binom{n}{k} x^{n-k} h^k\)
+        
+        Therefore:
+        $$\frac{(x+h)^n - x^n}{h} = \sum_{k=1}^{n} \binom{n}{k} x^{n-k} h^{k-1}$$
+        
+        Taking the limit as \(h \to 0\):
+        All terms with \(k > 1\) vanish, leaving only \(k = 1\):
+        $$= \binom{n}{1} x^{n-1} h^0 = nx^{n-1}$$ ∎
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1 - Using the Power Rule:</strong>
+        <ul>
+          <li>\(\frac{d}{dx}[x^3] = 3x^2\)</li>
+          <li>\(\frac{d}{dx}[x^5] = 5x^4\)</li>
+          <li>\(\frac{d}{dx}[x^{-2}] = -2x^{-3}\)</li>
+          <li>\(\frac{d}{dx}[\sqrt{x}] = \frac{d}{dx}[x^{1/2}] = \frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}\)</li>
+        </ul>
+      </div>
+
+      <h3>2.3 Constant Multiple Rule</h3>
+      <div class="theorem-box">
+        <strong>Constant Multiple Rule:</strong>
+        If \(c\) is a constant and \(f\) is differentiable, then:
+        $$\frac{d}{dx}[cf(x)] = c \cdot f'(x)$$
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof:</strong>
+        $$\frac{d}{dx}[cf(x)] = \lim_{h \to 0} \frac{cf(x+h) - cf(x)}{h} = c \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = c \cdot f'(x)$$ ∎
+      </div>
+
+      <h3>2.4 Sum and Difference Rules</h3>
+      <div class="theorem-box">
+        <strong>Sum Rule:</strong>
+        $$\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)$$
+        
+        <strong>Difference Rule:</strong>
+        $$\frac{d}{dx}[f(x) - g(x)] = f'(x) - g'(x)$$
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of Sum Rule:</strong>
+        $$\frac{d}{dx}[f(x) + g(x)] = \lim_{h \to 0} \frac{[f(x+h) + g(x+h)] - [f(x) + g(x)]}{h}$$
+        
+        $$= \lim_{h \to 0} \frac{[f(x+h) - f(x)] + [g(x+h) - g(x)]}{h}$$
+        
+        $$= \lim_{h \to 0} \left[\frac{f(x+h) - f(x)}{h} + \frac{g(x+h) - g(x)}{h}\right]$$
+        
+        By the sum law for limits:
+        $$= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} + \lim_{h \to 0} \frac{g(x+h) - g(x)}{h} = f'(x) + g'(x)$$ ∎
+      </div>
+
+      <h2>3. Product and Quotient Rules</h2>
+
+      <h3>3.1 Product Rule</h3>
+      <div class="theorem-box">
         <strong>Product Rule:</strong>
-        \((fg)'(x) = f'(x)g(x) + f(x)g'(x)\)
+        $$\frac{d}{dx}[f(x) \cdot g(x)] = f'(x)g(x) + f(x)g'(x)$$
+        <p>Or in Leibniz notation: \((uv)' = u'v + uv'\)</p>
       </div>
 
-      <div class="formula-box">
-        <strong>Quotient Rule:</strong>
-        \(\left(\frac{f}{g}\right)'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}\)
+      <div class="proof-box">
+        <strong>Proof of the Product Rule:</strong>
+        
+        We want to find the derivative of \(f(x)g(x)\).
+        
+        $$[f(x)g(x)]' = \lim_{h \to 0} \frac{f(x+h)g(x+h) - f(x)g(x)}{h}$$
+        
+        The key trick: Add and subtract \(f(x+h)g(x)\) in the numerator:
+        
+        $$= \lim_{h \to 0} \frac{f(x+h)g(x+h) - f(x+h)g(x) + f(x+h)g(x) - f(x)g(x)}{h}$$
+        
+        Factor by grouping:
+        $$= \lim_{h \to 0} \left[ f(x+h)\frac{g(x+h) - g(x)}{h} + g(x)\frac{f(x+h) - f(x)}{h} \right]$$
+        
+        Take the limit:
+        $$= f(x)g'(x) + g(x)f'(x) = f'(x)g(x) + f(x)g'(x)$$ ∎
       </div>
 
-      <h2>3. Derivatives of Trigonometric Functions</h2>
+      <div class="example-box">
+        <strong>Example 3.1 - Using the Product Rule:</strong>
+        Find \(\frac{d}{dx}[x^2 \sin x]\)
+        
+        Let \(f(x) = x^2\) and \(g(x) = \sin x\)
+        Then \(f'(x) = 2x\) and \(g'(x) = \cos x\)
+        
+        By the product rule:
+        $$\frac{d}{dx}[x^2 \sin x] = 2x \cdot \sin x + x^2 \cdot \cos x = 2x\sin x + x^2\cos x$$
+      </div>
 
+      <h3>3.2 Quotient Rule</h3>
       <div class="theorem-box">
-        <strong>Trigonometric Derivatives:</strong>
+        <strong>Quotient Rule:</strong>
+        $$\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
+        <p><strong>Memory aid:</strong> "Low d-high minus high d-low, over low squared"</p>
+        <p>where "low" = denominator, "high" = numerator</p>
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of the Quotient Rule:</strong>
+        
+        Write \(\frac{f}{g} = f \cdot g^{-1}\). We'll use the product rule and chain rule.
+        
+        Let \(h(x) = g(x)^{-1}\). Then \(h'(x) = -g(x)^{-2} \cdot g'(x)\) by the chain rule.
+        
+        Now: \(\frac{d}{dx}[f \cdot g^{-1}] = f' \cdot g^{-1} + f \cdot (g^{-1})'\)
+        
+        $$= f' \cdot \frac{1}{g} + f \cdot \left(-\frac{1}{g^2} \cdot g'\right)$$
+        
+        $$= \frac{f'}{g} - \frac{f \cdot g'}{g^2} = \frac{f'g - fg'}{g^2}$$ ∎
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.2 - Using the Quotient Rule:</strong>
+        Find \(\frac{d}{dx}\left[\frac{x^2}{\sin x}\right]\)
+        
+        Using quotient rule with \(f(x) = x^2\), \(g(x) = \sin x\):
+        $$= \frac{2x \cdot \sin x - x^2 \cdot \cos x}{\sin^2 x} = \frac{2x\sin x - x^2\cos x}{\sin^2 x}$$
+      </div>
+
+      <h2>4. Notation for Derivatives</h2>
+
+      <div class="definition-box">
+        <strong>Common Notations for the Derivative:</strong>
         <ul>
-          <li>\(\frac{d}{dx}[\sin x] = \cos x\)</li>
-          <li>\(\frac{d}{dx}[\cos x] = -\sin x\)</li>
-          <li>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</li>
-          <li>\(\frac{d}{dx}[\csc x] = -\csc x \cot x\)</li>
-          <li>\(\frac{d}{dx}[\sec x] = \sec x \tan x\)</li>
-          <li>\(\frac{d}{dx}[\cot x] = -\csc^2 x\)</li>
+          <li>\(f'(x)\) - Lagrange notation</li>
+          <li>\(\frac{dy}{dx}\) - Leibniz notation</li>
+          <li>\(\frac{d}{dx}f(x)\) - Operator notation</li>
+          <li>\(Df(x)\) - Euler notation</li>
+          <li>\(y'\) - Newton notation (for time derivatives)</li>
         </ul>
       </div>
 
-      <h2>4. The Chain Rule</h2>
+      <h2>5. Summary of Basic Rules</h2>
 
-      <div class="theorem-box">
-        <strong>Chain Rule:</strong>
-        If \(F(x) = f(g(x))\), then \(F'(x) = f'(g(x)) \cdot g'(x)\)
-      </div>
-
-      <div class="example-box">
-        <strong>Example:</strong>
-        \(\frac{d}{dx}[\sin(3x^2)] = \cos(3x^2) \cdot 6x\)
-      </div>
-
-      <h2>5. Implicit Differentiation</h2>
-
-      <div class="important-note">
-        <strong>Implicit Differentiation:</strong>
-        When a curve is given by \(F(x,y) = 0\), we differentiate both sides with respect to \(x\), treating \(y\) as a function of \(x\).
-      </div>
-
-      <div class="example-box">
-        <strong>Example:</strong>
-        For \(x^2 + y^2 = 25\), differentiating gives \(2x + 2y\frac{dy}{dx} = 0\), so \(\frac{dy}{dx} = -\frac{x}{y}\).
-      </div>
-
-      <h2>6. Related Rates</h2>
-
-      <div class="important-note">
-        <strong>Related Rates Strategy:</strong>
-        <ol>
-          <li>Identify the variables and given rates</li>
-          <li>Write an equation relating the variables</li>
-          <li>Differentiate with respect to time</li>
-          <li>Substitute known values and solve</li>
-        </ol>
-      </div>
-
-      <h2>7. Optimization</h2>
-
-      <div class="important-note">
-        <strong>Optimization Strategy:</strong>
-        <ol>
-          <li>Identify the quantity to maximize/minimize</li>
-          <li>Express it as a function of one variable</li>
-          <li>Find critical numbers where \(f'(x) = 0\) or \(f'(x)\) is undefined</li>
-          <li>Use first or second derivative test to classify</li>
-        </ol>
-      </div>
-
-      <div class="navigation">
-        <a href="calculus-1.html">← Back to Course</a>
-      </div>
+      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+        <thead>
+          <tr style="background: var(--accent); color: white;">
+            <th style="padding: 0.75rem; text-align: left;">Function</th>
+            <th style="padding: 0.75rem; text-align: left;">Derivative</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background: rgba(15, 24, 37, 0.5);">
+            <td style="padding: 0.5rem;">\(c\) (constant)</td>
+            <td style="padding: 0.5rem;">\(0\)</td>
+          </tr>
+          <tr style="background: rgba(15, 24, 37, 0.5);">
+            <td style="padding: 0.5rem;">\(x^n\)</td>
+            <td style="padding: 0.5rem;">\(nx^{n-1}\)</td>
+          </tr>
+          <tr style="background: rgba(15, 24, 37, 0.5);">
+            <td style="padding: 0.5rem;">\(\sin x\)</td>
+            <td style="padding: 0.5rem;">\(\cos x\)</td>
+          </tr>
+          <tr style="background: rgba(15, 24, 37, 0.5);">
+            <td style="padding: 0.5rem;">\(\cos x\)</td>
+            <td style="padding: 0.5rem;">\(-\sin x\)</td>
+          </tr>
+          <tr style="background: rgba(15, 24, 37, 0.5);">
+            <td style="padding: 0.5rem;">\(e^x\)</td>
+            <td style="padding: 0.5rem;">\(e^x\)</td>
+          </tr>
+          <tr style="background: rgba(15, 24, 37, 0.5);">
+            <td style="padding: 0.5rem;">\(\ln x\)</td>
+            <td style="padding: 0.5rem;">\(\frac{1}{x}\)</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-limits-calc1.html">← Limits</a>
+      <a href="lecture-notes-chain-rule-calc1.html">Chain Rule →</a>
+    </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Calculus I Midterm Review - Comprehensive Review - Week 13">
+  <title>Kasieobi Udumaga | Midterm Review - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Midterm Review</h1>
+      <div class="subtitle">Calculus I - Week 13</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Comprehensive Review Sheet</h2>
+      
+      <h3>1. Limits and Continuity</h3>
+      <div class="definition-box">
+        <strong>Key Formulas:</strong>
+        <ul>
+          <li>Limit Laws: \(\lim[f(x) \pm g(x)] = \lim f(x) \pm \lim g(x)\)</li>
+          <li>\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim f(x)}{\lim g(x)}\) if \(\lim g(x) \neq 0\)</li>
+          <li>\(\lim_{x \to 0} \frac{\sin x}{x} = 1\)</li>
+          <li>\(\lim_{x \to 0} \frac{1-\cos x}{x} = 0\)</li>
+          <li>\(\lim_{x \to \infty} \frac{\sin x}{x} = 0\)</li>
+          <li>\(\lim_{x \to \infty} (1 + \frac{1}{x})^x = e\)</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.1:</strong> Evaluate \(\lim_{x \to 0} \frac{e^x - 1}{x}\).
+        <p>Using L'Hôpital's Rule (or definition of derivative): \(\lim_{x \to 0} \frac{e^x}{1} = 1\)</p>
+      </div>
+
+      <h3>2. Derivatives</h3>
+      <div class="definition-box">
+        <strong>Basic Derivatives:</strong>
+        <ul>
+          <li>\(\frac{d}{dx}[x^n] = nx^{n-1}\)</li>
+          <li>\(\frac{d}{dx}[\sin x] = \cos x\)</li>
+          <li>\(\frac{d}{dx}[\cos x] = -\sin x\)</li>
+          <li>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</li>
+          <li>\(\frac{d}{dx}[e^x] = e^x\)</li>
+          <li>\(\frac{d}{dx}[\ln x] = \frac{1}{x}\)</li>
+          <li>\(\frac{d}{dx}[\sin^{-1}x] = \frac{1}{\sqrt{1-x^2}}\)</li>
+          <li>\(\frac{d}{dx}[\tan^{-1}x] = \frac{1}{1+x^2}\)</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1:</strong> Find the derivative of \(f(x) = x^3 \sin(x^2)\).
+        <p>Using product and chain rules: \(f'(x) = 3x^2 \sin(x^2) + x^3 \cos(x^2) \cdot 2x\)</p>
+        <p>= \(3x^2 \sin(x^2) + 2x^4 \cos(x^2)\)</p>
+      </div>
+
+      <h3>3. Chain Rule</h3>
+      <div class="definition-box">
+        <strong>Formula 3.1:</strong>
+        If \(y = f(g(x))\), then \(\frac{dy}{dx} = f'(g(x)) \cdot g'(x)\)
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1:</strong> Differentiate \(\frac{d}{dx}[\ln(\sin(x^2))]\).
+        <p>= \(\frac{1}{\sin(x^2)} \cdot \cos(x^2) \cdot 2x = \frac{2x \cos(x^2)}{\sin(x^2)} = 2x \cot(x^2)\)</p>
+      </div>
+
+      <h3>4. Implicit Differentiation</h3>
+      <div class="definition-box">
+        <strong>Formula 4.1:</strong>
+        For \(F(x, y) = 0\): \(\frac{dy}{dx} = -\frac{\partial F/\partial x}{\partial F/\partial y}\)
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.1:</strong> Find \(\frac{dy}{dx}\) for \(x^2 + y^2 = 25\).
+        <p>Differentiate: \(2x + 2y\frac{dy}{dx} = 0\)</p>
+        <p>Result: \(\frac{dy}{dx} = -\frac{x}{y}\)</p>
+      </div>
+
+      <h3>5. Mean Value Theorem</h3>
+      <div class="theorem-box">
+        <strong>MVT Statement:</strong>
+        If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists c \in (a,b)\) such that:
+        $$f'(c) = \frac{f(b) - f(a)}{b - a}$$
+      </div>
+
+      <h3>6. Curve Sketching Checklist</h3>
+      <div class="important-note">
+        <strong>Curve Sketching Procedure:</strong>
+        <ol>
+          <li><strong>Domain:</strong> Where is \(f(x)\) defined?</li>
+          <li><strong>Intercepts:</strong> \(f(0)\) and solve \(f(x) = 0\)</li>
+          <li><strong>Symmetry:</strong> \(f(-x) = f(x)\) (even), \(f(-x) = -f(x)\) (odd)</li>
+          <li><strong>Asymptotes:</strong> Vertical and horizontal/slant</li>
+          <li><strong>First Derivative:</strong> Find critical points, increasing/decreasing</li>
+          <li><strong>Second Derivative:</strong> Concavity, inflection points</li>
+          <li><strong>Sketch:</strong> Combine all information</li>
+        </ol>
+      </div>
+
+      <h3>7. Integration Formulas</h3>
+      <div class="definition-box">
+        <strong>Basic Integrals:</strong>
+        <ul>
+          <li>\(\int x^n \, dx = \frac{x^{n+1}}{n+1} + C\) (for \(n \neq -1\))</li>
+          <li>\(\int \frac{1}{x} \, dx = \ln|x| + C\)</li>
+          <li>\(\int e^x \, dx = e^x + C\)</li>
+          <li>\(\int a^x \, dx = \frac{a^x}{\ln a} + C\)</li>
+          <li>\(\int \sin x \, dx = -\cos x + C\)</li>
+          <li>\(\int \cos x \, dx = \sin x + C\)</li>
+          <li>\(\int \sec^2 x \, dx = \tan x + C\)</li>
+          <li>\(\int \frac{1}{\sqrt{1-x^2}} \, dx = \sin^{-1}x + C\)</li>
+        </ul>
+      </div>
+
+      <h3>8. Fundamental Theorem of Calculus</h3>
+      <div class="theorem-box">
+        <strong>FTC Part 2:</strong>
+        $$\int_a^b f(x) \, dx = F(b) - F(a)$$
+        where \(F'(x) = f(x)\).
+      </div>
+
+      <h3>9. Applications of Integration</h3>
+      <div class="definition-box">
+        <strong>Area Between Curves:</strong> \(\int_a^b |f(x) - g(x)| \, dx\)</p>
+        <strong>Volume (Disk):</strong> \(\pi \int_a^b [f(x)]^2 \, dx\)</p>
+        <strong>Volume (Washer):</strong> \(\pi \int_a^b ([f(x)]^2 - [g(x)]^2) \, dx\)</p>
+        <strong>Volume (Shell):</strong> \(2\pi \int_a^b x \cdot f(x) \, dx\)</p>
+        <strong>Work:</strong> \(W = \int_a^b F(x) \, dx\)</p>
+      </div>
+
+      <h3>10. Common Mistakes to Avoid</h3>
+      <div class="important-note">
+        <strong>Warning Points:</strong>
+        <ul>
+          <li>Dont forget the chain rule when differentiating composite functions</li>
+          <li>Always check for continuity before applying MVT</li>
+          <li>Don't mix up integration formulas - \(\int \frac{1}{x} = \ln|x| + C\), not \(\ln x\)</li>
+          <li>Remember absolute value in \(\int \frac{1}{x} \, dx\)</li>
+          <li>Don't forget \(dx\) in integration</li>
+          <li>Check your work by differentiating antiderivatives</li>
+          <li>For curve sketching, verify all conditions before stating conclusions</li>
+        </ul>
+      </div>
+    </div>
+
+<nav class="navigation">
+      <a href="lecture-notes-integration-techniques-calc1.html">← Integration Techniques</a>
+      <a href="lecture-notes-final-review-calc1.html">Final Review →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

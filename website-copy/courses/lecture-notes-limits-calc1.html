@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detailed Lecture Notes: Limits and Derivatives - Calculus I">
-  <title>Kasieobi Udumaga | Limits and Derivatives - Detailed Notes</title>
+  <meta name="description" content="Detailed Lecture Notes: Limits and Continuity - Calculus I">
+  <title>Kasieobi Udumaga | Limits and Continuity - Detailed Notes</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
     .lecture-header {
       text-align: center;
       padding: 2rem 0;
@@ -34,35 +45,87 @@
       padding-bottom: 0.5rem;
       margin-top: 2.5rem;
     }
-    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
       background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
       border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
       border-radius: 12px;
       padding: 1.5rem;
       margin: 1.5rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    .definition-box {
-      border-left: 4px solid var(--accent);
-    }
-    .example-box {
-      border-left: 4px solid #f0ad4e;
-    }
-    .important-note {
-      border-left: 4px solid #d9534f;
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .formula-box {
       background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
     }
-    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
-      color: var(--accent);
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
       display: block;
       margin-bottom: 0.5rem;
     }
@@ -102,7 +165,6 @@
       <h1>Calculus I</h1>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="../index.html">Home</a></li>
@@ -126,125 +188,238 @@
 
   <main>
     <div class="lecture-header">
-      <h1>Limits and Derivatives</h1>
-      <div class="subtitle">Calculus I - Chapter 2.1-2.8 (Detailed Notes)</div>
+      <h1>Limits and Continuity</h1>
+      <div class="subtitle">Calculus I - Chapter 2.1-2.5 (Detailed Notes)</div>
     </div>
 
     <div class="lecture-content">
-
-      <h2>1. The Tangent and Velocity Problems</h2>
-
-      <h3>1.1 The Tangent Line Problem</h3>
-      <div class="definition-box">
-        <strong>Tangent Line:</strong>
-        The tangent line to a curve \(y = f(x)\) at point \(P(a, f(a))\) is the line that best approximates the curve near \(P\). Its slope is the limit of secant line slopes.
-      </div>
-
-      <p>Given a point \(P(a, f(a))\) on the curve, consider a nearby point \(Q(a+h, f(a+h))\). The slope of the secant line through \(P\) and \(Q\) is:</p>
-      <p>\(m_{secant} = \frac{f(a+h) - f(a)}{h}\)</p>
-
-      <p>As \(h \to 0\), the secant line approaches the tangent line, giving us the derivative formula.</p>
-
-      <div class="example-box">
-        <strong>Example 1.1:</strong>
-        Find the tangent line to \(y = x^2\) at point \((2, 4)\).
-        <p>Solution: The slope is \(f'(2) = \lim_{h \to 0} \frac{(2+h)^2 - 4}{h} = \lim_{h \to 0} \frac{4 + 4h + h^2 - 4}{h} = \lim_{h \to 0} (4 + h) = 4\)</p>
-        <p>The tangent line is \(y - 4 = 4(x - 2)\), or \(y = 4x - 4\).</p>
-      </div>
-
-      <h3>1.2 The Velocity Problem</h3>
-      <div class="definition-box">
-        <strong>Velocity:</strong>
-        If \(s(t)\) represents the position of an object at time \(t\), the velocity at time \(t = a\) is:
-        \(v(a) = \lim_{h \to 0} \frac{s(a+h) - s(a)}{h} = s'(a)\)
-      </div>
-
-      <p>This is the same limit as the tangent line problem! Both involve the derivative.</p>
-
-      <div class="example-box">
-        <strong>Example 1.2:</strong>
-        A ball is dropped from a height of 100 meters. Its position is \(s(t) = 100 - 4.9t^2\). Find its velocity after 3 seconds.
-        <p>Solution: \(v(t) = s'(t) = -9.8t\). After 3 seconds: \(v(3) = -29.4\) m/s (downward).</p>
-      </div>
-
-      <h2>2. The Limit of a Function</h2>
-
-      <div class="definition-box">
-        <strong>Definition: Limit</strong>
-        We write \(\lim_{x \to a} f(x) = L\) if we can make \(f(x)\) arbitrarily close to \(L\) by taking \(x\) sufficiently close to \(a\) (but not equal to \(a\)).
-      </div>
-
-      <h3>2.1 Intuitive Definition</h3>
-      <p>\(\lim_{x \to a} f(x) = L\) means: For every \(\varepsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |x - a| < \delta\), then \(|f(x) - L| < \varepsilon\).</p>
-
-      <h3>2.2 One-sided Limits</h3>
+      <h2>1. The Intuitive Idea of a Limit</h2>
+      
+      <h3>1.1 What is a Limit?</h3>
+      <p>We say "the limit of \(f(x)\) as \(x\) approaches \(a\) equals \(L\)" when we can make \(f(x)\) arbitrarily close to \(L\) by taking \(x\) sufficiently close to \(a\) (but not equal to \(a\)).</p>
+      
       <div class="important-note">
-        <strong>One-sided Limits:</strong>
-        <ul>
-          <li>\(\lim_{x \to a^-} f(x) = L\) (left-hand limit): \(x\) approaches \(a\) from below</li>
-          <li>\(\lim_{x \to a^+} f(x) = L\) (right-hand limit): \(x\) approaches \(a\) from above</li>
-        </ul>
+        <strong>Key Intuition:</strong>
+        Think of watching a movie frame by frame as we approach a specific point. The limit is what the function values are "heading toward" as we get closer and closer to the input.
+        
+        <strong>Important:</strong> The value \(f(a)\) itself may or may not equal the limit!
       </div>
-
-      <h3>2.3 Limit Laws</h3>
-      <div class="theorem-box">
-        <strong>Limit Laws:</strong>
-        If \(\lim_{x \to a} f(x) = L\) and \(\lim_{x \to a} g(x) = M\), then:
-        <ul>
-          <li>\(\lim_{x \to a} [f(x) + g(x)] = L + M\)</li>
-          <li>\(\lim_{x \to a} [f(x) - g(x)] = L - M\)</li>
-          <li>\(\lim_{x \to a} [f(x) \cdot g(x)] = LM\)</li>
-          <li>\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}\) (if \(M \neq 0\))</li>
-          <li>\(\lim_{x \to a} [c \cdot f(x)] = cL\)</li>
-        </ul>
-      </div>
-
-      <h2>3. Calculating Limits Using Limit Laws</h2>
-
-      <h3>3.1 Direct Substitution</h3>
-      <p>If \(f\) is a polynomial or rational function and \(a\) is in the domain, then \(\lim_{x \to a} f(x) = f(a)\).</p>
-
-      <h3>3.2 Indeterminate Forms</h3>
-      <div class="important-note">
-        <strong>Indeterminate Forms:</strong>
-        The forms \(\frac{0}{0}\) and \(\frac{\infty}{\infty}\) require further analysis.
-      </div>
-
-      <h3>3.3 Techniques for Evaluating Limits</h3>
-      <ul>
-        <li><strong>Factoring:</strong> For polynomials, factor and cancel common terms</li>
-        <li><strong>Rationalization:</strong> Multiply by conjugate to eliminate radicals</li>
-        <li><strong>Trigonometric limits:</strong> Use \(\lim_{x \to 0} \frac{\sin x}{x} = 1\)</li>
-      </ul>
 
       <div class="example-box">
-        <strong>Example 3.1:</strong>
-        \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2} = \lim_{x \to 2} \frac{(x-2)(x+2)}{x-2} = \lim_{x \to 2} (x+2) = 4\)
+        <strong>Example 1.1 - Graphical Understanding:</strong>
+        Consider \(f(x) = \frac{x^2 - 1}{x - 1}\)
+        
+        <p>For \(x \neq 1\): \(f(x) = \frac{(x-1)(x+1)}{x-1} = x + 1\)</p>
+        
+        <p>Graphically: A line with a hole at \((1, 2)\)</p>
+        
+        <p>The limit as \(x \to 1\) is 2 (we approach the hole)</p>
+        <p>But \(f(1)\) is undefined (the hole is there!)</p>
       </div>
 
-      <h2>4. The Precise Definition of a Limit</h2>
+      <h2>2. One-Sided Limits</h2>
 
+      <h3>2.1 Left-Hand and Right-Hand Limits</h3>
+      <div class="definition-box">
+        <strong>Left-Hand Limit:</strong>
+        \(\lim_{x \to a^-} f(x) = L\) means: as \(x\) approaches \(a\) from values less than \(a\), \(f(x)\) approaches \(L\).
+        
+        <strong>Right-Hand Limit:</strong>
+        \(\lim_{x \to a^+} f(x) = L\) means: as \(x\) approaches \(a\) from values greater than \(a\), \(f(x)\) approaches \(L\).
+      </div>
+
+      <div class="important-note">
+        <strong>Two-Sided Limit Exists:</strong>
+        \(\lim_{x \to a} f(x) = L\) if and only if:
+        <ul>
+          <li>\(\lim_{x \to a^-} f(x) = L\) AND</li>
+          <li>\(\lim_{x \to a^+} f(x) = L\)</li>
+        </ul>
+        Both one-sided limits must exist AND be equal!
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1 - One-Sided Limits:</strong>
+        For \(f(x) = |x|\) at \(x = 0\):
+        
+        <p>Left-hand limit: As \(x \to 0^-\), \(|x| = -x\), so \(\lim_{x \to 0^-} |x| = 0\)</p>
+        
+        <p>Right-hand limit: As \(x \to 0^+\), \(|x| = x\), so \(\lim_{x \to 0^+} |x| = 0\)</p>
+        
+        <p>Since both equal 0: \(\lim_{x \to 0} |x| = 0\)</p>
+      </div>
+
+      <h2>3. The Precise Definition of a Limit (Epsilon-Delta)</h2>
+
+      <h3>3.1 Formal Definition</h3>
       <div class="definition-box">
         <strong>Epsilon-Delta Definition:</strong>
-        \(\lim_{x \to a} f(x) = L\) means: For every \(\varepsilon > 0\), there exists a \(\delta > 0\) such that if \(0 < |x - a| < \delta\), then \(|f(x) - L| < \varepsilon\).
+        \(\lim_{x \to a} f(x) = L\) means:
+        
+        For every \(\varepsilon > 0\) (no matter how small), there exists a \(\delta > 0\) such that:
+        
+        if \(0 < |x - a| < \delta\), then \(|f(x) - L| < \varepsilon\)
       </div>
 
-      <h3>4.1 How to Use the Definition</h3>
-      <p>To prove \(\lim_{x \to a} f(x) = L\), we need to find \(\delta\) in terms of \(\varepsilon\).</p>
+      <div class="important-note">
+        <strong>Understanding the Definition:</strong>
+        <ul>
+          <li>\(\varepsilon\) (epsilon): How close we want \(f(x)\) to be to \(L\)</li>
+          <li>\(\delta\) (delta): How close \(x\) must be to \(a\)</li>
+          <li>The definition says: we can always find a \(\delta\) that works!</li>
+        </ul>
+        Think of it as a game: You pick \(\varepsilon\), I must find \(\delta\). If I can always win, the limit exists!
+      </div>
+
+      <h3>3.2 Proof Example</h3>
+      <div class="proof-box">
+        <strong>Proof that \(\lim_{x \to 2} (3x - 1) = 5\)</strong>
+        
+        <strong>We need to show:</strong> For every \(\varepsilon > 0\), there exists \(\delta > 0\) such that if \(0 < |x - 2| < \delta\), then \(|(3x-1) - 5| < \varepsilon\).
+        
+        <strong>Work backwards:</strong>
+        <p>We want: \(|(3x-1) - 5| < \varepsilon\)</p>
+        <p>Simplify: \(|3x - 6| < \varepsilon\)</p>
+        <p>Factor: \(|3(x - 2)| < \varepsilon\)</p>
+        <p>Simplify: \(3|x - 2| < \varepsilon\)</p>
+        <p>Therefore: \(|x - 2| < \frac{\varepsilon}{3}\)</p>
+        
+        <strong>Choose \(\delta = \frac{\varepsilon}{3}\)</strong>
+        
+        <strong>Now verify:</strong>
+        <p>Assume \(0 < |x - 2| < \delta = \frac{\varepsilon}{3}\)</p>
+        <p>Then \(|x - 2| < \frac{\varepsilon}{3}\)</p>
+        <p>Multiply by 3: \(3|x - 2| < \varepsilon\)</p>
+        <p>Factor: \(|3(x - 2)| < \varepsilon\)</p>
+        <p>Simplify: \(|3x - 6| < \varepsilon\)</p>
+        <p>Rewrite: \(|(3x - 1) - 5| < \varepsilon\)</p>
+        <p>Therefore: \(|(3x-1) - 5| < \varepsilon\) ✓</p>
+        
+        Since we found such a \(\delta\) for any \(\varepsilon\), the limit is proven. ∎
+      </div>
+
+      <h2>4. Limit Laws</h2>
+
+      <h3>4.1 Basic Limit Laws</h3>
+      <div class="theorem-box">
+        <strong>Limit Laws (assuming all limits exist):</strong>
+        <ul>
+          <li><strong>Sum Law:</strong> \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\)</li>
+          <li><strong>Difference Law:</strong> \(\lim_{x \to a} [f(x) - g(x)] = \lim_{x \to a} f(x) - \lim_{x \to a} g(x)\)</li>
+          <li><strong>Product Law:</strong> \(\lim_{x \to a} [f(x) \cdot g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)\)</li>
+          <li><strong>Quotient Law:</strong> \(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}\) (if denominator ≠ 0)</li>
+          <li><strong>Power Law:</strong> \(\lim_{x \to a} [f(x)]^n = [\lim_{x \to a} f(x)]^n\)</li>
+        </ul>
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of Sum Law (Sketch):</strong>
+        
+        Let \(\lim_{x \to a} f(x) = L\) and \(\lim_{x \to a} g(x) = M\)
+        
+        We want to show: \(\lim_{x \to a} [f(x) + g(x)] = L + M\)
+        
+        By definition, for any \(\varepsilon > 0\):
+        <ul>
+          <li>There exists \(\delta_1 > 0\) such that if \(0 < |x-a| < \delta_1\), then \(|f(x) - L| < \frac{\varepsilon}{2}\)</li>
+          <li>There exists \(\delta_2 > 0\) such that if \(0 < |x-a| < \delta_2\), then \(|g(x) - M| < \frac{\varepsilon}{2}\)</li>
+        </ul>
+        
+        Let \(\delta = \min(\delta_1, \delta_2)\)
+        
+        Then if \(0 < |x-a| < \delta\):
+        <p>\(|[f(x) + g(x)] - [L + M]| = |[f(x) - L] + [g(x) - M]| \leq |f(x) - L| + |g(x) - M| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\)</p>
+        
+        Therefore, \(\lim_{x \to a} [f(x) + g(x)] = L + M\) ∎
+      </div>
+
+      <h3>4.2 Special Limits</h3>
+      <div class="definition-box">
+        <strong>Important Limits to Know:</strong>
+        <ul>
+          <li>\(\lim_{x \to a} c = c\) (constant function)</li>
+          <li>\(\lim_{x \to a} x = a\) (identity function)</li>
+          <li>\(\lim_{x \to 0} \frac{\sin x}{x} = 1\) (squeeze theorem proof required)</li>
+          <li>\(\lim_{x \to 0} \frac{1 - \cos x}{x} = 0\) (can be derived from above)</li>
+          <li>\(\lim_{x \to \infty} \frac{1}{x} = 0\)</li>
+        </ul>
+      </div>
+
+      <h2>5. Evaluating Limits</h2>
+
+      <h3>5.1 Direct Substitution</h3>
+      <div class="important-note">
+        <strong>When Direct Substitution Works:</strong>
+        If \(f\) is a polynomial, rational function, or "nice" function and \(a\) is in the domain, then:
+        \(\lim_{x \to a} f(x) = f(a)\)
+        
+        <strong>Why this works:</strong> Most functions we work with are continuous, meaning the limit equals the function value.
+      </div>
+
+      <h3>5.2 Indeterminate Forms</h3>
+      <div class="definition-box">
+        <strong>Indeterminate Forms:</strong>
+        When direct substitution gives:
+        <ul>
+          <li>\(\frac{0}{0}\)</li>
+          <li>\(\frac{\infty}{\infty}\)</li>
+          <li>\(\infty - \infty\)</li>
+          <li>\(0 \cdot \infty\)</li>
+          <li>\(\frac{0}{0}\)</li>
+          <li>\(1^{\infty}\)</li>
+          <li>\(0^0\)</li>
+          <li>\(\infty^0\)</li>
+        </ul>
+        These require further algebraic manipulation!
+      </div>
+
+      <h3>5.3 Techniques for Evaluating Limits</h3>
+      
+      <div class="example-box">
+        <strong>Example 5.1 - Factoring (0/0 form):</strong>
+        \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\)
+        
+        <p>Direct substitution: \(\frac{4-4}{2-2} = \frac{0}{0}\) - indeterminate!</p>
+        
+        <p>Factor numerator: \(\frac{(x-2)(x+2)}{x-2}\)</p>
+        
+        <p>Cancel (valid for \(x \neq 2\)): \(x + 2\)</p>
+        
+        <p>Now take limit: \(\lim_{x \to 2} (x + 2) = 4\)</p>
+      </div>
 
       <div class="example-box">
-        <strong>Example 4.1:</strong>
-        Prove \(\lim_{x \to 3} (2x + 1) = 7\).
-        <p>We need: \(|2x + 1 - 7| < \varepsilon\) when \(0 < |x - 3| < \delta\).</p>
-        <p>\(|2x - 6| = 2|x - 3| < \varepsilon\) when \(|x - 3| < \frac{\varepsilon}{2}\).</p>
-        <p>Choose \(\delta = \frac{\varepsilon}{2}\).</p>
+        <strong>Example 5.2 - Rationalizing (0/0 form with radicals):</strong>
+        \(\lim_{x \to 0} \frac{\sqrt{x+4} - 2}{x}\)
+        
+        <p>Multiply by conjugate: \(\frac{\sqrt{x+4} - 2}{x} \cdot \frac{\sqrt{x+4} + 2}{\sqrt{x+4} + 2}\)</p>
+        
+        <p>Simplify numerator: \(= \frac{(x+4) - 4}{x(\sqrt{x+4} + 2)} = \frac{x}{x(\sqrt{x+4} + 2)}\)</p>
+        
+        <p>Cancel: \(= \frac{1}{\sqrt{x+4} + 2}\)</p>
+        
+        <p>Take limit: \(\frac{1}{\sqrt{4} + 2} = \frac{1}{4}\)</p>
       </div>
 
-      <h2>5. Continuity</h2>
+      <div class="example-box">
+        <strong>Example 5.3 - Special Trigonometric Limit:</strong>
+        \(\lim_{x \to 0} \frac{\sin(3x)}{x}\)
+        
+        <p>We know \(\lim_{u \to 0} \frac{\sin u}{u} = 1\)</p>
+        
+        <p>Rewrite: \(\frac{\sin(3x)}{x} = 3 \cdot \frac{\sin(3x)}{3x}\)</p>
+        
+        <p>Let \(u = 3x\). As \(x \to 0\), \(u \to 0\)</p>
+        
+        <p>Therefore: \(\lim_{x \to 0} \frac{\sin(3x)}{x} = 3 \cdot \lim_{u \to 0} \frac{\sin u}{u} = 3 \cdot 1 = 3\)</p>
+      </div>
 
+      <h2>6. Continuity</h2>
+
+      <h3>6.1 Definition of Continuity</h3>
       <div class="definition-box">
-        <strong>Definition: Continuity</strong>
-        A function \(f\) is continuous at \(a\) if:
+        <strong>Definition:</strong>
+        A function \(f\) is continuous at \(a\) if and only if:
         <ol>
           <li>\(f(a)\) is defined</li>
           <li>\(\lim_{x \to a} f(x)\) exists</li>
@@ -252,104 +427,91 @@
         </ol>
       </div>
 
-      <h3>5.1 Types of Discontinuities</h3>
-      <ul>
-        <li><strong>Removable discontinuity:</strong> Limit exists but doesn't equal function value</li>
-        <li><strong>Jump discontinuity:</strong> Left and right limits exist but are different</li>
-        <li><strong>Infinite discontinuity:</strong> Function approaches \(\pm\infty\)</li>
-      </ul>
+      <div class="important-note">
+        <strong>Intuitive Meaning:</strong>
+        You can draw the graph without lifting your pencil! There are no holes, jumps, or vertical asymptotes.
+      </div>
 
-      <h3>5.2 Intermediate Value Theorem</h3>
+      <h3>6.2 Types of Discontinuities</h3>
       <div class="theorem-box">
-        <strong>Intermediate Value Theorem:</strong>
-        If \(f\) is continuous on \([a, b]\) and \(f(a) < k < f(b)\), then there exists \(c \in (a, b)\) such that \(f(c) = k\).
-      </div>
-
-      <h2>6. Limits at Infinity; Horizontal Asymptotes</h2>
-
-      <div class="definition-box">
-        <strong>Limit at Infinity:</strong>
-        \(\lim_{x \to \infty} f(x) = L\) if \(f(x)\) approaches \(L\) as \(x\) becomes large.
-      </div>
-
-      <h3>6.1 Horizontal Asymptotes</h3>
-      <p>If \(\lim_{x \to \infty} f(x) = L\) or \(\lim_{x \to -\infty} f(x) = L\), then \(y = L\) is a horizontal asymptote.</p>
-
-      <h3>6.2 Limits for Rational Functions</h3>
-      <div class="important-note">
-        <strong>Rule for Rational Functions:</strong>
-        For \(f(x) = \frac{P(x)}{Q(x)}\), compare degrees:
+        <strong>Types of Discontinuities at \(x = a\):</strong>
         <ul>
-          <li>If deg(P) < deg(Q): limit is 0</li>
-          <li>If deg(P) = deg(Q): limit is ratio of leading coefficients</li>
-          <li>If deg(P) > deg(Q): limit is \(\pm\infty\)</li>
-        </ul>
-      </div>
-
-      <h2>7. Derivatives and Rates of Change</h2>
-
-      <div class="definition-box">
-        <strong>Definition: Derivative</strong>
-        The derivative of \(f\) at \(a\) is:
-        \(f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}\)
-      </div>
-
-      <h3>7.1 Alternative Forms</h3>
-      <div class="formula-box">
-        <strong>Alternative Form:</strong>
-        \(f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}\)
-      </div>
-
-      <h3>7.2 Notation</h3>
-      <ul>
-        <li>\(f'(x)\) - Lagrange notation</li>
-        <li>\(\frac{dy}{dx}\) - Leibniz notation</li>
-        <li>\(\frac{d}{dx}f(x)\) - Operator notation</li>
-        <li>\(Df(x)\) - Euler notation</li>
-      </ul>
-
-      <h3>7.3 Interpretation</h3>
-      <div class="important-note">
-        <strong>Interpretation:</strong>
-        <ul>
-          <li>Instantaneous rate of change of \(f\) with respect to \(x\)</li>
-          <li>Slope of the tangent line to the curve \(y = f(x)\)</li>
-          <li>If \(f\) represents position, \(f'\) represents velocity</li>
+          <li><strong>Removable discontinuity:</strong> Limit exists but ≠ function value or function is undefined</li>
+          <li><strong>Jump discontinuity:</strong> Left and right limits exist but are different</li>
+          <li><strong>Infinite discontinuity:</strong> Function approaches ±∞ from at least one side</li>
+          <li><strong>Oscillating discontinuity:</strong> Function oscillates infinitely (e.g., \(\sin(1/x)\) at \(x = 0\))</li>
         </ul>
       </div>
 
       <div class="example-box">
-        <strong>Example 7.1:</strong>
-        Find the derivative of \(f(x) = x^2 - 3x + 2\).
-        <p>Solution: \(f'(x) = \lim_{h \to 0} \frac{(x+h)^2 - 3(x+h) + 2 - (x^2 - 3x + 2)}{h}\)</p>
-        <p>\(= \lim_{h \to 0} \frac{2xh + h^2 - 3h}{h} = \lim_{h \to 0} (2x + h - 3) = 2x - 3\)</p>
+        <strong>Example 6.1 - Removable Discontinuity:</strong>
+        \(f(x) = \frac{x^2 - 1}{x - 1}\)
+        
+        <p>At \(x = 1\): \(f(1)\) is undefined (0/0)</p>
+        
+        <p>But \(\lim_{x \to 1} f(x) = \lim_{x \to 1} (x+1) = 2\) exists</p>
+        
+        <p>We can "remove" the discontinuity by defining \(f(1) = 2\)</p>
       </div>
 
-      <h2>8. The Derivative as a Function</h2>
-
-      <h3>8.1 Differentiability</h3>
+      <h3>6.3 Continuity on an Interval</h3>
       <div class="definition-box">
-        <strong>Differentiable Function:</strong>
-        A function \(f\) is differentiable on an interval if \(f'(a)\) exists for all \(a\) in that interval.
+        <strong>Continuity on an Interval:**</strong>
+        <ul>
+          <li>On \((a, b)\): \(f\) is continuous at every point in \((a, b)\)</li>
+          <li>On \([a, b)\): \(f\) is continuous on \((a, b)\) AND continuous at \(a\) from the right</li>
+          <li>On \((a, b]\): \(f\) is continuous on \((a, b)\) AND continuous at \(b\) from the left</li>
+          <li>On \([a, b]\): \(f\) is continuous on \((a, b)\), at \(a\) from the right, and at \(b\) from the left</li>
+        </ul>
       </div>
 
-      <h3>8.2 Higher Derivatives</h3>
-      <ul>
-        <li>\(f''(x) = (f'(x))'\) - Second derivative (concavity)</li>
-        <li>\(f'''(x) = (f''(x))'\) - Third derivative</li>
-        <li>\(f^{(n)}(x)\) - nth derivative</li>
-      </ul>
-
-      <h3>8.3 Relationship Between Continuity and Differentiability</h3>
-      <div class="important-note">
-        <strong>Important:</strong>
-        Differentiability implies continuity, but not vice versa. A function can be continuous but not differentiable (e.g., \(f(x) = |x|\) at \(x = 0\)).
+      <h3>6.4 Important Theorems about Continuous Functions</h3>
+      <div class="theorem-box">
+        <strong>Intermediate Value Theorem (IVT):</strong>
+        If \(f\) is continuous on \([a, b]\) and \(N\) is any number between \(f(a)\) and \(f(b)\), then there exists at least one \(c \in (a, b)\) such that \(f(c) = N\).
       </div>
 
-      <div class="navigation">
-        <a href="calculus-1.html">← Back to Course</a>
+      <div class="proof-box">
+        <strong>Proof of IVT (Sketch):</strong>
+        
+        Let \(f\) be continuous on \([a, b]\) and suppose \(f(a) < N < f(b)\).
+        
+        Define \(S = \{x \in [a, b] : f(x) < N\}\)
+        
+        Let \(c = \sup S\) (the least upper bound of S)
+        
+        By continuity:
+        <ul>
+          <li>If \(f(c) < N\), then by continuity, \(f(x) < N\) for \(x\) near \(c\), contradicting \(c = \sup S\)</li>
+          <li>If \(f(c) > N\), then by continuity, \(f(x) > N\) for \(x\) near \(c\), contradicting definition of sup</li>
+          <li>Therefore \(f(c) = N\)</li>
+        </ul>
+        ∎
       </div>
+
+      <div class="example-box">
+        <strong>Example 6.2 - Using IVT:</strong>
+        Show that \(x^3 - 3x + 1 = 0\) has a solution in \((0, 2)\).
+        
+        <p>Let \(f(x) = x^3 - 3x + 1\). This is a polynomial, so it's continuous everywhere.</p>
+        
+        <p>Evaluate: \(f(0) = 1 > 0\) and \(f(2) = 8 - 6 + 1 = 3 > 0\)</p>
+        
+        <p>Wait - both are positive! Let's try \(f(1) = 1 - 3 + 1 = -1 < 0\)</p>
+        
+        <p>Now: \(f(0) = 1 > 0\) and \(f(1) = -1 < 0\)</p>
+        
+        <p>By IVT, there exists \(c \in (0, 1)\) such that \(f(c) = 0\)</p>
+        
+        <p>So there's at least one root in \((0, 1)\), which is in \((0, 2)\). ✓</p>
+      </div>
+
     </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-functions-calc1.html">← Functions</a>
+      <a href="lecture-notes-differentiation-calc1.html">Differentiation →</a>
+    </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>

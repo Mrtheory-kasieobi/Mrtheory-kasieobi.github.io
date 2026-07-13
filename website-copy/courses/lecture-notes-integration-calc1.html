@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
     .lecture-header {
       text-align: center;
       padding: 2rem 0;
@@ -33,6 +44,10 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 0.5rem;
       margin-top: 2.5rem;
+    }
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
     }
     .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
       background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
@@ -196,9 +211,10 @@
         \(\int x \cos(x^2) \, dx = \frac{1}{2} \int \cos(u) \, du = \frac{1}{2} \sin(u) + C = \frac{1}{2} \sin(x^2) + C\)
       </div>
 
-      <div class="navigation">
-        <a href="calculus-1.html">← Back to Course</a>
-      </div>
+<nav class="navigation">
+      <a href="lecture-notes-mean-value-calc1.html">← Mean Value Theorem</a>
+      <a href="lecture-notes-ftc-calc1.html">FTC →</a>
+    </nav>
     </div>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

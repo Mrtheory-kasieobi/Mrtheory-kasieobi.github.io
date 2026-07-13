@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Derivatives of Trigonometric Functions - Calculus I">
+  <title>Kasieobi Udumaga | Derivatives of Trigonometric Functions - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Derivatives of Trigonometric Functions</h1>
+      <div class="subtitle">Calculus I - Week 6</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>1. Fundamental Trigonometric Derivatives</h2>
+      
+      <h3>1.1 Basic Formulas</h3>
+      <div class="definition-box">
+        <strong>Theorem 1.1:</strong>
+        The derivatives of the six trigonometric functions are:
+        <ul>
+          <li>\(\frac{d}{dx}[\sin x] = \cos x\)</li>
+          <li>\(\frac{d}{dx}[\cos x] = -\sin x\)</li>
+          <li>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</li>
+          <li>\(\frac{d}{dx}[\cot x] = -\csc^2 x\)</li>
+          <li>\(\frac{d}{dx}[\sec x] = \sec x \tan x\)</li>
+          <li>\(\frac{d}{dx}[\csc x] = -\csc x \cot x\)</li>
+        </ul>
+      </div>
+
+      <h3>1.2 Proof of \(\frac{d}{dx}[\sin x] = \cos x\)</h3>
+      <div class="proof-box">
+        <strong>Proof using the Limit Definition:</strong>
+        We compute:
+        $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin(x+h) - \sin x}{h}$$
+        
+        Using the sine addition formula: \(\sin(x+h) = \sin x \cos h + \cos x \sin h\)
+        
+        $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin x \cos h + \cos x \sin h - \sin x}{h}$$
+        
+        $$= \lim_{h \to 0} \left[\sin x \cdot \frac{\cos h - 1}{h} + \cos x \cdot \frac{\sin h}{h}\right]$$
+        
+        Using the standard limits \(\lim_{h \to 0} \frac{\sin h}{h} = 1\) and \(\lim_{h \to 0} \frac{\cos h - 1}{h} = 0\):
+        
+        $$= \sin x \cdot 0 + \cos x \cdot 1 = \cos x$$
+        ∎
+      </div>
+
+      <h3>1.3 Proof of \(\frac{d}{dx}[\cos x] = -\sin x\)</h3>
+      <div class="proof-box">
+        <strong>Proof using the Limit Definition:</strong>
+        $$\frac{d}{dx}[\cos x] = \lim_{h \to 0} \frac{\cos(x+h) - \cos x}{h}$$
+        
+        Using the cosine addition formula: \(\cos(x+h) = \cos x \cos h - \sin x \sin h\)
+        
+        $$= \lim_{h \to 0} \frac{\cos x \cos h - \sin x \sin h - \cos x}{h}$$
+        
+        $$= \lim_{h \to 0} \left[\cos x \cdot \frac{\cos h - 1}{h} - \sin x \cdot \frac{\sin h}{h}\right]$$
+        
+        $$= \cos x \cdot 0 - \sin x \cdot 1 = -\sin x$$
+        ∎
+      </div>
+
+      <h3>1.4 Proof of \(\frac{d}{dx}[\tan x] = \sec^2 x\)</h3>
+      <div class="proof-box">
+        <strong>Proof using Quotient Rule:</strong>
+        Since \(\tan x = \frac{\sin x}{\cos x}\), we apply the quotient rule:
+        
+        $$\frac{d}{dx}\left[\frac{\sin x}{\cos x}\right] = \frac{\cos x \cdot \cos x - \sin x \cdot (-\sin x)}{\cos^2 x}$$
+        
+        $$= \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x$$
+        ∎
+      </div>
+
+      <div class="formula-box">
+        \(\frac{d}{dx}[\sin x] = \cos x\)<br>
+        \(\frac{d}{dx}[\cos x] = -\sin x\)<br>
+        \(\frac{d}{dx}[\tan x] = \sec^2 x\)<br>
+        \(\frac{d}{dx}[\cot x] = -\csc^2 x\)<br>
+        \(\frac{d}{dx}[\sec x] = \sec x \tan x\)<br>
+        \(\frac{d}{dx}[\csc x] = -\csc x \cot x\)
+      </div>
+
+      <h2>2. Differentiation Techniques with Trig Functions</h2>
+
+      <h3>2.1 Combined Differentiation Rules</h3>
+      <div class="example-box">
+        <strong>Example 2.1:</strong> Find \(\frac{d}{dx}[x^2 \sin x]\)
+        <p>Using the product rule: \(\frac{d}{dx}[uv] = u'v + uv'\)</p>
+        <p>Let \(u = x^2\) and \(v = \sin x\). Then \(u' = 2x\) and \(v' = \cos x\).</p>
+        <p>Result: \(\frac{d}{dx}[x^2 \sin x] = 2x \sin x + x^2 \cos x\)</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2:</strong> Find \(\frac{d}{dx}[\sin^2(x)]\)
+        <p>Using the chain rule with \(f(u) = u^2\) and \(u = \sin x\):</p>
+        <p>\(\frac{d}{dx}[\sin^2 x] = 2\sin x \cdot \cos x = \sin(2x)\)</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.3:</strong> Find \(\frac{d}{dx}[\frac{\cos x}{x}]\)
+        <p>Using the quotient rule:</p>
+        <p>\(\frac{d}{dx}\left[\frac{\cos x}{x}\right] = \frac{x(-\sin x) - \cos x \cdot 1}{x^2} = \frac{-x\sin x - \cos x}{x^2}\)</p>
+      </div>
+
+      <h3>2.2 Trigonometric Equations</h3>
+      <div class="example-box">
+        <strong>Example 2.4:</strong> Find critical points of \(f(x) = \sin x + \cos x\) on \([0, 2\pi]\)
+        <p>Set \(f'(x) = 0\): \(\cos x - \sin x = 0\)</p>
+        <p>So \(\cos x = \sin x\), which gives \(\tan x = 1\).</p>
+        <p>Critical points: \(x = \frac{\pi}{4}, \frac{5\pi}{4}\)</p>
+      </div>
+
+      <h2>3. Inverse Trigonometric Functions</h2>
+
+      <h3>3.1 Derivatives of Inverse Trig Functions</h3>
+      <div class="theorem-box">
+        <strong>Theorem 3.1:</strong>
+        <ul>
+          <li>\(\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}}\) for \(|x| < 1\)</li>
+          <li>\(\frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}}\) for \(|x| < 1\)</li>
+          <li>\(\frac{d}{dx}[\arctan x] = \frac{1}{1+x^2}\)</li>
+          <li>\(\frac{d}{dx}[\operatorname{arccot} x] = -\frac{1}{1+x^2}\)</li>
+          <li>\(\frac{d}{dx}[\operatorname{arcsec} x] = \frac{1}{|x|\sqrt{x^2-1}}\) for \(|x| > 1\)</li>
+          <li>\(\frac{d}{dx}[\operatorname{arccsc} x] = -\frac{1}{|x|\sqrt{x^2-1}}\) for \(|x| > 1\)</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1:</strong> Find \(\frac{d}{dx}[\arctan(x^2)]\)
+        <p>Using the chain rule with \(\frac{d}{du}[\arctan u] = \frac{1}{1+u^2}\):</p>
+        <p>\(\frac{d}{dx}[\arctan(x^2)] = \frac{1}{1+(x^2)^2} \cdot 2x = \frac{2x}{1+x^4}\)</p>
+      </div>
+
+      <h2>4. Applications</h2>
+
+      <h3>4.1 Related Trigonometric Rates</h3>
+      <div class="example-box">
+        <strong>Example 4.1:</strong> A ladder 10 ft long rests against a wall. If the bottom slides away from the wall at 2 ft/s, how fast is the top sliding down when the bottom is 6 ft from the wall?
+        <p>Let \(x\) = distance from wall to bottom, \(y\) = height of top. Then \(x^2 + y^2 = 100\).</p>
+        <p>Differentiating: \(2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0\)</p>
+        <p>When \(x = 6\), \(y = 8\). Given \(\frac{dx}{dt} = 2\):</p>
+        <p>\(2(6)(2) + 2(8)\frac{dy}{dt} = 0 \Rightarrow \frac{dy}{dt} = -\frac{24}{16} = -\frac{3}{2}\)</p>
+        <p>The top slides down at 1.5 ft/s.</p>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-chain-rule-calc1.html">← Chain Rule</a>
+      <a href="lecture-notes-integration-calc1.html">Integration →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

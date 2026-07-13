@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed Lecture Notes: Mean Value Theorem and Curve Sketching - Calculus I">
+  <title>Kasieobi Udumaga | Mean Value Theorem and Curve Sketching - Detailed Notes</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .formula-box {
+      background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Calculus I</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Mean Value Theorem and Curve Sketching</h1>
+      <div class="subtitle">Calculus I - Week 8</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>1. The Mean Value Theorem</h2>
+      
+      <h3>1.1 Statement and Interpretation</h3>
+      <div class="definition-box">
+        <strong>Mean Value Theorem (MVT):</strong>
+        If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then there exists at least one number \(c\) in \((a,b)\) such that:
+        $$f'(c) = \frac{f(b) - f(a)}{b - a}$$
+      </div>
+
+      <p>Geometrically, this means there is at least one point where the tangent line is parallel to the secant line through \((a, f(a))\) and \((b, f(b))\).</p>
+
+      <h3>1.2 Proof of the Mean Value Theorem</h3>
+      <div class="proof-box">
+        <strong>Proof using Rolle's Theorem:</strong>
+        
+        Define \(g(x) = f(x) - \left[f(a) + \frac{f(b)-f(a)}{b-a}(x-a)\right]\)
+        
+        This is the vertical difference between \(f(x)\) and the secant line.
+        
+        Check conditions for Rolle's Theorem:
+        <ul>
+          <li>\(g\) is continuous on \([a,b]\) (difference of continuous functions)</li>
+          <li>\(g\) is differentiable on \((a,b)\)</li>
+          <li>\(g(a) = f(a) - f(a) = 0\) and \(g(b) = f(b) - f(b) = 0\)</li>
+        </ul>
+        
+        By Rolle's Theorem, there exists \(c \in (a,b)\) with \(g'(c) = 0\).
+        
+        Compute: \(g'(x) = f'(x) - \frac{f(b)-f(a)}{b-a}\)
+        
+        Therefore: \(g'(c) = 0 \Rightarrow f'(c) = \frac{f(b)-f(a)}{b-a}\) ∎
+      </div>
+
+      <h3>1.3 Rolle's Theorem</h3>
+      <div class="theorem-box">
+        <strong>Rolle's Theorem:</strong>
+        If \(f\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(f(a) = f(b)\), then there exists \(c \in (a,b)\) such that \(f'(c) = 0\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.1:</strong> Verify the MVT for \(f(x) = x^2\) on \([1, 3]\).
+        <p>Check: \(f\) is continuous and differentiable everywhere.</p>
+        <p>MVT condition: \(f'(c) = \frac{f(3)-f(1)}{3-1} = \frac{9-1}{2} = 4\)</p>
+        <p>But \(f'(x) = 2x\), so \(2c = 4 \Rightarrow c = 2 \in (1,3)\) ✓</p>
+      </div>
+
+      <h2>2. Curve Sketching</h2>
+
+      <h3>2.1 First Derivative Test</h3>
+      <div class="definition-box">
+        <strong>First Derivative Test:</strong>
+        Let \(f\) be continuous at \(c\) and differentiable on both sides of \(c\).
+        <ul>
+          <li>If \(f'\) changes from \(+\) to \(-\) at \(c\), then \(f\) has a local maximum at \(c\)</li>
+          <li>If \(f'\) changes from \(-\) to \(+\) at \(c\), then \(f\) has a local minimum at \(c\)</li>
+          <li>If \(f'\) does not change sign at \(c\), then \(f\) has no local extremum at \(c\)</li>
+        </ul>
+      </div>
+
+      <h3>2.2 Second Derivative Test</h3>
+      <div class="definition-box">
+        <strong>Second Derivative Test:</strong>
+        Suppose \(f''(c)\) exists and \(f'(c) = 0\).
+        <ul>
+          <li>If \(f''(c) > 0\), then \(f\) has a local minimum at \(c\)</li>
+          <li>If \(f''(c) < 0\), then \(f\) has a local maximum at \(c\)</li>
+          <li>If \(f''(c) = 0\), the test is inconclusive</li>
+        </ul>
+      </div>
+
+      <h3>2.3 Concavity and Inflection Points</h3>
+      <div class="definition-box">
+        <strong>Definition 2.1 (Concavity):</strong>
+        <ul>
+          <li>If \(f''(x) > 0\) on an interval, then \(f\) is concave upward on that interval</li>
+          <li>If \(f''(x) < 0\) on an interval, then \(f\) is concave downward on that interval</li>
+        </ul>
+        <strong>Inflection Point:</strong> A point \((c, f(c))\) where \(f\) changes concavity.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1:</strong> Sketch the curve \(f(x) = x^3 - 3x^2 + 4\).
+        <p><strong>Step 1: Domain and Intercepts</strong> - Domain: all reals. y-intercept: \(f(0) = 4\). x-intercepts: solve \(x^3 - 3x^2 + 4 = 0\) → \((-1, 0), (2, 0)\) (double)</p>
+        <p><strong>Step 2: First Derivative</strong> \(f'(x) = 3x^2 - 6x = 3x(x-2)\)</p>
+        <p>Critical points: \(x = 0, 2\).</p>
+        <p>Sign chart: \(f'\) + on \((-\infty,0)\), - on \((0,2)\), + on \((2,\infty)\)</p>
+        <p>Local max at \(x = 0\): \(f(0) = 4\). Local min at \(x = 2\): \(f(2) = 0\).</p>
+        <p><strong>Step 3: Second Derivative</strong> \(f''(x) = 6x - 6 = 6(x-1)\)</p>
+        <p>Inflection point at \(x = 1\): \(f(1) = 2\).</p>
+        <p>Concave down on \((-\infty, 1)\), concave up on \((1, \infty)\).</p>
+      </div>
+
+      <h2>3. Asymptotes</h2>
+
+      <h3>3.1 Vertical Asymptotes</h3>
+      <p>Vertical asymptotes occur where \(\lim_{x \to a} f(x) = \pm\infty\).</p>
+
+      <h3>3.2 Horizontal Asymptotes</h3>
+      <p>Horizontal asymptotes are horizontal lines \(y = L\) where \(\lim_{x \to \pm\infty} f(x) = L\).</p>
+
+      <div class="example-box">
+        <strong>Example 3.1:</strong> Find asymptotes of \(f(x) = \frac{2x^2 + 3}{x - 1}\)
+        <p><strong>Vertical:</strong> Denominator zero at \(x = 1\). \(\lim_{x \to 1^+} f(x) = +\infty\), so \(x = 1\) is vertical asymptote.</p>
+        <p><strong>Horizontal:</strong> Degree of numerator (2) > degree of denominator (1). No horizontal asymptote.</p>
+        <p><strong>Oblique:</strong> Polynomial division: \(f(x) = 2x + 2 + \frac{4}{x-1}\). Oblique asymptote \(y = 2x + 2\).</p>
+      </div>
+    </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-related-rates-calc1.html">← Related Rates</a>
+      <a href="lecture-notes-ftc-calc1.html">FTC →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

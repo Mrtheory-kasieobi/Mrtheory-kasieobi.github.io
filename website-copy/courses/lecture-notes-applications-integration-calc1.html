@@ -3,11 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture Notes: Applications of Integration - Calculus I">
-  <title>Kasieobi Udumaga | Applications of Integration</title>
+  <meta name="description" content="Detailed Lecture Notes: Applications of Integration - Area, Volume, and More - Calculus I">
+  <title>Kasieobi Udumaga | Applications of Integration - Detailed Notes</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
     .lecture-header {
       text-align: center;
       padding: 2rem 0;
@@ -34,35 +45,87 @@
       padding-bottom: 0.5rem;
       margin-top: 2.5rem;
     }
-    .definition-box, .example-box, .important-note, .theorem-box, .proof-box, .formula-box {
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+    .definition-box {
       background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
       border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
       border-radius: 12px;
       padding: 1.5rem;
       margin: 1.5rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    .definition-box {
-      border-left: 4px solid var(--accent);
-    }
-    .example-box {
-      border-left: 4px solid #f0ad4e;
-    }
-    .important-note {
-      border-left: 4px solid #d9534f;
+    .definition-box strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .theorem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .theorem-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .proof-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
       border-left: 4px solid #5bc0de;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .proof-box strong {
+      color: #5bc0de;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .example-box strong {
+      color: #f0ad4e;
+      display: block;
+      margin-bottom: 0.5rem;
     }
     .formula-box {
       background: rgba(140, 200, 255, 0.1);
+      border: 1px solid var(--border);
       border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
     }
-    .definition-box strong, .example-box strong, .important-note strong, .theorem-box strong {
-      color: var(--accent);
+    .important-note {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #d9534f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .important-note strong {
+      color: #d9534f;
       display: block;
       margin-bottom: 0.5rem;
     }
@@ -102,7 +165,6 @@
       <h1>Calculus I</h1>
     </div>
   </header>
-
   <nav>
     <ul>
       <li><a href="../index.html">Home</a></li>
@@ -127,74 +189,151 @@
   <main>
     <div class="lecture-header">
       <h1>Applications of Integration</h1>
-      <div class="subtitle">Calculus I - Chapter 6.1-6.5</div>
+      <div class="subtitle">Calculus I - Week 11</div>
     </div>
 
     <div class="lecture-content">
-
       <h2>1. Areas Between Curves</h2>
-
+      
+      <h3>1.1 Area Between Two Curves</h3>
       <div class="definition-box">
-        <strong>Area Between Curves:</strong>
-        If \(f(x) \geq g(x)\) on \([a,b]\), the area between the curves is:
-        \(A = \int_a^b [f(x) - g(x)] \, dx\)
+        <strong>Formula 1.1:</strong>
+        If \(f(x) \geq g(x) \geq 0\) on \([a,b]\), then the area between the curves is:
+        $$\text{Area} = \int_a^b [f(x) - g(x)] \, dx$$
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation:</strong>
+        The area under \(f(x)\) is \(\int_a^b f(x) \, dx\).
+        The area under \(g(x)\) is \(\int_a^b g(x) \, dx\).
+        
+        The region between them is the difference:
+        $$\text{Area} = \int_a^b f(x) \, dx - \int_a^b g(x) \, dx = \int_a^b [f(x) - g(x)] \, dx$$
+        ∎
       </div>
 
       <div class="example-box">
-        <strong>Example:</strong>
-        Find the area between \(y = x^2\) and \(y = x\). The curves intersect at \(x = 0, 1\).
-        \(A = \int_0^1 (x - x^2) \, dx = \frac{1}{2} - \frac{1}{3} = \frac{1}{6}\)
+        <strong>Example 1.1:</strong> Find the area between \(y = x^2\) and \(y = 2x\) from \(x = 0\) to \(x = 2\).
+        <p>Find intersection: \(x^2 = 2x \Rightarrow x(x-2) = 0 \Rightarrow x = 0, 2\)</p>
+        <p>On \([0,2]\): \(2x \geq x^2\)</p>
+        <p>Area = \(\int_0^2 (2x - x^2) \, dx = [x^2 - \frac{x^3}{3}]_0^2 = 4 - \frac{8}{3} = \frac{4}{3}\)</p>
       </div>
 
-      <h2>2. Volumes</h2>
-
+      <h3>1.2 Horizontal Slices</h3>
       <div class="definition-box">
-        <strong>Disk Method:</strong>
-        For rotation about the x-axis: \(V = \pi \int_a^b [f(x)]^2 \, dx\)
+        <strong>Formula 1.2 (Horizontal slices):</strong>
+        If \(f(y) \geq g(y)\) for \(y \in [c,d]\), then:
+        $$\text{Area} = \int_c^d [f(y) - g(y)] \, dy$$
+        where \(x = f(y)\) is the right curve and \(x = g(y)\) is the left curve.
       </div>
 
+      <div class="example-box">
+        <strong>Example 1.2:</strong> Area bounded by \(y = x^2\) and \(x = y\).
+        <p>Intersection at \((0,0)\) and \((1,1)\)</p>
+        <p>Using horizontal slices: right curve \(x = y\), left curve \(x = \sqrt{y}\)</p>
+        <p>Area = \(\int_0^1 (y - \sqrt{y}) \, dy = \left[\frac{y^2}{2} - \frac{2y^{3/2}}{3}\right]_0^1 = \frac{1}{2} - \frac{2}{3} = -\frac{1}{6}\)</p>
+        <p>Absolute area = \(\frac{1}{6}\)</p>
+      </div>
+
+      <h2>2. Volumes of Revolution</h2>
+
+      <h3>2.1 Disk Method</h3>
       <div class="definition-box">
-        <strong>Shell Method:</strong>
-        For rotation about the y-axis: \(V = 2\pi \int_a^b x \cdot f(x) \, dx\)
+        <strong>Formula 2.1 (Disk Method):</strong>
+        When the region bounded by \(y = f(x)\), the x-axis, and \(x = a\), \(x = b\) is rotated about the x-axis:
+        $$\text{Volume} = \pi \int_a^b [f(x)]^2 \, dx$$
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof using Riemann sums:</strong>
+        A thin disk at position \(x\) with thickness \(dx\) has:
+        - Radius: \(r = f(x)\)
+        - Volume: \(dV = \pi r^2 \, dx = \pi [f(x)]^2 \, dx\)
+        
+        Summing all disks: \(V = \sum_{i=1}^{n} \pi [f(x_i^*)]^2 \Delta x\)
+        
+        Taking the limit as \(n \to \infty\):
+        $$V = \pi \int_a^b [f(x)]^2 \, dx$$
+        ∎
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1:</strong> Find the volume of the solid formed by rotating \(y = \sqrt{x}\) about the x-axis from \(x = 0\) to \(x = 4\).
+        <p>V = \(\pi \int_0^4 (\sqrt{x})^2 \, dx = \pi \int_0^4 x \, dx = \pi \left[\frac{x^2}{2}\right]_0^4 = 8\pi\)</p>
+      </div>
+
+      <h3>2.2 Washer Method</h3>
+      <div class="definition-box">
+        <strong>Formula 2.2 (Washer Method):</strong>
+        When the region between \(y = f(x)\) and \(y = g(x)\) (with \(f(x) \geq g(x)\)) is rotated about the x-axis:
+        $$\text{Volume} = \pi \int_a^b \left([f(x)]^2 - [g(x)]^2\right) \, dx$$
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2:</strong> Region between \(y = x\) and \(y = x^2\) rotated about x-axis.
+        <p>Intersections: \(x = x^2 \Rightarrow x = 0, 1\)</p>
+        <p>V = \(\pi \int_0^1 [x^2 - (x^2)^2] \, dx = \pi \int_0^1 (x^2 - x^4) \, dx\)</p>
+        <p>= \(\pi \left[\frac{x^3}{3} - \frac{x^5}{5}\right]_0^1 = \pi\left(\frac{1}{3} - \frac{1}{5}\right) = \frac{2\pi}{15}\)</p>
+      </div>
+
+      <h3>2.3 Shell Method</h3>
+      <div class="definition-box">
+        <strong>Formula 2.3 (Shell Method):</strong>
+        Rotating the region bounded by \(y = f(x)\), the x-axis, and \(x = a\), \(x = b\) about the y-axis:
+        $$\text{Volume} = 2\pi \int_a^b x \cdot f(x) \, dx$$
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.3:</strong> Rotate \(y = x^2\) about the y-axis from \(x = 0\) to \(x = 2\).
+        <p>V = \(2\pi \int_0^2 x \cdot x^2 \, dx = 2\pi \int_0^2 x^3 \, dx\)</p>
+        <p>= \(2\pi \left[\frac{x^4}{4}\right]_0^2 = 2\pi \cdot 4 = 8\pi\)</p>
       </div>
 
       <h2>3. Work</h2>
 
       <div class="definition-box">
-        <strong>Work Formula:</strong>
-        If a force \(F(x)\) moves an object from \(x = a\) to \(x = b\):
-        \(W = \int_a^b F(x) \, dx\)
+        <strong>Definition 3.1 (Work):</strong>
+        Work done by a force \(F(x)\) moving an object from \(x = a\) to \(x = b\) is:
+        $$W = \int_a^b F(x) \, dx$$
+        If \(F\) is constant: \(W = F \cdot d\) (force × distance).
       </div>
 
       <div class="example-box">
-        <strong>Example:</strong>
-        Work to lift a chain weighing 10 lb/ft from ground to 20 ft:
-        \(W = \int_0^{20} 10x \, dx = 10 \cdot \frac{20^2}{2} = 2000\) foot-pounds
+        <strong>Example 3.1:</strong> Hooke's Law: A spring with spring constant \(k = 50\) N/m is stretched 0.2 m. Find work done.
+        <p>F = kx = 50x</p>
+        <p>W = \(\int_0^{0.2} 50x \, dx = 50 \left[\frac{x^2}{2}\right]_0^{0.2} = 25(0.04) = 1\) J</p>
       </div>
 
-      <h2>4. Average Value of a Function</h2>
+      <div class="example-box">
+        <strong>Example 3.2:</strong> Pump water from a cylindrical tank of radius 3 ft and height 10 ft. Water weighs 62.5 lb/ft³. Pump to 2 ft above tank.
+        <p>Consider a thin layer at depth \(y\) from top. Distance to pump: \(y + 2\)</p>
+        <p>Volume of layer: \(dV = \pi(3)^2 \, dy = 9\pi \, dy\)</p>
+        <p>Weight: \(dW = 62.5 \cdot 9\pi \, dy = 562.5\pi \, dy\)</p>
+        <p>Work: \(W = \int_0^{10} 562.5\pi (y+2) \, dy\)</p>
+        <p>= \(562.5\pi \left[\frac{(y+2)^2}{2}\right]_0^{10} = 562.5\pi(60 - 2) = 33750\pi\) ft-lb</p>
+      </div>
+
+      <h2>4. Center of Mass</h2>
 
       <div class="definition-box">
-        <strong>Average Value:</strong>
-        \(\bar{f} = \frac{1}{b-a} \int_a^b f(x) \, dx\)
+        <strong>Formula 4.1 (Center of Mass):</strong>
+        For a region with density \(\rho(x,y)\):
+        $$\bar{x} = \frac{1}{M} \iint_R x \rho(x,y) \, dA, \quad \bar{y} = \frac{1}{M} \iint_R y \rho(x,y) \, dA$$
+        where \(M = \iint_R \rho(x,y) \, dA\) is the total mass.
       </div>
 
-      <h2>5. Differential Equations</h2>
-
-      <div class="definition-box">
-        <strong>Differential Equation:</strong>
-        An equation involving derivatives, such as \(\frac{dy}{dx} = f(x)\)
-      </div>
-
-      <div class="important-note">
-        <strong>Solution Strategy:</strong>
-        Integrate both sides: \(y = \int f(x) \, dx + C\)
-      </div>
-
-      <div class="navigation">
-        <a href="calculus-1.html">← Back to Course</a>
+      <div class="example-box">
+        <strong>Example 4.1:</strong> Find center of mass of a semicircular lamina of radius \(R\) with constant density.
+        <p>By symmetry, \(\bar{x} = 0\).</p>
+        <p>\(M = \int_{-R}^{R} \int_0^{\sqrt{R^2-x^2}} \rho \, dy \, dx = \rho \cdot \text{Area} = \rho \cdot \frac{\pi R^2}{2}\)</p>
+        <p>\(\bar{y} = \frac{1}{M} \int_{-R}^{R} \int_0^{\sqrt{R^2-x^2}} y \rho \, dy \, dx = \frac{4R}{3\pi}\)</p>
       </div>
     </div>
+
+<nav class="navigation">
+      <a href="lecture-notes-ftc-calc1.html">← FTC</a>
+      <a href="lecture-notes-integration-techniques-calc1.html">Integration Techniques →</a>
+    </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>
