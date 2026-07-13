@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Precalculus 12 Practice Test 2 - multiple choice and written-response questions with an automatic grader.">
+  <title>Practice Test 2 | Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main {
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+      .test-section, .mc-question, .written-question {
+        break-inside: avoid;
+      }
+    }
+
+    .practice-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .practice-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .practice-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .practice-intro {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .practice-intro p { margin: 0.4rem 0; }
+
+    .test-section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    .test-title {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .part-label {
+      display: inline-block;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin: 1.5rem 0 1rem;
+      font-size: 1rem;
+    }
+
+    .mc-question {
+      background: rgba(8, 16, 28, 0.35);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+      transition: border-color 0.2s ease;
+    }
+
+    .mc-question__num {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .mc-question__text {
+      color: var(--text);
+      margin: 0.35rem 0 0.75rem;
+      line-height: 1.7;
+    }
+
+    .mc-options {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+
+    .mc-option {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .mc-option:hover {
+      border-color: var(--accent);
+      background: rgba(140, 200, 255, 0.08);
+    }
+
+    .mc-option input {
+      accent-color: var(--accent);
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+
+    .written-question {
+      background: rgba(8, 16, 28, 0.35);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1rem 0;
+      transition: border-color 0.2s ease;
+    }
+
+    .written-question__num {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .written-question__text {
+      color: var(--text);
+      margin: 0.35rem 0 0.5rem;
+      line-height: 1.7;
+    }
+
+    .written-parts {
+      padding-left: 1.3rem;
+      margin: 0.5rem 0 0.25rem;
+      color: var(--text);
+    }
+
+    .written-parts li {
+      margin: 0.5rem 0;
+      line-height: 1.7;
+    }
+
+    .written-answer {
+      width: 100%;
+      margin-top: 0.6rem;
+      background: rgba(8, 16, 28, 0.5);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      padding: 0.6rem 0.8rem;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+    }
+
+    .written-answer:focus {
+      outline: 2px solid var(--accent);
+      border-color: var(--accent);
+    }
+
+    .submit-btn {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      margin: 1.5rem 0 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      border: none;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    .test-results {
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .test-results h3 {
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .test-results p { margin: 0.35rem 0; }
+
+    .test-results__score {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .test-results__percent {
+      color: var(--muted);
+    }
+
+    .question-feedback {
+      margin-top: 0.75rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .question-feedback.correct { background: rgba(80, 200, 120, 0.15); color: #7ee2a0; }
+    .question-feedback.incorrect { background: rgba(240, 90, 90, 0.15); color: #ff9a9a; }
+    .question-feedback.partial { background: rgba(240, 173, 78, 0.15); color: #f0ad4e; }
+    .question-feedback.unanswered { background: rgba(159, 176, 193, 0.12); color: var(--muted); }
+
+    .mc-question.is-correct, .written-question.is-correct { border-color: #4caf70; }
+    .mc-question.is-incorrect, .written-question.is-incorrect { border-color: #e06060; }
+    .mc-question.is-partial, .written-question.is-partial { border-color: #f0ad4e; }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    @media (max-width: 640px) {
+      .mc-options { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>British Columbia Precalculus 12</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="practice-header">
+      <h1>Practice Test 2</h1>
+      <div class="subtitle">British Columbia Precalculus 12 &middot; 20 questions</div>
+    </div>
+
+    <div class="practice-intro">
+      <p>This test contains <strong>20 questions</strong>: <strong>Part A</strong> (10 multiple choice, 1 mark each) and <strong>Part B</strong> (10 written response, 2 marks each).</p>
+      <p>Total: <strong>30 marks</strong>. Select your answers, fill in the written responses, then press <strong>Submit Test</strong> to see your grade automatically.</p>
+    </div>
+
+    <div class="test-results" id="test-results" hidden>
+      <h3>Test Results</h3>
+      <p class="test-results__score">Your score: <span id="score-total">0</span> / 30</p>
+      <p>Multiple Choice: <span id="score-mc">0</span> / 10</p>
+      <p>Written Response: <span id="score-written">0</span> / 20</p>
+      <p class="test-results__percent">Percentage: <span id="score-percent">0</span>%</p>
+    </div>
+
+    <section class="test-section">
+      <h2 class="test-title">Practice Test 2</h2>
+
+      <span class="part-label">Part A: Multiple Choice (1 mark each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Choose the best answer for each question.</p>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">1.</div>
+        <p class="mc-question__text">The graph of \(y = 3f(x+1)\) is obtained from \(y=f(x)\) by:</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q1" value="A"> 1 right, vertically stretched by 3</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q1" value="B"> 1 left, vertically stretched by 3</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q1" value="C"> 1 right, horizontally stretched by 3</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q1" value="D"> 1 left, reflected</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">2.</div>
+        <p class="mc-question__text">What is the inverse of \(y = \sqrt{x-2} + 1\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q2" value="A"> \(y = (x-1)^2 + 2,\ x \geq 1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q2" value="B"> \(y = (x-1)^2 - 2,\ x \geq 1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q2" value="C"> \(y = \sqrt{x-2} + 1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q2" value="D"> \(y = x^2 - 2 + 1\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">3.</div>
+        <p class="mc-question__text">What is the domain of \(f(x) = \sqrt{2x+6}\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q3" value="A"> \(x \geq -3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q3" value="B"> \(x \geq 3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q3" value="C"> \(x \geq -6\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q3" value="D"> all real numbers</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">4.</div>
+        <p class="mc-question__text">What is the end behavior of a degree-4 polynomial with positive leading coefficient?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q4" value="A"> \(x\to\infty,\ y\to\infty;\quad x\to-\infty,\ y\to-\infty\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q4" value="B"> \(x\to\infty,\ y\to\infty;\quad x\to-\infty,\ y\to\infty\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q4" value="C"> \(x\to\infty,\ y\to-\infty;\quad x\to-\infty,\ y\to\infty\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q4" value="D"> \(x\to\infty,\ y\to-\infty;\quad x\to-\infty,\ y\to-\infty\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">5.</div>
+        <p class="mc-question__text">If \((x+3)\) is a factor of \(f(x)\), what must be true?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q5" value="A"> \(f(-3) = 0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q5" value="B"> \(f(3) = 0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q5" value="C"> \(f'(-3) = 0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q5" value="D"> \(f(x)\) has degree \(3\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">6.</div>
+        <p class="mc-question__text">What is \(\tan\left(\dfrac{3\pi}{4}\right)\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q6" value="A"> \(-1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q6" value="B"> 1</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q6" value="C"> \(\sqrt{3}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q6" value="D"> 0</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">7.</div>
+        <p class="mc-question__text">What is the period of \(\tan(x)\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q7" value="A"> \(\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q7" value="B"> \(2\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q7" value="C"> \(\dfrac{\pi}{2}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q7" value="D"> 1</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">8.</div>
+        <p class="mc-question__text">Evaluate \(10^{\log_{10}(100)}\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q8" value="A"> 10</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q8" value="B"> 1</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q8" value="C"> 100</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q8" value="D"> 2</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">9.</div>
+        <p class="mc-question__text">Simplify \(\ln(e^x)\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q9" value="A"> \(x\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q9" value="B"> \(e^x\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q9" value="C"> \(\log_e(x)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q9" value="D"> 1</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">10.</div>
+        <p class="mc-question__text">What is the horizontal asymptote of \(f(x) = \dfrac{2x^2+1}{x^2-3}\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="t2q10" value="A"> \(y = 2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q10" value="B"> \(y = 1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q10" value="C"> \(x = 2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="t2q10" value="D"> none</label></li>
+        </ul>
+      </div>
+
+      <span class="part-label">Part B: Written Response (2 marks each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Show all of your work in the box provided.</p>
+
+      <div class="written-question" data-points="2" data-answers="-sqrt(x/2)-3">
+        <div class="written-question__num">11.</div>
+        <p class="written-question__text">Starting from \(f(x) = \sqrt{x}\), reflect across the \(x\)-axis, stretch horizontally by \(2\), and shift down \(3\). Write the new equation.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="x=9|9">
+        <div class="written-question__num">12.</div>
+        <p class="written-question__text">Solve \(\sqrt{x} = x - 6\). Check for extraneous roots.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="f(-3)=0|(x-2)(x-3)(x+3)">
+        <div class="written-question__num">13.</div>
+        <p class="written-question__text">Show that \((x-2)\) is a factor of \(f(x)=x^3-2x^2-9x+18\), then factor the polynomial completely.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="-sqrt(3)/2">
+        <div class="written-question__num">14.</div>
+        <p class="written-question__text">Find the exact value of \(\sin\left(\dfrac{5\pi}{3}\right)\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="sqrt(5)/3">
+        <div class="written-question__num">15.</div>
+        <p class="written-question__text">Given \(\sin\theta = \dfrac{2}{3}\) and \(\theta\) is acute, find \(\cos\theta\) in exact form.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="x=5|5">
+        <div class="written-question__num">16.</div>
+        <p class="written-question__text">Solve: \(\log_3(2x-1) = 2\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="1.5">
+        <div class="written-question__num">17.</div>
+        <p class="written-question__text">Solve for \(x\): \(5^{2x} = 125\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="x=2|y=1">
+        <div class="written-question__num">18.</div>
+        <p class="written-question__text">State the vertical and horizontal asymptotes of \(f(x) = \dfrac{x^2-4}{x^2-4x+4}\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="x^2+3|(x+3)^2">
+        <div class="written-question__num">19.</div>
+        <p class="written-question__text">Given \(f(x)=x+3\) and \(g(x)=x^2\), find \((f\circ g)(x)\) and \((g\circ f)(x)\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="35">
+        <div class="written-question__num">20.</div>
+        <p class="written-question__text">Evaluate \(\displaystyle\binom{7}{3}\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <button type="button" class="submit-btn" id="submit-btn">Submit Test</button>
+    </section>
+
+    <div class="navigation no-print">
+      <a href="precalculus-12.html">← Back to Course</a>
+      <a href="practice-test-1-p12.html">Practice Test 1 →</a>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script>
+    (function () {
+      var submitBtn = document.getElementById('submit-btn');
+      var results = document.getElementById('test-results');
+      var MC_TOTAL = 10;
+      var WRITTEN_TOTAL = 20;
+      var GRAND_TOTAL = MC_TOTAL + WRITTEN_TOTAL;
+
+      function normalize(s) {
+        return String(s)
+          .toLowerCase()
+          .replace(/π/g, 'pi')
+          .replace(/√/g, 'sqrt')
+          .replace(/\\sqrt/g, 'sqrt')
+          .replace(/−/g, '-')
+          .replace(/sqrt2/g, 'sqrt(2)').replace(/sqrt3/g, 'sqrt(3)').replace(/sqrt5/g, 'sqrt(5)')
+          .replace(/≤/g, '<=')
+          .replace(/≥/g, '>=')
+          .replace(/²/g, '^2').replace(/³/g, '^3').replace(/⁴/g, '^4').replace(/⁵/g, '^5')
+          .replace(/⁰/g, '^0').replace(/¹/g, '^1').replace(/⁶/g, '^6').replace(/⁷/g, '^7').replace(/⁸/g, '^8').replace(/⁹/g, '^9')
+          .replace(/\s+/g, '');
+      }
+
+      function grade() {
+        document.querySelectorAll('.question-feedback').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.mc-question, .written-question').forEach(function (q) {
+          q.classList.remove('is-correct', 'is-incorrect', 'is-partial', 'is-unanswered');
+        });
+
+        var mcMarks = 0;
+        document.querySelectorAll('.mc-question').forEach(function (q) {
+          var correct = q.getAttribute('data-correct');
+          var checked = q.querySelector('input[type="radio"]:checked');
+          var fb = document.createElement('div');
+          fb.className = 'question-feedback';
+          if (!checked) {
+            q.classList.add('is-unanswered');
+            fb.classList.add('unanswered');
+            fb.textContent = 'Not answered.';
+          } else if (checked.value === correct) {
+            mcMarks += 1;
+            q.classList.add('is-correct');
+            fb.classList.add('correct');
+            fb.textContent = 'Correct! (+1)';
+          } else {
+            q.classList.add('is-incorrect');
+            fb.classList.add('incorrect');
+            fb.textContent = 'Incorrect.';
+          }
+          q.appendChild(fb);
+        });
+
+        var writtenMarks = 0;
+        document.querySelectorAll('.written-question').forEach(function (q) {
+          var points = parseInt(q.getAttribute('data-points') || '2', 10);
+          var answers = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
+          var ta = q.querySelector('.written-answer');
+          var normVal = normalize(ta ? ta.value : '');
+          var matched = 0;
+          answers.forEach(function (a) {
+            if (normVal.indexOf(normalize(a)) !== -1) { matched++; }
+          });
+          var earned = answers.length ? Math.round(points * matched / answers.length) : 0;
+          writtenMarks += earned;
+          var fb = document.createElement('div');
+          fb.className = 'question-feedback';
+          if (matched === answers.length) {
+            q.classList.add('is-correct');
+            fb.classList.add('correct');
+            fb.textContent = 'Correct! (+' + earned + ')';
+          } else if (matched === 0) {
+            q.classList.add('is-incorrect');
+            fb.classList.add('incorrect');
+            fb.textContent = 'Review needed.';
+          } else {
+            q.classList.add('is-partial');
+            fb.classList.add('partial');
+            fb.textContent = 'Partial (' + earned + '/' + points + ').';
+          }
+          q.appendChild(fb);
+        });
+
+        var total = mcMarks + writtenMarks;
+        document.getElementById('score-total').textContent = total;
+        document.getElementById('score-mc').textContent = mcMarks;
+        document.getElementById('score-written').textContent = writtenMarks;
+        document.getElementById('score-percent').textContent = Math.round(total / GRAND_TOTAL * 100);
+        results.hidden = false;
+        results.scrollIntoView({ behavior: 'smooth' });
+        submitBtn.textContent = 'Regrade Test';
+      }
+
+      if (submitBtn) { submitBtn.addEventListener('click', grade); }
+    })();
+  </script>
+</body>
+</html>
