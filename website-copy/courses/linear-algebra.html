@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Linear Algebra - Vector spaces, matrices, linear transformations, and eigenvalues.">
+  <title>Kasieobi Udumaga | Linear Algebra</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Linear Algebra</h1>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="course-header">
+      <h2 class="course-header__title">Linear Algebra</h2>
+      <p class="course-header__description">
+        Vector spaces, matrices, linear transformations, and eigenvalues with applications.
+      </p>
+      <div class="course-header__meta">
+        <span class="course-header__meta-item">Level: Undergraduate</span>
+        <span class="course-header__meta-item">Status: In Progress</span>
+        <span class="course-header__meta-item">Last Updated: 2026</span>
+      </div>
+    </div>
+
+    <div class="course-info">
+      <h3 class="course-info__title">Course Information</h3>
+      <ul class="course-info__list">
+        <li class="course-info__list-item">
+          <span class="course-info__label">Level</span>
+          <span class="course-info__value">Undergraduate</span>
+        </li>
+        <li class="course-info__list-item">
+          <span class="course-info__label">Estimated Duration</span>
+          <span class="course-info__value">15 weeks</span>
+        </li>
+        <li class="course-info__list-item">
+          <span class="course-info__label">Prerequisites</span>
+          <span class="course-info__value">Calculus II, Introduction to Proofs</span>
+        </li>
+        <li class="course-info__list-item">
+          <span class="course-info__label">Recommended Textbooks</span>
+          <span class="course-info__value">Linear Algebra and Its Applications (Lay)</span>
+        </li>
+        <li class="course-info__list-item">
+          <span class="course-info__label">Software</span>
+          <span class="course-info__value">Desmos, GeoGebra, MATLAB</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Course Description</h3>
+      <div class="course-section__content">
+        <p>
+          This course provides a comprehensive introduction to linear algebra, covering 
+          vector spaces, linear transformations, matrices, determinants, eigenvalues, and 
+          eigenvectors. Students will develop both computational skills and theoretical 
+          understanding, with applications to systems of equations, geometry, and data 
+          science. The course emphasizes matrix methods and their applications in various 
+          fields including computer graphics, engineering, and statistics.
+        </p>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Course Syllabus</h3>
+      <ol class="course-syllabus">
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 1</span>
+          <span class="course-syllabus__topic">Vectors and Systems of Linear Equations</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 2</span>
+          <span class="course-syllabus__topic">Matrix Operations and Inverses</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 3</span>
+          <span class="course-syllabus__topic">Determinants</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 4</span>
+          <span class="course-syllabus__topic">Vector Spaces and Subspaces</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 5</span>
+          <span class="course-syllabus__topic">Basis and Dimension</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 6</span>
+          <span class="course-syllabus__topic">Rank and Nullity</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 7</span>
+          <span class="course-syllabus__topic">Eigenvalues and Eigenvectors</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 8</span>
+          <span class="course-syllabus__topic">Diagonalization</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 9</span>
+          <span class="course-syllabus__topic">Orthogonality and Projections</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 10</span>
+          <span class="course-syllabus__topic">Gram-Schmidt Process</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 11</span>
+          <span class="course-syllabus__topic">Symmetric Matrices and Quadratic Forms</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 12</span>
+          <span class="course-syllabus__topic">Linear Transformations</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 13</span>
+          <span class="course-syllabus__topic">Change of Basis</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 14</span>
+          <span class="course-syllabus__topic">Review and Midterm</span>
+        </li>
+        <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 15</span>
+          <span class="course-syllabus__topic">Applications and Final Review</span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Lecture Notes</h3>
+      <div class="course-notes-grid">
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 1</span>
+          <h4 class="course-note-card__title">Vectors and Linear Systems</h4>
+          <p class="course-note-card__description">Vectors in R^n, solutions to linear systems, row reduction.</p>
+          <a href="lecture-notes-linear-systems-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 2</span>
+          <h4 class="course-note-card__title">Matrix Algebra</h4>
+          <p class="course-note-card__description">Matrix operations, inverses, and applications to systems.</p>
+          <a href="lecture-notes-matrix-algebra-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 3</span>
+          <h4 class="course-note-card__title">Determinants</h4>
+          <p class="course-note-card__description">Properties, computation, and applications of determinants.</p>
+          <a href="lecture-notes-determinants-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 4</span>
+          <h4 class="course-note-card__title">Vector Spaces</h4>
+          <p class="course-note-card__description">Definition, examples, subspaces, and the zero vector space.</p>
+          <a href="lecture-notes-vector-spaces-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 5</span>
+          <h4 class="course-note-card__title">Basis and Dimension</h4>
+          <p class="course-note-card__description">Basis, dimension, and coordinate systems.</p>
+          <a href="lecture-notes-basis-dimension-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 6</span>
+          <h4 class="course-note-card__title">Eigenvalues and Eigenvectors</h4>
+          <p class="course-note-card__description">Definition, computation, and diagonalization.</p>
+          <a href="lecture-notes-eigenvalues-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 7</span>
+          <h4 class="course-note-card__title">Orthogonality</h4>
+          <p class="course-note-card__description">Orthogonal vectors, subspaces, and projections.</p>
+          <a href="lecture-notes-orthogonality-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 8</span>
+          <h4 class="course-note-card__title">Spectral Theorem</h4>
+          <p class="course-note-card__description">Symmetric matrices, diagonalization, and applications.</p>
+          <a href="lecture-notes-spectral-theorem-la.html" class="course-note-card__button">Open Notes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Problem Sets</h3>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Problem Set 1</h4>
+          <span class="course-problem-set__difficulty">Medium</span>
+        </div>
+        <p class="course-problem-set__topics">Topics: Vectors, Systems of Linear Equations</p>
+        <a href="problem-set-1-la.html" class="course-problem-set__button">Open Problem Set</a>
+        <a href="problem-set-1-la-solutions.html" class="course-problem-set__button" style="background: linear-gradient(145deg, #5cb85c, #5bc0de);">View Solutions</a>
+      </div>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Problem Set 2</h4>
+          <span class="course-problem-set__difficulty">Medium</span>
+        </div>
+        <p class="course-problem-set__topics">Topics: Matrix Operations, Inverses</p>
+        <a href="problem-set-2-la.html" class="course-problem-set__button">Open Problem Set</a>
+        <a href="problem-set-2-la-solutions.html" class="course-problem-set__button" style="background: linear-gradient(145deg, #5cb85c, #5bc0de);">View Solutions</a>
+      </div>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Problem Set 3</h4>
+          <span class="course-problem-set__difficulty">Hard</span>
+        </div>
+        <p class="course-problem-set__topics">Topics: Determinants, Vector Spaces</p>
+        <a href="problem-set-3-la.html" class="course-problem-set__button">Open Problem Set</a>
+        <a href="problem-set-3-la-solutions.html" class="course-problem-set__button" style="background: linear-gradient(145deg, #5cb85c, #5bc0de);">View Solutions</a>
+      </div>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Problem Set 4</h4>
+          <span class="course-problem-set__difficulty">Medium</span>
+        </div>
+        <p class="course-problem-set__topics">Topics: Basis, Dimension, Rank</p>
+        <a href="problem-set-4-la.html" class="course-problem-set__button">Open Problem Set</a>
+        <a href="problem-set-4-la-solutions.html" class="course-problem-set__button" style="background: linear-gradient(145deg, #5cb85c, #5bc0de);">View Solutions</a>
+      </div>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Problem Set 5</h4>
+          <span class="course-problem-set__difficulty">Hard</span>
+        </div>
+        <p class="course-problem-set__topics">Topics: Eigenvalues, Eigenvectors, Diagonalization</p>
+        <a href="problem-set-5-la.html" class="course-problem-set__button">Open Problem Set</a>
+        <a href="problem-set-5-la-solutions.html" class="course-problem-set__button" style="background: linear-gradient(145deg, #5cb85c, #5bc0de);">View Solutions</a>
+      </div>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Problem Set 6</h4>
+          <span class="course-problem-set__difficulty">Hard</span>
+        </div>
+        <p class="course-problem-set__topics">Topics: Orthogonality, Gram-Schmidt</p>
+        <a href="problem-set-6-la.html" class="course-problem-set__button">Open Problem Set</a>
+        <a href="problem-set-6-la-solutions.html" class="course-problem-set__button" style="background: linear-gradient(145deg, #5cb85c, #5bc0de);">View Solutions</a>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Practice Tests</h3>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Practice Test 1</h4>
+          <span class="course-problem-set__difficulty">Full Length</span>
+        </div>
+        <p class="course-problem-set__topics">20 Questions: 10 Multiple Choice, 10 Written Response | Topics: Linear Systems, Matrices</p>
+        <a href="practice-test-1-la.html" class="course-problem-set__button">Open Test</a>
+      </div>
+      <div class="course-problem-set">
+        <div class="course-problem-set__header">
+          <h4 class="course-problem-set__title">Practice Test 2</h4>
+          <span class="course-problem-set__difficulty">Full Length</span>
+        </div>
+        <p class="course-problem-set__topics">20 Questions: 10 Multiple Choice, 10 Written Response | Topics: Eigenvalues, Applications</p>
+        <a href="practice-test-2-la.html" class="course-problem-set__button">Open Test</a>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Recommended Resources</h3>
+      <div class="course-resources">
+        <div class="course-resources__category">
+          <h4 class="course-resources__title">Books</h4>
+          <ul class="course-resources__list">
+            <li><a href="https://bookstore.uta.edu/online/textbooks/Linear_Algebra_and_Its_Applications_5th_Edition/dp/1285463269" target="_blank" rel="noopener noreferrer">Linear Algebra and Its Applications</a> - David C. Lay</li>
+            <li><a href="https://linearalgebra.mit.edu/" target="_blank" rel="noopener noreferrer">Introduction to Linear Algebra</a> - Gilbert Strang</li>
+          </ul>
+        </div>
+        <div class="course-resources__category">
+          <h4 class="course-resources__title">Lecture Notes</h4>
+          <ul class="course-resources__list">
+            <li><a href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/" target="_blank" rel="noopener noreferrer">MIT OpenCourseWare - Linear Algebra</a></li>
+            <li><a href="https://www.math.uwaterloo.ca/~hwolkowis/henry/reports/linearalgebra.pdf" target="_blank" rel="noopener noreferrer">Linear Algebra Lecture Notes</a></li>
+          </ul>
+        </div>
+        <div class="course-resources__category">
+          <h4 class="course-resources__title">Videos</h4>
+          <ul class="course-resources__list">
+            <li><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzP23irYysD9iT1sU" target="_blank" rel="noopener noreferrer">3Blue1Brown - Essence of Linear Algebra</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLL0q8e6B3k0KpOqDh-AXrP4Zf9h3g1sQ8" target="_blank" rel="noopener noreferrer">MIT OCW - Linear Algebra</a></li>
+          </ul>
+        </div>
+        <div class="course-resources__category">
+          <h4 class="course-resources__title">Online Resources</h4>
+          <ul class="course-resources__list">
+            <li><a href="https://www.desmos.com/calculator" target="_blank" rel="noopener noreferrer">Desmos Graphing Calculator</a></li>
+            <li><a href="https://www.geogebra.org/calculator" target="_blank" rel="noopener noreferrer">GeoGebra</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Additional Reading</h3>
+      <div class="course-section__content">
+        <p>
+          For a more theoretical treatment, see Axler's "Linear Algebra Done Right" 
+          or Hoffman & Kunze's "Linear Algebra". For computational approaches, 
+          explore software documentation for MATLAB, Python NumPy, or R.
+        </p>
+      </div>
+    </div>
+
+    <nav class="course-related">
+      <a href="introduction-to-proofs.html" class="course-related__link">← Introduction to Proofs</a>
+      <span class="course-related__arrow">↓</span>
+      <a href="../teaching.html" class="course-related__link">Teaching Home</a>
+      <span class="course-related__arrow">↓</span>
+      <a href="calculus-2.html" class="course-related__link">Calculus II →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
