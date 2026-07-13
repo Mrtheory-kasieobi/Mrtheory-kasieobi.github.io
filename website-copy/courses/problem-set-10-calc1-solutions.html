@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Problem Set 10 Solutions: Applications of Integration - Calculus I</title>
+  <meta name="description" content="Problem Set 10 Solutions: Applications of Integration - Calculus I">
+  <title>Kasieobi Udumaga | Problem Set 10 Solutions: Applications of Integration - Calculus I</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
     .lecture-content { color: var(--text); line-height: 1.8; }
     .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
     .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -20,47 +22,48 @@
 </head>
 <body>
   <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html">Teaching</a></li></ul></nav>
   <main>
     <div class="lecture-header"><h1>Problem Set 10: Applications of Integration - SOLUTIONS</h1><div class="subtitle">Calculus I - Week 9</div></div>
     <div class="lecture-content">
       <h2>Solution Guide</h2>
+      <p><strong>Note:</strong> Show all work. Use appropriate integration techniques.</p>
       
-      <h3>Problem 1: Area between \(y = x^3\) and \(y = x\) on \([-1, 1]\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> Split at \(x = 0\): \(\int_{-1}^0 (x^3 - x)dx + \int_0^1 (x - x^3)dx = \frac{1}{2}\)</div>
+      <h3>Problem 1: Area between \(y = x^2\) and \(y = x + 2\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Intersections: \(x^2 = x + 2 \Rightarrow x = -1, 2\).<br>\(\text{Area} = \int_{-1}^2 [(x+2) - x^2]dx = \left[x + x - \frac{x^3}{3}\right]_{-1}^2\)<br>\(= \frac{8}{3} - \left(-\frac{4}{3}\right) = 4\)</div>
 
-      <h3>Problem 2: Volume by disk method for \(y = x^2\) from \(x = 0\) to \(x = 2\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(V = \pi \int_0^2 (x^2)^2 dx = \pi \int_0^2 x^4 dx = \pi \cdot \frac{32}{5} = \frac{32\pi}{5}\)</div>
+      <h3>Problem 2: Volume by disk method for \(y = \sqrt{x}\) from \(x = 0\) to \(x = 4\) rotated about x-axis</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(V = \pi \int_0^4 (\sqrt{x})^2 dx = \pi \int_0^4 x dx = \pi\left[\frac{x^2}{2}\right]_0^4 = 8\pi\)</div>
 
-      <h3>Problem 3: Volume by shell method for same region</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(V = 2\pi \int_0^2 x \cdot x^2 dx = 2\pi \int_0^2 x^3 dx = 8\pi\)</div>
+      <h3>Problem 3: Volume by washer method for region bounded by \(y = x^2\), \(y = 0\), \(x = 2\) rotated about y-axis</h3>
+      <div class="solution-box"><strong>Solution:</strong> Using shell method: \(V = 2\pi \int_0^2 x \cdot x^2 dx = 2\pi \int_0^2 x^3 dx = 8\pi\)<br>Or washer: \(V = \pi \int_0^4 (4 - y) dy = 8\pi\)</div>
 
-      <h3>Problem 4: Volume rotating \(y = \sin x\) from \(0\) to \(\pi\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(V = \pi \int_0^\pi \sin^2 x dx = \pi \cdot \frac{\pi}{2} = \frac{\pi^2}{2}\)</div>
+      <h3>Problem 4: Area under \(y = e^{-x}\) from \(x = 0\) to \(x = 1\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(\int_0^1 e^{-x} dx = [-e^{-x}]_0^1 = 1 - \frac{1}{e}\)</div>
 
-      <h3>Problem 5: Related rates - tank filling</h3>
-      <div class="solution-box"><strong>Solution:</strong> For cone: \(V = \frac{1}{3}\pi r^2 h\). When \(h = 5\): \(r = 2\).<br>\(\frac{dV}{dt} = \frac{\pi r^2}{3}\frac{dh}{dt}\). Solve for \(\frac{dh}{dt}\).</div>
+      <h3>Problem 5: Work required to pump water from a cylindrical tank (radius 3m, height 5m) full of water</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(W = \int_0^5 \rho g \cdot \text{Area} \cdot (5-y) dy\)<br>\(= \rho g \pi(3^2) \int_0^5 (5-y)dy = 9\pi\rho g \cdot \frac{25}{2}\)</div>
 
-      <h3>Problem 6: Work to pump water from cylindrical tank</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(W = \int_0^h \rho g \pi r^2 (h-y) dy = \rho g \pi r^2 \frac{h^2}{2}\)</div>
+      <h3>Problem 6: Average value of \(f(x) = \sin x\) on \([0, \pi]\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(f_{\text{avg}} = \frac{1}{\pi}\int_0^\pi \sin x dx = \frac{1}{\pi}[-\cos x]_0^\pi = \frac{2}{\pi}\)</div>
 
-      <h3>Problem 7: Center of mass for region bounded by \(y = x^2, y = x\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> Area = \(\frac{1}{6}\). \(\bar{x} = \frac{\int_0^1 x(x-x^2)dx}{A} = \frac{1}{4}\). \(\bar{y} = \frac{\int_0^1 \frac{1}{2}(x^2 - x^4)dx}{A}\)</div>
+      <h3>Problem 7: Arc length of \(y = \ln x\) from \(x = 1\) to \(x = e\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(y' = \frac{1}{x}\).<br>\(L = \int_1^e \sqrt{1 + \frac{1}{x^2}} dx = \int_1^e \frac{\sqrt{x^2+1}}{x} dx\)<br>Substitute \(x = \tan\theta\) or evaluate numerically.</div>
 
-      <h3>Problem 8: Average temperature \(T(t) = 50 + 20\cos t\) on \([0, \pi]\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(\frac{1}{\pi}\int_0^\pi (50 + 20\cos t)dt = \frac{50\pi + 0}{\pi} = 50\)</div>
+      <h3>Problem 8: Surface area of sphere of radius \(r\) by rotating \(y = \sqrt{r^2 - x^2}\) about x-axis from \(-r\) to \(r\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(y' = \frac{-x}{\sqrt{r^2 - x^2}}\).<br>\(S = 2\pi \int_{-r}^r \sqrt{r^2 - x^2} \sqrt{1 + \frac{x^2}{r^2-x^2}} dx = 2\pi \int_{-r}^r \frac{r}{\sqrt{r^2-x^2}} dx = 4\pi r^2\)</div>
 
-      <h3>Problem 9: Arc length of \(y = x^{3/2}\) from \(0\) to \(4\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(y' = \frac{3}{2}x^{1/2}\). \(\int_0^4 \sqrt{1 + \frac{9x}{4}} dx\)</div>
+      <h3>Problem 9: Position function \(s(t) = t^3 - 6t^2 + 9t\). Find displacement from \(t = 1\) to \(t = 3\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Displacement = \(s(3) - s(1) = (27-54+27) - (1-6+9) = 0 - 4 = -4\) units</div>
 
-      <h3>Problem 10: Work for spring</h3>
-      <div class="solution-box"><strong>Solution:</strong> \(F = kx\), \(k = 20\) N/m. \(W = \int_{0.5}^1 kx dx = \frac{k}{2}(1 - 0.25) = \frac{15}{2}\) J</div>
+      <h3>Problem 10: Use the Midpoint Rule with \(n = 4\) to approximate \(\int_0^2 x^2 dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(\Delta x = 0.5\), midpoints: \(0.25, 0.75, 1.25, 1.75\).<br>\(\int_0^2 x^2 dx \approx 0.5[0.0625 + 0.5625 + 1.5625 + 3.0625] = 2.625\)</div>
 
-      <h3>Bonus 1: Volume of solid with hole</h3>
-      <div class="solution-box"><strong>Solution:</strong> Washer method: outer radius = 2, inner radius = 1</div>
+      <h3>Bonus 1: Find the volume of the solid obtained by rotating the region bounded by \(y = \frac{1}{x}\), \(y = 0\), \(x = 1\), \(x = 2\) about the x-axis</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(V = \pi \int_1^2 \frac{1}{x^2} dx = \pi\left[-\frac{1}{x}\right]_1^2 = \pi\left(1 - \frac{1}{2}\right) = \frac{\pi}{2}\)</div>
 
-      <h3>Bonus 2: Work formula units</h3>
-      <div class="solution-box"><strong>Solution:</strong> Force × distance = Newton-meters = Joules</div>
+      <h3>Bonus 2: Prove that \(\int_a^b f(x)dx \geq 0\) if \(f(x) \geq 0\) for all \(x \in [a,b]\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Since \(f(x) \geq 0\), \(f(x) = |f(x)|\).<br>\(\int_a^b f(x)dx = \int_a^b |f(x)|dx \geq 0\) as area under non-negative function.</div>
     </div>
     <nav class="navigation"><a href="problem-set-9-calc1.html">← Problem Set 9</a><a href="problem-set-11-calc1.html">Problem Set 11 →</a></nav>
   </main>

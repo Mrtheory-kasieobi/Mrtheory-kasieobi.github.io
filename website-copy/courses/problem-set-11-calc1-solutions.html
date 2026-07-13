@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Problem Set 11 Solutions: Integration Techniques - Calculus I</title>
+  <meta name="description" content="Problem Set 11 Solutions: Integration Techniques - Calculus I">
+  <title>Kasieobi Udumaga | Problem Set 11 Solutions: Integration Techniques - Calculus I</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
     .lecture-content { color: var(--text); line-height: 1.8; }
     .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
     .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -20,11 +22,12 @@
 </head>
 <body>
   <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html">Teaching</a></li></ul></nav>
   <main>
     <div class="lecture-header"><h1>Problem Set 11: Integration Techniques - SOLUTIONS</h1><div class="subtitle">Calculus I - Week 10</div></div>
     <div class="lecture-content">
       <h2>Solution Guide</h2>
+      <p><strong>Note:</strong> Show all work. Use appropriate techniques: substitution, parts, partial fractions, trigonometric integrals.</p>
       
       <h3>Problem 1: \(\int \frac{1}{x^2 + 4x + 5} \, dx\)</h3>
       <div class="solution-box"><strong>Solution:</strong> Complete square: \(x^2 + 4x + 5 = (x+2)^2 + 1\).<br>\(\int \frac{1}{(x+2)^2 + 1} dx = \tan^{-1}(x+2) + C\)</div>
@@ -51,7 +54,7 @@
       <div class="solution-box"><strong>Solution:</strong> Substitution: \(u = 1+x^2, du = 2x dx\).<br>\(\frac{1}{2}\int u^{-1/2}du = \sqrt{1+x^2} + C\)</div>
 
       <h3>Problem 9: \(\int \frac{1}{x^3 - x} \, dx\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> Partial fractions: \(\frac{1}{x(x-1)(x+1)} = \frac{A}{x} + \frac{B}{x-1} + \frac{C}{x+1}\).<br>\(= \ln|x| - \frac{1}{2}\ln|x-1| - \frac{1}{2}\ln|x+1| + C\)</div>
+      <div class="solution-box"><strong>Solution:</strong> Partial fractions: \(\frac{1}{x(x-1)(x+1)} = \frac{1}{x} - \frac{1}{2(x-1)} - \frac{1}{2(x+1)}\)<br>\(\ln|x| - \frac{1}{2}\ln|x-1| - \frac{1}{2}\ln|x+1| + C\)</div>
 
       <h3>Problem 10: \(\int \tan x \, dx\)</h3>
       <div class="solution-box"><strong>Solution:</strong> \(\int \frac{\sin x}{\cos x}dx = -\ln|\cos x| + C = \ln|\sec x| + C\)</div>
@@ -59,8 +62,8 @@
       <h3>Bonus 1: \(\int \frac{1}{x^2\sqrt{x^2-1}} \, dx\)</h3>
       <div class="solution-box"><strong>Solution:</strong> Trig substitution: \(x = \sec\theta\). Result: \(\frac{\sqrt{x^2-1}}{x} + C\)</div>
 
-      <h3>Bonus 2: \(\int \frac{e^{2x}}{e^{2x}+1} \, dx\)</h3>
-      <div class="solution-box"><strong>Solution:</strong> Substitution: \(u = e^{2x}+1\). Result: \(\frac{1}{2}\ln(e^{2x}+1) + C\)</div>
+      <h3>Bonus 2: \(\int_0^{\pi/4} \frac{1}{1+\tan^2 x} dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Since \(1 + \tan^2 x = \sec^2 x\), the integral becomes \(\int_0^{\pi/4} \cos^2 x dx = \frac{\pi}{8} + \frac{1}{4}\)</div>
     </div>
     <nav class="navigation"><a href="problem-set-10-calc1.html">← Problem Set 10</a><a href="problem-set-12-calc1.html">Problem Set 12 →</a></nav>
   </main>
