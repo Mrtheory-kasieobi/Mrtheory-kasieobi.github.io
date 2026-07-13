@@ -1,86 +1,66 @@
-# Admin Editor - Secure Access Only
+# Admin Editor - Setup Instructions
 
-This directory contains a secure admin text editor for managing website content.
+## Quick Start (Recommended for Chrome/VS Code)
+
+Since you're using Chrome with port 5500 (VS Code Live Server), here's the easiest approach:
+
+### Option 1: Use Chrome's Local Storage + Download (Simplest)
+
+1. Open `http://127.0.0.1:5500/admin/index.html` in Chrome
+2. Login with:
+   - Username: `admin`
+   - Password: `pokgev-4Pimho-wixjep`
+3. Edit content in the rich text editor
+4. Click **Save** to store changes in browser
+5. Click **Download** to export the HTML file
+6. Save the downloaded file to your project folder
+
+### Option 2: Run Node.js Server (Real-time updates)
+
+1. Open Terminal in your website folder:
+```bash
+cd /Users/kellyu/Documents/Math-website
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the admin server:
+```bash
+npm start
+```
+
+4. Open `http://localhost:5501/admin/` in Chrome
+
+5. Login and edit - changes save in real-time!
+
+## How It Works
+
+The Node.js server:
+- Authenticates you with username/password
+- Serves the admin interface
+- Reads/writes HTML files directly to your project
+- Creates automatic backups before each save
+- Runs on port 5501 (different from Live Server's 5500)
 
 ## Security Features
 
-1. **Session-based authentication** - Uses PHP sessions with secure tokens
-2. **CSRF protection** - All form submissions require valid CSRF tokens
-3. **Path validation** - Prevents directory traversal attacks
-4. **Password hashing** - Uses PASSWORD_DEFAULT for secure password storage
-5. **No indexing** - Meta tag prevents search engine indexing
-6. **Rate limiting** - Can be enhanced with additional rate limiting
+- Session-based authentication
+- CSRF protection
+- Password hashing
+- Directory traversal prevention
+- File backup before overwrites
+- No public access (not linked from main site)
 
-## Setup Instructions
-
-1. **Change the default password** - Edit `admin/api/auth.php` and replace `YOUR_SECURE_PASSWORD_HERE` with a strong password
-
-2. **Upload to server** - The admin directory must be uploaded to your web server
-
-3. **Access the admin panel** - Navigate to `yourdomain.com/admin/`
-
-4. **Default credentials**:
-   - Username: `admin`
-   - Password: Change this immediately!
-
-## File Structure
+## Files
 
 ```
 admin/
-├── index.html          # Admin login and editor interface
+├── index.html          # Admin interface
 ├── api/
-│   ├── auth.php        # Authentication handler
-│   ├── content.php     # Content management API
-│   └── logout.php      # Logout handler
-└── backups/            # Auto-generated backup directory
+│   └── auth.php        # PHP-style API (works with Node too)
+├── package.json        # Node.js dependencies
+└── README.md           # This file
 ```
-
-## Usage
-
-1. Log in with your credentials
-2. Select a page from the sidebar
-3. Edit content using the rich text editor
-4. Use toolbar buttons for formatting
-5. Save, preview, or publish changes
-
-## Editor Features
-
-- Rich text editing with headings, bold, italic
-- Bullet and numbered lists
-- Links
-- Mathematical equations (LaTeX support via MathJax)
-- Save, Preview, Cancel, and Restore Previous Version options
-- Version history tracking
-
-## Security Recommendations
-
-1. Use HTTPS for all admin access
-2. Change the default password immediately
-3. Use a strong, unique password (min 16 characters)
-4. Consider adding IP restrictions
-5. Enable two-factor authentication for production use
-6. Regular security audits
-
-## .htaccess for Additional Security (Optional)
-
-Create an `.htaccess` file in the admin directory:
-
-```
-# Deny access to PHP files from specific IPs
-<Files "auth.php">
-    Order Deny,Allow
-    Deny from all
-</Files>
-```
-
-## Backup Strategy
-
-The system automatically creates backups of each page before editing, stored in:
-`backups/YYYY-MM-DD/page-name.html.timestamp`
-
-## Important Notes
-
-- The admin page is NOT linked from anywhere on the main site
-- URL guessing will not grant access without authentication
-- All credentials are stored server-side only
-- Content changes are immediate upon saving

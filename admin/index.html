@@ -48,7 +48,7 @@
         .action-btn.publish { background: linear-gradient(135deg, #9c27b0, #ba68c8); color: #fff; }
         .preview-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 1000; }
         .preview-modal.active { display: block; }
-        .preview-content { max-width: 900px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 12px; color: #000; }
+        .preview-content { max-width: 900px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 12px; color: #000; overflow-y: auto; max-height: 90vh; }
         .close-preview { position: absolute; top: 1rem; right: 1rem; background: #f44336; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; }
         .notification { position: fixed; bottom: 20px; right: 20px; padding: 1rem 1.5rem; border-radius: 8px; background: #333; color: #fff; display: none; z-index: 1000; }
         .notification.show { display: block; }
@@ -97,12 +97,6 @@
                     <button class="toolbar-btn" title="Numbered List" onclick="formatElement('number')"><i class="fas fa-list-ol"></i></button>
                     <button class="toolbar-btn" title="Link" onclick="formatElement('link')"><i class="fas fa-link"></i></button>
                     <button class="toolbar-btn" title="Math Equation" onclick="formatElement('math')"><i class="fas fa-sigma-tilde"></i></button>
-                    <div class="toolbar-separator"></div>
-                    <button class="toolbar-btn" title="Save" onclick="saveContent()"><i class="fas fa-save"></i></button>
-                    <button class="toolbar-btn" title="Download" onclick="downloadContent()"><i class="fas fa-download"></i></button>
-                    <button class="toolbar-btn" title="Preview" onclick="previewContent()"><i class="fas fa-eye"></i></button>
-                    <button class="toolbar-btn" title="Cancel" onclick="cancelEdit()"><i class="fas fa-undo"></i></button>
-                    <button class="toolbar-btn" title="Restore" onclick="restoreVersion()"><i class="fas fa-history"></i></button>
                 </div>
                 <div class="content-editor">
                     <div id="editor" class="editor" contenteditable="true"></div>
@@ -192,24 +186,26 @@
             if (!page) return;
             
             // Check for saved content in localStorage first
-            const savedData = localStorage.getItem('admin_save_' + page);
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                originalContent = data.content;
-                document.getElementById('editor').innerHTML = data.content;
+            const saved = localStorage.getItem('admin_saved_' + page);
+            if (saved) {
+                originalContent = saved;
+                document.getElementById('editor').innerHTML = saved;
                 return;
             }
             
-            // Fetch original content
+            // Fetch original content from server
             const url = '../' + page;
             fetch(url)
-                .then(response => response.text())
+                .then(response => {
+                    if (!response.ok) throw new Error('Page not found');
+                    return response.text();
+                })
                 .then(content => {
                     originalContent = content;
                     document.getElementById('editor').innerHTML = content;
                 })
-                .catch(() => {
-                    document.getElementById('editor').innerHTML = '<p style="color:#666">Page not found or cannot be loaded locally.</p>';
+                .catch(err => {
+                    document.getElementById('editor').innerHTML = '<p style="color:#666">Page not found or cannot be loaded. Start editing to create content.</p>';
                     originalContent = '';
                 });
         }
@@ -265,7 +261,7 @@
                 span.innerHTML = '$$...$$';
                 range.deleteContents();
                 range.insertNode(span);
-            } else {
+            } else if (tag === 'h1' || tag === 'h2') {
                 const element = document.createElement(tag);
                 range.deleteContents();
                 range.insertNode(element);
@@ -278,39 +274,45 @@
 
         function saveContent() {
             const content = getContent();
-            if (!content || content === '<p></p>') {
+            if (!content) {
                 showNotification('No content to save', 'error');
                 return;
             }
             
-            // Save to localStorage for persistence
-            const saveData = {
-                page: currentPage,
-                content: content,
-                timestamp: new Date().toISOString()
-            };
-            localStorage.setItem('admin_save_' + currentPage, JSON.stringify(saveData));
+            // Save to localStorage
+            localStorage.setItem('admin_saved_' + currentPage, content);
             
-            // Also save to a combined history
+            // Also save to history
             let history = JSON.parse(localStorage.getItem('admin_history') || '{}');
             if (!history[currentPage]) history[currentPage] = [];
             history[currentPage].push({
                 content: content,
                 timestamp: new Date().toISOString()
             });
-            // Keep only last 10 versions
-            if (history[currentPage].length > 10) {
-                history[currentPage] = history[currentPage].slice(-10);
-            }
             localStorage.setItem('admin_history', JSON.stringify(history));
             
             originalContent = content;
-            showNotification('Content saved locally (stored in browser)', 'success');
+            showNotification('Content saved to browser! Click Download to export.', 'success');
         }
-        
+
         function downloadContent() {
             const content = getContent();
-            const blob = new Blob([content], { type: 'text/html' });
+            if (!content) {
+                showNotification('No content to download', 'error');
+                return;
+            }
+            
+            // Get the full HTML document
+            const fullDocument = document.querySelector('html').outerHTML;
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(fullDocument, 'text/html');
+            
+            // Replace body content
+            const bodyContent = doc.querySelector('body');
+            bodyContent.innerHTML = content;
+            const fullHtml = doc.documentElement.outerHTML;
+            
+            const blob = new Blob([fullHtml], { type: 'text/html' });
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
@@ -319,12 +321,12 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            showNotification('File downloaded - save it to your project folder', 'success');
+            showNotification('File downloaded! Save it to your project folder.', 'success');
         }
 
         function previewContent() {
             const content = getContent();
-            if (!content || content === '<p></p>') {
+            if (!content) {
                 showNotification('No content to preview', 'error');
                 return;
             }
@@ -342,15 +344,22 @@
         }
 
         function restoreVersion() {
-            if (confirm('Are you sure you want to restore the previous version?')) {
-                document.getElementById('editor').innerHTML = originalContent;
+            const history = JSON.parse(localStorage.getItem('admin_history') || '{}');
+            if (!history[currentPage] || history[currentPage].length === 0) {
+                showNotification('No previous versions available', 'error');
+                return;
+            }
+            
+            if (confirm('Restore previous version? This will overwrite current changes.')) {
+                const prevContent = history[currentPage][history[currentPage].length - 1].content;
+                originalContent = prevContent;
+                document.getElementById('editor').innerHTML = prevContent;
                 showNotification('Previous version restored', 'success');
             }
         }
 
         function publishContent() {
-            saveContent();
-            showNotification('Content ready to publish (requires server upload)', 'success');
+            showNotification('Click Save then Download to update your files', 'success');
         }
 
         function showNotification(message, type) {
@@ -359,19 +368,13 @@
             notification.className = 'notification ' + type + ' show';
             setTimeout(() => {
                 notification.classList.remove('show');
-            }, 3000);
+            }, 4000);
         }
 
         document.getElementById('logoutBtn').addEventListener('click', function() {
             document.getElementById('loginContainer').style.display = 'flex';
             document.getElementById('adminContainer').classList.remove('active');
             document.getElementById('editor').innerHTML = '';
-        });
-
-        $(document).on('keydown', function(e) {
-            if (e.key === 'Escape' && document.getElementById('previewModal').classList.contains('active')) {
-                closePreview();
-            }
         });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

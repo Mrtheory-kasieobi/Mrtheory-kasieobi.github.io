@@ -1,0 +1,17 @@
+{
+  "name": "admin-editor",
+  "version": "1.0.0",
+  "description": "Secure admin text editor for website content",
+  "main": "admin-server.js",
+  "scripts": {
+    "start": "node admin-server.js",
+    "dev": "nodemon admin-server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
