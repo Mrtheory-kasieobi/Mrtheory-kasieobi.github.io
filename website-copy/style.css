@@ -57,44 +57,44 @@ body::after {
 
 /* Scale rem-based sizing site-wide (rem is relative to the root <html>
    element, not <body>), so headings, nav, cards, etc. all zoom in together. */
-html.accessibility-mode {
+html.experimental-mode {
     font-size: 128%;
 }
 
-body.accessibility-mode {
+body.experimental-mode {
     line-height: 2;
     letter-spacing: 0.02em;
     word-spacing: 0.06em;
 }
 
-body.accessibility-mode main,
-body.accessibility-mode .notes-index,
-body.accessibility-mode .course-grid {
+body.experimental-mode main,
+body.experimental-mode .notes-index,
+body.experimental-mode .course-grid {
     max-width: 70ch;
     margin-left: auto;
     margin-right: auto;
 }
 
-body.accessibility-mode .notes-content,
-body.accessibility-mode main p,
-body.accessibility-mode .course-section__content,
-body.accessibility-mode .article-card p {
+body.experimental-mode .notes-content,
+body.experimental-mode main p,
+body.experimental-mode .course-section__content,
+body.experimental-mode .article-card p {
     max-width: 65ch;
 }
 
-body.accessibility-mode .article-card,
-body.accessibility-mode .course-card,
-body.accessibility-mode .note-card {
+body.experimental-mode .article-card,
+body.experimental-mode .course-card,
+body.experimental-mode .note-card {
     border-width: 2px;
 }
 
-body.accessibility-mode .search-bar,
-body.accessibility-mode nav,
-body.accessibility-mode main {
+body.experimental-mode .search-bar,
+body.experimental-mode nav,
+body.experimental-mode main {
     border-width: 2px;
 }
 
-body.accessibility-mode .search-bar input {
+body.experimental-mode .search-bar input {
     background: transparent;
     border: none;
     font: inherit;
@@ -103,41 +103,41 @@ body.accessibility-mode .search-bar input {
     font-size: 1.12rem;
 }
 
-body.accessibility-mode .math-fact-overlay__card {
+body.experimental-mode .math-fact-overlay__card {
     background: rgba(255, 255, 255, 0.98);
     color: #07111d;
 }
 
-body.accessibility-mode .math-fact-overlay__text {
+body.experimental-mode .math-fact-overlay__text {
     color: #07111d;
 }
 
-body.accessibility-mode .math-fact-overlay__label {
+body.experimental-mode .math-fact-overlay__label {
     color: #0055cc;
 }
 
-body.accessibility-mode main,
-body.accessibility-mode .notes-index,
-body.accessibility-mode .course-grid,
-body.accessibility-mode .article-card,
-body.accessibility-mode .course-card,
-body.accessibility-mode .note-card,
-body.accessibility-mode nav,
-body.accessibility-mode .search-bar,
-body.accessibility-mode .course-info,
-body.accessibility-mode .course-problem-set,
-body.accessibility-mode .course-resources__category,
-body.accessibility-mode .teaching-intro,
-body.accessibility-mode .empty-expository-panel,
-body.accessibility-mode .notebook-main,
-body.accessibility-mode .notebook-card,
-body.accessibility-mode .sidebar-section,
-body.accessibility-mode .notes-intro {
+body.experimental-mode main,
+body.experimental-mode .notes-index,
+body.experimental-mode .course-grid,
+body.experimental-mode .article-card,
+body.experimental-mode .course-card,
+body.experimental-mode .note-card,
+body.experimental-mode nav,
+body.experimental-mode .search-bar,
+body.experimental-mode .course-info,
+body.experimental-mode .course-problem-set,
+body.experimental-mode .course-resources__category,
+body.experimental-mode .teaching-intro,
+body.experimental-mode .empty-expository-panel,
+body.experimental-mode .notebook-main,
+body.experimental-mode .notebook-card,
+body.experimental-mode .sidebar-section,
+body.experimental-mode .notes-intro {
     background: #ffffff !important;
     border-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .search-bar input {
+body.experimental-mode .search-bar input {
     background: transparent;
     border: none;
     font: inherit;
@@ -146,69 +146,69 @@ body.accessibility-mode .search-bar input {
     color: #0a1a3a;
 }
 
-body.accessibility-mode header h1,
-body.accessibility-mode main h2,
-body.accessibility-mode .article-card h3,
-body.accessibility-mode .course-card__title,
-body.accessibility-mode .note-card__title,
-body.accessibility-mode .course-header__title,
-body.accessibility-mode .course-info__title,
-body.accessibility-mode .course-section__title,
-body.accessibility-mode .course-resources__title {
+body.experimental-mode header h1,
+body.experimental-mode main h2,
+body.experimental-mode .article-card h3,
+body.experimental-mode .course-card__title,
+body.experimental-mode .note-card__title,
+body.experimental-mode .course-header__title,
+body.experimental-mode .course-info__title,
+body.experimental-mode .course-section__title,
+body.experimental-mode .course-resources__title {
     color: #003366;
 }
 
-body.accessibility-mode main p,
-body.accessibility-mode .article-card p,
-body.accessibility-mode .course-card__description,
-body.accessibility-mode .note-card__description,
-body.accessibility-mode footer,
-body.accessibility-mode .course-header__description,
-body.accessibility-mode .course-info__value,
-body.accessibility-mode .course-section__content,
-body.accessibility-mode .course-problem-set__topics,
-body.accessibility-mode .teaching-intro,
-body.accessibility-mode .empty-expository-panel p {
+body.experimental-mode main p,
+body.experimental-mode .article-card p,
+body.experimental-mode .course-card__description,
+body.experimental-mode .note-card__description,
+body.experimental-mode footer,
+body.experimental-mode .course-header__description,
+body.experimental-mode .course-info__value,
+body.experimental-mode .course-section__content,
+body.experimental-mode .course-problem-set__topics,
+body.experimental-mode .teaching-intro,
+body.experimental-mode .empty-expository-panel p {
     color: #2a3a5a;
 }
 
-body.accessibility-mode a,
-body.accessibility-mode .article-card a,
-body.accessibility-mode .course-card__button,
-body.accessibility-mode .note-card__link,
-body.accessibility-mode .course-note-card__button,
-body.accessibility-mode .course-problem-set__button,
-body.accessibility-mode .course-related__link {
+body.experimental-mode a,
+body.experimental-mode .article-card a,
+body.experimental-mode .course-card__button,
+body.experimental-mode .note-card__link,
+body.experimental-mode .course-note-card__button,
+body.experimental-mode .course-problem-set__button,
+body.experimental-mode .course-related__link {
     color: #0055cc;
 }
 
-body.accessibility-mode a:hover,
-body.accessibility-mode .article-card a:hover,
-body.accessibility-mode .course-card__button:hover,
-body.accessibility-mode .note-card__link:hover,
-body.accessibility-mode .course-note-card__button:hover,
-body.accessibility-mode .course-problem-set__button:hover,
-body.accessibility-mode .course-related__link:hover {
+body.experimental-mode a:hover,
+body.experimental-mode .article-card a:hover,
+body.experimental-mode .course-card__button:hover,
+body.experimental-mode .note-card__link:hover,
+body.experimental-mode .course-note-card__button:hover,
+body.experimental-mode .course-problem-set__button:hover,
+body.experimental-mode .course-related__link:hover {
     color: #0044aa;
 }
 
-body.accessibility-mode nav a,
-body.accessibility-mode nav a:hover,
-body.accessibility-mode nav a.active {
+body.experimental-mode nav a,
+body.experimental-mode nav a:hover,
+body.experimental-mode nav a.active {
     background: #e6f0ff;
     color: #003366;
 }
 
-body.accessibility-mode nav a.active {
+body.experimental-mode nav a.active {
     background: #cce0ff;
 }
 
-body.accessibility-mode .search-bar {
+body.experimental-mode .search-bar {
     background: #ffffff;
     border-color: #0055cc;
 }
 
-body.accessibility-mode .search-bar input {
+body.experimental-mode .search-bar input {
     background: transparent;
     border: none;
     font: inherit;
@@ -217,22 +217,22 @@ body.accessibility-mode .search-bar input {
     color: #0a1a3a;
 }
 
-body.accessibility-mode .search-results {
+body.experimental-mode .search-results {
     background: #ffffff;
     border-color: #0055cc;
 }
 
-body.accessibility-mode .search-results__item {
+body.experimental-mode .search-results__item {
     color: #0a1a3a;
 }
 
-body.accessibility-mode .search-results__item:hover {
+body.experimental-mode .search-results__item:hover {
     background: #e6f0ff;
     color: #0055cc;
 }
 
-/* Accessibility Toggle */
-.accessibility-toggle {
+/* Experimental Toggle */
+.experimental-toggle {
     position: fixed;
     top: 1.5rem;
     left: 1.5rem;
@@ -249,12 +249,12 @@ body.accessibility-mode .search-results__item:hover {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.accessibility-toggle:hover {
+.experimental-toggle:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(140, 200, 255, 0.35);
 }
 
-.accessibility-toggle:focus {
+.experimental-toggle:focus {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
 }
@@ -416,8 +416,8 @@ body::after {
     opacity: 0.7;
 }
 
-/* Accessibility mode - hide background equations */
-body.accessibility-mode .math-background {
+/* Experimental mode - hide background equations */
+body.experimental-mode .math-background {
     display: none;
 }
 
@@ -1698,184 +1698,184 @@ footer {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Additional accessibility mode overrides */
-body.accessibility-mode .teaching-intro,
-body.accessibility-mode .course-related,
-body.accessibility-mode .course-info,
-body.accessibility-mode .course-header,
-body.accessibility-mode .course-note-card,
-body.accessibility-mode .course-problem-set,
-body.accessibility-mode .course-resources__category,
-body.accessibility-mode .empty-expository-panel,
-body.accessibility-mode .article-card {
+/* Additional experimental mode overrides */
+body.experimental-mode .teaching-intro,
+body.experimental-mode .course-related,
+body.experimental-mode .course-info,
+body.experimental-mode .course-header,
+body.experimental-mode .course-note-card,
+body.experimental-mode .course-problem-set,
+body.experimental-mode .course-resources__category,
+body.experimental-mode .empty-expository-panel,
+body.experimental-mode .article-card {
     background: #ffffff !important;
     border-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .course-related__arrow {
+body.experimental-mode .course-related__arrow {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .course-card {
+body.experimental-mode .course-card {
     background: #ffffff !important;
     border-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .course-card__level,
-body.accessibility-mode .course-problem-set__difficulty,
-body.accessibility-mode .entry-category {
+body.experimental-mode .course-card__level,
+body.experimental-mode .course-problem-set__difficulty,
+body.experimental-mode .entry-category {
     background: #e6f0ff !important;
     color: #0055cc !important;
 }
 
-body.accessibility-mode .course-card__status--in-progress {
+body.experimental-mode .course-card__status--in-progress {
     color: #f0ad4e !important;
 }
 
-body.accessibility-mode .course-card__status--complete {
+body.experimental-mode .course-card__status--complete {
     color: #5cb85c !important;
 }
 
-body.accessibility-mode .progress-bar {
+body.experimental-mode .progress-bar {
     background: #e6f0ff !important;
 }
 
-body.accessibility-mode .progress-fill {
+body.experimental-mode .progress-fill {
     background: linear-gradient(90deg, #0055cc, #4aa8f5) !important;
 }
 
-body.accessibility-mode .notes-content {
+body.experimental-mode .notes-content {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .notes-content p {
+body.experimental-mode .notes-content p {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .notes-category h2 {
+body.experimental-mode .notes-category h2 {
     color: #003366 !important;
 }
 
-body.accessibility-mode .notes-category h2 {
+body.experimental-mode .notes-category h2 {
     border-bottom-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .notes-scroll-container::-webkit-scrollbar-track {
+body.experimental-mode .notes-scroll-container::-webkit-scrollbar-track {
     background: #e6f0ff !important;
 }
 
-body.accessibility-mode .notes-scroll-container::-webkit-scrollbar-thumb {
+body.experimental-mode .notes-scroll-container::-webkit-scrollbar-thumb {
     background: #0055cc !important;
 }
 
-/* Button overrides for accessibility mode */
-body.accessibility-mode .course-card__button,
-body.accessibility-mode .course-note-card__button,
-body.accessibility-mode .course-problem-set__button,
-body.accessibility-mode .course-related__link,
-body.accessibility-mode .read-more,
-body.accessibility-mode .entry-footer a,
-body.accessibility-mode .note-card__link,
-body.accessibility-mode .article-card a {
+/* Button overrides for experimental mode */
+body.experimental-mode .course-card__button,
+body.experimental-mode .course-note-card__button,
+body.experimental-mode .course-problem-set__button,
+body.experimental-mode .course-related__link,
+body.experimental-mode .read-more,
+body.experimental-mode .entry-footer a,
+body.experimental-mode .note-card__link,
+body.experimental-mode .article-card a {
     background: #ffffff !important;
     color: #0055cc !important;
     border: 2px solid #0055cc !important;
 }
 
-body.accessibility-mode .course-card__button:hover,
-body.accessibility-mode .course-note-card__button:hover,
-body.accessibility-mode .course-problem-set__button:hover,
-body.accessibility-mode .course-related__link:hover,
-body.accessibility-mode .read-more:hover,
-body.accessibility-mode .entry-footer a:hover,
-body.accessibility-mode .note-card__link:hover,
-body.accessibility-mode .article-card a:hover {
+body.experimental-mode .course-card__button:hover,
+body.experimental-mode .course-note-card__button:hover,
+body.experimental-mode .course-problem-set__button:hover,
+body.experimental-mode .course-related__link:hover,
+body.experimental-mode .read-more:hover,
+body.experimental-mode .entry-footer a:hover,
+body.experimental-mode .note-card__link:hover,
+body.experimental-mode .article-card a:hover {
     background: #e6f0ff !important;
     color: #0044aa !important;
     border-color: #0044aa !important;
 }
 
-/* Problem set page accessibility mode overrides */
-body.accessibility-mode .problem-box,
-body.accessibility-mode .problem-content,
-body.accessibility-mode .problem-header h1,
-body.accessibility-mode .problem-content h2,
-body.accessibility-mode .problem-number,
-body.accessibility-mode .problem-content p,
-body.accessibility-mode .navigation,
-body.accessibility-mode .solution-box {
+/* Problem set page experimental mode overrides */
+body.experimental-mode .problem-box,
+body.experimental-mode .problem-content,
+body.experimental-mode .problem-header h1,
+body.experimental-mode .problem-content h2,
+body.experimental-mode .problem-number,
+body.experimental-mode .problem-content p,
+body.experimental-mode .navigation,
+body.experimental-mode .solution-box {
     background: #ffffff !important;
     color: #2a3a5a !important;
     border-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .problem-header h1 {
+body.experimental-mode .problem-header h1 {
     color: #003366 !important;
 }
 
-body.accessibility-mode .problem-content h2 {
+body.experimental-mode .problem-content h2 {
     color: #003366 !important;
     border-bottom-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .problem-number {
+body.experimental-mode .problem-number {
     color: #0055cc !important;
 }
 
-body.accessibility-mode .navigation a {
+body.experimental-mode .navigation a {
     background: #ffffff !important;
     color: #0055cc !important;
     border: 2px solid #0055cc !important;
 }
 
-body.accessibility-mode .navigation a:hover {
+body.experimental-mode .navigation a:hover {
     background: #e6f0ff !important;
     color: #0044aa !important;
     border-color: #0044aa !important;
 }
 
-/* Lecture notes page accessibility mode overrides */
-body.accessibility-mode .lecture-header h1,
-body.accessibility-mode .lecture-content h2,
-body.accessibility-mode .lecture-content h3,
-body.accessibility-mode .definition-box,
-body.accessibility-mode .example-box,
-body.accessibility-mode .formula-box,
-body.accessibility-mode .important-note,
-body.accessibility-mode .theorem-box,
-body.accessibility-mode .proof-box,
-body.accessibility-mode .lecture-content p {
+/* Lecture notes page experimental mode overrides */
+body.experimental-mode .lecture-header h1,
+body.experimental-mode .lecture-content h2,
+body.experimental-mode .lecture-content h3,
+body.experimental-mode .definition-box,
+body.experimental-mode .example-box,
+body.experimental-mode .formula-box,
+body.experimental-mode .important-note,
+body.experimental-mode .theorem-box,
+body.experimental-mode .proof-box,
+body.experimental-mode .lecture-content p {
     background: #ffffff !important;
     color: #2a3a5a !important;
     border-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .lecture-header h1 {
+body.experimental-mode .lecture-header h1 {
     color: #003366 !important;
 }
 
-body.accessibility-mode .lecture-content h2,
-body.accessibility-mode .lecture-content h3 {
+body.experimental-mode .lecture-content h2,
+body.experimental-mode .lecture-content h3 {
     color: #003366 !important;
     border-bottom-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .definition-box strong,
-body.accessibility-mode .example-title,
-body.accessibility-mode .important-note strong,
-body.accessibility-mode .theorem-box strong {
+body.experimental-mode .definition-box strong,
+body.experimental-mode .example-title,
+body.experimental-mode .important-note strong,
+body.experimental-mode .theorem-box strong {
     color: #0055cc !important;
 }
 
-body.accessibility-mode .definition-box,
-body.accessibility-mode .example-box,
-body.accessibility-mode .important-note,
-body.accessibility-mode .theorem-box,
-body.accessibility-mode .proof-box {
+body.experimental-mode .definition-box,
+body.experimental-mode .example-box,
+body.experimental-mode .important-note,
+body.experimental-mode .theorem-box,
+body.experimental-mode .proof-box {
     border-left-color: #0055cc !important;
 }
 
-body.accessibility-mode .formula-box {
+body.experimental-mode .formula-box {
     background: #e6f0ff !important;
     border-color: #0055cc !important;
 }
@@ -2002,101 +2002,101 @@ body.accessibility-mode .formula-box {
     height: auto;
 }
 
-/* Accessibility mode for Math Lab */
-body.accessibility-mode .math-lab {
+/* Experimental mode for Math Lab */
+body.experimental-mode .math-lab {
     background: #ffffff !important;
     border-color: #d0e0ff !important;
     border-left-color: #0055cc !important;
 }
 
-body.accessibility-mode .math-lab__title {
+body.experimental-mode .math-lab__title {
     color: #003366 !important;
 }
 
-body.accessibility-mode .math-lab__description {
+body.experimental-mode .math-lab__description {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .math-lab__input {
+body.experimental-mode .math-lab__input {
     background: #ffffff !important;
     color: #0a1a3a !important;
     border-color: #0055cc !important;
 }
 
-body.accessibility-mode .math-lab__output {
+body.experimental-mode .math-lab__output {
     background: #e6f0ff !important;
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .math-lab__output p {
+body.experimental-mode .math-lab__output p {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .math-lab__output strong {
+body.experimental-mode .math-lab__output strong {
     color: #0055cc !important;
 }
 
-/* Additional accessibility mode overrides for lecture notes */
-body.accessibility-mode .lecture-content,
-body.accessibility-mode .lecture-content p,
-body.accessibility-mode .lecture-content ul,
-body.accessibility-mode .lecture-content ol,
-body.accessibility-mode .lecture-content li,
-body.accessibility-mode .lecture-content h2,
-body.accessibility-mode .lecture-content h3,
-body.accessibility-mode .lecture-content strong,
-body.accessibility-mode .lecture-content em {
+/* Additional experimental mode overrides for lecture notes */
+body.experimental-mode .lecture-content,
+body.experimental-mode .lecture-content p,
+body.experimental-mode .lecture-content ul,
+body.experimental-mode .lecture-content ol,
+body.experimental-mode .lecture-content li,
+body.experimental-mode .lecture-content h2,
+body.experimental-mode .lecture-content h3,
+body.experimental-mode .lecture-content strong,
+body.experimental-mode .lecture-content em {
     background: #ffffff !important;
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .lecture-content h2,
-body.accessibility-mode .lecture-content h3 {
+body.experimental-mode .lecture-content h2,
+body.experimental-mode .lecture-content h3 {
     color: #003366 !important;
     border-bottom-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .lecture-content ul,
-body.accessibility-mode .lecture-content ol {
+body.experimental-mode .lecture-content ul,
+body.experimental-mode .lecture-content ol {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode table,
-body.accessibility-mode th,
-body.accessibility-mode td {
+body.experimental-mode table,
+body.experimental-mode th,
+body.experimental-mode td {
     background: #ffffff !important;
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode th {
+body.experimental-mode th {
     background: #e6f0ff !important;
     color: #003366 !important;
 }
 
-body.accessibility-mode .important-note-title {
+body.experimental-mode .important-note-title {
     color: #0055cc !important;
 }
 
-body.accessibility-mode .navigation a {
+body.experimental-mode .navigation a {
     background: #ffffff !important;
     color: #0055cc !important;
     border: 2px solid #0055cc !important;
 }
 
-body.accessibility-mode .navigation a:hover {
+body.experimental-mode .navigation a:hover {
     background: #e6f0ff !important;
     color: #0044aa !important;
     border-color: #0044aa !important;
 }
-/* Override for notes-page main element in accessibility mode */
-body.accessibility-mode.notes-page main {
+/* Override for notes-page main element in experimental mode */
+body.experimental-mode.notes-page main {
     background: #ffffff !important;
     border: 1px solid #d0e0ff !important;
     box-shadow: none !important;
 }
 
-/* Override for notes-page header in accessibility mode */
-body.accessibility-mode.notes-page header {
+/* Override for notes-page header in experimental mode */
+body.experimental-mode.notes-page header {
     background: #ffffff !important;
     border-left: 4px solid #0055cc !important;
 }
@@ -2372,34 +2372,34 @@ body.accessibility-mode.notes-page header {
     opacity: 0.7;
 }
 
-/* Accessibility mode overrides for contact page */
-body.accessibility-mode .contact-info__card,
-body.accessibility-mode .contact-faq__item,
-body.accessibility-mode .contact-footer__quote {
+/* Experimental mode overrides for contact page */
+body.experimental-mode .contact-info__card,
+body.experimental-mode .contact-faq__item,
+body.experimental-mode .contact-footer__quote {
     background: #ffffff !important;
     border-color: #d0e0ff !important;
 }
 
-body.accessibility-mode .contact-info__icon,
-body.accessibility-mode .contact-faq__marker,
-body.accessibility-mode .contact-footer__quote cite {
+body.experimental-mode .contact-info__icon,
+body.experimental-mode .contact-faq__marker,
+body.experimental-mode .contact-footer__quote cite {
     color: #0055cc !important;
 }
 
-body.accessibility-mode .contact-faq__marker {
+body.experimental-mode .contact-faq__marker {
     background: #e6f0ff !important;
 }
 
-body.accessibility-mode .contact-faq__item[open] .contact-faq__marker {
+body.experimental-mode .contact-faq__item[open] .contact-faq__marker {
     background: #0055cc !important;
     color: #ffffff !important;
 }
 
-body.accessibility-mode .contact-info__value--pending {
+body.experimental-mode .contact-info__value--pending {
     color: #2a3a5a !important;
 }
 
-body.accessibility-mode .contact-footer__quote blockquote {
+body.experimental-mode .contact-footer__quote blockquote {
     color: #0a1a3a !important;
 }
 
