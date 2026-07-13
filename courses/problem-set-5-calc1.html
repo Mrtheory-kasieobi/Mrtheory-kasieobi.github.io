@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Problem Set 5: Trig Derivatives and Optimization - Calculus I">
+  <title>Kasieobi Udumaga | Problem Set 5: Trig Derivatives and Optimization - Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; }
+    .problem-list { list-style: none; padding: 0; }
+    .problem-list li { margin-bottom: 1.5rem; padding: 1rem; background: rgba(15, 24, 37, 0.5); border-radius: 8px; border-left: 4px solid var(--accent); }
+    .problem-list li strong { color: var(--accent); display: block; margin-bottom: 0.5rem; }
+    .bonus-problems { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .bonus-problems strong { color: #d9534f; display: block; margin-bottom: 0.5rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <main>
+    <div class="lecture-header"><h1>Problem Set 5: Trig Derivatives and Optimization</h1><div class="subtitle">Calculus I - Week 5</div></div>
+    <div class="lecture-content">
+      <h2>Instructions</h2><p>Show all work. No calculators. Write clearly and show each step.</p>
+      <h2>Problems</h2>
+      <ul class="problem-list">
+        <li><strong>1.</strong> Find \(\frac{dy}{dx}\) for \(y = \sin^3(2x)\)</li>
+        <li><strong>2.</strong> Find \(\frac{d}{dx}[\tan^{-1}(x^3)]\)</li>
+        <li><strong>3.</strong> Find the critical points of \(f(x) = x + 2\sin x\) on \([0, 2\pi]\)</li>
+        <li><strong>4.</strong> Find the dimensions of the rectangle with perimeter 20 having maximum area</li>
+        <li><strong>5.</strong> A rectangular box with square base is to have volume 1000 cm³. Find dimensions for minimum surface area</li>
+        <li><strong>6.</strong> Find \(\frac{dy}{dx}\) for \(y = \sec x \cdot \cot x\)</li>
+        <li><strong>7.</strong> Find the local maximum and minimum values of \(f(x) = \frac{x^2}{x^2 + 1}\)</li>
+        <li><strong>8.</strong> A ladder 15 ft long rests against a wall. If the bottom slides toward the wall at 3 ft/s, how fast is the top moving when the bottom is 9 ft from the wall?</li>
+        <li><strong>9.</strong> Find \(\frac{d}{dx}[\sin^{-1}(x) + \cos^{-1}(x)]\)</li>
+        <li><strong>10.</strong> Prove that among all rectangles with fixed perimeter, the square has maximum area</li>
+      </ul>
+      <div class="bonus-problems"><strong>Bonus Problems (10 points each):</strong>
+        <ul class="problem-list">
+          <li><strong>B1.</strong> Find the absolute maximum and minimum of \(f(x) = x^3 - 12x\) on \([-3, 3]\)</li>
+          <li><strong>B2.</strong> A cylindrical can is to hold 1 liter of oil. Find the dimensions that minimize the cost of metal for the can</li>
+        </ul>
+      </div>
+    </div>
+    <nav class="navigation"><a href="problem-set-4-calc1.html">← Problem Set 4</a><a href="problem-set-6-calc1.html">Problem Set 6 →</a></nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

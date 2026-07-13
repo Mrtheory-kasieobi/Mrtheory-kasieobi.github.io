@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Problem Set 6 Solutions: MVT and Curve Sketching - Calculus I">
+  <title>Kasieobi Udumaga | Problem Set 6 Solutions: MVT and Curve Sketching - Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .solution-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <main>
+    <div class="lecture-header"><h1>Problem Set 6: MVT and Curve Sketching - SOLUTIONS</h1><div class="subtitle">Calculus I - Week 6</div></div>
+    <div class="lecture-content">
+      <h2>Solution Guide</h2>
+      <p><strong>Note:</strong> These are detailed solution outlines. Show all work when completing problems.</p>
+      
+      <h3>Problem 1: Verify MVT for \(f(x) = x^3\) on \([1, 3]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f\) is continuous and differentiable everywhere. Find \(c\) such that \(f'(c) = \frac{f(3)-f(1)}{3-1}\)<br>
+        \(f'(x) = 3x^2\). Right side: \(\frac{27-1}{2} = 13\).<br>
+        Solve \(3c^2 = 13 \Rightarrow c = \sqrt{\frac{13}{3}}\). Since \(1 < c < 3\), MVT verified.
+      </div>
+
+      <h3>Problem 2: Find critical points of \(f(x) = \frac{x^2}{x-1}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f'(x) = \frac{2x(x-1) - x^2}{(x-1)^2} = \frac{x(x-2)}{(x-1)^2}\).<br>
+        \(f'(x) = 0\) when \(x = 0\) or \(x = 2\). Note: \(x \neq 1\) (undefined).
+      </div>
+
+      <h3>Problem 3: Sketch \(y = \frac{x}{\sqrt{x+1}}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> Domain: \(x > -1\). X-intercept: \(x = 0\). Y-intercept: \(y = 0\).<br>
+        Vertical asymptote: \(x \to -1^+\), \(y \to -\infty\).<br>
+        \(f'(x) = \frac{\sqrt{x+1} - \frac{x}{2\sqrt{x+1}}}{x+1} = \frac{x+2}{2(x+1)^{3/2}}\).<br>
+        Increasing on \((-1, \infty)\). No local extrema.
+      </div>
+
+      <h3>Problem 4: Find intervals of increase/decrease for \(f(x) = x^3 - 3x^2 + 4\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f'(x) = 3x^2 - 6x = 3x(x-2)\).<br>
+        Critical points: \(x = 0, 2\).<br>
+        \(f' > 0\) on \((-\infty, 0)\) and \((2, \infty)\) → increasing.<br>
+        \(f' < 0\) on \((0, 2)\) → decreasing.
+      </div>
+
+      <h3>Problem 5: Determine concavity of \(f(x) = e^x - x^2\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f''(x) = e^x - 2\).<br>
+        \(f''(x) = 0\) when \(e^x = 2 \Rightarrow x = \ln 2\).<br>
+        \(f'' < 0\) on \((-\infty, \ln 2)\) → concave down.<br>
+        \(f'' > 0\) on \((\ln 2, \infty)\) → concave up.<br>
+        Inflection point at \(x = \ln 2\).
+      </div>
+
+      <h3>Problem 6: Find inflection points of \(f(x) = x^4 - 4x^3\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f'(x) = 4x^3 - 12x^2 = 4x^2(x-3)\).<br>
+        \(f''(x) = 12x^2 - 24x = 12x(x-2)\).<br>
+        \(f'' = 0\) at \(x = 0, 2\).<br>
+        Inflection points at \((0, 0)\) and \((2, -16)\).
+      </div>
+
+      <h3>Problem 7: Use First Derivative Test for \(f(x) = x + \cos x\) on \([0, 2\pi]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f'(x) = 1 - \sin x = 0 \Rightarrow \sin x = 1 \Rightarrow x = \frac{\pi}{2}\)<br>
+        For \(x \in [0, \frac{\pi}{2})\): \(f' > 0\) (increasing).<br>
+        For \(x \in (\frac{\pi}{2}, 2\pi]\): \(f' > 0\) (increasing).<br>
+        No local extrema (horizontal tangent but no sign change).
+      </div>
+
+      <h3>Problem 8: Sketch \(y = \sin x + \cos x\) on \([0, 2\pi]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> Rewrite: \(y = \sqrt{2}\sin(x + \frac{\pi}{4})\).<br>
+        Amplitude: \(\sqrt{2}\). Period: \(2\pi\).<br>
+        Max: \(\sqrt{2}\) at \(x = \frac{\pi}{4}\). Min: \(-\sqrt{2}\) at \(x = \frac{5\pi}{4}\).<br>
+        Zeros at \(x = \frac{3\pi}{4}, \frac{7\pi}{4}\).
+      </div>
+
+      <h3>Problem 9: Tangent line to \(y = \ln(x^2 + 1)\) at \(x = 1\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(y' = \frac{2x}{x^2+1}\). At \(x = 1\): \(y' = 1\). Point: \((1, \ln 2)\).<br>
+        Tangent line: \(y - \ln 2 = 1(x - 1)\) or \(y = x + \ln 2 - 1\).
+      </div>
+
+      <h3>Problem 10: If \(f\) differentiable and \(f'(x) = 0\), prove \(f\) constant</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> By Mean Value Theorem, for any \(a, b\): there exists \(c\) between them with \(f'(c) = \frac{f(b)-f(a)}{b-a}\).<br>
+        Since \(f'(c) = 0\), we have \(f(b) = f(a)\) for all \(a, b\). Thus \(f\) is constant.
+      </div>
+
+      <h3>Bonus 1: Classify critical points of \(f(x) = x^4 - 4x^3 + 6x^2 - 4x + 1\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> \(f'(x) = 4x^3 - 12x^2 + 12x - 4 = 4(x-1)^3\).<br>
+        Critical point: \(x = 1\).<br>
+        \(f''(x) = 12(x-1)^2\). At \(x = 1\): \(f'' = 0\).<br>
+        Use first derivative test: \(f' < 0\) for \(x < 1\), \(f' > 0\) for \(x > 1\).<br>
+        Local minimum at \(x = 1\).
+      </div>
+
+      <h3>Bonus 2: If \(f'''(a) = 0\), must \(f'''(a) = 0\)?</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> No. Consider \(f(x) = x^4\). Then \(f'(x) = 4x^3, f''(x) = 12x^2, f'''(x) = 24x\).<br>
+        At \(x = 0\): \(f'''(0) = 0\). But this is not necessarily an inflection point.<br>
+        The third derivative being zero doesn't guarantee inflection - need sign change in \(f''\).
+      </div>
+    </div>
+    <nav class="navigation"><a href="problem-set-5-calc1.html">← Problem Set 5</a><a href="problem-set-7-calc1.html">Problem Set 7 →</a></nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

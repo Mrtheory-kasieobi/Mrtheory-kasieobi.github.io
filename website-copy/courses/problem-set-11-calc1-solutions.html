@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Set 11 Solutions: Integration Techniques - Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .solution-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <main>
+    <div class="lecture-header"><h1>Problem Set 11: Integration Techniques - SOLUTIONS</h1><div class="subtitle">Calculus I - Week 10</div></div>
+    <div class="lecture-content">
+      <h2>Solution Guide</h2>
+      
+      <h3>Problem 1: \(\int \frac{1}{x^2 + 4x + 5} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Complete square: \(x^2 + 4x + 5 = (x+2)^2 + 1\).<br>\(\int \frac{1}{(x+2)^2 + 1} dx = \tan^{-1}(x+2) + C\)</div>
+
+      <h3>Problem 2: \(\int x \ln x \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Integration by parts: \(u = \ln x, dv = x dx\).<br>\(du = \frac{1}{x}dx, v = \frac{x^2}{2}\).<br>\(\frac{x^2}{2}\ln x - \int \frac{x}{2}dx = \frac{x^2}{2}\ln x - \frac{x^2}{4} + C\)</div>
+
+      <h3>Problem 3: \(\int \frac{\ln x}{x^2} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Integration by parts: \(u = \ln x, dv = \frac{1}{x^2}dx\).<br>\(du = \frac{1}{x}dx, v = -\frac{1}{x}\).<br>\(-\frac{\ln x}{x} + \int \frac{1}{x^2}dx = -\frac{\ln x}{x} - \frac{1}{x} + C\)</div>
+
+      <h3>Problem 4: \(\int \frac{1}{x \ln x} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Substitution: \(u = \ln x, du = \frac{1}{x}dx\).<br>\(\int \frac{1}{u}du = \ln|\ln x| + C\)</div>
+
+      <h3>Problem 5: \(\int \sec^2(3x) \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(\frac{1}{3}\tan(3x) + C\)</div>
+
+      <h3>Problem 6: \(\int e^x \cos x \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Integration by parts twice. Let \(I = \int e^x \cos x dx\).<br>\(I = e^x \cos x + \int e^x \sin x dx = e^x \cos x + e^x \sin x - I\).<br>\(2I = e^x(\cos x + \sin x)\). \(I = \frac{e^x}{2}(\sin x + \cos x) + C\)</div>
+
+      <h3>Problem 7: \(\int \frac{1}{\sqrt{1-x^2}} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(\sin^{-1} x + C\)</div>
+
+      <h3>Problem 8: \(\int \frac{x}{\sqrt{1+x^2}} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Substitution: \(u = 1+x^2, du = 2x dx\).<br>\(\frac{1}{2}\int u^{-1/2}du = \sqrt{1+x^2} + C\)</div>
+
+      <h3>Problem 9: \(\int \frac{1}{x^3 - x} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Partial fractions: \(\frac{1}{x(x-1)(x+1)} = \frac{A}{x} + \frac{B}{x-1} + \frac{C}{x+1}\).<br>\(= \ln|x| - \frac{1}{2}\ln|x-1| - \frac{1}{2}\ln|x+1| + C\)</div>
+
+      <h3>Problem 10: \(\int \tan x \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> \(\int \frac{\sin x}{\cos x}dx = -\ln|\cos x| + C = \ln|\sec x| + C\)</div>
+
+      <h3>Bonus 1: \(\int \frac{1}{x^2\sqrt{x^2-1}} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Trig substitution: \(x = \sec\theta\). Result: \(\frac{\sqrt{x^2-1}}{x} + C\)</div>
+
+      <h3>Bonus 2: \(\int \frac{e^{2x}}{e^{2x}+1} \, dx\)</h3>
+      <div class="solution-box"><strong>Solution:</strong> Substitution: \(u = e^{2x}+1\). Result: \(\frac{1}{2}\ln(e^{2x}+1) + C\)</div>
+    </div>
+    <nav class="navigation"><a href="problem-set-10-calc1.html">← Problem Set 10</a><a href="problem-set-12-calc1.html">Problem Set 12 →</a></nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
