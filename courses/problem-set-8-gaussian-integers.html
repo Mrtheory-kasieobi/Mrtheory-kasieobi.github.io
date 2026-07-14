@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Set 8: Gaussian Integers - Definition and Arithmetic | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .problem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .problem-box.bonus { border-left: 4px solid #5cb85c; }
+    .bonus-section { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .navigation a:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25); color: #07111d; }
+    .difficulty { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.85rem; font-weight: 700; margin-left: 1rem; }
+    .difficulty.medium { background: rgba(240, 173, 78, 0.2); color: #f0ad4e; border: 1px solid rgba(240, 173, 78, 0.4); }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Problem Set 8: Gaussian Integers - Definition and Arithmetic</h1><div class="subtitle">Elementary Number Theory - Week 9 <span class="difficulty medium">Medium</span></div></div>
+    <div class="problem-content">
+      <h2>Problems</h2>
+      <div class="problem-box"><div class="problem-number">Problem 1</div><p>Compute \(N(3+4i)\), \(N(2-i)\), and \(N(-1+2i)\) where \(N(a+bi) = a^2 + b^2\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 2</div><p>Show that \((1+i)(1-i) = 2\) and find the norm of \(1+i\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 3</div><p>Verify that \(\mathbb{Z}[i]\) is closed under addition by computing \((2+3i) + (1-2i)\) and \((2+3i)(1-2i)\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 4</div><p>Find the inverse of \(2+i\) in \(\mathbb{Q}(i)\) and show it is not in \(\mathbb{Z}[i]\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 5</div><p>Compute \(\gcd(2+3i, 1+i)\) in \(\mathbb{Z}[i]\) using the Euclidean algorithm.</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 6</div><p>Show that \(N(\alpha\beta) = N(\alpha)N(\beta)\) for \(\alpha = 1+2i\) and \(\beta = 2-i\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 7</div><p>Prove: In \(\mathbb{Z}[i]\), \(N(\alpha) = 0\) if and only if \(\alpha = 0\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 8</div><p>Find all units in \(\mathbb{Z}[i]\) by solving \(a^2 + b^2 = 1\).</p></div>
+      <div class="problem-box"><div class="problem-number">Problem 9</div><p>Show that \(1+i\) is irreducible in \(\mathbb{Z}[i]\). <em>Hint: Check its norm.</em></p></div>
+      <div class="problem-box"><div class="problem-number">Problem 10</div><p>Prove: If \(\gcd(a, b) = 1\), then \(\gcd(a+bi, a-bi) = 1\) or \(\sqrt{-1}\) in \(\mathbb{Z}[i]\).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="problem-box bonus"><div class="problem-number">Bonus Problem 1</div><p><strong>Challenge:</strong> Prove the division algorithm in \(\mathbb{Z}[i]\): For any \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), there exist \(\gamma, \delta \in \mathbb{Z}[i]\) such that \(\alpha = \beta\gamma + \delta\) with \(N(\delta) < N(\beta)\).</p></div>
+      <div class="problem-box bonus"><div class="problem-number">Bonus Problem 2</div><p><strong>Challenge:</strong> Show that if \(\alpha = a+bi \in \mathbb{Z}[i]\) and \(a^2 + b^2\) is prime in \(\mathbb{Z}\), then \(\alpha\) is irreducible in \(\mathbb{Z}[i]\).</p></div>
+      <div class="problem-box bonus"><div class="problem-number">Bonus Problem 3</div><p><strong>Challenge:</strong> Prove that \(\mathbb{Z}[i]\) is a Euclidean domain with respect to the norm function.</p></div>
+      <div class="navigation">
+        <a href="problem-set-7-quadratic-reciprocity.html">← Previous Problem Set</a>
+        <a href="number-theory.html">Back to Course</a>
+        <a href="problem-set-9-gaussian-primes.html">View Problem Set 9 →</a>
+        <a href="problem-set-8-gaussian-integers-solutions.html">View Solutions →</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

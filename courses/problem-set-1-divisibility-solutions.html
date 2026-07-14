@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 1: Divisibility and Primes | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .navigation a:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25); color: #07111d; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 1: Divisibility and Primes</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> If \(a \mid b\) and \(b \mid c\), then \(b = ak\) and \(c = b\ell\) for some integers \(k, \ell\). Thus \(c = ak\ell = a(k\ell)\), so \(a \mid c\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \(n \mid (n+5)\) means \(n+5 = nk\) for some integer \(k\). So \(5 = n(k-1)\), meaning \(n \mid 5\). Thus \(n \in \{-5, -1, 1, 5\}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> If \(a \mid b\) and \(a \mid c\), then \(b = am\) and \(c = an\). So \(bx + cy = amx + any = a(mx + ny)\), hence \(a \mid (bx + cy)\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> If \(\gcd(a, b) = 1\) and \(a \mid bc\), then \(bc = ak\). Since \(\gcd(a, b) = 1\), we have \(a \mid c\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Assume there are finitely many primes \(p_1, \ldots, p_n\). Consider \(N = p_1 \cdots p_n + 1\). Either \(N\) is prime or has a prime factor, but neither divides \(N\), contradiction.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(360 = 2^3 \cdot 3^2 \cdot 5\). The prime factorization is \(360 = 2^3 \cdot 3^2 \cdot 5\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> If \(p \mid ab\) and \(p\) is prime, then by Euclid's lemma, \(p \mid a\) or \(p \mid b\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Using Euclidean algorithm: \(144 = 84 \cdot 1 + 60\), \(84 = 60 \cdot 1 + 24\), \(60 = 24 \cdot 2 + 12\), \(24 = 12 \cdot 2 + 0\). So \(\gcd(144, 84) = 12\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> If \(n \mid m\) and \(m \mid n\), then \(m = nk\) and \(n = m\ell\). So \(n = nk\ell\), giving \(k\ell = 1\). Since \(k, \ell \in \mathbb{Z}\), we have \(k = \ell = \pm 1\), thus \(|n| = |m|\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\gcd(a, b) = \gcd(b, a - bq)\) because any common divisor of \(a\) and \(b\) divides \(a - bq\), and vice versa.</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Solution:</strong></p>
+        <p>We want to prove that \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}\}\) where the minimum is taken over all positive values.</p>
+        <p><strong>Step 1:</strong> Let \(d = \gcd(a, b)\). By Bézout's identity, there exist integers \(x_0, y_0\) such that \(ax_0 + by_0 = d\).</p>
+        <p><strong>Step 2:</strong> We need to show that any positive element of the form \(ax + by\) is at least \(d\). Suppose \(ax + by > 0\) for some integers \(x, y\).</p>
+        <p><strong>Step 3:</strong> By the division algorithm, write \(x = qx_0 + r\) and \(y = qy_0 + s\) where \(0 \leq r < |d|\) and \(0 \leq s < |d|\).</p>
+        <p><strong>Step 4:</strong> Then \(ax + by = a(qx_0 + r) + b(qy_0 + s) = q(ax_0 + by_0) + (ar + bs) = qd + (ar + bs)\).</p>
+        <p><strong>Step 5:</strong> Since \(d = \gcd(a, b)\), both \(a\) and \(b\) are multiples of \(d\), so \(ar + bs\) is a multiple of \(d\).</p>
+        <p><strong>Step 6:</strong> The smallest positive multiple of \(d\) is \(d\) itself, so \(ax + by \geq d\).</p>
+        <p><strong>Conclusion:</strong> Therefore, \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}, ax + by > 0\}\).</p>
+      </div>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> Assume \(\sqrt{p} = \frac{a}{b}\) where \(a, b \in \mathbb{Z}^+\) and \(\gcd(a, b) = 1\).</p>
+        <p><strong>Step 2:</strong> Squaring both sides: \(p = \frac{a^2}{b^2}\), so \(pb^2 = a^2\).</p>
+        <p><strong>Step 3:</strong> Since \(p \mid a^2\) and \(p\) is prime, by Euclid's lemma, \(p \mid a\). Write \(a = pc\) for some integer \(c\).</p>
+        <p><strong>Step 4:</strong> Substituting: \(pb^2 = (pc)^2 = p^2 c^2\), so \(b^2 = pc^2\).</p>
+        <p><strong>Step 5:</strong> This means \(p \mid b^2\), and again by Euclid's lemma, \(p \mid b\).</p>
+        <p><strong>Step 6:</strong> We now have \(p \mid a\) and \(p \mid b\), contradicting \(\gcd(a, b) = 1\).</p>
+        <p><strong>Conclusion:</strong> Therefore, \(\sqrt{p}\) is irrational.</p>
+      </div>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> Let \(n = p_1^{a_1} \cdot p_2^{a_2} \cdots p_k^{a_k}\) be the prime factorization of \(n\).</p>
+        <p><strong>Step 2:</strong> Any divisor \(d\) of \(n\) has the form \(d = p_1^{e_1} \cdot p_2^{e_2} \cdots p_k^{e_k}\) where \(0 \leq e_i \leq a_i\) for each \(i\).</p>
+        <p><strong>Step 3:</strong> For each prime \(p_i\), we can choose the exponent \(e_i\) in \(a_i + 1\) ways: \(0, 1, 2, \ldots, a_i\).</p>
+        <p><strong>Step 4:</strong> Since the choices for each prime are independent, the total number of divisors is:</p>
+        <p>\[\tau(n) = (a_1 + 1)(a_2 + 1) \cdots (a_k + 1) = \prod_{i=1}^{k}(a_i + 1)\]</p>
+        <p><strong>Conclusion:</strong> The number of positive divisors is \((a_1+1)\cdots(a_k+1)\).</p>
+      </div>
+      <div class="navigation">
+        <a href="problem-set-1-divisibility.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

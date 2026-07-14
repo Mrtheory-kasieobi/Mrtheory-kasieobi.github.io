@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 9: Gaussian Primes and Factorization | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 9: Gaussian Primes</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Gaussian primes with norm < 10: \(1+i\) (norm 2), \(2+i, 2-i\) (norm 5), and their associates \(-1+i, -2-i, -2+i, 1-i\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> In \(\mathbb{Z}[i]\): primes \(p \equiv 3 \pmod{4}\) remain prime (inert). Primes \(p \equiv 1 \pmod{4}\) split as \(p = (a+bi)(a-bi)\). \(p = 2\) ramifies: \(2 = -i(1+i)^2\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(5 = (2+i)(2-i)\). Both factors have norm 5, which is prime in \(\mathbb{Z}\), so both are Gaussian primes.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(7 \equiv 3 \pmod{4}\), so 7 is inert and remains prime in \(\mathbb{Z}[i]\). There is no factorization \(7 = \alpha\beta\) with non-units \(\alpha, \beta \in \mathbb{Z}[i]\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> If \(p \equiv 3 \pmod{4}\), then \(-1\) is not a quadratic residue mod \(p\). So \(x^2+1 \equiv 0 \pmod{p}\) has no solution, meaning \(p\) cannot be written as \(a^2+b^2\), hence remains prime in \(\mathbb{Z}[i]\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(13 \equiv 1 \pmod{4}\), so 13 splits. Find \(a, b\) with \(a^2+b^2 = 13\): \(2^2 + 3^2 = 13\). So \(13 = (2+3i)(2-3i)\). Both factors are Gaussian primes.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\), so \(-1\) is a quadratic residue mod \(p\). Thus \(x^2 \equiv -1 \pmod{p}\) has a solution \(a\), meaning \(p | (a^2+1) = (a+i)(a-i)\) in \(\mathbb{Z}[i]\). Hence \(p\) splits.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> \(65 = 5 \cdot 13 = (2+i)(2-i)(3+2i)(3-2i)\). This is the complete factorization into Gaussian primes.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(50 = 2 \cdot 5^2 = (1+i)(1-i) \cdot 5^2\). In Gaussian integers: \(50 = (1+i)(1-i)(2+3i)^2(2-3i)^2\) or more simply \(50 = (1+i)(1-i) \cdot 5^2\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\mathbb{Z}[i]\) is a Euclidean domain, hence a UFD. Unique factorization means every non-zero non-unit has a factorization into irreducibles, unique up to order and associates (units: \(1, -1, i, -i\)).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> For prime \(p \equiv 1 \pmod{4}\), we can write \(p = a^2 + b^2\) using Fermat's theorem on sums of two squares.</p><p><strong>Step 2:</strong> Find \(k\) with \(k^2 \equiv -1 \pmod{p}\) using Tonelli-Shanks algorithm.</p><p><strong>Step 3:</strong> Then \(p | (k^2+1)\), so in \(\mathbb{Z}[i]\), \(p | (k+i)(k-i)\).</p><p><strong>Step 4:</strong> Since \(p\) doesn't divide either factor, \(p = (k+i)(k-i)\) up to units.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Suppose \(p = a^2+b^2 = c^2+d^2\) with \(a,b,c,d > 0\) and \((a,b) \neq (c,d), (d,c)\).</p><p><strong>Step 2:</strong> In \(\mathbb{Z}[i]\): \(p = (a+bi)(a-bi) = (c+di)(c-di)\).</p><p><strong>Step 3:</strong> By unique factorization in \(\mathbb{Z}[i]\), \(a+bi\) and \(c+di\) are associates.</p><p><strong>Step 4:</strong> This means \((a,b) = \pm(c,d)\) or \((a,b) = \pm(d,c)\), giving essentially the same representation.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> \(\mathbb{Z}[i]\) is Euclidean: for any \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), there exist \(\gamma, \delta\) with \(\alpha = \beta\gamma + \delta\) and \(N(\delta) < N(\beta)\).</p><p><strong>Step 2:</strong> Euclidean domains are UFDs by standard ring theory.</p><p><strong>Step 3:</strong> The Euclidean function \(N\) is multiplicative on units and respects division with remainder.</p></p></div>
+      <div class="navigation"><a href="problem-set-9-gaussian-primes.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

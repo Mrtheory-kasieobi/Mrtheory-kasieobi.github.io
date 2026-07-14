@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 2: Euclidean Algorithm and Bézout's Identity | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .navigation a:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25); color: #07111d; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 2: Euclidean Algorithm and Bézout's Identity</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Euclidean algorithm: \(1071 = 462 \cdot 2 + 147\), \(462 = 147 \cdot 3 + 21\), \(147 = 21 \cdot 7 + 0\). So \(\gcd(1071, 462) = 21\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> Extended Euclidean algorithm: \(56 = 15 \cdot 3 + 11\), \(15 = 11 \cdot 1 + 4\), \(11 = 4 \cdot 2 + 3\), \(4 = 3 \cdot 1 + 1\). Back-substituting: \(1 = 4 - 3 = 4 - (11 - 4 \cdot 2) = 3 \cdot 4 - 11 = 3(15 - 11) - 11 = 3 \cdot 15 - 4 \cdot 11 = 3 \cdot 15 - 4(56 - 15 \cdot 3) = 15 \cdot 15 - 56 \cdot 4\). So \(x = 15, y = -4\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(120 = 23 \cdot 5 + 5\), \(23 = 5 \cdot 4 + 3\), \(5 = 3 \cdot 1 + 2\), \(3 = 2 \cdot 1 + 1\), \(2 = 1 \cdot 2 + 0\). GCD is 1. Back-substitution gives the linear combination.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Bezout's identity states that \(\gcd(a, b)\) is the smallest positive integer of the form \(ax + by\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> \(\gcd(a+b, a-b) = \gcd(a+b, (a+b) - (a-b)) = \gcd(a+b, 2b) = \gcd(a+b, 2)\) when \(a, b\) are odd.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Since \(\gcd(15, 25) = 5\) and \(5 \mid 5\), solutions exist. One solution: \(x = 2, y = -1\) since \(15 \cdot 2 + 25 \cdot (-1) = 5\). General: \(x = 2 + 5t, y = -1 - 3t\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> If \(ax + by = c\) has solutions, then \(c = ax + by\). Any common divisor of \(a\) and \(b\) divides \(ax + by = c\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Using extended Euclidean algorithm: \(31 = 17 \cdot 1 + 14\), \(17 = 14 \cdot 1 + 3\), \(14 = 3 \cdot 4 + 2\), \(3 = 2 \cdot 1 + 1\). So \(1 = 3 - 2 = 3 - (14 - 3 \cdot 4) = 5 \cdot 3 - 14 = 5(17 - 14) - 14 = 5 \cdot 17 - 6 \cdot 14 = 5 \cdot 17 - 6(31 - 17) = 7 \cdot 17 - 6 \cdot 31\). So \(17^{-1} \equiv 7 \pmod{31}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> All solutions: \(x = 1 + 11t, y = -2 + 17t\) for \(t \in \mathbb{Z}\):</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(81 = 36 \cdot 2 + 9\), \(36 = 9 \cdot 4 + 0\). So \(\gcd(81, 36) = 9\).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> Let \(S = \{ax + by : x, y \in \mathbb{Z}, ax + by > 0\}\). This set is non-empty since \(\gcd(a, b) \in S\).</p>
+        <p><strong>Step 2:</strong> Let \(d\) be the smallest element of \(S\). We want to show \(d = \gcd(a, b)\).</p>
+        <p><strong>Step 3:</strong> By the division algorithm, for any \(n \in S\), write \(n = qd + r\) where \(0 \leq r < d\).</p>
+        <p><strong>Step 4:</strong> Since \(n = ax + by\) and \(d = ax_0 + by_0\), we have \(r = n - qd = a(x - qx_0) + b(y - qy_0)\), so \(r \in S\) or \(r = 0\).</p>
+        <p><strong>Step 5:</strong> Since \(d\) is minimal in \(S\) and \(0 \leq r < d\), we must have \(r = 0\). Thus \(d \mid n\) for all \(n \in S\).</p>
+        <p><strong>Step 6:</strong> In particular, \(d \mid a\) and \(d \mid b\) (since \(a, b \in S\) when \(\gcd(a, b) \neq 0\)).</p>
+        <p><strong>Step 7:</strong> Since \(d \in S\), \(d = ax_0 + by_0\) for some \(x_0, y_0\). Thus any common divisor of \(a\) and \(b\) divides \(d\).</p>
+        <p><strong>Conclusion:</strong> Therefore, \(d = \gcd(a, b)\).</p>
+      </div>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> Assume \(\sqrt{p} = \frac{a}{b}\) in lowest terms, where \(p\) is prime.</p>
+        <p><strong>Step 2:</strong> Then \(p b^2 = a^2\). Since \(p\) is prime and \(p \mid a^2\), we have \(p \mid a\) by Euclid's lemma.</p>
+        <p><strong>Step 3:</strong> Write \(a = pc\). Substituting: \(p b^2 = p^2 c^2\), so \(b^2 = pc^2\).</p>
+        <p><strong>Step 4:</strong> Since \(p \mid b^2\) and \(p\) is prime, \(p \mid b\).</p>
+        <p><strong>Step 5:</strong> We have \(p \mid a\) and \(p \mid b\), contradicting \(\gcd(a, b) = 1\).</p>
+        <p><strong>Conclusion:</strong> Therefore, \(\sqrt{p}\) is irrational.</p>
+      </div>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> Let \(\gcd(a, b) = d\). Then \(a = da'\) and \(b = db'\) for some integers \(a', b'\).</p>
+        <p><strong>Step 2:</strong> We have \(\gcd(a', b') = 1\) since any common divisor of \(a'\) and \(b'\) would multiply \(d\) to give a larger common divisor of \(a\) and \(b\).</p>
+        <p><strong>Step 3:</strong> If \(\gcd(a', b') = k > 1\), then \(kd \mid a\) and \(kd \mid b\), contradicting \(d = \gcd(a, b)\).</p>
+        <p><strong>Conclusion:</strong> Therefore, \(\gcd\left(\frac{a}{d}, \frac{b}{d}\right) = 1\).</p>
+      </div>
+      <div class="navigation">
+        <a href="problem-set-2-euclidean-algorithm.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

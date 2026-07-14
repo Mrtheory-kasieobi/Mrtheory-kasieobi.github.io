@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 8: Gaussian Integers - Definition and Arithmetic | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 8: Gaussian Integers</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Compute \(N(3+4i) = 3^2 + 4^2 = 9 + 16 = 25\). \(N(2-i) = 2^2 + (-1)^2 = 4 + 1 = 5\). \(N(-1+2i) = (-1)^2 + 2^2 = 1 + 4 = 5\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \((1+i)(1-i) = 1 - i^2 = 1 - (-1) = 2\). \(N(1+i) = 1^2 + 1^2 = 2\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Addition: \((2+3i) + (1-2i) = 3 + i\). Multiplication: \((2+3i)(1-2i) = 2 - 4i + 3i + 6 = 8 - i\). Both results are in \(\mathbb{Z}[i]\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> The inverse of \(2+i\) in \(\mathbb{Q}(i)\) is \(\frac{1}{2+i} = \frac{2-i}{(2+i)(2-i)} = \frac{2-i}{5} = \frac{2}{5} - \frac{1}{5}i\). Since \(\frac{2}{5}\) and \(\frac{1}{5}\) are not integers, the inverse is not in \(\mathbb{Z}[i]\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Using Euclidean algorithm in \(\mathbb{Z}[i]\): \(\gcd(2+3i, 1+i)\). Compute \(\frac{2+3i}{1+i} = \frac{(2+3i)(1-i)}{(1+i)(1-i)} = \frac{5+i}{2} = \frac{5}{2} + \frac{1}{2}i\). Nearest Gaussian integer is \(2\). Remainder: \((2+3i) - 2(1+i) = i\). Continue with \(\gcd(1+i, i)\)... Result: \(\gcd = 1+i\) (up to associates).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(N((1+2i)(2-i)) = N(4+3i) = 16 + 9 = 25\). \(N(1+2i) \cdot N(2-i) = 5 \cdot 5 = 25\). ✓</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(N(a+bi) = a^2 + b^2 = 0\) iff \(a = b = 0\), so \(a+bi = 0\). Conversely, if \(\alpha = 0\), then \(N(0) = 0\). ✓</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> We need \(a^2 + b^2 = 1\). Since \(a^2, b^2 \geq 0\), the only solutions are \((a,b) = (\pm 1, 0), (0, \pm 1)\). Thus the units are \(1, -1, i, -i\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(N(1+i) = 1^2 + 1^2 = 2\), which is prime in \(\mathbb{Z}\). In \(\mathbb{Z}[i]\), if \(N(\alpha)\) is prime in \(\mathbb{Z}\), then \(\alpha\) is irreducible.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> If \(\gcd(a,b) = 1\) and \(a^2 + b^2 = z^n\), then in \(\mathbb{Z}[i]\), \((a+bi)(a-bi) = z^n\). Since \(\gcd(a+bi, a-bi) = 1\) or \(1+i\), both factors are \(n\)th powers (up to units).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> For any \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), consider \(\frac{\alpha}{\beta} = \frac{\alpha\bar{\beta}}{N(\beta)}\).</p><p><strong>Step 2:</strong> Write \(\frac{\alpha}{\beta} = q + r\) where \(q\) is the nearest Gaussian integer to \(\frac{\alpha}{\beta}\).</p><p><strong>Step 3:</strong> Then \(N(r) = N(\frac{\alpha}{\beta} - q) < 1\) (since the maximum distance to nearest integer is \(\frac{\sqrt{2}}{2}\)).</p><p><strong>Step 4:</strong> Thus \(N(\alpha - q\beta) = N(\beta)N(r) < N(\beta)\), proving the division algorithm.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(N(a+bi) = a^2 + b^2 = p\) is prime in \(\mathbb{Z}\), suppose \(a+bi = \gamma\delta\) in \(\mathbb{Z}[i]\).</p><p><strong>Step 2:</strong> Then \(p = N(a+bi) = N(\gamma)N(\delta)\).</p><p><strong>Step 3:</strong> Since \(p\) is prime, one of \(N(\gamma), N(\delta)\) equals 1, making it a unit.</p><p><strong>Conclusion:</strong> \(a+bi\) is irreducible in \(\mathbb{Z}[i]\).</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> \(\mathbb{Z}[i]\) is Euclidean with respect to \(N(a+bi) = a^2 + b^2\).</p><p><strong>Step 2:</strong> Euclidean domains are UFDs (unique factorization domains).</p><p><strong>Step 3:</strong> In a Euclidean domain, every non-zero non-unit element has a factorization into irreducibles, and this factorization is unique up to units.</p><p><strong>Conclusion:</strong> \(\mathbb{Z}[i]\) has unique factorization.</p></p></div>
+      <div class="navigation"><a href="problem-set-8-gaussian-integers.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

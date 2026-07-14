@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 6: Quadratic Residues and the Legendre Symbol | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 6: Quadratic Residues</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Compute \(1^2, 2^2, \ldots, 5^2 \pmod{11}\): 1, 4, 9, 5, 3. So 3 is a quadratic residue.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> By Euler's criterion: \(\left(\frac{5}{7}\right) \equiv 5^3 = 125 \equiv 6 \pmod{7}\), so the symbol equals -1.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Compute \(1^2, 2^2, \ldots, 6^2 \pmod{13}\): 1, 4, 9, 3, 12, 10. Residues are 1, 3, 4, 9, 10, 12.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(\left(\frac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}\). Equals 1 if \(p \equiv 1 \pmod{4}\), -1 if \(p \equiv 3 \pmod{4}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> If \(p \equiv 1 \pmod{4}\), then \(\frac{p-1}{2}\) is even, so \(\left(\frac{-1}{p}\right) = 1\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(\left(\frac{2}{p}\right) = (-1)^{\frac{p^2-1}{8}}\). Equals 1 when \(p \equiv \pm 1 \pmod{8}\), -1 when \(p \equiv \pm 3 \pmod{8}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(6^2 = 36 \equiv 7 \pmod{29}\). Solutions: \(x \equiv \pm 6 \pmod{29}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> By Euler's criterion: \(\left(\frac{ab}{p}\right) \equiv (ab)^{\frac{p-1}{2}} = a^{\frac{p-1}{2}} b^{\frac{p-1}{2}} \equiv \left(\frac{a}{p}\right)\left(\frac{b}{p}\right) \pmod{p}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(\left(\frac{3}{17}\right) = -\left(\frac{17}{3}\right) = -\left(\frac{2}{3}\right) = -(-1) = 1\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\left(\frac{a^2}{p}\right) = \left(\frac{a}{p}\right)^2 = 1\) since the Legendre symbol is \(\pm 1\).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> We want the last two digits of \(7^{100}\), i.e., compute \(7^{100} \pmod{100}\).</p><p><strong>Step 2:</strong> Note that \(100 = 4 \cdot 25\). Use CRT.</p><p><strong>Step 3:</strong> \(7^{100} \equiv 1 \pmod{4}\) (since \(7 \equiv 3 \pmod{4}\), \(3^2 \equiv 1\)).</p><p><strong>Step 4:</strong> \(\phi(25) = 20\), so \(7^{20} \equiv 1 \pmod{25}\), thus \(7^{100} \equiv 1 \pmod{25}\).</p><p><strong>Step 5:</strong> By CRT, \(7^{100} \equiv 1 \pmod{100}\). Last two digits: 01.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Prove by induction on \(n\).</p><p><strong>Step 2:</strong> Base case \(n=1\): \(a^1 \equiv b^1 \pmod{m}\).</p><p><strong>Step 3:</strong> Inductive step: Assume \(a^n \equiv b^n\). Then \(a^{n+1} = a^n \cdot a \equiv b^n \cdot b = b^{n+1} \pmod{m}\).</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Suppose \(x^2 \equiv a \pmod{p}\) has solution \(r\).</p><p><strong>Step 2:</strong> Then \(x^2 - r^2 \equiv 0 \pmod{p}\), so \((x-r)(x+r) \equiv 0 \pmod{p}\).</p><p><strong>Step 3:</strong> Since \(p\) is prime, \(x \equiv \pm r \pmod{p}\). At most 2 solutions.</p></p></div>
+      <div class="navigation"><a href="problem-set-6-quadratic-residues.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

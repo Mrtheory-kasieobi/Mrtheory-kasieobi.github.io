@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 13: Irrational Numbers and Approximation | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 13: Irrational Numbers</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Assume \(\sqrt{3} = \frac{a}{b}\) in lowest terms. Then \(3b^2 = a^2\). So \(3|a^2\), hence \(3|a\). Write \(a=3c\): \(3b^2 = 9c^2\), so \(b^2 = 3c^2\), hence \(3|b\). Contradiction since \(\gcd(a,b)=1\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> Assume \(\sqrt{p} = \frac{a}{b}\). Then \(pb^2 = a^2\). By unique factorization, \(p\) appears to odd power in \(a^2\), contradiction. So \(\sqrt{p}\) is irrational.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> If \(\alpha\) is irrational, assume both \(\alpha\) and \(1-\alpha\) are rational. Then \(\alpha = 1 - (1-\alpha) \in \mathbb{Q}\), contradiction. ✓</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> By Dirichlet's theorem, there exist \(p, q\) with \(0 < q \leq 100\) and \(|q\sqrt{2} - p| < \frac{1}{100}\). Using convergents: \(\frac{140}{99} \approx 1.41414\) with error \(\approx 0.00007\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> If \(\frac{p}{q}\) is a convergent to \(\sqrt{2}\), then \(|q\sqrt{2} - p| < 1\). This is a key property of convergents.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Liouville numbers \(\alpha\) satisfy \(|\alpha - \frac{p}{q}| > \frac{c}{q^n}\) for any \(c, n\). By Roth's theorem, algebraic irrationals have exponent 2+ε, so Liouville numbers are transcendental.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(\mathbb{Q}\) is countable (finitely many fractions with bounded numerator/denominator). \(\mathbb{R}\) is uncountable. \(\mathbb{R} \setminus \mathbb{Q}\) must be uncountable since countable union of countable sets is countable.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> By Kronecker's theorem, if \(\alpha\) is irrational, the set \(\{n\alpha \mod 1 : n \in \mathbb{Z}\}\) is dense in \([0,1]\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> Assume \(e = \frac{a}{b}\). Then \(b!e = b!\sum_{n=0}^{\infty} \frac{1}{n!}\) is an integer plus \(\sum_{n=b+1}^{\infty} \frac{b!}{n!}\). The tail is between 0 and 1, contradiction.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> By Dirichlet's approximation theorem, for any irrational \(\alpha\) and \(\epsilon > 0\), there exist integers \(p, q\) with \(q > 0\) and \(|\alpha - \frac{p}{q}| < \epsilon\).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Assume \(\log_2 3 = \frac{p}{q}\) for integers \(p, q > 0\).</p><p><strong>Step 2:</strong> Then \(2^{p/q} = 3\), so \(2^p = 3^q\).</p><p><strong>Step 3:</strong> Left side is a power of 2, right side is a power of 3. The only common value is 1, but \(2^p = 1\) implies \(p=0\), contradiction.</p><p><strong>Conclusion:</strong> \(\log_2 3\) is irrational.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Hurwitz's theorem: For any irrational \(\alpha\), there are infinitely many \(\frac{p}{q}\) with \(|\alpha - \frac{p}{q}| < \frac{1}{\sqrt{5}q^2}\).</p><p><strong>Step 2:</strong> For \(\phi = \frac{1+\sqrt{5}}{2}\), the convergents satisfy \(|\phi - \frac{p_n}{q_n}| \sim \frac{1}{\sqrt{5}q_n^2}\).</p><p><strong>Step 3:</strong> No larger constant works: consider \(\phi\) itself, for which the constant \(\frac{1}{\sqrt{5}}\) is optimal.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(p \equiv 3 \pmod{4}\) is prime and \(p\) is congruent, there exists a rational right triangle with area \(p\).</p><p><strong>Step 2:</strong> This corresponds to an elliptic curve \(y^2 = x^3 - p^2 x\) having a point of order 2.</p><p><strong>Step 3:</strong> By 2-descent, this curve has rank 0 for \(p \equiv 3 \pmod{4}\), so only trivial points exist.</p><p><strong>Conclusion:</strong> No such triangle exists, so \(p\) is not congruent.</p></p></div>
+      <div class="navigation"><a href="problem-set-13-irrational-numbers.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

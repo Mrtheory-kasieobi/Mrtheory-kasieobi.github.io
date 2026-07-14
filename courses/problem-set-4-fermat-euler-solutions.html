@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 4: Fermat's Little Theorem and Euler's Theorem | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 4: Fermat's Little Theorem and Euler's Theorem</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Compute \(3^6 = 729\) and \(729 \div 7 = 104\) remainder 1. So \(3^6 \equiv 1 \pmod{7}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> By Fermat's Little Theorem, \(2^{10} \equiv 1 \pmod{11}\). Thus \(2^{100} = (2^{10})^{10} \equiv 1^{10} = 1 \pmod{11}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> By Fermat's Little Theorem: Since \(p\) is prime and \(p \nmid a\), we have \(a^{p-1} \equiv 1 \pmod{p}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(\phi(30) = \phi(2 \cdot 3 \cdot 5) = 30 \cdot (1-\frac{1}{2})(1-\frac{1}{3})(1-\frac{1}{5}) = 30 \cdot \frac{1}{2} \cdot \frac{2}{3} \cdot \frac{4}{5} = 8\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> By Euler's theorem, \(5^{\phi(12)} = 5^4 \equiv 1 \pmod{12}\). Compute: \(5^2 = 25 \equiv 1 \pmod{12}\), so \(5^4 \equiv 1 \pmod{12}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(\phi(100) = \phi(4 \cdot 25) = \phi(4) \cdot \phi(25) = 2 \cdot 20 = 40\). By Euler's theorem, \(3^{40} \equiv 1 \pmod{100}\). So \(3^{100} = (3^{40})^2 \cdot 3^{20} \equiv 3^{20} \pmod{100}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(\phi(p) = |\{k : 1 \leq k \leq p-1, \gcd(k, p) = 1\}|\). Since \(p\) is prime, all integers \(1, 2, \ldots, p-1\) are coprime to \(p\). So \(\phi(p) = p-1\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> For \(n = 3\): \(\phi(3) = 2\). For \(n = 4\): \(\phi(4) = 2\). For \(n > 2\), if \(n\) has prime factor \(p\), then \(\phi(n) = n \prod(1-\frac{1}{p_i}) \geq n \cdot \frac{1}{2} \cdot \frac{p-1}{p} \geq 2\) for \(n \geq 4\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> By Fermat's Little Theorem, \(a^5 \equiv a \pmod{5}\) for all integers \(a\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> This statement is false. Counterexample: \(\phi(3) = 2\), \(\phi(6) = 2\), but \(2 \nmid 2\).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> A Carmichael number is a composite number \(n\) such that \(a^n \equiv a \pmod{n}\) for all integers \(a\) with \(\gcd(a, n) = 1\).</p>
+        <p><strong>Step 2:</strong> Verify 561 = 3 × 11 × 17 is a Carmichael number.</p>
+        <p><strong>Step 3:</strong> Check: \(\phi(561) = 561 \cdot \frac{2}{3} \cdot \frac{10}{11} \cdot \frac{16}{17} = 320\).</p>
+        <p><strong>Step 4:</strong> For any \(a\) with \(\gcd(a, 561) = 1\), we have \(a^{320} \equiv 1 \pmod{561}\), so \(a^{561} \equiv a \pmod{561}\).</p>
+        <p><strong>Conclusion:</strong> 561 is indeed a Carmichael number.</p>
+      </div>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> In the multiplicative group \((\mathbb{Z}/n\mathbb{Z})^*\) of order \(\phi(n)\), every element has order dividing \(\phi(n)\).</p>
+        <p><strong>Step 2:</strong> By Lagrange's theorem, the order of any element divides the order of the group.</p>
+        <p><strong>Step 3:</strong> Therefore, for any \(a\) coprime to \(n\), \(a^{\phi(n)} \equiv 1 \pmod{n}\).</p>
+        <p><strong>Conclusion:</strong> Euler's theorem follows from Lagrange's theorem.</p>
+      </div>
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Solution:</strong></p>
+        <p><strong>Step 1:</strong> Find the smallest \(k\) such that \(2^k \equiv 1 \pmod{37}\).</p>
+        <p><strong>Step 2:</strong> By Fermat's Little Theorem, \(2^{36} \equiv 1 \pmod{37}\).</p>
+        <p><strong>Step 3:</strong> The order of 2 divides 36. Check divisors: \(2^{18} = 262144 \equiv 36 \not\equiv 1 \pmod{37}\).</p>
+        <p><strong>Step 4:</strong> Check \(2^9 = 512 \equiv 36 \pmod{37}\). Check \(2^{12} = 4096 \equiv 1 \pmod{37}\).</p>
+        <p><strong>Conclusion:</strong> The smallest such \(k\) is 12.</p>
+      </div>
+      <div class="navigation">
+        <a href="problem-set-4-fermat-euler.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Back to Course</a>
+      </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
