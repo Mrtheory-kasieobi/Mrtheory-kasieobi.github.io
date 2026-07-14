@@ -45,39 +45,135 @@
 
       <div class="lecture-section"><h2>1. Classification of Numbers</h2>
         <div class="definition-box">
-          <strong>Definition 14.1 (Irrational Number)</strong> A real number is <strong>irrational</strong> if it is not rational, i.e., it cannot be expressed as \(\frac{p}{q}\) for integers \(p, q\) with \(q \neq 0\).
+          <strong>Definition 14.1 (Rational Number)</strong> A real number \(\alpha\) is called <strong>rational</strong> if there exist integers \(p, q\) with \(q \neq 0\) such that \(\alpha = \frac{p}{q}\).
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 14.2 (Irrational Number)</strong> A real number is <strong>irrational</strong> if it is not rational.
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 14.3 (Algebraic Number)</strong> A real or complex number \(\alpha\) is called <strong>algebraic</strong> if there exists a non-zero polynomial \(f(x) \in \mathbb{Z}[x]\) such that \(f(\alpha) = 0\). The smallest degree of such a polynomial is the <strong>degree</strong> of \(\alpha\).
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 14.4 (Transcendental Number)</strong> A real or complex number is called <strong>transcendental</strong> if it is not algebraic.
         </div>
         
         <div class="theorem-box">
-          <strong>Theorem 14.1</strong> \(\sqrt{2}\) is irrational.
+          <strong>Theorem 14.1 (\(\sqrt{2}\) is irrational)</strong> The number \(\sqrt{2}\) cannot be expressed as \(\frac{p}{q}\) for any integers \(p, q\) with \(q \neq 0\).
         </div>
         
         <div class="proof-box">
-          <p>Proof by contradiction: Assume \(\sqrt{2} = \frac{p}{q}\) in lowest terms. Then \(2q^2 = p^2\), so \(p^2\) is even, hence \(p\) is even. Write \(p = 2k\). Then \(2q^2 = 4k^2\), so \(q^2 = 2k^2\), making \(q\) even. This contradicts \(\gcd(p, q) = 1\). \(\square\)</p>
-        </div>
-        
-        <div class="definition-box">
-          <strong>Definition 14.2 (Algebraic Number)</strong> A real number \(\alpha\) is <strong>algebraic</strong> if it is a root of a non-zero polynomial with integer coefficients.
-        </div>
-        
-        <div class="definition-box">
-          <strong>Definition 14.3 (Transcendental Number)</strong> A real number is <strong>transcendental</strong> if it is not algebraic.
-        </div>
-      </div>
-
-      <div class="lecture-section"><h2>2. Liouville's Theorem on Approximation</h2>
-        <div class="theorem-box">
-          <strong>Theorem 14.2 (Liouville's Theorem)</strong> If \(\alpha\) is an algebraic number of degree \(n \geq 2\), then there exists a constant \(c > 0\) such that for all rational numbers \(\frac{p}{q}\),
-          \[\left|\alpha - \frac{p}{q}\right| > \frac{c}{q^n}\]
-        </div>
-        
-        <div class="definition-box">
-          <strong>Definition 14.4 (Liouville Number)</strong> A Liouville number is a transcendental number \(\alpha\) such that for every positive integer \(n\), there exist integers \(p, q\) with \(q > 1\) satisfying:
-          \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{q^n}\]
+          <p><strong>Proof (by contradiction):</strong></p>
+          <div class="step-box">
+            <strong>Step 1: Assume a minimal representation</strong>
+            <p>Suppose \(\sqrt{2} = \frac{p}{q}\) where \(p, q \in \mathbb{Z}^+\) and \(\gcd(p, q) = 1\) (i.e., the fraction is in lowest terms).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Square both sides</strong>
+            <p>Then \(2 = \frac{p^2}{q^2}\), which gives \(2q^2 = p^2\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Conclude p is even</strong>
+            <p>Since \(p^2 = 2q^2\) is even, \(p^2\) is divisible by 2. Since 2 is prime, \(p\) must be even (by Euclid's lemma).</p>
+            <p>Write \(p = 2k\) for some integer \(k\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Substitute and find q is even</strong>
+            <p>Substituting: \(2q^2 = (2k)^2 = 4k^2\).</p>
+            <p>Dividing by 2: \(q^2 = 2k^2\).</p>
+            <p>Thus \(q^2\) is even, so \(q\) is even.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Contradiction</strong>
+            <p>We have shown that both \(p\) and \(q\) are even, meaning 2 divides both \(p\) and \(q\).</p>
+            <p>This contradicts our assumption that \(\gcd(p, q) = 1\).</p>
+            <p>Therefore, \(\sqrt{2}\) is irrational. \(\square\)</p>
+          </div>
         </div>
         
         <div class="example-box">
-          <strong>Example 14.1</strong> The number \(\sum_{k=1}^{\infty} 10^{-k!}\) is a Liouville number and hence transcendental.
+          <strong>Example 14.1</strong> Prove that \(\sqrt{3}\) is irrational.
+          <p><strong>Proof:</strong> Assume \(\sqrt{3} = \frac{p}{q}\) in lowest terms. Then \(3q^2 = p^2\).</p>
+          <p>Since \(p^2\) is divisible by 3, and 3 is prime, we have \(p\) divisible by 3. Write \(p = 3k\).</p>
+          <p>Then \(3q^2 = 9k^2\), so \(q^2 = 3k^2\). Thus \(q\) is also divisible by 3.</p>
+          <p>This contradicts \(\gcd(p, q) = 1\). Therefore \(\sqrt{3}\) is irrational. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Liouville's Theorem on Diophantine Approximation</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.2 (Liouville's Theorem)</strong> Let \(\alpha\) be an algebraic number of degree \(n \geq 2\), i.e., \(\alpha\) is a root of an irreducible polynomial \(f(x) \in \mathbb{Z}[x]\) of degree \(n\). Then there exists a constant \(c = c(\alpha) > 0\) such that for all rational numbers \(\frac{p}{q}\) with \(q > 0\):
+          \[\left|\alpha - \frac{p}{q}\right| > \frac{c}{q^n}\]
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Proof:</strong></p>
+          
+          <div class="step-box">
+            <strong>Step 1: Set up the polynomial</strong>
+            <p>Let \(f(x) \in \mathbb{Z}[x]\) be an irreducible polynomial of degree \(n\) such that \(f(\alpha) = 0\).</p>
+            <p>Write \(f(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0\) with \(a_i \in \mathbb{Z}\) and \(a_n \neq 0\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Apply the Mean Value Theorem</strong>
+            <p>For any rational \(\frac{p}{q} \neq \alpha\), by the Mean Value Theorem, there exists \(\xi\) between \(\alpha\) and \(\frac{p}{q}\) such that:
+            \[f\left(\frac{p}{q}\right) = f(\alpha) + f'(\xi)\left(\frac{p}{q} - \alpha\right) = f'(\xi)\left(\frac{p}{q} - \alpha\right)\]
+            </p>
+            <p>Therefore:
+            \[\left|\alpha - \frac{p}{q}\right| = \frac{|f(p/q)|}{|f'(\xi)|}\]
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Bound the denominator</strong>
+            <p>Since \(f(p/q) = \frac{1}{q^n} \cdot F(p,q)\) where \(F(p,q) \in \mathbb{Z}\) (clearing denominators), and \(F(p,q) \neq 0\) (since \(\frac{p}{q}\) is not a root of \(f\)), we have \(|F(p,q)| \geq 1\).</p>
+            <p>Thus \(|f(p/q)| = \frac{|F(p,q)|}{q^n} \geq \frac{1}{q^n}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Bound the derivative</strong>
+            <p>Since \(\alpha\) is algebraic, \(f'(\alpha) \neq 0\) (the derivative doesn't vanish at simple roots of irreducible polynomials).</p>
+            <p>For \(\xi\) sufficiently close to \(\alpha\), \(|f'(\xi)|\) is bounded by some constant \(M = \max_{x \in I} |f'(x)|\) where \(I\) is a closed interval containing \(\alpha\) and all rationals \(p/q\) with \(|p/q - \alpha| \leq 1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Combine bounds</strong>
+            <p>Thus for all rational \(\frac{p}{q}\) with \(q > 0\):
+            \[\left|\alpha - \frac{p}{q}\right| = \frac{|f(p/q)|}{|f'(\xi)|} \geq \frac{1}{M q^n}\]
+            </p>
+            <p>Setting \(c = \frac{1}{M}\), we obtain the desired inequality. \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 14.5 (Liouville Number)</strong> A real number \(\alpha\) is called a <strong>Liouville number</strong> if for every positive integer \(n\), there exist integers \(p, q\) with \(q > 1\) such that:
+          \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{q^n}\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Corollary 14.1</strong> Every Liouville number is transcendental.
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Proof:</strong> Suppose \(\alpha\) is a Liouville number but also algebraic of degree \(n\). By Liouville's theorem, there exists \(c > 0\) such that for all \(\frac{p}{q}\):
+          \[\left|\alpha - \frac{p}{q}\right| > \frac{c}{q^n}\]
+          </p>
+          <p>But since \(\alpha\) is Liouville, for this same \(n\), there exists \(\frac{p}{q}\) with \(q > 1\) such that:
+          \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{q^n}\]
+          </p>
+          <p>Choosing \(q\) large enough so that \(\frac{1}{q^n} < \frac{c}{q^n}\) leads to a contradiction. Therefore \(\alpha\) is transcendental. \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 14.2 (Liouville's constant)</strong> The number
+          \[L = \sum_{k=1}^{\infty} 10^{-k!} = 0.110001000000000000000001000\ldots\]
+          is a Liouville number and hence transcendental.
         </div>
       </div>
 
@@ -85,54 +181,114 @@
         <div class="theorem-box">
           <strong>Theorem 14.3 (Dirichlet's Approximation Theorem)</strong> For any irrational number \(\alpha\) and any positive integer \(N\), there exist integers \(p, q\) with \(1 \leq q \leq N\) such that:
           \[\left|q\alpha - p\right| < \frac{1}{N}\]
-          Equivalently, \(\left|\alpha - \frac{p}{q}\right| < \frac{1}{qN} < \frac{1}{q^2}\).
+          Equivalently:
+          \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{qN} < \frac{1}{q^2}\]
         </div>
         
         <div class="proof-box">
-          <p>Proof using the pigeonhole principle: Consider the fractional parts \(\{0\alpha\}, \{1\alpha\}, \ldots, \{N\alpha\}\). There are \(N+1\) such fractional parts in \([0, 1)\). Divide \([0, 1)\) into \(N\) intervals of length \(\frac{1}{N}\). By the pigeonhole principle, two fractional parts fall in the same interval, say \(\{i\alpha\}\) and \(\{j\alpha\}\) with \(i > j\). Then \(|(i-j)\alpha - (\lfloor i\alpha \rfloor - \lfloor j\alpha \rfloor)| < \frac{1}{N}\), giving the result with \(q = i-j \leq N\). \(\square\)</p>
+          <p><strong>Proof (using the pigeonhole principle):</strong></p>
+          
+          <div class="step-box">
+            <strong>Step 1: Consider fractional parts</strong>
+            <p>Consider the \(N+1\) fractional parts:
+            \[\{0\alpha\}, \{1\alpha\}, \{2\alpha\}, \ldots, \{N\alpha\}\]
+            where \(\{x\} = x - \lfloor x \rfloor\) denotes the fractional part.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Apply the pigeonhole principle</strong>
+            <p>These \(N+1\) fractional parts all lie in the interval \([0, 1)\).</p>
+            <p>Divide \([0, 1)\) into \(N\) subintervals of equal length \(\frac{1}{N}\):
+            \[\left[0, \frac{1}{N}\right), \left[\frac{1}{N}, \frac{2}{N}\right), \ldots, \left[\frac{N-1}{N}, 1\right)\]
+            </p>
+            <p>By the pigeonhole principle, at least two of the \(N+1\) fractional parts fall into the same subinterval.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Find the approximation</strong>
+            <p>Suppose \(\{i\alpha\}\) and \(\{j\alpha\}\) lie in the same subinterval, where \(0 \leq i < j \leq N\).</p>
+            <p>Then \(|\{j\alpha\} - \{i\alpha\}| < \frac{1}{N}\).</p>
+            <p>Since \(\{j\alpha\} - \{i\alpha\} = (j\alpha - \lfloor j\alpha \rfloor) - (i\alpha - \lfloor i\alpha \rfloor) = (j-i)\alpha - (\lfloor j\alpha \rfloor - \lfloor i\alpha \rfloor)\), we have:
+            \[|(j-i)\alpha - (\lfloor j\alpha \rfloor - \lfloor i\alpha \rfloor)| < \frac{1}{N}\]
+            </p>
+            <p>Setting \(q = j - i\) (where \(1 \leq q \leq N\)) and \(p = \lfloor j\alpha \rfloor - \lfloor i\alpha \rfloor\), we obtain:
+            \[|q\alpha - p| < \frac{1}{N}\]
+            </p>
+            <p>This completes the proof. \(\square\)</p>
+          </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>4. Hurwitz's Theorem</h2>
+      <div class="lecture-section"><h2>4. Hurwitz's Theorem and the Golden Ratio</h2>
         <div class="theorem-box">
           <strong>Theorem 14.4 (Hurwitz's Theorem)</strong> For any irrational number \(\alpha\), there exist infinitely many rational numbers \(\frac{p}{q}\) such that:
           \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{\sqrt{5}q^2}\]
         </div>
         
+        <div class="theorem-box">
+          <strong>Theorem 14.5 (Best Possible Constant)</strong> The constant \(\frac{1}{\sqrt{5}}\) in Hurwitz's theorem is optimal in the sense that for the golden ratio \(\phi = \frac{1+\sqrt{5}}{2}\), no constant larger than \(\frac{1}{\sqrt{5}}\) works for all irrational numbers.
+        </div>
+        
         <div class="proof-box">
-          <p>Proof sketch: Using the theory of continued fractions, the convergents satisfy \(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\). For the golden ratio \(\phi = \frac{1+\sqrt{5}}{2}\), the constant \(\frac{1}{\sqrt{5}}\) is optimal. \(\square\)</p>
+          <p><strong>Proof sketch:</strong> The proof uses the theory of continued fractions. For any irrational \(\alpha\), the convergents \(\frac{p_n}{q_n}\) satisfy:
+          \[\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\]
+          </p>
+          <p>Since \(q_{n+1} = a_{n+1} q_n + q_{n-1} \geq 2 q_n\) (for \(n \geq 1\)), we have:
+          \[\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{2 q_n^2}\]
+          </p>
+          <p>A more careful analysis shows that for the golden ratio, where all partial quotients are 1, we get the optimal bound \(\frac{1}{\sqrt{5}}\). \(\square\)</p>
         </div>
         
         <div class="example-box">
-          <strong>Example 14.2</strong> The golden ratio \(\phi = \frac{1+\sqrt{5}}{2}\) has convergents \(\frac{F_{n+1}}{F_n}\) where \(F_n\) are Fibonacci numbers, satisfying the bound in Hurwitz's theorem.
+          <strong>Example 14.3 (Golden ratio convergents)</strong> The golden ratio \(\phi = \frac{1+\sqrt{5}}{2} = [1; \overline{1}]\) has convergents:
+          \[\frac{p_n}{q_n} = \frac{F_{n+1}}{F_n}\]
+          where \(F_n\) is the \(n\)-th Fibonacci number (with \(F_0 = 0, F_1 = 1\)).
+          <p>These satisfy \(F_{n+1} F_{n-1} - F_n^2 = (-1)^n\), which is related to the determinant formula for convergents.</p>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>5. Transcendence Results</h2>
+      <div class="lecture-section"><h2>5. Transcendental Numbers</h2>
+        <div class="definition-box">
+          <strong>Definition 14.6 (Transcendence)</strong> A number \(\alpha\) is transcendental if it is not the root of any non-zero polynomial with integer coefficients.
+        </div>
+        
         <div class="theorem-box">
-          <strong>Theorem 14.5 (Lindemann-Weierstrass)</strong> If \(\alpha_1, \ldots, \alpha_n\) are distinct algebraic numbers, then \(e^{\alpha_1}, \ldots, e^{\alpha_n}\) are linearly independent over the algebraic numbers.
+          <strong>Theorem 14.6 (Lindemann-Weierstrass)</strong> Let \(\alpha_1, \ldots, \alpha_n\) be distinct algebraic numbers. Then \(e^{\alpha_1}, \ldots, e^{\alpha_n}\) are linearly independent over the field of algebraic numbers. That is, if \(c_1, \ldots, c_n\) are algebraic numbers not all zero, then:
+          \[c_1 e^{\alpha_1} + \cdots + c_n e^{\alpha_n} \neq 0\]
         </div>
         
         <div class="corollary-box">
-          <strong>Corollary 14.1</strong> The numbers \(e\) and \(\pi\) are transcendental.
+          <strong>Corollary 14.2</strong> The numbers \(e\) and \(\pi\) are transcendental.
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Proof for \(\pi\) transcendental:</strong></p>
+          <p>If \(\pi\) were algebraic, then by the Lindemann-Weierstrass theorem, \(e^\pi\) would be transcendental.</p>
+          <p>But by Euler's identity: \(e^{i\pi} = -1\), so \(e^\pi = (-1)^{-i} = 1\) (since \(i\pi\) is algebraic, \(e^{i\pi}\) is transcendental unless the exponent is 0).</p>
+          <p>This leads to a contradiction. Therefore \(\pi\) is transcendental. \(\square\)</p>
         </div>
         
         <div class="example-box">
-          <strong>Example 14.3</strong> Since \(e\) is transcendental, \(\ln 2\) is also transcendental (as it is algebraic only if \(e^{\ln 2} = 2\) is transcendental, which it is not).
+          <strong>Example 14.4</strong> Since \(e\) is transcendental, \(\ln 2\) is also transcendental.
+          <p><strong>Proof:</strong> Suppose \(\ln 2\) were algebraic. Then by Lindemann-Weierstrass, \(e^{\ln 2} = 2\) would be transcendental. But 2 is clearly algebraic (it's a root of \(x - 2 = 0\)). Contradiction. \(\square\)</p>
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Prove that \(\sqrt{3}\) is irrational.</li>
-          <li>Show that \(\log_{10} 2\) is irrational.</li>
-          <li>Apply Dirichlet's theorem to find a rational approximation to \(\sqrt{2}\) with denominator at most 10.</li>
-          <li>Show that any rational number \(\frac{p}{q}\) (in lowest terms) satisfies \(\left|\sqrt{2} - \frac{p}{q}\right| > \frac{1}{2q^2}\).</li>
-          <li>Prove that Liouville numbers are transcendental.</li>
-          <li>Find the continued fraction expansion of \(\sqrt{7}\) and use it to approximate \(\sqrt{7}\).</li>
-          <li>Show that the set of irrational numbers is uncountable.</li>
+          <li>Prove that \(\sqrt{5}\) is irrational using the method of infinite descent.</li>
+          <li>Show that \(\log_2 3\) is irrational.</li>
+          <li>Prove that if \(\alpha\) is irrational, then \(\alpha^2\) may be either rational or irrational (give examples of each).</li>
+          <li>Apply Dirichlet's theorem to find a rational approximation to \(\sqrt{2}\) with denominator at most 100.</li>
+          <li>Show that for any rational \(\frac{p}{q}\) (in lowest terms), \(\left|\sqrt{2} - \frac{p}{q}\right| > \frac{1}{3q^2}\).</li>
+          <li>Prove that Liouville numbers are transcendental (using the definition directly).</li>
+          <li>Find the continued fraction expansion of \(\sqrt{19}\) and use it to approximate \(\sqrt{19}\) to within 0.01.</li>
+          <li>Show that the set of irrational numbers is uncountable by constructing a bijection with the power set of natural numbers.</li>
           <li>Prove: If \(\alpha\) is irrational, the set \(\{\{n\alpha\} : n \in \mathbb{Z}^+\}\) is dense in \([0, 1]\).</li>
+          <li>Show that for any irrational \(\alpha\) and any \(\epsilon > 0\), there exist integers \(p, q\) with \(q > 0\) such that \(\left|\alpha - \frac{p}{q}\right| < \epsilon\).</li>
+          <li>Prove that \(e\) is irrational using the series \(e = \sum_{n=0}^{\infty} \frac{1}{n!}\).</li>
+          <li>Show that at least one of \(\alpha\) and \(1-\alpha\) is irrational.</li>
         </ol>
       </div>
 
