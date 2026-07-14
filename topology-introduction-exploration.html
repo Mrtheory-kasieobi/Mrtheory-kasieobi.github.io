@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Exploring topology: My journey into a new mathematical world.">
+    <title>Topology Introduction | Kasieobi Udumaga</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body.blog-post {
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1a2e 100%);
+            color: #e8e8e8;
+        }
+        
+        .blog-post-header {
+            max-width: 800px;
+            margin: 2rem auto 1rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .blog-post-header h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #00d4ff, #00c853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            font-weight: 600;
+        }
+        
+        .blog-post-header .meta {
+            color: #888;
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+        
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #e0e0e0;
+            font-family: Georgia, serif;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem;
+            color: #00d4ff;
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .blog-content h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #00d4ff, transparent);
+        }
+        
+        .blog-content h3 {
+            font-size: 1.3rem;
+            margin: 1.8rem 0 0.8rem;
+            color: #4aa8f5;
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        }
+        
+        .blog-content ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        .blog-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+        
+        .blog-content blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 200, 83, 0.05));
+            border-left: 4px solid #00d4ff;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #a0e0ff;
+            font-family: Georgia, serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: #00c853;
+            transform: translateX(-5px);
+        }
+        
+        .back-link::before {
+            content: "← ";
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+        <div class="header-content">
+            <h1>Kasieobi Udumaga</h1>
+            <p>High School Student | Mathematics Enthusiast | Also a sprinter :) </p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <article class="blog-post">
+            <header class="blog-post-header">
+                <h1>Exploring Topology: My Journey into a New Mathematical World</h1>
+                <div class="meta">
+                    <span>July 13, 2026</span>
+                    <span>~3 min read</span>
+                </div>
+            </header>
+            
+            <div class="blog-content">
+                <p>I've always been fascinated by "shape" and "space" in mathematics, but it wasn't until I stumbled upon topology that I truly understood what it means to study continuity, connectedness, and the properties of spaces that stay the same even when bent or stretched.</p>
+                
+                <h2>Why Topology?</h2>
+                <p>The idea that a coffee cup and a donut are "the same" in topology was mind-blowing. It's not about exact measurements or angles—it's about properties that remain unchanged under continuous deformation. This abstraction felt both surprising and powerful.</p>
+                
+                <h2>My Learning Path</h2>
+                <p>I'm currently working through the basics:</p>
+                <ul>
+                    <li><strong>Topological spaces</strong>: Understanding open sets and their axioms</li>
+                    <li><strong>Continuous functions</strong>: How they preserve "closeness"</li>
+                    <li><strong>Homeomorphisms</strong>: The formal way we say two spaces are "the same"</li>
+                    <li><strong>Compactness</strong>: A generalization of closed and bounded sets</li>
+                    <li><strong>Connectedness</strong>: When a space can't be split into two pieces</li>
+                </ul>
+                
+                <h2>Where I'm Going</h2>
+                <p>Once I master these fundamentals, I want to explore:</p>
+                <ul>
+                    <li>Algebraic topology (using algebra to study topological spaces)</li>
+                    <li>Point-set topology (the rigorous foundations)</li>
+                    <li>Applications to other areas of mathematics</li>
+                </ul>
+                
+                <blockquote>
+                    "Topology is not a subject, it is a way of thinking." – Unknown
+                </blockquote>
+                
+                <p>For now, I'm taking it one concept at a time. The beauty of topology is that it connects to so many areas—analysis, algebra, geometry—and that's what keeps me coming back to my notes.</p>
+                
+                <a href="blog.html" class="back-link">Back to Blog</a>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga</p>
+    </footer>
+    
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

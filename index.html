@@ -1,85 +1,14 @@
-<html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
-    <title>Admin Editor - Secure</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #1a1a2e; color: #eee; min-height: 100vh; }
-        .login-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); }
-        .login-form { background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); width: 100%; max-width: 400px; }
-        .login-form h2 { text-align: center; margin-bottom: 1.5rem; color: #00d4ff; }
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: 0.5rem; color: #aaa; }
-        .form-group input { width: 100%; padding: 0.75rem; border: 1px solid #333; border-radius: 6px; background: #1e1e2f; color: #fff; }
-        .form-group input:focus { outline: none; border-color: #00d4ff; }
-        .btn { width: 100%; padding: 0.75rem; border: none; border-radius: 6px; background: linear-gradient(135deg, #00d4ff, #0099cc); color: #1a1a2e; font-weight: bold; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 20px rgba(0,212,255,0.3); }
-        .admin-container { display: none; min-height: 100vh; background: #0f0f1a; }
-        .admin-container.active { display: block; }
-        .admin-header { background: linear-gradient(135deg, #1a1a2e, #16213e); padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; position: sticky; top: 0; z-index: 100; }
-        .admin-nav { display: flex; gap: 1rem; }
-        .nav-btn { padding: 0.5rem 1rem; border: 1px solid #333; border-radius: 6px; background: #1e1e2f; color: #aaa; cursor: pointer; transition: all 0.2s; }
-        .nav-btn:hover { background: #00d4ff; color: #1a1a2e; }
-        .editor-container { display: flex; height: calc(100vh - 60px); }
-        .sidebar { width: 280px; background: #1a1a2e; padding: 1rem; border-right: 1px solid #333; overflow-y: auto; }
-        .sidebar h3 { color: #00d4ff; margin-bottom: 1rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
-        .page-item { padding: 0.75rem; margin-bottom: 0.5rem; background: #16213e; border-radius: 6px; cursor: pointer; transition: all 0.2s; }
-        .page-item:hover { background: #0f0f1a; }
-        .page-item.active { background: #00d4ff; color: #1a1a2e; }
-        .editor-wrapper { flex: 1; display: flex; flex-direction: column; }
-        .toolbar { background: #1a1a2e; padding: 0.5rem; border-bottom: 1px solid #333; display: flex; gap: 0.25rem; flex-wrap: wrap; }
-        .toolbar-btn { width: 32px; height: 32px; border: none; background: #16213e; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #aaa; transition: all 0.2s; }
-        .toolbar-btn:hover { background: #00d4ff; color: #1a1a2e; }
-        .content-editor { flex: 1; padding: 1rem; overflow: auto; }
-        .editor { width: 100%; min-height: 600px; background: #0f0f1a; color: #eee; border: 1px solid #333; border-radius: 8px; padding: 1rem; font-family: Georgia, serif; font-size: 16px; line-height: 1.6; outline: none; }
-        .editor:focus { border-color: #00d4ff; }
-        .actions { padding: 1rem; background: #1a1a2e; border-top: 1px solid #333; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .action-btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
-        .action-btn.save { background: linear-gradient(135deg, #00c853, #00e676); color: #1a1a2e; }
-        .autosave-indicator { 
-            display: inline-block; 
-            width: 12px; 
-            height: 12px; 
-            border-radius: 50%; 
-            background: #666; 
-            margin-left: 8px; 
-            vertical-align: middle;
-        }
-        .autosave-indicator.saved { background: #00c853; }
-        .autosave-indicator.dirty { background: #ff9800; animation: pulse 1s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .action-btn.download { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #1a1a2e; }
-        .action-btn.preview { background: linear-gradient(135deg, #2196f3, #03a9f4); color: #fff; }
-        .action-btn.cancel { background: linear-gradient(135deg, #f44336, #ff5252); color: #fff; }
-        .action-btn.restore { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #1a1a2e; }
-        .action-btn.publish { background: linear-gradient(135deg, #9c27b0, #ba68c8); color: #fff; }
-        .preview-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: none; z-index: 1000; }
-        .preview-modal.active { display: block; }
-        .preview-content { max-width: 900px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 12px; color: #000; overflow-y: auto; max-height: 90vh; }
-        .close-preview { position: absolute; top: 1rem; right: 1rem; background: #f44336; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.2rem; }
-        .notification { position: fixed; bottom: 20px; right: 20px; padding: 1rem 1.5rem; border-radius: 8px; background: #333; color: #fff; display: none; z-index: 1000; }
-        .notification.show { display: block; }
-        .notification.success { background: linear-gradient(135deg, #00c853, #00e676); }
-        .notification.error { background: linear-gradient(135deg, #f44336, #ff5252); }
-        .notification.warning { background: linear-gradient(135deg, #ff9800, #ffb74d); }
-    </style>
-</head>
-<body>
-
-
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal mathematics portfolio and research site by Kasieobi Udumaga.">
     <title>Kasieobi Udumaga | Home</title>
     <link rel="stylesheet" href="style.css">
-    <script id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
-
-
-
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
     <header>
         <div class="header-controls">
             <label class="search-bar" for="site-search">
@@ -92,6 +21,7 @@
             <p data-content="index.subtitle">High School Student | Mathematics Enthusiast | Also a sprinter :) </p>
         </div>
     </header>
+    
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -126,7 +56,8 @@
             </p>
 
             <p data-content="index.paragraphs.2">
-                Outside Mathematics, I am a sprinter and enjoy track and field.&nbsp; I am a 13 time provincial champion in the 100m and 200m. I am also the tied electronically timed provincial record holder in the U15 100m.</p>
+                Outside Mathematics, I am a sprinter and enjoy track and field. I am a 13 time provincial champion in the 100m and 200m. I am also the tied electronically timed provincial record holder in the U15 100m.
+            </p>
         </div>
     </main>
 
@@ -137,44 +68,5 @@
     <script src="content-loader.js"></script>
     <script src="math-simulator.js"></script>
     <script src="script.js"></script>
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
-</script>
-
-
-</body></html>
+</body>
+</html>
