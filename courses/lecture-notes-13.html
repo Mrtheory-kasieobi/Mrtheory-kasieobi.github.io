@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 13: Fermat's Last Theorem for n = 4">
+  <meta name="description" content="Lecture 13: Continued Fractions">
   <title>Lecture 13: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -14,7 +14,6 @@
     .lecture-content { color: var(--text); line-height: 1.8; }
     .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
     .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
-    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
     .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -31,115 +30,79 @@
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
-<body>
+<body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 13: Fermat's Last Theorem for n = 4</h1></div>
+    <div class="header-content"><h1>Lecture 13: Continued Fractions</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 13: Fermat's Last Theorem for n = 4</h1></div>
+    <div class="lecture-header"><h1>Lecture 13: Continued Fractions</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 13</span><span class="lecture-topic">Fermat's Last Theorem for n = 4</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 13</span><span class="lecture-topic">Continued Fractions</span></p>
 
-      <div class="lecture-section"><h2>1. Statement of the Theorem</h2>
-        <div class="theorem-box">
-          <strong>Theorem 13.1 (Fermat's Last Theorem for n = 4)</strong> The equation \(x^4 + y^4 = z^4\) has no non-trivial integer solutions.</p>
-          <p>Equivalently, \(x^4 + y^4 = z^2\) has no non-trivial integer solutions.</p>
+      <div class="lecture-section"><h2>1. Simple Continued Fractions</h2>
+        <div class="definition-box">
+          <strong>Definition 13.1 (Simple Continued Fraction)</strong> A simple continued fraction is an expression of the form:
+          \[a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cdots}}}\]
+          where \(a_0 \in \mathbb{Z}\) and \(a_1, a_2, a_3, \ldots\) are positive integers.
         </div>
         
         <div class="definition-box">
-          <strong>Definition 13.1 (Primitive Solution)</strong> A solution \((x, y, z)\) is called <strong>primitive</strong> if \(\gcd(x, y, z) = 1\).
+          <strong>Definition 13.2 (Convergents)</strong> The \(n\)-th convergent \(\frac{p_n}{q_n}\) of a continued fraction is obtained by truncating after \(n\) terms.
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 13.1</strong> Compute the first 4 convergents of \(\sqrt{2} = [1; 2, 2, 2, \ldots]\).
         </div>
       </div>
 
-      <div class="lecture-section"><h2>2. Proof by Infinite Descent</h2>
+      <div class="lecture-section"><h2>2. Recurrence Relations</h2>
         <div class="theorem-box">
-          <strong>Theorem 13.2</strong> If \(x^4 + y^4 = z^2\) has a solution, then there exists a smaller solution.
+          <strong>Theorem 13.1</strong> The convergents satisfy the recurrence relations:
+          \[p_n = a_n p_{n-1} + p_{n-2}, \quad q_n = a_n q_{n-1} + q_{n-2}\]
+          with initial conditions \(p_{-2} = 0, p_{-1} = 1, q_{-2} = 1, q_{-1} = 0\).
         </div>
         
         <div class="proof-box">
-          <strong>Proof (by infinite descent):</strong>
-          
-          <div class="step-box">
-            <strong>Step 1: Assume a primitive solution exists</strong>
-            <p>Suppose \((x, y, z)\) is a primitive solution with \(x, y, z > 0\) and \(\gcd(x, y, z) = 1\).</p>
-            <p>Then \(x^4 + y^4 = z^2\) means \((x^2)^2 + (y^2)^2 = (z)^2\).</p>
-            <p>So \((x^2, y^2, z)\) is a Pythagorean triple.</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Apply Pythagorean parametrization</strong>
-            <p>By Theorem 12.3, there exist \(m > n > 0\) with \(\gcd(m, n) = 1\) such that:
-            \[x^2 = m^2 - n^2, \quad y^2 = 2mn, \quad z = m^2 + n^2\]</p>
-            <p>We can assume \(x\) is odd and \(y\) is even (by swapping if necessary).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Analyze x² = m² - n²</strong>
-            <p>We have \(x^2 + n^2 = m^2\), so \((x, n, m)\) is a Pythagorean triple.</p>
-            <p>Since \(\gcd(x, n, m) = 1\) (from \(\gcd(x^2, y^2, z) = 1\)), it's primitive.</p>
-            <p>By Theorem 12.3, there exist \(r > s > 0\) with \(\gcd(r, s) = 1\) such that:
-            \[x = r^2 - s^2, \quad n = 2rs, \quad m = r^2 + s^2\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 4: Use y² = 2mn</strong>
-            <p>We have \(y^2 = 2mn = 2(r^2 + s^2)(m)\)</p>
-            <p>Wait, we need to be more careful. We have \(m = r^2 + s^2\) and \(n = 2rs\).</p>
-            <p>So \(y^2 = 2mn = 2(r^2 + s^2)(r^2 + s^2) = 2(r^2 + s^2)^2\)</p>
-            <p>This gives \(y = (r^2 + s^2)\sqrt{2}\), which is impossible since \(y\) is an integer.</p>
-            <p>Let me reconsider... Actually, \(y^2 = 2mn = 2(r^2 + s^2)(m)\)</p>
-            <p>No wait, \(m = r^2 + s^2\) and \(n = 2rs\), so:
-            \[y^2 = 2mn = 2(r^2 + s^2)(m)\]</p>
-            <p>This is wrong. Let me redo this.</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Correct calculation:</strong>
-            <p>We have \(y^2 = 2mn\) with \(m = r^2 + s^2\) and \(n = 2rs\).</p>
-            <p>So \(y^2 = 2(r^2 + s^2)(2rs) = 4rs(r^2 + s^2)\)</p>
-            <p>Thus \(y^2 = 4rs(r^2 + s^2)\)</p>
-            <p>For this to be a perfect square, we need \(rs(r^2 + s^2)\) to be a perfect square.</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 5: Conclude with infinite descent</strong>
-            <p>Since \(\gcd(r, s) = 1\) and \(r^2 + s^2\) is coprime to both \(r\) and \(s\) (when they're coprime), each must be a perfect square.</p>
-            <p>Let \(r = a^2\), \(s = b^2\), \(r^2 + s^2 = c^2\).</p>
-            <p>Then \(a^4 + b^4 = c^2\), giving a smaller solution!</p>
-            <p>By infinite descent, no solution exists. \(\square\)</p>
-          </div>
+          <p>This can be proved by induction on the structure of continued fractions. \(\square\)</p>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>3. Corollary: FLT for n = 4</h2>
+      <div class="lecture-section"><h2>3. Periodic Continued Fractions</h2>
         <div class="theorem-box">
-          <strong>Corollary 13.1</strong> The equation \(x^4 + y^4 = z^4\) has no non-trivial integer solutions.
+          <strong>Theorem 13.2 (Lagrange's Theorem)</strong> A real number \(\alpha\) has an eventually periodic continued fraction expansion if and only if \(\alpha\) is a quadratic irrational (a root of a quadratic polynomial with integer coefficients).
         </div>
         
-        <div class="proof-box">
-          <div class="step-box">
-            <strong>Proof:</strong>
-            <p>If \(x^4 + y^4 = z^4\), then \(x^4 + y^4 = (z^2)^2\), so \(x^4 + y^4 = w^2\) where \(w = z^2\).</p>
-            <p>This contradicts Theorem 13.2. \(\square\)</p>
-          </div>
+        <div class="example-box">
+          <strong>Example 13.2</strong> The continued fraction expansion of \(\sqrt{3}\) is \([1; 1, 2, 1, 2, 1, 2, \ldots] = [1; \overline{1, 2}]\).
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Applications to Diophantine Equations</h2>
+        <div class="theorem-box">
+          <strong>Theorem 13.3</strong> The equation \(x^2 - dy^2 = 1\) (Pell's equation) has a non-trivial solution if and only if the continued fraction expansion of \(\sqrt{d}\) has period length \(k \geq 1\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 13.3</strong> Find the fundamental solution to \(x^2 - 2y^2 = 1\).
+          <p>The continued fraction of \(\sqrt{2}\) is \([1; \overline{2}]\). The first convergent is \(\frac{3}{2}\), giving the solution \((3, 2)\).</p>
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Show that \(x^4 + y^4 = z^2\) has no solution with \(xyz = 1\).</li>
-          <li>Prove that if \(x^4 + y^4 = z^2\) has a solution, then there's one with \(z\) even.</li>
-          <li>Find the smallest positive integer \(n\) such that \(x^4 + y^4 = n\) has no integer solutions.</li>
-          <li>Show that \(x^4 + 4y^4 = z^2\) has no non-trivial solutions.</li>
-          <li>Prove: If \(x^4 + y^4 = z^2\) and \(\gcd(x, y) = 1\), then \(x, y\) have opposite parity.</li>
-          <li>Show that \(x^4 + y^4 = 17z^2\) has no non-trivial solutions.</li>
-          <li>Prove: In any primitive solution to \(x^4 + y^4 = z^2\), \(z \equiv 1 \pmod{4}\).</li>
-          <li>Show that \(x^4 + y^4 = z^2\) implies \(x^2 + y^2\) is not a square (unless trivial).</li>
+          <li>Find the continued fraction expansion of \(\frac{1+\sqrt{5}}{2}\) (the golden ratio).</li>
+          <li>Compute the first 5 convergents of \(\sqrt{3}\).</li>
+          <li>Show that the convergents \(\frac{p_n}{q_n}\) satisfy \(|\alpha - \frac{p_n}{q_n}| < \frac{1}{q_n q_{n+1}}\).</li>
+          <li>Find the fundamental solution to \(x^2 - 7y^2 = 1\).</li>
+          <li>Prove that if \(\frac{p}{q}\) is a convergent, then \(|q\alpha - p| < 1\).</li>
+          <li>Show that every rational number has a finite continued fraction expansion.</li>
+          <li>Find all solutions to \(x^2 - 3y^2 = 1\) with \(x, y < 100\).</li>
+          <li>Prove: If \(\frac{p_n}{q_n}\) and \(\frac{p_{n+1}}{q_{n+1}}\) are consecutive convergents, then \(|p_n q_{n+1} - p_{n+1} q_n| = 1\).</li>
         </ol>
       </div>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 9: Gaussian Primes and Factorization">
+  <meta name="description" content="Lecture 9: Gaussian Integers - Definition and Arithmetic">
   <title>Lecture 9: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,6 +20,8 @@
     .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
     .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -31,101 +33,223 @@
 <body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 9: Gaussian Primes and Factorization</h1></div>
+    <div class="header-content"><h1>Lecture 9: Gaussian Integers - Definition and Arithmetic</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 9: Gaussian Primes and Factorization</h1></div>
+    <div class="lecture-header"><h1>Lecture 9: Gaussian Integers - Definition and Arithmetic</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 9</span><span class="lecture-topic">Gaussian Primes and Factorization</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 9</span><span class="lecture-topic">Gaussian Integers - Definition and Arithmetic</span></p>
 
-      <div class="lecture-section"><h2>1. Classification of Gaussian Primes</h2>
+      <div class="lecture-section"><h2>1. Definition of Gaussian Integers</h2>
+        <div class="definition-box">
+          <strong>Definition 9.1 (Gaussian Integers)</strong> The ring of Gaussian integers is:
+          \[\mathbb{Z}[i] = \{a + bi : a, b \in \mathbb{Z}\}\]
+          where \(i = \sqrt{-1}\) is the imaginary unit.
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 9.1</strong> Some Gaussian integers are:
+          \[0, 1, -1, i, -i, 1+i, 2-i, 3+4i, \ldots\]
+          <p>Addition: \((1 + 2i) + (3 - i) = 4 + i\)</p>
+          <p>Multiplication: \((1 + 2i)(3 - i) = 3 - i + 6i - 2i^2 = 3 + 5i + 2 = 5 + 5i\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. The Norm Function</h2>
+        <div class="definition-box">
+          <strong>Definition 9.2 (Norm)</strong> For \(\alpha = a + bi \in \mathbb{Z}[i]\), the norm of \(\alpha\) is:
+          \[N(\alpha) = N(a + bi) = a^2 + b^2 = \alpha \bar{\alpha}\]
+          where \(\bar{\alpha} = a - bi\) is the complex conjugate.
+        </div>
+        
         <div class="theorem-box">
-          <strong>Theorem 9.1 (Classification of Gaussian Primes)</strong> Up to associates, the Gaussian primes are:
+          <strong>Theorem 9.1 (Properties of the Norm)</strong> Let \(\alpha, \beta \in \mathbb{Z}[i]\).
           <ol>
-            <li>\(1 + i\) (the prime dividing 2).</li>
-            <li>For each rational prime \(p \equiv 3 \pmod{4}\), the prime \(p\) itself (as an element of \(\mathbb{Z}[i]\)).</li>
-            <li>For each rational prime \(p \equiv 1 \pmod{4}\), the Gaussian primes \(\pi\) and \(\bar{\pi}\) where \(p = \pi\bar{\pi}\) (a proper factorization in \(\mathbb{Z}[i]\)).</li>
+            <li>\(N(\alpha) \in \mathbb{Z}_{\geq 0}\) and \(N(\alpha) = 0\) iff \(\alpha = 0\).</li>
+            <li>\(N(\alpha\beta) = N(\alpha)N(\beta)\).</li>
+            <li>\(N(\alpha) = |\alpha|^2\) (square of the complex absolute value).</li>
           </ol>
         </div>
         
         <div class="proof-box">
-          <strong>Proof:</strong>
-          <p>We analyze primes in \(\mathbb{Z}[i]\) by considering the norm \(N(a + bi) = a^2 + b^2\).</p>
+          <strong>Proof of (1):</strong>
           
-          <p><strong>Case 1: \(\alpha = a + bi\) with \(a = 0\) or \(b = 0\).</strong></p>
-          <p>If \(b = 0\), then \(\alpha = a \in \mathbb{Z}\). For \(\alpha\) to be prime in \(\mathbb{Z}[i]\), we need \(N(\alpha) = a^2\) to be a rational prime power.</p>
-          <p>If \(a^2 = p\) for prime \(p\), then \(p = 2\) and \(a = \pm\sqrt{2} \notin \mathbb{Z}\). Contradiction.</p>
-          <p>If \(a^2 = p^k\) with \(k \geq 2\), then \(a = \pm p^{k/2}\). For \(k = 2\): \(\alpha = \pm p\), \(N(\alpha) = p^2\). But \(\alpha = p \cdot 1\), so \(p\) is not prime in \(\mathbb{Z}[i]\) unless \(p\) remains prime in \(\mathbb{Z}[i]\).</p>
+          <div class="step-box">
+            <strong>Step 1: Check non-negativity</strong>
+            <p>\(N(a + bi) = a^2 + b^2 \geq 0\) since squares are non-negative. \(\square\)</p>
+          </div>
           
-          <p><strong>Case 2: Both \(a, b \neq 0\).</strong></p>
-          <p>Suppose \(N(\alpha) = a^2 + b^2 = p\) for rational prime \(p\).</p>
-          <p>If \(p \equiv 3 \pmod{4}\), then by Fermat's theorem on sums of two squares, \(p\) cannot be written as \(a^2 + b^2\) with \(a, b \neq 0\). Contradiction.</p>
-          <p>If \(p = 2\), then \(a^2 + b^2 = 2\) gives \(a^2 = b^2 = 1\), so \(\alpha = \pm 1 \pm i\). These are associates of \(1 + i\).</p>
-          <p>If \(p \equiv 1 \pmod{4}\), then by Fermat's theorem, \(p = a^2 + b^2\) for some \(a, b \neq 0\). The Gaussian integers \(a + bi\) and \(a - bi\) have norm \(p\) and are irreducible. \(\square\)</p>
+          <div class="step-box">
+            <strong>Step 2: Check when norm is zero</strong>
+            <p>\(N(a + bi) = 0\) iff \(a^2 + b^2 = 0\) iff \(a = b = 0\) (since \(a^2, b^2 \geq 0\)).</p>
+            <p>Thus \(N(\alpha) = 0\) iff \(\alpha = 0\). \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of (2):</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Use the definition of norm</strong>
+            <p>\(N(\alpha\beta) = (\alpha\beta)(\overline{\alpha\beta}) = (\alpha\beta)(\bar{\alpha}\bar{\beta})\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Rearrange the product</strong>
+            <p>\((\alpha\beta)(\bar{\alpha}\bar{\beta}) = (\alpha\bar{\alpha})(\beta\bar{\beta}) = N(\alpha)N(\beta)\). \(\square\)</p>
+          </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>2. Unique Factorization in \(\mathbb{Z}[i]\)</h2>
+      <div class="lecture-section"><h2>3. Units in \(\mathbb{Z}[i]\)</h2>
+        <div class="definition-box">
+          <strong>Definition 9.3 (Unit)</strong> A unit in \(\mathbb{Z}[i]\) is an element \(\varepsilon\) such that there exists \(\delta \in \mathbb{Z}[i]\) with \(\varepsilon\delta = 1\).
+        </div>
+        
         <div class="theorem-box">
-          <strong>Theorem 9.2</strong> \(\mathbb{Z}[i]\) is a unique factorization domain (UFD). Every non-zero, non-unit Gaussian integer can be written as a product of Gaussian primes, and this factorization is unique up to order and associates.
+          <strong>Theorem 9.2</strong> The units in \(\mathbb{Z}[i]\) are \(\{\pm 1, \pm i\}\).
         </div>
         
         <div class="proof-box">
           <strong>Proof:</strong>
-          <p>We verify that \(\mathbb{Z}[i]\) satisfies all properties of a UFD:
-          <ol>
-            <li>\(\mathbb{Z}[i]\) is an integral domain (no zero divisors).</li>
-            <li>The norm is multiplicative: \(N(\alpha\beta) = N(\alpha)N(\beta)\)</li>
-            <li>Every non-zero, non-unit element has a factorization into irreducibles (by the division algorithm).</li>
-            <li>Factorization is unique up to associates and order.</li>
-          </ol>
-          <p>The key is that \(\mathbb{Z}[i]\) is a Euclidean domain with the norm as the Euclidean function. This implies unique factorization. \(\square\)</p>
+          
+          <div class="step-box">
+            <strong>Step 1: Forward direction - if ε is a unit, then N(ε) = 1</strong>
+            <p>If \(\varepsilon = a + bi\) is a unit, then \(\varepsilon\delta = 1\) for some \(\delta\).</p>
+            <p>Taking norms: \(N(\varepsilon)N(\delta) = N(1) = 1\).</p>
+            <p>Since \(N(\varepsilon), N(\delta) \in \mathbb{Z}_{\geq 0}\), we must have \(N(\varepsilon) = N(\delta) = 1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Find all elements with norm 1</strong>
+            <p>Thus \(a^2 + b^2 = 1\) with \(a, b \in \mathbb{Z}\).</p>
+            <p>Since \(a^2 \geq 0\) and \(b^2 \geq 0\), we need:
+            <ul>
+              <li>\(a^2 = 1, b^2 = 0\): gives \(a = \pm 1, b = 0\), so \(\varepsilon = \pm 1\)</li>
+              <li>\(a^2 = 0, b^2 = 1\): gives \(a = 0, b = \pm 1\), so \(\varepsilon = \pm i\)</li>
+            </ul>
+            <p>Therefore the units are \(\varepsilon = \pm 1\) and \(\varepsilon = \pm i\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Reverse direction - verify these are units</strong>
+            <p>Verify:
+            \[1 \cdot 1 = 1, \quad (-1) \cdot (-1) = 1, \quad i \cdot (-i) = 1, \quad (-i) \cdot i = 1\]
+            So all four are units. \(\square\)</p>
+          </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>3. Applications to Sums of Two Squares</h2>
+      <div class="lecture-section"><h2>4. Division Algorithm in \(\mathbb{Z}[i]\)</h2>
         <div class="theorem-box">
-          <strong>Theorem 9.3 (Fermat's Two Squares Theorem)</strong> An odd prime \(p\) can be expressed as \(p = x^2 + y^2\) for integers \(x, y\) if and only if \(p \equiv 1 \pmod{4}\).
+          <strong>Theorem 9.3 (Division Algorithm for \(\mathbb{Z}[i]\))</strong> Let \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\). Then there exist \(\gamma, \delta \in \mathbb{Z}[i]\) such that:
+          \[\alpha = \beta\gamma + \delta \quad \text{with} \quad N(\delta) < N(\beta).\]
         </div>
         
         <div class="proof-box">
-          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(p = x^2 + y^2\), then considering modulo 4:
-          \[p = x^2 + y^2 \equiv 0, 1, \text{ or } 2 \pmod{4}\]
-          <p>If \(p\) is odd and \(p \equiv 0 \pmod{4}\), then \(p\) is even, contradiction.</p>
-          <p>If \(p \equiv 2 \pmod{4}\), then \(p = 2\), but 2 is not odd. Contradiction.</p>
-          <p>Therefore \(p \equiv 1 \pmod{4}\). \(\square\)</p>
+          <strong>Proof:</strong>
           
-          <p><strong>Sufficiency (\(\Rightarrow\)):</strong> If \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue modulo \(p\).</p>
-          <p>Let \(x^2 \equiv -1 \pmod{p}\). Consider the lattice \(L = \{(a, b) \in \mathbb{Z}^2 : a \equiv xb \pmod{p}\}\).</p>
-          <p>Let \(S = \{(a, b) \in L : a^2 + b^2 < 2p\}\). By Minkowski's theorem, there exists \((a, b) \neq (0, 0)\) in \(S \cap L\).</p>
-          <p>Since \((a, b) \in L\), we have \(a = xb + kp\) for some integer \(k\).</p>
-          <p>Then \(a^2 + b^2 = b^2(x^2 + 1) + kp(\cdots) = p \cdot m\) for some integer \(m\).</p>
-          <p>Since \(0 < a^2 + b^2 < 2p\) and \(p \mid (a^2 + b^2)\), we must have \(a^2 + b^2 = p\). \(\square\)</p>
+          <div class="step-box">
+            <strong>Step 1: Work in the complex numbers</strong>
+            <p>Consider \(\frac{\alpha}{\beta} = x + yi \in \mathbb{Q}(i)\) for some \(x, y \in \mathbb{Q}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Round to nearest Gaussian integer</strong>
+            <p>Choose integers \(m, n\) such that \(|x - m| \leq \frac{1}{2}\) and \(|y - n| \leq \frac{1}{2}\).
+            Set \(\gamma = m + ni \in \mathbb{Z}[i]\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Define the remainder</strong>
+            <p>Define \(\delta = \alpha - \beta\gamma\). We need to show \(N(\delta) < N(\beta)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Express δ in terms of the norm</strong>
+            <p>Let \(\frac{\alpha}{\beta} = x + yi\). Then:
+            \[\delta = \beta\left(\frac{\alpha}{\beta} - \gamma\right) = \beta\left((x-m) + (y-n)i\right)\]
+            Therefore:
+            \[N(\delta) = N(\beta) \cdot N\left((x-m) + (y-n)i\right) = N(\beta) \cdot \left((x-m)^2 + (y-n)^2\right)\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Bound the error term</strong>
+            <p>Since \(|x - m| \leq \frac{1}{2}\) and \(|y - n| \leq \frac{1}{2}\):
+            \[(x-m)^2 + (y-n)^2 \leq \frac{1}{4} + \frac{1}{4} = \frac{1}{2} < 1\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 6: Conclude</strong>
+            <p>Thus \(N(\delta) < N(\beta)\). \(\square\)</p>
+          </div>
         </div>
       </div>
 
-      <div class="example-box">
-        <strong>Example 9.1</strong> Express 13 as a sum of two squares.</p>
-          <p>Since \(13 \equiv 1 \pmod{4}\), we know \(13 = x^2 + y^2\) for some \(x, y\).</p>
-          <p>Try values: \(3^2 = 9\), \(13 - 9 = 4 = 2^2\).</p>
-          <p>Thus \(13 = 3^2 + 2^2\).</p>
-          <p>In Gaussian integers: \(13 = (3 + 2i)(3 - 2i)\), and \(N(3 + 2i) = 13\). \(\square\)</p>
+      <div class="lecture-section"><h2>5. Arithmetic in \(\mathbb{Z}[i]\)</h2>
+        <div class="example-box">
+          <strong>Example 9.2</strong> Compute \((2 + 3i)(1 - i)\).
+          <p>\((2 + 3i)(1 - i) = 2 - 2i + 3i - 3i^2 = 2 + i + 3 = 5 + i\)</p>
+          <p>\(N(5 + i) = 25 + 1 = 26\).</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 9.3</strong> Find the inverse of \(2 + i\) in \(\mathbb{Z}[i]\) (if it exists).
+          
+          <div class="step-box">
+            <strong>Step 1: Check if inverse exists</strong>
+            <p>An inverse exists in \(\mathbb{Q}(i)\) for any non-zero element.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Compute the inverse</strong>
+            <p>\(\frac{1}{2+i} = \frac{2-i}{(2+i)(2-i)} = \frac{2-i}{4+1} = \frac{2-i}{5} = \frac{2}{5} - \frac{1}{5}i\)</p>
+            <p>This is not in \(\mathbb{Z}[i]\), so \(2 + i\) is not a unit.</p>
+          </div>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 9.4</strong> Find \(\gcd(2 + 3i, 1 + i)\) in \(\mathbb{Z}[i]\).
+          
+          <div class="step-box">
+            <strong>Step 1: Apply Euclidean algorithm</strong>
+            <p>Divide \(2 + 3i\) by \(1 + i\):
+            \[\frac{2 + 3i}{1 + i} = \frac{(2 + 3i)(1 - i)}{(1 + i)(1 - i)} = \frac{2 - 2i + 3i + 3}{2} = \frac{5 + i}{2} = \frac{5}{2} + \frac{1}{2}i\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Round to nearest Gaussian integer</strong>
+            <p>Nearest Gaussian integer to \(\frac{5}{2} + \frac{1}{2}i\) is \(2 + 0i = 2\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Compute remainder</strong>
+            <p>\((2 + 3i) - 2(1 + i) = 2 + 3i - 2 - 2i = i\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Continue with (1+i) and i</strong>
+            <p>\(\frac{1+i}{i} = \frac{(1+i)(-i)}{i(-i)} = \frac{-i - i^2}{1} = -i + 1 = 1 - i\)</p>
+            <p>So \((1 + i) = (1 - i) \cdot i + 0\)</p>
+            <p>Therefore \(\gcd(2 + 3i, 1 + i) = i\) (or any associate).</p>
+          </div>
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Find the Gaussian prime factorization of 5.</li>
-          <li>Find the Gaussian prime factorization of 10.</li>
-          <li>Show that \(2 + i\) is a Gaussian prime.</li>
-          <li>Prove that if \(p \equiv 3 \pmod{4}\), then \(p\) remains prime in \(\mathbb{Z}[i]\).</li>
-          <li>Find all Gaussian integers with norm 5.</li>
-          <li>Show that \(1 + i\) divides every Gaussian integer of even norm.</li>
-          <li>Prove: If \(\alpha \in \mathbb{Z}[i]\) has prime norm \(p\), then \(p \equiv 1 \pmod{4}\) or \(p = 2\).</li>
+          <li>Compute \(N(3+4i)\), \(N(2-i)\), \(N(-1+2i)\).</li>
+          <li>Show that \(1 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
+          <li>Find \(\gcd(2 + 3i, 1 + i)\) in \(\mathbb{Z}[i]\).</li>
+          <li>Show that 5 is not irreducible in \(\mathbb{Z}[i]\) by finding a non-trivial factorization.</li>
+          <li>Prove: In \(\mathbb{Z}[i]\), \(N(\alpha)\) is a prime in \(\mathbb{Z}\) iff \(\alpha\) is irreducible.</li>
+          <li>Determine whether \(2 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
+          <li>Verify that \(\mathbb{Z}[i]\) is closed under addition, subtraction, and multiplication.</li>
+          <li>Find all units in \(\mathbb{Z}[i]\) with norm 1.</li>
         </ol>
       </div>
 

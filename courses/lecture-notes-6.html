@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 6: Quadratic Residues and the Legendre Symbol">
+  <meta name="description" content="Lecture 6: Arithmetic Functions and Möbius Inversion - Detailed Proofs">
   <title>Lecture 6: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -33,117 +33,137 @@
 <body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 6: Quadratic Residues and the Legendre Symbol</h1></div>
+    <div class="header-content"><h1>Lecture 6: Arithmetic Functions and Möbius Inversion</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 6: Quadratic Residues and the Legendre Symbol</h1></div>
+    <div class="lecture-header"><h1>Lecture 6: Arithmetic Functions and Möbius Inversion</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 6</span><span class="lecture-topic">Quadratic Residues and the Legendre Symbol</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 6</span><span class="lecture-topic">Arithmetic Functions and Möbius Inversion</span></p>
 
-      <div class="lecture-section"><h2>1. Quadratic Residues</h2>
+      <div class="lecture-section"><h2>1. Arithmetic Functions</h2>
         <div class="definition-box">
-          <strong>Definition 6.1 (Quadratic Residue)</strong> Let \(p\) be an odd prime and \(\gcd(a, p) = 1\). We say that \(a\) is a <strong>quadratic residue modulo \(p\)</strong> if there exists an integer \(x\) such that \(x^2 \equiv a \pmod{p}\).
+          <strong>Definition 6.1 (Arithmetic Function)</strong> An <strong>arithmetic function</strong> is a function \(f: \mathbb{N} \to \mathbb{C}\) defined on the positive integers.
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 6.2 (Multiplicative Function)</strong> An arithmetic function \(f\) is called <strong>multiplicative</strong> if \(f(mn) = f(m)f(n)\) whenever \(\gcd(m, n) = 1\). It is <strong>completely multiplicative</strong> if this holds for all \(m, n\).
         </div>
         
         <div class="example-box">
-          <strong>Example 6.1</strong> Determine which elements of \(\mathbb{Z}_7^*\) are quadratic residues.</p>
-          <p>Compute squares modulo 7:
-          \[1^2 \equiv 1, \quad 2^2 \equiv 4, \quad 3^2 \equiv 9 \equiv 2 \pmod{7}\]
-          \[4^2 = (7-3)^2 \equiv 3^2 \equiv 2, \quad 5^2 = (7-2)^2 \equiv 2^2 \equiv 4 \pmod{7}\]
-          \[6^2 = (7-1)^2 \equiv 1^2 \equiv 1 \pmod{7}\]
+          <strong>Example 6.1</strong> Some important arithmetic functions:
+          <ul>
+            <li>\(\tau(n)\): Number of positive divisors of \(n\)</li>
+            <li>\(\sigma(n)\): Sum of positive divisors of \(n\)</li>
+            <li>\(\phi(n)\): Euler's totient function</li>
+            <li>\(\omega(n)\): Number of distinct prime factors</li>
+            <li>\(\Omega(n)\): Total number of prime factors (with multiplicity)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Dirichlet Convolution</h2>
+        <div class="definition-box">
+          <strong>Definition 6.3 (Dirichlet Convolution)</strong> For two arithmetic functions \(f\) and \(g\), their Dirichlet convolution is defined by:
+          \[(f * g)(n) = \sum_{d \mid n} f(d) g\left(\frac{n}{d}\right)\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 6.1</strong> The Dirichlet convolution is commutative and associative:
+          <ul>
+            <li>\(f * g = g * f\)</li>
+            <li>\((f * g) * h = f * (g * h)\)</li>
+          </ul>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 6.2</strong> Compute \(\tau * \sigma\) at \(n = 6\).
+          <p>We have \(\tau(1) = 1, \tau(2) = 2, \tau(3) = 2, \tau(6) = 4\)</p>
+          <p>And \(\sigma(1) = 1, \sigma(2) = 3, \sigma(3) = 4, \sigma(6) = 12\)</p>
+          <p>Therefore:
+          \[(\tau * \sigma)(6) = \tau(1)\sigma(6) + \tau(2)\sigma(3) + \tau(3)\sigma(2) + \tau(6)\sigma(1)\]
+          \[= 1 \cdot 12 + 2 \cdot 4 + 2 \cdot 3 + 4 \cdot 1 = 12 + 8 + 6 + 4 = 30\]</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. The Möbius Function</h2>
+        <div class="definition-box">
+          <strong>Definition 6.4 (Möbius Function)</strong> The Möbius function \(\mu(n)\) is defined by:
+          \[\mu(n) = \begin{cases} 1 & \text{if } n = 1 \\ (-1)^k & \text{if } n \text{ is the product of } k \text{ distinct primes} \\ 0 & \text{if } n \text{ has a squared prime factor} \end{cases}\]
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 6.3</strong> Compute \(\mu(n)\) for \(n = 1, 2, 3, 4, 5, 6, 10, 12, 30\).
+          <ul>
+            <li>\(\mu(1) = 1\)</li>
+            <li>\(\mu(2) = -1\) (one prime)</li>
+            <li>\(\mu(3) = -1\) (one prime)</li>
+            <li>\(\mu(4) = 0\) (has \(2^2\))</li>
+            <li>\(\mu(5) = -1\) (one prime)</li>
+            <li>\(\mu(6) = 1\) (two distinct primes: 2, 3)</li>
+            <li>\(\mu(10) = 1\) (two distinct primes: 2, 5)</li>
+            <li>\(\mu(12) = 0\) (has \(2^2\))</li>
+            <li>\(\mu(30) = -1\) (three distinct primes: 2, 3, 5)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Möbius Inversion Formula</h2>
+        <div class="theorem-box">
+          <strong>Theorem 6.2 (Möbius Inversion Formula)</strong> Let \(f\) and \(g\) be arithmetic functions such that:
+          \[g(n) = \sum_{d \mid n} f(d)\]
+          Then we can recover \(f\) from \(g\) by:
+          \[f(n) = \sum_{d \mid n} \mu(d) g\left(\frac{n}{d}\right)\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Set up the relationship</strong>
+            <p>We are given \(g = f * \mathbf{1}\), where \(\mathbf{1}(n) = 1\) for all \(n\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Use the key identity</strong>
+            <p>The key identity is: \(\mu * \mathbf{1} = \varepsilon\), where \(\varepsilon(1) = 1\) and \(\varepsilon(n) = 0\) for \(n > 1\).</p>
+            <p>This means: \(\sum_{d \mid n} \mu(d) = \begin{cases} 1 & \text{if } n = 1 \\ 0 & \text{if } n > 1 \end{cases}\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Convolve both sides</strong>
+            <p>Starting from \(g = f * \mathbf{1}\):</p>
+            <p>Multiply both sides by \(\mu\) (convolution with \(\mu\)\):</p>
+            <p>\(g * \mu = (f * \mathbf{1}) * \mu = f * (\mathbf{1} * \mu) = f * \varepsilon = f\)</p>
+            <p>Therefore: \(f = g * \mu\), which gives the desired formula. \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 6.4</strong> Use Möbius inversion to find \(\phi(n)\) given that \(\sum_{d \mid n} \phi(d) = n\).
+          <p>By Möbius inversion:</p>
+          <p>\(\phi(n) = \sum_{d \mid n} \mu(d) \cdot \frac{n}{d} = n \sum_{d \mid n} \frac{\mu(d)}{d}\)</p>
+          <p>For \(n = 6\):
+          \[\phi(6) = \sum_{d \mid 6} \mu(d) \cdot \frac{6}{d} = \mu(1) \cdot 6 + \mu(2) \cdot 3 + \mu(3) \cdot 2 + \mu(6) \cdot 1\]
+          \[= 1 \cdot 6 + (-1) \cdot 3 + (-1) \cdot 2 + 1 \cdot 1 = 6 - 3 - 2 + 1 = 2\]
           </p>
-          <p>The quadratic residues modulo 7 are \(\{1, 2, 4\}\). \(\square\)</p>
-        </div>
-      </div>
-
-      <div class="lecture-section"><h2>2. The Legendre Symbol</h2>
-        <div class="definition-box">
-          <strong>Definition 6.2 (Legendre Symbol)</strong> For an odd prime \(p\) and integer \(a\) with \(\gcd(a, p) = 1\), the Legendre symbol \(\left(\frac{a}{p}\right)\) is defined by:
-          \[\left(\frac{a}{p}\right) = \begin{cases} 1 & \text{if } a \text{ is a quadratic residue modulo } p \\ -1 & \text{if } a \text{ is a quadratic non-residue modulo } p \end{cases}\]
-          We extend the definition by setting \(\left(\frac{0}{p}\right) = 0\).
-        </div>
-        
-        <div class="example-box">
-          <strong>Example 6.2</strong> Compute the Legendre symbols modulo 7.</p>
-          <p>From Example 6.1, the quadratic residues are \(\{1, 2, 4\}\).</p>
-          \[\left(\frac{1}{7}\right) = 1, \quad \left(\frac{2}{7}\right) = 1, \quad \left(\frac{3}{7}\right) = -1\]
-          \[\left(\frac{4}{7}\right) = 1, \quad \left(\frac{5}{7}\right) = -1, \quad \left(\frac{6}{7}\right) = -1\]
-          \(\square\)</p>
-        </div>
-      </div>
-
-      <div class="lecture-section"><h2>3. Properties of the Legendre Symbol</h2>
-        <div class="theorem-box">
-          <strong>Theorem 6.1 (Multiplicativity)</strong> For any integers \(a, b\) and odd prime \(p\):
-          \[\left(\frac{ab}{p}\right) = \left(\frac{a}{p}\right) \left(\frac{b}{p}\right).\]
-        </div>
-        
-        <div class="proof-box">
-          <strong>Proof:</strong>
-          <p>Let \(\varepsilon_1 = \left(\frac{a}{p}\right)\) and \(\varepsilon_2 = \left(\frac{b}{p}\right)\) where \(\varepsilon_1, \varepsilon_2 \in \{-1, 1\}\).</p>
-          <p>By definition, there exist integers \(x_1, x_2\) such that \(x_1^2 \equiv a \pmod{p}\) if \(\varepsilon_1 = 1\), and no such \(x_1\) exists if \(\varepsilon_1 = -1\).</p>
-          <p>Similarly for \(b\).</p>
-          <p>If \(\varepsilon_1 = \varepsilon_2 = 1\), then \((x_1 x_2)^2 \equiv ab \pmod{p}\), so \(\left(\frac{ab}{p}\right) = 1 = \varepsilon_1 \varepsilon_2\).</p>
-          <p>If \(\varepsilon_1 = 1, \varepsilon_2 = -1\), then \(a\) is a QR but \(b\) is not. Suppose \(ab\) is a QR. Then \((ab)x_1^2 \equiv a \cdot b \cdot x_1^2 \equiv a \cdot (\text{something}) \pmod{p}\). This would imply \(b\) is a QR, contradiction. Thus \(\left(\frac{ab}{p}\right) = -1 = \varepsilon_1 \varepsilon_2\).</p>
-          <p>The cases \(\varepsilon_1 = -1, \varepsilon_2 = 1\) and \(\varepsilon_1 = \varepsilon_2 = -1\) are similar. \(\square\)</p>
-        </div>
-      </div>
-
-      <div class="lecture-section"><h2>4. Euler's Criterion</h2>
-        <div class="theorem-box">
-          <strong>Theorem 6.2 (Euler's Criterion)</strong> Let \(p\) be an odd prime and \(\gcd(a, p) = 1\). Then:
-          \[\left(\frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod{p}.\]
-          More precisely, \(\left(\frac{a}{p}\right) = (-1)^{\frac{p-1}{2}}\) when \(a\) is a quadratic non-residue.
-        </div>
-        
-        <div class="proof-box">
-          <strong>Proof:</strong>
-          
-          <div class="step-box">
-            <strong>Step 1: Understand the setup</strong>
-            <p>Let \(g\) be a primitive root modulo \(p\). Then any \(a\) with \(\gcd(a, p) = 1\) can be written as \(a \equiv g^k \pmod{p}\) for some \(k\).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Express the Legendre symbol</strong>
-            <p>We compute:
-            \[\left(\frac{a}{p}\right) = \left(\frac{g^k}{p}\right) = \left(\frac{g}{p}\right)^k\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Determine if g is a QR or QNR</strong>
-            <p>By Fermat's Little Theorem, \(g^{p-1} \equiv 1 \pmod{p}\). Also, \(g^{\frac{p-1}{2}} \not\equiv 1 \pmod{p}\) (otherwise \(g\) wouldn't be a primitive root).</p>
-            <p>Therefore \(g^{\frac{p-1}{2}} \equiv -1 \pmod{p}\), so \(g\) is a quadratic non-residue, meaning \(\left(\frac{g}{p}\right) = -1\).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 4: Conclude the proof</strong>
-            <p>Thus \(\left(\frac{a}{p}\right) = (-1)^k\).</p>
-            <p>Now compute \(a^{\frac{p-1}{2}} = g^{k \cdot \frac{p-1}{2}} = (g^{\frac{p-1}{2}})^k \equiv (-1)^k \pmod{p}\).</p>
-            <p>Therefore \(\left(\frac{a}{p}\right) = a^{\frac{p-1}{2}}\) as integers (both equal \((-1)^k\)). \(\square\)</p>
-          </div>
-        </div>
-        
-        <div class="example-box">
-          <strong>Example 6.3</strong> Use Euler's Criterion to compute \(\left(\frac{3}{7}\right)\).</p>
-          <p>Compute \(3^{\frac{7-1}{2}} = 3^3 = 27 = 7 \cdot 3 + 6 \equiv -1 \pmod{7}\).</p>
-          <p>Thus \(\left(\frac{3}{7}\right) = -1\), confirming that 3 is a quadratic non-residue modulo 7. \(\square\)</p>
+          <p>We verify: The numbers coprime to 6 are 1 and 5, so \(\phi(6) = 2\). ✓</p>
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Find all quadratic residues modulo 11.</li>
-          <li>Compute \(\left(\frac{2}{11}\right)\) using Euler's Criterion.</li>
-          <li>Verify that \(\left(\frac{5}{7}\right) = \left(\frac{5}{7}\right)\) using multiplicativity.</li>
-          <li>Prove: If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\).</li>
-          <li>Find all solutions to \(x^2 \equiv 5 \pmod{11}\).</li>
-          <li>Compute \(\left(\frac{13}{17}\right)\) using Euler's Criterion.</li>
-          <li>Show that \(\left(\frac{a}{p}\right) = 1\) if and only if \(x^2 \equiv a \pmod{p}\) has a solution.</li>
+          <li>Compute \(\mu(105)\), \(\mu(18)\), and \(\mu(36)\)</li>
+          <li>Verify that \(\mu * \mathbf{1} = \varepsilon\) for \(n = 1, 2, 3, 4, 6, 12\)</li>
+          <li>Use Möbius inversion to find an explicit formula for \(\phi(n)\)</li>
+          <li>Show that if \(f\) is multiplicative, then \(f * \mu\) is also multiplicative</li>
+          <li>Prove that \(\sum_{d \mid n} \mu(d) = 0\) for all \(n > 1\)</li>
+          <li>Find all \(n\) such that \(\mu(n) = 0\) and \(\mu(n) = 1\)</li>
+          <li>Use Möbius inversion to derive \(\phi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right)\)</li>
+          <li>Show that \(\tau = 1 * 1\) and \(\sigma = 1 * \text{id}\), where \(\text{id}(n) = n\)</li>
         </ol>
       </div>
 

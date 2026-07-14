@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 14: Pythagorean Triples and Related Equations">
+  <meta name="description" content="Lecture 14: Irrational Numbers and Approximation">
   <title>Lecture 14: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -14,7 +14,6 @@
     .lecture-content { color: var(--text); line-height: 1.8; }
     .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
     .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
-    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
     .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -31,124 +30,113 @@
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
-<body>
+<body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 14: Pythagorean Triples and Related Equations</h1></div>
+    <div class="header-content"><h1>Lecture 14: Irrational Numbers and Approximation</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 14: Pythagorean Triples and Related Equations</h1></div>
+    <div class="lecture-header"><h1>Lecture 14: Irrational Numbers and Approximation</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 14</span><span class="lecture-topic">Pythagorean Triples and Related Equations</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 14</span><span class="lecture-topic">Irrational Numbers and Approximation</span></p>
 
-      <div class="lecture-section"><h2>1. Review of Pythagorean Triples</h2>
+      <div class="lecture-section"><h2>1. Classification of Numbers</h2>
         <div class="definition-box">
-          <strong>Definition 14.1 (Pythagorean Triple)</strong> A <strong>Pythagorean triple</strong> is a triple \((a, b, c)\) of positive integers satisfying:
-          \[a^2 + b^2 = c^2\]
+          <strong>Definition 14.1 (Irrational Number)</strong> A real number is <strong>irrational</strong> if it is not rational, i.e., it cannot be expressed as \(\frac{p}{q}\) for integers \(p, q\) with \(q \neq 0\).
         </div>
         
         <div class="theorem-box">
-          <strong>Theorem 14.1 (Parametrization)</strong> Every primitive Pythagorean triple with \(a < b\) is given by:
-          \[a = m^2 - n^2, \quad b = 2mn, \quad c = m^2 + n^2\]
-          where \(m > n > 0\), \(\gcd(m, n) = 1\), and exactly one of \(m, n\) is even.
-        </div>
-        
-        <div class="example-box">
-          <strong>Example 14.1</strong> Find all primitive Pythagorean triples with \(c \leq 20\).
-          
-          <div class="step-box">
-            <strong>Step 1: List possible (m, n) pairs</strong>
-            <p>We need \(m^2 + n^2 \leq 20\), so \(m^2 \leq 19\), giving \(m \leq 4\).</p>
-            <p>Possible pairs \((m, n)\) with \(m > n\), \(\gcd(m, n) = 1\), one even:
-            <ul>
-              <li>\((2, 1)\): \(a = 3, b = 4, c = 5\)</li>
-              <li>\((3, 2)\): \(a = 5, b = 12, c = 13\)</li>
-              <li>\((4, 1)\): \(a = 15, b = 8, c = 17\)</li>
-              <li>\((4, 3)\): \(a = 7, b = 24, c = 25\) (exceeds 20)</li>
-            </ul>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: List the triples</strong>
-            <p>Primitive triples with \(c \leq 20\):
-            <ul>
-              <li>\((3, 4, 5)\)</li>
-              <li>\((5, 12, 13)\)</li>
-              <li>\((8, 15, 17)\)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="lecture-section"><h2>2. Fermat's Right Triangle Theorem</h2>
-        <div class="theorem-box">
-          <strong>Theorem 14.2 (Fermat's Right Triangle Theorem)</strong> A right triangle with integer sides cannot have an integer area.
+          <strong>Theorem 14.1</strong> \(\sqrt{2}\) is irrational.
         </div>
         
         <div class="proof-box">
-          <div class="step-box">
-            <strong>Step 1: Set up the problem</strong>
-            <p>Suppose \((a, b, c)\) is a Pythagorean triple. The area is \(A = \frac{ab}{2}\).</p>
-            <p>We want to show \(A\) cannot be an integer.</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Use the parametrization</strong>
-            <p>For a primitive triple:
-            \[a = m^2 - n^2, \quad b = 2mn, \quad c = m^2 + n^2\]
-            <p>Area: \(A = \frac{ab}{2} = \frac{(m^2 - n^2)(2mn)}{2} = mn(m^2 - n^2)\)</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Show A cannot be a square</strong>
-            <p>Suppose \(A = k^2\) for some integer \(k\).</p>
-            <p>Then \(mn(m^2 - n^2) = k^2\).</p>
-            <p>Since \(\gcd(m, n) = 1\) and exactly one of \(m, n\) is even, we have \(\gcd(mn, m^2 - n^2) = 1\).</p>
-            <p>Thus each factor must be a perfect square: \(m = a^2\), \(n = b^2\), \(m^2 - n^2 = c^2\).</p>
-            <p>So \(a^4 - b^4 = c^2\), contradicting Fermat's Last Theorem for n = 4. \(\square\)</p>
-          </div>
+          <p>Proof by contradiction: Assume \(\sqrt{2} = \frac{p}{q}\) in lowest terms. Then \(2q^2 = p^2\), so \(p^2\) is even, hence \(p\) is even. Write \(p = 2k\). Then \(2q^2 = 4k^2\), so \(q^2 = 2k^2\), making \(q\) even. This contradicts \(\gcd(p, q) = 1\). \(\square\)</p>
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 14.2 (Algebraic Number)</strong> A real number \(\alpha\) is <strong>algebraic</strong> if it is a root of a non-zero polynomial with integer coefficients.
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 14.3 (Transcendental Number)</strong> A real number is <strong>transcendental</strong> if it is not algebraic.
         </div>
       </div>
 
-      <div class="lecture-section"><h2>3. Congruent Numbers</h2>
-        <div class="definition-box">
-          <strong>Definition 14.2 (Congruent Number)</strong> A positive integer \(n\) is called a <strong>congruent number</strong> if there exists a right triangle with rational side lengths and area \(n\).
+      <div class="lecture-section"><h2>2. Liouville's Theorem on Approximation</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.2 (Liouville's Theorem)</strong> If \(\alpha\) is an algebraic number of degree \(n \geq 2\), then there exists a constant \(c > 0\) such that for all rational numbers \(\frac{p}{q}\),
+          \[\left|\alpha - \frac{p}{q}\right| > \frac{c}{q^n}\]
         </div>
         
-        <div class="theorem-box">
-          <strong>Theorem 14.3</strong> A positive integer \(n\) is congruent if and only if the elliptic curve \(y^2 = x^3 - n^2x\) has a non-trivial rational point.
+        <div class="definition-box">
+          <strong>Definition 14.4 (Liouville Number)</strong> A Liouville number is a transcendental number \(\alpha\) such that for every positive integer \(n\), there exist integers \(p, q\) with \(q > 1\) satisfying:
+          \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{q^n}\]
         </div>
         
         <div class="example-box">
-          <strong>Example 14.2</strong> Show that 5 is a congruent number.</p>
-          
-          <div class="step-box">
-            <strong>Step 1: Find a rational right triangle with area 5</strong>
-            <p>Consider the triangle with sides \(\frac{20}{3}, \frac{3}{2}, \frac{41}{6}\).</p>
-            <p>Check: \((\frac{20}{3})^2 + (\frac{3}{2})^2 = \frac{400}{9} + \frac{9}{4} = \frac{1600 + 81}{36} = \frac{1681}{36} = (\frac{41}{6})^2\) ✓</p>
-            <p>Area = \(\frac{1}{2} \cdot \frac{20}{3} \cdot \frac{3}{2} = 5\) ✓</p>
-          </div>
+          <strong>Example 14.1</strong> The number \(\sum_{k=1}^{\infty} 10^{-k!}\) is a Liouville number and hence transcendental.
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Dirichlet's Approximation Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.3 (Dirichlet's Approximation Theorem)</strong> For any irrational number \(\alpha\) and any positive integer \(N\), there exist integers \(p, q\) with \(1 \leq q \leq N\) such that:
+          \[\left|q\alpha - p\right| < \frac{1}{N}\]
+          Equivalently, \(\left|\alpha - \frac{p}{q}\right| < \frac{1}{qN} < \frac{1}{q^2}\).
+        </div>
+        
+        <div class="proof-box">
+          <p>Proof using the pigeonhole principle: Consider the fractional parts \(\{0\alpha\}, \{1\alpha\}, \ldots, \{N\alpha\}\). There are \(N+1\) such fractional parts in \([0, 1)\). Divide \([0, 1)\) into \(N\) intervals of length \(\frac{1}{N}\). By the pigeonhole principle, two fractional parts fall in the same interval, say \(\{i\alpha\}\) and \(\{j\alpha\}\) with \(i > j\). Then \(|(i-j)\alpha - (\lfloor i\alpha \rfloor - \lfloor j\alpha \rfloor)| < \frac{1}{N}\), giving the result with \(q = i-j \leq N\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Hurwitz's Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.4 (Hurwitz's Theorem)</strong> For any irrational number \(\alpha\), there exist infinitely many rational numbers \(\frac{p}{q}\) such that:
+          \[\left|\alpha - \frac{p}{q}\right| < \frac{1}{\sqrt{5}q^2}\]
+        </div>
+        
+        <div class="proof-box">
+          <p>Proof sketch: Using the theory of continued fractions, the convergents satisfy \(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\). For the golden ratio \(\phi = \frac{1+\sqrt{5}}{2}\), the constant \(\frac{1}{\sqrt{5}}\) is optimal. \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 14.2</strong> The golden ratio \(\phi = \frac{1+\sqrt{5}}{2}\) has convergents \(\frac{F_{n+1}}{F_n}\) where \(F_n\) are Fibonacci numbers, satisfying the bound in Hurwitz's theorem.
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Transcendence Results</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.5 (Lindemann-Weierstrass)</strong> If \(\alpha_1, \ldots, \alpha_n\) are distinct algebraic numbers, then \(e^{\alpha_1}, \ldots, e^{\alpha_n}\) are linearly independent over the algebraic numbers.
+        </div>
+        
+        <div class="corollary-box">
+          <strong>Corollary 14.1</strong> The numbers \(e\) and \(\pi\) are transcendental.
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 14.3</strong> Since \(e\) is transcendental, \(\ln 2\) is also transcendental (as it is algebraic only if \(e^{\ln 2} = 2\) is transcendental, which it is not).
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Find all primitive Pythagorean triples with hypotenuse ≤ 50.</li>
-          <li>Show that 6 is a congruent number.</li>
-          <li>Prove: In any Pythagorean triple, at least one leg is divisible by 3.</li>
-          <li>Prove: In any Pythagorean triple, at least one leg is divisible by 4.</li>
-          <li>Prove: In any Pythagorean triple, at least one leg is divisible by 5.</li>
-          <li>Find a right triangle with integer sides and area 210.</li>
-          <li>Show that if \(n\) is a congruent number, then so is \(kn^2\) for any integer \(k\).</li>
-          <li>Prove: A primitive Pythagorean triple \((a, b, c)\) has \(c \equiv 1 \pmod{4}\) or \(c \equiv 1 \pmod{4}\).</li>
+          <li>Prove that \(\sqrt{3}\) is irrational.</li>
+          <li>Show that \(\log_{10} 2\) is irrational.</li>
+          <li>Apply Dirichlet's theorem to find a rational approximation to \(\sqrt{2}\) with denominator at most 10.</li>
+          <li>Show that any rational number \(\frac{p}{q}\) (in lowest terms) satisfies \(\left|\sqrt{2} - \frac{p}{q}\right| > \frac{1}{2q^2}\).</li>
+          <li>Prove that Liouville numbers are transcendental.</li>
+          <li>Find the continued fraction expansion of \(\sqrt{7}\) and use it to approximate \(\sqrt{7}\).</li>
+          <li>Show that the set of irrational numbers is uncountable.</li>
+          <li>Prove: If \(\alpha\) is irrational, the set \(\{\{n\alpha\} : n \in \mathbb{Z}^+\}\) is dense in \([0, 1]\).</li>
         </ol>
       </div>
 
-      <div class="navigation"><a href="lecture-notes-13.html">← Previous Lecture</a><a href="number-theory.html">Back to Course</a></div>
+      <div class="navigation"><a href="lecture-notes-13.html">← Previous Lecture</a><a href="number-theory.html">Back to Course</a><a href="lecture-notes-15.html">Next Lecture →</a></div>
     </div>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

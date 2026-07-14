@@ -46,10 +46,10 @@
 
       <div class="lecture-section"><h2>1. Definition of Congruence</h2>
         <div class="definition-box">
-          <strong>Definition 1.1 (Congruence Modulo n)</strong> Let \(a, b \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\). We say that <strong>\(a\) is congruent to \(b\) modulo \(n\)**, written:</p>
+          <strong>Definition 1.1 (Congruence Modulo n)</strong> Let \(a, b \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\). We say that <strong>\(a\) is congruent to \(b\) modulo \(n\)</strong>, written:
           \[a \equiv b \pmod{n}\]
-          <p>if \(n \mid (a - b)\)</p>
-          <p>This is read as "\(a\) is congruent to \(b\) mod \(n\)".</p>
+          if \(n \mid (a - b)\).
+          This is read as "\(a\) is congruent to \(b\) mod \(n\)".
         </div>
         
         <div class="example-box">
@@ -63,17 +63,17 @@
         </div>
         
         <div class="definition-box">
-          <strong>Definition 1.2 (Residue Class)</strong> The set of all integers congruent to \(a\) modulo \(n\) is called the <strong>residue class of \(a\) modulo \(n\)**:</p>
-          \[[a]_n = \{x \in \mathbb{Z} : x \equiv a \pmod{n}\} = \{a + nk : k \in \mathbb{Z}\}\]</p>
+          <strong>Definition 1.2 (Residue Class)</strong> The set of all integers congruent to \(a\) modulo \(n\) is called the <strong>residue class of \(a\) modulo \(n\)**:
+          \[[a]_n = \{x \in \mathbb{Z} : x \equiv a \pmod{n}\} = \{a + nk : k \in \mathbb{Z}\}\]
         </div>
         
         <div class="definition-box">
-          <strong>Definition 1.3 (Complete Residue System)</strong> A set of integers \(\{r_0, r_1, \ldots, r_{n-1}\}\) is called a <strong>complete residue system modulo \(n\)** if every integer is congruent to exactly one element of the set.</p>
-          <p>The <strong>canonical complete residue system</strong> is \(\{0, 1, 2, \ldots, n-1\}\).</p>
+          <strong>Definition 1.3 (Complete Residue System)</strong> A set of integers \(\{r_0, r_1, \ldots, r_{n-1}\}\) is called a <strong>complete residue system modulo \(n\)** if every integer is congruent to exactly one element of the set.
+          The <strong>canonical complete residue system</strong> is \(\{0, 1, 2, \ldots, n-1\}\).
         </div>
         
         <div class="example-box">
-          <strong>Example 4.2</strong> Find the canonical residue class of 17 modulo 5.</p>
+          <strong>Example 4.2</strong> Find the canonical residue class of 17 modulo 5.
           
           <div class="step-box">
             <strong>Step 1: Divide 17 by 5</strong>
@@ -135,9 +135,9 @@
 
       <div class="lecture-section"><h2>3. Solving Linear Congruences</h2>
         <div class="definition-box">
-          <strong>Definition 3.1 (Linear Congruence)</strong> A congruence of the form:</p>
+          <strong>Definition 3.1 (Linear Congruence)</strong> A congruence of the form:
           \[ax \equiv b \pmod{n}\]
-          <p>where \(a, b, n \in \mathbb{Z}\) with \(n > 0\), is called a <strong>linear congruence in one variable</strong>.</p>
+          where \(a, b, n \in \mathbb{Z}\) with \(n > 0\), is called a <strong>linear congruence in one variable</strong>.
         </div>
         
         <div class="theorem-box">
@@ -162,19 +162,9 @@
           <div class="step-box">
             <strong>(⇐) If gcd(a,n) | b, then a solution exists:</strong>
             <p>Suppose \(d = \gcd(a, n)\) and \(d \mid b\).</p>
-            <p>Let \(a = da'\), \(n = dn'\), \(b = db'\) where \(a', n', b' \in \mathbb{Z}\).</p>
+            <p>Write \(a = da'\), \(n = dn'\), \(b = db'\) where \(a', n', b' \in \mathbb{Z}\).</p>
             <p>Note: \(\gcd(a', n') = 1\) since we divided out the gcd.</p>
             <p>The congruence becomes: \(da'x \equiv db' \pmod{dn'}\)</p>
-            <p>This is equivalent to: \(da'x - db' = d(dn')k\) for some integer \(k\).</p>
-            <p>Dividing by \(d\): \(a'x - b' = dn'k = n' \cdot d \cdot k\)</p>
-            <p>Wait, let's reconsider more carefully...</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Correct approach:</strong>
-            <p>We have \(ax \equiv b \pmod{n}\) with \(d = \gcd(a, n)\) and \(d \mid b\).</p>
-            <p>Write \(a = da'\), \(n = dn'\), \(b = db'\). The congruence is:</p>
-            \[da'x \equiv db' \pmod{dn'}\]</p>
             <p>This means \(dn' \mid (da'x - db') = d(a'x - b')\).</p>
             <p>Since \(d \neq 0\), this is equivalent to \(n' \mid (a'x - b')\).</p>
             <p>So \(a'x \equiv b' \pmod{n'}\).</p>
@@ -183,46 +173,44 @@
             <p>Therefore \(ax \equiv b \pmod{n}\) has a solution. \(\square\)</p>
           </div>
         </div>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 3.1</strong> Solve \(3x \equiv 4 \pmod{7}\).</p>
         
-        <div class="step-box">
-          <strong>Step 1: Check if solution exists</strong>
-          <p>\(\gcd(3, 7) = 1\)</p>
-          <p>Since \(1 \mid 4\), a solution exists.</p>
-          <p>Since \(\gcd(3, 7) = 1\), the solution is unique modulo 7.</p>
+        <div class="example-box">
+          <strong>Example 3.1</strong> Solve \(3x \equiv 4 \pmod{7}\).
+          
+          <div class="step-box">
+            <strong>Step 1: Check if solution exists</strong>
+            <p>\(\gcd(3, 7) = 1\)</p>
+            <p>Since \(1 \mid 4\), a solution exists.</p>
+            <p>Since \(\gcd(3, 7) = 1\), the solution is unique modulo 7.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Find the inverse of 3 modulo 7</strong>
+            <p>We need \(x\) such that \(3x \equiv 1 \pmod{7}\).</p>
+            <p>Testing: \(3 \cdot 5 = 15 \equiv 1 \pmod{7}\)</p>
+            <p>So \(3^{-1} \equiv 5 \pmod{7}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Multiply both sides by the inverse</strong>
+            <p>\(x \equiv 5 \cdot 4 \equiv 20 \equiv 6 \pmod{7}\)</p>
+            <p>Check: \(3 \cdot 6 = 18 \equiv 4 \pmod{7}\). ✓</p>
+          </div>
         </div>
         
-        <div class="step-box">
-          <strong>Step 2: Find the inverse of 3 modulo 7</strong>
-          <p>We need \(x\) such that \(3x \equiv 1 \pmod{7}\).</p>
-          <p>Testing: \(3 \cdot 1 = 3\), \(3 \cdot 2 = 6\), \(3 \cdot 3 = 9 \equiv 2\), \(3 \cdot 4 = 12 \equiv 5\), \(3 \cdot 5 = 15 \equiv 1 \pmod{7}\)</p>
-          <p>So \(3^{-1} \equiv 5 \pmod{7}\).</p>
-        </div>
-        
-        <div class="step-box">
-          <strong>Step 3: Multiply both sides by the inverse</strong>
-          <p>\(x \equiv 5 \cdot 4 \equiv 20 \equiv 6 \pmod{7}\)</p>
-          <p>Check: \(3 \cdot 6 = 18 \equiv 4 \pmod{7}\). ✓</p>
-        </div>
-      </div>
-      
-      <div class="example-box">
-        <strong>Example 3.2</strong> Solve \(6x \equiv 9 \pmod{15}\).</p>
-        
-        <div class="step-box">
-          <strong>Step 1: Check gcd</strong>
-          <p>\(\gcd(6, 15) = 3\)</p>
-          <p>Since \(3 \mid 9\), solutions exist.</p>
-          <p>There will be 3 distinct solutions modulo 15.</p>
-        </div>
-        
-        <div class="step-box">
-          <strong>Step 2: Divide through by gcd</strong>
-            <p>Divide the congruence by 3:</p>
-            \[2x \equiv 3 \pmod{5}\]</p>
+        <div class="example-box">
+          <strong>Example 3.2</strong> Solve \(6x \equiv 9 \pmod{15}\).
+          
+          <div class="step-box">
+            <strong>Step 1: Check gcd</strong>
+            <p>\(\gcd(6, 15) = 3\)</p>
+            <p>Since \(3 \mid 9\), solutions exist.</p>
+            <p>There will be 3 distinct solutions modulo 15.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Divide through by gcd</strong>
+            <p>Divide the congruence by 3: \(2x \equiv 3 \pmod{5}\)</p>
           </div>
           
           <div class="step-box">
@@ -237,22 +225,19 @@
             <p>The solutions are \(x \equiv 4 \pmod{5}\).</p>
             <p>Modulo 15, the solutions are: \(x \equiv 4, 9, 14 \pmod{15}\)</p>
             <p>Check: \(6 \cdot 4 = 24 \equiv 9 \pmod{15}\) ✓</p>
-            <p>Check: \(6 \cdot 9 = 54 \equiv 9 \pmod{15}\) ✓</p>
-            <p>Check: \(6 \cdot 14 = 84 \equiv 9 \pmod{15}\) ✓</p>
           </div>
         </div>
-      </div>
       </div>
 
       <div class="lecture-section"><h2>4. Chinese Remainder Theorem</h2>
         <div class="definition-box">
-          <strong>Definition 4.1 (Pairwise Coprime)</strong> A set of integers \(n_1, n_2, \ldots, n_k\) is called <strong>pairwise coprime</strong> if \(\gcd(n_i, n_j) = 1\) for all \(i \neq j\).</div>
+          <strong>Definition 4.1 (Pairwise Coprime)</strong> A set of integers \(n_1, n_2, \ldots, n_k\) is called <strong>pairwise coprime</strong> if \(\gcd(n_i, n_j) = 1\) for all \(i \neq j\).
         </div>
         
         <div class="theorem-box">
-          <strong>Theorem 4.1 (Chinese Remainder Theorem)</strong> Let \(n_1, n_2, \ldots, n_k\) be pairwise coprime positive integers. Then for any integers \(a_1, a_2, \ldots, a_k\), the system of simultaneous congruences:</p>
-          \[\begin{cases} x \equiv a_1 \pmod{n_1} \\ x \equiv a_2 \pmod{n_2} \\ \vdots \\ x \equiv a_k \pmod{n_k} \end{cases}\]</p>
-          <p>has a unique solution modulo \(N = n_1 n_2 \cdots n_k\).</p>
+          <strong>Theorem 4.1 (Chinese Remainder Theorem)</strong> Let \(n_1, n_2, \ldots, n_k\) be pairwise coprime positive integers. Then for any integers \(a_1, a_2, \ldots, a_k\), the system of simultaneous congruences:
+          \[\begin{cases} x \equiv a_1 \pmod{n_1} \\ x \equiv a_2 \pmod{n_2} \\ \vdots \\ x \equiv a_k \pmod{n_k} \end{cases}\]
+          has a unique solution modulo \(N = n_1 n_2 \cdots n_k\).
         </div>
         
         <div class="proof-box">
@@ -267,13 +252,13 @@
           
           <div class="step-box">
             <strong>Step 2: Construct the solution</strong>
-            <p>Define:</p>
+            <p>Define:
             \[x = a_1 N_1 M_1 + a_2 N_2 M_2 + \cdots + a_k N_k M_k\]</p>
           </div>
           
           <div class="step-box">
             <strong>Step 3: Verify \(x \equiv a_j \pmod{n_j}\)</strong>
-            <p>Consider \(x\) modulo \(n_j\):</p>
+            <p>Consider \(x\) modulo \(n_j\):
             \[x = \sum_{i=1}^{k} a_i N_i M_i\]</p>
             <p>For \(i \neq j\): \(N_i\) is a multiple of \(n_j\), so \(N_i M_i \equiv 0 \pmod{n_j}\).</p>
             <p>For \(i = j\): \(N_j M_j \equiv 1 \pmod{n_j}\), so \(a_j N_j M_j \equiv a_j \pmod{n_j}\).</p>
@@ -339,7 +324,7 @@
         </ol>
       </div>
 
-      <div class="navigation"><a href="lecture-notes-3.html">← Previous Lecture</a><a href="number-theory.html">← Back to Course</a><a href="lecture-notes-5.html">Next Lecture →</a></div>
+      <div class="navigation"><a href="lecture-notes-3.html">← Previous Lecture</a><a href="number-theory.html">Back to Course →</a><a href="lecture-notes-5.html">Next Lecture →</a></div>
     </div>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

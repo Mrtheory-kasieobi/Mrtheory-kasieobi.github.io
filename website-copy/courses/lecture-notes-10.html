@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 10: Applications of Gaussian Integers to Diophantine Equations">
-  <title>Lecture 10: Elementary Number Theory | Kasieobi Udumaga</title>
+<meta name="description" content="Lecture 11: Applications of Gaussian Integers">
+    <title>Lecture 11: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
@@ -31,19 +31,20 @@
 <body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 10: Applications of Gaussian Integers to Diophantine Equations</h1></div>
+    <div class="header-content"><h1>Lecture 11: Applications of Gaussian Integers</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
     <div class="lecture-header"><h1>Lecture 10: Applications of Gaussian Integers to Diophantine Equations</h1></div>
+    <div class="lecture-header"><h1>Lecture 11: Applications of Gaussian Integers</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 10</span><span class="lecture-topic">Applications of Gaussian Integers to Diophantine Equations</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 11</span><span class="lecture-topic">Applications of Gaussian Integers</span></p>
 
       <div class="lecture-section"><h2>1. The Sum of Two Squares Theorem</h2>
         <div class="theorem-box">
-          <strong>Theorem 10.1 (Sum of Two Squares)</strong> A positive integer \(n\) can be expressed as \(n = x^2 + y^2\) for integers \(x, y\) if and only if in the prime factorization of \(n\), every prime \(p \equiv 3 \pmod{4}\) appears with an even exponent.
+          <strong>Theorem 11.1 (Sum of Two Squares)</strong> A positive integer \(n\) can be expressed as \(n = x^2 + y^2\) for integers \(x, y\) if and only if in the prime factorization of \(n\), every prime \(p \equiv 3 \pmod{4}\) appears with an even exponent.
         </div>
         
         <div class="proof-box">
@@ -69,42 +70,47 @@
         </div>
       </div>
 
-      <div class="lecture-section"><h2>2. The Equation \(x^2 + 1 = py^2\)</h2>
-        <div class="theorem-box">
-          <strong>Theorem 10.2</strong> The equation \(x^2 + 1 = py^2\) has an integer solution for a prime \(p\) if and only if \(p \equiv 1 \pmod{4}\).
+      <div class="lecture-section"><h2>2. Pell's Equation via Gaussian Integers</h2>
+        <div class="definition-box">
+          <strong>Definition 11.1 (Pell's Equation)</strong> An equation of the form \(x^2 - Dy^2 = 1\) where \(D\) is a positive non-square integer is called <strong>Pell's equation</strong>.
         </div>
         
-        <div class="proof-box">
-          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(x^2 + 1 = py^2\), then \(x^2 \equiv -1 \pmod{p}\). Thus \(-1\) is a quadratic residue modulo \(p\), which happens iff \(p \equiv 1 \pmod{4}\). \(\square\)</p>
-          
-          <p><strong>Sufficiency (\(\Rightarrow\)):</strong> If \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue, so \(x^2 \equiv -1 \pmod{p}\) has a solution.</p>
-          <p>Consider the lattice \(L = \{(a, b) \in \mathbb{Z}^2 : a \equiv xb \pmod{p}\}\). By Minkowski's theorem, there exists \((a, b) \neq (0, 0)\) with \(a^2 + b^2 = p \cdot m\) for some \(m\).</p>
-          <p>Using the division algorithm in \(\mathbb{Z}[i]\), we can find a solution. \(\square\)</p>
+        <div class="example-box">
+          <strong>Example 11.1</strong> Find solutions to \(x^2 - 2y^2 = 1\).
+          <p>Try small values: \(y = 1\) gives \(x^2 = 3\) (no), \(y = 2\) gives \(x^2 = 9\), so \(x = 3\).</p>
+          <p>Fundamental solution: \((3, 2)\). All solutions are given by \((3 + 2\sqrt{2})^n\).</p>
         </div>
       </div>
 
-      <div class="example-box">
-        <strong>Example 10.1</strong> Find a solution to \(x^2 + 1 = 5y^2\).</p>
-          <p>We need \(x^2 + 1 \equiv 0 \pmod{5}\), so \(x^2 \equiv -1 \equiv 4 \pmod{5}\).</p>
-          <p>Thus \(x \equiv \pm 2 \pmod{5}\). Try \(x = 2\): \(4 + 1 = 5 = 5 \cdot 1\), so \(y = 1\).</p>
-          <p>Solution: \((x, y) = (2, 1)\). Check: \(2^2 + 1 = 5 = 5 \cdot 1^2\). \(\square\)</p>
+      <div class="lecture-section"><h2>3. Applications to Diophantine Equations</h2>
+        <div class="theorem-box">
+          <strong>Theorem 11.2</strong> The equation \(x^2 + y^2 = z^n\) has integer solutions for any \(n \geq 1\).
+        </div>
+        
+        <div class="proof-box">
+          <div class="step-box">
+            <strong>Step 1: Use Gaussian integers</strong>
+            <p>Write \(x + yi = (a + bi)^n\) for some Gaussian integer \(a + bi\).</p>
+            <p>Then \(x^2 + y^2 = N(x + yi) = N(a + bi)^n = (a^2 + b^2)^n\). \(\square\)</p>
+          </div>
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Express 65 as a sum of two squares in all possible ways.</li>
+          <li>Express 50 as a sum of two squares in all possible ways.</li>
           <li>Show that 21 cannot be written as a sum of two squares.</li>
-          <li>Find all integers \(n \leq 50\) that can be written as \(x^2 + y^2\).</li>
-          <li>Prove that if \(n = x^2 + y^2\) and \(m = u^2 + v^2\), then \(nm = (xu - yv)^2 + (xv + yu)^2\).</li>
-          <li>Find a solution to \(x^2 + 1 = 13y^2\).</li>
-          <li>Show that if \(p \equiv 3 \pmod{4}\) is prime, then \(x^2 + 1 = py^2\) has no integer solutions.</li>
-          <li>Prove: If \(\gcd(x, y) = 1\) and \(x^2 + y^2 = z^n\), then every prime factor of \(z\) is either 2 or \(\equiv 1 \pmod{4}\).</li>
+          <li>Find a solution to \(x^2 - 3y^2 = 1\).</li>
+          <li>Find integers \(x, y\) such that \(x^2 + y^2 = 343\).</li>
+          <li>Prove: If \(n = x^2 + y^2\) and \(\gcd(x, y) = 1\), then no prime \(p \equiv 3 \pmod{4}\) divides \(n\).</li>
+          <li>Show that \(x^2 + y^2 = 2^n\) has solutions for all \(n \geq 1\).</li>
+          <li>Find the fundamental solution to \(x^2 - 5y^2 = 1\).</li>
+          <li>Prove: If \(p \equiv 1 \pmod{4}\) is prime, then \(x^2 + y^2 = p\) has exactly 8 solutions (counting signs and order).</li>
         </ol>
       </div>
 
-      <div class="navigation"><a href="lecture-notes-9.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-11.html">Next Lecture →</a></div>
+      <div class="navigation"><a href="lecture-notes-9.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-12.html">Next Lecture →</a></div>
     </div>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

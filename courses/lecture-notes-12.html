@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 12: Linear Diophantine Equations">
+  <meta name="description" content="Lecture 12: Diophantine Equations">
   <title>Lecture 12: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -34,7 +34,7 @@
 <body>
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 12: Linear Diophantine Equations</h1></div>
+    <div class="header-content"><h1>Lecture 12: Diophantine Equations</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
@@ -44,9 +44,29 @@
     <div class="lecture-content">
       <p class="lecture-metadata"><span class="lecture-number">Lecture 12</span><span class="lecture-topic">Linear Diophantine Equations</span></p>
 
-      <div class="lecture-section"><h2>1. Definition and Basic Theory</h2>
+      <div class="lecture-header"><h1>Lecture 12: Diophantine Equations</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 12</span><span class="lecture-topic">Diophantine Equations</span></p>
+
+      <div class="lecture-section"><h2>1. Definition and Examples</h2>
         <div class="definition-box">
-          <strong>Definition 12.1 (Linear Diophantine Equation)</strong> An equation of the form:
+          <strong>Definition 12.1 (Diophantine Equation)</strong> A <strong>Diophantine equation</strong> is a polynomial equation where we seek integer solutions.
+        </div>
+        
+        <div class="example-box">
+          <strong>Examples:</strong>
+          <ul>
+            <li>Linear: \(ax + by = c\)</li>
+            <li>Quadratic: \(x^2 + y^2 = z^2\) (Pythagorean triples)</li>
+            <li>Quadratic: \(x^2 - Dy^2 = 1\) (Pell's equation)</li>
+            <li>Higher degree: \(x^3 + y^3 = z^3\)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Linear Diophantine Equations</h2>
+        <div class="definition-box">
+          <strong>Definition 12.2 (Linear Diophantine Equation)</strong> An equation of the form:
           \[ax + by = c\]
           where \(a, b, c \in \mathbb{Z}\) and we seek integer solutions \((x, y)\), is called a <strong>linear Diophantine equation</strong>.
         </div>
@@ -56,82 +76,35 @@
         </div>
         
         <div class="proof-box">
-          <strong>Proof:</strong>
-          
           <div class="step-box">
             <strong>(⇒) If solutions exist, then gcd(a,b) | c:</strong>
-            <p>Suppose \(x_0, y_0\) satisfy \(ax_0 + by_0 = c\).</p>
-            <p>Let \(d = \gcd(a, b)\). Then \(d \mid a\) and \(d \mid b\).</p>
-            <p>Therefore \(d \mid (ax_0 + by_0) = c\).</p>
+            <p>Suppose \(x_0, y_0\) satisfy \(ax_0 + by_0 = c\). Let \(d = \gcd(a, b)\). Then \(d \mid a\) and \(d \mid b\). Therefore \(d \mid (ax_0 + by_0) = c\).</p>
           </div>
           
           <div class="step-box">
             <strong>(⇐) If gcd(a,b) | c, then solutions exist:</strong>
-            <p>Suppose \(d = \gcd(a, b)\) and \(d \mid c\).</p>
-            <p>By Bézout's identity (Lecture 2), there exist \(u, v\) such that \(au + bv = d\).</p>
-            <p>Since \(d \mid c\), we have \(c = dk\) for some integer \(k\).</p>
-            <p>Multiply both sides: \(a(uk) + b(vk) = dk = c\).</p>
-            <p>So \(x = uk\) and \(y = vk\) are solutions. \(\square\)</p>
+            <p>By Bézout's identity, there exist \(u, v\) such that \(au + bv = \gcd(a, b)\). If \(d = \gcd(a, b) \mid c\), write \(c = dk\). Then \(a(uk) + b(vk) = c\), giving solutions \(x = uk, y = vk\). \(\square\)</p>
           </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>2. General Solution Formula</h2>
+      <div class="lecture-section"><h2>3. General Solution Formula</h2>
         <div class="theorem-box">
           <strong>Theorem 12.2 (General Solution)</strong> If \((x_0, y_0)\) is a particular solution to \(ax + by = c\), then all solutions are given by:
           \[x = x_0 + \frac{b}{\gcd(a,b)} \cdot t, \quad y = y_0 - \frac{a}{\gcd(a,b)} \cdot t\]
           where \(t \in \mathbb{Z}\).
         </div>
         
-        <div class="proof-box">
-          <div class="step-box">
-            <strong>Step 1: Verify the formula gives solutions</strong>
-            <p>Let \(d = \gcd(a, b)\). We need to check that \(a(x_0 + \frac{b}{d}t) + b(y_0 - \frac{a}{d}t) = c\).</p>
-            <p>LHS = \(ax_0 + \frac{abl}{d}t + by_0 - \frac{ab}{d}t = ax_0 + by_0 = c\). ✓</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Show all solutions have this form</strong>
-            <p>If \((x, y)\) is any solution, then \(ax + by = ax_0 + by_0\).</p>
-            <p>Therefore \(a(x - x_0) + b(y - y_0) = 0\), so \(a(x - x_0) = -b(y - y_0)\).</p>
-            <p>Since \(d = \gcd(a, b)\), write \(a = da'\), \(b = db'\). Then \(a'(x - x_0) = -b'(y - y_0)\)</p>
-            <p>Since \(\gcd(a', b') = 1\), we have \(b' \mid (x - x_0)\), so \(x - x_0 = b't\) for some integer \(t\).</p>
-            <p>Then \(y - y_0 = -a't\), giving the formula. \(\square\)</p>
-          </div>
-        </div>
-        
         <div class="example-box">
           <strong>Example 12.1</strong> Find all solutions to \(12x + 18y = 6\).
-          
-          <div class="step-box">
-            <strong>Step 1: Check existence</strong>
-            <p>\(\gcd(12, 18) = 6\) and \(6 \mid 6\). Solutions exist.</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Find particular solution</strong>
-            <p>Using Extended Euclidean Algorithm:
-            \(18 = 12 \cdot 1 + 6\)
-            \(12 = 6 \cdot 2 + 0\)
-            Back-substitution: \(6 = 18 - 12 \cdot 1\)
-            So \(12(-1) + 18(1) = 6\). Particular solution: \(x_0 = -1, y_0 = 1\).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Write general solution</strong>
-            <p>General solution:
-            \[x = -1 + \frac{18}{6}t = -1 + 3t\]
-            \[y = 1 - \frac{12}{6}t = 1 - 2t\]
-            where \(t \in \mathbb{Z}\). \(\square\)</p>
-          </div>
+          <p>\(\gcd(12, 18) = 6\) and \(6 \mid 6\). Solutions exist. Using Extended Euclidean: \(6 = 18 - 12 \cdot 1\), so \(x_0 = -1, y_0 = 1\).</p>
+          <p>General solution: \(x = -1 + 3t, y = 1 - 2t\) for \(t \in \mathbb{Z}\).</p>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>3. Pythagorean Triples</h2>
+      <div class="lecture-section"><h2>4. Pythagorean Triples</h2>
         <div class="definition-box">
-          <strong>Definition 12.2 (Pythagorean Triple)</strong> A <strong>Pythagorean triple</strong> is a triple \((a, b, c)\) of positive integers satisfying:
-          \[a^2 + b^2 = c^2\]
-          We call it <strong>primitive</strong> if \(\gcd(a, b, c) = 1\).
+          <strong>Definition 12.3 (Pythagorean Triple)</strong> A <strong>Pythagorean triple</strong> is a triple \((a, b, c)\) of positive integers satisfying \(a^2 + b^2 = c^2\). It is <strong>primitive</strong> if \(\gcd(a, b, c) = 1\).
         </div>
         
         <div class="theorem-box">
@@ -140,56 +113,27 @@
           where \(m > n > 0\), \(\gcd(m, n) = 1\), and exactly one of \(m, n\) is even.
         </div>
         
-        <div class="proof-box">
-          <div class="step-box">
-            <strong>Step 1: Verify the formula works</strong>
-            <p>\((m^2 - n^2)^2 + (2mn)^2 = m^4 - 2m^2n^2 + n^4 + 4m^2n^2\)
-            \[= m^4 + 2m^2n^2 + n^4 = (m^2 + n^2)^2\)</p>
-            <p>So \(a^2 + b^2 = c^2\). \(\square\)</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Show all primitive triples arise this way</strong>
-            <p>Start with \(a^2 + b^2 = c^2\) with \(\gcd(a, b, c) = 1\).</p>
-            <p>Assume \(a\) is odd and \(b\) is even. Rewrite: \(b^2 = c^2 - a^2 = (c-a)(c+a)\)</p>
-            <p>Let \(u = \frac{c-a}{2}\) and \(v = \frac{c+a}{2}\). Then \(uv = \frac{b^2}{4}\):
-            \[c = u + v, \quad a = v - u, \quad b = 2\sqrt{uv}\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Conclude u and v are squares</strong>
-            <p>Since \(\gcd(u, v) = 1\) and \(uv\) is a perfect square, both \(u\) and \(v\) are perfect squares.</p>
-            <p>Write \(u = n^2\) and \(v = m^2\) with \(m > n > 0\).
-            Then \(a = m^2 - n^2\), \(b = 2mn\), \(c = m^2 + n^2\). \(\square\)</p>
-          </div>
+        <div class="example-box">
+          <strong>Example 12.2</strong> Find all primitive Pythagorean triples with hypotenuse \(c = 65\).
+          <p>\(65 = 5 \cdot 13 = (1^2 + 2^2)(2^2 + 3^2)\)</p>
+          <p>Using Brahmagupta-Fibonacci: \(65 = 7^2 + 4^2\) and \(65 = 8^2 + 1^2\)</p>
+          <p>So the triples are \((7, 24, 25)\) and \((16, 63, 65)\) (using the parametrization formulas).</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Pell's Equation</h2>
+        <div class="definition-box">
+          <strong>Definition 12.4 (Pell's Equation)</strong> An equation of the form \(x^2 - Dy^2 = 1\) where \(D\) is a positive non-square integer is called <strong>Pell's equation</strong>.
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 12.4</strong> Pell's equation \(x^2 - Dy^2 = 1\) always has a non-trivial solution when \(D\) is a positive non-square integer.
         </div>
         
         <div class="example-box">
-          <strong>Example 12.4</strong> Find all primitive Pythagorean triples with hypotenuse \(c = 65\).
-          
-          <div class="step-box">
-            <strong>Step 1: Factor 65</strong>
-            <p>\(65 = 5 \cdot 13\). Both are primes ≡ 1 (mod 4).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Find representations as sums of squares</strong>
-            <p>\(5 = 1^2 + 2^2\)
-            \(13 = 2^2 + 3^2\)</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Use Brahmagupta-Fibonacci identity</strong>
-            <p>\((1^2 + 2^2)(2^2 + 3^2) = (1 \cdot 2 - 2 \cdot 3)^2 + (1 \cdot 3 + 2 \cdot 2)^2 = (-4)^2 + 7^2 = 16 + 49 = 65\)</p>
-            <p>Also: \((1^2 + 2^2)(3^2 + 2^2) = (1 \cdot 3 - 2 \cdot 2)^2 + (1 \cdot 2 + 3 \cdot 2)^2 = (-1)^2 + 8^2 = 1 + 64 = 65\)</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Conclusion:</strong>
-            <p>The primitive Pythagorean triples with \(c = 65\) are:
-            \((7, 24, 25)\) and \((16, 63, 65)\)</p>
-            Wait, let me recalculate properly using the parametrization.</p>
-          </div>
+          <strong>Example 12.3</strong> Find the fundamental solution to \(x^2 - 2y^2 = 1\).
+          <p>Try small values: \(y = 1\) gives \(x^2 = 3\) (no), \(y = 2\) gives \(x^2 = 9\), so \(x = 3\).</p>
+          <p>Fundamental solution: \((3, 2)\). All solutions are given by \((3 + 2\sqrt{2})^n\).</p>
         </div>
       </div>
 

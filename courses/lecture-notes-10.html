@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 10: Applications of Gaussian Integers to Diophantine Equations">
+  <meta name="description" content="Lecture 10: Gaussian Primes and Factorization">
   <title>Lecture 10: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -20,6 +20,8 @@
     .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
     .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -31,76 +33,117 @@
 <body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 10: Applications of Gaussian Integers to Diophantine Equations</h1></div>
+    <div class="header-content"><h1>Lecture 10: Gaussian Primes and Factorization</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 10: Applications of Gaussian Integers to Diophantine Equations</h1></div>
+    <div class="lecture-header"><h1>Lecture 10: Gaussian Primes and Factorization</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 10</span><span class="lecture-topic">Applications of Gaussian Integers to Diophantine Equations</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 10</span><span class="lecture-topic">Gaussian Primes and Factorization</span></p>
 
-      <div class="lecture-section"><h2>1. The Sum of Two Squares Theorem</h2>
+      <div class="lecture-section"><h2>1. Classification of Gaussian Primes</h2>
         <div class="theorem-box">
-          <strong>Theorem 10.1 (Sum of Two Squares)</strong> A positive integer \(n\) can be expressed as \(n = x^2 + y^2\) for integers \(x, y\) if and only if in the prime factorization of \(n\), every prime \(p \equiv 3 \pmod{4}\) appears with an even exponent.
-        </div>
-        
-        <div class="proof-box">
-          <p><strong>Necessity (\(\Rightarrow\)):</strong> Suppose \(n = x^2 + y^2\). If a prime \(p \equiv 3 \pmod{4}\) divides \(n\) to an odd power, write \(n = p^{2k+1} m\) where \(p \nmid m\).</p>
-          <p>Since \(n = x^2 + y^2\), we have \(p^{2k+1} \mid (x^2 + y^2)\).</p>
-          <p>If \(p \mid x\), then \(p \mid y\) (since \(p \mid x^2 + y^2\)). Write \(x = px', y = py'\). Then \(p^{2k+1} \mid p^2(x'^2 + y'^2)\), so \(p^{2k-1} \mid x'^2 + y'^2\).</p>
-          <p>Continue until we get \(p \mid (x_0^2 + y_0^2)\) where \(p \nmid x_0\) or \(p \nmid y_0\).</p>
-          <p>But if \(p \nmid x_0\), then \(x_0^2 + y_0^2 \equiv 0 \pmod{p}\), so \(-y_0^2 \equiv x_0^2 \pmod{p}\), giving \((xy^{-1})^2 \equiv -1 \pmod{p}\).</p>
-          <p>This contradicts that \(-1\) is not a quadratic residue modulo \(p\) when \(p \equiv 3 \pmod{4}\). \(\square\)</p>
-        </div>
-        
-        <div class="proof-box">
-          <p><strong>Sufficiency (\(\Leftarrow\)):</strong> If \(n\) satisfies the condition, then \(n = x^2 + y^2\).</p>
-          <p>It suffices to show:
+          <strong>Theorem 10.1 (Classification of Gaussian Primes)</strong> Up to associates, the Gaussian primes are:
           <ol>
-            <li>If \(n_1 = x_1^2 + y_1^2\) and \(n_2 = x_2^2 + y_2^2\), then \(n_1 n_2 = x_3^2 + y_3^2\).</li>
-            <li>\(p^k = x^2 + y^2\) for any prime \(p \equiv 1 \pmod{4}\) and any \(k \geq 1\).</li>
-            <li>\(2^k = x^2 + y^2\) for any \(k \geq 1\).</li>
+            <li>\(1 + i\) (the prime dividing 2).</li>
+            <li>For each rational prime \(p \equiv 3 \pmod{4}\), the prime \(p\) itself (as an element of \(\mathbb{Z}[i]\)).</li>
+            <li>For each rational prime \(p \equiv 1 \pmod{4}\), the Gaussian primes \(\pi\) and \(\bar{\pi}\) where \(p = \pi\bar{\pi}\) (a proper factorization in \(\mathbb{Z}[i]\)).</li>
           </ol>
-          <p><strong>Part 1 (Brahmagupta-Fibonacci identity):</strong>
-          \[(x_1^2 + y_1^2)(x_2^2 + y_2^2) = (x_1x_2 - y_1y_2)^2 + (x_1y_2 + x_2y_1)^2\]
-          <p>Verification by expansion is straightforward. \(\square\)</p>
-        </div>
-      </div>
-
-      <div class="lecture-section"><h2>2. The Equation \(x^2 + 1 = py^2\)</h2>
-        <div class="theorem-box">
-          <strong>Theorem 10.2</strong> The equation \(x^2 + 1 = py^2\) has an integer solution for a prime \(p\) if and only if \(p \equiv 1 \pmod{4}\).
         </div>
         
         <div class="proof-box">
-          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(x^2 + 1 = py^2\), then \(x^2 \equiv -1 \pmod{p}\). Thus \(-1\) is a quadratic residue modulo \(p\), which happens iff \(p \equiv 1 \pmod{4}\). \(\square\)</p>
+          <strong>Proof:</strong> We analyze primes in \(\mathbb{Z}[i]\) by considering the norm \(N(a + bi) = a^2 + b^2\).
           
-          <p><strong>Sufficiency (\(\Rightarrow\)):</strong> If \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue, so \(x^2 \equiv -1 \pmod{p}\) has a solution.</p>
-          <p>Consider the lattice \(L = \{(a, b) \in \mathbb{Z}^2 : a \equiv xb \pmod{p}\}\). By Minkowski's theorem, there exists \((a, b) \neq (0, 0)\) with \(a^2 + b^2 = p \cdot m\) for some \(m\).</p>
-          <p>Using the division algorithm in \(\mathbb{Z}[i]\), we can find a solution. \(\square\)</p>
+          <div class="step-box">
+            <strong>Case 1: \(\alpha = a + bi\) with \(a = 0\) or \(b = 0\)</strong>
+            <p>If \(b = 0\), then \(\alpha = a \in \mathbb{Z}\). For \(\alpha\) to be prime in \(\mathbb{Z}[i]\), we need \(N(\alpha) = a^2\) to be a rational prime power.</p>
+            <p>For \(a^2 = p\) with \(p\) prime, we need \(p = 2\) and \(a = \pm\sqrt{2} \notin \mathbb{Z}\). No solution.</p>
+            <p>For \(a^2 = p^2\) with \(p\) prime: \(\alpha = \pm p\), but \(p\) may or may not be prime in \(\mathbb{Z}[i]\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Case 2: Both \(a, b \neq 0\)</strong>
+            <p>Suppose \(N(\alpha) = a^2 + b^2 = p\) for rational prime \(p\).</p>
+            <p>If \(p \equiv 3 \pmod{4}\), then by Fermat's theorem on sums of two squares, \(p\) cannot be written as \(a^2 + b^2\) with \(a, b \neq 0\). Contradiction.</p>
+            <p>If \(p = 2\), then \(a^2 + b^2 = 2\) gives \(a^2 = b^2 = 1\), so \(\alpha = \pm 1 \pm i\). These are associates of \(1 + i\).</p>
+            <p>If \(p \equiv 1 \pmod{4}\), then by Fermat's theorem, \(p = a^2 + b^2\) for some \(a, b \neq 0\). The Gaussian integers \(a + bi\) and \(a - bi\) have norm \(p\) and are irreducible. \(\square\)</p>
+          </div>
         </div>
       </div>
 
-      <div class="example-box">
-        <strong>Example 10.1</strong> Find a solution to \(x^2 + 1 = 5y^2\).</p>
-          <p>We need \(x^2 + 1 \equiv 0 \pmod{5}\), so \(x^2 \equiv -1 \equiv 4 \pmod{5}\).</p>
-          <p>Thus \(x \equiv \pm 2 \pmod{5}\). Try \(x = 2\): \(4 + 1 = 5 = 5 \cdot 1\), so \(y = 1\).</p>
-          <p>Solution: \((x, y) = (2, 1)\). Check: \(2^2 + 1 = 5 = 5 \cdot 1^2\). \(\square\)</p>
+      <div class="lecture-section"><h2>2. Unique Factorization in \(\mathbb{Z}[i]\)</h2>
+        <div class="theorem-box">
+          <strong>Theorem 10.2</strong> \(\mathbb{Z}[i]\) is a unique factorization domain (UFD). Every non-zero, non-unit Gaussian integer can be written as a product of Gaussian primes, and this factorization is unique up to order and associates.
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong> We verify that \(\mathbb{Z}[i]\) satisfies all properties of a UFD:
+          
+          <div class="step-box">
+            <strong>Step 1: \(\mathbb{Z}[i]\) is an integral domain</strong>
+            <p>\(\mathbb{Z}[i]\) is a subring of \(\mathbb{C}\), which is an integral domain. No zero divisors. \(\square\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: The norm is multiplicative</strong>
+            <p>\(N(\alpha\beta) = N(\alpha)N(\beta)\)</p>
+            <p>This implies that if \(\alpha \mid \beta\), then \(N(\alpha) \mid N(\beta)\). \(\square\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Every non-unit has a factorization into irreducibles</strong>
+            <p>This follows from the division algorithm in \(\mathbb{Z}[i]\) (see Lecture 9). \(\square\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Factorization is unique</strong>
+            <p>\(\mathbb{Z}[i]\) is a Euclidean domain with the norm as the Euclidean function. Euclidean domains are PIDs, and PIDs are UFDs. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Applications to Sums of Two Squares</h2>
+        <div class="theorem-box">
+          <strong>Theorem 10.3 (Fermat's Two Squares Theorem)</strong> An odd prime \(p\) can be expressed as \(p = x^2 + y^2\) for integers \(x, y\) if and only if \(p \equiv 1 \pmod{4}\).
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(p = x^2 + y^2\), then considering modulo 4:
+          \[p = x^2 + y^2 \equiv 0, 1, \text{ or } 2 \pmod{4}\]
+          <p>If \(p\) is odd and \(p \equiv 0 \pmod{4}\), then \(p\) is even, contradiction.</p>
+          <p>If \(p \equiv 2 \pmod{4}\), then \(p = 2\), but 2 is not odd. Contradiction.</p>
+          <p>Therefore \(p \equiv 1 \pmod{4}\). \(\square\)</p>
+          
+          <p><strong>Sufficiency (\(\Rightarrow\)):</strong> If \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue modulo \(p\).</p>
+          <p>Consider the lattice \(L = \{(a, b) \in \mathbb{Z}^2 : a \equiv xb \pmod{p}\}\) where \(x^2 \equiv -1 \pmod{p}\).</p>
+          <p>By Minkowski's theorem, there exists \((a, b) \neq (0, 0)\) in \(L\) with \(a^2 + b^2 = p \cdot m\) for some \(m\).</p>
+          <p>Since \((a, b) \in L\), we have \(a = xb + kp\) for some integer \(k\).</p>
+          <p>Then \(a^2 + b^2 = b^2(x^2 + 1) + kp(\cdots) = p \cdot m\) for some integer \(m\).</p>
+          <p>Since \(0 < a^2 + b^2 < 2p\) and \(p \mid (a^2 + b^2)\), we must have \(a^2 + b^2 = p\). \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 10.1</strong> Express 13 as a sum of two squares.
+          <p>Since \(13 \equiv 1 \pmod{4}\), we know \(13 = x^2 + y^2\) for some \(x, y\).</p>
+          <p>Try values: \(3^2 = 9\), \(13 - 9 = 4 = 2^2\).</p>
+          <p>Thus \(13 = 3^2 + 2^2\).</p>
+          <p>In Gaussian integers: \(13 = (3 + 2i)(3 - 2i)\), and \(N(3 + 2i) = 13\). \(\square\)</p>
         </div>
       </div>
 
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Express 65 as a sum of two squares in all possible ways.</li>
-          <li>Show that 21 cannot be written as a sum of two squares.</li>
-          <li>Find all integers \(n \leq 50\) that can be written as \(x^2 + y^2\).</li>
-          <li>Prove that if \(n = x^2 + y^2\) and \(m = u^2 + v^2\), then \(nm = (xu - yv)^2 + (xv + yu)^2\).</li>
-          <li>Find a solution to \(x^2 + 1 = 13y^2\).</li>
-          <li>Show that if \(p \equiv 3 \pmod{4}\) is prime, then \(x^2 + 1 = py^2\) has no integer solutions.</li>
-          <li>Prove: If \(\gcd(x, y) = 1\) and \(x^2 + y^2 = z^n\), then every prime factor of \(z\) is either 2 or \(\equiv 1 \pmod{4}\).</li>
+          <li>Find the Gaussian prime factorization of 5.</li>
+          <li>Find the Gaussian prime factorization of 10.</li>
+          <li>Show that \(2 + i\) is a Gaussian prime.</li>
+          <li>Prove that if \(p \equiv 3 \pmod{4}\), then \(p\) remains prime in \(\mathbb{Z}[i]\).</li>
+          <li>Find all Gaussian integers with norm 5.</li>
+          <li>Show that \(1 + i\) divides every Gaussian integer of even norm.</li>
+          <li>Prove: In \(\mathbb{Z}[i]\), \(N(\alpha)\) is a prime in \(\mathbb{Z}\) iff \(\alpha\) is irreducible.</li>
+          <li>Determine whether \(2 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
         </ol>
       </div>
 

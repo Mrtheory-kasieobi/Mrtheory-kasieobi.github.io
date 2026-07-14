@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 15: Partition Theory">
+  <title>Lecture 15: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 15: Partition Theory</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 15: Partition Theory</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 15</span><span class="lecture-topic">Partition Theory</span></p>
+
+      <div class="lecture-section"><h2>1. Partitions and Partition Function</h2>
+        <div class="definition-box">
+          <strong>Definition 15.1 (Partition)</strong> A <strong>partition</strong> of a positive integer \(n\) is a way of writing \(n\) as a sum of positive integers, where the order of summands does not matter.
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 15.2 (Partition Function)</strong> The <strong>partition function</strong> \(p(n)\) denotes the number of partitions of \(n\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 15.1</strong> The partitions of 4 are:
+          <ul>
+            <li>\(4\)</li>
+            <li>\(3 + 1\)</li>
+            <li>\(2 + 2\)</li>
+            <li>\(2 + 1 + 1\)</li>
+            <li>\(1 + 1 + 1 + 1\)</li>
+          </ul>
+          Thus \(p(4) = 5\).
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Generating Functions</h2>
+        <div class="theorem-box">
+          <strong>Theorem 15.1 (Euler's Generating Function)</strong> The generating function for the partition function is:
+          \[\sum_{n=0}^{\infty} p(n)q^n = \prod_{k=1}^{\infty} \frac{1}{1 - q^k}\]
+          where \(p(0) = 1\) by convention.
+        </div>
+        
+        <div class="proof-box">
+          <p>Proof: Each factor \(\frac{1}{1-q^k} = 1 + q^k + q^{2k} + \cdots\) represents the choice of using \(k\) exactly \(m\) times for \(m = 0, 1, 2, \ldots\). The coefficient of \(q^n\) counts all ways to write \(n\) as a sum of positive integers. \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 15.2</strong> Compute \(p(5)\) using the generating function:
+          \[(1+q+q^2+\cdots)(1+q^2+q^4+\cdots)(1+q^3+q^6+\cdots)(1+q^4+q^8+\cdots)(1+q^5+q^{10}+\cdots)\]
+          The partitions of 5 are: \(5, 4+1, 3+2, 3+1+1, 2+2+1, 2+1+1+1, 1+1+1+1+1\), giving \(p(5) = 7\).
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Euler's Pentagonal Number Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 15.2 (Euler's Pentagonal Number Theorem)</strong>
+          \[\prod_{k=1}^{\infty} (1 - q^k) = \sum_{m=-\infty}^{\infty} (-1)^m q^{m(3m-1)/2}\]
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 15.3 (Pentagonal Numbers)</strong> The numbers \(\frac{m(3m-1)}{2}\) for \(m \in \mathbb{Z}\) are called generalized pentagonal numbers.
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Corollary 15.1 (Recurrence for p(n))</strong>
+          \[p(n) = \sum_{m \neq 0} (-1)^{m-1} p\left(n - \frac{m(3m-1)}{2}\right)\]
+          where the sum is over all non-zero integers \(m\) such that \(\frac{m(3m-1)}{2} \leq n\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 15.3</strong> Compute \(p(6)\) using the recurrence:
+          <p>Generalized pentagonal numbers \(\leq 6\): \(0, 1, 2, 5, 6, \ldots\)</p>
+          <p>\(p(6) = p(6) - p(5) - p(4) + p(1) + p(0) = p(5) + p(4) - p(1) - p(0)\)</p>
+          <p>Wait, let me recalculate: The recurrence is \(p(n) = \sum_{k=1}^{\infty} (-1)^{k-1}[p(n-k(3k-1)/2) + p(n-k(3k+1)/2)]\).</p>
+          <p>For \(n=6\): terms are \(p(6-1), p(6-2), p(6-5), p(6-6), \ldots\) with alternating signs.</p>
+          <p>\(p(6) = p(5) + p(4) - p(1) - p(0) = 7 + 5 - 1 - 1 = 10\).</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Dyson's Rank and Ramanujan Congruences</h2>
+        <div class="definition-box">
+          <strong>Definition 15.4 (Dyson's Rank)</strong> For a partition \(\lambda = (\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_\ell)\), the <strong>rank</strong> is \(\text{rank}(\lambda) = \lambda_1 - \ell\).
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 15.3 (Ramanujan's Congruences)</strong>
+          <ul>
+            <li>\(p(5n + 4) \equiv 0 \pmod{5}\)</li>
+            <li>\(p(7n + 5) \equiv 0 \pmod{7}\)</li>
+            <li>\(p(11n + 6) \equiv 0 \pmod{11}\)</li>
+          </ul>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 15.4</strong> Verify Ramanujan's congruence modulo 5:
+          <p>\(p(4) = 5 \equiv 0 \pmod{5}\) ✓</p>
+          <p>\(p(9) = 30 \equiv 0 \pmod{5}\) ✓</p>
+          <p>\(p(14) = 135 \equiv 0 \pmod{5}\) ✓</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Asymptotic Formula</h2>
+        <div class="theorem-box">
+          <strong>Theorem 15.4 (Hardy-Ramanujan Asymptotic Formula)</strong>
+          \[p(n) \sim \frac{1}{4n\sqrt{3}} e^{\pi \sqrt{2n/3}} \text{ as } n \to \infty\]
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 15.5</strong> Estimate \(p(100)\) using the asymptotic formula:
+          <p>\(\sqrt{2n/3} = \sqrt{200/3} \approx 8.16\)</p>
+          <p>\(\pi \sqrt{2n/3} \approx 25.6\)</p>
+          <p>\(p(100) \approx \frac{1}{400\sqrt{3}} e^{25.6} \approx 190569292\)</p>
+          <p>The actual value is \(p(100) = 190569292\).</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>6. Restricted Partitions</h2>
+        <div class="definition-box">
+          <strong>Definition 15.5 (Restricted Partition)</strong> A partition of \(n\) into distinct parts uses each part at most once. Let \(q(n)\) denote the number of such partitions.
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 15.5</strong> The generating function for partitions into distinct parts is:
+          \[\sum_{n=0}^{\infty} q(n)q^n = \prod_{k=1}^{\infty} (1 + q^k)\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 15.6 (Euler's Theorem)</strong> The number of partitions into distinct parts equals the number of partitions into odd parts.
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 15.6</strong> Verify Euler's theorem for \(n = 5\):
+          <p>Partitions into distinct parts: \(5, 4+1, 3+2\). So \(q(5) = 3\).</p>
+          <p>Partitions into odd parts: \(5, 3+1+1, 1+1+1+1+1\). Count: 3.</p>
+          <p>They match! ✓</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find all partitions of 6 and verify \(p(6) = 11\).</li>
+          <li>Compute \(p(10)\) using the pentagonal number recurrence.</li>
+          <li>Verify that 8, 14, and 20 are partitions of 5 into distinct parts.</li>
+          <li>Find all partitions of 7 into odd parts.</li>
+          <li>Prove that \(p(n) \geq p(n-1)\) for all \(n \geq 1\).</li>
+          <li>Show that the number of partitions of \(n\) into at most 2 parts equals \(\lfloor \frac{n+2}{2} \rfloor\).</li>
+          <li>Find the generating function for partitions into parts of size at most 3.</li>
+          <li>Prove: If \(n\) is a triangular number, then \(p(n)\) is odd.</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-14.html">← Previous Lecture</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

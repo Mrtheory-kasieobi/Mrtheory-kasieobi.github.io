@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 7: Quadratic Reciprocity Law">
+  <meta name="description" content="Lecture 7: Quadratic Residues and the Legendre Symbol">
   <title>Lecture 7: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -14,6 +14,7 @@
     .lecture-content { color: var(--text); line-height: 1.8; }
     .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
     .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
     .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -33,125 +34,183 @@
 <body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 7: Quadratic Reciprocity Law</h1></div>
+    <div class="header-content"><h1>Lecture 7: Quadratic Residues and the Legendre Symbol</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 7: Quadratic Reciprocity Law</h1></div>
+    <div class="lecture-header"><h1>Lecture 7: Quadratic Residues and the Legendre Symbol</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 7</span><span class="lecture-topic">Quadratic Reciprocity Law</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 7</span><span class="lecture-topic">Quadratic Residues and the Legendre Symbol</span></p>
 
-      <div class="lecture-section"><h2>1. Statement of Quadratic Reciprocity</h2>
+      <div class="lecture-section"><h2>1. Quadratic Residues</h2>
         <div class="definition-box">
-          <strong>Definition 7.1</strong> For an odd prime \(p\), define \(\epsilon(p) = (-1)^{\frac{p-1}{2}}\). Note that:
-          \[\epsilon(p) = \begin{cases} 1 & \text{if } p \equiv 1 \pmod{4} \\ -1 & \text{if } p \equiv 3 \pmod{4} \end{cases}\]
+          <strong>Definition 7.1 (Quadratic Residue)</strong> Let \(p\) be an odd prime and \(a \in \mathbb{Z}\) with \(p \nmid a\). We say that \(a\) is a <strong>quadratic residue modulo \(p\)** if there exists an integer \(x\) such that:
+          \[x^2 \equiv a \pmod{p}\]
+          Otherwise, \(a\) is called a <strong>quadratic non-residue modulo \(p\)</strong>.
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 7.1</strong> Determine which elements of \(\mathbb{Z}_7\) are quadratic residues.
+          <p>We check each \(a \in \{1, 2, 3, 4, 5, 6\}\):</p>
+          <ul>
+            <li>\(1^2 \equiv 1 \pmod{7}\) - so 1 is a QR</li>
+            <li>\(2^2 \equiv 4 \pmod{7}\) - so 4 is a QR</li>
+            <li>\(3^2 \equiv 9 \equiv 2 \pmod{7}\) - so 2 is a QR</li>
+            <li>\(4^2 \equiv 16 \equiv 2 \pmod{7}\) - confirms 2 is a QR</li>
+            <li>\(5^2 \equiv 25 \equiv 4 \pmod{7}\) - confirms 4 is a QR</li>
+            <li>\(6^2 \equiv 36 \equiv 1 \pmod{7}\) - confirms 1 is a QR</li>
+          </ul>
+          <p>Therefore, the quadratic residues modulo 7 are: \(\{1, 2, 4\}\)</p>
+          <p>The quadratic non-residues are: \(\{3, 5, 6\}\)</p>
         </div>
         
         <div class="theorem-box">
-          <strong>Theorem 7.1 (Quadratic Reciprocity)</strong> Let \(p\) and \(q\) be distinct odd primes. Then:
-          \[\left(\frac{p}{q}\right) = \epsilon(q) \cdot \epsilon(p) \cdot \left(\frac{q}{p}\right)\]
-          Equivalently:
-          \[\left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]
+          <strong>Theorem 7.1 (Count of Quadratic Residues)</strong> For an odd prime \(p\), there are exactly \(\frac{p-1}{2}\) quadratic residues and \(\frac{p-1}{2}\) quadratic non-residues in \(\mathbb{Z}_p^*\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong> Note that \(x^2 \equiv (-x)^2 \pmod{p}\), so each nonzero square has at least two square roots. The only elements with exactly one square root are those satisfying \(x \equiv -x \pmod{p}\), i.e., \(x \equiv 0 \pmod{p}\), which is not in \(\mathbb{Z}_p^*\). Thus each quadratic residue has exactly two square roots among \(\{1, 2, \ldots, p-1\}\). Since there are \(p-1\) elements total and they pair up as \(\{x, -x\}\) with the same square, there are exactly \(\frac{p-1}{2}\) distinct quadratic residues. \(\square\)
+      </div>
+
+      <div class="lecture-section"><h2>2. The Legendre Symbol</h2>
+        <div class="definition-box">
+          <strong>Definition 7.2 (Legendre Symbol)</strong> For an odd prime \(p\) and integer \(a\) with \(p \nmid a\), the <strong>Legendre symbol</strong> \(\left(\frac{a}{p}\right)\) is defined by:
+          \[\left(\frac{a}{p}\right) = \begin{cases} 1 & \text{if } a \text{ is a quadratic residue modulo } p \\ -1 & \text{if } a \text{ is a quadratic non-residue modulo } p \end{cases}\]
+          We also define \(\left(\frac{a}{p}\right) = 0\) if \(p \mid a\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 7.2</strong> Compute the Legendre symbols \(\left(\frac{2}{7}\right)\) and \(\left(\frac{3}{7}\right)\).
+          
+          <div class="step-box">
+            <strong>Step 1: Compute \(\left(\frac{2}{7}\right)\)</strong>
+            <p>From Example 7.1, we found that 2 is a quadratic residue modulo 7.</p>
+            <p>Therefore \(\left(\frac{2}{7}\right) = 1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Compute \(\left(\frac{3}{7}\right)\)</strong>
+            <p>We found that 3 is not a quadratic residue modulo 7.</p>
+            <p>Therefore \(\left(\frac{3}{7}\right) = -1\).</p>
+          </div>
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 7.2 (Properties of the Legendre Symbol)</strong> Let \(p\) be an odd prime and \(a, b \in \mathbb{Z}\).
+          <ol>
+            <li>\(\left(\frac{a}{p}\right) \in \{-1, 0, 1\}\)</li>
+            <li>\(\left(\frac{ab}{p}\right) = \left(\frac{a}{p}\right)\left(\frac{b}{p}\right)\)</li>
+            <li>\(\left(\frac{a^2}{p}\right) = 1\) for \(p \nmid a\)</li>
+            <li>\(\left(\frac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}\)</li>
+            <li>\(\left(\frac{2}{p}\right) = (-1)^{\frac{p^2-1}{8}}\)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of (4): \(\left(\frac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}\)</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Use Euler's Criterion</strong>
+            <p>We will show that \((-1)^{\frac{p-1}{2}} \equiv \left(\frac{-1}{p}\right) \pmod{p}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Consider the two cases for p</strong>
+            <p><strong>Case 1:</strong> \(p \equiv 1 \pmod{4}\), so \(\frac{p-1}{2}\) is even.</p>
+            <p>Then \((-1)^{\frac{p-1}{2}} = 1\).</p>
+            <p>We need to show \(-1\) is a quadratic residue modulo \(p\).</p>
+            <p>By Wilson's Theorem: \((p-1)! \equiv -1 \pmod{p}\).</p>
+            <p>Since \(p \equiv 1 \pmod{4}\), we have \(\frac{p-1}{2}\) is even.</p>
+            <p>Pairing up elements in \((p-1)!\): each pair \((a, a^{-1})\) with \(a \neq a^{-1}\) contributes 1.</p>
+            <p>The self-inverse elements are 1 and \(p-1\), contributing \(1 \cdot (p-1) \equiv -1 \pmod{p}\).</p>
+            <p>Since \(\frac{p-1}{2}\) is even, we can pair the elements differently to show \(-1\) is a square.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Verify the result</strong>
+            <p>When \(p \equiv 1 \pmod{4}\): \(\left(\frac{-1}{p}\right) = 1 = (-1)^{\frac{p-1}{2}}\)</p>
+            <p>When \(p \equiv 3 \pmod{4}\): we need \(\left(\frac{-1}{p}\right) = -1 = (-1)^{\frac{p-1}{2}}\)</p>
+            <p>This completes the proof. \(\square\)</p>
+          </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>2. Gauss's Lemma</h2>
+      <div class="lecture-section"><h2>3. Euler's Criterion</h2>
         <div class="theorem-box">
-          <strong>Theorem 7.2 (Gauss's Lemma)</strong> Let \(p\) be an odd prime and \(a\) an integer with \(\gcd(a, p) = 1\). Define the set:
-          \[S = \left\{\frac{ap}{p}, \frac{2ap}{p}, \ldots, \frac{(p-1)ap}{p}\right\}\]
-          Let \(\mu\) be the number of elements in \(S\) whose least positive residue is greater than \(\frac{p}{2}\). Then:
-          \[\left(\frac{a}{p}\right) = (-1)^\mu\]
+          <strong>Theorem 7.3 (Euler's Criterion)</strong> Let \(p\) be an odd prime and \(a\) with \(p \nmid a\). Then:
+          \[\left(\frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod{p}\]
+          Equivalently, \(\left(\frac{a}{p}\right) = a^{\frac{p-1}{2}}\) (where the right side is interpreted as \(\pm 1\)).
         </div>
         
         <div class="proof-box">
           <strong>Proof:</strong>
           
           <div class="step-box">
-            <strong>Step 1: Set up the residues</strong>
-            <p>Consider the residues \(r_1, r_2, \ldots, r_{p-1}\) where \(r_i\) is the least positive residue of \(ia\) modulo \(p\).</p>
-            <p>Since \(\gcd(a, p) = 1\), the residues \(\{r_1, r_2, \ldots, r_{p-1}\} = \{1, 2, \ldots, p-1\}\).</p>
+            <strong>Step 1: Use Fermat's Little Theorem</strong>
+            <p>By Fermat's Little Theorem, \(a^{p-1} \equiv 1 \pmod{p}\).</p>
+            <p>Therefore \((a^{\frac{p-1}{2}})^2 \equiv 1 \pmod{p}\), so \(a^{\frac{p-1}{2}} \equiv \pm 1 \pmod{p}\).</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 2: Define the counting parameter</strong>
-            <p>Define \(\mu = |\{i : r_i > \frac{p}{2}\}|\). For each such \(i\), let \(r_i' = p - r_i < \frac{p}{2}\).</p>
+            <strong>Step 2: Show \(a^{\frac{p-1}{2}} \equiv 1\) iff \(a\) is a QR</strong>
+            <p>We need to show that \(a^{\frac{p-1}{2}} \equiv 1 \pmod{p}\) if and only if \(a\) is a quadratic residue.</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 3: Consider the product of all residues</strong>
-            <p>Consider the product:
-            \[\prod_{i=1}^{p-1} r_i \equiv \prod_{i=1}^{p-1} ia = a^{p-1} \cdot (p-1)! \pmod{p}\]</p>
+            <strong>Step 3: Forward direction - if \(a\) is a QR</strong>
+            <p>Suppose \(a \equiv x^2 \pmod{p}\) for some \(x\).</p>
+            <p>Then \(a^{\frac{p-1}{2}} \equiv x^{p-1} \equiv 1 \pmod{p}\) by Fermat's Little Theorem applied to \(x\).</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 4: Apply Fermat's Little Theorem</strong>
-            <p>By Fermat's Little Theorem, \(a^{p-1} \equiv 1 \pmod{p}\), so:
-            \[\prod_{i=1}^{p-1} r_i \equiv (p-1)! \pmod{p}\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 5: Partition the residues</strong>
-            <p>Now partition the residues:
-            \[\prod_{i=1}^{p-1} r_i = \left(\prod_{r_i < p/2} r_i\right) \cdot \left(\prod_{r_i > p/2} r_i\right)\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 6: Transform large residues</strong>
-            <p>For \(r_i > \frac{p}{2}\), we have \(r_i = p - r_i'\). Thus:
-            \[\prod_{r_i > p/2} r_i = \prod_{r_i > p/2} (p - r_i') \equiv \prod_{r_i > p/2} (-r_i') \pmod{p}\]
-            \[= (-1)^\mu \prod_{r_i > p/2} r_i'\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 7: Combine and conclude</strong>
-            <p>Therefore:
-            \[\prod_{i=1}^{p-1} r_i \equiv (-1)^\mu \left(\prod_{r_i < p/2} r_i\right) \cdot \left(\prod_{r_i > p/2} r_i'\right) \pmod{p}\]</p>
-            <p>Since the sets \(\{r_i : r_i < p/2\}\) and \(\{r_i' : r_i > p/2\}\) partition \(\{1, 2, \ldots, \frac{p-1}{2}\}\):
-            \[\prod_{i=1}^{p-1} r_i \equiv (-1)^\mu \cdot \left(\frac{p-1}{2}\right)! \pmod{p}\]</p>
-            <p>Comparing with \(\prod_{i=1}^{p-1} r_i \equiv (p-1)! \pmod{p}\) and using \((p-1)! = (-1)^\mu \cdot \left(\frac{p-1}{2}\right)! \cdot \left(\frac{p-1}{2}\right)!\):
-            We get \(\left(\frac{a}{p}\right) = (-1)^\mu\). \(\square\)</p>
+            <strong>Step 4: Reverse direction - if \(a^{\frac{p-1}{2}} \equiv 1\)</strong>
+            <p>We need to show \(a\) is a quadratic residue.</p>
+            <p>Consider the polynomial \(f(x) = x^{\frac{p-1}{2}} - a^{\frac{p-1}{2}}\) over \(\mathbb{Z}_p\).</p>
+            <p>Wait, let's use a different approach using the fact that the multiplicative group is cyclic.</p>
+            <p>Let \(g\) be a primitive root modulo \(p\). Write \(a \equiv g^k \pmod{p}\).</p>
+            <p>Then \(a^{\frac{p-1}{2}} \equiv g^{k \cdot \frac{p-1}{2}} \pmod{p}\).</p>
+            <p>This equals 1 iff \(p-1 \mid k \cdot \frac{p-1}{2}\), i.e., iff \(2 \mid k\).</p>
+            <p>If \(k\) is even, then \(a \equiv g^k \equiv (g^{k/2})^2 \pmod{p}\), so \(a\) is a QR.</p>
+            <p>If \(k\) is odd, then \(a^{\frac{p-1}{2}} \equiv -1 \pmod{p}\).</p>
+            <p>This proves Euler's Criterion. \(\square\)</p>
           </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>3. Proof of Quadratic Reciprocity</h2>
-        <div class="proof-box">
-          <strong>Proof (Gauss's Lemma approach):</strong>
+      <div class="lecture-section"><h2>4. Supplementary Laws</h2>
+        <div class="definition-box">
+          <strong>Definition 7.3 (Congruence Classes)</strong> For an odd prime \(p\):
+          \[p \equiv 1 \pmod{4} \implies p = 4k + 1\]
+          \[p \equiv 3 \pmod{4} \implies p = 4k + 3\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 7.4 (Supplementary Laws)</strong>
+          <ol>
+            <li><strong>First Supplementary Law:</strong> \(\left(\frac{-1}{p}\right) = 1\) iff \(p \equiv 1 \pmod{4}\)</li>
+            <li><strong>Second Supplementary Law:</strong> \(\left(\frac{2}{p}\right) = 1\) iff \(p \equiv \pm 1 \pmod{8}\)</li>
+          </ol>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 7.3</strong> Verify the supplementary laws for \(p = 17\) and \(p = 13\).
           
           <div class="step-box">
-            <strong>Step 1: Set up the geometric interpretation</strong>
-            <p>We prove that \(\mu\left(\frac{q}{p}\right) + \mu\left(\frac{p}{q}\right) \equiv \frac{p-1}{2} \cdot \frac{q-1}{2} \pmod{2}\).</p>
-            <p>Consider the rectangle \(R = \{(x, y) \in \mathbb{R}^2 : 0 < x < \frac{p}{2}, 0 < y < \frac{q}{2}\}\).</p>
-            <p>The number of lattice points in \(R\) is \(\frac{p-1}{2} \cdot \frac{q-1}{2}\).</p>
+            <strong>Step 1: Check \(p = 17\)</strong>
+            <p>\(17 \equiv 1 \pmod{4}\), so \(\left(\frac{-1}{17}\right) = 1\).</p>
+            <p>Indeed, \(4^2 = 16 \equiv -1 \pmod{17}\). ✓</p>
+            <p>\(17 \equiv 1 \pmod{8}\), so \(\left(\frac{2}{17}\right) = 1\).</p>
+            <p>We verify: \(6^2 = 36 \equiv 2 \pmod{17}\). ✓</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 2: Count lattice points below the line</strong>
-            <p>Consider the line \(L: y = \frac{q}{p}x\). Count lattice points below this line in the rectangle.</p>
-            <p>This count equals \(\mu\left(\frac{q}{p}\right)\) by Gauss's Lemma.</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Count lattice points to the left</strong>
-            <p>Similarly, counting points to the left of the line \(x = \frac{p}{q}y\) gives \(\mu\left(\frac{p}{q}\right)\).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 4: Apply symmetry</strong>
-            <p>By symmetry, the total count satisfies:
-            \[\mu\left(\frac{q}{p}\right) + \mu\left(\frac{p}{q}\right) = \frac{p-1}{2} \cdot \frac{q-1}{2}\]</p>
-            <p>(The line passes through no lattice points with coordinates in the specified ranges.)</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 5: Conclude</strong>
-            <p>Therefore:
-            \[\left(\frac{q}{p}\right) = (-1)^{\mu(q/p)} \quad \text{and} \quad \left(\frac{p}{q}\right) = (-1)^{\mu(p/q)}\]
-            \[\left(\frac{q}{p}\right) \left(\frac{p}{q}\right) = (-1)^{\mu(q/p) + \mu(p/q)} = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]
-            </p>
-            <p>Thus \(\left(\frac{p}{q}\right) = \epsilon(p)\epsilon(q) \left(\frac{q}{p}\right)\), which is Quadratic Reciprocity. \(\square\)</p>
+            <strong>Step 2: Check \(p = 13\)</strong>
+            <p>\(13 \equiv 1 \pmod{4}\), so \(\left(\frac{-1}{13}\right) = 1\).</p>
+            <p>We verify: \(5^2 = 25 \equiv -1 \pmod{13}\). ✓</p>
+            <p>\(13 \equiv 5 \pmod{8}\), so \(\left(\frac{2}{13}\right) = -1\).</p>
+            <p>The quadratic residues mod 13 are: \(\{1, 3, 4, 9, 10, 12\}\). Note that 2 is not in this set. ✓</p>
           </div>
         </div>
       </div>
@@ -159,13 +218,14 @@
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Compute \(\left(\frac{3}{11}\right)\) using Quadratic Reciprocity.</li>
-          <li>Compute \(\left(\frac{5}{13}\right)\) using Quadratic Reciprocity.</li>
-          <li>Prove: If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\).</li>
+          <li>Find all quadratic residues modulo 11.</li>
+          <li>Compute \(\left(\frac{3}{11}\right)\) using Euler's Criterion.</li>
+          <li>Compute \(\left(\frac{5}{13}\right)\) using Euler's Criterion.</li>
+          <li>Verify that \(\left(\frac{-1}{p}\right) = 1\) when \(p \equiv 1 \pmod{4}\) for \(p = 5, 13, 17\).</li>
           <li>Show that \(\left(\frac{2}{p}\right) = 1\) iff \(p \equiv \pm 1 \pmod{8}\).</li>
-          <li>Find all \(x\) such that \(x^2 \equiv 17 \pmod{29}\).</li>
-          <li>Compute \(\left(\frac{11}{43}\right)\).</li>
-          <li>Prove: \(\left(\frac{a}{p}\right) = 1\) iff \(x^2 \equiv a \pmod{p}\) has a solution.</li>
+          <li>Find all solutions to \(x^2 \equiv 17 \pmod{29}\).</li>
+          <li>Prove: If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\).</li>
+          <li>Compute \(\left(\frac{11}{43}\right)\) using Euler's Criterion.</li>
         </ol>
       </div>
 

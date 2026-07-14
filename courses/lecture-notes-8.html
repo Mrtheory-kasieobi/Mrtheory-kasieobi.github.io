@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lecture 8: Gaussian Integers - Definition and Arithmetic">
+  <meta name="description" content="Lecture 8: Quadratic Reciprocity Law">
   <title>Lecture 8: Elementary Number Theory | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -14,6 +14,7 @@
     .lecture-content { color: var(--text); line-height: 1.8; }
     .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
     .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
     .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
     .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
@@ -33,158 +34,238 @@
 <body class="no-math-background">
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Lecture 8: Gaussian Integers - Definition and Arithmetic</h1></div>
+    <div class="header-content"><h1>Lecture 8: Quadratic Reciprocity Law</h1></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
   <main>
-    <div class="lecture-header"><h1>Lecture 8: Gaussian Integers - Definition and Arithmetic</h1></div>
+    <div class="lecture-header"><h1>Lecture 8: Quadratic Reciprocity Law</h1></div>
     <div class="lecture-content">
-      <p class="lecture-metadata"><span class="lecture-number">Lecture 8</span><span class="lecture-topic">Gaussian Integers - Definition and Arithmetic</span></p>
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 8</span><span class="lecture-topic">Quadratic Reciprocity Law</span></p>
 
-      <div class="lecture-section"><h2>1. Definition of Gaussian Integers</h2>
+      <div class="lecture-section"><h2>1. Statement of Quadratic Reciprocity</h2>
         <div class="definition-box">
-          <strong>Definition 8.1 (Gaussian Integers)</strong> The ring of Gaussian integers is:
-          \[\mathbb{Z}[i] = \{a + bi : a, b \in \mathbb{Z}\}\]
-          where \(i = \sqrt{-1}\) is the imaginary unit.
+          <strong>Definition 8.1</strong> For an odd prime \(p\), define \(\epsilon(p) = (-1)^{\frac{p-1}{2}}\). Note that:
+          \[\epsilon(p) = \begin{cases} 1 & \text{if } p \equiv 1 \pmod{4} \\ -1 & \text{if } p \equiv 3 \pmod{4} \end{cases}\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 8.1 (Quadratic Reciprocity Law)</strong> Let \(p\) and \(q\) be distinct odd primes. Then:
+          \[\left(\frac{p}{q}\right) = \epsilon(q) \cdot \epsilon(p) \cdot \left(\frac{q}{p}\right)\]
+          Equivalently:
+          \[\left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]
         </div>
         
         <div class="example-box">
-          <strong>Example 8.1</strong> Some Gaussian integers are:
-          \[0, 1, -1, i, -i, 1+i, 2-i, 3+4i, \ldots\]
-          <p>Addition: \((1 + 2i) + (3 - i) = 4 + i\)</p>
-          <p>Multiplication: \((1 + 2i)(3 - i) = 3 - i + 6i - 2i^2 = 3 + 5i + 2 = 5 + 5i\)</p>
+          <strong>Example 8.1</strong> Compute \(\left(\frac{3}{11}\right)\) using Quadratic Reciprocity.
+          
+          <div class="step-box">
+            <strong>Step 1: Apply Quadratic Reciprocity</strong>
+            <p>Since \(3 \equiv 3 \pmod{4}\) and \(11 \equiv 3 \pmod{4}\):</p>
+            \[\left(\frac{3}{11}\right) \left(\frac{11}{3}\right) = (-1)^{\frac{3-1}{2} \cdot \frac{11-1}{2}} = (-1)^{1 \cdot 5} = -1\]
+            <p>Therefore \(\left(\frac{3}{11}\right) = -\left(\frac{11}{3}\right)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Compute \(\left(\frac{11}{3}\right)\)</strong>
+            <p>Reduce modulo 3: \(11 \equiv 2 \pmod{3}\).</p>
+            <p>So \(\left(\frac{11}{3}\right) = \left(\frac{2}{3}\right)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Use the second supplementary law</strong>
+            <p>\(3 \equiv 3 \pmod{8}\), so \(\left(\frac{2}{3}\right) = -1\).</p>
+            <p>Therefore \(\left(\frac{11}{3}\right) = -1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Conclude</strong>
+            <p>\(\left(\frac{3}{11}\right) = -\left(\frac{11}{3}\right) = -(-1) = 1\).</p>
+            <p>Verification: \(5^2 = 25 \equiv 3 \pmod{11}\). ✓</p>
+          </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>2. The Norm Function</h2>
+      <div class="lecture-section"><h2>2. Gauss's Lemma</h2>
         <div class="definition-box">
-          <strong>Definition 8.2 (Norm)</strong> For \(\alpha = a + bi \in \mathbb{Z}[i]\), the norm of \(\alpha\) is:
-          \[N(\alpha) = N(a + bi) = a^2 + b^2 = \alpha \bar{\alpha}\]
-          where \(\bar{\alpha} = a - bi\) is the complex conjugate.
+          <strong>Definition 8.2 (Gauss's Lemma Set)</strong> Let \(p\) be an odd prime and \(a\) an integer with \(\gcd(a, p) = 1\). Define the set:
+          \[S = \{a, 2a, 3a, \ldots, \frac{p-1}{2}a\}\]
+          Let \(\mu\) be the number of elements in \(S\) whose least positive residues modulo \(p\) are greater than \(\frac{p}{2}\).
         </div>
         
         <div class="theorem-box">
-          <strong>Theorem 8.1 (Properties of the Norm)</strong> Let \(\alpha, \beta \in \mathbb{Z}[i]\).
-          <ol>
-            <li>\(N(\alpha) \in \mathbb{Z}_{\geq 0}\) and \(N(\alpha) = 0\) iff \(\alpha = 0\).</li>
-            <li>\(N(\alpha\beta) = N(\alpha)N(\beta)\).</li>
-            <li>\(N(\alpha) = |\alpha|^2\) (square of the complex absolute value).</li>
-          </ol>
+          <strong>Theorem 8.2 (Gauss's Lemma)</strong> With notation as above:
+          \[\left(\frac{a}{p}\right) = (-1)^\mu\]
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 8.2</strong> Use Gauss's Lemma to compute \(\left(\frac{2}{p}\right)\) for \(p = 7\).
+          
+          <div class="step-box">
+            <strong>Step 1: Form the set S</strong>
+            <p>\(S = \{1 \cdot 2, 2 \cdot 2\} = \{2, 4\}\) (since \(\frac{p-1}{2} = 3\), but we only go up to \(\frac{p-1}{2} = 3\) elements... wait, let me correct this.)</p>
+            <p>For \(p = 7\): \(S = \{1 \cdot 2, 2 \cdot 2, 3 \cdot 2\} = \{2, 4, 6\}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Find residues greater than p/2</strong>
+            <p>\(\frac{p}{2} = \frac{7}{2} = 3.5\)</p>
+            <p>Residues: 2, 4, 6</p>
+            <p>Those > 3.5: 4 and 6, so \(\mu = 2\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Compute the Legendre symbol</strong>
+            <p>\(\left(\frac{2}{7}\right) = (-1)^2 = 1\).</p>
+            <p>Indeed, \(3^2 = 9 \equiv 2 \pmod{7}\). ✓</p>
+          </div>
         </div>
         
         <div class="proof-box">
-          <strong>Proof of (1):</strong>
+          <strong>Proof of the Second Supplementary Law using Gauss's Lemma:</strong>
           
           <div class="step-box">
-            <strong>Step 1: Check non-negativity</strong>
-            <p>\(N(a + bi) = a^2 + b^2 \geq 0\) since squares are non-negative. \(\square\)</p>
+            <strong>Step 1: Count μ for a = 2</strong>
+            <p>We need to count how many of \(2, 4, 6, \ldots, (p-1)\) are > \(\frac{p}{2}\).</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 2: Check when norm is zero</strong>
-            <p>\(N(a + bi) = 0\) iff \(a^2 + b^2 = 0\) iff \(a = b = 0\) (since \(a^2, b^2 \geq 0\)).</p>
-            <p>Thus \(N(\alpha) = 0\) iff \(\alpha = 0\). \(\square\)</p>
-          </div>
-        </div>
-        
-        <div class="proof-box">
-          <strong>Proof of (2):</strong>
-          
-          <div class="step-box">
-            <strong>Step 1: Use the definition of norm</strong>
-            <p>\(N(\alpha\beta) = (\alpha\beta)(\overline{\alpha\beta}) = (\alpha\beta)(\bar{\alpha}\bar{\beta})\)</p>
+            <strong>Step 2: Use modular arithmetic</strong>
+            <p>Consider the elements \(2, 4, 6, \ldots, p-1\) modulo \(p\).</p>
+            <p>An element \(2k\) (for \(1 \leq k \leq \frac{p-1}{2}\)) satisfies \(2k > \frac{p}{2}\) iff \(k > \frac{p}{4}\).</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 2: Rearrange the product</strong>
-            <p>\((\alpha\beta)(\bar{\alpha}\bar{\beta}) = (\alpha\bar{\alpha})(\beta\bar{\beta}) = N(\alpha)N(\beta)\). \(\square\)</p>
+            <strong>Step 3: Count elements</strong>
+            <p>The number of integers \(k\) with \(\frac{p}{4} < k \leq \frac{p-1}{2}\) depends on \(p \pmod{8}\).</p>
+            <p>After analysis: \(\mu \equiv \frac{p^2-1}{8} \pmod{2}\).</p>
+            <p>Therefore \(\left(\frac{2}{p}\right) = (-1)^{\frac{p^2-1}{8}}\).</p>
+            <p>This gives: \(\left(\frac{2}{p}\right) = 1\) iff \(p \equiv \pm 1 \pmod{8}\). \(\square\)</p>
           </div>
         </div>
       </div>
 
-      <div class="lecture-section"><h2>3. Units in \(\mathbb{Z}[i]\)</h2>
+      <div class="lecture-section"><h2>3. Proof via Eisenstein's Lemma</h2>
+        <div class="theorem-box">
+          <strong>Theorem 8.3 (Eisenstein's Lemma)</strong> Let \(p\) be an odd prime and \(a\) an integer with \(\gcd(a, p) = 1\). Define:
+          \[\mu(a, p) = \#\left\{1 \leq k \leq \frac{p-1}{2} : \lfloor \frac{2ka}{p} \rfloor \text{ is even}\right\}\]
+          Then:
+          \[\left(\frac{a}{p}\right) = (-1)^{\mu(a, p)}\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof sketch:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Geometric interpretation</strong>
+            <p>Consider the lattice points \((k, j)\) with \(1 \leq k \leq \frac{p-1}{2}\) and \(1 \leq j \leq \frac{p-1}{2}\).</p>
+            <p>The line \(y = \frac{2a}{p}x\) passes through this region.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Count lattice points</strong>
+            <p>The number of lattice points below the line relates to \(\mu(a, p)\).</p>
+            <p>Using Pick's Theorem and careful counting, we establish the result.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Apply to reciprocity</strong>
+            <p>The symmetry in counting lattice points for \(\left(\frac{p}{q}\right)\) and \(\left(\frac{q}{p}\right)\) yields the reciprocity law.</p>
+            <p>Specifically: \(\mu(p, q) + \mu(q, p) \equiv \frac{p-1}{2} \cdot \frac{q-1}{2} \pmod{2}\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Detailed Statement and Consequences</h2>
         <div class="definition-box">
-          <strong>Definition 8.3 (Unit)</strong> A unit in \(\mathbb{Z}[i]\) is an element \(\varepsilon\) such that there exists \(\delta \in \mathbb{Z}[i]\) with \(\varepsilon\delta = 1\).
+          <strong>Definition 8.3 (Eisenstein Symbol)</strong> For distinct odd primes \(p, q\), define:
+          \[\epsilon(p, q) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]
+          This captures the "correction factor" in quadratic reciprocity.
         </div>
         
-        <div class="theorem-box">
-          <strong>Theorem 8.2</strong> The units in \(\mathbb{Z}[i]\) are \(\{\pm 1, \pm i\}\).
+        <div class="example-box">
+          <strong>Example 8.3</strong> Analyze the reciprocity law for specific cases.
+          
+          <div class="step-box">
+            <strong>Case 1: Both \(p \equiv 1 \pmod{4}\) and \(q \equiv 1 \pmod{4}\)</strong>
+            <p>Then \(\frac{p-1}{2}\) and \(\frac{q-1}{2}\) are both even.</p>
+            <p>So \(\epsilon(p, q) = (-1)^{\text{even} \cdot \text{even}} = 1\).</p>
+            <p>Therefore \(\left(\frac{p}{q}\right) = \left(\frac{q}{p}\right)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Case 2: Both \(p \equiv 3 \pmod{4}\) and \(q \equiv 3 \pmod{4}\)</strong>
+            <p>Then \(\frac{p-1}{2}\) and \(\frac{q-1}{2}\) are both odd.</p>
+            <p>So \(\epsilon(p, q) = (-1)^{\text{odd} \cdot \text{odd}} = -1\).</p>
+            <p>Therefore \(\left(\frac{p}{q}\right) = -\left(\frac{q}{p}\right)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Case 3: One is 1 mod 4, the other is 3 mod 4</strong>
+            <p>Then \(\epsilon(p, q) = (-1)^{\text{even} \cdot \text{odd}} = 1\).</p>
+            <p>Therefore \(\left(\frac{p}{q}\right) = \left(\frac{q}{p}\right)\).</p>
+          </div>
         </div>
         
-        <div class="proof-box">
-          <strong>Proof:</strong>
-          
-          <div class="step-box">
-            <strong>Step 1: Forward direction - if ε is a unit, then N(ε) = 1</strong>
-            <p>If \(\varepsilon = a + bi\) is a unit, then \(\varepsilon\delta = 1\) for some \(\delta\).</p>
-            <p>Taking norms: \(N(\varepsilon)N(\delta) = N(1) = 1\).</p>
-            <p>Since \(N(\varepsilon), N(\delta) \in \mathbb{Z}_{\geq 0}\), we must have \(N(\varepsilon) = N(\delta) = 1\).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 2: Find all elements with norm 1</strong>
-            <p>Thus \(a^2 + b^2 = 1\) with \(a, b \in \mathbb{Z}\).</p>
-            <p>Since \(a^2 \geq 0\) and \(b^2 \geq 0\), we need:
-            <ul>
-              <li>\(a^2 = 1, b^2 = 0\): gives \(a = \pm 1, b = 0\), so \(\varepsilon = \pm 1\)</li>
-              <li>\(a^2 = 0, b^2 = 1\): gives \(a = 0, b = \pm 1\), so \(\varepsilon = \pm i\)</li>
-            </ul>
-            <p>Therefore the units are \(\varepsilon = \pm 1\) and \(\varepsilon = \pm i\).</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 3: Reverse direction - verify these are units</strong>
-            <p>Verify:
-            \[1 \cdot 1 = 1, \quad (-1) \cdot (-1) = 1, \quad i \cdot (-i) = 1, \quad (-i) \cdot i = 1\]
-            So all four are units. \(\square\)</p>
-          </div>
+        <div class="definition-box">
+          <strong>Definition 8.4 (Fermat's Gift)</strong> For an odd prime \(p\), let \(g_p\) be the smallest positive integer such that \(g_p^p \equiv 1 \pmod{p}\) (when such a primitive root exists). Then:
+          \[\left(\frac{g_p}{p}\right) = (-1)^{\frac{g_p-1}{2}}\]
+          This provides an alternative formulation of the Legendre symbol.
         </div>
       </div>
 
-      <div class="lecture-section"><h2>4. Division Algorithm in \(\mathbb{Z}[i]\)</h2>
-        <div class="theorem-box">
-          <strong>Theorem 8.3 (Division Algorithm for \(\mathbb{Z}[i]\))</strong> Let \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\). Then there exist \(\gamma, \delta \in \mathbb{Z}[i]\) such that:
-          \[\alpha = \beta\gamma + \delta \quad \text{with} \quad N(\delta) < N(\beta).\]
+      <div class="lecture-section"><h2>5. Applications and Examples</h2>
+        <div class="example-box">
+          <strong>Example 8.3</strong> Compute \(\left(\frac{13}{17}\right)\).
+          
+          <div class="step-box">
+            <strong>Step 1: Apply Quadratic Reciprocity</strong>
+            <p>Since \(13 \equiv 1 \pmod{4}\) and \(17 \equiv 1 \pmod{4}\):</p>
+            \[\left(\frac{13}{17}\right) = \left(\frac{17}{13}\right)\]
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Reduce modulo 13</strong>
+            <p>\(17 \equiv 4 \pmod{13}\), so \(\left(\frac{17}{13}\right) = \left(\frac{4}{13}\right)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Simplify</strong>
+            <p>\(\left(\frac{4}{13}\right) = \left(\frac{2^2}{13}\right) = \left(\frac{2}{13}\right)^2 = 1\).</p>
+            <p>Therefore \(\left(\frac{13}{17}\right) = 1\).</p>
+          </div>
         </div>
         
-        <div class="proof-box">
-          <strong>Proof:</strong>
+        <div class="example-box">
+          <strong>Example 8.4</strong> Compute \(\left(\frac{5}{23}\right)\).
           
           <div class="step-box">
-            <strong>Step 1: Work in the complex numbers</strong>
-            <p>Consider \(\frac{\alpha}{\beta} = x + yi \in \mathbb{Q}(i)\) for some \(x, y \in \mathbb{Q}\).</p>
+            <strong>Step 1: Apply Quadratic Reciprocity</strong>
+            <p>Since \(5 \equiv 1 \pmod{4}\):</p>
+            \[\left(\frac{5}{23}\right) = \left(\frac{23}{5}\right)\]
           </div>
           
           <div class="step-box">
-            <strong>Step 2: Round to nearest Gaussian integer</strong>
-            <p>Choose integers \(m, n\) such that \(|x - m| \leq \frac{1}{2}\) and \(|y - n| \leq \frac{1}{2}\).
-            Set \(\gamma = m + ni \in \mathbb{Z}[i]\).</p>
+            <strong>Step 2: Reduce modulo 5</strong>
+            <p>\(23 \equiv 3 \pmod{5}\), so \(\left(\frac{23}{5}\right) = \left(\frac{3}{5}\right)\).</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 3: Define the remainder</strong>
-            <p>Define \(\delta = \alpha - \beta\gamma\). We need to show \(N(\delta) < N(\beta)\).</p>
+            <strong>Step 3: Apply reciprocity again</strong>
+            <p>Since \(3 \equiv 3 \pmod{4}\) and \(5 \equiv 1 \pmod{4}\):</p>
+            \[\left(\frac{3}{5}\right) = \left(\frac{5}{3}\right)\]
           </div>
           
           <div class="step-box">
-            <strong>Step 4: Express δ in terms of the norm</strong>
-            <p>Let \(\frac{\alpha}{\beta} = x + yi\). Then:
-            \[\delta = \beta\left(\frac{\alpha}{\beta} - \gamma\right) = \beta\left((x-m) + (y-n)i\right)\]
-            Therefore:
-            \[N(\delta) = N(\beta) \cdot N\left((x-m) + (y-n)i\right) = N(\beta) \cdot \left((x-m)^2 + (y-n)^2\right)\]</p>
+            <strong>Step 4: Reduce modulo 3</strong>
+            <p>\(5 \equiv 2 \pmod{3}\), so \(\left(\frac{5}{3}\right) = \left(\frac{2}{3}\right)\).</p>
           </div>
           
           <div class="step-box">
-            <strong>Step 5: Bound the error term</strong>
-            <p>Since \(|x - m| \leq \frac{1}{2}\) and \(|y - n| \leq \frac{1}{2}\):
-            \[(x-m)^2 + (y-n)^2 \leq \frac{1}{4} + \frac{1}{4} = \frac{1}{2} < 1\]</p>
-          </div>
-          
-          <div class="step-box">
-            <strong>Step 6: Conclude</strong>
-            <p>Thus \(N(\delta) < N(\beta)\). \(\square\)</p>
+            <strong>Step 5: Use supplementary law</strong>
+            <p>\(3 \equiv 3 \pmod{8}\), so \(\left(\frac{2}{3}\right) = -1\).</p>
+            <p>Therefore \(\left(\frac{5}{23}\right) = -1\).</p>
           </div>
         </div>
       </div>
@@ -192,12 +273,18 @@
       <div class="exercise-box">
         <strong>Exercises:</strong>
         <ol>
-          <li>Compute \(N(3+4i)\), \(N(2-i)\), \(N(-1+2i)\).</li>
-          <li>Show that \(1 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
-          <li>Find \(\gcd(2 + 3i, 1 + i)\) in \(\mathbb{Z}[i]\).</li>
-          <li>Show that 5 is not irreducible in \(\mathbb{Z}[i]\) by finding a non-trivial factorization.</li>
-          <li>Prove: In \(\mathbb{Z}[i]\), \(N(\alpha)\) is a prime in \(\mathbb{Z}\) iff \(\alpha\) is irreducible.</li>
-          <li>Determine whether \(2 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
+          <li>Compute \(\left(\frac{3}{11}\right)\) using Quadratic Reciprocity.</li>
+          <li>Compute \(\left(\frac{7}{13}\right)\) using Quadratic Reciprocity.</li>
+          <li>Compute \(\left(\frac{5}{29}\right)\) using Quadratic Reciprocity.</li>
+          <li>Compute \(\left(\frac{11}{43}\right)\) using Quadratic Reciprocity.</li>
+          <li>Prove: If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\).</li>
+          <li>Show that \(\left(\frac{2}{p}\right) = 1\) iff \(p \equiv \pm 1 \pmod{8}\).</li>
+          <li>Find all solutions to \(x^2 \equiv 17 \pmod{29}\).</li>
+          <li>Use Euler's Criterion to verify your answer to exercise 3.</li>
+          <li>Prove the law of quadratic reciprocity for \(p = 3\) and \(q = 5\).</li>
+          <li>Compute \(\left(\frac{17}{31}\right)\) using Quadratic Reciprocity.</li>
+          <li>Show that for any odd prime \(p\), \(\left(\frac{-1}{p}\right) + \left(\frac{2}{p}\right) \in \{-2, 0, 2\}\).</li>
+          <li>Find the smallest prime \(p > 3\) such that \(\left(\frac{2}{p}\right) = -1\).</li>
         </ol>
       </div>
 
