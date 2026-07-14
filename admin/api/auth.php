@@ -1,26 +1,22 @@
 <?php
 session_start();
 
-$users = [
-    'admin' => password_hash('pokgev-4Pimho-wixjep', PASSWORD_DEFAULT)
-];
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
+
+if ($username === 'admin' && $password === 'pokgev-4Pimho-wixjep') {
+    $_SESSION['authenticated'] = true;
+    $_SESSION['username'] = $username;
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    header('Content-Type: application/json');
+    echo json_encode(['success' => true]);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
-    
-    if (isset($users[$username]) && password_verify($password, $users[$username])) {
-        $_SESSION['authenticated'] = true;
-        $_SESSION['username'] = $username;
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        header('Content-Type: application/json');
-        echo json_encode(['success' => true]);
-        exit;
-    } else {
-        header('Content-Type: application/json');
-        echo json_encode(['success' => false, 'error' => 'Invalid credentials']);
-        exit;
-    }
+    header('Content-Type: application/json');
+    echo json_encode(['success' => false, 'error' => 'Invalid credentials']);
+    exit;
 }
 
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {

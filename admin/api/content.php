@@ -26,7 +26,21 @@ if ($action === 'list') {
         'about.html' => 'About',
         'contact.html' => 'Contact',
         'notes.html' => 'Notes',
-        'blog.html' => 'Blog'
+        'blog.html' => 'Blog',
+        'courses/lecture-notes-1.html' => 'Lecture Notes 1',
+        'courses/lecture-notes-2.html' => 'Lecture Notes 2',
+        'courses/lecture-notes-3.html' => 'Lecture Notes 3',
+        'courses/lecture-notes-4.html' => 'Lecture Notes 4',
+        'courses/lecture-notes-5.html' => 'Lecture Notes 5',
+        'courses/lecture-notes-6.html' => 'Lecture Notes 6',
+        'courses/lecture-notes-7.html' => 'Lecture Notes 7',
+        'courses/lecture-notes-8.html' => 'Lecture Notes 8',
+        'courses/lecture-notes-9.html' => 'Lecture Notes 9',
+        'courses/lecture-notes-10.html' => 'Lecture Notes 10',
+        'courses/lecture-notes-11.html' => 'Lecture Notes 11',
+        'courses/lecture-notes-12.html' => 'Lecture Notes 12',
+        'courses/lecture-notes-13.html' => 'Lecture Notes 13',
+        'courses/lecture-notes-14.html' => 'Lecture Notes 14'
     ];
     echo json_encode(['pages' => $pages]);
     exit;

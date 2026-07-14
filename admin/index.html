@@ -34,13 +34,24 @@
         .toolbar { background: #1a1a2e; padding: 0.5rem; border-bottom: 1px solid #333; display: flex; gap: 0.25rem; flex-wrap: wrap; }
         .toolbar-btn { width: 32px; height: 32px; border: none; background: #16213e; border-radius: 4px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #aaa; transition: all 0.2s; }
         .toolbar-btn:hover { background: #00d4ff; color: #1a1a2e; }
-        .toolbar-separator { width: 1px; height: 24px; background: #333; }
         .content-editor { flex: 1; padding: 1rem; overflow: auto; }
         .editor { width: 100%; min-height: 600px; background: #0f0f1a; color: #eee; border: 1px solid #333; border-radius: 8px; padding: 1rem; font-family: Georgia, serif; font-size: 16px; line-height: 1.6; outline: none; }
         .editor:focus { border-color: #00d4ff; }
         .actions { padding: 1rem; background: #1a1a2e; border-top: 1px solid #333; display: flex; gap: 0.5rem; flex-wrap: wrap; }
         .action-btn { padding: 0.75rem 1.5rem; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; transition: all 0.2s; }
         .action-btn.save { background: linear-gradient(135deg, #00c853, #00e676); color: #1a1a2e; }
+        .autosave-indicator { 
+            display: inline-block; 
+            width: 12px; 
+            height: 12px; 
+            border-radius: 50%; 
+            background: #666; 
+            margin-left: 8px; 
+            vertical-align: middle;
+        }
+        .autosave-indicator.saved { background: #00c853; }
+        .autosave-indicator.dirty { background: #ff9800; animation: pulse 1s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         .action-btn.download { background: linear-gradient(135deg, #ff9800, #ffb74d); color: #1a1a2e; }
         .action-btn.preview { background: linear-gradient(135deg, #2196f3, #03a9f4); color: #fff; }
         .action-btn.cancel { background: linear-gradient(135deg, #f44336, #ff5252); color: #fff; }
@@ -54,6 +65,7 @@
         .notification.show { display: block; }
         .notification.success { background: linear-gradient(135deg, #00c853, #00e676); }
         .notification.error { background: linear-gradient(135deg, #f44336, #ff5252); }
+        .notification.warning { background: linear-gradient(135deg, #ff9800, #ffb74d); }
     </style>
 </head>
 <body>
@@ -104,7 +116,7 @@
             </div>
         </div>
         <div class="actions">
-            <button class="action-btn save" onclick="saveContent()"><i class="fas fa-save"></i> Save</button>
+            <button class="action-btn save" onclick="saveContent()"><i class="fas fa-save"></i> Save <span class="autosave-indicator" id="autosaveIndicator"></span></button>
             <button class="action-btn download" onclick="downloadContent()"><i class="fas fa-download"></i> Download</button>
             <button class="action-btn preview" onclick="previewContent()"><i class="fas fa-eye"></i> Preview</button>
             <button class="action-btn cancel" onclick="cancelEdit()"><i class="fas fa-undo"></i> Cancel</button>
@@ -124,24 +136,41 @@
         const ADMIN_PASSWORD = 'pokgev-4Pimho-wixjep';
         let currentPage = '';
         let originalContent = '';
-        let pages = {
-            'index.html': 'Homepage',
-            'teaching.html': 'Teaching',
-            'courses/calculus-1.html': 'Calculus I',
-            'courses/calculus-2.html': 'Calculus II',
-            'courses/calculus-3.html': 'Calculus III',
-            'courses/linear-algebra.html': 'Linear Algebra',
-            'courses/real-analysis.html': 'Real Analysis',
-            'courses/introduction-to-proofs.html': 'Introduction to Proofs',
-            'courses/number-theory.html': 'Elementary Number Theory',
-            'courses/algebra-I.html': 'Algebra I',
-            'courses/algebra-II.html': 'Algebra II',
-            'research.html': 'Research',
-            'about.html': 'About',
-            'contact.html': 'Contact',
-            'notes.html': 'Notes',
-            'blog.html': 'Blog'
-        };
+        let saveTimeout = null;
+        let isDirty = false;
+        
+        const pages = [
+            { path: 'index.html', name: 'Homepage' },
+            { path: 'teaching.html', name: 'Teaching' },
+            { path: 'courses/calculus-1.html', name: 'Calculus I' },
+            { path: 'courses/calculus-2.html', name: 'Calculus II' },
+            { path: 'courses/calculus-3.html', name: 'Calculus III' },
+            { path: 'courses/linear-algebra.html', name: 'Linear Algebra' },
+            { path: 'courses/real-analysis.html', name: 'Real Analysis' },
+            { path: 'courses/introduction-to-proofs.html', name: 'Introduction to Proofs' },
+            { path: 'courses/number-theory.html', name: 'Elementary Number Theory' },
+            { path: 'courses/algebra-I.html', name: 'Algebra I' },
+            { path: 'courses/algebra-II.html', name: 'Algebra II' },
+            { path: 'research.html', name: 'Research' },
+            { path: 'about.html', name: 'About' },
+            { path: 'contact.html', name: 'Contact' },
+            { path: 'notes.html', name: 'Notes' },
+            { path: 'blog.html', name: 'Blog' },
+            { path: 'courses/lecture-notes-1.html', name: 'Lecture Notes 1' },
+            { path: 'courses/lecture-notes-2.html', name: 'Lecture Notes 2' },
+            { path: 'courses/lecture-notes-3.html', name: 'Lecture Notes 3' },
+            { path: 'courses/lecture-notes-4.html', name: 'Lecture Notes 4' },
+            { path: 'courses/lecture-notes-5.html', name: 'Lecture Notes 5' },
+            { path: 'courses/lecture-notes-6.html', name: 'Lecture Notes 6' },
+            { path: 'courses/lecture-notes-7.html', name: 'Lecture Notes 7' },
+            { path: 'courses/lecture-notes-8.html', name: 'Lecture Notes 8' },
+            { path: 'courses/lecture-notes-9.html', name: 'Lecture Notes 9' },
+            { path: 'courses/lecture-notes-10.html', name: 'Lecture Notes 10' },
+            { path: 'courses/lecture-notes-11.html', name: 'Lecture Notes 11' },
+            { path: 'courses/lecture-notes-12.html', name: 'Lecture Notes 12' },
+            { path: 'courses/lecture-notes-13.html', name: 'Lecture Notes 13' },
+            { path: 'courses/lecture-notes-14.html', name: 'Lecture Notes 14' }
+        ];
 
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -159,23 +188,16 @@
 
         function loadPages() {
             const pageList = document.getElementById('pageList');
-            Object.keys(pages).forEach(slug => {
+            pageList.innerHTML = '';
+            pages.forEach(p => {
                 const item = document.createElement('div');
                 item.className = 'page-item';
-                item.textContent = pages[slug];
-                item.dataset.page = slug;
-                item.addEventListener('click', function() {
-                    selectPage(this.dataset.page);
-                    document.querySelectorAll('.page-item').forEach(el => el.classList.remove('active'));
-                    this.classList.add('active');
-                });
+                item.textContent = p.name;
+                item.dataset.page = p.path;
+                item.addEventListener('click', () => selectPage(p.path));
                 pageList.appendChild(item);
             });
-            if (Object.keys(pages).length > 0) {
-                const firstItem = pageList.querySelector('.page-item');
-                if (firstItem) firstItem.classList.add('active');
-                selectPage(Object.keys(pages)[0]);
-            }
+            if (pages.length > 0) selectPage(pages[0].path);
         }
 
         function selectPage(page) {
@@ -183,31 +205,23 @@
             document.getElementById('currentPage').textContent = page;
             document.getElementById('editor').innerHTML = '';
             
-            if (!page) return;
-            
-            // Check for saved content in localStorage first
             const saved = localStorage.getItem('admin_saved_' + page);
             if (saved) {
                 originalContent = saved;
                 document.getElementById('editor').innerHTML = saved;
-                return;
+                updateIndicator();
             }
-            
-            // Fetch original content from server
-            const url = '../' + page;
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) throw new Error('Page not found');
-                    return response.text();
-                })
-                .then(content => {
-                    originalContent = content;
-                    document.getElementById('editor').innerHTML = content;
-                })
-                .catch(err => {
-                    document.getElementById('editor').innerHTML = '<p style="color:#666">Page not found or cannot be loaded. Start editing to create content.</p>';
-                    originalContent = '';
-                });
+        }
+
+        function updateIndicator() {
+            const indicator = document.getElementById('autosaveIndicator');
+            if (isDirty) {
+                indicator.classList.remove('saved');
+                indicator.classList.add('dirty');
+            } else {
+                indicator.classList.remove('dirty');
+                indicator.classList.add('saved');
+            }
         }
 
         function formatElement(tag) {
@@ -218,53 +232,36 @@
             
             if (tag === 'bold') {
                 const bold = document.createElement('strong');
-                range.deleteContents();
-                range.insertNode(bold);
-                range.setStartAfter(bold);
-                range.setEndAfter(bold);
-                sel.removeAllRanges();
-                sel.addRange(range);
+                range.deleteContents(); range.insertNode(bold);
+                range.setStartAfter(bold); range.setEndAfter(bold);
+                sel.removeAllRanges(); sel.addRange(range);
             } else if (tag === 'italic') {
                 const italic = document.createElement('i');
-                range.deleteContents();
-                range.insertNode(italic);
-                range.setStartAfter(italic);
-                range.setEndAfter(italic);
-                sel.removeAllRanges();
-                sel.addRange(range);
+                range.deleteContents(); range.insertNode(italic);
+                range.setStartAfter(italic); range.setEndAfter(italic);
+                sel.removeAllRanges(); sel.addRange(range);
             } else if (tag === 'bullet') {
                 const ul = document.createElement('ul');
-                const li = document.createElement('li');
-                li.textContent = 'List item';
-                ul.appendChild(li);
-                range.deleteContents();
-                range.insertNode(ul);
+                const li = document.createElement('li'); li.textContent = 'List item';
+                ul.appendChild(li); range.deleteContents(); range.insertNode(ul);
             } else if (tag === 'number') {
                 const ol = document.createElement('ol');
-                const li = document.createElement('li');
-                li.textContent = 'List item';
-                ol.appendChild(li);
-                range.deleteContents();
-                range.insertNode(ol);
+                const li = document.createElement('li'); li.textContent = 'List item';
+                ol.appendChild(li); range.deleteContents(); range.insertNode(ol);
             } else if (tag === 'link') {
                 const url = prompt('Enter URL:');
                 if (url) {
                     const a = document.createElement('a');
-                    a.href = url;
-                    a.textContent = url;
-                    range.deleteContents();
-                    range.insertNode(a);
+                    a.href = url; a.textContent = url;
+                    range.deleteContents(); range.insertNode(a);
                 }
             } else if (tag === 'math') {
                 const span = document.createElement('span');
-                span.className = 'math';
-                span.innerHTML = '$$...$$';
-                range.deleteContents();
-                range.insertNode(span);
+                span.className = 'math'; span.innerHTML = '$$...$$';
+                range.deleteContents(); range.insertNode(span);
             } else if (tag === 'h1' || tag === 'h2') {
                 const element = document.createElement(tag);
-                range.deleteContents();
-                range.insertNode(element);
+                range.deleteContents(); range.insertNode(element);
             }
         }
 
@@ -279,21 +276,44 @@
                 return;
             }
             
-            // Save to localStorage
             localStorage.setItem('admin_saved_' + currentPage, content);
             
-            // Also save to history
             let history = JSON.parse(localStorage.getItem('admin_history') || '{}');
             if (!history[currentPage]) history[currentPage] = [];
-            history[currentPage].push({
-                content: content,
-                timestamp: new Date().toISOString()
-            });
+            history[currentPage].push({ content, timestamp: new Date().toISOString() });
             localStorage.setItem('admin_history', JSON.stringify(history));
             
             originalContent = content;
-            showNotification('Content saved to browser! Click Download to export.', 'success');
+            isDirty = false;
+            updateIndicator();
+            showNotification('Content saved to browser! Click Download to save file.', 'success');
         }
+
+        function autoSave() {
+            const content = getContent();
+            if (!content || content === originalContent) return;
+            
+            localStorage.setItem('admin_saved_' + currentPage, content);
+            
+            let history = JSON.parse(localStorage.getItem('admin_history') || '{}');
+            if (!history[currentPage]) history[currentPage] = [];
+            history[currentPage].push({ content, timestamp: new Date().toISOString() });
+            localStorage.setItem('admin_history', JSON.stringify(history));
+            
+            originalContent = content;
+            updateIndicator();
+        }
+
+        document.getElementById('editor').addEventListener('input', function() {
+            isDirty = true;
+            updateIndicator();
+            if (saveTimeout) clearTimeout(saveTimeout);
+            saveTimeout = setTimeout(autoSave, 1000);
+        });
+
+        window.addEventListener('beforeunload', function() {
+            if (currentPage) autoSave();
+        });
 
         function downloadContent() {
             const content = getContent();
@@ -302,12 +322,10 @@
                 return;
             }
             
-            // Get the full HTML document
             const fullDocument = document.querySelector('html').outerHTML;
             const parser = new DOMParser();
             const doc = parser.parseFromString(fullDocument, 'text/html');
             
-            // Replace body content
             const bodyContent = doc.querySelector('body');
             bodyContent.innerHTML = content;
             const fullHtml = doc.documentElement.outerHTML;
@@ -321,7 +339,7 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            showNotification('File downloaded! Save it to your project folder.', 'success');
+            showNotification('File downloaded! Save it to your VS Code projects folder.', 'success');
         }
 
         function previewContent() {
@@ -340,6 +358,8 @@
 
         function cancelEdit() {
             document.getElementById('editor').innerHTML = originalContent;
+            isDirty = false;
+            updateIndicator();
             showNotification('Changes cancelled', 'success');
         }
 
@@ -350,25 +370,47 @@
                 return;
             }
             
-            if (confirm('Restore previous version? This will overwrite current changes.')) {
-                const prevContent = history[currentPage][history[currentPage].length - 1].content;
+            const versions = history[currentPage].slice().reverse();
+            let versionHtml = '<select onchange="restoreSpecificVersion(this.value)"><option value="">Select version...</option>';
+            versions.forEach((v, i) => {
+                const date = new Date(v.timestamp).toLocaleString();
+                versionHtml += `<option value="${i}">${date}</option>`;
+            });
+            versionHtml += '</select>';
+            document.getElementById('previewContent').innerHTML = versionHtml;
+            document.getElementById('previewModal').classList.add('active');
+        }
+        
+        function restoreSpecificVersion(index) {
+            const history = JSON.parse(localStorage.getItem('admin_history') || '{}');
+            if (!history[currentPage] || history[currentPage].length === 0) return;
+            
+            const versions = history[currentPage].slice().reverse();
+            if (index === '' || index === undefined) {
+                document.getElementById('previewModal').classList.remove('active');
+                return;
+            }
+            
+            const prevContent = versions[parseInt(index)].content;
+            if (confirm('Restore this version? This will overwrite current changes.')) {
                 originalContent = prevContent;
                 document.getElementById('editor').innerHTML = prevContent;
+                localStorage.setItem('admin_saved_' + currentPage, prevContent);
+                document.getElementById('previewModal').classList.remove('active');
+                isDirty = false;
+                updateIndicator();
                 showNotification('Previous version restored', 'success');
             }
         }
 
         function publishContent() {
-            showNotification('Click Save then Download to update your files', 'success');
+            showNotification('Content auto-saved! Click Download to save file.', 'success');
         }
 
         function showNotification(message, type) {
             const notification = document.getElementById('notification');
             notification.textContent = message;
             notification.className = 'notification ' + type + ' show';
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 4000);
         }
 
         document.getElementById('logoutBtn').addEventListener('click', function() {
@@ -377,8 +419,5 @@
             document.getElementById('editor').innerHTML = '';
         });
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
