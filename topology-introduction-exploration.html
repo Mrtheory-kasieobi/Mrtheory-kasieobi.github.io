@@ -9,33 +9,32 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body.blog-post {
-            background: linear-gradient(135deg, #0a0f1a 0%, #1a1a2e 100%);
-            color: #e8e8e8;
+            background: var(--bg);
+            color: var(--text);
         }
         
         .blog-post-header {
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem auto;
             max-width: 800px;
-            margin: 2rem auto 1rem;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-3d), var(--shadow-inset);
         }
         
         .blog-post-header h1 {
             font-size: clamp(2rem, 4vw, 2.8rem);
             margin-bottom: 0.5rem;
-            background: linear-gradient(90deg, #00d4ff, #00c853);
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            background: linear-gradient(90deg, var(--accent), #4aa8f5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
-            font-weight: 600;
         }
         
         .blog-post-header .meta {
-            color: #888;
+            color: var(--muted);
             font-size: 0.95rem;
             display: flex;
             gap: 1.5rem;
@@ -52,14 +51,14 @@
             font-size: 1.1rem;
             line-height: 1.75;
             margin-bottom: 1.5rem;
-            color: #e0e0e0;
+            color: var(--text);
             font-family: Georgia, serif;
         }
         
         .blog-content h2 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin: 2rem 0 1rem;
-            color: #00d4ff;
+            color: var(--accent);
             font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
             position: relative;
             padding-bottom: 0.5rem;
@@ -72,11 +71,11 @@
             left: 0;
             width: 60px;
             height: 2px;
-            background: linear-gradient(90deg, #00d4ff, transparent);
+            background: var(--accent);
         }
         
         .blog-content h3 {
-            font-size: 1.3rem;
+            font-size: 1.15rem;
             margin: 1.8rem 0 0.8rem;
             color: #4aa8f5;
             font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
@@ -97,15 +96,15 @@
             content: "→";
             position: absolute;
             left: 0;
-            color: #00d4ff;
+            color: var(--accent);
             font-weight: bold;
         }
         
         .blog-content blockquote {
             margin: 2rem 0;
             padding: 1.5rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 200, 83, 0.05));
-            border-left: 4px solid #00d4ff;
+            background: linear-gradient(135deg, rgba(140, 200, 255, 0.12), rgba(140, 200, 255, 0.05));
+            border-left: 4px solid var(--accent);
             border-radius: 0 8px 8px 0;
             font-style: italic;
             color: #a0e0ff;
@@ -115,23 +114,49 @@
         .back-link {
             display: inline-block;
             margin-top: 2rem;
-            color: #00d4ff;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s ease;
         }
         
         .back-link:hover {
-            color: #00c853;
+            color: #4aa8f5;
             transform: translateX(-5px);
         }
         
         .back-link::before {
             content: "← ";
         }
+        
+        .entry-navigation {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 2rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+        
+        .entry-nav-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        
+        .entry-nav-link:hover {
+            background: linear-gradient(145deg, var(--accent), #4aa8f5);
+            color: #07111d;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
-<body>
+<body class="blog-page">
     <header>
         <div class="header-controls">
             <label class="search-bar" for="site-search">
@@ -140,20 +165,20 @@
             </label>
         </div>
         <div class="header-content">
-            <h1>Kasieobi Udumaga</h1>
-            <p>High School Student | Mathematics Enthusiast | Also a sprinter :) </p>
+            <h1 data-content="blog.header">Research Notebook</h1>
+            <p data-content="blog.subtitle">Learning journal and mathematical musings</p>
         </div>
     </header>
     
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About me</a></li>
             <li><a href="notes.html">Notes</a></li>
             <li><a href="teaching.html">Teaching</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="Track.html">Track and field</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html" class="active" aria-current="page">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
@@ -165,6 +190,7 @@
                 <div class="meta">
                     <span>July 13, 2026</span>
                     <span>~3 min read</span>
+                    <span class="entry-category">Learning Journal</span>
                 </div>
             </header>
             
@@ -198,16 +224,28 @@
                 
                 <p>For now, I'm taking it one concept at a time. The beauty of topology is that it connects to so many areas—analysis, algebra, geometry—and that's what keeps me coming back to my notes.</p>
                 
-                <a href="blog.html" class="back-link">Back to Blog</a>
+                <div class="entry-navigation">
+                    <a href="blog.html" class="entry-nav-link">← Back to Blog</a>
+                </div>
             </div>
         </article>
     </main>
     
     <footer>
-        <p class="site-footer">© 2026 Kasieobi Udumaga</p>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
     </footer>
     
     <script src="content-loader.js"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const entries = document.querySelectorAll(".timeline-entry");
+            entries.forEach((entry, i) => {
+                setTimeout(() => {
+                    entry.classList.add("visible");
+                }, i * 100);
+            });
+        });
+    </script>
 </body>
 </html>
