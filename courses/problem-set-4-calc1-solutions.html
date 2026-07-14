@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Problem Set 4 Solutions: Chain Rule and Implicit Differentiation - Calculus I">
+  <title>Kasieobi Udumaga | Problem Set 4 Solutions: Chain Rule and Implicit Differentiation - Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .solution-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; }
+    .step { margin: 0.5rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <main>
+    <div class="lecture-header"><h1>Problem Set 4: Chain Rule and Implicit Differentiation - SOLUTIONS</h1><div class="subtitle">Calculus I - Week 4</div></div>
+    <div class="lecture-content">
+      <h2>Solution Guide</h2>
+      <p><strong>Note:</strong> These are detailed solutions showing all steps and reasoning. Each step is clearly justified.</p>
+      
+      <h3>Problem 1: Find \(\frac{dy}{dx}\) for \(y = \sin(x^3 + 2x)\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Identify the chain rule structure</strong><br>Outer function: \(\sin(u)\), where \(u = x^3 + 2x\)</div>
+        <div class="step"><strong>Step 2: Apply the chain rule</strong><br>\(\frac{dy}{dx} = \cos(u) \cdot \frac{du}{dx}\)</div>
+        <div class="step"><strong>Step 3: Differentiate the inner function</strong><br>\(\frac{d}{dx}[x^3 + 2x] = 3x^2 + 2\)</div>
+        <div class="step"><strong>Step 4: Combine results</strong><br>\(\frac{dy}{dx} = \cos(x^3 + 2x) \cdot (3x^2 + 2) = (3x^2 + 2)\cos(x^3 + 2x)\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{(3x^2 + 2)\cos(x^3 + 2x)}\)</div>
+      </div>
+
+      <h3>Problem 2: Find \(\frac{d}{dx}[e^{\tan(x^2)}]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Identify the nested structure</strong><br>Three layers: \(e^u\), where \(u = \tan(v)\), where \(v = x^2\)</div>
+        <div class="step"><strong>Step 2: Apply chain rule repeatedly</strong><br>\(\frac{d}{dx} = \frac{d}{du}[e^u] \cdot \frac{d}{dv}[\tan v] \cdot \frac{d}{dx}[x^2]\)</div>
+        <div class="step"><strong>Step 3: Compute each derivative</strong><br>\(\frac{d}{du}[e^u] = e^u\), \(\frac{d}{dv}[\tan v] = \sec^2 v\), \(\frac{d}{dx}[x^2] = 2x\)</div>
+        <div class="step"><strong>Step 4: Substitute back</strong><br>\(\frac{d}{dx} = e^{\tan(x^2)} \cdot \sec^2(x^2) \cdot 2x\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{2xe^{\tan(x^2)}\sec^2(x^2)}\)</div>
+      </div>
+
+      <h3>Problem 3: Find \(\frac{d}{dx}[\ln(\sin(x^2))]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Outer function is \(\ln(u)\)</strong><br>where \(u = \sin(x^2)\)</div>
+        <div class="step"><strong>Step 2: Apply chain rule</strong><br>\(\frac{d}{dx} = \frac{1}{\sin(x^2)} \cdot \frac{d}{dx}[\sin(x^2)]\)</div>
+        <div class="step"><strong>Step 3: Differentiate \(\sin(x^2)\)</strong><br>\(\frac{d}{dx}[\sin(x^2)] = \cos(x^2) \cdot 2x = 2x\cos(x^2)\)</div>
+        <div class="step"><strong>Step 4: Combine</strong><br>\(\frac{d}{dx} = \frac{2x\cos(x^2)}{\sin(x^2)} = 2x\cot(x^2)\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{2x\cot(x^2)}\)</div>
+      </div>
+
+      <h3>Problem 4: If \(y = \sqrt[3]{x^2 + 1}\), find \(\frac{dy}{dx}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Rewrite using fractional exponent</strong><br>\(y = (x^2 + 1)^{1/3}\)</div>
+        <div class="step"><strong>Step 2: Apply chain rule</strong><br>\(\frac{dy}{dx} = \frac{1}{3}(x^2 + 1)^{-2/3} \cdot \frac{d}{dx}[x^2 + 1]\)</div>
+        <div class="step"><strong>Step 3: Differentiate inner function</strong><br>\(\frac{d}{dx}[x^2 + 1] = 2x\)</div>
+        <div class="step"><strong>Step 4: Combine and simplify</strong><br>\(\frac{dy}{dx} = \frac{2x}{3}(x^2 + 1)^{-2/3} = \frac{2x}{3(x^2 + 1)^{2/3}}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{2x}{3(x^2 + 1)^{2/3}}}\)</div>
+      </div>
+
+      <h3>Problem 5: Find \(\frac{dy}{dx}\) for \(y = (2x^3 - 5)^{-4}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Identify outer and inner functions</strong><br>Outer: \(u^{-4}\), Inner: \(u = 2x^3 - 5\)</div>
+        <div class="step"><strong>Step 2: Apply chain rule</strong><br>\(\frac{dy}{dx} = -4u^{-5} \cdot \frac{du}{dx}\)</div>
+        <div class="step"><strong>Step 3: Find \(\frac{du}{dx}\)</strong><br>\(\frac{d}{dx}[2x^3 - 5] = 6x^2\)</div>
+        <div class="step"><strong>Step 4: Substitute back</strong><br>\(\frac{dy}{dx} = -4(2x^3 - 5)^{-5} \cdot 6x^2 = -\frac{24x^2}{(2x^3 - 5)^5}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{-\frac{24x^2}{(2x^3 - 5)^5}}\)</div>
+      </div>
+
+      <h3>Problem 6: Use implicit differentiation for \(x^2y + y^3 = 6\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Differentiate both sides with respect to \(x\)</strong><br>\(\frac{d}{dx}[x^2y + y^3] = \frac{d}{dx}[6]\)</div>
+        <div class="step"><strong>Step 2: Apply product rule to \(x^2y\)</strong><br>\(\frac{d}{dx}[x^2y] = 2x \cdot y + x^2 \cdot \frac{dy}{dx}\)</div>
+        <div class="step"><strong>Step 3: Apply chain rule to \(y^3\)</strong><br>\(\frac{d}{dx}[y^3] = 3y^2 \cdot \frac{dy}{dx}\)</div>
+        <div class="step"><strong>Step 4: Right side derivative</strong><br>\(\frac{d}{dx}[6] = 0\)</div>
+        <div class="step"><strong>Step 5: Combine equation</strong><br>\(2xy + x^2\frac{dy}{dx} + 3y^2\frac{dy}{dx} = 0\)</div>
+        <div class="step"><strong>Step 6: Collect \(\frac{dy}{dx}\) terms</strong><br>\(\frac{dy}{dx}(x^2 + 3y^2) = -2xy\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{dy}{dx} = -\frac{2xy}{x^2 + 3y^2}}\)</div>
+      </div>
+
+      <h3>Problem 7: Find \(\frac{dy}{dx}\) for \(\sin(x+y) = x + y\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Differentiate both sides</strong><br>\(\frac{d}{dx}[\sin(x+y)] = \frac{d}{dx}[x+y]\)</div>
+        <div class="step"><strong>Step 2: Left side using chain rule</strong><br>\(\cos(x+y) \cdot (1 + \frac{dy}{dx})\)</div>
+        <div class="step"><strong>Step 3: Right side</strong><br>\(1 + \frac{dy}{dx}\)</div>
+        <div class="step"><strong>Step 4: Set equal and solve</strong><br>\(\cos(x+y)(1 + \frac{dy}{dx}) = 1 + \frac{dy}{dx}\)</div>
+        <div class="step"><strong>Step 5: Expand and collect</strong><br>\(\cos(x+y) + \cos(x+y)\frac{dy}{dx} = 1 + \frac{dy}{dx}\)<br>\(\cos(x+y)\frac{dy}{dx} - \frac{dy}{dx} = 1 - \cos(x+y)\)</div>
+        <div class="step"><strong>Step 6: Factor and solve</strong><br>\(\frac{dy}{dx}[\cos(x+y) - 1] = 1 - \cos(x+y)\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{dy}{dx} = -1}\) (when \(\cos(x+y) \neq 1\))</div>
+      </div>
+
+      <h3>Problem 8: A spherical balloon is being inflated. If the radius increases at 2 cm/s, how fast is the volume increasing when \(r = 10\) cm?</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Write the volume formula</strong><br>Volume of sphere: \(V = \frac{4}{3}\pi r^3\)</div>
+        <div class="step"><strong>Step 2: Differentiate with respect to time</strong><br>\(\frac{dV}{dt} = \frac{4}{3}\pi \cdot 3r^2 \cdot \frac{dr}{dt} = 4\pi r^2 \frac{dr}{dt}\)</div>
+        <div class="step"><strong>Step 3: Substitute given values</strong><br>\(r = 10\) cm, \(\frac{dr}{dt} = 2\) cm/s</div>
+        <div class="step"><strong>Step 4: Calculate</strong><br>\(\frac{dV}{dt} = 4\pi (10)^2 (2) = 4\pi \cdot 100 \cdot 2 = 800\pi\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{800\pi \text{ cm}^3/\text{s}}\)</div>
+      </div>
+
+      <h3>Problem 9: Find the equation of the tangent line to \(y = e^{x^2}\) at \(x = 1\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find the point of tangency</strong><br>\(y = e^{1^2} = e\), so point is \((1, e)\)</div>
+        <div class="step"><strong>Step 2: Find the slope using derivative</strong><br>\(\frac{dy}{dx} = e^{x^2} \cdot 2x\) (chain rule)</div>
+        <div class="step"><strong>Step 3: Evaluate slope at x = 1</strong><br>\(\frac{dy}{dx}\bigg|_{x=1} = e^{1} \cdot 2(1) = 2e\)</div>
+        <div class="step"><strong>Step 4: Use point-slope form</strong><br>\(y - e = 2e(x - 1)\)</div>
+        <div class="step"><strong>Step 5: Simplify</strong><br>\(y = 2ex - 2e + e = 2ex - e\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{y = 2ex - e}\)</div>
+      </div>
+
+      <h3>Problem 10: Find \(\frac{d}{dx}[x^{x}]\) using logarithmic differentiation</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Take natural logarithm of both sides</strong><br>Let \(y = x^x\). Then \(\ln y = \ln(x^x) = x\ln x\)</div>
+        <div class="step"><strong>Step 2: Differentiate implicitly</strong><br>\(\frac{1}{y} \cdot \frac{dy}{dx} = \frac{d}{dx}[x\ln x]\)</div>
+        <div class="step"><strong>Step 3: Apply product rule on right</strong><br>\(\frac{d}{dx}[x\ln x] = 1 \cdot \ln x + x \cdot \frac{1}{x} = \ln x + 1\)</div>
+        <div class="step"><strong>Step 4: Solve for \(\frac{dy}{dx}\)</strong><br>\(\frac{dy}{dx} = y(\ln x + 1) = x^x(\ln x + 1)\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{x^x(\ln x + 1)}\)</div>
+      </div>
+
+      <h3>Bonus 1: Find \(\frac{dy}{dx}\) for \(y = (\sin x)^{\cos x}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Logarithmic differentiation</strong><br>\(\ln y = \cos x \cdot \ln(\sin x)\)</div>
+        <div class="step"><strong>Step 2: Differentiate both sides</strong><br>\(\frac{1}{y} \cdot \frac{dy}{dx} = \frac{d}{dx}[\cos x \cdot \ln(\sin x)]\)</div>
+        <div class="step"><strong>Step 3: Product rule on right</strong><br>\(= (-\sin x)\ln(\sin x) + \cos x \cdot \frac{\cos x}{\sin x}\)</div>
+        <div class="step"><strong>Step 4: Simplify</strong><br>\(\frac{1}{y} \cdot \frac{dy}{dx} = -\sin x \ln(\sin x) + \cot x \cos x\)</div>
+        <div class="step"><strong>Step 5: Multiply by y</strong><br>\(\frac{dy}{dx} = (\sin x)^{\cos x}[-\sin x \ln(\sin x) + \cot x \cos x]\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{(\sin x)^{\cos x}[-\sin x \ln(\sin x) + \cot x \cos x]}\)</div>
+      </div>
+
+      <h3>Bonus 2: Prove that if \(f(g(x)) = x\) for all \(x\), then \(g(f(x)) = x\) for all \(x\) in the appropriate domains</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Understand the given condition</strong><br>\(f(g(x)) = x\) means \(g\) is a left inverse of \(f\)</div>
+        <div class="step"><strong>Step 2: Differentiate both sides</strong><br>\(\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x) = 1\)</div>
+        <div class="step"><strong>Step 3: Conclude non-zero derivatives</strong><br>Since the product equals 1, neither factor can be zero: \(f'(g(x)) \neq 0\) and \(g'(x) \neq 0\)</div>
+        <div class="step"><strong>Step 4: Apply Inverse Function Theorem</strong><br>Since \(f'(g(x)) \neq 0\), \(f\) is locally invertible with inverse \(g\).<br>Therefore, \(g(f(x)) = x\) on the range of \(f\).</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{g(f(x)) = x \text{ on the appropriate domain}}\)</div>
+      </div>
+    </div>
+    <nav class="navigation"><a href="problem-set-3-calc1-solutions.html">← Problem Set 3</a><a href="problem-set-5-calc1-solutions.html">Problem Set 5 Solutions →</a></nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

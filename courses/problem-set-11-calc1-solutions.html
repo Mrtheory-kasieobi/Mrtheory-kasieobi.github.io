@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Set 11 Solutions: Midterm Review - Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .solution-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; }
+    .step { margin: 0.5rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <main>
+    <div class="lecture-header"><h1>Problem Set 11: Midterm Review - SOLUTIONS</h1><div class="subtitle">Calculus I - Midterm</div></div>
+    <div class="lecture-content">
+      <h2>Solution Guide</h2>
+      <p><strong>Note:</strong> These are comprehensive solutions covering all major topics from the first half of the course.</p>
+      
+      <h3>Problem 1: \(\lim_{x \to 0} \frac{\sin x}{x}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Recognize standard limit</strong><br>This is a fundamental trigonometric limit</div>
+        <div class="step"><strong>Step 2: Apply known result</strong><br>\(\lim_{x \to 0} \frac{\sin x}{x} = 1\)</div>
+        <div class="step"><strong>Alternative: L'Hôpital's Rule</strong><br>\(\frac{0}{0}\) form, differentiate numerator and denominator:<br>\(\lim_{x \to 0} \frac{\cos x}{1} = 1\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{1}\)</div>
+      </div>
+
+      <h3>Problem 2: Find derivative of \(f(x) = \ln(\sin(x^2 + 1))\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Apply chain rule (3 layers)</strong><br>\(f(x) = \ln(u)\) where \(u = \sin(v)\) where \(v = x^2 + 1\)</div>
+        <div class="step"><strong>Step 2: Differentiate</strong><br>\(\frac{d}{dx}[\ln(u)] = \frac{1}{u} \cdot \frac{du}{dx}\)</div>
+        <div class="step"><strong>Step 3: Continue chain rule</strong><br>\(\frac{du}{dx} = \cos(v) \cdot \frac{dv}{dx} = \cos(x^2 + 1) \cdot 2x\)</div>
+        <div class="step"><strong>Step 4: Combine</strong><br>\(\frac{dy}{dx} = \frac{1}{\sin(x^2+1)} \cdot \cos(x^2+1) \cdot 2x = 2x\cot(x^2+1)\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{2x\cot(x^2 + 1)}\)</div>
+      </div>
+
+      <h3>Problem 3: Find critical points of \(f(x) = e^x - 4x\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find derivative</strong><br>\(f'(x) = e^x - 4\)</div>
+        <div class="step"><strong>Step 2: Set equal to zero</strong><br>\(e^x - 4 = 0 \Rightarrow e^x = 4 \Rightarrow x = \ln 4\)</div>
+        <div class="step"><strong>Step 3: Verify it's a critical point</strong><br>\(f'(\ln 4) = 4 - 4 = 0\) ✓</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{x = \ln 4}\)</div>
+      </div>
+
+      <h3>Problem 4: \(\int \frac{e^x}{e^{2x} + 1} \, dx\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use substitution</strong><br>Let \(u = e^x\), \(du = e^x dx\)</div>
+        <div class="step"><strong>Step 2: Rewrite integral</strong><br>\(\int \frac{du}{u^2 + 1}\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(\tan^{-1}u + C\)</div>
+        <div class="step"><strong>Step 4: Substitute back</strong><br>\(\tan^{-1}(e^x) + C\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\tan^{-1}(e^x) + C}\)</div>
+      </div>
+
+      <h3>Problem 5: Find the equation of the tangent line to \(y = \ln x\) at \(x = e\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find point</strong><br>\(y = \ln e = 1\), point is \((e, 1)\)</div>
+        <div class="step"><strong>Step 2: Find derivative (slope)</strong><br>\(\frac{dy}{dx} = \frac{1}{x}\), at \(x = e\): slope = \(\frac{1}{e}\)</div>
+        <div class="step"><strong>Step 3: Use point-slope form</strong><br>\(y - 1 = \frac{1}{e}(x - e)\)</div>
+        <div class="step"><strong>Step 4: Simplify</strong><br>\(y = \frac{x}{e} - 1 + 1 = \frac{x}{e}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{y = \frac{x}{e}}\)</div>
+      </div>
+
+      <h3>Problem 6: \(\int_0^{\pi/2} \sin^2 x \, dx\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use half-angle identity</strong><br>\(\sin^2 x = \frac{1 - \cos 2x}{2}\)</div>
+        <div class="step"><strong>Step 2: Integrate</strong><br>\(\int_0^{\pi/2} \frac{1 - \cos 2x}{2} dx = \frac{1}{2}[x - \frac{\sin 2x}{2}]_0^{\pi/2}\)</div>
+        <div class="step"><strong>Step 3: Evaluate</strong><br>\(\frac{1}{2}[\frac{\pi}{2} - 0] = \frac{\pi}{4}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{\pi}{4}}\)</div>
+      </div>
+
+      <h3>Problem 7: A ball is thrown upward with velocity \(v(t) = 20 - 9.8t\) m/s. Find max height after 2 seconds</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find when velocity is zero</strong><br>\(20 - 9.8t = 0 \Rightarrow t = \frac{20}{9.8} \approx 2.04\) s</div>
+        <div class="step"><strong>Step 2: Find position function</strong><br>\(s(t) = \int v(t)dt = 20t - 4.9t^2 + C\)<br>Assuming \(s(0) = 0\): \(C = 0\)</div>
+        <div class="step"><strong>Step 3: Evaluate at t = 2</strong><br>\(s(2) = 20(2) - 4.9(4) = 40 - 19.6 = 20.4\) m</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{20.4 \text{ m}}\)</div>
+      </div>
+
+      <h3>Problem 8: Find \(\frac{d}{dx}[\sin^{-1}(x)]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Let \(y = \sin^{-1}(x)\)</strong><br>Then \(\sin y = x\)</div>
+        <div class="step"><strong>Step 2: Differentiate implicitly</strong><br>\(\cos y \cdot \frac{dy}{dx} = 1\)</div>
+        <div class="step"><strong>Step 3: Solve for derivative</strong><br>\(\frac{dy}{dx} = \frac{1}{\cos y}\)</div>
+        <div class="step"><strong>Step 4: Express in terms of x</strong><br>\(\cos y = \sqrt{1 - \sin^2 y} = \sqrt{1 - x^2}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{1}{\sqrt{1-x^2}}}\) for \(|x| < 1\)</div>
+      </div>
+
+      <h3>Problem 9: Evaluate \(\int_1^e \frac{\ln x}{x} \, dx\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use substitution</strong><br>Let \(u = \ln x\), \(du = \frac{1}{x}dx\)</div>
+        <div class="step"><strong>Step 2: Change limits</strong><br>When \(x = 1\): \(u = 0\). When \(x = e\): \(u = 1\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(\int_0^1 u \, du = \frac{u^2}{2}\Big|_0^1 = \frac{1}{2}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{1}{2}}\)</div>
+      </div>
+
+      <h3>Problem 10: Find the point on \(y = x^2\) closest to \((2, 0)\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Distance squared function</strong><br>\(D^2 = (x-2)^2 + (x^2-0)^2 = (x-2)^2 + x^4\)</div>
+        <div class="step"><strong>Step 2: Minimize D²</strong><br>\(\frac{d}{dx}[D^2] = 2(x-2) + 4x^3 = 0\)</div>
+        <div class="step"><strong>Step 3: Solve for x</strong><br>\(2x - 4 + 4x^3 = 0 \Rightarrow 2x^3 + x - 2 = 0\)</div>
+        <div class="step"><strong>Step 4: Find root numerically</strong><br>\(x \approx 0.786\)</div>
+        <div class="step"><strong>Step 5: Find y-coordinate</strong><br>\(y = x^2 \approx 0.617\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{(0.786, 0.617)}\) (approximately)</div>
+      </div>
+
+      <h3>Bonus 1: Find \(\int \frac{dx}{x \ln x \cdot \ln(\ln x)}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use substitution</strong><br>Let \(u = \ln(\ln x)\), \(du = \frac{1}{x \ln x}dx\)</div>
+        <div class="step"><strong>Step 2: Rewrite integral</strong><br>\(\int \frac{1}{u} du\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(\ln|u| + C\)</div>
+        <div class="step"><strong>Step 4: Substitute back</strong><br>\(\ln|\ln(\ln x)| + C\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\ln|\ln(\ln x)| + C}\)</div>
+      </div>
+
+      <h3>Bonus 2: Prove that \(\int_a^b f(x)dx = \int_a^c f(x)dx + \int_c^b f(x)dx\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Apply FTC to each integral</strong><br>\(\int_a^b f(x)dx = F(b) - F(a)\)</div>
+        <div class="step"><strong>Step 2: Split the difference</strong><br>\(F(b) - F(a) = F(b) - F(c) + F(c) - F(a)\)</div>
+        <div class="step"><strong>Step 3: Regroup</strong><br>\(= [F(c) - F(a)] + [F(b) - F(c)]\)</div>
+        <div class="step"><strong>Step 4: Rewrite as integrals</strong><br>\(\int_a^c f(x)dx + \int_c^b f(x)dx\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\text{Proven: additivity of integrals}}\)</div>
+      </div>
+    </div>
+    <nav class="navigation"><a href="problem-set-10-calc1-solutions.html">← Problem Set 10</a><a href="problem-set-12-calc1-solutions.html">Problem Set 12 Solutions →</a></nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

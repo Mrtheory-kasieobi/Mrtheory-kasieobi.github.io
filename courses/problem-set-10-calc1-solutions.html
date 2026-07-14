@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Set 10 Solutions: Applications of Integration - Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .solution-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; }
+    .step { margin: 0.5rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Calculus I</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li></ul></nav>
+  <main>
+    <div class="lecture-header"><h1>Problem Set 10: Applications of Integration - SOLUTIONS</h1><div class="subtitle">Calculus I - Week 10</div></div>
+    <div class="lecture-content">
+      <h2>Solution Guide</h2>
+      <p><strong>Note:</strong> These are detailed solutions showing all steps and reasoning. Each step is clearly justified.</p>
+      
+      <h3>Problem 1: Area between \(y = x^2\) and \(y = 2x\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find intersection points</strong><br>\(x^2 = 2x \Rightarrow x(x-2) = 0 \Rightarrow x = 0, 2\)</div>
+        <div class="step"><strong>Step 2: Determine which curve is on top</strong><br>At \(x = 1\): \(2(1) = 2 > 1 = 1^2\), so \(y = 2x\) is on top</div>
+        <div class="step"><strong>Step 3: Set up integral</strong><br>\(\text{Area} = \int_0^2 (2x - x^2) dx\)</div>
+        <div class="step"><strong>Step 4: Integrate</strong><br>\(\left[x^2 - \frac{x^3}{3}\right]_0^2\)</div>
+        <div class="step"><strong>Step 5: Evaluate</strong><br>\((4 - \frac{8}{3}) - 0 = \frac{12-8}{3} = \frac{4}{3}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{4}{3}}\)</div>
+      </div>
+
+      <h3>Problem 2: Area between \(y = x^3\) and \(y = x\) on \([-1, 1]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find which function is greater</strong><br>\(x^3 \leq x\) on \([-1, 1]\) (since \(x - x^3 = x(1-x^2) \geq 0\) for \(x \in [-1,1]\))</div>
+        <div class="step"><strong>Step 2: Set up integral</strong><br>\(\text{Area} = \int_{-1}^1 (x - x^3) dx\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(\left[\frac{x^2}{2} - \frac{x^4}{4}\right]_{-1}^1\)</div>
+        <div class="step"><strong>Step 4: Evaluate</strong><br>\((\frac{1}{2} - \frac{1}{4}) - (\frac{1}{2} - \frac{1}{4}) = 0\)... wait, need to reconsider</div>
+        <div class="step"><strong>Step 5: Correct approach - split at origin</strong><br>On \([-1, 0]\): \(x^3 \geq x\), on \([0, 1]\): \(x \geq x^3\)<br>\(\text{Area} = \int_{-1}^0 (x^3 - x)dx + \int_0^1 (x - x^3)dx\)</div>
+        <div class="step"><strong>Step 6: Compute</strong><br>\(2 \cdot \int_0^1 (x - x^3)dx = 2 \cdot \frac{1}{6} = \frac{1}{3}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{1}{3}}\)</div>
+      </div>
+
+      <h3>Problem 3: Area under \(y = e^{-x}\) from \(x = 0\) to \(x = 1\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Set up definite integral</strong><br>\(\text{Area} = \int_0^1 e^{-x} dx\)</div>
+        <div class="step"><strong>Step 2: Use substitution</strong><br>Let \(u = -x\), \(du = -dx\), \(dx = -du\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(-\int_1^{e^{-1}} e^u du = -[e^u]_1^{1/e} = -(e^{1/e} - e) = e - e^{1/e}\)</div>
+        <div class="step"><strong>Alternative (direct)</strong><br>\(\int e^{-x} dx = -e^{-x}\)<br>\([-e^{-x}]_0^1 = -e^{-1} - (-e^0) = 1 - \frac{1}{e}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{1 - \frac{1}{e}}\)</div>
+      </div>
+
+      <h3>Problem 4: Volume of solid with base bounded by \(y = x^2\) and \(y = 4\) with square cross-sections</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find bounds</strong><br>Intersections: \(x^2 = 4 \Rightarrow x = \pm 2\)</div>
+        <div class="step"><strong>Step 2: Side length of square</strong><br>At position \(x\), side = \(4 - x^2\)</div>
+        <div class="step"><strong>Step 3: Cross-sectional area</strong><br>\(A(x) = (4 - x^2)^2\)</div>
+        <div class="step"><strong>Step 4: Set up volume integral</strong><br>\(V = \int_{-2}^2 (4 - x^2)^2 dx\)</div>
+        <div class="step"><strong>Step 5: Expand and integrate</strong><br>\((4-x^2)^2 = 16 - 8x^2 + x^4\)<br>\(\int (16 - 8x^2 + x^4)dx = 16x - \frac{8x^3}{3} + \frac{x^5}{5}\)</div>
+        <div class="step"><strong>Step 6: Evaluate</strong><br>\(\left[16x - \frac{8x^3}{3} + \frac{x^5}{5}\right]_{-2}^2 = 2\left(32 - \frac{64}{3} + \frac{32}{5}\right) = \frac{256}{15}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{256}{15}}\)</div>
+      </div>
+
+      <h3>Problem 5: Volume of solid obtained by rotating \(y = x^2\) about x-axis from \(x = 0\) to \(x = 2\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use disk method</strong><br>Radius at \(x\) is \(y = x^2\)</div>
+        <div class="step"><strong>Step 2: Set up integral</strong><br>\(V = \pi \int_0^2 (x^2)^2 dx = \pi \int_0^2 x^4 dx\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(\pi \left[\frac{x^5}{5}\right]_0^2 = \pi \cdot \frac{32}{5}\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\frac{32\pi}{5}}\)</div>
+      </div>
+
+      <h3>Problem 6: Work to lift a 10 lb weight 5 feet</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use work formula</strong><br>\(W = F \cdot d\) where \(F\) is force, \(d\) is distance</div>
+        <div class="step"><strong>Step 2: Substitute values</strong><br>\(F = 10\) lb, \(d = 5\) ft</div>
+        <div class="step"><strong>Step 3: Calculate</strong><br>\(W = 10 \times 5 = 50\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{50 \text{ ft-lb}}\)</div>
+      </div>
+
+      <h3>Problem 7: Average value of \(f(x) = x^2\) on \([0, 3]\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use average value formula</strong><br>\(f_{avg} = \frac{1}{3-0}\int_0^3 x^2 dx\)</div>
+        <div class="step"><strong>Step 2: Integrate</strong><br>\(\frac{1}{3} \cdot \frac{x^3}{3}\Big|_0^3\)</div>
+        <div class="step"><strong>Step 3: Evaluate</strong><br>\(\frac{1}{3} \cdot \frac{27}{3} = 3\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{3}\)</div>
+      </div>
+
+      <h3>Problem 8: Integral representing arc length of \(y = x^2\) from \(x = 0\) to \(x = 1\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Recall arc length formula</strong><br>\(L = \int_a^b \sqrt{1 + (f'(x))^2} dx\)</div>
+        <div class="step"><strong>Step 2: Find derivative</strong><br>\(f'(x) = 2x\)</div>
+        <div class="step"><strong>Step 3: Set up integral</strong><br>\(L = \int_0^1 \sqrt{1 + (2x)^2} dx = \int_0^1 \sqrt{1 + 4x^2} dx\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\int_0^1 \sqrt{1 + 4x^2} \, dx}\)</div>
+      </div>
+
+      <h3>Problem 9: Area between \(y = \sin x\) and \(y = \cos x\) from \(x = 0\) to \(x = \frac{\pi}{4}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Determine which is greater</strong><br>At \(x = 0\): \(\sin 0 = 0 < 1 = \cos 0\)<br>At \(x = \frac{\pi}{4}\): \(\sin\frac{\pi}{4} = \cos\frac{\pi}{4}\)<br>On \([0, \frac{\pi}{4}]\): \(\cos x \geq \sin x\)</div>
+        <div class="step"><strong>Step 2: Set up integral</strong><br>\(\text{Area} = \int_0^{\pi/4} (\cos x - \sin x) dx\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(\left[\sin x + \cos x\right]_0^{\pi/4}\)</div>
+        <div class="step"><strong>Step 4: Evaluate</strong><br>\(\left(\frac{\sqrt{2}}{2} + \frac{\sqrt{2}}{2}\right) - (0 + 1) = \sqrt{2} - 1\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\sqrt{2} - 1}\)</div>
+      </div>
+
+      <h3>Problem 10: Volume by shells: region bounded by \(y = x^2\), \(y = 0\), \(x = 2\) rotated about y-axis</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Use shell method</strong><br>Radius = \(x\), Height = \(y = x^2\)</div>
+        <div class="step"><strong>Step 2: Set up integral</strong><br>\(V = 2\pi \int_0^2 x \cdot x^2 dx = 2\pi \int_0^2 x^3 dx\)</div>
+        <div class="step"><strong>Step 3: Integrate</strong><br>\(2\pi \left[\frac{x^4}{4}\right]_0^2 = 2\pi \cdot 4 = 8\pi\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{8\pi}\)</div>
+      </div>
+
+      <h3>Bonus 1: Water tank shape is cylinder radius 3 ft, height 8 ft. Work to empty if water depth 6 ft</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Set up coordinate system</strong><br>Origin at bottom, y-axis upward</div>
+        <div class="step"><strong>Step 2: Water extends from y = 0 to y = 6</strong><br>Thickness of layer: \(dy\)</div>
+        <div class="step"><strong>Step 3: Volume of layer</strong><br>\(dV = \pi r^2 dy = 9\pi dy\)</div>
+        <div class="step"><strong>Step 4: Weight of layer</strong><br>\(dF = 62.4 \cdot 9\pi dy = 561.6\pi dy\) (water weighs 62.4 lb/ft³)</div>
+        <div class="step"><strong>Step 5: Distance to lift</strong><br>Layer at height \(y\) must be lifted distance \((8-y)\)</div>
+        <div class="step"><strong>Step 6: Work for layer</strong><br>\(dW = 561.6\pi (8-y) dy\)</div>
+        <div class="step"><strong>Step 7: Integrate</strong><br>\(W = 561.6\pi \int_0^6 (8-y) dy = 561.6\pi[8y - \frac{y^2}{2}]_0^6\)</div>
+        <div class="step"><strong>Step 8: Evaluate</strong><br>\(561.6\pi(48 - 18) = 561.6\pi \cdot 30 = 16848\pi\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{16848\pi \text{ ft-lb}}\)</div>
+      </div>
+
+      <h3>Bonus 2: Length of curve \(y = \ln(\cos x)\) from \(x = 0\) to \(x = \frac{\pi}{4}\)</h3>
+      <div class="solution-box">
+        <strong>Solution:</strong> 
+        <div class="step"><strong>Step 1: Find derivative</strong><br>\(\frac{dy}{dx} = \frac{1}{\cos x} \cdot (-\sin x) = -\tan x\)</div>
+        <div class="step"><strong>Step 2: Set up arc length integral</strong><br>\(L = \int_0^{\pi/4} \sqrt{1 + \tan^2 x} dx = \int_0^{\pi/4} \sec x \, dx\)</div>
+        <div class="step"><strong>Step 3: Integrate sec x</strong><br>\(\int \sec x \, dx = \ln|\sec x + \tan x| + C\)</div>
+        <div class="step"><strong>Step 4: Evaluate</strong><br>\(\ln|\sec\frac{\pi}{4} + \tan\frac{\pi}{4}| - \ln|\sec 0 + \tan 0|\)<br>\(= \ln(\sqrt{2} + 1) - \ln(1 + 0) = \ln(\sqrt{2} + 1)\)</div>
+        <div class="step"><strong>Final Answer:</strong><br>\(\boxed{\ln(\sqrt{2} + 1)}\)</div>
+      </div>
+    </div>
+    <nav class="navigation"><a href="problem-set-9-calc1-solutions.html">← Problem Set 9</a><a href="problem-set-11-calc1-solutions.html">Problem Set 11 Solutions →</a></nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
