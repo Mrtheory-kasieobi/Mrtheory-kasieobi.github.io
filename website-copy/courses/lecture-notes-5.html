@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 5: Fermat's Little Theorem, Euler's Theorem, Wilson's Theorem">
+  <title>Lecture 5: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 5: Fermat's Little Theorem, Euler's Theorem, Wilson's Theorem</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 5: Fermat's Little Theorem, Euler's Theorem, Wilson's Theorem</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 5</span><span class="lecture-topic">Fermat's Little Theorem, Euler's Theorem, Wilson's Theorem</span></p>
+
+      <div class="lecture-section"><h2>1. Fermat's Little Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 5.1 (Fermat's Little Theorem)</strong> If \(p\) is prime and \(a\) is any integer not divisible by \(p\), then
+          \[a^{p-1} \equiv 1 \pmod{p}.\]
+          Equivalently, for any integer \(a\) and prime \(p\),
+          \[a^p \equiv a \pmod{p}.\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof (using group theory perspective):</strong>
+          <p>Let \(A = \{1, 2, \ldots, p-1\}\) be the set of non-zero residue classes modulo \(p\). Consider the set \(aA = \{a \cdot 1, a \cdot 2, \ldots, a \cdot (p-1)\}\) reduced modulo \(p\).</p>
+          
+          <p><strong>Step 1: Show elements of \(aA\) are distinct modulo \(p\).</strong></p>
+          <p>Suppose \(a \cdot i \equiv a \cdot j \pmod{p}\) for some \(1 \leq i < j \leq p-1\). Then \(p \mid a(i - j)\). Since \(p \nmid a\) (by assumption) and \(0 < |i - j| < p\), we must have \(p \mid (i - j)\), which is impossible. Thus all elements of \(aA\) are distinct.</p>
+          
+          <p><strong>Step 2: Show elements of \(aA\) are non-zero modulo \(p\).</strong></p>
+          <p>If \(a \cdot i \equiv 0 \pmod{p}\), then \(p \mid ai\). Since \(p \nmid a\), we have \(p \mid i\), but \(1 \leq i \leq p-1\) contradicts this. Thus all elements are non-zero.</p>
+          
+          <p><strong>Step 3: Conclude \(aA = A\) as sets.</strong></p>
+          <p>Since \(A\) has \(p-1\) elements and \(aA\) has \(p-1\) distinct non-zero elements, we have \(aA = A\).</p>
+          
+          <p><strong>Step 4: Compute the product.</strong></p>
+          <p>\[\prod_{k=1}^{p-1} (ak) \equiv \prod_{k=1}^{p-1} k \pmod{p}\]
+          \[a^{p-1} \prod_{k=1}^{p-1} k \equiv \prod_{k=1}^{p-1} k \pmod{p}\]
+          </p>
+          <p>Since \(\prod_{k=1}^{p-1} k\) is coprime to \(p\) (it's the product of all non-zero residues), we can cancel it to get \(a^{p-1} \equiv 1 \pmod{p}\). \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 5.1</strong> Verify Fermat's Little Theorem for \(p = 5\).</p>
+          <p>For \(a = 2\): \(2^4 = 16 = 5 \cdot 3 + 1 \equiv 1 \pmod{5}\). ✓</p>
+          <p>For \(a = 3\): \(3^4 = 81 = 5 \cdot 16 + 1 \equiv 1 \pmod{5}\). ✓</p>
+          <p>For \(a = 4\): \(4^4 = 256 = 5 \cdot 51 + 1 \equiv 1 \pmod{5}\). ✓</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Euler's Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 5.2 (Euler's Theorem)</strong> If \(\gcd(a, n) = 1\), then
+          \[a^{\phi(n)} \equiv 1 \pmod{n}\]
+          where \(\phi(n)\) is Euler's totient function.
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>Let \(A = \{a_1, a_2, \ldots, a_{\phi(n)}\}\) be a reduced residue system modulo \(n\) (i.e., a set of \(\phi(n)\) integers coprime to \(n\), pairwise incongruent modulo \(n\)).</p>
+          
+          <p><strong>Step 1: Show \(aA = \{aa_1, aa_2, \ldots, aa_{\phi(n)}\}\) is a reduced residue system modulo \(n\).</strong></p>
+          <p>Since \(\gcd(a, n) = 1\), if \(aa_i \equiv aa_j \pmod{n}\), then \(n \mid a(a_i - a_j)\). Since \(\gcd(a, n) = 1\), we have \(n \mid (a_i - a_j)\), so \(a_i \equiv a_j \pmod{n}\). By the distinctness of elements in \(A\), we have \(i = j\). Thus elements of \(aA\) are distinct.</p>
+          
+          <p>Also, if \(aa_i \equiv 0 \pmod{n}\), then \(n \mid aa_i\). Since \(\gcd(a, n) = 1\), we have \(n \mid a_i\), contradicting \(\gcd(a_i, n) = 1\). Thus all elements are coprime to \(n\).</p>
+          
+          <p>Therefore \(aA = A\) as sets (both have \(\phi(n)\) elements).</p>
+          
+          <p><strong>Step 2: Compute the product.</strong></p>
+          <p>\[\prod_{i=1}^{\phi(n)} aa_i \equiv \prod_{i=1}^{\phi(n)} a_i \pmod{n}\]
+          \[a^{\phi(n)} \prod_{i=1}^{\phi(n)} a_i \equiv \prod_{i=1}^{\phi(n)} a_i \pmod{n}\]
+          </p>
+          <p>Since each \(a_i\) is coprime to \(n\), the product \(\prod a_i\) is also coprime to \(n\). We can cancel it to get \(a^{\phi(n)} \equiv 1 \pmod{n}\). \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 5.2</strong> Verify Euler's Theorem for \(a = 3, n = 10\).</p>
+          <p>Since \(\gcd(3, 10) = 1\), we need to compute \(\phi(10)\).</p>
+          <p>\(10 = 2 \cdot 5\), so \(\phi(10) = 10 \cdot \left(1 - \frac{1}{2}\right) \cdot \left(1 - \frac{1}{5}\right) = 10 \cdot \frac{1}{2} \cdot \frac{4}{5} = 4\).</p>
+          <p>Compute \(3^4 = 81 = 10 \cdot 8 + 1 \equiv 1 \pmod{10}\). ✓</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Wilson's Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 5.3 (Wilson's Theorem)</strong> \((p-1)! \equiv -1 \pmod{p}\) if and only if \(p\) is prime.
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Forward direction (\(p\) prime \(\Rightarrow\) \((p-1)! \equiv -1 \pmod{p}\)):</strong></p>
+          <p>Consider the multiplicative group \(\mathbb{Z}_p^* = \{1, 2, \ldots, p-1\}\) under multiplication modulo \(p\).</p>
+          
+          <p><strong>Step 1: Identify self-inverse elements.</strong></p>
+          <p>An element \(a \in \mathbb{Z}_p^*\) is its own inverse if \(a^2 \equiv 1 \pmod{p}\), i.e., \(p \mid (a^2 - 1) = (a-1)(a+1)\).</p>
+          <p>Since \(p\) is prime, \(p \mid (a-1)\) or \(p \mid (a+1)\). Thus \(a \equiv 1 \pmod{p}\) or \(a \equiv -1 \equiv p-1 \pmod{p}\).</p>
+          <p>Therefore, the only self-inverse elements are \(1\) and \(p-1\).</p>
+          
+          <p><strong>Step 2: Pair up the other elements.</strong></p>
+          <p>For each \(a \in \mathbb{Z}_p^*\) with \(a \neq 1\) and \(a \neq p-1\), there exists a unique \(b \neq a\) such that \(ab \equiv 1 \pmod{p}\).</p>
+          <p>These elements can be partitioned into pairs \(\{a, b\}\) where \(ab \equiv 1 \pmod{p}\).</p>
+          
+          <p><strong>Step 3: Compute the product.</strong></p>
+          <p>Pairing all elements:
+          \[(p-1)! = 1 \cdot (p-1) \cdot \prod_{\text{pairs } \{a,b\}} (ab)\]
+          \[= 1 \cdot (p-1) \cdot \prod_{\text{pairs}} 1 = 1 \cdot (p-1) = p-1 \equiv -1 \pmod{p}.\]p>
+          <p>Thus \((p-1)! \equiv -1 \pmod{p}\). \(\square\)</p>
+          
+          <p><strong>Reverse direction:</strong> If \((n-1)! \equiv -1 \pmod{n}\), then \(n\) must be prime.</p>
+          <p>Proof: Suppose \(n\) is composite with \(n = ab\) where \(1 < a, b < n\). Then \(a \mid (n-1)!\) (since \(a \leq n-1\)), so \((n-1)! \equiv 0 \pmod{a}\). But \((n-1)! \equiv -1 \pmod{n}\) implies \(n \mid ((n-1)! + 1)\), so \(a \mid ((n-1)! + 1)\). This contradicts \((n-1)! \equiv 0 \pmod{a}\) unless \(a = 1\). Thus \(n\) cannot be composite (for \(n > 4\)). \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 5.3</strong> Verify Wilson's Theorem for \(p = 5\).</p>
+          <p>\((5-1)! = 4! = 24 = 5 \cdot 4 + 4 \equiv -1 \pmod{5}\). ✓</p>
+          
+          <p>Verify Wilson's Theorem for \(p = 7\).</p>
+          <p>\((7-1)! = 6! = 720 = 7 \cdot 102 + 6 \equiv -1 \pmod{7}\). ✓</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Verify Fermat's Little Theorem for \(p = 11\) with \(a = 2, 3, 5\).</li>
+          <li>Find the remainder when \(7^{100}\) is divided by 11.</li>
+          <li>Verify Euler's Theorem for \(a = 5, n = 12\).</li>
+          <li>Compute \(3^{100} \pmod{13}\) using Fermat's Little Theorem.</li>
+          <li>Prove Wilson's Theorem for \(p = 11\).</li>
+          <li>Show that if \(p \equiv 1 \pmod{4}\), then \(\left(\frac{p-1)!}{2}\right)^2 \equiv -1 \pmod{p}\).</li>
+          <li>Find all solutions to \(x^2 \equiv 1 \pmod{p}\) for prime \(p\).</li>
+          <li>Prove: If \(p\) is prime, then \(p \mid \binom{p}{k}\) for \(1 \leq k \leq p-1\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-4.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-6.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

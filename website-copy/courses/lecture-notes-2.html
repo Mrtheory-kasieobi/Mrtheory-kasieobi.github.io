@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 2: The Euclidean Algorithm and Bézout's Identity">
+  <title>Lecture 2: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 2: The Euclidean Algorithm and Bézout's Identity</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 2: The Euclidean Algorithm and Bézout's Identity</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 2</span><span class="lecture-topic">The Euclidean Algorithm and Bézout's Identity</span></p>
+
+      <div class="lecture-section"><h2>1. The Division Algorithm</h2>
+        <div class="theorem-box">
+          <strong>Theorem 1.1 (Division Algorithm)</strong> Let \(a, b \in \mathbb{Z}\) with \(b > 0\). Then there exist unique integers \(q\) and \(r\) such that
+          \[a = bq + r \quad \text{and} \quad 0 \leq r < b.\]
+          The integers \(q\) and \(r\) are uniquely determined by \(a\) and \(b\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Existence:</strong>
+          <p>Consider the set \(S = \{a - bk : k \in \mathbb{Z}\}\). This is the set of all integers of the form \(a - bk\).</p>
+          <p>By the Well-Ordering Principle, the set \(T = \{s \in S : s \geq 0\}\) has a smallest element \(r = a - bq_0\).</p>
+          <p>We claim \(r < b\). Suppose for contradiction that \(r \geq b\). Then \(r - b = a - b(q_0 + 1) \in T\), but \(r - b < r\), contradicting minimality. Thus \(r < b\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. The Euclidean Algorithm</h2>
+        <div class="definition-box">
+          <strong>Definition 2.1 (GCD)</strong> Let \(a, b \in \mathbb{Z}\) with not both zero. The greatest common divisor of \(a\) and \(b\), denoted \(\gcd(a,b)\), is the largest positive integer dividing both \(a\) and \(b\).
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 2.1 (Euclidean Algorithm)</strong> Let \(a, b \in \mathbb{Z}\) with \(b > 0\). Apply the division algorithm repeatedly. If the last non-zero remainder is \(r_{n-1}\), then \(\gcd(a, b) = r_{n-1}\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>By induction, one shows that for each \(k\):
+          \[\gcd(a, b) = \gcd(b, r_1) = \gcd(r_1, r_2) = \cdots = \gcd(r_{k-1}, r_k).\]
+          <p>When the algorithm terminates with \(r_n = 0\), we have \(\gcd(r_{n-2}, r_{n-1}) = \gcd(r_{n-1}, 0) = r_{n-1}\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Bézout's Identity</h2>
+        <div class="theorem-box">
+          <strong>Theorem 3.1 (Bézout's Identity)</strong> Let \(a, b \in \mathbb{Z}\) with not both zero. Then there exist integers \(x, y\) such that
+          \[\gcd(a, b) = ax + by.\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>Consider the set \(S = \{ax + by > 0 : x, y \in \mathbb{Z}\}\). Let \(d\) be the smallest element, say \(d = ax_0 + by_0\).</p>
+          <p><strong>Claim:</strong> \(d = \gcd(a, b)\).</p>
+          <p>Let \(a = dq + r\) where \(0 \leq r < d\). Then \(r = a - dq = a(1 - qx_0) + b(-qy_0) \in S\) if \(r > 0\).</p>
+          <p>Since \(r < d\) and \(d\) is minimal in \(S\), we must have \(r = 0\). Thus \(d \mid a\). Similarly \(d \mid b\).</p>
+          <p>Any common divisor of \(a\) and \(b\) divides \(ax_0 + by_0 = d\), so \(d \geq \gcd(a, b)\). But \(\gcd(a, b) \mid d\) as well. Hence \(d = \gcd(a, b)\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Extended Euclidean Algorithm</h2>
+        <div class="example-box">
+          <strong>Example 4.1</strong> Find \(\gcd(1071, 462)\) and integers \(x, y\) such that \(\gcd(1071, 462) = 1071x + 462y\).</p>
+          <p>Apply the Euclidean Algorithm:
+          \[1071 = 462 \cdot 2 + 147\]
+          \[462 = 147 \cdot 3 + 21\]
+          \[147 = 21 \cdot 7 + 0\]
+          </p>
+          <p>Thus \(\gcd(1071, 462) = 21\).</p>
+          <p>Back-substitution:
+          \[21 = 462 - 147 \cdot 3 = 462 - (1071 - 462 \cdot 2) \cdot 3 = 7 \cdot 462 - 3 \cdot 1071\]
+          </p>
+          <p>Therefore \(21 = 1071 \cdot (-3) + 462 \cdot 7\), so \(x = -3\) and \(y = 7\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find \(\gcd(1980, 1540)\) using the Euclidean Algorithm.</li>
+          <li>Find integers \(x, y\) such that \(1980x + 1540y = \gcd(1980, 1540)\).</li>
+          <li>Prove that if \(\gcd(a, b) = 1\) and \(a \mid bc\), then \(a \mid c\).</li>
+          <li>Show that the set \(\{ax + by : x, y \in \mathbb{Z}\}\) is precisely the set of all multiples of \(\gcd(a, b)\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-1.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-3.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

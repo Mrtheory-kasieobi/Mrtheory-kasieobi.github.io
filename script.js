@@ -503,6 +503,9 @@ function initExperimentalToggle() {
 // Background equations rendered with MathJax
 // Two vertical columns of mathematical theorems on left and right edges
 function initMathBackground() {
+    if (document.body.classList.contains('no-math-background')) {
+        return;
+    }
     // Theorems from Algebraic Number Theory, Commutative Algebra, and Arithmetic Geometry
     var bgEquations = [
         // Algebraic Number Theory

@@ -405,8 +405,9 @@ nav a.active {
 }
 
 /* Experimental mode - hide background equations */
-body.experimental-mode .math-background {
-    display: none;
+body.experimental-mode .math-background,
+body.no-math-background .math-background {
+  display: none;
 }
 
 /* Responsive adjustments */

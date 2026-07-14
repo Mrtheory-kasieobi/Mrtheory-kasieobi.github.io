@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 10: Applications of Gaussian Integers to Diophantine Equations">
+  <title>Lecture 10: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 10: Applications of Gaussian Integers to Diophantine Equations</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 10: Applications of Gaussian Integers to Diophantine Equations</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 10</span><span class="lecture-topic">Applications of Gaussian Integers to Diophantine Equations</span></p>
+
+      <div class="lecture-section"><h2>1. The Sum of Two Squares Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 10.1 (Sum of Two Squares)</strong> A positive integer \(n\) can be expressed as \(n = x^2 + y^2\) for integers \(x, y\) if and only if in the prime factorization of \(n\), every prime \(p \equiv 3 \pmod{4}\) appears with an even exponent.
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Necessity (\(\Rightarrow\)):</strong> Suppose \(n = x^2 + y^2\). If a prime \(p \equiv 3 \pmod{4}\) divides \(n\) to an odd power, write \(n = p^{2k+1} m\) where \(p \nmid m\).</p>
+          <p>Since \(n = x^2 + y^2\), we have \(p^{2k+1} \mid (x^2 + y^2)\).</p>
+          <p>If \(p \mid x\), then \(p \mid y\) (since \(p \mid x^2 + y^2\)). Write \(x = px', y = py'\). Then \(p^{2k+1} \mid p^2(x'^2 + y'^2)\), so \(p^{2k-1} \mid x'^2 + y'^2\).</p>
+          <p>Continue until we get \(p \mid (x_0^2 + y_0^2)\) where \(p \nmid x_0\) or \(p \nmid y_0\).</p>
+          <p>But if \(p \nmid x_0\), then \(x_0^2 + y_0^2 \equiv 0 \pmod{p}\), so \(-y_0^2 \equiv x_0^2 \pmod{p}\), giving \((xy^{-1})^2 \equiv -1 \pmod{p}\).</p>
+          <p>This contradicts that \(-1\) is not a quadratic residue modulo \(p\) when \(p \equiv 3 \pmod{4}\). \(\square\)</p>
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Sufficiency (\(\Leftarrow\)):</strong> If \(n\) satisfies the condition, then \(n = x^2 + y^2\).</p>
+          <p>It suffices to show:
+          <ol>
+            <li>If \(n_1 = x_1^2 + y_1^2\) and \(n_2 = x_2^2 + y_2^2\), then \(n_1 n_2 = x_3^2 + y_3^2\).</li>
+            <li>\(p^k = x^2 + y^2\) for any prime \(p \equiv 1 \pmod{4}\) and any \(k \geq 1\).</li>
+            <li>\(2^k = x^2 + y^2\) for any \(k \geq 1\).</li>
+          </ol>
+          <p><strong>Part 1 (Brahmagupta-Fibonacci identity):</strong>
+          \[(x_1^2 + y_1^2)(x_2^2 + y_2^2) = (x_1x_2 - y_1y_2)^2 + (x_1y_2 + x_2y_1)^2\]
+          <p>Verification by expansion is straightforward. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. The Equation \(x^2 + 1 = py^2\)</h2>
+        <div class="theorem-box">
+          <strong>Theorem 10.2</strong> The equation \(x^2 + 1 = py^2\) has an integer solution for a prime \(p\) if and only if \(p \equiv 1 \pmod{4}\).
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(x^2 + 1 = py^2\), then \(x^2 \equiv -1 \pmod{p}\). Thus \(-1\) is a quadratic residue modulo \(p\), which happens iff \(p \equiv 1 \pmod{4}\). \(\square\)</p>
+          
+          <p><strong>Sufficiency (\(\Rightarrow\)):</strong> If \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue, so \(x^2 \equiv -1 \pmod{p}\) has a solution.</p>
+          <p>Consider the lattice \(L = \{(a, b) \in \mathbb{Z}^2 : a \equiv xb \pmod{p}\}\). By Minkowski's theorem, there exists \((a, b) \neq (0, 0)\) with \(a^2 + b^2 = p \cdot m\) for some \(m\).</p>
+          <p>Using the division algorithm in \(\mathbb{Z}[i]\), we can find a solution. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 10.1</strong> Find a solution to \(x^2 + 1 = 5y^2\).</p>
+          <p>We need \(x^2 + 1 \equiv 0 \pmod{5}\), so \(x^2 \equiv -1 \equiv 4 \pmod{5}\).</p>
+          <p>Thus \(x \equiv \pm 2 \pmod{5}\). Try \(x = 2\): \(4 + 1 = 5 = 5 \cdot 1\), so \(y = 1\).</p>
+          <p>Solution: \((x, y) = (2, 1)\). Check: \(2^2 + 1 = 5 = 5 \cdot 1^2\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Express 65 as a sum of two squares in all possible ways.</li>
+          <li>Show that 21 cannot be written as a sum of two squares.</li>
+          <li>Find all integers \(n \leq 50\) that can be written as \(x^2 + y^2\).</li>
+          <li>Prove that if \(n = x^2 + y^2\) and \(m = u^2 + v^2\), then \(nm = (xu - yv)^2 + (xv + yu)^2\).</li>
+          <li>Find a solution to \(x^2 + 1 = 13y^2\).</li>
+          <li>Show that if \(p \equiv 3 \pmod{4}\) is prime, then \(x^2 + 1 = py^2\) has no integer solutions.</li>
+          <li>Prove: If \(\gcd(x, y) = 1\) and \(x^2 + y^2 = z^n\), then every prime factor of \(z\) is either 2 or \(\equiv 1 \pmod{4}\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-9.html">← Previous Lecture</a><a href="number-theory.html">Back to Course</a><a href="lecture-notes-11.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

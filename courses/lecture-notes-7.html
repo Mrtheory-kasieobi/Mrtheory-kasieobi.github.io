@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 7: Quadratic Reciprocity Law">
+  <title>Lecture 7: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 7: Quadratic Reciprocity Law</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 7: Quadratic Reciprocity Law</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 7</span><span class="lecture-topic">Quadratic Reciprocity Law</span></p>
+
+      <div class="lecture-section"><h2>1. Statement of Quadratic Reciprocity</h2>
+        <div class="definition-box">
+          <strong>Definition 7.1</strong> For an odd prime \(p\), define \(\epsilon(p) = (-1)^{\frac{p-1}{2}}\). Note that:
+          \[\epsilon(p) = \begin{cases} 1 & \text{if } p \equiv 1 \pmod{4} \\ -1 & \text{if } p \equiv 3 \pmod{4} \end{cases}\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 7.1 (Quadratic Reciprocity)</strong> Let \(p\) and \(q\) be distinct odd primes. Then:
+          \[\left(\frac{p}{q}\right) = \epsilon(q) \cdot \epsilon(p) \cdot \left(\frac{q}{p}\right)\]
+          Equivalently:
+          \[\left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Gauss's Lemma</h2>
+        <div class="theorem-box">
+          <strong>Theorem 7.2 (Gauss's Lemma)</strong> Let \(p\) be an odd prime and \(a\) an integer with \(\gcd(a, p) = 1\). Define the set:
+          \[S = \left\{\frac{ap}{p}, \frac{2ap}{p}, \ldots, \frac{(p-1)ap}{p}\right\}\]
+          Let \(\mu\) be the number of elements in \(S\) whose least positive residue is greater than \(\frac{p}{2}\). Then:
+          \[\left(\frac{a}{p}\right) = (-1)^\mu\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Set up the residues</strong>
+            <p>Consider the residues \(r_1, r_2, \ldots, r_{p-1}\) where \(r_i\) is the least positive residue of \(ia\) modulo \(p\).</p>
+            <p>Since \(\gcd(a, p) = 1\), the residues \(\{r_1, r_2, \ldots, r_{p-1}\} = \{1, 2, \ldots, p-1\}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Define the counting parameter</strong>
+            <p>Define \(\mu = |\{i : r_i > \frac{p}{2}\}|\). For each such \(i\), let \(r_i' = p - r_i < \frac{p}{2}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Consider the product of all residues</strong>
+            <p>Consider the product:
+            \[\prod_{i=1}^{p-1} r_i \equiv \prod_{i=1}^{p-1} ia = a^{p-1} \cdot (p-1)! \pmod{p}\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Apply Fermat's Little Theorem</strong>
+            <p>By Fermat's Little Theorem, \(a^{p-1} \equiv 1 \pmod{p}\), so:
+            \[\prod_{i=1}^{p-1} r_i \equiv (p-1)! \pmod{p}\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Partition the residues</strong>
+            <p>Now partition the residues:
+            \[\prod_{i=1}^{p-1} r_i = \left(\prod_{r_i < p/2} r_i\right) \cdot \left(\prod_{r_i > p/2} r_i\right)\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 6: Transform large residues</strong>
+            <p>For \(r_i > \frac{p}{2}\), we have \(r_i = p - r_i'\). Thus:
+            \[\prod_{r_i > p/2} r_i = \prod_{r_i > p/2} (p - r_i') \equiv \prod_{r_i > p/2} (-r_i') \pmod{p}\]
+            \[= (-1)^\mu \prod_{r_i > p/2} r_i'\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 7: Combine and conclude</strong>
+            <p>Therefore:
+            \[\prod_{i=1}^{p-1} r_i \equiv (-1)^\mu \left(\prod_{r_i < p/2} r_i\right) \cdot \left(\prod_{r_i > p/2} r_i'\right) \pmod{p}\]</p>
+            <p>Since the sets \(\{r_i : r_i < p/2\}\) and \(\{r_i' : r_i > p/2\}\) partition \(\{1, 2, \ldots, \frac{p-1}{2}\}\):
+            \[\prod_{i=1}^{p-1} r_i \equiv (-1)^\mu \cdot \left(\frac{p-1}{2}\right)! \pmod{p}\]</p>
+            <p>Comparing with \(\prod_{i=1}^{p-1} r_i \equiv (p-1)! \pmod{p}\) and using \((p-1)! = (-1)^\mu \cdot \left(\frac{p-1}{2}\right)! \cdot \left(\frac{p-1}{2}\right)!\):
+            We get \(\left(\frac{a}{p}\right) = (-1)^\mu\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Proof of Quadratic Reciprocity</h2>
+        <div class="proof-box">
+          <strong>Proof (Gauss's Lemma approach):</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Set up the geometric interpretation</strong>
+            <p>We prove that \(\mu\left(\frac{q}{p}\right) + \mu\left(\frac{p}{q}\right) \equiv \frac{p-1}{2} \cdot \frac{q-1}{2} \pmod{2}\).</p>
+            <p>Consider the rectangle \(R = \{(x, y) \in \mathbb{R}^2 : 0 < x < \frac{p}{2}, 0 < y < \frac{q}{2}\}\).</p>
+            <p>The number of lattice points in \(R\) is \(\frac{p-1}{2} \cdot \frac{q-1}{2}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Count lattice points below the line</strong>
+            <p>Consider the line \(L: y = \frac{q}{p}x\). Count lattice points below this line in the rectangle.</p>
+            <p>This count equals \(\mu\left(\frac{q}{p}\right)\) by Gauss's Lemma.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Count lattice points to the left</strong>
+            <p>Similarly, counting points to the left of the line \(x = \frac{p}{q}y\) gives \(\mu\left(\frac{p}{q}\right)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Apply symmetry</strong>
+            <p>By symmetry, the total count satisfies:
+            \[\mu\left(\frac{q}{p}\right) + \mu\left(\frac{p}{q}\right) = \frac{p-1}{2} \cdot \frac{q-1}{2}\]</p>
+            <p>(The line passes through no lattice points with coordinates in the specified ranges.)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Conclude</strong>
+            <p>Therefore:
+            \[\left(\frac{q}{p}\right) = (-1)^{\mu(q/p)} \quad \text{and} \quad \left(\frac{p}{q}\right) = (-1)^{\mu(p/q)}\]
+            \[\left(\frac{q}{p}\right) \left(\frac{p}{q}\right) = (-1)^{\mu(q/p) + \mu(p/q)} = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}\]
+            </p>
+            <p>Thus \(\left(\frac{p}{q}\right) = \epsilon(p)\epsilon(q) \left(\frac{q}{p}\right)\), which is Quadratic Reciprocity. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Compute \(\left(\frac{3}{11}\right)\) using Quadratic Reciprocity.</li>
+          <li>Compute \(\left(\frac{5}{13}\right)\) using Quadratic Reciprocity.</li>
+          <li>Prove: If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\).</li>
+          <li>Show that \(\left(\frac{2}{p}\right) = 1\) iff \(p \equiv \pm 1 \pmod{8}\).</li>
+          <li>Find all \(x\) such that \(x^2 \equiv 17 \pmod{29}\).</li>
+          <li>Compute \(\left(\frac{11}{43}\right)\).</li>
+          <li>Prove: \(\left(\frac{a}{p}\right) = 1\) iff \(x^2 \equiv a \pmod{p}\) has a solution.</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-6.html">← Previous Lecture</a><a href="number-theory.html">Back to Course</a><a href="lecture-notes-8.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

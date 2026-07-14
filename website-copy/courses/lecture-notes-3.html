@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 3: Introduction to Congruences">
+  <title>Lecture 3: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 3: Introduction to Congruences</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 3: Introduction to Congruences</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 3</span><span class="lecture-topic">Introduction to Congruences</span></p>
+
+      <div class="lecture-section"><h2>1. Definition of Congruences</h2>
+        <div class="definition-box">
+          <strong>Definition 3.1 (Congruence)</strong> Let \(a, b \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\). We say that \(a\) is congruent to \(b\) modulo \(n\), denoted \(a \equiv b \pmod{n}\), if \(n \mid (a - b)\).
+        </div>
+        <p>When \(a \not\equiv b \pmod{n}\), we say \(a\) is not congruent to \(b\) modulo \(n\), written \(a \not\equiv b \pmod{n}\).</p>
+        
+        <div class="example-box">
+          <strong>Example 3.1</strong> Verify the following congruences:
+          <ul>
+            <li>\(17 \equiv 5 \pmod{6}\) since \(6 \mid (17 - 5) = 12\).</li>
+            <li>\(23 \equiv -1 \pmod{12}\) since \(12 \mid (23 - (-1)) = 24\).</li>
+            <li>\(4 \equiv 4 \pmod{7}\) since \(7 \mid 0\).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Properties of Congruence</h2>
+        <div class="theorem-box">
+          <strong>Theorem 3.1 (Equivalence Relation Properties)</strong> Let \(a, b, c \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\). Congruence modulo \(n\) is an equivalence relation on \(\mathbb{Z}\), meaning:
+          <ol>
+            <li>\(a \equiv a \pmod{n}\) (reflexivity)</li>
+            <li>If \(a \equiv b \pmod{n}\), then \(b \equiv a \pmod{n}\) (symmetry)</li>
+            <li>If \(a \equiv b \pmod{n}\) and \(b \equiv c \pmod{n}\), then \(a \equiv c \pmod{n}\) (transitivity)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p><strong>(1) Reflexivity:</strong> For any integer \(a\), we have \(a - a = 0\). Since \(n \mid 0\) for any positive integer \(n\), we have \(a \equiv a \pmod{n}\). \(\square\)</p>
+          
+          <p><strong>(2) Symmetry:</strong> Assume \(a \equiv b \pmod{n}\). Then \(n \mid (a - b)\), so there exists \(k \in \mathbb{Z}\) such that \(a - b = nk\).</p>
+          <p>Multiplying by \(-1\): \(b - a = -nk = n(-k)\). Since \(-k \in \mathbb{Z}\), we have \(n \mid (b - a)\). Thus \(b \equiv a \pmod{n}\). \(\square\)</p>
+          
+          <p><strong>(3) Transitivity:</strong> Assume \(a \equiv b \pmod{n}\) and \(b \equiv c \pmod{n}\). Then:</p>
+          <ul>
+            <li>\(n \mid (a - b)\), so \(a - b = nk_1\) for some \(k_1 \in \mathbb{Z}\)</li>
+            <li>\(n \mid (b - c)\), so \(b - c = nk_2\) for some \(k_2 \in \mathbb{Z}\)</li>
+          </ul>
+          <p>Adding these equations: \((a - b) + (b - c) = a - c = nk_1 + nk_2 = n(k_1 + k_2)\)</p>
+          <p>Since \(k_1 + k_2 \in \mathbb{Z}\), we have \(n \mid (a - c)\), so \(a \equiv c \pmod{n}\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Arithmetic of Congruences</h2>
+        <div class="theorem-box">
+          <strong>Theorem 3.2 (Addition and Multiplication Preserve Congruence)</strong> Let \(a_1, b_1, a_2, b_2 \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\). If \(a_1 \equiv b_1 \pmod{n}\) and \(a_2 \equiv b_2 \pmod{n}\), then:
+          <ol>
+            <li>\(a_1 + a_2 \equiv b_1 + b_2 \pmod{n}\)</li>
+            <li>\(a_1 a_2 \equiv b_1 b_2 \pmod{n}\)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of (1):</strong>
+          <p>Assume \(a_1 \equiv b_1 \pmod{n}\) and \(a_2 \equiv b_2 \pmod{n}\).</p>
+          <p>Then \(n \mid (a_1 - b_1)\) and \(n \mid (a_2 - b_2)\).</p>
+          <p>Therefore, \(n \mid ((a_1 - b_1) + (a_2 - b_2)) = (a_1 + a_2) - (b_1 + b_2)\).</p>
+          <p>Thus \(a_1 + a_2 \equiv b_1 + b_2 \pmod{n}\). \(\square\)</p>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of (2):</strong>
+          <p>Since \(a_1 \equiv b_1 \pmod{n}\), we can write \(a_1 = b_1 + nk_1\) for some \(k_1 \in \mathbb{Z}\).</p>
+          <p>Similarly, \(a_2 = b_2 + nk_2\) for some \(k_2 \in \mathbb{Z}\).</p>
+          <p>Multiplying:
+          \[a_1 a_2 = (b_1 + nk_1)(b_2 + nk_2) = b_1 b_2 + b_1 nk_2 + nk_1 b_2 + n^2 k_1 k_2\]
+          \[= b_1 b_2 + n(b_1 k_2 + k_1 b_2 + n k_1 k_2)\]
+          </p>
+          <p>Let \(k = b_1 k_2 + k_1 b_2 + n k_1 k_2 \in \mathbb{Z}\). Then \(a_1 a_2 = b_1 b_2 + nk\).</p>
+          <p>Therefore \(n \mid (a_1 a_2 - b_1 b_2)\), so \(a_1 a_2 \equiv b_1 b_2 \pmod{n}\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Residue Classes</h2>
+        <div class="definition-box">
+          <strong>Definition 3.2 (Residue Class)</strong> For \(a \in \mathbb{Z}\), the residue class of \(a\) modulo \(n\) is:
+          \[[a]_n = \{x \in \mathbb{Z} : x \equiv a \pmod{n}\}\]
+        </div>
+        <div class="definition-box">
+          <strong>Definition 3.3 (Reduced Residue System)</strong> A set \(\{a_1, a_2, \ldots, a_{\phi(n)}\}\) is a reduced residue system modulo \(n\) if:
+          <ol>
+            <li>\(\gcd(a_i, n) = 1\) for all \(i\)</li>
+            <li>\(a_i \not\equiv a_j \pmod{n}\) for \(i \neq j\)</li>
+          </ol>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 3.2</strong> The residue classes modulo 4 are:
+          \[[0]_4 = \{\ldots, -8, -4, 0, 4, 8, \ldots\}\]
+          \[[1]_4 = \{\ldots, -7, -3, 1, 5, 9, \ldots\}\]
+          \[[2]_4 = \{\ldots, -6, -2, 2, 6, 10, \ldots\}\]
+          \[[3]_4 = \{\ldots, -5, -1, 3, 7, 11, \ldots\}\]
+          
+          <p>A reduced residue system modulo 4 is \(\{1, 3\}\) since \(\gcd(1, 4) = \gcd(3, 4) = 1\) and \(1 \not\equiv 3 \pmod{4}\).</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Euler's Totient Function \(\phi(n)\)</h2>
+        <div class="definition-box">
+          <strong>Definition 3.4 (Euler's Totient Function)</strong> For \(n \in \mathbb{Z}^+\), Euler's totient function \(\phi(n)\) counts the number of integers \(k\) with \(1 \leq k \leq n\) and \(\gcd(k, n) = 1\).
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 3.3</strong> If \(n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}\) is the prime factorization, then:
+          \[\phi(n) = n \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right)\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>We count the integers in \(\{1, 2, \ldots, n\}\) that are coprime to \(n\) using inclusion-exclusion.</p>
+          <p>Let \(A_i = \{m \in \{1, \ldots, n\} : p_i \mid m\}\) be the set of integers divisible by \(p_i\).</p>
+          <p>We want to count \(|\overline{A_1} \cap \overline{A_2} \cap \cdots \cap \overline{A_k}|\) where \(\overline{A_i}\) is the complement of \(A_i\).</p>
+          <p>By inclusion-exclusion:
+          \[|\overline{A_1} \cap \cdots \cap \overline{A_k}| = n - \sum |A_i| + \sum |A_i \cap A_j| - \cdots\]
+          </p>
+          <p>Now \(|A_i| = \lfloor n/p_i \rfloor = n/p_i\) (since \(p_i^{a_i} \mid n\)).</p>
+          <p>Similarly, \(|A_i \cap A_j| = n/(p_i p_j)\), and so on.</p>
+          <p>Therefore:
+          \[|\overline{A_1} \cap \cdots \cap \overline{A_k}| = n - \sum \frac{n}{p_i} + \sum \frac{n}{p_i p_j} - \cdots\]
+          \[= n\left(1 - \sum \frac{1}{p_i} + \sum \frac{1}{p_i p_j} - \cdots\right)\]
+          \[= n \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right). \square\]</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 3.3</strong> Compute \(\phi(36)\).</p>
+          <p>First, \(36 = 2^2 \cdot 3^2\). Using the formula:
+          \[\phi(36) = 36 \cdot \left(1 - \frac{1}{2}\right) \cdot \left(1 - \frac{1}{3}\right) = 36 \cdot \frac{1}{2} \cdot \frac{2}{3} = 12\]
+          </p>
+          <p>Verification: The integers coprime to 36 are: 1, 5, 7, 11, 13, 17, 19, 23, 25, 29, 31, 35. There are 12 such integers. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Prove: If \(a \equiv b \pmod{n}\), then \(a^k \equiv b^k \pmod{n}\) for all \(k \geq 1\).</li>
+          <li>Show that \(\gcd(a, b) = \gcd(b, a)\) using congruences.</li>
+          <li>Find \(\phi(15)\), \(\phi(20)\), and \(\phi(24)\) using the formula.</li>
+          <li>Verify Fermat's Little Theorem for \(p = 5\) by computing \(a^4 \pmod{5}\) for \(a = 1, 2, 3, 4\).</li>
+          <li>Prove: If \(a \equiv b \pmod{n}\), then \(ca \equiv cb \pmod{n}\) for any integer \(c\).</li>
+          <li>Find a reduced residue system modulo 8.</li>
+          <li>Show that if \(p\) is prime, then \(\phi(p) = p - 1\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-2.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-4.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

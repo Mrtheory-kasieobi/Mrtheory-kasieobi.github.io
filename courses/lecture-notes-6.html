@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 6: Quadratic Residues and the Legendre Symbol">
+  <title>Lecture 6: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 6: Quadratic Residues and the Legendre Symbol</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 6: Quadratic Residues and the Legendre Symbol</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 6</span><span class="lecture-topic">Quadratic Residues and the Legendre Symbol</span></p>
+
+      <div class="lecture-section"><h2>1. Quadratic Residues</h2>
+        <div class="definition-box">
+          <strong>Definition 6.1 (Quadratic Residue)</strong> Let \(p\) be an odd prime and \(\gcd(a, p) = 1\). We say that \(a\) is a <strong>quadratic residue modulo \(p\)</strong> if there exists an integer \(x\) such that \(x^2 \equiv a \pmod{p}\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 6.1</strong> Determine which elements of \(\mathbb{Z}_7^*\) are quadratic residues.</p>
+          <p>Compute squares modulo 7:
+          \[1^2 \equiv 1, \quad 2^2 \equiv 4, \quad 3^2 \equiv 9 \equiv 2 \pmod{7}\]
+          \[4^2 = (7-3)^2 \equiv 3^2 \equiv 2, \quad 5^2 = (7-2)^2 \equiv 2^2 \equiv 4 \pmod{7}\]
+          \[6^2 = (7-1)^2 \equiv 1^2 \equiv 1 \pmod{7}\]
+          </p>
+          <p>The quadratic residues modulo 7 are \(\{1, 2, 4\}\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. The Legendre Symbol</h2>
+        <div class="definition-box">
+          <strong>Definition 6.2 (Legendre Symbol)</strong> For an odd prime \(p\) and integer \(a\) with \(\gcd(a, p) = 1\), the Legendre symbol \(\left(\frac{a}{p}\right)\) is defined by:
+          \[\left(\frac{a}{p}\right) = \begin{cases} 1 & \text{if } a \text{ is a quadratic residue modulo } p \\ -1 & \text{if } a \text{ is a quadratic non-residue modulo } p \end{cases}\]
+          We extend the definition by setting \(\left(\frac{0}{p}\right) = 0\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 6.2</strong> Compute the Legendre symbols modulo 7.</p>
+          <p>From Example 6.1, the quadratic residues are \(\{1, 2, 4\}\).</p>
+          \[\left(\frac{1}{7}\right) = 1, \quad \left(\frac{2}{7}\right) = 1, \quad \left(\frac{3}{7}\right) = -1\]
+          \[\left(\frac{4}{7}\right) = 1, \quad \left(\frac{5}{7}\right) = -1, \quad \left(\frac{6}{7}\right) = -1\]
+          \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Properties of the Legendre Symbol</h2>
+        <div class="theorem-box">
+          <strong>Theorem 6.1 (Multiplicativity)</strong> For any integers \(a, b\) and odd prime \(p\):
+          \[\left(\frac{ab}{p}\right) = \left(\frac{a}{p}\right) \left(\frac{b}{p}\right).\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>Let \(\varepsilon_1 = \left(\frac{a}{p}\right)\) and \(\varepsilon_2 = \left(\frac{b}{p}\right)\) where \(\varepsilon_1, \varepsilon_2 \in \{-1, 1\}\).</p>
+          <p>By definition, there exist integers \(x_1, x_2\) such that \(x_1^2 \equiv a \pmod{p}\) if \(\varepsilon_1 = 1\), and no such \(x_1\) exists if \(\varepsilon_1 = -1\).</p>
+          <p>Similarly for \(b\).</p>
+          <p>If \(\varepsilon_1 = \varepsilon_2 = 1\), then \((x_1 x_2)^2 \equiv ab \pmod{p}\), so \(\left(\frac{ab}{p}\right) = 1 = \varepsilon_1 \varepsilon_2\).</p>
+          <p>If \(\varepsilon_1 = 1, \varepsilon_2 = -1\), then \(a\) is a QR but \(b\) is not. Suppose \(ab\) is a QR. Then \((ab)x_1^2 \equiv a \cdot b \cdot x_1^2 \equiv a \cdot (\text{something}) \pmod{p}\). This would imply \(b\) is a QR, contradiction. Thus \(\left(\frac{ab}{p}\right) = -1 = \varepsilon_1 \varepsilon_2\).</p>
+          <p>The cases \(\varepsilon_1 = -1, \varepsilon_2 = 1\) and \(\varepsilon_1 = \varepsilon_2 = -1\) are similar. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Euler's Criterion</h2>
+        <div class="theorem-box">
+          <strong>Theorem 6.2 (Euler's Criterion)</strong> Let \(p\) be an odd prime and \(\gcd(a, p) = 1\). Then:
+          \[\left(\frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod{p}.\]
+          More precisely, \(\left(\frac{a}{p}\right) = (-1)^{\frac{p-1}{2}}\) when \(a\) is a quadratic non-residue.
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Understand the setup</strong>
+            <p>Let \(g\) be a primitive root modulo \(p\). Then any \(a\) with \(\gcd(a, p) = 1\) can be written as \(a \equiv g^k \pmod{p}\) for some \(k\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Express the Legendre symbol</strong>
+            <p>We compute:
+            \[\left(\frac{a}{p}\right) = \left(\frac{g^k}{p}\right) = \left(\frac{g}{p}\right)^k\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Determine if g is a QR or QNR</strong>
+            <p>By Fermat's Little Theorem, \(g^{p-1} \equiv 1 \pmod{p}\). Also, \(g^{\frac{p-1}{2}} \not\equiv 1 \pmod{p}\) (otherwise \(g\) wouldn't be a primitive root).</p>
+            <p>Therefore \(g^{\frac{p-1}{2}} \equiv -1 \pmod{p}\), so \(g\) is a quadratic non-residue, meaning \(\left(\frac{g}{p}\right) = -1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Conclude the proof</strong>
+            <p>Thus \(\left(\frac{a}{p}\right) = (-1)^k\).</p>
+            <p>Now compute \(a^{\frac{p-1}{2}} = g^{k \cdot \frac{p-1}{2}} = (g^{\frac{p-1}{2}})^k \equiv (-1)^k \pmod{p}\).</p>
+            <p>Therefore \(\left(\frac{a}{p}\right) = a^{\frac{p-1}{2}}\) as integers (both equal \((-1)^k\)). \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 6.3</strong> Use Euler's Criterion to compute \(\left(\frac{3}{7}\right)\).</p>
+          <p>Compute \(3^{\frac{7-1}{2}} = 3^3 = 27 = 7 \cdot 3 + 6 \equiv -1 \pmod{7}\).</p>
+          <p>Thus \(\left(\frac{3}{7}\right) = -1\), confirming that 3 is a quadratic non-residue modulo 7. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find all quadratic residues modulo 11.</li>
+          <li>Compute \(\left(\frac{2}{11}\right)\) using Euler's Criterion.</li>
+          <li>Verify that \(\left(\frac{5}{7}\right) = \left(\frac{5}{7}\right)\) using multiplicativity.</li>
+          <li>Prove: If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\).</li>
+          <li>Find all solutions to \(x^2 \equiv 5 \pmod{11}\).</li>
+          <li>Compute \(\left(\frac{13}{17}\right)\) using Euler's Criterion.</li>
+          <li>Show that \(\left(\frac{a}{p}\right) = 1\) if and only if \(x^2 \equiv a \pmod{p}\) has a solution.</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-5.html">← Previous Lecture</a><a href="number-theory.html">Back to Course</a><a href="lecture-notes-7.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

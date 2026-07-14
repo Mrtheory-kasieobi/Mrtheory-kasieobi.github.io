@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 14: Partitions and the Partition Function">
+  <title>Lecture 14: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 14: Partitions and the Partition Function</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 14: Partitions and the Partition Function</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 14</span><span class="lecture-topic">Partitions and the Partition Function</span></p>
+
+      <div class="lecture-section"><h2>1. Partitions of Integers</h2>
+        <div class="definition-box">
+          <strong>Definition 14.1 (Partition)</strong> A partition of a positive integer \(n\) is a way of writing \(n\) as a sum of positive integers where the order of summands does not matter. The summands are called parts.</p>
+          <strong>Definition 14.2 (Partition Function)</strong> The partition function \(p(n)\) counts the number of partitions of \(n\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 14.1</strong> The partitions of 4 are:
+          \[4, \quad 3+1, \quad 2+2, \quad 2+1+1, \quad 1+1+1+1\]
+          Thus \(p(4) = 5\).</p>
+          <p>The partitions of 5 are:
+          \[5, \quad 4+1, \quad 3+2, \quad 3+1+1, \quad 2+2+1, \quad 2+1+1+1, \quad 1+1+1+1+1\]
+          Thus \(p(5) = 7\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Generating Functions</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.1</strong> The generating function for the partition function is:
+          \[\sum_{n=0}^{\infty} p(n) x^n = \prod_{k=1}^{\infty} \frac{1}{1 - x^k}\]
+          where \(p(0) = 1\) by convention.
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Proof:</strong>
+          <p>Consider the product \(\prod_{k=1}^{\infty} \frac{1}{1 - x^k}\).</p>
+          <p>Each factor \(\frac{1}{1 - x^k} = 1 + x^k + x^{2k} + x^{3k} + \cdots\) represents the choice of using part \(k\) zero, one, two, or more times.</p>
+          <p>Expanding the product, each term \(x^n\) corresponds to a way of writing \(n\) as a sum of parts, i.e., a partition of \(n\).</p>
+          <p>The coefficient of \(x^n\) is exactly the number of partitions of \(n\), which is \(p(n)\). \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 14.2</strong> Verify the generating function for small \(n\).
+          <p>\[\prod_{k=1}^{3} \frac{1}{1-x^k} = (1 + x + x^2 + \cdots)(1 + x^2 + x^4 + \cdots)(1 + x^3 + x^6 + \cdots)\]</p>
+          <p>Extracting coefficients:
+          \[= 1 + x + 2x^2 + 3x^3 + 5x^4 + 7x^5 + \cdots\]</p>
+          <p>This matches \(p(0)=1, p(1)=1, p(2)=2, p(3)=3, p(4)=5, p(5)=7\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Euler's Pentagonal Number Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.2 (Euler's Pentagonal Number Theorem)</strong>
+          \[\prod_{k=1}^{\infty} (1 - x^k) = \sum_{n=-\infty}^{\infty} (-1)^n x^{n(3n-1)/2}\]
+          where the sum is over all integers \(n\).
+        </div>
+        
+        <div class="proof-box">
+          <p>This theorem provides a recurrence for computing \(p(n)\):
+          \[p(n) = \sum_{k \neq 0} (-1)^{k-1} p\left(n - \frac{k(3k-1)}{2}\right)\]
+          where the sum is over all non-zero integers \(k\) such that the argument is non-negative.
+          <p>The exponents \(\frac{n(3n-1)}{2}\) for \(n = 0, \pm 1, \pm 2, \ldots\) are called pentagonal numbers: 0, 1, 2, 5, 7, 12, 15, 22, 26, 35, ... \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Asymptotic Behavior</h2>
+        <div class="theorem-box">
+          <strong>Theorem 14.3 (Hardy-Ramanujan Asymptotic Formula)</strong>
+          \[p(n) \sim \frac{1}{4n\sqrt{3}} e^{\pi \sqrt{2n/3}} \quad \text{as } n \to \infty\]
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 14.3</strong> Estimate \(p(50)\) using the asymptotic formula.</p>
+          <p>\[\sqrt{2n/3} = \sqrt{100/3} \approx 5.77\]
+          \[\pi \sqrt{2n/3} \approx 3.14 \times 5.77 \approx 18.1\]
+          \[e^{18.1} \approx 7.3 \times 10^7\]</p>
+          <p>Actual value: \(p(50) = 204226\). The approximation grows rapidly for large \(n\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find all partitions of 7 and verify \(p(7) = 15\).</li>
+          <li>Use the recurrence to compute \(p(6)\) starting from \(p(0) = 1, p(1) = 1, p(2) = 2, p(3) = 3, p(4) = 5, p(5) = 7\).</li>
+          <li>Show that the number of partitions into odd parts equals partitions into distinct parts for \(n = 6\).</li>
+          <li>Find the generating function for partitions into parts of size at most 3.</li>
+          <li>Prove: If \(n = 2^k - 1\), then \(p(n) \geq 2^{k-1}\).</li>
+          <li>Compute \(p(8)\) using the recurrence relation.</li>
+          <li>Show that the number of partitions of \(n\) into at most \(k\) parts equals the number of partitions of \(n\) with each part \(\leq k\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-13.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="index.html">Course Home →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

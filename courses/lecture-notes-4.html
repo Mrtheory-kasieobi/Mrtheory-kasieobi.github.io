@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 4: Congruences and Modular Arithmetic - Detailed Proofs">
+  <title>Lecture 4: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 4: Congruences and Modular Arithmetic</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 4: Congruences and Modular Arithmetic</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 4</span><span class="lecture-topic">Congruences and Modular Arithmetic</span></p>
+
+      <div class="lecture-section"><h2>1. Definition of Congruence</h2>
+        <div class="definition-box">
+          <strong>Definition 1.1 (Congruence Modulo n)</strong> Let \(a, b \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\). We say that <strong>\(a\) is congruent to \(b\) modulo \(n\)**, written:</p>
+          \[a \equiv b \pmod{n}\]
+          <p>if \(n \mid (a - b)\)</p>
+          <p>This is read as "\(a\) is congruent to \(b\) mod \(n\)".</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 4.1</strong> Verify the following congruences:
+          <ul>
+            <li>\(17 \equiv 5 \pmod{12}\) because \(17 - 5 = 12\) and \(12 \mid 12\)</li>
+            <li>\(7 \equiv -5 \pmod{12}\) because \(7 - (-5) = 12\)</li>
+            <li>\(20 \equiv 2 \pmod{6}\) because \(20 - 2 = 18\) and \(6 \mid 18\)</li>
+            <li>\(-3 \equiv 9 \pmod{12}\) because \(-3 - 9 = -12\) and \(12 \mid -12\)</li>
+          </ul>
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 1.2 (Residue Class)</strong> The set of all integers congruent to \(a\) modulo \(n\) is called the <strong>residue class of \(a\) modulo \(n\)**:</p>
+          \[[a]_n = \{x \in \mathbb{Z} : x \equiv a \pmod{n}\} = \{a + nk : k \in \mathbb{Z}\}\]</p>
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 1.3 (Complete Residue System)</strong> A set of integers \(\{r_0, r_1, \ldots, r_{n-1}\}\) is called a <strong>complete residue system modulo \(n\)** if every integer is congruent to exactly one element of the set.</p>
+          <p>The <strong>canonical complete residue system</strong> is \(\{0, 1, 2, \ldots, n-1\}\).</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 4.2</strong> Find the canonical residue class of 17 modulo 5.</p>
+          
+          <div class="step-box">
+            <strong>Step 1: Divide 17 by 5</strong>
+            <p>\(17 = 5 \cdot 3 + 2\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Identify the remainder</strong>
+            <p>The remainder is 2, so \(17 \equiv 2 \pmod{5}\).</p>
+            <p>The canonical residue class is \([2]_5 = \{\ldots, -8, -3, 2, 7, 12, 17, \ldots\}\).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Properties of Congruences</h2>
+        <div class="theorem-box">
+          <strong>Theorem 2.1 (Properties of Congruence)</strong> Let \(a, b, c, d \in \mathbb{Z}\) and \(n \in \mathbb{Z}^+\).
+          <ol>
+            <li><strong>Reflexivity:</strong> \(a \equiv a \pmod{n}\)</li>
+            <li><strong>Symmetry:</strong> If \(a \equiv b \pmod{n}\), then \(b \equiv a \pmod{n}\)</li>
+            <li><strong>Transitivity:</strong> If \(a \equiv b \pmod{n}\) and \(b \equiv c \pmod{n}\), then \(a \equiv c \pmod{n}\)</li>
+            <li><strong>Addition:</strong> If \(a \equiv b \pmod{n}\) and \(c \equiv d \pmod{n}\), then \(a + c \equiv b + d \pmod{n}\)</li>
+            <li><strong>Multiplication:</strong> If \(a \equiv b \pmod{n}\) and \(c \equiv d \pmod{n}\), then \(ac \equiv bd \pmod{n}\)</li>
+            <li><strong>Exponentiation:</strong> If \(a \equiv b \pmod{n}\), then \(a^k \equiv b^k \pmod{n}\) for all \(k \geq 1\)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Theorem 2.1(6) - Exponentiation:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Base case</strong>
+            <p>For \(k = 1\): \(a^1 \equiv b^1 \pmod{n}\) is just \(a \equiv b \pmod{n}\), which is true.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Inductive step</strong>
+            <p>Assume \(a^k \equiv b^k \pmod{n}\) for some \(k \geq 1\).</p>
+            <p>We need to show \(a^{k+1} \equiv b^{k+1} \pmod{n}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Use multiplication property</strong>
+            <p>We know:</p>
+            <ul>
+              <li>\(a^k \equiv b^k \pmod{n}\) (inductive hypothesis)</li>
+              <li>\(a \equiv b \pmod{n}\) (given)</li>
+            </ul>
+            <p>By the multiplication property: \(a^k \cdot a \equiv b^k \cdot b \pmod{n}\)</p>
+            <p>Therefore \(a^{k+1} \equiv b^{k+1} \pmod{n}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion:</strong>
+            <p>By mathematical induction, \(a^k \equiv b^k \pmod{n}\) for all \(k \geq 1\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Solving Linear Congruences</h2>
+        <div class="definition-box">
+          <strong>Definition 3.1 (Linear Congruence)</strong> A congruence of the form:</p>
+          \[ax \equiv b \pmod{n}\]
+          <p>where \(a, b, n \in \mathbb{Z}\) with \(n > 0\), is called a <strong>linear congruence in one variable</strong>.</p>
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 3.1 (Existence and Uniqueness of Solutions)</strong> Let \(a, b, n \in \mathbb{Z}\) with \(n > 0\). The linear congruence \(ax \equiv b \pmod{n}\):
+          <ol>
+            <li>Has a solution if and only if \(\gcd(a, n) \mid b\)</li>
+            <li>If a solution exists, there are exactly \(\gcd(a, n)\) distinct solutions modulo \(n\)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Theorem 3.1(1):</strong>
+          
+          <div class="step-box">
+            <strong>(⇒) If a solution exists, then gcd(a,n) | b:</strong>
+            <p>Suppose \(x_0\) is a solution, so \(ax_0 \equiv b \pmod{n}\).</p>
+            <p>This means \(n \mid (ax_0 - b)\), so \(ax_0 - b = nk\) for some integer \(k\).</p>
+            <p>Therefore \(ax_0 - nk = b\).</p>
+            <p>Since \(\gcd(a, n)\) divides both \(a\) and \(n\), it divides the left side: \(\gcd(a, n) \mid b\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>(⇐) If gcd(a,n) | b, then a solution exists:</strong>
+            <p>Suppose \(d = \gcd(a, n)\) and \(d \mid b\).</p>
+            <p>Let \(a = da'\), \(n = dn'\), \(b = db'\) where \(a', n', b' \in \mathbb{Z}\).</p>
+            <p>Note: \(\gcd(a', n') = 1\) since we divided out the gcd.</p>
+            <p>The congruence becomes: \(da'x \equiv db' \pmod{dn'}\)</p>
+            <p>This is equivalent to: \(da'x - db' = d(dn')k\) for some integer \(k\).</p>
+            <p>Dividing by \(d\): \(a'x - b' = dn'k = n' \cdot d \cdot k\)</p>
+            <p>Wait, let's reconsider more carefully...</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Correct approach:</strong>
+            <p>We have \(ax \equiv b \pmod{n}\) with \(d = \gcd(a, n)\) and \(d \mid b\).</p>
+            <p>Write \(a = da'\), \(n = dn'\), \(b = db'\). The congruence is:</p>
+            \[da'x \equiv db' \pmod{dn'}\]</p>
+            <p>This means \(dn' \mid (da'x - db') = d(a'x - b')\).</p>
+            <p>Since \(d \neq 0\), this is equivalent to \(n' \mid (a'x - b')\).</p>
+            <p>So \(a'x \equiv b' \pmod{n'}\).</p>
+            <p>Since \(\gcd(a', n') = 1\), there exists \(x_0\) such that \(a'x_0 \equiv 1 \pmod{n'}\).</p>
+            <p>Then \(x = x_0 b'\) satisfies \(a'x \equiv b' \pmod{n'}\).</p>
+            <p>Therefore \(ax \equiv b \pmod{n}\) has a solution. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1</strong> Solve \(3x \equiv 4 \pmod{7}\).</p>
+        
+        <div class="step-box">
+          <strong>Step 1: Check if solution exists</strong>
+          <p>\(\gcd(3, 7) = 1\)</p>
+          <p>Since \(1 \mid 4\), a solution exists.</p>
+          <p>Since \(\gcd(3, 7) = 1\), the solution is unique modulo 7.</p>
+        </div>
+        
+        <div class="step-box">
+          <strong>Step 2: Find the inverse of 3 modulo 7</strong>
+          <p>We need \(x\) such that \(3x \equiv 1 \pmod{7}\).</p>
+          <p>Testing: \(3 \cdot 1 = 3\), \(3 \cdot 2 = 6\), \(3 \cdot 3 = 9 \equiv 2\), \(3 \cdot 4 = 12 \equiv 5\), \(3 \cdot 5 = 15 \equiv 1 \pmod{7}\)</p>
+          <p>So \(3^{-1} \equiv 5 \pmod{7}\).</p>
+        </div>
+        
+        <div class="step-box">
+          <strong>Step 3: Multiply both sides by the inverse</strong>
+          <p>\(x \equiv 5 \cdot 4 \equiv 20 \equiv 6 \pmod{7}\)</p>
+          <p>Check: \(3 \cdot 6 = 18 \equiv 4 \pmod{7}\). ✓</p>
+        </div>
+      </div>
+      
+      <div class="example-box">
+        <strong>Example 3.2</strong> Solve \(6x \equiv 9 \pmod{15}\).</p>
+        
+        <div class="step-box">
+          <strong>Step 1: Check gcd</strong>
+          <p>\(\gcd(6, 15) = 3\)</p>
+          <p>Since \(3 \mid 9\), solutions exist.</p>
+          <p>There will be 3 distinct solutions modulo 15.</p>
+        </div>
+        
+        <div class="step-box">
+          <strong>Step 2: Divide through by gcd</strong>
+            <p>Divide the congruence by 3:</p>
+            \[2x \equiv 3 \pmod{5}\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Solve the reduced congruence</strong>
+            <p>Find the inverse of 2 modulo 5.</p>
+            <p>\(2 \cdot 3 = 6 \equiv 1 \pmod{5}\), so \(2^{-1} \equiv 3 \pmod{5}\).</p>
+            <p>\(x \equiv 3 \cdot 3 \equiv 9 \equiv 4 \pmod{5}\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Find all solutions modulo 15</strong>
+            <p>The solutions are \(x \equiv 4 \pmod{5}\).</p>
+            <p>Modulo 15, the solutions are: \(x \equiv 4, 9, 14 \pmod{15}\)</p>
+            <p>Check: \(6 \cdot 4 = 24 \equiv 9 \pmod{15}\) ✓</p>
+            <p>Check: \(6 \cdot 9 = 54 \equiv 9 \pmod{15}\) ✓</p>
+            <p>Check: \(6 \cdot 14 = 84 \equiv 9 \pmod{15}\) ✓</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Chinese Remainder Theorem</h2>
+        <div class="definition-box">
+          <strong>Definition 4.1 (Pairwise Coprime)</strong> A set of integers \(n_1, n_2, \ldots, n_k\) is called <strong>pairwise coprime</strong> if \(\gcd(n_i, n_j) = 1\) for all \(i \neq j\).</div>
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 4.1 (Chinese Remainder Theorem)</strong> Let \(n_1, n_2, \ldots, n_k\) be pairwise coprime positive integers. Then for any integers \(a_1, a_2, \ldots, a_k\), the system of simultaneous congruences:</p>
+          \[\begin{cases} x \equiv a_1 \pmod{n_1} \\ x \equiv a_2 \pmod{n_2} \\ \vdots \\ x \equiv a_k \pmod{n_k} \end{cases}\]</p>
+          <p>has a unique solution modulo \(N = n_1 n_2 \cdots n_k\).</p>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Existence via construction</strong>
+            <p>Let \(N = n_1 n_2 \cdots n_k\). For each \(i\), define \(N_i = N/n_i\) (product of all moduli except \(n_i\)).</p>
+            <p>Since \(\gcd(n_i, N_i) = 1\) (pairwise coprime), \(N_i\) has an inverse modulo \(n_i\).</p>
+            <p>Let \(M_i\) be the inverse of \(N_i\) modulo \(n_i\), so \(N_i M_i \equiv 1 \pmod{n_i}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Construct the solution</strong>
+            <p>Define:</p>
+            \[x = a_1 N_1 M_1 + a_2 N_2 M_2 + \cdots + a_k N_k M_k\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Verify \(x \equiv a_j \pmod{n_j}\)</strong>
+            <p>Consider \(x\) modulo \(n_j\):</p>
+            \[x = \sum_{i=1}^{k} a_i N_i M_i\]</p>
+            <p>For \(i \neq j\): \(N_i\) is a multiple of \(n_j\), so \(N_i M_i \equiv 0 \pmod{n_j}\).</p>
+            <p>For \(i = j\): \(N_j M_j \equiv 1 \pmod{n_j}\), so \(a_j N_j M_j \equiv a_j \pmod{n_j}\).</p>
+            <p>Therefore \(x \equiv a_j \pmod{n_j}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Prove uniqueness</strong>
+            <p>Suppose \(x\) and \(x'\) are both solutions.</p>
+            <p>Then \(x \equiv x' \pmod{n_i}\) for all \(i\).</p>
+            <p>Since the \(n_i\) are pairwise coprime, \(\gcd(n_i, n_j) = 1\) for \(i \neq j\).</p>
+            <p>By the Chinese Remainder Theorem (or direct argument): if \(n_i \mid (x - x')\) for all \(i\), and the \(n_i\) are pairwise coprime, then \(N \mid (x - x')\).</p>
+            <p>Therefore \(x \equiv x' \pmod{N}\). \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 4.1</strong> Solve the system:
+          \[\begin{cases} x \equiv 2 \pmod{3} \\ x \equiv 3 \pmod{5} \\ x \equiv 2 \pmod{7} \end{cases}\]</p>
+          
+          <div class="step-box">
+            <strong>Step 1: Compute N and each N_i</strong>
+            <p>\(N = 3 \cdot 5 \cdot 7 = 105\)</p>
+            <p>\(N_1 = 105/3 = 35\), \(N_2 = 105/5 = 21\), \(N_3 = 105/7 = 15\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Find each M_i (inverse of N_i mod n_i)</strong>
+            <p>\(M_1\): Find \(35^{-1} \pmod{3}\). Since \(35 \equiv 2 \pmod{3}\), we need \(2^{-1} \pmod{3}\):</p>
+            <p>\(2 \cdot 2 = 4 \equiv 1 \pmod{3}\), so \(M_1 = 2\).</p>
+            <p>\(M_2\): Find \(21^{-1} \pmod{5}\). Since \(21 \equiv 1 \pmod{5}\), \(M_2 = 1\).</p>
+            <p>\(M_3\): Find \(15^{-1} \pmod{7}\). Since \(15 \equiv 1 \pmod{7}\), \(M_3 = 1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Compute x</strong>
+            <p>\(x = 2 \cdot 35 \cdot 2 + 3 \cdot 21 \cdot 1 + 2 \cdot 15 \cdot 1\)</p>
+            <p>\(x = 140 + 63 + 30 = 233\)</p>
+            <p>\(x \equiv 233 \pmod{105}\)</p>
+            <p>\(233 = 105 \cdot 2 + 23\), so \(x \equiv 23 \pmod{105}\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Verification:</strong>
+            <p>\(23 \equiv 2 \pmod{3}\) ✓</p>
+            <p>\(23 \equiv 3 \pmod{5}\) ✓</p>
+            <p>\(23 \equiv 2 \pmod{7}\) ✓</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Prove that if \(a \equiv b \pmod{n}\), then \(a^k \equiv b^k \pmod{n}\) for all \(k \geq 0\).</li>
+          <li>Solve \(5x \equiv 3 \pmod{7}\).</li>
+          <li>Solve \(12x \equiv 8 \pmod{20}\) and find all distinct solutions modulo 20.</li>
+          <li>Use the Chinese Remainder Theorem to solve: \(x \equiv 1 \pmod{2}\), \(x \equiv 2 \pmod{3}\), \(x \equiv 3 \pmod{5}\).</li>
+          <li>Prove: If \(a \equiv b \pmod{n}\), then \(a^m \equiv b^m \pmod{n}\) for all \(m \geq 0\).</li>
+          <li>Show that if \(n \mid a\) and \(n \mid b\), then \(n \mid (ax + by)\) for all \(x, y \in \mathbb{Z}\).</li>
+          <li>Find all solutions to \(x \equiv 2 \pmod{4}\) and \(x \equiv 1 \pmod{6}\).</li>
+          <li>Prove: If \(a \equiv b \pmod{n}\) and \(c \equiv d \pmod{n}\), then \(ac \equiv bd \pmod{n}\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-3.html">← Previous Lecture</a><a href="number-theory.html">← Back to Course</a><a href="lecture-notes-5.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

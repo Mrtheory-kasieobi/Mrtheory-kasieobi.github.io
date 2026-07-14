@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Number Theory - Divisibility, primes, congruences, and classical number-theoretic problems.">
+  <meta name="description" content="Elementary Number Theory course covering primes, congruences, quadratic reciprocity, diophantine equations, Gaussian integers, and more.">
   <title>Kasieobi Udumaga | Elementary Number Theory</title>
   <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
 </head>
-<body>
+<body class="no-math-background">
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
@@ -43,12 +45,12 @@
     <div class="course-header">
       <h2 class="course-header__title">Elementary Number Theory</h2>
       <p class="course-header__description">
-        Divisibility, primes, congruences, and classical number-theoretic problems.
+        An elementary introduction to number theory with no algebraic prerequisites. Covers primes, congruences, quadratic reciprocity, diophantine equations, Gaussian integers, irrational numbers, continued fractions, and partitions. Based on MIT 18.781 Theory of Numbers.
       </p>
       <div class="course-header__meta">
         <span class="course-header__meta-item">Level: Undergraduate</span>
-        <span class="course-header__meta-item">Status: In Progress</span>
-        <span class="course-header__meta-item">Last Updated: 2026</span>
+        <span class="course-header__meta-item">Prerequisite: None</span>
+        <span class="course-header__meta-item">Last Updated: July 2026</span>
       </div>
     </div>
 
@@ -57,7 +59,7 @@
       <ul class="course-info__list">
         <li class="course-info__list-item">
           <span class="course-info__label">Level</span>
-          <span class="course-info__value">Undergraduate</span>
+          <span class="course-info__value">Undergraduate (Spring)</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Estimated Duration</span>
@@ -65,11 +67,11 @@
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Prerequisites</span>
-          <span class="course-info__value">Introduction to Proofs</span>
+          <span class="course-info__value">None</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Recommended Textbooks</span>
-          <span class="course-info__value">A Friendly Introduction to Number Theory (Silverman)</span>
+          <span class="course-info__value">Elementary Number Theory by David Burton; An Introduction to the Theory of Numbers by Niven, Zuckerman, and Montgomery</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Software</span>
@@ -82,11 +84,13 @@
       <h3 class="course-section__title">Course Description</h3>
       <div class="course-section__content">
         <p>
-          This course provides an introduction to elementary number theory, exploring the 
-          properties of integers and the beautiful patterns that emerge from their study. 
-          Topics include divisibility, prime numbers, congruences, Diophantine equations, 
-          and quadratic residues. The course balances computational techniques with 
-          theoretical understanding, laying the foundation for algebraic number theory.
+          This course provides a rigorous introduction to elementary number theory. We begin with fundamental concepts of divisibility, primes, and the fundamental theorem of arithmetic. The course then develops the theory of congruences, including linear and quadratic congruences, and culminates with quadratic reciprocity. 
+        </p>
+        <p>
+          A key addition to this course is the study of Gaussian integers, which extends the unique factorization properties of the integers to the complex plane. We explore arithmetic in Z[i], prime factorization in Gaussian integers, and applications to solving Diophantine equations.
+        </p>
+        <p>
+          Additional topics include Diophantine equations, irrational numbers and their approximations, continued fractions, and partitions. Each topic is presented with careful proofs and numerous examples.
         </p>
       </div>
     </div>
@@ -96,59 +100,59 @@
       <ol class="course-syllabus">
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 1</span>
-          <span class="course-syllabus__topic">Introduction to Number Theory</span>
+          <span class="course-syllabus__topic">Divisibility, Primes, and the Fundamental Theorem of Arithmetic</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 2</span>
-          <span class="course-syllabus__topic">Divisibility and the Division Algorithm</span>
+          <span class="course-syllabus__topic">Euclidean Algorithm, GCD, and LCM</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 3</span>
-          <span class="course-syllabus__topic">Prime Numbers and the Fundamental Theorem</span>
+          <span class="course-syllabus__topic">Introduction to Congruences</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 4</span>
-          <span class="course-syllabus__topic">Greatest Common Divisors and Euclidean Algorithm</span>
+          <span class="course-syllabus__topic">Linear Congruences and the Chinese Remainder Theorem</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 5</span>
-          <span class="course-syllabus__topic">Modular Arithmetic and Congruences</span>
+          <span class="course-syllabus__topic">Fermat's Little Theorem, Euler's Theorem, and Wilson's Theorem</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 6</span>
-          <span class="course-syllabus__topic">Solving Linear Congruences</span>
+          <span class="course-syllabus__topic">Arithmetic Functions and Möbius Inversion</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 7</span>
-          <span class="course-syllabus__topic">Chinese Remainder Theorem</span>
+          <span class="course-syllabus__topic">Quadratic Residues and the Legendre Symbol</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 8</span>
-          <span class="course-syllabus__topic">Prime Numbers and Factorization</span>
+          <span class="course-syllabus__topic">Quadratic Reciprocity Law</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 9</span>
-          <span class="course-syllabus__topic">Fermat's Little Theorem and Euler's Theorem</span>
+          <span class="course-syllabus__topic">Gaussian Integers: Definition and Arithmetic</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 10</span>
-          <span class="course-syllabus__topic">Primitive Roots and Discrete Logarithms</span>
+          <span class="course-syllabus__topic">Gaussian Primes and Factorization</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 11</span>
-          <span class="course-syllabus__topic">Quadratic Residues and Reciprocity</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 12</span>
           <span class="course-syllabus__topic">Diophantine Equations</span>
         </li>
         <li class="course-syllabus__item">
+          <span class="course-syllabus__week">Week 12</span>
+          <span class="course-syllabus__topic">Continued Fractions</span>
+        </li>
+        <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 13</span>
-          <span class="course-syllabus__topic">Review and Applications</span>
+          <span class="course-syllabus__topic">Irrational Numbers and Approximation</span>
         </li>
         <li class="course-syllabus__item">
           <span class="course-syllabus__week">Week 14</span>
-          <span class="course-syllabus__topic">Final Review and Exam Preparation</span>
+          <span class="course-syllabus__topic">Partitions</span>
         </li>
       </ol>
     </div>
@@ -158,42 +162,88 @@
       <div class="course-notes-grid">
         <div class="course-note-card">
           <span class="course-note-card__number">Lecture 1</span>
-          <h4 class="course-note-card__title">Divisibility and Primes</h4>
-          <p class="course-note-card__description">Fundamental properties of integers and prime factorization.</p>
-          <a href="#" class="course-note-card__button">Open Notes</a>
+          <h4 class="course-note-card__title">Divisibility, Primes, and the Fundamental Theorem of Arithmetic</h4>
+          <p class="course-note-card__description">Basic definitions, prime numbers, unique factorization, and the infinitude of primes.</p>
+          <a href="lecture-notes-1.html" class="course-note-card__button">Open Notes</a>
         </div>
         <div class="course-note-card">
           <span class="course-note-card__number">Lecture 2</span>
-          <h4 class="course-note-card__title">Modular Arithmetic</h4>
-          <p class="course-note-card__description">Congruences, arithmetic modulo n, and applications.</p>
-          <a href="#" class="course-note-card__button">Open Notes</a>
+          <h4 class="course-note-card__title">Euclidean Algorithm and GCD Properties</h4>
+          <p class="course-note-card__description">The Euclidean algorithm, Bézout's identity, and applications to GCD computation.</p>
+          <a href="lecture-notes-2.html" class="course-note-card__button">Open Notes</a>
         </div>
         <div class="course-note-card">
           <span class="course-note-card__number">Lecture 3</span>
-          <h4 class="course-note-card__title">Cryptography Applications</h4>
-          <p class="course-note-card__description">RSA encryption and number-theoretic algorithms.</p>
-          <a href="#" class="course-note-card__button">Open Notes</a>
+          <h4 class="course-note-card__title">Introduction to Congruences</h4>
+          <p class="course-note-card__description">Definition of congruences, properties, and basic theorems.</p>
+          <a href="lecture-notes-3.html" class="course-note-card__button">Open Notes</a>
         </div>
-      </div>
-    </div>
-
-    <div class="course-section">
-      <h3 class="course-section__title">Problem Sets</h3>
-      <div class="course-problem-set">
-        <div class="course-problem-set__header">
-          <h4 class="course-problem-set__title">Problem Set 1</h4>
-          <span class="course-problem-set__difficulty">Medium</span>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 4</span>
+          <h4 class="course-note-card__title">Linear Congruences and the Chinese Remainder Theorem</h4>
+          <p class="course-note-card__description">Solving linear congruences, CRT, and applications.</p>
+          <a href="lecture-notes-4.html" class="course-note-card__button">Open Notes</a>
         </div>
-        <p class="course-problem-set__topics">Topics: Divisibility, GCD, Euclidean Algorithm</p>
-        <a href="#" class="course-problem-set__button">Download/View</a>
-      </div>
-      <div class="course-problem-set">
-        <div class="course-problem-set__header">
-          <h4 class="course-problem-set__title">Problem Set 2</h4>
-          <span class="course-problem-set__difficulty">Hard</span>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 5</span>
+          <h4 class="course-note-card__title">Fermat's Little Theorem, Euler's Theorem, Wilson's Theorem</h4>
+          <p class="course-note-card__description">Fundamental theorems of number theory and their applications.</p>
+          <a href="lecture-notes-5.html" class="course-note-card__button">Open Notes</a>
         </div>
-        <p class="course-problem-set__topics">Topics: Modular Arithmetic, Chinese Remainder Theorem</p>
-        <a href="#" class="course-problem-set__button">Download/View</a>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 6</span>
+          <h4 class="course-note-card__title">Arithmetic Functions and Möbius Inversion</h4>
+          <p class="course-note-card__description">Divisor functions, Euler's totient function, and Möbius inversion formula.</p>
+          <a href="lecture-notes-6.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 7</span>
+          <h4 class="course-note-card__title">Quadratic Residues and the Legendre Symbol</h4>
+          <p class="course-note-card__description">Definition, properties, and computation of quadratic residues.</p>
+          <a href="lecture-notes-7.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 8</span>
+          <h4 class="course-note-card__title">Quadratic Reciprocity Law</h4>
+          <p class="course-note-card__description">Statement, proof, and applications of the law of quadratic reciprocity.</p>
+          <a href="lecture-notes-8.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 9</span>
+          <h4 class="course-note-card__title">Gaussian Integers: Definition and Arithmetic</h4>
+          <p class="course-note-card__description">Introduction to Z[i], units, norms, and basic arithmetic operations.</p>
+          <a href="lecture-notes-9.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 10</span>
+          <h4 class="course-note-card__title">Gaussian Primes and Factorization</h4>
+          <p class="course-note-card__description">Classification of Gaussian primes, unique factorization in Z[i].</p>
+          <a href="lecture-notes-10.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 11</span>
+          <h4 class="course-note-card__title">Diophantine Equations</h4>
+          <p class="course-note-card__description">Linear Diophantine equations, Pythagorean triples, and applications.</p>
+          <a href="lecture-notes-11.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 12</span>
+          <h4 class="course-note-card__title">Continued Fractions</h4>
+          <p class="course-note-card__description">Finite and infinite continued fractions, convergence, and applications.</p>
+          <a href="lecture-notes-12.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 13</span>
+          <h4 class="course-note-card__title">Irrational Numbers and Approximation</h4>
+          <p class="course-note-card__description">Irrationality proofs, Liouville's theorem, and Diophantine approximation.</p>
+          <a href="lecture-notes-13.html" class="course-note-card__button">Open Notes</a>
+        </div>
+        <div class="course-note-card">
+          <span class="course-note-card__number">Lecture 14</span>
+          <h4 class="course-note-card__title">Partitions</h4>
+          <p class="course-note-card__description">Integer partitions, generating functions, and partition identities.</p>
+          <a href="lecture-notes-14.html" class="course-note-card__button">Open Notes</a>
+        </div>
       </div>
     </div>
 
@@ -203,42 +253,18 @@
         <div class="course-resources__category">
           <h4 class="course-resources__title">Books</h4>
           <ul class="course-resources__list">
-            <li><a href="#">A Friendly Introduction to Number Theory</a> - Joseph Silverman</li>
-            <li><a href="#">Elementary Number Theory</a> - David Burton</li>
-          </ul>
-        </div>
-        <div class="course-resources__category">
-          <h4 class="course-resources__title">Lecture Notes</h4>
-          <ul class="course-resources__list">
-            <li><a href="#">MIT OpenCourseWare - Number Theory</a></li>
-            <li><a href="#">Harvard Math 122 Notes</a></li>
-          </ul>
-        </div>
-        <div class="course-resources__category">
-          <h4 class="course-resources__title">Videos</h4>
-          <ul class="course-resources__list">
-            <li><a href="#">3Blue1Brown - Number Theory</a></li>
-            <li><a href="#">MIT OpenCourseWare Lectures</a></li>
+            <li><a href="https://www.ams.org/books/coll/070/">Elementary Number Theory by David Burton</a> - Classic text with clear exposition</li>
+            <li><a href="https://www.wiley.com/en-us/An+Introduction+to+the+Theory+of+Numbers-p-9780471526335">An Introduction to the Theory of Numbers by Niven, Zuckerman, and Montgomery</a> - Comprehensive reference</li>
+            <li><a href="https://link.springer.com/book/10.1007/978-1-4612-0045-8">A Classical Introduction to Modern Number Theory by Ireland and Rosen</a> - Graduate-level treatment</li>
           </ul>
         </div>
         <div class="course-resources__category">
           <h4 class="course-resources__title">Online Resources</h4>
           <ul class="course-resources__list">
-            <li><a href="#">Wolfram MathWorld - Number Theory</a></li>
-            <li><a href="#">Number Theory Web</a></li>
+            <li><a href="https://ocw.mit.edu/courses/18-781-theory-of-numbers-spring-2012/">MIT 18.781 Theory of Numbers</a> - Original MIT course notes</li>
+            <li><a href="https://math.libretexts.org/Bookshelves/Number_Theory/Book%3A_Elementary_Number_Theory_(Jones)/Table_of_Contents">LibreTexts Elementary Number Theory</a> - Free online textbook</li>
           </ul>
         </div>
-      </div>
-    </div>
-
-    <div class="course-section">
-      <h3 class="course-section__title">Additional Reading</h3>
-      <div class="course-section__content">
-        <p>
-          For students interested in deeper exploration, consider "An Introduction to 
-          the Theory of Numbers" by Hardy and Wright, or "A Classical Introduction to 
-          Modern Number Theory" by Ireland and Rosen for a more advanced perspective.
-        </p>
       </div>
     </div>
 

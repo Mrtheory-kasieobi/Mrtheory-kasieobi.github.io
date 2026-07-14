@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 9: Gaussian Primes and Factorization">
+  <title>Lecture 9: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 9: Gaussian Primes and Factorization</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 9: Gaussian Primes and Factorization</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 9</span><span class="lecture-topic">Gaussian Primes and Factorization</span></p>
+
+      <div class="lecture-section"><h2>1. Classification of Gaussian Primes</h2>
+        <div class="theorem-box">
+          <strong>Theorem 9.1 (Classification of Gaussian Primes)</strong> Up to associates, the Gaussian primes are:
+          <ol>
+            <li>\(1 + i\) (the prime dividing 2).</li>
+            <li>For each rational prime \(p \equiv 3 \pmod{4}\), the prime \(p\) itself (as an element of \(\mathbb{Z}[i]\)).</li>
+            <li>For each rational prime \(p \equiv 1 \pmod{4}\), the Gaussian primes \(\pi\) and \(\bar{\pi}\) where \(p = \pi\bar{\pi}\) (a proper factorization in \(\mathbb{Z}[i]\)).</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>We analyze primes in \(\mathbb{Z}[i]\) by considering the norm \(N(a + bi) = a^2 + b^2\).</p>
+          
+          <p><strong>Case 1: \(\alpha = a + bi\) with \(a = 0\) or \(b = 0\).</strong></p>
+          <p>If \(b = 0\), then \(\alpha = a \in \mathbb{Z}\). For \(\alpha\) to be prime in \(\mathbb{Z}[i]\), we need \(N(\alpha) = a^2\) to be a rational prime power.</p>
+          <p>If \(a^2 = p\) for prime \(p\), then \(p = 2\) and \(a = \pm\sqrt{2} \notin \mathbb{Z}\). Contradiction.</p>
+          <p>If \(a^2 = p^k\) with \(k \geq 2\), then \(a = \pm p^{k/2}\). For \(k = 2\): \(\alpha = \pm p\), \(N(\alpha) = p^2\). But \(\alpha = p \cdot 1\), so \(p\) is not prime in \(\mathbb{Z}[i]\) unless \(p\) remains prime in \(\mathbb{Z}[i]\).</p>
+          
+          <p><strong>Case 2: Both \(a, b \neq 0\).</strong></p>
+          <p>Suppose \(N(\alpha) = a^2 + b^2 = p\) for rational prime \(p\).</p>
+          <p>If \(p \equiv 3 \pmod{4}\), then by Fermat's theorem on sums of two squares, \(p\) cannot be written as \(a^2 + b^2\) with \(a, b \neq 0\). Contradiction.</p>
+          <p>If \(p = 2\), then \(a^2 + b^2 = 2\) gives \(a^2 = b^2 = 1\), so \(\alpha = \pm 1 \pm i\). These are associates of \(1 + i\).</p>
+          <p>If \(p \equiv 1 \pmod{4}\), then by Fermat's theorem, \(p = a^2 + b^2\) for some \(a, b \neq 0\). The Gaussian integers \(a + bi\) and \(a - bi\) have norm \(p\) and are irreducible. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Unique Factorization in \(\mathbb{Z}[i]\)</h2>
+        <div class="theorem-box">
+          <strong>Theorem 9.2</strong> \(\mathbb{Z}[i]\) is a unique factorization domain (UFD). Every non-zero, non-unit Gaussian integer can be written as a product of Gaussian primes, and this factorization is unique up to order and associates.
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>We verify that \(\mathbb{Z}[i]\) satisfies all properties of a UFD:
+          <ol>
+            <li>\(\mathbb{Z}[i]\) is an integral domain (no zero divisors).</li>
+            <li>The norm is multiplicative: \(N(\alpha\beta) = N(\alpha)N(\beta)\)</li>
+            <li>Every non-zero, non-unit element has a factorization into irreducibles (by the division algorithm).</li>
+            <li>Factorization is unique up to associates and order.</li>
+          </ol>
+          <p>The key is that \(\mathbb{Z}[i]\) is a Euclidean domain with the norm as the Euclidean function. This implies unique factorization. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Applications to Sums of Two Squares</h2>
+        <div class="theorem-box">
+          <strong>Theorem 9.3 (Fermat's Two Squares Theorem)</strong> An odd prime \(p\) can be expressed as \(p = x^2 + y^2\) for integers \(x, y\) if and only if \(p \equiv 1 \pmod{4}\).
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(p = x^2 + y^2\), then considering modulo 4:
+          \[p = x^2 + y^2 \equiv 0, 1, \text{ or } 2 \pmod{4}\]
+          <p>If \(p\) is odd and \(p \equiv 0 \pmod{4}\), then \(p\) is even, contradiction.</p>
+          <p>If \(p \equiv 2 \pmod{4}\), then \(p = 2\), but 2 is not odd. Contradiction.</p>
+          <p>Therefore \(p \equiv 1 \pmod{4}\). \(\square\)</p>
+          
+          <p><strong>Sufficiency (\(\Rightarrow\)):</strong> If \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue modulo \(p\).</p>
+          <p>Let \(x^2 \equiv -1 \pmod{p}\). Consider the lattice \(L = \{(a, b) \in \mathbb{Z}^2 : a \equiv xb \pmod{p}\}\).</p>
+          <p>Let \(S = \{(a, b) \in L : a^2 + b^2 < 2p\}\). By Minkowski's theorem, there exists \((a, b) \neq (0, 0)\) in \(S \cap L\).</p>
+          <p>Since \((a, b) \in L\), we have \(a = xb + kp\) for some integer \(k\).</p>
+          <p>Then \(a^2 + b^2 = b^2(x^2 + 1) + kp(\cdots) = p \cdot m\) for some integer \(m\).</p>
+          <p>Since \(0 < a^2 + b^2 < 2p\) and \(p \mid (a^2 + b^2)\), we must have \(a^2 + b^2 = p\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 9.1</strong> Express 13 as a sum of two squares.</p>
+          <p>Since \(13 \equiv 1 \pmod{4}\), we know \(13 = x^2 + y^2\) for some \(x, y\).</p>
+          <p>Try values: \(3^2 = 9\), \(13 - 9 = 4 = 2^2\).</p>
+          <p>Thus \(13 = 3^2 + 2^2\).</p>
+          <p>In Gaussian integers: \(13 = (3 + 2i)(3 - 2i)\), and \(N(3 + 2i) = 13\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find the Gaussian prime factorization of 5.</li>
+          <li>Find the Gaussian prime factorization of 10.</li>
+          <li>Show that \(2 + i\) is a Gaussian prime.</li>
+          <li>Prove that if \(p \equiv 3 \pmod{4}\), then \(p\) remains prime in \(\mathbb{Z}[i]\).</li>
+          <li>Find all Gaussian integers with norm 5.</li>
+          <li>Show that \(1 + i\) divides every Gaussian integer of even norm.</li>
+          <li>Prove: If \(\alpha \in \mathbb{Z}[i]\) has prime norm \(p\), then \(p \equiv 1 \pmod{4}\) or \(p = 2\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-8.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-10.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

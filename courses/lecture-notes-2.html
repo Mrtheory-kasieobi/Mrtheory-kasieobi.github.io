@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 2: The Euclidean Algorithm and Bézout's Identity - Detailed Proofs">
+  <title>Lecture 2: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 2: The Euclidean Algorithm and Bézout's Identity</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 2: The Euclidean Algorithm and Bézout's Identity</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 2</span><span class="lecture-topic">The Euclidean Algorithm and Bézout's Identity</span></p>
+
+      <div class="lecture-section"><h2>1. The Greatest Common Divisor</h2>
+        <div class="definition-box">
+          <strong>Definition 1.1 (Greatest Common Divisor)</strong> Let \(a, b \in \mathbb{Z}\) with \((a, b) \neq (0, 0)\). The <strong>greatest common divisor</strong> of \(a\) and \(b\), denoted \(\gcd(a, b)\), is the largest positive integer that divides both \(a\) and \(b\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 2.1</strong> Computing \(\gcd(a, b)\) for various pairs:
+          <ul>
+            <li>\(\gcd(12, 18) = 6\) because 6 is the largest integer dividing both 12 and 18</li>
+            <li>\(\gcd(7, 11) = 1\) because 7 and 11 are both prime and different</li>
+            <li>\(\gcd(100, 25) = 25\) because 25 divides 100 (100 = 25·4)</li>
+            <li>\(\gcd(0, 5) = 5\) because 5 divides 0 (0 = 5·0) and 5 divides 5</li>
+          </ul>
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 1.2 (Relatively Prime)</strong> Two integers \(a\) and \(b\) are called <strong>relatively prime</strong> (or <strong>coprime</strong>) if \(\gcd(a, b) = 1\).
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. The Euclidean Algorithm</h2>
+        <div class="definition-box">
+          <strong>Definition 2.1 (Euclidean Division)</strong> Given integers \(a\) and \(b\) with \(b > 0\), there exist unique integers \(q\) (quotient) and \(r\) (remainder) such that:</p>
+          \[a = bq + r \quad \text{with} \quad 0 \leq r < b\]
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 2.1 (Euclidean Algorithm)</strong> Given integers \(a\) and \(b\) with \(b > 0\), we can compute \(\gcd(a, b)\) by the following procedure:
+          <ol>
+            <li>Divide \(a\) by \(b\) to get \(a = bq_1 + r_1\) with \(0 \leq r_1 < b\)</li>
+            <li>If \(r_1 = 0\), then \(\gcd(a, b) = b\). Stop.</li>
+            <li>Otherwise, divide \(b\) by \(r_1\) to get \(b = r_1 q_2 + r_2\) with \(0 \leq r_2 < r_1\)</li>
+            <li>Continue until a remainder of 0 is obtained.</li>
+            <li>The last non-zero remainder is \(\gcd(a, b)\).</li>
+          </ol>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 2.2</strong> Find \(\gcd(252, 198)\) using the Euclidean Algorithm:
+          
+          <div class="step-box">
+            <strong>Iteration 1:</strong>
+            <p>Divide 252 by 198:</p>
+            \[252 = 198 \cdot 1 + 54\]
+            <p>Remainder \(r_1 = 54 \neq 0\), so continue.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Iteration 2:</strong>
+            <p>Divide 198 by 54:</p>
+            \[198 = 54 \cdot 3 + 36\]
+            <p>Remainder \(r_2 = 36 \neq 0\), so continue.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Iteration 3:</strong>
+            <p>Divide 54 by 36:</p>
+            \[54 = 36 \cdot 1 + 18\]
+            <p>Remainder \(r_3 = 18 \neq 0\), so continue.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Iteration 4:</strong>
+            <p>Divide 36 by 18:</p>
+            \[36 = 18 \cdot 2 + 0\]
+            <p>Remainder \(r_4 = 0\). Stop!</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion:</strong>
+            <p>The last non-zero remainder is 18, so \(\gcd(252, 198) = 18\).</p>
+            <p>Check: \(252 = 18 \cdot 14\) and \(198 = 18 \cdot 11\). ✓</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Extended Euclidean Algorithm and Bézout's Identity</h2>
+        <div class="theorem-box">
+          <strong>Theorem 3.1 (Bézout's Identity)</strong> Let \(a, b \in \mathbb{Z}\) with \((a, b) \neq (0, 0)\). Then there exist integers \(x, y \in \mathbb{Z}\) such that:</p>
+          \[\gcd(a, b) = ax + by\]
+        </div>
+        
+        <p><strong>Note:</strong> The integers \(x\) and \(y\) are not unique. There are infinitely many solutions once one pair is found.</p>
+        
+        <div class="proof-box">
+          <strong>Proof of Bézout's Identity:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Consider the set S</strong>
+            <p>Define the set:</p>
+            \[S = \{ax + by : x, y \in \mathbb{Z}\}\]
+            <p>This is the set of all integer linear combinations of \(a\) and \(b\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: S contains positive integers (unless a = b = 0)</strong>
+            <p>Since \((a, b) \neq (0, 0)\), at least one of \(a\) or \(b\) is non-zero.</p>
+            <p>If \(a \neq 0\), then \(a = a \cdot 1 + b \cdot 0 \in S\) and \(|a| \in S\).</p>
+            <p>So \(S\) contains positive integers.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Let d be the smallest positive element of S</strong>
+            <p>By the well-ordering principle (every non-empty set of positive integers has a smallest element), \(S\) has a smallest positive element. Call it \(d\).</p>
+            <p>So \(d = ax_0 + by_0\) for some integers \(x_0, y_0\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Show d divides both a and b</strong>
+            <p>We'll show \(d \mid a\). The proof for \(b\) is identical.</p>
+            <p>By Euclidean division: \(a = dq + r\) where \(0 \leq r < d\).</p>
+            <p>Then \(r = a - dq = a - (ax_0 + by_0)q = a(1 - qx_0) + b(-qy_0)\)</p>
+            <p>So \(r \in S\). But \(r < d\) and \(d\) is the smallest positive element of \(S\).</p>
+            <p>Therefore \(r = 0\), meaning \(d \mid a\).</p>
+            <p>Similarly, \(d \mid b\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Show d is the greatest common divisor</strong>
+            <p>Let \(g = \gcd(a, b)\). We know \(g \mid a\) and \(g \mid b\).</p>
+            <p>Therefore \(g \mid (ax_0 + by_0) = d\).</p>
+            <p>Since \(g > 0\) and \(d > 0\), we have \(g \leq d\).</p>
+            <p>But we also showed \(d \mid a\) and \(d \mid b\), so \(d \leq g\).</p>
+            <p>Therefore \(d = g\). \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 3.1</strong> Find integers \(x, y\) such that \(\gcd(252, 198) = 252x + 198y\).
+          
+          <div class="step-box">
+            <strong>Step 1: Run Euclidean Algorithm (backwards)</strong>
+            <p>From earlier: \(252 = 198 \cdot 1 + 54\)</p>
+            <p>So \(54 = 252 - 198 \cdot 1\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Express each remainder in terms of 252 and 198</strong>
+            <p>Continue: \(198 = 54 \cdot 3 + 36\)</p>
+            <p>So \(36 = 198 - 54 \cdot 3 = 198 - (252 - 198) \cdot 3 = 198 - 252 \cdot 3 + 198 \cdot 3 = 198 \cdot 4 - 252 \cdot 3\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Continue backwards</strong>
+            <p>Continue: \(54 = 36 \cdot 1 + 18\)</p>
+            <p>So \(18 = 54 - 36 \cdot 1 = (252 - 198) - (198 \cdot 4 - 252 \cdot 3) = 252 - 198 - 198 \cdot 4 + 252 \cdot 3 = 252 \cdot 4 - 198 \cdot 5\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion:</strong>
+            <p>We found: \(18 = 252 \cdot 4 + 198 \cdot (-5)\)</p>
+            <p>Therefore \(x = 4\) and \(y = -5\) satisfy Bézout's identity.</p>
+            <p>Check: \(252 \cdot 4 + 198 \cdot (-5) = 1008 - 990 = 18 = \gcd(252, 198)\). ✓</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Properties of GCD</h2>
+        <div class="theorem-box">
+          <strong>Theorem 4.1 (Properties of GCD)</strong> Let \(a, b, c \in \mathbb{Z}\).
+          <ol>
+            <li><strong>Commutativity:</strong> \(\gcd(a, b) = \gcd(b, a)\)</li>
+            <li><strong>Associativity:</strong> \(\gcd(\gcd(a, b), c) = \gcd(a, \gcd(b, c))\)</li>
+            <li><strong>Multiplication:</strong> If \(\gcd(a, c) = 1\), then \(\gcd(ab, c) = \gcd(a, c) \cdot \gcd(b, c)\)</li>
+            <li><strong>Division:</strong> If \(d \mid a\) and \(d \mid b\), then \(\gcd(a/d, b/d) = \gcd(a, b)/d\)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Property 4.1(1) - Commutativity:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Let d = gcd(a, b)</strong>
+            <p>Then \(d \mid a\) and \(d \mid b\), and \(d\) is the largest such integer.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Show d also divides gcd(b, a)</strong>
+            <p>Since \(d \mid b\) and \(d \mid a\), \(d\) is a common divisor of \(b\) and \(a\).</p>
+            <p>Therefore \(d \leq \gcd(b, a)\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Symmetrically, gcd(b, a) ≤ d</strong>
+            <p>By the same reasoning, \(\gcd(b, a) \leq \gcd(a, b) = d\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion:</strong>
+            <p>Since \(d \leq \gcd(b, a)\) and \(\gcd(b, a) \leq d\), we have \(d = \gcd(b, a)\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Applications and Connections</h2>
+        <div class="theorem-box">
+          <strong>Theorem 5.1 (Connection to Linear Diophantine Equations)</strong> The linear equation \(ax + by = c\) has integer solutions if and only if \(\gcd(a, b) \mid c\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>(⇒) If solutions exist, then gcd(a,b) | c:</strong>
+            <p>Suppose \(x_0, y_0\) satisfy \(ax_0 + by_0 = c\).</p>
+            <p>Let \(d = \gcd(a, b)\). Then \(d \mid a\) and \(d \mid b\).</p>
+            <p>Therefore \(d \mid (ax_0 + by_0) = c\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>(⇐) If gcd(a,b) | c, then solutions exist:</strong>
+            <p>Suppose \(d = \gcd(a, b)\) and \(d \mid c\).</p>
+            <p>By Bézout's identity, there exist \(x_0, y_0\) such that \(ax_0 + by_0 = d\).</p>
+            <p>Since \(d \mid c\), we have \(c = dk\) for some integer \(k\).</p>
+            <p>Multiplying both sides by \(k\): \(a(x_0 k) + b(y_0 k) = dk = c\).</p>
+            <p>So \(x = x_0 k\) and \(y = y_0 k\) are solutions. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Use the Euclidean Algorithm to find \(\gcd(1234, 567)\).</li>
+          <li>Find integers \(x, y\) such that \(1234x + 567y = \gcd(1234, 567)\).</li>
+          <li>Show that if \(\gcd(a, b) = d\), then \(\gcd(a/d, b/d) = 1\).</li>
+          <li>Prove: \(\gcd(ab, ac) = a \gcd(b, c)\) for \(a, b, c > 0\).</li>
+          <li>Determine whether \(17x + 23y = 1\) has integer solutions.</li>
+          <li>Determine whether \(17x + 23y = 2\) has integer solutions.</li>
+          <li>Find all solutions to \(12x + 18y = 6\) given one particular solution.</li>
+          <li>Prove: If \(\gcd(a, b) = 1\) and \(a \mid bc\), then \(a \mid c\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-1.html">← Previous Lecture</a><a href="number-theory.html">← Back to Course</a><a href="lecture-notes-3.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 1: Divisibility, Primes, and the Fundamental Theorem of Arithmetic - Detailed Proofs">
+  <title>Lecture 1: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 1: Divisibility, Primes, and the Fundamental Theorem of Arithmetic</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 1: Divisibility, Primes, and the Fundamental Theorem of Arithmetic</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 1</span><span class="lecture-topic">Divisibility, Primes, and the Fundamental Theorem of Arithmetic</span></p>
+
+      <div class="lecture-section"><h2>1. Definition of Divisibility</h2>
+        <div class="definition-box">
+          <strong>Definition 1.1 (Divisibility)</strong> Let \(a, b \in \mathbb{Z}\) with \(a \neq 0\). We say that <strong>a divides b</strong>, written \(a \mid b\), if there exists an integer \(k\) such that \(b = ak\).
+        </div>
+        
+        <p><strong>Understanding the definition:</strong></p>
+        <div class="step-box">
+          <strong>Step 1: The meaning of \(b = ak\)</strong>
+          <p>This means that when we divide \(b\) by \(a\), we get an integer result with no remainder. In other words, \(a\) is a factor of \(b\).</p>
+        </div>
+        
+        <div class="step-box">
+          <strong>Step 2: Examples to build intuition</strong>
+          <ul>
+            <li>\(3 \mid 12\) because \(12 = 3 \cdot 4\)</li>
+            <li>\(-3 \mid 12\) because \(12 = (-3) \cdot (-4)\)</li>
+            <li>\(5 \nmid 17\) because \(17 = 5 \cdot 3 + 2\) (remainder 2)</li>
+          </ul>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 1.1</strong> Verify the following divisibility statements:
+          <ul>
+            <li>\(4 \mid 20\): Yes, because \(20 = 4 \cdot 5\)</li>
+            <li>\(-7 \mid 21\): Yes, because \(21 = (-7) \cdot (-3)\)</li>
+            <li>\(6 \mid 17\): No, because \(17 = 6 \cdot 2 + 5\)</li>
+            <li>\(12 \mid 0\): Yes, because \(0 = 12 \cdot 0\)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Basic Properties of Divisibility</h2>
+        <div class="theorem-box">
+          <strong>Theorem 2.1 (Basic Properties of Divisibility)</strong> Let \(a, b, c \in \mathbb{Z}\).
+          <ol>
+            <li><strong>Transitivity:</strong> If \(a \mid b\) and \(b \mid c\), then \(a \mid c\).</li>
+            <li><strong>Linear combination:</strong> If \(a \mid b\) and \(a \mid c\), then \(a \mid (bx + cy)\) for all \(x, y \in \mathbb{Z}\).</li>
+            <li><strong>Non-negativity:</strong> If \(a \mid b\) and \(a \neq 0\), then \(|a| \leq |b|\).</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Theorem 2.1(1) - Transitivity:</strong>
+          <div class="step-box">
+            <strong>Goal:</strong> Show that if \(a \mid b\) and \(b \mid c\), then \(a \mid c\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 1: Unpack the assumptions</strong>
+            <p>Since \(a \mid b\), by definition there exists an integer \(k_1\) such that \(b = ak_1\).</p>
+            <p>Since \(b \mid c\), by definition there exists an integer \(k_2\) such that \(c = bk_2\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Substitute and simplify</strong>
+            <p>Substitute \(b = ak_1\) into \(c = bk_2\):</p>
+            \[c = (ak_1)k_2 = a(k_1 k_2)\]
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Conclude</strong>
+            <p>Since \(k_1 k_2 \in \mathbb{Z}\) (product of integers), we have shown that \(c = a \cdot (\text{integer})\).</p>
+            <p>By definition, this means \(a \mid c\). \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Theorem 2.1(2) - Linear Combination:</strong>
+          <div class="step-box">
+            <strong>Step 1: Use the definition</strong>
+            <p>Since \(a \mid b\), we have \(b = ak_1\) for some integer \(k_1\).</p>
+            <p>Since \(a \mid c\), we have \(c = ak_2\) for some integer \(k_2\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Form the linear combination</strong>
+            <p>Consider \(bx + cy\):</p>
+            \[bx + cy = (ak_1)x + (ak_2)y = a(k_1 x) + a(k_2 y) = a(k_1 x + k_2 y)\]
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Conclude</strong>
+            <p>Since \(k_1 x + k_2 y \in \mathbb{Z}\), we have \(a \mid (bx + cy)\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Prime and Composite Numbers</h2>
+        <div class="definition-box">
+          <strong>Definition 3.1 (Prime Number)</strong> A <strong>prime number</strong> is an integer \(p > 1\) whose only positive divisors are 1 and \(p\) itself.
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 3.2 (Composite Number)</strong> A <strong>composite number</strong> is an integer \(n > 1\) that is not prime (i.e., has a divisor other than 1 and itself).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 3.1</strong> Identifying primes and composites:
+          <ul>
+            <li>Primes: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, ...</li>
+            <li>Composites: 4 (= 2·2), 6 (= 2·3), 8 (= 2·2·2), 9 (= 3·3), 10 (= 2·5), ...</li>
+          </ul>
+          <p><strong>Note:</strong> 1 is neither prime nor composite.</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. The Fundamental Theorem of Arithmetic</h2>
+        <div class="theorem-box">
+          <strong>Theorem 4.1 (Fundamental Theorem of Arithmetic)</strong> Every integer \(n > 1\) can be expressed as a product of primes, and this factorization is unique up to the order of the factors.
+        </div>
+        
+        <p>More formally: If \(n > 1\), then there exist primes \(p_1, p_2, \ldots, p_k\) such that \(n = p_1 p_2 \cdots p_k\), and if \(n = q_1 q_2 \cdots q_\ell\) is another such factorization, then \(k = \ell\) and after reordering, \(p_i = q_i\) for all \(i\).</p>
+        
+        <div class="proof-box">
+          <strong>Proof of Existence (by Strong Induction):</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Base Case</strong>
+            <p>For \(n = 2\): Since 2 is prime, it is already a product of primes (just itself). The base case holds.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Inductive Hypothesis</strong>
+            <p>Assume that every integer \(m\) with \(2 \leq m < n\) can be written as a product of primes.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Inductive Step</strong>
+            <p>Consider the integer \(n\). There are two cases:</p>
+            <ol>
+              <li><strong>\(n\) is prime:</strong> Then \(n\) is already a product of one prime (itself).</li>
+              <li><strong>\(n\) is composite:</strong> Then \(n = ab\) where \(2 \leq a, b < n\).</li>
+            </ol>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Apply the hypothesis</strong>
+            <p>Since \(2 \leq a < n\) and \(2 \leq b < n\), by the inductive hypothesis:</p>
+            <ul>
+              <li>\(a = p_1 p_2 \cdots p_r\) for some primes \(p_1, \ldots, p_r\)</li>
+              <li>\(b = q_1 q_2 \cdots q_s\) for some primes \(q_1, \ldots, q_s\)</li>
+            </ul>
+            <p>Therefore: \(n = ab = p_1 \cdots p_r q_1 \cdots q_s\) is a product of primes.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion</strong>
+            <p>In both cases, \(n\) can be written as a product of primes. By strong induction, every integer \(n > 1\) has a prime factorization. \(\square\)</p>
+          </div>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Uniqueness:</strong>
+          
+          <div class="step-box">
+            <strong>Setup:</strong> Suppose \(n = p_1 p_2 \cdots p_k = q_1 q_2 \cdots q_\ell\) are two prime factorizations.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Key Lemma (Euclid's Lemma):</strong> If \(p\) is prime and \(p \mid ab\), then \(p \mid a\) or \(p \mid b\).</p>
+            <p>We'll prove this after establishing uniqueness.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Applying Euclid's Lemma:</strong>
+            <p>Since \(p_1\) is prime and \(p_1 \mid q_1 q_2 \cdots q_\ell\), by Euclid's Lemma, \(p_1 \mid q_j\) for some \(j\).</p>
+            <p>Since \(q_j\) is prime, the only divisors are 1 and \(q_j\). Since \(p_1 > 1\) (it's prime), we must have \(p_1 = q_j\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Induction:</strong>
+            <p>Cancel \(p_1 = q_j\) from both sides. The remaining equality:</p>
+            \[p_2 \cdots p_k = q_1 \cdots q_{j-1} q_{j+1} \cdots q_\ell\]</p>
+            <p>has fewer terms. By induction, the number of factors is the same, and after reordering, all factors match. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Euclid's Lemma</h2>
+        <div class="theorem-box">
+          <strong>Theorem 5.1 (Euclid's Lemma)</strong> If \(p\) is prime and \(p \mid ab\), then \(p \mid a\) or \(p \mid b\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Consider the two cases</strong>
+            <p>Given: \(p\) is prime, \(p \mid ab\).</p>
+            <p>Case 1: \(p \mid a\). Then we're done.</p>
+            <p>Case 2: \(p \nmid a\). We need to show \(p \mid b\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Use the fact that gcd(p,a) = 1</strong>
+            <p>If \(p \nmid a\), then \(a\) is not a multiple of \(p\). Since \(p\) is prime, the only divisors are 1 and \(p\).</p>
+            <p>Therefore \(\gcd(p, a) = 1\) (they share no common divisor other than 1).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Apply Bézout's Identity</strong>
+            <p>Since \(\gcd(p, a) = 1\), there exist integers \(x, y\) such that:</p>
+            \[px + ay = 1\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Multiply by b</strong>
+            <p>Multiplying both sides by \(b\):</p>
+            \[pbx + aby = b\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Conclude</strong>
+            <p>Since \(p \mid pbx\) (obvious) and \(p \mid ab\) (given), we have \(p \mid (pbx + aby) = b\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>6. Infinitude of Primes</h2>
+        <div class="theorem-box">
+          <strong>Theorem 6.1 (Euclid's Theorem)</strong> There are infinitely many prime numbers.
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof (by contradiction):</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Assume the opposite</strong>
+            <p>Suppose there are only finitely many primes. List them all:</p>
+            \[p_1, p_2, p_3, \ldots, p_k\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Construct a new number</strong>
+            <p>Consider the number:</p>
+            \[N = p_1 p_2 p_3 \cdots p_k + 1\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Analyze N</strong>
+            <p>N is greater than 1, so by the Fundamental Theorem of Arithmetic, N has a prime divisor. Let \(q\) be any prime divisor of \(N\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Show q is not in our list</strong>
+            <p>Suppose \(q = p_i\) for some \(i \in \{1, 2, \ldots, k\}\).</p>
+            <p>Then \(p_i \mid N\) and \(p_i \mid (p_1 p_2 \cdots p_k)\) (since \(p_i\) is one of the factors).</p>
+            <p>Therefore \(p_i \mid N - (p_1 p_2 \cdots p_k) = 1\).</p>
+            <p>But no prime divides 1! This is a contradiction.</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion</strong>
+            <p>We've shown that there exists a prime \(q\) not in our original list. This contradicts the assumption that the list contained all primes.</p>
+            <p>Therefore, there are infinitely many primes. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Prove that if \(a \mid b\) and \(b \mid a\), then \(a = \pm b\).</li>
+          <li>Find the prime factorization of 2520. Verify uniqueness by finding it a different way.</li>
+          <li>Prove that if \(p\) is an odd prime, then \(p \mid 2^p - 2\).</li>
+          <li>Show that \(\gcd(a, b) = 1\) if and only if \(\gcd(b, a) = 1\).</li>
+          <li>Prove: If \(a \mid bc\) and \(\gcd(a, b) = 1\), then \(a \mid c\).</li>
+          <li>Use the Sieve of Eratosthenes to find all primes less than 30.</li>
+          <li>Verify the Fundamental Theorem of Arithmetic for \(n = 60\) in two different ways.</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="number-theory.html">← Back to Course</a><a href="lecture-notes-2.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 12: Continued Fractions and Approximation">
+  <title>Lecture 12: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 12: Continued Fractions and Approximation</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 12: Continued Fractions and Approximation</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 12</span><span class="lecture-topic">Continued Fractions and Approximation</span></p>
+
+      <div class="lecture-section"><h2>1. Simple Continued Fractions</h2>
+        <div class="definition-box">
+          <strong>Definition 12.1 (Simple Continued Fraction)</strong> A simple continued fraction is an expression:
+          \[a_0 + \cfrac{1}{a_1 + \cfrac{1}{a_2 + \cfrac{1}{a_3 + \cdots}}}\]
+          where \(a_0 \in \mathbb{Z}\) and \(a_i \in \mathbb{Z}^+\) for \(i \geq 1\).
+          We denote this by \([a_0; a_1, a_2, a_3, \ldots]\).
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 12.2 (Convergents)</strong> The \(n\)-th convergent is \(\frac{p_n}{q_n}\) where:
+          \[p_n = a_n p_{n-1} + p_{n-2}, \quad q_n = a_n q_{n-1} + q_{n-2}\]
+          with initial conditions \(p_{-2} = 0, p_{-1} = 1, q_{-2} = 1, q_{-1} = 0\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 12.1</strong> Find the continued fraction expansion of \(\frac{19}{7}\).</p>
+          <p>Apply the Euclidean algorithm:
+          \[19 = 2 \cdot 7 + 5\]
+          \[7 = 1 \cdot 5 + 2\]
+          \[5 = 2 \cdot 2 + 1\]
+          \[2 = 2 \cdot 1 + 0\]
+          </p>
+          <p>Reading backwards: \(\frac{19}{7} = [2; 1, 2, 2]\).</p>
+          <p>Verify convergents:
+          \[\frac{p_0}{q_0} = 2, \quad \frac{p_1}{q_1} = \frac{3}{1}, \quad \frac{p_2}{q_2} = \frac{8}{3}, \quad \frac{p_3}{q_3} = \frac{19}{7}\]
+          Each convergent is closer to \(\frac{19}{7}\) than the previous. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Periodic Continued Fractions</h2>
+        <div class="theorem-box">
+          <strong>Theorem 12.1</strong> A real number \(\alpha\) has a periodic continued fraction expansion if and only if \(\alpha\) is a quadratic irrational (root of a quadratic polynomial with integer coefficients).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 12.2</strong> The continued fraction expansion of \(\sqrt{2}\) is:
+          \[\sqrt{2} = [1; \overline{2}] = 1 + \cfrac{1}{2 + \cfrac{1}{2 + \cfrac{1}{2 + \cdots}}}\]
+          </p>
+          <p>The period is 1 (the bar indicates repetition). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Lagrange's Theorem on Approximation</h2>
+        <div class="theorem-box">
+          <strong>Theorem 12.2 (Lagrange's Approximation Theorem)</strong> For any irrational \(\alpha\) and any convergent \(\frac{p_n}{q_n}\):
+          \[\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n^2}\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>By the properties of convergents, we have:
+          \[\frac{p_n}{q_n} - \frac{p_{n-1}}{q_{n-1}} = \frac{(-1)^{n-1}}{q_n q_{n-1}}\]
+          </p>
+          <p>The convergents oscillate around \(\alpha\): even-indexed convergents increase toward \(\alpha\), odd-indexed convergents decrease toward \(\alpha\).</p>
+          <p>Therefore:
+          \[\left|\alpha - \frac{p_n}{q_n}\right| < \left|\frac{p_n}{q_n} - \frac{p_{n-1}}{q_{n-1}}\right| = \frac{1}{q_n q_{n-1}}\]
+          </p>
+          <p>Since \(q_{n-1} < q_n\), we have \(\frac{1}{q_n q_{n-1}} < \frac{1}{q_n^2}\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find the continued fraction expansion of \(\sqrt{3}\).</li>
+          <li>Compute the first 4 convergents of \([1; 2, 2, 2, \ldots]\) (the silver ratio).</li>
+          <li>Prove: If \(\frac{p}{q}\) is a convergent to \(\alpha\), then \(|q\alpha - p| < 1\).</li>
+          <li>Show that \(\left|\sqrt{2} - \frac{p}{q}\right| > \frac{1}{3q^2}\) for all rationals \(\frac{p}{q}\).</li>
+          <li>Find a rational \(\frac{p}{q}\) with \(q \leq 50\) that approximates \(\sqrt{2}\) to within \(0.01\).</li>
+          <li>Prove that if \(\alpha\) is rational, its continued fraction expansion terminates.</li>
+          <li>Show that \(\left|\frac{22}{7} - \pi\right| < \frac{1}{7^2}\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-11.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-13.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

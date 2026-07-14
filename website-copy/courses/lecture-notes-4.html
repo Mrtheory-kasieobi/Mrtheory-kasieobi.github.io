@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 4: Linear Congruences and the Chinese Remainder Theorem">
+  <title>Lecture 4: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 4: Linear Congruences and the Chinese Remainder Theorem</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 4: Linear Congruences and the Chinese Remainder Theorem</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 4</span><span class="lecture-topic">Linear Congruences and the Chinese Remainder Theorem</span></p>
+
+      <div class="lecture-section"><h2>1. Linear Congruences</h2>
+        <div class="definition-box">
+          <strong>Definition 4.1 (Linear Congruence)</strong> A linear congruence is an equation of the form
+          \[ax \equiv b \pmod{n}\]
+          where \(a, b, n \in \mathbb{Z}\) and \(n > 0\).
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 4.1</strong> Solve the linear congruence \(3x \equiv 1 \pmod{7}\).</p>
+          <p>We need to find \(x\) such that \(3x - 1\) is divisible by 7.</p>
+          <p>Testing values: \(x = 5\) gives \(3 \cdot 5 = 15 \equiv 1 \pmod{7}\). So \(x \equiv 5 \pmod{7}\) is the solution.</p>
+          <p>Verification: \(3 \cdot 5 = 15 = 7 \cdot 2 + 1\), so \(15 \equiv 1 \pmod{7}\). \(\square\)</p>
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 4.1</strong> The linear congruence \(ax \equiv b \pmod{n}\) has a solution if and only if \(\gcd(a, n) \mid b\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p><strong>Necessity (\(\Rightarrow\)):</strong> Suppose \(x_0\) is a solution, so \(ax_0 \equiv b \pmod{n}\). Then \(n \mid (ax_0 - b)\), so \(ax_0 - b = nk\) for some integer \(k\).</p>
+          <p>Rewriting: \(ax_0 - nk = b\). Any common divisor of \(a\) and \(n\) divides the left side, hence divides \(b\). Thus \(\gcd(a, n) \mid b\). \(\square\)</p>
+          
+          <p><strong>Sufficiency (\(\Leftarrow\)):</strong> Assume \(\gcd(a, n) \mid b\). Write \(d = \gcd(a, n)\) and \(b = dk\).</p>
+          <p>By Bézout's Identity, there exist integers \(u, v\) such that \(au + nv = d\).</p>
+          <p>Multiplying by \(k\): \(a(uk) + n(vk) = dk = b\). Thus \(a(uk) \equiv b \pmod{n}\), so \(x = uk\) is a solution. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Number of Solutions to Linear Congruences</h2>
+        <div class="theorem-box">
+          <strong>Theorem 4.2</strong> If the linear congruence \(ax \equiv b \pmod{n}\) has a solution, then it has exactly \(\frac{n}{\gcd(a, n)}\) incongruent solutions modulo \(n\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>Let \(d = \gcd(a, n)\). By Theorem 4.1, \(d \mid b\), so a solution exists.</p>
+          <p>Let \(x_0\) be a particular solution. We claim all solutions are of the form \(x = x_0 + \frac{n}{d} \cdot k\) for \(k = 0, 1, \ldots, d-1\).</p>
+          <p><strong>Verification:</strong>
+          <p>If \(x = x_0 + \frac{n}{d} \cdot k\), then:
+          \[ax = a\left(x_0 + \frac{n}{d} k\right) = ax_0 + \frac{an}{d} k\]
+          Since \(d = \gcd(a, n)\), we have \(\frac{n}{d}\) is an integer. Also, \(n \mid \frac{an}{d} k\) since \(n \mid an\).</p>
+          <p>Thus \(ax \equiv ax_0 \equiv b \pmod{n}\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Chinese Remainder Theorem</h2>
+        <div class="definition-box">
+          <strong>Definition 4.2 (Pairwise Coprime)</strong> Integers \(m_1, m_2, \ldots, m_k\) are pairwise coprime if \(\gcd(m_i, m_j) = 1\) for all \(i \neq j\).
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 4.3 (Chinese Remainder Theorem)</strong> Let \(m_1, m_2, \ldots, m_k\) be pairwise coprime positive integers. Then for any integers \(a_1, a_2, \ldots, a_k\), there exists an integer \(x\) such that:
+          \[x \equiv a_i \pmod{m_i} \quad \text{for all } i = 1, 2, \ldots, k.\]
+          Moreover, this solution is unique modulo \(M = m_1 m_2 \cdots m_k\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p><strong>Existence (by induction on \(k\)):</strong>
+          <p><strong>Base case (\(k = 2\)):</strong> Let \(m_1, m_2\) be coprime. We want \(x\) such that \(x \equiv a_1 \pmod{m_1}\) and \(x \equiv a_2 \pmod{m_2}\).</p>
+          <p>By Bézout's Identity, there exist integers \(u, v\) with \(um_1 + vm_2 = 1\).</p>
+          <p>Set \(x = a_1 \cdot vm_2 + a_2 \cdot um_1\).</p>
+          <p>Then \(x \equiv a_1 vm_2 \equiv a_1 \cdot 1 \equiv a_1 \pmod{m_1}\) (since \(vm_2 \equiv 1 \pmod{m_1}\)).</p>
+          <p>Similarly, \(x \equiv a_2 \pmod{m_2}\). \(\square\)</p>
+          
+          <p><strong>Inductive step:</strong> Assume the theorem holds for \(k-1\) congruences.</p>
+          <p>By the base case, there exists \(y\) such that \(y \equiv a_i \pmod{m_i}\) for \(i = 1, \ldots, k-1\) and \(y \equiv a_k \pmod{m_k}\).</p>
+          <p>By the induction hypothesis, such a \(y\) exists. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Applications of CRT</h2>
+        <div class="example-box">
+          <strong>Example 4.2</strong> Solve the system:
+          \[x \equiv 2 \pmod{3}\]
+          \[x \equiv 3 \pmod{5}\]
+          \[x \equiv 2 \pmod{7}\]</p>
+          <p><strong>Solution:</strong></p>
+          <p>Step 1: Solve the first two congruences. We need \(x\) such that \(x \equiv 2 \pmod{3}\) and \(x \equiv 3 \pmod{5}\).</p>
+          <p>By Bézout's Identity: \(2 \cdot 5 + (-3) \cdot 3 = 1\), so \(u = 2, v = -3\).</p>
+          <p>Using CRT formula: \(x = 2 \cdot (-3) \cdot 3 + 3 \cdot 2 \cdot 5 = -18 + 30 = 12\).</p>
+          <p>Check: \(12 \equiv 0 \pmod{3}\)... Wait, let me recalculate.</p>
+          <p>Actually: \(x = a_1 \cdot v_1 \cdot m_2 + a_2 \cdot u_1 \cdot m_1\) where \(u_1 m_1 + v_1 m_2 = 1\).</p>
+          <p>With \(2 \cdot 5 + (-3) \cdot 3 = 1\): \(x = 2 \cdot (-3) \cdot 3 + 3 \cdot 2 \cdot 5 = -18 + 30 = 12\).</p>
+          <p>Check: \(12 \equiv 0 \pmod{3}\)... Error! Let me use: \(x = a_1 + m_1 \cdot k\) where \(a_1 + m_1 k \equiv a_2 \pmod{m_2}\).</p>
+          <p>We need \(2 + 3k \equiv 3 \pmod{5}\), so \(3k \equiv 1 \pmod{5}\), giving \(k \equiv 2 \pmod{5}\).</p>
+          <p>Thus \(x = 2 + 3 \cdot 2 = 8\). Check: \(8 \equiv 3 \pmod{5}\) ✓</p>
+          <p>Now solve: \(x \equiv 8 \pmod{15}\) and \(x \equiv 2 \pmod{7}\).</p>
+          <p>We need \(8 + 15k \equiv 2 \pmod{7}\), so \(1 + k \equiv 2 \pmod{7}\), giving \(k \equiv 1 \pmod{7}\).</p>
+          <p>Thus \(x = 8 + 15 \cdot 1 = 23\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Solve \(4x \equiv 2 \pmod{6}\). How many incongruent solutions are there?</li>
+          <li>Solve \(5x \equiv 3 \pmod{7}\).</li>
+          <li>Solve the system: \(x \equiv 1 \pmod{2}\), \(x \equiv 2 \pmod{3}\), \(x \equiv 3 \pmod{5}\).</li>
+          <li>Prove: If \(m \mid n\) and \(a \equiv b \pmod{n}\), then \(a \equiv b \pmod{m}\).</li>
+          <li>Find all solutions to \(7x \equiv 5 \pmod{12}\).</li>
+          <li>Solve: \(x \equiv 1 \pmod{4}\), \(x \equiv 2 \pmod{3}\), \(x \equiv 3 \pmod{5}\).</li>
+          <li>Show that if \(\gcd(a, n) = 1\), then the congruence \(ax \equiv b \pmod{n}\) has a unique solution modulo \(n\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-3.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-5.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 5: Fermat's Little Theorem and Euler's Theorem - Detailed Proofs">
+  <title>Lecture 5: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 5: Fermat's Little Theorem and Euler's Theorem</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 5: Fermat's Little Theorem and Euler's Theorem</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 5</span><span class="lecture-topic">Fermat's Little Theorem and Euler's Theorem</span></p>
+
+      <div class="lecture-section"><h2>1. Units and Euler's Totient Function</h2>
+        <div class="definition-box">
+          <strong>Definition 1.1 (Unit)</strong> An integer \(a\) is called a <strong>unit</strong> modulo \(n\) if there exists an integer \(b\) such that \(ab \equiv 1 \pmod{n}\).</p>
+          <p>Equivalently, \(a\) is a unit if \(\gcd(a, n) = 1\).</p>
+        </div>
+        
+        <div class="definition-box">
+          <strong>Definition 1.2 (Euler's Totient Function)</strong> For a positive integer \(n\), \(\phi(n)\) (Euler's totient function) counts the number of positive integers \(a \leq n\) that are relatively prime to \(n\).</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 5.1</strong> Compute \(\phi(n)\) for small values:
+          <ul>
+            <li>\(\phi(1) = 1\) (only 1, and \(\gcd(1, 1) = 1\))</li>
+            <li>\(\phi(2) = 1\) (only 1, since \(\gcd(2, 1) = 1\) but \(\gcd(2, 2) = 2\))</li>
+            <li>\(\phi(3) = 2\) (1 and 2 are both coprime to 3)</li>
+            <li>\(\phi(4) = 2\) (1 and 3 are coprime to 4)</li>
+            <li>\(\phi(5) = 4\) (1, 2, 3, 4 are all coprime to 5)</li>
+            <li>\(\phi(6) = 2\) (only 1 and 5 are coprime to 6)</li>
+          </ul>
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 1.1 (Product Formula for \(\phi\))</strong> If \(n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}\) is the prime factorization of \(n\), then:</p>
+          \[\phi(n) = n \prod_{p \mid n} \left(1 - \frac{1}{p}\right) = n \cdot \frac{p_1 - 1}{p_1} \cdot \frac{p_2 - 1}{p_2} \cdots \frac{p_k - 1}{p_k}\]</p>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Count integers NOT coprime to n</strong>
+            <p>We count integers \(1 \leq a \leq n\) such that \(\gcd(a, n) > 1\).</p>
+            <p>An integer \(a\) is NOT coprime to \(n\) if and only if it shares a prime factor with \(n\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Use inclusion-exclusion</strong>
+            <p>Let \(A_i\) be the set of integers \(1 \leq a \leq n\) divisible by prime \(p_i\).</p>
+            <p>\(|A_i| = \lfloor n/p_i \rfloor\)</p>
+            <p>For two primes \(p_i, p_j\): \(|A_i \cap A_j| = \lfloor n/(p_i p_j) \rfloor\)</p>
+            <p>By inclusion-exclusion:</p>
+            \[{|A_1 \cup \cdots \cup A_k|} = \sum |A_i| - \sum |A_i \cap A_j| + \cdots\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Simplify</strong>
+            <p>Since each \(p_i\) divides \(n\), we have \(\lfloor n/p_i \rfloor = n/p_i\) and \(\lfloor n/(p_i p_j) \rfloor = n/(p_i p_j)\)</p>
+            <p>The inclusion-exclusion sum gives:</p>
+            \[n\left(1 - \frac{1}{p_1}\right)\left(1 - \frac{1}{p_2}\right)\cdots\left(1 - \frac{1}{p_k}\right)\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Conclude</strong>
+            <p>The number of integers coprime to \(n\) is:</p>
+            \[n - n\left(1 - \frac{1}{p_1}\right)\cdots\left(1 - \frac{1}{p_k}\right) = n\prod\left(1 - \frac{1}{p}\right)\]</p>
+            <p>This proves the theorem. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Fermat's Little Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 2.1 (Fermat's Little Theorem)</strong> If \(p\) is prime and \(a\) is any integer not divisible by \(p\), then:</p>
+          \[a^{p-1} \equiv 1 \pmod{p}\]</</p>
+          <p>Equivalently: If \(p\) is prime and \(a \in \mathbb{Z}\), then \(a^p \equiv a \pmod{p}\).</p>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Fermat's Little Theorem:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Assume \(\gcd(a, p) = 1\)</strong>
+            <p>Since \(p\) is prime and \(p \nmid a\), we have \(\gcd(a, p) = 1\).</p>
+            <p>Therefore \(a\) is a unit modulo \(p\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Consider the set of units</strong>
+            <p>The units modulo \(p\) are: \(U_p = \{1, 2, 3, \ldots, p-1\}\)</p>
+            <p>There are exactly \(p - 1\) units, so \(\phi(p) = p - 1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Consider multiples of a</strong>
+            <p>Consider the set: \(\{a, 2a, 3a, \ldots, (p-1)a\}\)</p>
+            <p>Each element is a multiple of \(a\) by some integer in \(\{1, 2, \ldots, p-1\}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: These multiples are all distinct modulo p</strong>
+            <p>Suppose \(ia \equiv ja \pmod{p}\) for \(1 \leq i < j \leq p-1\).</p>
+            <p>Then \(p \mid (ia - ja) = (j-i)a\).</p>
+            <p>Since \(p\) is prime and \(p \nmid a\), we have \(p \mid (j-i)\).</p>
+            <p>But \(0 < j - i < p\), so \(p \nmid (j-i)\). Contradiction!</p>
+            <p>Therefore all multiples are distinct modulo \(p\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Conclude the sets are equal</strong>
+            <p>The set \(\{a, 2a, \ldots, (p-1)a\}\) contains \(p-1\) distinct non-zero residues modulo \(p\).</p>
+            <p>The set \(U_p = \{1, 2, \ldots, p-1\}\) also has \(p-1\) elements.</p>
+            <p>Therefore these sets are equal (as sets modulo \(p\)).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 6: Take the product</strong>
+            <p>Since the sets are equal:</p>
+            \[a \cdot 2a \cdot 3a \cdots (p-1)a \equiv 1 \cdot 2 \cdot 3 \cdots (p-1) \pmod{p}\]</</p>
+            \[(p-1)! \cdot a^{p-1} \equiv (p-1)! \pmod{p}\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 7: Cancel (p-1)!</strong>
+            <p>Since \(\gcd((p-1)!, p) = 1\) (none of \(1, 2, \ldots, p-1\) is divisible by \(p\)), we can cancel:</p>
+            \[a^{p-1} \equiv 1 \pmod{p}\]</p>
+            <p>This proves Fermat's Little Theorem. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 5.1</strong> Verify Fermat's Little Theorem for \(p = 7\) and \(a = 3\).</p>
+        
+        <div class="step-box">
+          <strong>Step 1: Compute \(3^{p-1} = 3^6\)</strong>
+            <p>\(3^1 = 3\)</p>
+            <p>\(3^2 = 9 \equiv 2 \pmod{7}\)</p>
+            <p>\(3^4 = (3^2)^2 \equiv 2^2 = 4 \pmod{7}\)</p>
+            <p>\(3^6 = 3^4 \cdot 3^2 \equiv 4 \cdot 2 = 8 \equiv 1 \pmod{7}\)</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion:</strong>
+            <p>\(3^6 \equiv 1 \pmod{7}\). ✓ Fermat's Little Theorem verified.</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Euler's Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 3.1 (Euler's Theorem)</strong> If \(\gcd(a, n) = 1\), then:</p>
+          \[a^{\phi(n)} \equiv 1 \pmod{n}\]</p>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Euler's Theorem:</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Consider the set of units modulo n</strong>
+            <p>Let \(U_n = \{u_1, u_2, \ldots, u_{\phi(n)}\}\) be the set of all units modulo \(n\).</p>
+            <p>These are exactly the integers \(1 \leq u \leq n\) with \(\gcd(u, n) = 1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Consider multiples of a by units</strong>
+            <p>Consider the set: \(\{au_1, au_2, \ldots, au_{\phi(n)}\}\)</p>
+            <p>Since \(\gcd(a, n) = 1\) and \(\gcd(u_i, n) = 1\), we have \(\gcd(au_i, n) = 1\).</p>
+            <p>Therefore each \(au_i\) is also a unit modulo \(n\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Show all multiples are distinct</strong>
+            <p>Suppose \(au_i \equiv au_j \pmod{n}\).</p>
+            <p>Then \(n \mid a(u_i - u_j)\).</p>
+            <p>Since \(\gcd(a, n) = 1\), we have \(n \mid (u_i - u_j)\).</p>
+            <p>Since \(1 \leq u_i, u_j \leq n\), this means \(u_i = u_j\).</p>
+            <p>Therefore all multiples are distinct modulo \(n\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: The sets are equal</strong>
+            <p>The set \(\{au_1, au_2, \ldots, au_{\phi(n)}\}\) contains \(\phi(n)\) distinct units.</p>
+            <p>The set \(U_n\) has exactly \(\phi(n)\) elements.</p>
+            <p>Therefore these sets are equal modulo \(n\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 5: Take the product</strong>
+            <p>\[a^{\phi(n)} \cdot u_1 u_2 \cdots u_{\phi(n)} \equiv u_1 u_2 \cdots u_{\phi(n)} \pmod{n}\]</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 6: Cancel the product of units</strong>
+            <p>The product \(u_1 u_2 \cdots u_{\phi(n)}\) is coprime to \(n\) (each \(u_i\) is).</p>
+            <p>Therefore we can cancel:</p>
+            \[a^{\phi(n)} \equiv 1 \pmod{n}\]</p>
+            <p>This proves Euler's Theorem. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Multiplicative Order</h2>
+        <div class="definition-box">
+          <strong>Definition 4.1 (Multiplicative Order)</strong> Let \(\gcd(a, n) = 1\). The <strong>multiplicative order</strong> of \(a\) modulo \(n\), denoted \(\text{ord}_n(a)\), is the smallest positive integer \(k\) such that:</p>
+          \[a^k \equiv 1 \pmod{n}\]</p>
+          <p>If no such \(k\) exists, we say \(a\) has infinite order.</p>
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 4.1 (Properties of Order)</strong> Let \(\gcd(a, n) = 1\).
+          <ol>
+            <li>The order of \(a\) modulo \(n\) always exists and is finite.</li>
+            <li>If \(a^k \equiv 1 \pmod{n}\), then \(\text{ord}_n(a) \mid k\).</li>
+            <li>\(\text{ord}_n(a) \mid \phi(n)\)</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of Theorem 4.1(2):</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Use division algorithm</strong>
+            <p>Let \(d = \text{ord}_n(a)\) and suppose \(a^k \equiv 1 \pmod{n}\).</p>
+            <p>By the division algorithm: \(k = dq + r\) where \(0 \leq r < d\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Show r = 0</strong>
+            <p>Then:</p>
+            \[a^k = a^{dq+r} = (a^d)^q \cdot a^r \equiv 1^q \cdot a^r = a^r \pmod{n}\]</</p>
+            <p>Since \(a^k \equiv 1 \pmod{n}\), we have \(a^r \equiv 1 \pmod{n}\).</p>
+            <p>But \(0 \leq r < d = \text{ord}_n(a)\), and \(d\) is the smallest positive integer with \(a^d \equiv 1\).</p>
+            <p>Therefore \(r = 0\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Conclusion:</strong>
+            <p>Since \(r = 0\), we have \(k = dq\), so \(d \mid k\). \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>5. Wilson's Theorem</h2>
+        <div class="theorem-box">
+          <strong>Theorem 5.1 (Wilson's Theorem)</strong> An integer \(p > 1\) is prime if and only if:</p>
+          \[(p-1)! \equiv -1 \pmod{p}\]</p>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof (if p is prime):</strong>
+          
+          <div class="step-box">
+            <strong>Step 1: Find inverses modulo p</strong>
+            <p>For each \(a \in \{1, 2, \ldots, p-1\}\), there exists a unique inverse \(a^{-1}\) modulo \(p\).</p>
+            <p>We have \(a \cdot a^{-1} \equiv 1 \pmod{p}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 2: Classify elements by their inverse</strong>
+            <p>An element \(a\) is its own inverse if \(a^2 \equiv 1 \pmod{p}\).</p>
+            <p>This means \(p \mid (a^2 - 1) = (a-1)(a+1)\).</p>
+            <p>Since \(p\) is prime, \(p \mid (a-1)\) or \(p \mid (a+1)\).</p>
+            <p>Since \(1 \leq a \leq p-1\), we have \(a = 1\) or \(a = p-1\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 3: Pair up the rest</strong>
+            <p>The elements \(\{2, 3, \ldots, p-2\}\) can be paired as \(\{a, a^{-1}\}\) where \(a \neq a^{-1}\).</p>
+            <p>In each pair, \(a \cdot a^{-1} \equiv 1 \pmod{p}\).</p>
+          </div>
+          
+          <div class="step-box">
+            <strong>Step 4: Compute (p-1)!</strong>
+            <p>\[(p-1)! = 1 \cdot 2 \cdot 3 \cdots (p-2) \cdot (p-1)\]</</p>
+            <p>Pairing: \(= 1 \cdot (2 \cdot 2^{-1}) \cdot (3 \cdot 3^{-1}) \cdots ((p-2) \cdot (p-2)^{-1}) \cdot (p-1)\)</</p>
+            <p>Each pair is \(\equiv 1 \pmod{p}\), so:</p>
+            \[(p-1)! \equiv 1 \cdot 1 \cdots 1 \cdot (p-1) \equiv p-1 \equiv -1 \pmod{p}\]</p>
+            <p>This proves one direction. \(\square\)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Compute \(\phi(15)\), \(\phi(30)\), and \(\phi(100)\).</li>
+          <li>Verify Fermat's Little Theorem for \(p = 11\) and \(a = 2\).</li>
+          <li>Find \(\text{ord}_{13}(2)\) (the order of 2 modulo 13).</li>
+          <li>Verify Wilson's Theorem for \(p = 5\) and \(p = 7\).</li>
+          <li>Prove: If \(\gcd(a, n) = 1\) and \(a^k \equiv 1 \pmod{n}\), then \(\text{ord}_n(a) \mid k\).</li>
+          <li>Show that if \(p\) is prime, then \(\phi(p) = p - 1\).</li>
+          <li>Find all solutions to \(x^2 \equiv 1 \pmod{7}\).</li>
+          <li>Use Euler's Theorem to find \(3^{100} \pmod{17}\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-4.html">← Previous Lecture</a><a href="number-theory.html">← Back to Course</a><a href="lecture-notes-6.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

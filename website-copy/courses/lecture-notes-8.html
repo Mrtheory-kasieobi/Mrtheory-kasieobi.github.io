@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 8: Gaussian Integers - Definition and Arithmetic">
+  <title>Lecture 8: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 8: Gaussian Integers - Definition and Arithmetic</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 8: Gaussian Integers - Definition and Arithmetic</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 8</span><span class="lecture-topic">Gaussian Integers - Definition and Arithmetic</span></p>
+
+      <div class="lecture-section"><h2>1. Definition of Gaussian Integers</h2>
+        <div class="definition-box">
+          <strong>Definition 8.1 (Gaussian Integers)</strong> The ring of Gaussian integers is:
+          \[\mathbb{Z}[i] = \{a + bi : a, b \in \mathbb{Z}\}\]
+          where \(i = \sqrt{-1}\) is the imaginary unit.
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 8.1</strong> Some Gaussian integers are:
+          \[0, 1, -1, i, -i, 1+i, 2-i, 3+4i, \ldots\]
+          <p>Addition: \((1 + 2i) + (3 - i) = 4 + i\)</p>
+          <p>Multiplication: \((1 + 2i)(3 - i) = 3 - i + 6i - 2i^2 = 3 + 5i + 2 = 5 + 5i\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. The Norm Function</h2>
+        <div class="definition-box">
+          <strong>Definition 8.2 (Norm)</strong> For \(\alpha = a + bi \in \mathbb{Z}[i]\), the norm of \(\alpha\) is:
+          \[N(\alpha) = N(a + bi) = a^2 + b^2 = \alpha \bar{\alpha}\]
+          where \(\bar{\alpha} = a - bi\) is the complex conjugate.
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 8.1 (Properties of the Norm)</strong> Let \(\alpha, \beta \in \mathbb{Z}[i]\).
+          <ol>
+            <li>\(N(\alpha) \in \mathbb{Z}_{\geq 0}\) and \(N(\alpha) = 0\) iff \(\alpha = 0\).</li>
+            <li>\(N(\alpha\beta) = N(\alpha)N(\beta)\).</li>
+            <li>\(N(\alpha) = |\alpha|^2\) (square of the complex absolute value).</li>
+          </ol>
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof of (1):</strong> \(N(a + bi) = a^2 + b^2 \geq 0\) with equality iff \(a = b = 0\). \(\square\)</p>
+          
+          <div class="proof-box">
+            <strong>Proof of (2):</strong>
+            \[N(\alpha\beta) = (\alpha\beta)(\overline{\alpha\beta}) = (\alpha\beta)(\bar{\alpha}\bar{\beta}) = (\alpha\bar{\alpha})(\beta\bar{\beta}) = N(\alpha)N(\beta). \square\]
+          </div>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>3. Units in \(\mathbb{Z}[i]\)</h2>
+        <div class="definition-box">
+          <strong>Definition 8.3 (Unit)</strong> A unit in \(\mathbb{Z}[i]\) is an element \(\varepsilon\) such that there exists \(\delta \in \mathbb{Z}[i]\) with \(\varepsilon\delta = 1\).
+        </div>
+        
+        <div class="theorem-box">
+          <strong>Theorem 8.2</strong> The units in \(\mathbb{Z}[i]\) are \(\{\pm 1, \pm i\}\).
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p><strong>Forward direction:</strong> If \(\varepsilon = a + bi\) is a unit, then \(\varepsilon\delta = 1\) for some \(\delta\). Taking norms: \(N(\varepsilon)N(\delta) = N(1) = 1\).</p>
+          <p>Since \(N(\varepsilon), N(\delta) \in \mathbb{Z}_{\geq 0}\), we must have \(N(\varepsilon) = N(\delta) = 1\).</p>
+          <p>Thus \(a^2 + b^2 = 1\) with \(a, b \in \mathbb{Z}\). The only solutions are \((a, b) = (\pm 1, 0)\) or \((0, \pm 1)\).</p>
+          <p>Therefore the units are \(\varepsilon = \pm 1\) and \(\varepsilon = \pm i\).</p>
+          
+          <p><strong>Reverse direction:</strong> Verify:
+          \[1 \cdot 1 = 1, \quad (-1) \cdot (-1) = 1, \quad i \cdot (-i) = 1, \quad (-i) \cdot i = 1\]
+          So all four are units. \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>4. Division Algorithm in \(\mathbb{Z}[i]\)</h2>
+        <div class="theorem-box">
+          <strong>Theorem 8.3 (Division Algorithm for \(\mathbb{Z}[i]\))</strong> Let \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\). Then there exist \(\gamma, \delta \in \mathbb{Z}[i]\) such that:
+          \[\alpha = \beta\gamma + \delta \quad \text{with} \quad N(\delta) < N(\beta).\]
+        </div>
+        
+        <div class="proof-box">
+          <strong>Proof:</strong>
+          <p>Consider \(\frac{\alpha}{\beta} = x + yi \in \mathbb{Q}(i)\). Choose integers \(m, n\) such that \(|x - m| \leq \frac{1}{2}\) and \(|y - n| \leq \frac{1}{2}\).</p>
+          <p>Set \(\gamma = m + ni\) and \(\delta = \alpha - \beta\gamma\).</p>
+          <p>Let \(\frac{\alpha}{\beta} = x + yi\). Then \(\delta = \beta\left(\frac{\alpha}{\beta} - \gamma\right) = \beta\left((x-m) + (y-n)i\right)\).</p>
+          <p>Therefore:
+          \[N(\delta) = N(\beta) \cdot N\left((x-m) + (y-n)i\right) = N(\beta) \cdot \left((x-m)^2 + (y-n)^2\right)\]
+          </p>
+          <p>Since \(|x - m| \leq \frac{1}{2}\) and \(|y - n| \leq \frac{1}{2}\):
+          \[(x-m)^2 + (y-n)^2 \leq \frac{1}{4} + \frac{1}{4} = \frac{1}{2} < 1\]
+          </p>
+          <p>Thus \(N(\delta) < N(\beta)\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Compute \(N(3+4i)\), \(N(2-i)\), \(N(-1+2i)\).</li>
+          <li>Show that \(1 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
+          <li>Find \(\gcd(2 + 3i, 1 + i)\) in \(\mathbb{Z}[i]\).</li>
+          <li>Show that 5 is not irreducible in \(\mathbb{Z}[i]\) by finding a non-trivial factorization.</li>
+          <li>Prove: In \(\mathbb{Z}[i]\), \(N(\alpha)\) is a prime in \(\mathbb{Z}\) iff \(\alpha\) is irreducible.</li>
+          <li>Determine whether \(2 + i\) is irreducible in \(\mathbb{Z}[i]\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-7.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-9.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

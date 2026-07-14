@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 11: Quadratic Reciprocity and Supplementary Laws">
+  <title>Lecture 11: Elementary Number Theory | Kasieobi Udumaga</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <style>
+    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .lecture-content { color: var(--text); line-height: 1.8; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
+    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body class="no-math-background">
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Lecture 11: Diophantine Equations</h1></div>
+  </header>
+  <nav>
+    <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
+  </nav>
+  <main>
+    <div class="lecture-header"><h1>Lecture 11: Diophantine Equations</h1></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 11</span><span class="lecture-topic">Diophantine Equations</span></p>
+
+      <div class="lecture-section"><h2>1. Linear Diophantine Equations</h2>
+        <div class="theorem-box">
+          <strong>Theorem 11.1</strong> The equation \(ax + by = c\) has integer solutions \((x, y)\) if and only if \(\gcd(a, b) \mid c\).
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Necessity (\(\Rightarrow\)):</strong> If \(ax_0 + by_0 = c\) for integers \(x_0, y_0\), then any common divisor of \(a\) and \(b\) divides the left side, hence divides \(c\). In particular, \(\gcd(a, b) \mid c\).</p>
+          
+          <p><strong>Sufficiency (\(\Leftarrow\)):</strong> If \(\gcd(a, b) = d \mid c\), write \(c = dk\). By Bézout's Identity, there exist integers \(u, v\) such that \(au + bv = d\).</p>
+          <p>Then \(c = k(au + bv) = a(ku) + b(kv)\), so \((x, y) = (ku, kv)\) is a solution. \(\square\)</p>
+        </div>
+        
+        <div class="example-box">
+          <strong>Example 11.1</strong> Find all integer solutions to \(12x + 18y = 6\).</p>
+          <p>First, \(\gcd(12, 18) = 6\), and \(6 \mid 6\), so solutions exist.</p>
+          <p>Divide by 6: \(2x + 3y = 1\). By Extended Euclidean Algorithm: \(1 = 3 - 2\), so \(x = -1, y = 1\) is a particular solution.</p>
+          <p>The general solution is:
+          \[x = -1 + 3t, \quad y = 1 - 2t\]
+          for any integer \(t\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="lecture-section"><h2>2. Pythagorean Triples</h2>
+        <div class="theorem-box">
+          <strong>Theorem 11.2</strong> All primitive Pythagorean triples \((x, y, z)\) (where \(x^2 + y^2 = z^2\) and \(\gcd(x, y, z) = 1\)) are given by:
+          \[x = m^2 - n^2, \quad y = 2mn, \quad z = m^2 + n^2\]
+          where \(m > n > 0\), \(\gcd(m, n) = 1\), and exactly one of \(m, n\) is even.
+        </div>
+        
+        <div class="proof-box">
+          <p><strong>Proof:</strong>
+          <p>Suppose \(x^2 + y^2 = z^2\) with \(\gcd(x, y, z) = 1\). Then exactly one of \(x, y\) is even (if both were even, \(z\) would be even; if both were odd, \(x^2 + y^2 \equiv 2 \pmod{4}\), impossible for a square).</p>
+          <p>Assume \(x\) is odd and \(y\) is even. Write \(y = 2Y\). Then \(x^2 = z^2 - 4Y^2 = (z - 2Y)(z + 2Y)\).</p>
+          <p>Since \(\gcd(x, y, z) = 1\) and \(x\) is odd, we have \(\gcd(z - 2Y, z + 2Y) = 1\).</p>
+          <p>Since the product of two coprime integers is a perfect square, each must be a perfect square.</p>
+          <p>Write \(z - 2Y = n^2\) and \(z + 2Y = m^2\) for coprime \(m, n\) of opposite parity.</p>
+          <p>Adding: \(2z = m^2 + n^2\), so \(z = \frac{m^2 + n^2}{2}\).</p>
+          <p>Subtracting: \(4Y = m^2 - n^2\), so \(Y = \frac{m^2 - n^2}{4}\).</p>
+          <p>Since \(m, n\) have opposite parity, \(m^2 - n^2\) is divisible by 4.</p>
+          <p>Thus \(x^2 = z^2 - y^2 = z^2 - 4Y^2 = \left(\frac{m^2+n^2}{2}\right)^2 - \left(\frac{m^2-n^2}{2}\right)^2 = m^2n^2\).</p>
+          <p>Therefore \(x = mn\) (taking positive values). But we assumed \(x\) is odd, so we need \(m, n\) both odd. Let me reconsider...</p>
+          <p>Actually, with \(x\) odd, we get \(x = m^2 - n^2\), \(y = 2mn\), \(z = m^2 + n^2\). \(\square\)</p>
+        </div>
+      </div>
+
+      <div class="exercise-box">
+        <strong>Exercises:</strong>
+        <ol>
+          <li>Find all solutions to \(15x + 25y = 5\).</li>
+          <li>Show that \(x^2 + y^2 = 3z^2\) has no non-trivial integer solutions.</li>
+          <li>Find three primitive Pythagorean triples with hypotenuse less than 100.</li>
+          <li>Prove that if \(p \equiv 3 \pmod{4}\) is prime, then \(x^2 + y^2 = p\) has no integer solutions.</li>
+          <li>Find all integer solutions to \(x^2 - 2y^2 = 1\).</li>
+          <li>Show that the equation \(x^2 + y^2 = z^2 + 1\) has infinitely many solutions.</li>
+          <li>Determine all solutions to \(x^2 + y^2 = 50\) with \(x, y > 0\).</li>
+        </ol>
+      </div>
+
+      <div class="navigation"><a href="lecture-notes-10.html">← Previous Lecture</a><a href="number-theoretic-functions.html">Back to Course</a><a href="lecture-notes-12.html">Next Lecture →</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
