@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Research by Kasieobi Udumaga.">
-  <title>Kasieobi Udumaga | Research</title>
+  <meta name="description" content="Research portfolio of Kasieobi Udumaga - Mathematics research, publications, and academic notes.">
+  <title>Research Portfolio | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<body>
+<body class="research-page">
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
         <span class="search-bar__icon">⌕</span>
-         <input id="site-search" type="search" placeholder="Search site" autocomplete="off">      </label>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
     </div>
     <div class="header-content">
-      <h1 data-content="research.header">Research</h1>
+      <h1>Research Portfolio</h1>
     </div>
   </header>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -39,11 +41,279 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+
   <main>
-    <p data-content="research.paragraphs.0">Research details coming soon.</p>
+    <div class="research-container">
+      <!-- Research Introduction -->
+      <div class="research-header">
+        <h1>Research Portfolio</h1>
+        <p class="research-subtitle">Research in algebraic number theory, arithmetic geometry, algebraic geometry, and commutative algebra. Focus on primary decomposition, ideal theory in number fields, and Galois representations.</p>
+      </div>
+      
+      <!-- Current Projects Section -->
+      <section class="research-section" id="current-projects">
+        <div class="section-header">
+          <h2>Current Projects</h2>
+          <p class="section-description">Active research investigations in commutative algebra and algebraic number theory.</p>
+        </div>
+        
+        <div class="placeholder-content">
+          <div class="placeholder-inner">
+            <svg aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
+              <path d="M4 16v-2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+              <line x1="2" y1="11" x2="22" y2="11"/>
+            </svg>
+            <h3>Currently Working On</h3>
+            <p class="placeholder-message">Research in commutative algebra and algebraic number theory. Exploring primary decomposition techniques, ideal theory in number fields, and Galois representations.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Interests Section -->
+      <section class="research-section" id="interests">
+        <div class="section-header">
+          <h2>Research Interests</h2>
+          <p class="section-description">My mathematical exploration centers on algebraic number theory, arithmetic geometry, algebraic geometry, and commutative algebra, with emphasis on primary decomposition, ideal theory, and Galois representations.</p>
+        </div>
+        
+        <div class="research-interests">
+          <article class="interest-card" tabindex="0">
+            <h3 class="interest-title">Commutative Algebra</h3>
+            <p class="interest-description">Commutative algebra, ring theory, and module theory with emphasis on Noetherian rings, primary decomposition, integral extensions, and dimension theory. Exploring computational aspects through Macaulay2 and Sage.</p>
+            <footer class="interest-meta">
+              <span class="interest-tag">Noetherian Rings</span>
+              <span class="interest-tag">Primary Decomposition</span>
+              <span class="interest-tag">Integral Extensions</span>
+            </footer>
+          </article>
+          
+          <article class="interest-card" tabindex="0">
+            <h3 class="interest-title">Algebraic Geometry</h3>
+            <p class="interest-description">Scheme theory, affine and projective varieties, and morphisms with focus on arithmetic geometry. Studying algebraic structures over rings of integers and their geometric realizations.</p>
+            <footer class="interest-meta">
+              <span class="interest-tag">Scheme Theory</span>
+              <span class="interest-tag">Arithmetic Geometry</span>
+              <span class="interest-tag">Varieties</span>
+            </footer>
+          </article>
+          
+          <article class="interest-card" tabindex="0">
+            <h3 class="interest-title">Algebraic Number Theory</h3>
+            <p class="interest-description">Algebraic number theory, ideal theory, and class field theory with connections to arithmetic geometry. Investigating number fields, Galois representations, and Diophantine equations.</p>
+            <footer class="interest-meta">
+              <span class="interest-tag">Number Fields</span>
+              <span class="interest-tag">Class Field Theory</span>
+              <span class="interest-tag">Galois Theory</span>
+            </footer>
+          </article>
+        </div>
+      </section>
+
+      <!-- Publications Section -->
+      <section class="research-section" id="publications">
+        <header class="section-header">
+          <h2>Publications</h2>
+          <p class="section-description">Peer-reviewed articles, preprints, and conference proceedings. Each entry includes full abstract, citation details, and PDF download.</p>
+          
+          <div class="pub-controls">
+            <button id="pub-filter-toggle" class="btn btn--secondary" aria-expanded="false" aria-controls="pub-filters">
+              <span>Filter Publications</span>
+            </button>
+            <div id="pub-filters" class="pub-filters" hidden>
+              <button class="pub-filter-btn active" data-filter="all">All</button>
+              <button class="pub-filter-btn" data-filter="journal">Journal Articles</button>
+              <button class="pub-filter-btn" data-filter="preprint">Preprints</button>
+              <button class="pub-filter-btn" data-filter="conference">Conference Papers</button>
+            </div>
+          </div>
+          
+          <div class="pub-count" id="pub-count">
+            <span class="count-value">0</span> publications
+          </div>
+        </header>
+        
+        <div class="publication-list" id="publication-list">
+          <!--
+            TEMPLATE FOR ADDING PUBLICATIONS
+            ================================
+            Duplicate the div below and replace placeholder content with your publication details.
+            
+            Required fields:
+            - pub-title: Publication title
+            - pub-authors: Author list (use <span> tags for each author)
+            - pub-journal: Journal name or venue
+            - pub-date: Publication date (e.g., "July 2026" or "Submitted June 2026")
+            - pub-doi: DOI or identifier (optional)
+            - pub-abstract: Abstract paragraphs
+            
+            Optional sections:
+            - pub-links: External links (arXiv, journal page, GitHub, Overleaf)
+            - pub-pdf: PDF download link (required)
+            
+            Button classes:
+            - btn--pdf: Gold-themed PDF download
+            - btn--journal: Blue-themed journal link
+            - btn--arxiv: Green-themed arXiv link
+            - btn--github: GitHub repository link
+            - btn--overleaf: Orange-themed Overleaf link
+          -->
+          <!--
+          <article class="publication-card" data-category="journal">
+            <header class="pub-header">
+              <h3 class="pub-title">On the Structure of Commutative Rings with Finite Global Dimension</h3>
+              <p class="pub-authors">
+                <span>Kasieobi Udumaga</span>
+                <span>, Co-Author Name</span>
+              </p>
+              <p class="pub-journal"><cite>Journal of Algebraic Mathematics</cite></p>
+              <p class="pub-doi">DOI: 10.xxxx/xxxxx</p>
+              <p class="pub-date">July 2026</p>
+            </header>
+            
+            <div class="pub-abstract">
+              <h4>Abstract</h4>
+              <p>This paper investigates the structure of commutative rings with finite global dimension...</p>
+              <p>We establish new criteria for finite global dimension and provide explicit constructions...</p>
+            </div>
+            
+            <footer class="pub-footer">
+              <div class="pub-links">
+                <a href="#" class="btn btn--pdf" download title="Download PDF">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20v-14h14v14H5z"/><path fill="currentColor" d="M17 10h-4v-4h-2v4H9v2h4v4h2v-4h4v-2z"/></svg>
+                  Download PDF
+                </a>
+                <a href="#" class="btn btn--journal" title="View on Journal Website">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  Journal
+                </a>
+                <a href="#" class="btn btn--arxiv" title="View on arXiv">
+                  <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 6 10.09 6 12c0 1.93 1.21 3.57 2.86 4.19L12 22l5.14-5.81C16.79 15.57 18 13.93 18 12c0-1.91-3.52-9.91-6-10zM12 4c.83 0 1.8.53 2.25 1.15l-4.5 4.5C7.7 9.8 7 10.68 7 12c0 .83.53 1.8 1.15 2.25l4.5-4.5C10.2 4.53 11.17 4 12 4z"/></svg>
+                  arXiv
+                </a>
+              </div>
+            </footer>
+          </article>
+          -->
+          
+          <!-- Placeholder for no publications -->
+          <div class="no-publications" id="no-publications-placeholder">
+            <div class="no-pub-content">
+              <svg aria-hidden="true" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              <h3>No publications yet</h3>
+              <p class="no-pub-message">I am currently working on research in primary decomposition, scheme theory over rings of integers, and computational methods in commutative algebra. Check back soon for published papers, or explore my research notes below for ongoing mathematical explorations.</p>
+              <div class="no-pub-actions">
+                <a href="#interests" class="btn btn--pdf" tabindex="0">
+                  View Research Interests
+                </a>
+                <a href="#research-notes" class="btn btn--secondary" tabindex="0">
+                  Browse Research Notes
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Research Notes Section -->
+      <section class="research-section" id="research-notes">
+        <header class="section-header">
+          <h2>Research Notes</h2>
+          <p class="section-description">Shorter mathematical writings, explorations, and problem solutions. These notes document ongoing investigations and expository work.</p>
+          
+          <div class="notes-controls">
+            <div class="notes-search-wrapper">
+              <input type="search" id="notes-search" placeholder="Search notes..." aria-label="Search research notes">
+              <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <div class="notes-filter">
+              <select id="notes-category-filter" aria-label="Filter notes by category">
+                <option value="all">All Categories</option>
+                <option value="commutative-algebra">Commutative Algebra</option>
+                <option value="algebraic-geometry">Algebraic Geometry</option>
+                <option value="algebraic-number-theory">Algebraic Number Theory</option>
+                <option value="arithmetic-geometry">Arithmetic Geometry</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="notes-count" id="notes-count">
+            <span class="count-value">0</span> notes
+          </div>
+        </header>
+        
+        <div class="notes-grid" id="notes-grid">
+          <!--
+            TEMPLATE FOR ADDING RESEARCH NOTES
+            ====================================
+            Duplicate the article below and replace placeholder content with your note details.
+            
+            Required fields:
+            - note-title: Note title
+            - note-date: Date of note creation/update
+            - note-summary: Brief summary of the note
+            
+            Optional:
+            - note-tags: Category tags (comma-separated)
+            - note-pdf: PDF download link
+          -->
+          <!--
+          <article class="note-card" data-category="commutative-algebra" data-tags="commutative-algebra, noetherian-rings, primary-decomposition">
+            <header class="note-header">
+              <h3 class="note-title">Primary Decomposition in Noetherian Rings</h3>
+              <p class="note-date">July 14, 2026</p>
+            </header>
+            
+            <div class="note-content">
+              <p class="note-summary">An expository note on the primary decomposition theorem in Noetherian rings, including examples and applications to algebraic geometry.</p>
+              
+              <div class="note-tags">
+                <span class="note-tag">Commutative Algebra</span>
+                <span class="note-tag">Primary Decomposition</span>
+                <span class="note-tag">Noetherian Rings</span>
+              </div>
+            </div>
+            
+            <footer class="note-footer">
+              <a href="#" class="note-btn note-btn--pdf" download title="Download PDF">
+                <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20v-14h14v14H5z"/><path fill="currentColor" d="M17 10h-4v-4h-2v4H9v2h4v4h2v-4h4v-2z"/></svg>
+                Download PDF
+              </a>
+            </footer>
+          </article>
+          -->
+          
+          <!-- Placeholder for no notes -->
+          <div class="placeholder-content" id="no-notes-placeholder">
+            <div class="placeholder-inner">
+              <svg aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.3">
+                <path d="M4 16v-2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/>
+                <line x1="2" y1="11" x2="22" y2="11"/>
+              </svg>
+              <h3>Research notes coming soon</h3>
+              <p class="placeholder-message">These will include expository articles, problem solutions, and mathematical explorations in commutative algebra, algebraic geometry, algebraic number theory, and arithmetic geometry. Notes will be organized by category and searchable by date and topic.</p>
+              <div class="placeholder-actions">
+                <a href="#interests" class="btn btn--secondary" tabindex="0">
+                  Browse Research Interests
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
-  <script src="content-loader.js"></script>
+
+  <footer>
+    <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+  </footer>
+
   <script src="script.js"></script>
+  <script src="research.js"></script>
 </body>
 </html>

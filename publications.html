@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Publications by Kasieobi Udumaga.">
-  <title>Kasieobi Udumaga | Publications</title>
+  <meta name="description" content="Publications by Kasieobi Udumaga - Redirect to Research Portfolio">
+  <title>Publications | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<body>
+<body class="redirect-page">
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
         <span class="search-bar__icon">⌕</span>
-         <input id="site-search" type="search" placeholder="Search site" autocomplete="off">      </label>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
     </div>
     <div class="header-content">
-      <h1 data-content="publications.header">Publications</h1>
+      <h1>Publications</h1>
     </div>
   </header>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -39,11 +41,20 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+
   <main>
-    <p data-content="publications.paragraphs.0">Publications coming soon.</p>
+    <div class="redirect-container">
+      <h1 class="redirect-title">Publications</h1>
+      <p class="redirect-message">This page has moved. Please view my publications on the <strong>Research Portfolio</strong> page.</p>
+      <a href="research.html" class="redirect-link">View Research Portfolio</a>
+    </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
-  <script src="content-loader.js"></script>
+
+  <footer>
+    <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+  </footer>
+
   <script src="script.js"></script>
+  <script src="research.js"></script>
 </body>
 </html>
