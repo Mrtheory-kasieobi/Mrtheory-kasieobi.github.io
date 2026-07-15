@@ -1,31 +1,31 @@
 {
   "index": {
     "header": "Kasieobi Udumaga",
-    "subtitle": "High School Student | Mathematics Enthusiast | Also a sprinter :)",
+    "subtitle": "Pure Mathematician and track and field sprinter",
     "welcome": "Welcome",
     "paragraphs": [
-      "Hello! I'm Kasieobi Udumaga, a high school student from Canada with a strong interest in pure mathematics.",
+      "Hello! I'm Kasieobi Udumaga, a high school student from British Columbia, Canada with a strong interest in pure mathematics.",
       "My primary interests include algebra, algebraic number theory, commutative algebra, and arithmetic geometry. This website documents my learning, research projects, expository writing, and mathematical notes.",
-      "Outside Mathematics, I am a sprinter and enjoy track and field. I also have some interest in computer science, though not as much as mathematics :)"
+      "Outside of mathematics, I am a sprinter and love track and field. I am a 13 time provincial champion in the 100m and 200m. I also hold the tied electronically timed provincial record in the U15 100m dash."
     ]
   },
   "about": {
     "header": "About Me",
     "paragraphs": [
-      "Hello! I'm Kasieobi Udumaga, a high school student from Canada with a strong passion for pure mathematics. I've been fascinated by numbers, patterns, and mathematical structures since the first grade, and I'm particularly drawn to the beauty and depth of algebraic number theory and commutative algebra.",
-      "My goal is to pursue a career in mathematics research and contribute to the field through original work and expository writing.",
-      "I'm always happy to connect with fellow mathematics enthusiasts. Please feel free to reach out via the contact page.",
-      "To be continued..."
+      "Hi! I'm Kasieobi Udumaga, a high school student who's been captivated by mathematics since I was in first grade. There's something incredibly satisfying about unraveling a tricky proof or discovering an unexpected connection between different areas of math.",
+      "My dream is to contribute to mathematical research and share what I learn through writing and teaching. I believe mathematics is not just about solving problems—it's about exploring beautiful ideas and making them accessible to others.",
+      "Feel free to reach out if you'd like to chat about math, discuss a problem, or just connect with another math enthusiast!",
+      "More about my journey will be added here soon!"
     ]
   },
   "contact": {
     "header": "Contact",
-    "subtitle": "I'd love to hear from you. Whether you have a question about mathematics, feedback on my notes, or just want to say hello — feel free to reach out.",
+    "subtitle": "Got a math question? Want to chat about proofs? Or just say hi? I'd love to hear from you.",
     "welcome": {
       "heading": "Get in Touch",
       "paragraphs": [
-        "I'm always happy to connect with fellow mathematics enthusiasts, students, and researchers. Whether you'd like to discuss a mathematical idea, ask about my notes, share feedback on the website, or explore potential collaborations — please don't hesitate to write.",
-        "I do my best to respond to all messages, though it may take me a few days during busy periods."
+        "I love connecting with fellow math enthusiasts—whether you want to discuss a tricky problem, share feedback, or just chat about the beauty of mathematics. Don't be shy!",
+        "I do my best to respond to everyone, though it might take a few days during busy periods (especially during exam season 😅)."
       ]
     }
   },
@@ -127,7 +127,7 @@
   "Track": {
     "header": "Track and Field",
     "paragraphs": [
-      "Track and field details coming soon."
+      "Outside of mathematics, I am a sprinter and love track and field. I am a 13 time provincial champion in the 100m and 200m. I also hold the tied electronically timed provincial record in the U15 100m dash."
     ]
   },
   "expository": {
