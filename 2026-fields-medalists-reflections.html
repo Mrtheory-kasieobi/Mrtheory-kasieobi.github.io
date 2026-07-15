@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My reaction to the 2026 Fields Medalists announcement.">
+    <title>My Reaction to the 2026 Fields Medalists | Kasieobi Udumaga</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body.blog-post {
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .blog-post-header {
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-3d), var(--shadow-inset);
+        }
+        
+        .blog-post-header h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 0.5rem;
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            background: linear-gradient(90deg, var(--accent), #4aa8f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .blog-post-header .meta {
+            color: var(--muted);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+        
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-family: Georgia, serif;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent);
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .blog-content h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .blog-content h3 {
+            font-size: 1.15rem;
+            margin: 1.8rem 0 0.8rem;
+            color: #4aa8f5;
+            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+        }
+        
+        .blog-content ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        .blog-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .blog-content blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(140, 200, 255, 0.12), rgba(140, 200, 255, 0.05));
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #a0e0ff;
+            font-family: Georgia, serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: #4aa8f5;
+            transform: translateX(-5px);
+        }
+        
+        .back-link::before {
+            content: "← ";
+        }
+        
+        .entry-navigation {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 2rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+        
+        .entry-nav-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        
+        .entry-nav-link:hover {
+            background: linear-gradient(145deg, var(--accent), #4aa8f5);
+            color: #07111d;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="blog-page">
+    <header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+        <div class="header-content">
+            <h1 data-content="blog.header">Research Notebook</h1>
+            <p data-content="blog.subtitle">Learning journal and mathematical musings</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="expository.html">Expository Writing</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <article class="blog-post">
+            <header class="blog-post-header">
+                <h1>My Reaction to the 2026 Fields Medalists</h1>
+                <div class="meta">
+                    <span>July 15, 2026</span>
+                    <span>~5 min read</span>
+                    <span class="entry-category">Research Log</span>
+                </div>
+            </header>
+            
+            <div class="blog-content">
+                <p>I still remember when the leak hit yesterday. I was checking my usual math news sources and suddenly there it was—a list of names that shouldn't have been public yet. I did a double-take, then a triple-take. My first thought was: is this real?</p>
+                
+                <p>Then the IMU confirmed it at ICM 2026 in Philadelphia today, and it all clicked. The 2026 Fields Medalists are Yu Deng, Hong Wang, John Pardon, and Jacob Tsimerman. I'm still processing this.</p>
+                
+                <h2>Hong Wang: Only the Third Woman</h2>
+                
+                <p>When I saw Hong Wang's name, I felt happy. She's only the third woman ever to win a Fields Medal—after Maryam Mirzakhani and Maryna Viazovska. That number alone tells us something important about where we've been, but what gives me hope is what it could mean for where we're going.</p>
+                
+                <p>Her work in harmonic analysis and geometric measure theory has been transforming how we think about mathematical spaces. I've been following her research for years, and watching her push boundaries in a field that's often too comfortable with its own traditions—that's what mathematics needs.</p>
+                
+                <h2>Yu Deng and the Rise of Chinese Mathematics</h2>
+                
+                <p>And then there's Yu Deng. Two Fields Medals from Peking University. Can you believe that? It's historic, but it also feels like the inevitable result of decades of brilliant work building up Chinese mathematical research on the global stage.</p>
+                
+                <p>I've watched Yu Deng's work on algebraic geometry evolve from his early papers to his recent breakthroughs. His approach to moduli spaces—figuring out how geometric objects can vary in families—isn't just technical; it's elegant. It's the kind of insight that makes you step away from the page and just say "wow."</p>
+                
+                <p>Hong Wang and Yu Deng aren't just representing China—they're showing the world what's possible when mathematical curiosity meets relentless dedication. This is a moment for Chinese mathematics, and I'm genuinely excited to see where this leads.</p>
+                
+                <h2>The Other Two</h2>
+                
+                <p>John Pardon and Jacob Tsimerman round out the quartet, and I think that's worth celebrating too. Pardon's work in symplectic geometry has given us new ways to understand four-dimensional spaces—spaces that are weird and wonderful in ways that still surprise me. And Tsimerman's contributions to analytic number theory? They're making us ask new questions about prime numbers, and that's exactly what great mathematics does.</p>
+                
+                <h2>What This Means</h2>
+                
+                <p>Looking back at that leak, I'm grateful it happened. Not for the spoiler alert, but because it gave us something to chew on before the official announcement. And now that it's confirmed, I can sit with this for a moment and appreciate what these four mathematicians have done.</p>
+                
+                <p>The Fields Medal recognizes not just what you've done, but the promise of what you'll do next. Hong Wang, Yu Deng, John Pardon, and Jacob Tsimerman—thank you for pushing mathematics forward. The world is better because you're in it.</p>
+                
+                <blockquote>
+                    "Mathematics is not about numbers, equations, computations, or algorithms: it is about understanding." – William Paul Thurston
+                </blockquote>
+                
+                <p>Here's to the next generation of Fields Medalists—and to the ones who'll help them get there.</p>
+                
+                <div class="entry-navigation">
+                    <a href="blog.html" class="entry-nav-link">← Back to Blog</a>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+    </footer>
+    
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
