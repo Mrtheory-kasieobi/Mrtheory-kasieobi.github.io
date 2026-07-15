@@ -1293,6 +1293,29 @@ footer {
     color: #07111d;
 }
 
+.teaching-description {
+    background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.teaching-description__title {
+    margin: 0 0 0.75rem 0;
+    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.teaching-description__text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
 /* Course Page Styles */
 .course-header {
     background: linear-gradient(145deg, rgba(15, 24, 37, 0.99), rgba(20, 30, 45, 0.96));
