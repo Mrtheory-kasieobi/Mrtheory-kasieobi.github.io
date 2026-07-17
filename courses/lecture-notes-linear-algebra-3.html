@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basis and Dimension - Lecture Notes | Linear Algebra</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        packages: {'[+]': ['color']}
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Linear Algebra</h1></div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu">
+        <li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li>
+        <li><a href="../graduate.html">Graduate</a></li></ul></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="lecture-header">
+      <h1>Basis and Dimension</h1>
+      <div class="subtitle">Linear Algebra - Lecture 3 • Based on Axler's "Linear Algebra Done Right" and MIT 18.700</div>
+    </div>
+    <div class="lecture-content">
+      <h2>1. Bases</h2>
+
+      <h3>1.1 Definition</h3>
+      <p>
+        A list <span class="math-inline">\(v_1, \ldots, v_n\)</span> of vectors in a vector space <em>V</em> is a <strong>basis</strong> of <em>V</em> if:
+      </p>
+      <ol>
+        <li><span class="math-inline">\(v_1, \ldots, v_n\)</span> is linearly independent</li>
+        <li><span class="math-inline">\(F(v_1, \ldots, v_n) = V\)</span></li>
+      </ol>
+
+      <h3>1.2 Existence and Uniqueness</h3>
+      <div class="definition-box">
+        <strong>Theorem 1:</strong> Every finite-dimensional vector space has a basis.
+      </div>
+
+      <div class="definition-box">
+        <strong>Theorem 2 (Basis Extension):</strong> If <span class="math-inline">\(v_1, \ldots, v_m\)</span> is linearly independent in a finite-dimensional vector space <em>V</em>, then it can be extended to a basis of <em>V</em>.
+      </div>
+
+      <h3>1.3 Examples of Bases</h3>
+
+      <div class="example-box">
+        <div class="example-title">Example 1: Standard Basis of F^n</div>
+        <p>The standard basis of <span class="math-inline">\(F^n\)</span> is:</p>
+        <p><span class="math-inline">\(e_1 = (1, 0, \ldots, 0), e_2 = (0, 1, 0, \ldots, 0), \ldots, e_n = (0, \ldots, 0, 1)\)</span></p>
+        <p>Every vector <span class="math-inline">\(v = (v_1, \ldots, v_n) = v_1 e_1 + \cdots + v_n e_n\)</span></p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Basis for P_{n-1}(F)</div>
+        <p>A basis for polynomials of degree ≤ 2 is:</p>
+        <p><span class="math-inline">\{1, x, x^2\}\)</span></p>
+        <p>Every polynomial <span class="math-inline">\(p(x) = a_0 + a_1 x + a_2 x^2\)</span></p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Standard Basis for M_{2×2}(F)</div>
+        <p>A basis for 2×2 matrices:</p>
+        <p><span class="math-inline">\(E_{11} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, E_{12} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, E_{21} = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, E_{22} = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix}\)</span></p>
+      </div>
+
+      <h2>2. Dimension</h2>
+
+      <h3>2.1 Definition</h3>
+      <p>
+        If <em>V</em> is a vector space and <span class="math-inline">\(v_1, \ldots, v_n\)</span> is a basis of <em>V</em>, then the <strong>dimension</strong> of <em>V</em>, denoted <span class="math-inline">\(dim V\)</span>, is <em>n</em>.
+      </p>
+
+      <p>
+        If <em>V</em> has no finite basis, then <em>V</em> is <strong>infinite-dimensional</strong>.
+      </p>
+
+      <h3>2.2 Fundamental Theorems</h3>
+      <div class="definition-box">
+        <strong>Theorem 3 (Invariance of Dimension):</strong> Any two bases of a finite-dimensional vector space have the same number of vectors.
+      </div>
+
+      <div class="definition-box">
+        <strong>Theorem 4 (Dimension Formula):</strong> If <span class="math-inline">\(M\)</span> is a subspace of a finite-dimensional vector space <em>V</em>, then <span class="math-inline">\(dim M \leq dim V\)</span>.
+      </div>
+
+      <h3>2.3 Computing Dimensions</h3>
+
+      <div class="example-box">
+        <div class="example-title">Example 4: Dimension of a Subspace</div>
+        <p>Find the dimension of <span class="math-inline">\(W = \{(x, y, z) \in F^3 : x + 2y + 3z = 0\}\)</span>:</p>
+        <p>Solution: <span class="math-inline">\(W = F\{(-2, 1, 0), (-3, 0, 1)\}\)</span></p>
+        <p>A basis is <span class="math-inline">\{(-2, 1, 0), (-3, 0, 1)\}\)</span>, so <span class="math-inline">\(dim W = 2\)</span></p>
+      </div>
+
+      <h2>3. Coordinate Systems</h2>
+
+      <h3>3.1 Coordinates Relative to a Basis</h3>
+      <p>
+        Given a basis <span class="math-inline">\(B = \{v_1, \ldots, v_n\}\)</span> of <em>V</em>, every vector <span class="math-inline">\(v \in V\)</span> can be uniquely written as:</p>
+      
+      <div class="math-display">
+        \[v = a_1 v_1 + \cdots + a_n v_n\]
+      </div>
+      <p>The scalars <span class="math-inline">\(a_1, \ldots, a_n\)</span> are the <strong>coordinates</strong> of <span class="math-inline">\(v\)</span> relative to <em>B</em>.</p>
+
+      <h3>3.2 Coordinate Map</h3>
+      <p>
+        The map <span class="math-inline">\(C_B: V \to F^n\)</span> given by <span class="math-inline">\(v \mapsto (a_1, \ldots, a_n)\)</span> is an isomorphism.
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Example 5: Coordinate Vector</div>
+        <p>In <span class="math-inline">\(F^2\)</span> with basis <span class="math-inline">\(B = \{(1, 1), (1, -1)\}\)</span>:</p>
+        <p>Find coordinates of <span class="math-inline">\(v = (3, 1)\)</span>:</p>
+        <p>Solve: <span class="math-inline">\(a(1, 1) + b(1, -1) = (3, 1)\)</span></p>
+        <p><span class="math-inline">\(a + b = 3, a - b = 1 \implies a = 2, b = 1\)</span></p>
+        <p>Coordinates: <span class="math-inline">\[v]_B = (2, 1)\)</span></p>
+      </div>
+
+      <h2>4. Change of Basis</h2>
+
+      <h3>4.1 Change of Basis Matrix</h3>
+      <p>
+        Let <span class="math-inline">\(B = \{v_1, \ldots, v_n\}\)</span> and <span class="math-inline">\(C = \{w_1, \ldots, w_n\}\)</span> be two bases.
+      </p>
+      <p>
+        The <strong>change of basis matrix</strong> from <em>B</em> to <em>C</em> is the matrix <em>P</em> whose columns are the coordinate vectors of <span class="math-inline">\(v_1, \ldots, v_n\)</span> relative to <em>C</em>.
+      </p>
+
+      <div class="math-display">
+        \[v]_C = P [v]_B
+      </div>
+
+      <h3>4.2 Example</h3>
+
+      <div class="example-box">
+        <div class="example-title">Example 6: Change of Basis</div>
+        <p>Let <span class="math-inline">\(B = \{(1, 0), (0, 1)\}\)</span> (standard) and <span class="math-inline">\(C = \{(1, 1), (1, -1)\}\)</span> in <span class="math-inline">\(F^2\)</span>.</p>
+        <p>Find the change of basis matrix from <em>B</em> to <em>C</em>:</p>
+        <p><span class="math-inline">\(P = \begin{pmatrix} [e_1]_C & [e_2]_C \end{pmatrix} = \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix}\)</span></p>
+      </div>
+
+      <div class="important-note">
+        <div class="important-note-title">Key Insight:</div>
+        <p>The dimension of a vector space is an intrinsic property - it doesn't depend on the choice of basis. All bases of a finite-dimensional space have the same cardinality.</p>
+      </div>
+
+      <h2>5. Practice Problems</h2>
+
+      <div class="problem-box">
+        <div class="problem-title">Problem 1</div>
+        <p>Find a basis for the subspace <span class="math-inline">\(W = \{(x, y, z, w) \in F^4 : x + y + z + w = 0, x - y + z - w = 0\}\)</span>. What is <span class="math-inline">\(dim W\)</span>?</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-title">Problem 2</div>
+        <p>Show that <span class="math-inline">\{1, \cos x, \sin x, \cos 2x, \sin 2x\}\)</span> is linearly independent in <span class="math-inline">\(C[0, 2\pi]\)</span>.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-title">Problem 3</div>
+        <p>Find the coordinate vector of <span class="math-inline">\(v = (2, 3, -1)\)</span> relative to the basis <span class="math-inline">\(B = \{(1, 1, 0), (1, 0, 1), (0, 1, 1)\}\)</span> of <span class="math-inline">\(F^3\)</span>.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-title">Problem 4</div>
+        <p>Let <span class="math-inline">\(V = P_3(F)\)</span>. Show that <span class="math-inline">\{1 + x, x + x^2, x^2 + x^3\}\)</span> can be extended to a basis of <em>V</em>.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-title">Problem 5</div>
+        <p>Prove that in <span class="math-inline">\(F^n\)</span>, any set of more than <span class="math-inline">\(n\)</span> vectors must be linearly dependent.</p>
+      </div>
+
+    </div>
+    <nav class="navigation">
+      <a href="lecture-notes-linear-algebra-2.html">← Lecture 2</a>
+      <a href="linear-algebra.html">Course Home</a>
+      <a href="lecture-notes-linear-algebra-4.html">Lecture 4 →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vector Spaces and Subspaces - Lecture Notes | Linear Algebra</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        packages: {'[+]': ['color']}
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Linear Algebra</h1></div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu">
+        <li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li>
+        <li><a href="../graduate.html">Graduate</a></li></ul></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="lecture-header">
+      <h1>Vector Spaces and Subspaces</h1>
+      <div class="subtitle">Linear Algebra - Lecture 1 • Based on Axler's "Linear Algebra Done Right" and MIT 18.700</div>
+    </div>
+    <div class="lecture-content">
+      <h2>1. Vector Spaces: The Foundation</h2>
+      <p>
+        A <strong>vector space</strong> (or linear space) over a field <em>F</em> is a set <em>V</em> together with:
+      </p>
+      <ol>
+        <li>An <strong>addition operation</strong> <span class="math-inline">\(+ : V \times V \to V\)</span></li>
+        <li>A <strong>scalar multiplication operation</strong> <span class="math-inline">\(\cdot : F \times V \to V\)</span></li>
+      </ol>
+      <p>These operations must satisfy the following axioms for all <span class="math-inline">\(u, v, w \in V\)</span> and <span class="math-inline">\(a, b \in F\)</span>:</p>
+      <div class="definition-box">
+        <strong>Vector Space Axioms:</strong>
+        <ul>
+          <li><strong>Associativity of addition:</strong> <span class="math-inline">\(u + (v + w) = (u + v) + w\)</span></li>
+          <li><strong>Commutativity of addition:</strong> <span class="math-inline">\(u + v = v + u\)</span></li>
+          <li><strong>Identity element of addition:</strong> <span class="math-inline">\(\exists 0 \in V\) such that \(v + 0 = v\)</span></li>
+          <li><strong>Inverse elements of addition:</strong> <span class="math-inline">\(\forall v \in V, \exists -v \in V: v + (-v) = 0\)</span></li>
+          <li><strong>Distributivity of scalar multiplication:</strong> <span class="math-inline">\(a(u + v) = au + av\)</span></li>
+          <li><strong>Distributivity of scalar multiplication:</strong> <span class="math-inline">\((a + b)v = av + bv\)</span></li>
+          <li><strong>Compatibility of scalar multiplication:</strong> <span class="math-inline">\(a(bv) = (ab)v\)</span></li>
+          <li><strong>Identity element of scalar multiplication:</strong> <span class="math-inline">\(1 \cdot v = v\)</span></li>
+        </ul>
+      </div>
+
+      <h3>1.2 Examples of Vector Spaces</h3>
+      <div class="example-box">
+        <div class="example-title">Example 1: Standard Euclidean Space</div>
+        <p><span class="math-inline">\(F^n = \{(x_1, \ldots, x_n) : x_i \in F\}\)</span></p>
+        <p>With component-wise addition and scalar multiplication.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Space of Polynomials</div>
+        <p><span class="math-inline">\(P(F) = \{p : F \to F \mid p \text{ is a polynomial}\}\)</span></p>
+        <p>With usual polynomial addition and scalar multiplication.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 3: Function Spaces</div>
+        <p><span class="math-inline">\(F(\mathbb{R}, F)\)</span> (all functions from ℝ to F)</p>
+        <p>With pointwise addition and scalar multiplication.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 4: Sequence Spaces</div>
+        <p><span class="math-inline">\(F^\infty = \{(x_1, x_2, x_3, \ldots) : x_i \in F\}\)</span></p>
+        <p>Infinite sequences with component-wise operations.</p>
+      </div>
+
+      <h2>2. Subspaces</h2>
+
+      <h3>2.1 Definition</h3>
+      <p>
+        A subset <span class="math-inline">\(M \subseteq V\)</span> is a <strong>subspace</strong> of <em>V</em> if <em>M</em> is a vector space under the same operations as <em>V</em>.
+      </p>
+
+      <h3>2.2 The Subspace Test</h3>
+      <div class="definition-box">
+        <strong>Subspace Test:</strong> A subset <span class="math-inline">\(M \subseteq V\)</span> is a subspace if and only if:
+        <ol>
+          <li><span class="math-inline">\(0 \in M\)</span></li>
+          <li><span class="math-inline">\(u, v \in M \implies u + v \in M\)</span> (closed under addition)</li>
+          <li><span class="math-inline">\(u \in M, c \in F \implies cu \in M\)</span> (closed under scalar multiplication)</li>
+        </ol>
+      </div>
+
+      <h3>2.3 Examples of Subspaces</h3>
+      <div class="example-box">
+        <div class="example-title">Example 5: Kernel of a Linear Map</div>
+        <p>If <span class="math-inline">\(T \in L(V, W)\)</span>, then <span class="math-inline">\(\ker T = \{v \in V : Tv = 0\}\)</span> is a subspace of <em>V</em>.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 6: Column Space and Null Space</div>
+        <p>
+          For a matrix <span class="math-inline">\(A \in M_{m \times n}(F)\)</span>:
+          <ul>
+            <li><span class="math-inline">\(\operatorname{col} A = \{Ax : x \in F^n\}\)</span> is a subspace of <span class="math-inline">\(F^m\)</span></li>
+            <li><span class="math-inline">\(\operatorname{null} A = \{x \in F^n : Ax = 0\}\)</span> is a subspace of <span class="math-inline">\(F^n\)</span></li>
+          </ul>
+        </p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 7: Solution Set of Homogeneous System</div>
+        <p>The set of all solutions to a homogeneous system of linear equations forms a subspace.</p>
+      </div>
+
+      <h3>2.4 The Zero Subspace and V</h3>
+      <p>
+        Every vector space <em>V</em> has exactly two trivial subspaces:
+      </p>
+      <ul>
+        <li><strong>Zero subspace:</strong> <span class="math-inline">\{0\} = \{0v : v \in V\}\)</span></li>
+        <li><strong>Whole space:</strong> <span class="math-inline">\(V\)</span></li>
+      </ul>
+
+      <h2>3. Key Theorems</h2>
+
+      <div class="theorem-box">
+        <strong>Theorem 1 (Subspace Intersection):</strong> The intersection of any collection of subspaces of <em>V</em> is a subspace of <em>V</em>.
+      </div>
+
+      <div class="theorem-box">
+        <strong>Theorem 2 (Span as Subspace):</strong> If <span class="math-inline">\(v_1, \ldots, v_n \in V\)</span>, then <span class="math-inline">\(\operatorname{span}(v_1, \ldots, v_n)\)</span> is a subspace of <em>V</em>.
+      </div>
+
+      <div class="important-note">
+        <div class="important-note-title">Note from Axler:</div>
+        <p>This approach emphasizes that vector spaces are fundamental objects, not just collections of tuples. The abstract definition allows us to work with function spaces, polynomial spaces, and many other structures.</p>
+      </div>
+
+      <h2>4. Practice Problems</h2>
+      <div class="problem-box"><div class="problem-title">Problem 1</div><p>Show that the set of all solutions to a homogeneous system <span class="math-inline">\(Ax = 0\)</span> forms a subspace of <span class="math-inline">\(F^n\)</span>.</p></div>
+      <div class="problem-box"><div class="problem-title">Problem 2</div><p>Determine whether the following are subspaces of <span class="math-inline">\(\mathbb{R}^3\)</span>:</p><ul><li><span class="math-inline">\(S_1 = \{(x, y, z) : x + y + z = 0\}\)</span></li><li><span class="math-inline">\(S_2 = \{(x, y, z) : x \geq 0\}\)</span></li><li><span class="math-inline">\(S_3 = \{(x, y, z) : x^2 + y^2 + z^2 = 1\}\)</span></li></ul></div>
+      <div class="problem-box"><div class="problem-title">Problem 3</div><p>Show that <span class="math-inline">\{1, x, x^2\}\)</span> is a basis for <span class="math-inline">\(\mathcal{P}_2(F)\)</span>.</p></div>
+      <div class="problem-box"><div class="problem-title">Problem 4</div><p>Find a basis for the subspace <span class="math-inline">\(W = \{(x, y, z, w) \in \mathbb{R}^4 : x + y + z + w = 0, x - y + z - w = 0\}\)</span>.</p></div>
+    </div>
+    <nav class="navigation">
+      <a href="lecture-notes-linear-algebra-2.html">← Lecture 2</a>
+      <a href="linear-algebra.html">Course Home</a>
+      <a href="lecture-notes-linear-algebra-3.html">Lecture 3 →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

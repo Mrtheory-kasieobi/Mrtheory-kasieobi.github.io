@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Independence and Span - Lecture Notes | Linear Algebra</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        packages: {'[+]': ['color']}
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+    <div class="header-content"><h1>Linear Algebra</h1></div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu">
+        <li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li>
+        <li><a href="../graduate.html">Graduate</a></li></ul></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <div class="lecture-header">
+      <h1>Linear Independence and Span</h1>
+      <div class="subtitle">Linear Algebra - Lecture 2 • Based on Axler's "Linear Algebra Done Right" and MIT 18.700</div>
+    </div>
+    <div class="lecture-content">
+      <h2>1. Linear Independence</h2>
+      <h3>1.1 Definition</h3>
+      <p>
+        A list <span class="math-inline">\(v_1, v_2, \ldots, v_n\)</span> of vectors in a vector space <em>V</em> is <strong>linearly independent</strong> if for every scalars <span class="math-inline">\(a_1, a_2, \ldots, a_n \in F\)</span>:
+      </p>
+      <div class="definition-box">
+        <span class="math-inline">\(a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = 0\)</span> implies <span class="math-inline">\(a_1 = a_2 = \cdots = a_n = 0\)</span>
+      </div>
+      <p>If this condition fails, the vectors are <strong>linearly dependent</strong>.</p>
+
+      <h3>1.2 Examples</h3>
+      <div class="example-box">
+        <div class="example-title">Example 1: Standard Basis in F^n</div>
+        <p>The vectors <span class="math-inline">\(e_1 = (1, 0, \ldots, 0)\)</span>, <span class="math-inline">\(e_2 = (0, 1, 0, \ldots, 0)\)</span>, \ldots, <span class="math-inline">\(e_n = (0, \ldots, 0, 1)\)</span> are linearly independent.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example 2: Polynomial Basis</div>
+        <p>The polynomials <span class="math-inline">\{1, x, x^2, \ldots, x^{n-1}\}\)</span> are linearly independent in <span class="math-inline">\(P_{n-1}(F)\)</span>.</p>
+      </div>
+
+      <h2>2. Span</h2>
+      <h3>2.1 Definition</h3>
+      <p>The <strong>span</strong> of vectors <span class="math-inline">\(v_1, \ldots, v_n \in V\)</span> is:</p>
+      <p><span class="math-inline">\(F(v_1, \ldots, v_n) = \{a_1 v_1 + \cdots + a_n v_n : a_i \in F\}\)</span></p>
+
+      <h3>2.2 Key Properties</h3>
+      <div class="definition-box">
+        <strong>Theorem 1:</strong> <span class="math-inline">\(F(v_1, \ldots, v_n)\)</span> is a subspace of <em>V</em>.
+      </div>
+
+      <div class="definition-box">
+        <strong>Theorem 2 (Span as Subspace):</strong> The span of any finite set of vectors is always a subspace.
+      </div>
+
+      <h2>3. Linear Independence and Span</h2>
+      <p>A list of vectors is linearly independent if and only if none of them is in the span of the others.</p>
+
+      <div class="important-note">
+        <div class="important-note-title">Key Insight:</div>
+        <p>Linear independence means no vector in the list can be written as a linear combination of the others. Span is the set of all possible linear combinations.</p>
+      </div>
+
+      <h2>4. Practice Problems</h2>
+      <div class="problem-box"><div class="problem-title">Problem 1</div><p>Determine if the vectors <span class="math-inline">\{(1, 2, 3), (4, 5, 6), (7, 8, 9)\}\)</span> in <span class="math-inline">\(F^3\)</span> are linearly independent.</p></div>
+      <div class="problem-box"><div class="problem-title">Problem 2</div><p>Show that any two vectors in <span class="math-inline">\(F^2\)</span> are linearly dependent if and only if one is a scalar multiple of the other.</p></div>
+      <div class="problem-box"><div class="problem-title">Problem 3</div><p>Find the span of <span class="math-inline">\{ (1, 2), (3, 4) \}\)</span> in <span class="math-inline">\(F^2\)</span>.</p></div>
+    </div>
+    <nav class="navigation">
+      <a href="lecture-notes-linear-algebra-1.html">← Lecture 1</a>
+      <a href="linear-algebra.html">Course Home</a>
+      <a href="lecture-notes-linear-algebra-3.html">Lecture 3 →</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
