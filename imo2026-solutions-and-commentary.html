@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2026 International Mathematical Olympiad: Solutions and Commentary - Rigorous solutions to all six IMO problems with detailed mathematical analysis.">
+    <title>2026 IMO Solutions and Commentary | Kasieobi Udumaga</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body.olympiad-paper {
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .paper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .paper-viewer-container {
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-3d), var(--shadow-inset);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        
+        .pdf-frame {
+            width: 100%;
+            height: 85vh;
+            border: none;
+            background: white;
+        }
+        
+        .paper-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .paper-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(145deg, var(--accent), #4aa8f5);
+            color: #07111d;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        
+        .paper-actions a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(140, 200, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-frame {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+<body class="olympiad-paper">
+    <header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+        <div class="header-content">
+            <h1 data-content="paper.header">2026 IMO Solutions</h1>
+            <p data-content="paper.subtitle">Rigorous solutions and mathematical commentary on the International Mathematical Olympiad</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li class="dropdown">
+                <a href="expository.html">Expository Writing</a>
+                <ul class="dropdown-menu" aria-label="Expository submenu">
+                    <li><a href="olympiad.html">Olympiad</a></li>
+                    <li><a href="undergraduate.html">Undergraduate</a></li>
+                    <li><a href="graduate.html">Graduate</a></li>
+                </ul>
+            </li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <div class="paper-container">
+            <div class="paper-actions">
+                <a href="papers/2026-IMO-Solutions-and-Commentary.pdf" target="_blank" rel="noopener">
+                    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24"><path fill="currentColor" d="M5 20v-14h14v14H5z"/><path fill="currentColor" d="M17 10h-4v-4h-2v4H9v2h4v4h2v-4h4v-2z"/></svg>
+                    View Fullscreen PDF
+                </a>
+                <a href="olympiad.html">
+                    ← Back to Olympiad
+                </a>
+            </div>
+            
+            <div class="paper-viewer-container">
+                <iframe class="pdf-frame" src="papers/2026-IMO-Solutions-and-Commentary.pdf#toolbar=1&navpanes=0&scrollbar=1" title="2026 IMO Solutions and Commentary PDF">
+                    <p>Your browser does not support embedded PDFs. Please use the View Fullscreen PDF button above.</p>
+                </iframe>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+    </footer>
+    
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
