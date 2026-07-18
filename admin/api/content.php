@@ -1,62 +1,77 @@
 <?php
 session_start();
 
+$ADMIN_PASSWORD = getenv('ADMIN_PASSWORD') ?: 'pokgev-4Pimho-wixjep';
+$PROJECT_ROOT = dirname(__DIR__, 2);
+
+header('Content-Type: application/json');
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Pragma: no-cache');
+
 if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
-    http_response_code(403);
-    echo json_encode(['error' => 'Not authenticated']);
+    http_response_code(401);
+    echo json_encode(['authenticated' => false, 'error' => 'Not authenticated']);
     exit;
 }
 
-$action = $_GET['action'] ?? '';
-
-if ($action === 'list') {
-    $pages = [
+$pages = [
+    'general' => [
         'index.html' => 'Homepage',
+        'about.html' => 'About',
+        'contact.html' => 'Contact',
+        'research.html' => 'Research',
         'teaching.html' => 'Teaching',
+        'notes.html' => 'Notes',
+        'blog.html' => 'Blog',
+        'Track.html' => 'Track and Field'
+    ],
+    'courses' => [
+        'courses/precalculus-11.html' => 'Precalculus 11',
+        'courses/precalculus-12.html' => 'Precalculus 12',
         'courses/calculus-1.html' => 'Calculus I',
         'courses/calculus-2.html' => 'Calculus II',
         'courses/calculus-3.html' => 'Calculus III',
-        'courses/linear-algebra.html' => 'Linear Algebra',
         'courses/real-analysis.html' => 'Real Analysis',
         'courses/introduction-to-proofs.html' => 'Introduction to Proofs',
         'courses/number-theory.html' => 'Elementary Number Theory',
         'courses/algebra-I.html' => 'Algebra I',
         'courses/algebra-II.html' => 'Algebra II',
-        'research.html' => 'Research',
-        'about.html' => 'About',
-        'contact.html' => 'Contact',
-        'notes.html' => 'Notes',
-        'blog.html' => 'Blog',
-        'courses/lecture-notes-1.html' => 'Lecture Notes 1',
-        'courses/lecture-notes-2.html' => 'Lecture Notes 2',
-        'courses/lecture-notes-3.html' => 'Lecture Notes 3',
-        'courses/lecture-notes-4.html' => 'Lecture Notes 4',
-        'courses/lecture-notes-5.html' => 'Lecture Notes 5',
-        'courses/lecture-notes-6.html' => 'Lecture Notes 6',
-        'courses/lecture-notes-7.html' => 'Lecture Notes 7',
-        'courses/lecture-notes-8.html' => 'Lecture Notes 8',
-        'courses/lecture-notes-9.html' => 'Lecture Notes 9',
-        'courses/lecture-notes-10.html' => 'Lecture Notes 10',
-        'courses/lecture-notes-11.html' => 'Lecture Notes 11',
-        'courses/lecture-notes-12.html' => 'Lecture Notes 12',
-        'courses/lecture-notes-13.html' => 'Lecture Notes 13',
-        'courses/lecture-notes-14.html' => 'Lecture Notes 14'
-    ];
-    echo json_encode(['pages' => $pages]);
+        'courses/linear-algebra.html' => 'Linear Algebra'
+    ],
+    'expository' => [
+        'olympiad.html' => 'Olympiad',
+        'undergraduate.html' => 'Undergraduate',
+        'graduate.html' => 'Graduate'
+    ]
+];
+
+$action = $_GET['action'] ?? '';
+
+if ($action === 'list') {
+    echo json_encode(['pages' => $pages, 'sections' => array_keys($pages)]);
     exit;
 }
 
 if ($action === 'content') {
     $page = $_GET['page'] ?? '';
-    $filepath = __DIR__ . '/../' . $page;
+    $filepath = $PROJECT_ROOT . '/' . $page;
+    
+    if (preg_match('/\.\./', $page) || !preg_match('/\.html$/', $page)) {
+        http_response_code(403);
+        echo json_encode(['error' => 'Invalid page path']);
+        exit;
+    }
     
     if (file_exists($filepath)) {
         $content = file_get_contents($filepath);
-        $backupDir = __DIR__ . '/../backups/' . date('Y-m-d');
+        
+        $backupDir = $PROJECT_ROOT . '/admin/backups/' . date('Y-m-d');
         if (!is_dir($backupDir)) {
             mkdir($backupDir, 0755, true);
         }
+        
         copy($filepath, $backupDir . '/' . basename($page) . '.' . time());
+        
         echo json_encode(['content' => $content]);
         exit;
     } else {
@@ -75,13 +90,14 @@ if ($action === 'save') {
     
     $page = $_POST['page'] ?? '';
     $content = $_POST['content'] ?? '';
-    $filepath = __DIR__ . '/../' . $page;
     
     if (preg_match('/\.\./', $page) || !preg_match('/\.html$/', $page)) {
         http_response_code(403);
         echo json_encode(['error' => 'Invalid page path']);
         exit;
     }
+    
+    $filepath = $PROJECT_ROOT . '/' . $page;
     
     if (file_put_contents($filepath, $content)) {
         echo json_encode(['success' => true]);

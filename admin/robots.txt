@@ -1,4 +1,10 @@
-<meta name="robots" content="noindex, nofollow">
-<Link rel="canonical" href="https://yourdomain.com/admin/">
-<meta http-equiv="X-Robots-Tag" content="noindex, nofollow, noarchive, nosnippet">
-<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+User-agent: *
+Disallow: /admin/
+Disallow: /admin/api/
+Disallow: /uploads/
+
+User-agent: Googlebot
+Noindex: /admin/
+
+User-agent: Bingbot
+Noindex: /admin/

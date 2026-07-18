@@ -1,0 +1,17 @@
+# Root .htaccess - Protect admin folder
+
+# Prevent direct access to admin folder
+RewriteCond %{REQUEST_URI} ^/admin/
+RewriteRule ^ - [F,L]
+
+# Block access to sensitive files at root
+<FilesMatch "\.(bak|backup|old|log|ini|conf|env)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block access to hidden files
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>

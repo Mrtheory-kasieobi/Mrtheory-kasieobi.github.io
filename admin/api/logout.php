@@ -1,19 +1,20 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
-    header('Content-Type: application/json');
-    echo json_encode(['authenticated' => false]);
-    exit;
-}
+header('Content-Type: application/json');
+header('Cache-Control: no-store, no-cache, must-revalidate');
 
-if (isset($_POST['action']) && $_POST['action'] === 'logout') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    session_unset();
     session_destroy();
-    header('Content-Type: application/json');
     echo json_encode(['success' => true]);
     exit;
 }
 
-header('Content-Type: application/json');
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+    echo json_encode(['authenticated' => false]);
+    exit;
+}
+
 echo json_encode(['authenticated' => true]);
 ?>

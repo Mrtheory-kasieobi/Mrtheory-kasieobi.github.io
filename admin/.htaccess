@@ -1,2 +1,24 @@
-# Admin - Deny access
+# Admin Security - Deny all access
+Order Allow,Deny
 Deny from all
+
+# Block access to sensitive files
+<FilesMatch "\.(php|html|js|json|txt|log)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block directory traversal
+Options -Indexes
+
+# Prevent access to backup files
+<FilesMatch "(\~|\.bak|\.backup|\.old)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Block access to hidden files
+<FilesMatch "^\.">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
