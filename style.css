@@ -1053,6 +1053,7 @@ main p:last-child {
     scroll-snap-align: start;
     margin-bottom: 0.9rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
 }
 
 .article-card:hover {
@@ -1094,6 +1095,22 @@ main p:last-child {
 .article-card a::after {
     content: "→";
     font-size: 0.95rem;
+}
+
+.status-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #3a8ee5);
+    color: var(--dark-blue);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .article-feed::-webkit-scrollbar {
