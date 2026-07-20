@@ -6,6 +6,17 @@
     <meta name="description" content="Exploring topology: My journey into a new mathematical world.">
     <title>Topology Introduction | Kasieobi Udumaga</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore'
+        }
+      };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         body.blog-post {
@@ -26,7 +37,7 @@
         .blog-post-header h1 {
             font-size: clamp(2rem, 4vw, 2.8rem);
             margin-bottom: 0.5rem;
-            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(90deg, var(--accent), #4aa8f5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -52,14 +63,14 @@
             line-height: 1.75;
             margin-bottom: 1.5rem;
             color: var(--text);
-            font-family: Georgia, serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         
         .blog-content h2 {
             font-size: 1.4rem;
             margin: 2rem 0 1rem;
             color: var(--accent);
-            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             position: relative;
             padding-bottom: 0.5rem;
         }
@@ -78,7 +89,7 @@
             font-size: 1.15rem;
             margin: 1.8rem 0 0.8rem;
             color: #4aa8f5;
-            font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         
         .blog-content ul {
@@ -93,11 +104,8 @@
         }
         
         .blog-content li::before {
-            content: "→";
             position: absolute;
             left: 0;
-            color: var(--accent);
-            font-weight: bold;
         }
         
         .blog-content blockquote {
@@ -108,7 +116,7 @@
             border-radius: 0 8px 8px 0;
             font-style: italic;
             color: #a0e0ff;
-            font-family: Georgia, serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
         
         .back-link {
@@ -126,7 +134,6 @@
         }
         
         .back-link::before {
-            content: "← ";
         }
         
         .entry-navigation {
@@ -186,48 +193,49 @@
     <main>
         <article class="blog-post">
             <header class="blog-post-header">
-                <h1>My First Encounter with Topology</h1>
+                <h1>A Brief Look at Topology: Open, Closed, and Clopen Sets</h1>
                 <div class="meta">
-                    <span>July 13, 2026</span>
-                    <span>~3 min read</span>
+                    <span>July 19, 2026</span>
+                    <span>~4 min read</span>
                     <span class="entry-category">Learning Journal</span>
                 </div>
             </header>
             
             <div class="blog-content">
-                <p>So I got curious about topology and decided to look at the basic definitions. It's fascinating how topology studies properties that remain unchanged under continuous deformation. The idea that a coffee cup and a donut are "the same" in topology was fascinating to me.</p>
+                <p>Although I am not currently studying topology in depth, I recently became curious about some of its foundational ideas after encountering references to it in other areas of mathematics. I decided to learn the basic definitions to get a sense of what the subject is about. This short note summarizes my first impressions of topological spaces and the notions of open, closed, and clopen sets.</p>
                 
-                <h2>Why I Got Interested</h2>
-                <p>I got curious about topology and decided to look at the basic definitions. What's interesting is how this abstract framework captures the essence of "closeness" without needing a notion of distance. It's a completely different way of thinking about space and continuity.</p>
-                
-                <h3>Key Definitions</h3>
-                <p><strong>Topological Space:</strong> A set X together with a collection T of subsets of X (called open sets) satisfying:</p>
+                <h2>Basic Definitions</h2>
+                <p>A topology on a set $X$ is a collection $\mathcal{T}$ of subsets of $X$ satisfying three conditions:</p>
                 <ul>
-                    <li>The empty set ∅ and X are in T</li>
-                    <li>Any union of elements in T is in T</li>
-                    <li>Any finite intersection of elements in T is in T</li>
+                    <li>Both the empty set $\varnothing$ and the entire set $X$ belong to $\mathcal{T}$.</li>
+                    <li>The union of any collection of sets in $\mathcal{T}$ is again an element of $\mathcal{T}$.</li>
+                    <li>The intersection of finitely many sets in $\mathcal{T}$ is also an element of $\mathcal{T}$.</li>
                 </ul>
+                <p>The pair $(X,\mathcal{T})$ is called a topological space, and the members of $\mathcal{T}$ are called open sets.</p>
                 
-                <p><strong>Closed Set:</strong> The complement of an open set.</p>
+                <h2>Open and Closed Sets</h2>
+                <p>Unlike Euclidean geometry, topology does not begin with distances or angles. Instead, it specifies which subsets should be regarded as "open," and from this surprisingly small amount of information many geometric and analytical concepts can be developed.</p>
                 
-                <p><strong>Continuous Function:</strong> A function f: X → Y between topological spaces is continuous if the preimage of every open set in Y is open in X.</p>
+                <p>A subset $A \subseteq X$ is called closed if its complement $X \setminus A$ is open. Consequently, openness and closedness are dual notions: every open set determines a closed set, and vice versa. A set need not be exclusively open or closed, it may be one, the other, both, or neither.</p>
                 
-                <p><strong>Homeomorphism:</strong> A continuous bijection with a continuous inverse. This is what makes a coffee cup and a donut "the same" in topology.</p>
+                <h2>Clopen Sets</h2>
+                <p>The empty set and the entire space are always both open and closed. Sets with this property are called clopen. In many familiar topological spaces these are the only clopen sets, but in more general settings nontrivial clopen sets are closely connected to the notion of connectedness.</p>
                 
-                <h2>My Current Situation</h2>
-                <p>After learning the definitions, I realized I'm not mathematically ready yet. I still need to solidify my understanding of set theory, real analysis, and abstract algebra first. Topology seems like it will become clearer once I've built up those foundations.</p>
+                <h3>Example</h3>
+                <p>As a simple example, let</p>
+                <p>$$X = \{a,b,c\}, \quad \mathcal{T} = \{\varnothing, \{a\}, \{a,b\}, X\}$$</p>
+                <p>One can verify that $\mathcal{T}$ satisfies the topology axioms. The open sets are precisely the elements of $\mathcal{T}$, while the closed sets are their complements:</p>
+                <ul>
+                    <li>Open sets: $\{\varnothing, \{a\}, \{a,b\}, X\}$</li>
+                    <li>Closed sets: $\{X, \{b,c\}, \{c\}, \varnothing\}$</li>
+                </ul>
+                <p>Thus, $\varnothing$ and $X$ are clopen, $\{a\}$ is open but not closed, and $\{c\}$ is closed but not open.</p>
                 
-                <h2>Future Plans</h2>
-                <p>I've decided that I will start to learn Topology in the future, once I'm done learning some other prerequisites. The subject has really interested me, and I can't wait to dive deeper once I'm better prepared.</p>
-                
-                <blockquote>
-                    "It is by the manifold relations between objects, and not by the objects themselves, that we form our ideas of space." – Henri Poincaré, Science and Method (1908)
-                </blockquote>
-                
-                <p>Right now, I'm focusing on other areas, but topology will definitely be on my learning roadmap. The beauty of it is that it connects so many different branches of mathematics.</p>
+                <h2>Reflection</h2>
+                <p>This brief exploration gave me an appreciation for how much mathematical structure can arise from a small collection of axioms. While topology is not one of the subjects I am actively studying at the moment, I found these foundational definitions interesting enough to learn and document. I may revisit the subject in the future once I have a stronger background in areas such as real analysis and abstract algebra.</p>
                 
                 <div class="entry-navigation">
-                    <a href="blog.html" class="entry-nav-link">← Back to Blog</a>
+                    <a href="blog.html" class="entry-nav-link">Back to Blog</a>
                 </div>
             </div>
         </article>

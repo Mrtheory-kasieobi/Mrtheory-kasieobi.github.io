@@ -4,9 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Research notebook and learning journal by Kasieobi Udumaga.">
-  <title>Kasieobi Udumaga | Research Notebook</title>
-  <link rel="stylesheet" href="style.css">
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<title>Kasieobi Udumaga | Research Notebook</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     body.blog-page {
       background: var(--bg);
@@ -60,7 +71,7 @@
       color: var(--text);
       margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
-      font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     .notebook-header p {
@@ -428,11 +439,11 @@
             <div class="notebook-card">
               <div class="entry-meta">
                 <span class="entry-category">Learning Journal</span>
-                <span>July 13, 2026</span>
-                <span class="reading-time">~3 min read</span>
+                <span>July 19, 2026</span>
+                <span class="reading-time">~4 min read</span>
               </div>
-<h3 class="entry-title">My First Encounter with Topology</h3>
-               <p class="entry-preview">I got curious about topology and explored the basic definitions. The concept of open sets and how topology studies properties unchanged by continuous deformation is fascinating. The coffee cup and donut equivalence really opened my eyes to this new way of thinking about mathematical spaces.</p>
+<h3 class="entry-title">A Brief Look at Topology: Open, Closed, and Clopen Sets</h3>
+               <p class="entry-preview">A brief exploration of topological spaces and the fundamental notions of open, closed, and clopen sets. This note summarizes my first impressions of topology as I explore its foundational definitions.</p>
               <div class="entry-footer">
                 <a href="topology-introduction-exploration.html" class="read-more">Read entry →</a>
               </div>

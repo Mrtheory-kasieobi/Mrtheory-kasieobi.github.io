@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Vidaloka:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&family=Noto+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap');
 
 :root {
     --page-bg: #07111d;
@@ -23,7 +23,7 @@ body {
     position: relative;
     margin: 0;
     min-height: 100vh;
-    font-family: "Inter", "Crimson Pro", "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.75;
@@ -32,7 +32,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Vidaloka", "Cormorant Garamond", "Crimson Pro", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 500;
 }
 
@@ -1228,7 +1228,7 @@ footer {
 
 .course-card__title {
     margin: 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 1.4rem;
     color: var(--text);
     line-height: 1.3;
@@ -1321,7 +1321,7 @@ footer {
 
 .teaching-description__title {
     margin: 0 0 0.75rem 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 1.5rem;
     color: var(--accent);
 }
@@ -1345,7 +1345,7 @@ footer {
 
 .course-header__title {
     margin: 0 0 0.5rem 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(1.8rem, 3vw, 2.4rem);
     color: var(--text);
 }
@@ -2115,7 +2115,7 @@ body.experimental-mode.notes-page header {
 
 .contact-info h2 {
     margin-top: 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(1.5rem, 2.2vw, 1.9rem);
     color: var(--text);
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
@@ -2220,7 +2220,7 @@ body.experimental-mode.notes-page header {
 
 .contact-faq h2 {
     margin-top: 0;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(1.5rem, 2.2vw, 1.9rem);
     color: var(--text);
     border-bottom: 1px solid rgba(255, 255, 255, 0.14);
@@ -2347,7 +2347,7 @@ body.experimental-mode.notes-page header {
 
 .contact-footer__quote blockquote {
     margin: 0 0 0.5rem;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: 1.05rem;
     line-height: 1.6;
     color: var(--text);
@@ -2412,7 +2412,7 @@ body.experimental-mode .contact-footer__quote blockquote {
     border-bottom: 2px solid var(--accent);
     padding-bottom: 0.6rem;
     margin-top: 3rem;
-    font-family: "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(1.5rem, 2.2vw, 1.9rem);
 }
 
