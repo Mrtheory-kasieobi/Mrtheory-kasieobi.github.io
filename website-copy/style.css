@@ -2660,6 +2660,19 @@ body.experimental-mode .contact-footer__quote blockquote {
     }
 }
 
+.interest-meta {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.interest-meta--columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
 /* Light theme support */
 @media (prefers-color-scheme: light) {
     .math-lab--enhanced {
