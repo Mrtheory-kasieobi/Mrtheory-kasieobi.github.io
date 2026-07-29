@@ -688,7 +688,7 @@ function initMathBackground() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    initExperimentalToggle();
+    // initExperimentalToggle(); // Disabled for public release - experimental mode not ready
     initMathBackground();
     
     // Initialize Math Lab simulations
