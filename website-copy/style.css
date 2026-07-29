@@ -1289,6 +1289,10 @@ footer {
     color: #5cb85c;
 }
 
+.course-card__status--incomplete {
+    color: #d9534f;
+}
+
 .course-card__button {
     display: inline-flex;
     align-items: center;
