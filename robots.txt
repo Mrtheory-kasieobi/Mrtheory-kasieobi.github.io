@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /website-copy/
+
+Sitemap: https://kasieobiudumaga.com/sitemap.xml
