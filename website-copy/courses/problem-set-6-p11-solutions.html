@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Problem Set 6 Solutions: Systems and Inequalities - Precalculus 11">
+  <title>Kasieobi Udumaga | Problem Set 6 Solutions: Systems and Inequalities - Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .solution-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .solution-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .step {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Problem Set 6: Systems and Inequalities</h1>
+      <div class="subtitle">Precalculus 11 - Chapter 7 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Solutions</h2>
+
+      <div class="solution-box">
+        <strong>Problem 1: Solve by elimination: \(2x + y = 7\) and \(3x - y = 5\)</strong>
+        <div class="step">Add equations to eliminate \(y\): \((2x + y) + (3x - y) = 7 + 5\)</div>
+        <div class="step">\(5x = 12\)</div>
+        <div class="step">\(x = \frac{12}{5}\)</div>
+        <div class="step">Substitute into first equation: \(2(\frac{12}{5}) + y = 7\)</div>
+        <div class="step">\(\frac{24}{5} + y = 7\)</div>
+        <div class="step">\(y = 7 - \frac{24}{5} = \frac{35 - 24}{5} = \frac{11}{5}\)</div>
+        <div class="step"><strong>Answer: \((\frac{12}{5}, \frac{11}{5})\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 2: Solve by substitution: \(y = x^2 - 4\) and \(y = 2x + 1\)</strong>
+        <div class="step">Set equations equal: \(x^2 - 4 = 2x + 1\)</div>
+        <div class="step">Rearrange: \(x^2 - 2x - 5 = 0\)</div>
+        <div class="step">Use quadratic formula: \(x = \frac{2 \pm \sqrt{4 + 20}}{2} = \frac{2 \pm \sqrt{24}}{2} = 1 \pm \sqrt{6}\)</div>
+        <div class="step">Find \(y\) for each \(x\) using \(y = 2x + 1\)</div>
+        <div class="step">For \(x = 1 + \sqrt{6}\): \(y = 2(1 + \sqrt{6}) + 1 = 3 + 2\sqrt{6}\)</div>
+        <div class="step">For \(x = 1 - \sqrt{6}\): \(y = 2(1 - \sqrt{6}) + 1 = 3 - 2\sqrt{6}\)</div>
+        <div class="step"><strong>Answer: \((1 + \sqrt{6}, 3 + 2\sqrt{6})\) and \((1 - \sqrt{6}, 3 - 2\sqrt{6})\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 3: Graph \(y > 2x - 3\)</strong>
+        <div class="step">Graph the boundary line \(y = 2x - 3\) as a dashed line (strict inequality)</div>
+        <div class="step">The line has slope 2 and y-intercept -3</div>
+        <div class="step">Test point (0, 0): \(0 > 2(0) - 3 = -3\) ✓</div>
+        <div class="step">Shade the region containing (0, 0) - above the line</div>
+        <div class="step"><strong>Answer: Region above the dashed line \(y = 2x - 3\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 4: Graph the system: \(y \leq x + 2\) and \(y > -x + 1\)</strong>
+        <div class="step">First inequality: \(y \leq x + 2\) - solid line, shade below</div>
+        <div class="step">Second inequality: \(y > -x + 1\) - dashed line, shade above</div>
+        <div class="step">Find intersection: \(x + 2 = -x + 1\), so \(2x = -1\), \(x = -\frac{1}{2}\)</div>
+        <div class="step">At \(x = -\frac{1}{2}\): \(y = \frac{3}{2}\)</div>
+        <div class="step">Solution region is the overlapping shaded area</div>
+        <div class="step"><strong>Answer: Bounded region between the two lines from \(x = -\frac{1}{2}\) to infinity</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 5: Solve the system of 3 equations with 2 unknowns</strong>
+        <div class="step">Check if system is consistent. Use first two equations:</div>
+        <div class="step">From equations 1 and 2: \(2x + 3y = 12\) and \(x - y = 1\)</div>
+        <div class="step">From \(x - y = 1\): \(x = y + 1\)</div>
+        <div class="step">Substitute into first: \(2(y+1) + 3y = 12\)</div>
+        <div class="step">\(2y + 2 + 3y = 12\), so \(5y = 10\), \(y = 2\)</div>
+        <div class="step">\(x = 3\)</div>
+        <div class="step">Check with third equation: \(3(3) + 2 = 11 \neq 14\) - inconsistent!</div>
+        <div class="step"><strong>Answer: No solution - the system is inconsistent</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 6: Rectangle perimeter inequality</strong>
+        <div class="step">Let width = \(w\), length = \(2w + 5\)</div>
+        <div class="step">Perimeter: \(P = 2(w + 2w + 5) = 2(3w + 5) = 6w + 10\)</div>
+        <div class="step">Inequality: \(6w + 10 \leq 50\)</div>
+        <div class="step">Solve: \(6w \leq 40\), so \(w \leq \frac{40}{6} = \frac{20}{3}\)</div>
+        <div class="step">Also: \(w > 0\) (positive width)</div>
+        <div class="step"><strong>Answer: \(0 < w \leq \frac{20}{3}\) (or approximately 0 < w ≤ 6.67)</strong></div>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 1: Parabola Point</strong>
+        <div class="step">Point on parabola: \(y = x^2 - 4x + 3\)</div>
+        <div class="step">Distance from (x, y) to (2, 3) is 5:</div>
+        <div class="step">\(\sqrt{(x-2)^2 + (y-3)^2} = 5\)</div>
+        <div class="step">Square: \((x-2)^2 + (y-3)^2 = 25\)</div>
+        <div class="step">Substitute y: \((x-2)^2 + (x^2 - 4x + 3 - 3)^2 = 25\)</div>
+        <div class="step">Simplify: \((x-2)^2 + (x^2 - 4x)^2 = 25\)</div>
+        <div class="step">Note: \(x^2 - 4x = x(x-4)\)</div>
+        <div class="step">Let \(u = x - 2\), then \(x = u + 2\)</div>
+        <div class="step">\((u)^2 + ((u+2)^2 - 4(u+2))^2 = 25\)</div>
+        <div class="step">\(u^2 + (u^2 + 4u + 4 - 4u - 8)^2 = 25\)</div>
+        <div class="step">\(u^2 + (u^2 - 4)^2 = 25\)</div>
+        <div class="step">\(u^2 + u^4 - 8u^2 + 16 = 25\)</div>
+        <div class="step">\(u^4 - 7u^2 - 9 = 0\)</div>
+        <div class="step">Let \(v = u^2\): \(v^2 - 7v - 9 = 0\)</div>
+        <div class="step">\(v = \frac{7 \pm \sqrt{49 + 36}}{2} = \frac{7 \pm \sqrt{85}}{2}\)</div>
+        <div class="step">Since v = u² ≥ 0, we take the positive root</div>
+        <div class="step">\(v = \frac{7 + \sqrt{85}}{2}\)</div>
+        <div class="step">\(u = \pm\sqrt{v}\), so \(x = 2 \pm \sqrt{v}\)</div>
+        <div class="step"><strong>Answer: Two points on the parabola at distance 5 from (2, 3).</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 2: Inequality Chain</strong>
+        <div class="step">First inequality: \(x^2 - 3x + 2 \leq 4\)</div>
+        <div class="step">Rearrange: \(x^2 - 3x - 2 \leq 0\)</div>
+        <div class="step">Find roots: \(x = \frac{3 \pm \sqrt{9 + 8}}{2} = \frac{3 \pm \sqrt{17}}{2}\)</div>
+        <div class="step">Approximately: \(x \approx -0.56\) and \(x \approx 4.56\)</div>
+        <div class="step">Since parabola opens up: \(x \in [\frac{3-\sqrt{17}}{2}, \frac{3+\sqrt{17}}{2}]\)</div>
+        <div class="step">Second inequality: \(x^2 + x - 6 > 0\)</div>
+        <div class="step">Factor: \((x + 3)(x - 2) > 0\)</div>
+        <div class="step">Solution: \(x < -3\) or \(x > 2\)</div>
+        <div class="step">Intersection: Need values in both solution sets</div>
+        <div class="step">First set: approximately [-0.56, 4.56]</div>
+        <div class="step">Second set: (-∞, -3) ∪ (2, ∞)</div>
+        <div class="step">Intersection: \((2, \frac{3+\sqrt{17}}{2}]\)</div>
+        <div class="step"><strong>Answer: \(x \in (2, \frac{3+\sqrt{17}}{2}]\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 3: Function Composition</strong>
+        <div class="step">Given \(f(x) = x^2 - 2x\)</div>
+        <div class="step">Find \(f(f(x)) = f(x)\)</div>
+        <div class="step">\(f(f(x)) = f(x^2 - 2x) = (x^2 - 2x)^2 - 2(x^2 - 2x)\)</div>
+        <div class="step">Set equal to \(f(x)\):</div>
+        <div class="step">\((x^2 - 2x)^2 - 2(x^2 - 2x) = x^2 - 2x\)</div>
+        <div class="step">Let \(u = x^2 - 2x\). Then: \(u^2 - 2u = u\)</div>
+        <div class="step">Rearrange: \(u^2 - 3u = 0\)</div>
+        <div class="step">Factor: \(u(u - 3) = 0\)</div>
+        <div class="step">So \(u = 0\) or \(u = 3\)</div>
+        <div class="step">Case 1: \(x^2 - 2x = 0\), so \(x(x-2) = 0\), \(x = 0\) or \(x = 2\)</div>
+        <div class="step">Case 2: \(x^2 - 2x = 3\), so \(x^2 - 2x - 3 = 0\)</div>
+        <div class="step">Factor: \((x-3)(x+1) = 0\), \(x = 3\) or \(x = -1\)</div>
+        <div class="step"><strong>Answer: \(x = -1, 0, 2, 3\)</strong></div>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-6-p11.html">← Back to Problem Set</a>
+        <a href="../teaching.html">Course Home →</a>
+      </div>
+    </div>
+  </main>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
+  <script src="../script.js"></script>
+</body>
+</html>

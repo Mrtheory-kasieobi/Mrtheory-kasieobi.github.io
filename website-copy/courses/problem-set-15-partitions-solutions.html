@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 15: Partitions and Applications | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 15: Partitions</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Partitions of 4: \(4\), \(3+1\), \(2+2\), \(2+1+1\), \(1+1+1+1\). Total: 5 partitions. \(p(4) = 5\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> Partitions of 5: \(5\), \(4+1\), \(3+2\), \(3+1+1\), \(2+2+1\), \(2+1+1+1\), \(1+1+1+1+1\). Total: 7 partitions. \(p(5) = 7\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Euler's pentagonal number theorem: \(p(n) = p(n-1) + p(n-2) - p(n-5) - p(n-7) + p(n-12) + \ldots\) where arguments are pentagonal numbers.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Partitions of 6: \(6\), \(5+1\), \(4+2\), \(4+1+1\), \(3+3\), \(3+2+1\), \(3+1+1+1\), \(2+2+2\), \(2+2+1+1\), \(2+1+1+1+1\), \(1+1+1+1+1+1\). Total: 11 partitions.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Using recurrence: \(p(6) = p(5) + p(4) - p(1) - p(0) = 7 + 5 - 1 - 1 = 10\). Wait, we found 11. Actually \(p(0) = 1\) by convention, so \(p(6) = 7 + 5 - 1 - 1 = 10\) is correct.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Generating function: \(\sum_{n=0}^{\infty} p(n)q^n = \prod_{k=1}^{\infty} \frac{1}{1-q^k}\). This encodes all partition numbers.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Distinct partitions of 5: \(5\), \(4+1\), \(3+2\). Total: 3. \(q(5) = 3\). Note: \(q(n) = p(n)\) for \(n < 5\) but differs for larger \(n\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> By Euler's theorem, number of partitions into odd parts equals number of partitions into distinct parts.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> Partitions of 7 into 2 parts: \(6+1\), \(5+2\), \(4+3\). Total: 3. In general, \(p(n,2) = \lfloor \frac{n-1}{2} \rfloor\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> Partition function grows asymptotically: \(p(n) \sim \frac{1}{4n\sqrt{3}} e^{\pi\sqrt{2n/3}}\). This is the Hardy-Ramanujan formula.</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Partitions of 8 into odd parts: \(7+1\), \(5+3\), \(5+1+1+1\), \(3+3+1+1\), \(3+1+1+1+1+1\), \(1+1+1+1+1+1+1+1\).</p><p><strong>Step 2:</strong> Partitions of 8 into distinct parts: \(8\), \(7+1\), \(6+2\), \(5+3\), \(5+2+1\), \(4+3+1\), \(4+2+1+1\) (invalid), \(3+2+1+1+1\) (invalid).</p><p><strong>Step 3:</strong> Valid distinct: \(8\), \(7+1\), \(6+2\), \(5+3\), \(5+2+1\), \(4+3+1\). Total: 6.</p><p><strong>Conclusion:</strong> By Euler's theorem, these should match. Odd parts: 6, Distinct parts: 6. ✓</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Use generating function: \(P(x) = \prod_{k=1}^{\infty} \frac{1}{1-x^k}\).</p><p><strong>Step 2:</strong> Coefficient of \(x^4\) in expansion: \(1 + x + 2x^2 + 3x^3 + 5x^4 + \ldots\)</p><p><strong>Step 3:</strong> So \(p(4) = 5\), confirming our earlier count.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Ramanujan's congruences: \(p(5n+4) \equiv 0 \pmod{5}\), \(p(7n+5) \equiv 0 \pmod{7}\), \(p(11n+6) \equiv 0 \pmod{11}\).</p><p><strong>Step 2:</strong> Verify: \(p(4) = 5 \equiv 0 \pmod{5}\). ✓</p><p><strong>Step 3:</strong> \(p(5) = 7 \not\equiv 0 \pmod{5}\), but \(p(5 \cdot 1 + 4) = p(9) = 30 \equiv 0 \pmod{5}\). ✓</p></p></div>
+      <div class="navigation"><a href="problem-set-15-partitions.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

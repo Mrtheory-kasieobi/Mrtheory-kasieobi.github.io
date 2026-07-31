@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 5: Arithmetic Functions and Möbius Inversion | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 5: Arithmetic Functions</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> \(\sigma(12) = 1+2+3+4+6+12 = 28\). \(\phi(12) = 12 \cdot (1-\frac{1}{2})(1-\frac{1}{3}) = 4\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \(\sigma(15) = 1+3+5+15 = 24\), \(\sigma(16) = 1+2+4+8+16 = 31\), \(\sigma(17) = 1+17 = 18\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(\phi(p) = p-1\) since all integers \(1, 2, \ldots, p-1\) are coprime to \(p\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(\sigma(p^k) = 1 + p + p^2 + \cdots + p^k\) is the sum of a geometric series.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> \(\mu(30) = \mu(2 \cdot 3 \cdot 5) = (-1)^3 = -1\). \(\mu(31) = -1\) (prime). \(\mu(32) = 0\) (has squared factor).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Möbius inversion: \(f(n) = \sum_{d|n} \mu(d) g(n/d)\)</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Each \(k\) from 1 to \(n\) contributes 1 to exactly \(\gcd(k, n)\) values of \(d\). The total count is \(n\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Testing: \(\phi(n) = 10\) gives \(n = 11\) (prime) or \(n = 22\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> Using multiplicativity of \(\phi\): \(\phi(n) = n \prod(1 - 1/p_i)\)</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\sum_{n=1}^{10} \phi(n) = 1+1+2+2+4+2+6+4+6+4 = 32\).</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> We need to prove \(\sum_{n \leq x} \phi(n) = \frac{3x^2}{\pi^2} + O(x \log x)\).</p><p><strong>Step 2:</strong> Use the identity \(\sum_{d|n} \phi(d) = n\).</p><p><strong>Step 3:</strong> Sum over \(n \leq x\): \(\sum_{n \leq x} \sum_{d|n} \phi(d) = \sum_{n \leq x} n = \frac{x(x+1)}{2}\).</p><p><strong>Step 4:</strong> Swap summation: \(\sum_{d \leq x} \phi(d) \lfloor \frac{x}{d} \rfloor = \frac{x^2}{2} + O(x)\).</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> The Dirichlet series for \(\mu\) is \(\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s} = \frac{1}{\zeta(s)}\).</p><p><strong>Step 2:</strong> This follows from the Euler product: \(\zeta(s) = \prod_p (1 - p^{-s})^{-1}\), so \(\frac{1}{\zeta(s)} = \prod_p (1 - p^{-s}) = \sum_n \frac{\mu(n)}{n^s}\).</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(\phi(n) = \frac{n}{2}\), then \(n \prod(1 - \frac{1}{p_i}) = \frac{n}{2}\), giving \(\prod(1 - \frac{1}{p_i}) = \frac{1}{2}\).</p><p><strong>Step 2:</strong> This gives \(2 \prod(p_i - 1) = \prod p_i\).</p><p><strong>Step 3:</strong> Since \(p_i - 1 < p_i\) for all \(i\), we need \(k = 1\) and \(2(p-1) = p\), giving \(p = 2\).</p><p><strong>Conclusion:</strong> All \(n\) with \(\phi(n) = \frac{n}{2}\) are powers of 2.</p></p></div>
+      <div class="navigation"><a href="problem-set-5-arithmetic-functions.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Sets - Linear Algebra</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\(', '\)']],
+        displayMath: [['\[', '\]']],
+        processEscapes: true,
+        packages: {'[+]': ['color']}
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .problem-set {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .problem-set__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .problem-set__title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-set__difficulty {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .problem-set__difficulty.easy {
+      background: rgba(40, 167, 69, 0.2);
+      color: #28a745;
+    }
+
+    .problem-set__difficulty.medium {
+      background: rgba(255, 193, 7, 0.2);
+      color: #ffc107;
+    }
+
+    .problem-set__difficulty.hard {
+      background: rgba(220, 53, 69, 0.2);
+      color: #dc3545;
+    }
+
+    .problem-set__topics {
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .problem-set__question {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+
+    .problem-set__question p {
+      margin: 0;
+      color: var(--text);
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Linear Algebra</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Problem Sets</h1>
+      <div class="subtitle">Linear Algebra Course</div>
+      <div class="subtitle">Based on Axler's "Linear Algebra Done Right"</div>
+    </div>
+
+    <div class="lecture-content">
+
+      <h2>Problem Set 1: Vector Spaces and Subspaces</h2>
+      <div class="problem-set">
+        <div class="problem-set__header">
+          <h4 class="problem-set__title">Problem Set 1</h4>
+          <span class="problem-set__difficulty easy">Easy</span>
+        </div>
+        <p class="problem-set__topics">Topics: Vector spaces, subspaces, subspace test</p>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 1.1:</strong> Show that the set of all solutions to a homogeneous system of linear equations forms a subspace of <span class="formula-box">\(\mathbb{R}^n\)</span>.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 1.2:</strong> Determine whether the following sets are subspaces of <span class="formula-box">\(\mathbb{R}^3\)</span>:</p>
+          <ul>
+            <li><span class="formula-box">\(S_1 = \{(x, y, z) : x + y + z = 0\}\)</span></li>
+            <li><span class="formula-box">\(S_2 = \{(x, y, z) : x \geq 0\}\)</span></li>
+            <li><span class="formula-box">\(S_3 = \{(x, y, z) : x^2 + y^2 + z^2 = 1\}\)</span></li>
+          </ul>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 1.3:</strong> Show that the set of all polynomials <span class="formula-box">\(p \in \mathcal{P}(\mathbb{R})\)</span> such that <span class="formula-box">\(p(0) = 0\)</span> is a subspace.</p>
+        </div>
+      </div>
+
+      <h2>Problem Set 2: Linear Independence and Bases</h2>
+      <div class="problem-set">
+        <div class="problem-set__header">
+          <h4 class="problem-set__title">Problem Set 2</h4>
+          <span class="problem-set__difficulty easy">Easy</span>
+        </div>
+        <p class="problem-set__topics">Topics: Linear independence, span, basis</p>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 2.1:</strong> Determine if the vectors <span class="formula-box">\{(1, 2, 3), (4, 5, 6), (7, 8, 9)\}\)</span> in <span class="formula-box">\(\mathbb{R}^3\)</span> are linearly independent.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 2.2:</strong> Find a basis for the subspace <span class="formula-box">\(W = \{(x, y, z) \in \mathbb{R}^3 : 2x - y + 3z = 0\}\)</span>.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 2.3:</strong> Show that <span class="formula-box">\{1, x, x^2, x^3\}\)</span> is a basis for <span class="formula-box">\(\mathcal{P}_3(\mathbb{R})\)</span>.</p>
+        </div>
+      </div>
+
+      <h2>Problem Set 3: Linear Maps</h2>
+      <div class="problem-set">
+        <div class="problem-set__header">
+          <h4 class="problem-set__title">Problem Set 3</h4>
+          <span class="problem-set__difficulty easy">Easy</span>
+        </div>
+        <p class="problem-set__topics">Topics: Linear maps, null space, range</p>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 3.1:</strong> Let <span class="formula-box">\(T: \mathbb{R}^3 \to \mathbb{R}^2\)</span> be defined by <span class="formula-box">\(T(x, y, z) = (x + y, y + z)\)</span>. Find <span class="formula-box">\(\ker T\)</span> and <span class="formula-box">\(\operatorname{range} T\)</span>.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 3.2:</strong> Show that the composition of two linear maps is linear.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 3.3:</strong> Find the matrix representation of the derivative operator <span class="formula-box">\(D: \mathcal{P}_2(\mathbb{R}) \to \mathcal{P}_1(\mathbb{R})\)</span> with respect to standard bases.</p>
+        </div>
+      </div>
+
+      <h2>Problem Set 4: Eigenvalues and Eigenvectors</h2>
+      <div class="problem-set">
+        <div class="problem-set__header">
+          <h4 class="problem-set__title">Problem Set 4</h4>
+          <span class="problem-set__difficulty medium">Medium</span>
+        </div>
+        <p class="problem-set__topics">Topics: Eigenvalues, eigenvectors, diagonalization</p>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 4.1:</strong> Find all eigenvalues and eigenvectors of <span class="formula-box">\(A = \begin{pmatrix} 3 & 1 \\ 0 & 3 \end{pmatrix}\)</span>.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 4.2:</strong> Determine if <span class="formula-box">\(A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}\)</span> is diagonalizable.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 4.3:</strong> Find an invertible matrix <span class="formula-box">\(P\)</span> such that <span class="formula-box">\(P^{-1} \begin{pmatrix} 4 & -2 \\ 1 & 1 \end{pmatrix} P\)</span> is diagonal.</p>
+        </div>
+      </div>
+
+      <h2>Problem Set 5: Inner Product Spaces</h2>
+      <div class="problem-set">
+        <div class="problem-set__header">
+          <h4 class="problem-set__title">Problem Set 5</h4>
+          <span class="problem-set__difficulty medium">Medium</span>
+        </div>
+        <p class="problem-set__topics">Topics: Inner products, orthogonality, projections</p>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 5.1:</strong> Verify that <span class="formula-box">\(\langle f, g \rangle = \int_0^1 f(x)g(x) dx\)</span> is an inner product on <span class="formula-box">\(C[0, 1]\)</span>.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 5.2:</strong> Find the orthogonal projection of <span class="formula-box">\(f(x) = x\)</span> onto <span class="formula-box">\(\operatorname{span}\{1\}\)</span> in <span class="formula-box">\(C[0, 1]\)</span>.</p>
+        </div>
+        
+        <div class="problem-set__question">
+          <p><strong>Problem 5.3:</strong> Apply Gram-Schmidt to <span class="formula-box">\{1, x\}\)</span> in <span class="formula-box">\(C[0, 1]\)</span> to obtain an orthonormal basis.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <nav class="navigation">
+      <a href="lecture-notes-linear-algebra-15.html">← Lecture 15</a>
+      <a href="linear-algebra.html">Course Home</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

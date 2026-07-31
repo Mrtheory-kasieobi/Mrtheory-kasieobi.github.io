@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem Set 5: Inner Product Spaces | Linear Algebra</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\(', '\)']],
+        displayMath: [['\[', '\]']],
+        processEscapes: true,
+        packages: {'[+]': ['color']}
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .problem-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .problem-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .problem-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .problem-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .problem-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .problem-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .problem-number {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      max-width: 100%;
+      overflow-wrap: break-word;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Linear Algebra</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="problem-header">
+      <h1>Problem Set 5: Inner Product Spaces</h1>
+      <div class="subtitle">Linear Algebra Course</div>
+      <div class="subtitle">Based on Axler's "Linear Algebra Done Right"</div>
+    </div>
+
+    <div class="problem-content">
+
+      <h2>Instructions</h2>
+      <p>
+        Solve all problems. Show your work clearly. You may use results from previous lectures.
+      </p>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 5.1</div>
+        <p>Show that <span class="formula-box">\(\langle f, g \rangle = \int_0^1 f(x)g(x) dx\)</span> defines an inner product on <span class="formula-box">\(C[0, 1]\)</span>.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 5.2</div>
+        <p>Find the orthogonal projection of <span class="formula-box">\(f(x) = x\)</span> onto <span class="formula-box">\(\operatorname{span}\{1\}\)</span> in <span class="formula-box">\(C[0, 1]\)</span> with the inner product from Problem 5.1.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 5.3</div>
+        <p>Apply Gram-Schmidt to <span class="formula-box">\{1, x\}\)</span> in <span class="formula-box">\(C[0, 1]\)</span> with the inner product <span class="formula-box">\(\langle f, g \rangle = \int_0^1 f(x)g(x) dx\)</span> to obtain an orthonormal basis.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 5.4</div>
+        <p>Verify the Cauchy-Schwarz inequality for <span class="formula-box">\(f(x) = 1\)</span> and <span class="formula-box">\(g(x) = x\)</span> in <span class="formula-box">\(C[0, 1]\)</span>.</p>
+      </div>
+
+      <div class="problem-box">
+        <div class="problem-number">Problem 5.5</div>
+        <p>Find the best approximation to <span class="formula-box">\(f(x) = x^2\)</span> in <span class="formula-box">\(\operatorname{span}\{1, x\}\)</span> using the inner product <span class="formula-box">\(\langle f, g \rangle = \int_0^1 f(x)g(x) dx\)</span>.</p>
+      </div>
+
+    </div>
+
+    <nav class="navigation">
+      <a href="problem-set-4-linear-algebra.html">← Problem Set 4</a>
+      <a href="linear-algebra.html">Course Home</a>
+    </nav>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>

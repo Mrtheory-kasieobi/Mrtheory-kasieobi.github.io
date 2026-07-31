@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solutions: Problem Set 14: Partitions | Elementary Number Theory</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
+    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .problem-content { color: var(--text); line-height: 1.8; }
+    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 14: Partitions</h1></div>
+    <div class="problem-content">
+      <h2>Solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Partitions of 6: \(6, 5+1, 4+2, 4+1+1, 3+3, 3+2+1, 3+1+1+1, 2+2+2, 2+2+1+1, 2+1+1+1+1, 1+1+1+1+1+1\). Total: 11.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \(p(5) = 7\), \(p(6) = 11\), \(p(7) = 15\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Euler's pentagonal theorem: \(p(n) = \sum_{k \neq 0} (-1)^{k-1} p(n - \frac{k(3k-1)}{2})\). For \(n=6\): \(p(6) = p(5)+p(4)-p(1)-p(0) = 7+5-1-1 = 10\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Partitions of 7 into distinct parts: \(7, 6+1, 5+2, 4+3, 4+2+1\). Total: 5.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Partitions of 5 into odd parts: \(5, 3+1+1, 1+1+1+1+1\). Partitions into distinct parts: \(5, 4+1, 3+2\). Both have 3.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Partitions of 8 into odd parts: \(8, 7+1, 5+3, 5+1+1+1, 3+3+1+1, 3+1+1+1+1+1, 1^8\). Total: 7.</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Adding a part of size 1 gives injection from partitions of \(n-1\) to partitions of \(n\). Surjection by removing a 1. So \(p(n) \geq p(n-1)\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Partitions into at most 2 parts: \((n), (n-1,1), (n-2,2), \ldots\). Count is \(\lfloor \frac{n+2}{2} \rfloor\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> Generating function: \(\prod_{k=1}^{\infty} \frac{1}{1-x^k}\) restricted to \(k \leq 3 = \frac{1}{(1-x)(1-x^2)(1-x^3)}\).</p></div>
+      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> For \(n = 2^k - 1\), partitions into distinct parts correspond to subsets of \(\{1, \ldots, k-1\}\). There are \(2^{k-1}\) such subsets.</p></div>
+      <h2 class="bonus-section">Bonus Problems</h2>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> \(p(100) = 190569292\) (exact value known from Hardy-Ramanujan).</p><p><strong>Step 2:</strong> The asymptotic formula: \(p(n) \sim \frac{1}{4n\sqrt{3}} e^{\pi \sqrt{2n/3}}\).</p><p><strong>Step 3:</strong> For \(n=100\): \(\sqrt{200/3} \approx 8.16\), so \(p(100) \approx \frac{e^{25.6}}{700} \approx 1.9 \times 10^8\).</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Partitions into parts of size at most \(k\) correspond to partitions with largest part \(\leq k\).</p><p><strong>Step 2:</strong> By conjugation of Ferrers diagrams, this equals partitions into at most \(k\) parts.</p><p><strong>Conclusion:</strong> The bijection is conjugation.</p></p></div>
+      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> By Euler's pentagonal theorem, \(p(n) = p(n-1) + p(n-2) - p(n-5) - p(n-7) + \ldots\).</p><p><strong>Step 2:</strong> For \(n = 2^k - 1\), the recurrence gives \(p(n) \equiv p(n-1) \pmod{2}\).</p><p><strong>Step 3:</strong> By induction, \(p(2^k - 1)\) is odd for all \(k\).</p></p></div>
+      <div class="navigation"><a href="problem-set-14-partitions.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  <script src="../script.js"></script>
+</body>
+</html>
