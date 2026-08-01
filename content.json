@@ -12,10 +12,12 @@
   "about": {
     "header": "About Me",
     "paragraphs": [
-      "Hi! I'm Kasieobi Udumaga, a high school student who's been captivated by mathematics since I was in first grade. There's something incredibly satisfying about unraveling a tricky proof or discovering an unexpected connection between different areas of math.",
-      "My dream is to contribute to mathematical research and share what I learn through writing and teaching. I believe mathematics is not just about solving problems—it's about exploring beautiful ideas and making them accessible to others.",
-      "Feel free to reach out if you'd like to chat about math, discuss a problem, or just connect with another math enthusiast!",
-      "More about my journey will be added here soon!"
+      "Hi! As you may have already saw on the home page, I'm Kasieobi (Kasi) Udumaga, a student passionate about pure mathematics and understanding it at a deep level. Since discovering proof-based math, I've been drawn to how simple definitions can lead to complex theories. Rather than memorizing techniques, I focus on asking why things are true.",
+      "My current interests include commutative algebra, algebraic number theory, and arithmetic geometry. I'm especially interested in the connections between algebraic structures and number theory, and I hope to contribute original research in these areas. For now, I spend my time reading textbooks, writing notes, solving challenging problems(sometimes), and developing the mathematical maturity and tools/set ups needed for research.",
+      "This website essentially documents that journey. It's a place where I organize notes, share expository writing, document projects, and explore ideas I find interesting. More than anything, I hope it becomes a record of my growth as a mathematician from what I'm learning now to the research I'll pursue in the future.",
+      "Outside of mathematics, I'm just Kasi. I enjoy sprinting and compete in track and field, where I've learned discipline, perseverance, and consistency. Though math and athletics seem different, both have shown me that progress comes from patience, hard work, and embracing challenges.",
+      "I also enjoy programming and exploring tools that support mathematics, especially theorem prover(Lean :D), and other computational tools. I'm fascinated by how computers can help explore, verify, and communicate mathematical ideas while still preserving the creativity at the heart of the subject.",
+      "Thank you for visiting my website. I hope you enjoy exploring my notes, projects, and writing, and perhaps find something here that inspires your own journey into mathematics."
     ]
   },
   "contact": {
