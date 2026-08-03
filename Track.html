@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Track and field by Kasieobi Udumaga.">
-  <title>Kasieobi Udumaga | Track and Field</title>
+  <title>Track and Field | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<body>
+<body class="track-page">
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
         <span class="search-bar__icon">⌕</span>
-         <input id="site-search" type="search" placeholder="Search site" autocomplete="off">      </label>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
     </div>
     <div class="header-content">
       <h1 data-content="Track.header">Track and Field</h1>
     </div>
   </header>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -39,10 +41,67 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
+
   <main>
-    <p data-content="Track.paragraphs.0">Track and field details coming soon.</p>
+    <div class="track-container">
+      <div class="track-content" id="trackContent">
+        <div class="track-border-top"></div>
+        
+        <div class="track-section">
+          <h2 class="track-main-title">Track & Field</h2>
+        </div>
+        
+        <div class="track-section">
+          <h3 class="track-section-heading">Competitive Journey</h3>
+          <p class="track-text">I currently compete for the Prince George Track & Field Club and have represented British Columbia at provincial and national competitions (Just one legion nationals lol). Over the years, I have had the opportunity to race against many of Canada's fastest young sprinters, experiences that continue to challenge me to improve both physically and mentally.</p>
+        </div>
+
+        <div class="track-section">
+          <h3 class="track-section-heading">The Mathematical Mindset</h3>
+          <p class="track-text">Although mathematics and sprinting may seem unrelated, I have found that they complement each other remarkably well. Mathematics teaches logical reasoning, creativity, and patience when solving difficult problems. Sprinting develops resilience, confidence, and the ability to perform under pressure. Both require sustained dedication over many years, and both reward careful preparation far more than natural talent alone.</p>
+        </div>
+
+        <div class="track-section">
+          <h3 class="track-section-heading">Progress and Growth</h3>
+          <p class="track-text">One of the aspects I enjoy most about sprinting is that progress is measurable. Every hundredth of a second represents months of work, and every race provides immediate feedback on what can be improved. This mindset of continuous refinement has shaped how I approach not only athletics, but also mathematics and research.</p>
+        </div>
+
+        <div class="track-section">
+          <h3 class="track-section-heading">Future Goals</h3>
+          <p class="track-text">As I continue my academic journey into commutative algebra and algebraic number theory, I also hope to continue competing at a high level in track and field. Whether I am preparing for a race or working through a difficult proof, my goal remains the same: to become a little better each day.</p>
+        </div>
+
+        <div class="track-section">
+          <h3 class="track-section-heading">Personal Bests</h3>
+          <div class="track-prs-container">
+            <div class="track-pr-card track-pr-primary">
+              <div class="track-pr-label">100m</div>
+              <div class="track-pr-value">11.20<span class="track-pr-unit">s (+0.2)</span></div>
+            </div>
+            <div class="track-pr-card track-pr-secondary">
+              <div class="track-pr-label">200m</div>
+              <div class="track-pr-value">22.75<span class="track-pr-unit">s (+0.5)</span></div>
+            </div>
+            <div class="track-pr-card track-pr-tertiary">
+              <div class="track-pr-label">60m Indoor</div>
+              <div class="track-pr-value">7.32<span class="track-pr-unit">s</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="track-section">
+          <h3 class="track-section-heading">Competitive Highlights</h3>
+          <p class="track-text">I am a 12 time provincial champion in the 100m and 200m. I also hold the tied electronically timed provincial record in the U15 100m dash.</p>
+          <p class="track-text" style="margin-top: 1rem; font-size: 0.95rem;">
+            <a href="https://athletics.ca/athlete/kasieobi-udumaga/" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">View Athletics Canada Profile</a>
+          </p>
+        </div>
+      </div>
+    </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version"></span></p></footer>
+
   <script src="content-loader.js"></script>
   <script src="script.js"></script>
 </body>
