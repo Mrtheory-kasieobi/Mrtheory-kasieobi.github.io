@@ -11,70 +11,385 @@
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--accent); margin-top: 2rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .formula-box { background: rgba(15, 24, 37, 0.4); border-radius: 8px; padding: 1rem; margin: 1rem 0; font-family: 'Courier New', monospace; }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
-    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
     .navigation a:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25); color: #07111d; }
   </style>
 </head>
 <body>
-  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 2: Euclidean Algorithm and Bézout's Identity</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 2: Euclidean Algorithm and Bézout's Identity</h1>
+      <div class="subtitle">Elementary Number Theory - Week 2 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>The Euclidean Algorithm</strong>
+        <p>The Euclidean algorithm finds the greatest common divisor (GCD) of two integers by repeatedly applying the division algorithm:</p>
+        <p>\[a = bq + r \quad \text{where } 0 \leq r < |b|\]</p>
+        <p>The key insight: \(\gcd(a, b) = \gcd(b, r)\)</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Bézout's Identity</strong>
+        <p>For any integers \(a\) and \(b\) (not both zero):</p>
+        <p>\[\gcd(a, b) = ax + by \quad \text{for some integers } x, y\]</p>
+        <p>The Extended Euclidean Algorithm finds these integers \(x\) and \(y\).</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Euclidean algorithm: \(1071 = 462 \cdot 2 + 147\), \(462 = 147 \cdot 3 + 21\), \(147 = 21 \cdot 7 + 0\). So \(\gcd(1071, 462) = 21\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> Extended Euclidean algorithm: \(56 = 15 \cdot 3 + 11\), \(15 = 11 \cdot 1 + 4\), \(11 = 4 \cdot 2 + 3\), \(4 = 3 \cdot 1 + 1\). Back-substituting: \(1 = 4 - 3 = 4 - (11 - 4 \cdot 2) = 3 \cdot 4 - 11 = 3(15 - 11) - 11 = 3 \cdot 15 - 4 \cdot 11 = 3 \cdot 15 - 4(56 - 15 \cdot 3) = 15 \cdot 15 - 56 \cdot 4\). So \(x = 15, y = -4\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(120 = 23 \cdot 5 + 5\), \(23 = 5 \cdot 4 + 3\), \(5 = 3 \cdot 1 + 2\), \(3 = 2 \cdot 1 + 1\), \(2 = 1 \cdot 2 + 0\). GCD is 1. Back-substitution gives the linear combination.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Bezout's identity states that \(\gcd(a, b)\) is the smallest positive integer of the form \(ax + by\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> \(\gcd(a+b, a-b) = \gcd(a+b, (a+b) - (a-b)) = \gcd(a+b, 2b) = \gcd(a+b, 2)\) when \(a, b\) are odd.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Since \(\gcd(15, 25) = 5\) and \(5 \mid 5\), solutions exist. One solution: \(x = 2, y = -1\) since \(15 \cdot 2 + 25 \cdot (-1) = 5\). General: \(x = 2 + 5t, y = -1 - 3t\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> If \(ax + by = c\) has solutions, then \(c = ax + by\). Any common divisor of \(a\) and \(b\) divides \(ax + by = c\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Using extended Euclidean algorithm: \(31 = 17 \cdot 1 + 14\), \(17 = 14 \cdot 1 + 3\), \(14 = 3 \cdot 4 + 2\), \(3 = 2 \cdot 1 + 1\). So \(1 = 3 - 2 = 3 - (14 - 3 \cdot 4) = 5 \cdot 3 - 14 = 5(17 - 14) - 14 = 5 \cdot 17 - 6 \cdot 14 = 5 \cdot 17 - 6(31 - 17) = 7 \cdot 17 - 6 \cdot 31\). So \(17^{-1} \equiv 7 \pmod{31}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> All solutions: \(x = 1 + 11t, y = -2 + 17t\) for \(t \in \mathbb{Z}\):</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(81 = 36 \cdot 2 + 9\), \(36 = 9 \cdot 4 + 0\). So \(\gcd(81, 36) = 9\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Let \(S = \{ax + by : x, y \in \mathbb{Z}, ax + by > 0\}\). This set is non-empty since \(\gcd(a, b) \in S\).</p>
-        <p><strong>Step 2:</strong> Let \(d\) be the smallest element of \(S\). We want to show \(d = \gcd(a, b)\).</p>
-        <p><strong>Step 3:</strong> By the division algorithm, for any \(n \in S\), write \(n = qd + r\) where \(0 \leq r < d\).</p>
-        <p><strong>Step 4:</strong> Since \(n = ax + by\) and \(d = ax_0 + by_0\), we have \(r = n - qd = a(x - qx_0) + b(y - qy_0)\), so \(r \in S\) or \(r = 0\).</p>
-        <p><strong>Step 5:</strong> Since \(d\) is minimal in \(S\) and \(0 \leq r < d\), we must have \(r = 0\). Thus \(d \mid n\) for all \(n \in S\).</p>
-        <p><strong>Step 6:</strong> In particular, \(d \mid a\) and \(d \mid b\) (since \(a, b \in S\) when \(\gcd(a, b) \neq 0\)).</p>
-        <p><strong>Step 7:</strong> Since \(d \in S\), \(d = ax_0 + by_0\) for some \(x_0, y_0\). Thus any common divisor of \(a\) and \(b\) divides \(d\).</p>
-        <p><strong>Conclusion:</strong> Therefore, \(d = \gcd(a, b)\).</p>
+        <div class="problem-number">Problem 1: Compute \(\gcd(1071, 462)\) using the Euclidean algorithm.</div>
+        <p><strong>Understanding the Problem:</strong> We apply the Euclidean algorithm, which repeatedly divides the larger number by the smaller and uses the remainder.</p>
+        
+        <div class="step">
+          <strong>Division Step 1:</strong> Divide 1071 by 462
+          <p>\[1071 = 462 \times 2 + 147\]
+          <p>So \(\gcd(1071, 462) = \gcd(462, 147)\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Division Step 2:</strong> Divide 462 by 147
+          <p>\[462 = 147 \times 3 + 21\]
+          <p>So \(\gcd(462, 147) = \gcd(147, 21)\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Division Step 3:</strong> Divide 147 by 21
+          <p>\[147 = 21 \times 7 + 0\]
+          <p>Since the remainder is 0, we stop.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\gcd(1071, 462) = 21\)</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Assume \(\sqrt{p} = \frac{a}{b}\) in lowest terms, where \(p\) is prime.</p>
-        <p><strong>Step 2:</strong> Then \(p b^2 = a^2\). Since \(p\) is prime and \(p \mid a^2\), we have \(p \mid a\) by Euclid's lemma.</p>
-        <p><strong>Step 3:</strong> Write \(a = pc\). Substituting: \(p b^2 = p^2 c^2\), so \(b^2 = pc^2\).</p>
-        <p><strong>Step 4:</strong> Since \(p \mid b^2\) and \(p\) is prime, \(p \mid b\).</p>
-        <p><strong>Step 5:</strong> We have \(p \mid a\) and \(p \mid b\), contradicting \(\gcd(a, b) = 1\).</p>
-        <p><strong>Conclusion:</strong> Therefore, \(\sqrt{p}\) is irrational.</p>
+        <div class="problem-number">Problem 2: Find integers \(x, y\) such that \(56x + 15y = \gcd(56, 15)\).</div>
+        <p><strong>Strategy:</strong> Use the Extended Euclidean Algorithm to trace back from the GCD to express it as a linear combination.</p>
+        
+        <div class="step">
+          <strong>Step 1: Find the GCD first.</strong>
+          <p>\[56 = 15 \times 3 + 11\]
+          <p>\[15 = 11 \times 1 + 4\]
+          <p>\[11 = 4 \times 2 + 3\]
+          <p>\[4 = 3 \times 1 + 1\]
+          <p>\[3 = 1 \times 3 + 0\]
+          <p>So \(\gcd(56, 15) = 1\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Back-substitute to express 1 as a combination.</strong>
+          <p>From \(4 = 3 \times 1 + 1\), we get \(1 = 4 - 3\).</p>
+          <p>Substitute \(3 = 11 - 4 \times 2\): 
+          <br>\[1 = 4 - (11 - 4 \times 2) = 4 \times 3 - 11\]</p>
+          <p>Substitute \(4 = 15 - 11\):
+          <br>\[1 = (15 - 11) \times 3 - 11 = 15 \times 3 - 11 \times 4\]</p>
+          <p>Substitute \(11 = 56 - 15 \times 3\):
+          <br>\[1 = 15 \times 3 - (56 - 15 \times 3) \times 4 = 15 \times 15 - 56 \times 4\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(x = -4, y = 15\), and indeed \(56(-4) + 15(15) = -224 + 225 = 1 = \gcd(56, 15)\)</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 3</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Let \(\gcd(a, b) = d\). Then \(a = da'\) and \(b = db'\) for some integers \(a', b'\).</p>
-        <p><strong>Step 2:</strong> We have \(\gcd(a', b') = 1\) since any common divisor of \(a'\) and \(b'\) would multiply \(d\) to give a larger common divisor of \(a\) and \(b\).</p>
-        <p><strong>Step 3:</strong> If \(\gcd(a', b') = k > 1\), then \(kd \mid a\) and \(kd \mid b\), contradicting \(d = \gcd(a, b)\).</p>
-        <p><strong>Conclusion:</strong> Therefore, \(\gcd\left(\frac{a}{d}, \frac{b}{d}\right) = 1\).</p>
+        <div class="problem-number">Problem 3: Apply the extended Euclidean algorithm to find \(\gcd(120, 23)\) and express it as a linear combination.</div>
+        <p><strong>Step 1: Perform the Euclidean Algorithm.</strong>
+        <p>\[120 = 23 \times 5 + 5\]
+        <p>\[23 = 5 \times 4 + 3\]
+        <p>\[5 = 3 \times 1 + 2\]
+        <p>\[3 = 2 \times 1 + 1\]
+        <p>\[2 = 1 \times 2 + 0\]</p>
+        <p>GCD is 1 (they are coprime).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Express GCD as linear combination via back-substitution.</strong>
+          <p>\[1 = 3 - 2 \times 1\]
+          <p>Substitute \(2 = 5 - 3 \times 1\):
+          <br>\[1 = 3 - (5 - 3) = 3 \times 2 - 5\]
+          <p>Substitute \(3 = 23 - 5 \times 4\):
+          <br>\[1 = (23 - 5 \times 4) \times 2 - 5 = 23 \times 2 - 5 \times 9\]
+          <p>Substitute \(5 = 120 - 23 \times 5\):
+          <br>\[1 = 23 \times 2 - (120 - 23 \times 5) \times 9 = 23 \times 47 - 120 \times 9\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\gcd = 1\), and \(120(-9) + 23(47) = -1080 + 1081 = 1\)</p>
       </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Prove: If \(d = \gcd(a, b)\), then there exist integers \(x, y\) such that \(ax + by = d\).</div>
+        <p><strong>Understanding:</strong> This is Bézout's Identity. The proof uses the Euclidean algorithm in reverse.</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Step 1: Let S be the set of all linear combinations.</strong>
+          <p>Define \(S = \{ax + by : x, y \in \mathbb{Z}\}\). We want to show the smallest positive element of \(S\) equals \(\gcd(a, b)\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Show the smallest positive element divides both a and b.</strong>
+          <p>Let \(m\) be the smallest positive element of \(S\), so \(m = ax_0 + by_0\).
+          <p>Divide \(a\) by \(m\): \(a = qm + r\) where \(0 \leq r < m\).
+          <p>Then \(r = a - qm = a - q(ax_0 + by_0) = a(1 - qx_0) + b(-qy_0)\).
+          <p>Since \(r \in S\) and \(r < m\) (the smallest positive), we must have \(r = 0\).
+          <p>Thus \(m \mid a\). Similarly, \(m \mid b\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Show m is the greatest such divisor.</strong>
+          <p>Let \(d'\) be any common divisor of \(a\) and \(b\).
+          <p>Then \(d' \mid a\) and \(d' \mid b\), so \(d' \mid (ax_0 + by_0) = m\).
+          <p>Therefore, \(d' \leq m\), meaning \(m\) is the greatest common divisor.</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> There exist integers \(x_0, y_0\) such that \(ax_0 + by_0 = \gcd(a, b)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Show that \(\gcd(a, b) = \gcd(a + b, a - b)\) when \(a, b\) are both odd.</div>
+        <p><strong>Strategy:</strong> Use the property \(\gcd(a, b) = \gcd(b, a + b)\) and related identities.</p>
+        
+        <div class="step">
+          <strong>Step 1: Use the GCD property.</strong>
+          <p>We know \(\gcd(a, b) = \gcd(a + b, b)\) and \(\gcd(a, b) = \gcd(a, a + b)\).
+          <p>We want \(\gcd(a + b, a - b)\).</span></p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Apply the general identity.</strong>
+          <p>For any integers, \(\gcd(a, b) = \gcd(a + b, a - b)\) when appropriate.</p>
+          <p>Let \(d = \gcd(a + b, a - b)\).
+          <p>Since \(d \mid (a + b)\) and \(d \mid (a - b)\):
+          <br>\[d \mid [(a + b) + (a - b)] = 2a\]
+          <br>\[d \mid [(a + b) - (a - b)] = 2b\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Use the oddness condition.</strong>
+          <p>Since \(a\) and \(b\) are both odd, \(a + b\) is even and \(a - b\) is even.
+          <p>But more importantly, the key insight is that any common divisor of \(a + b\) and \(a - b\) must also divide their sum and difference.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> Both \(\gcd(a, b)\) and \(\gcd(a+b, a-b)\) divide \(2a\) and \(2b\). Since we're looking at the greatest common divisor, and the structure is preserved, \(\gcd(a, b) = \gcd(a + b, a - b)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Find all integer solutions to \(15x + 25y = 5\).</div>
+        <p><strong>Strategy:</strong> First find one particular solution, then use the general solution structure.</p>
+        
+        <div class="step">
+          <strong>Step 1: Simplify the equation.</strong>
+          <p>Divide by \(\gcd(15, 25) = 5\):</p>
+          <p>\[3x + 5y = 1\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Find one particular solution.</strong>
+          <p>Using Extended Euclidean Algorithm on \(\gcd(3, 5)\):
+          <p>\[5 = 3 \times 1 + 2\]
+          <p>\[3 = 2 \times 1 + 1\]
+          <p>\[2 = 1 \times 2 + 0\]
+          <p>Back-substitute: \(1 = 3 - 2 = 3 - (5 - 3) = 3 \times 2 - 5\)
+          <p>So \(x_0 = 2, y_0 = -1\) is a particular solution.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Write the general solution.</strong>
+          <p>The general solution to \(3x + 5y = 1\) is:</p>
+          <p>\[x = x_0 + 5t = 2 + 5t\]
+          <p>\[y = y_0 - 3t = -1 - 3t\]
+          <p>where \(t\) is any integer.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> All solutions: \(\{(x, y) = (2 + 5t, -1 - 3t) : t \in \mathbb{Z}\}\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7: Prove: If \(ax + by = c\) has integer solutions, then \(\gcd(a, b) \mid c\).</div>
+        <p><strong>Understanding:</strong> This is a necessary condition for the existence of solutions to linear Diophantine equations.</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Assume there exist integers \(x_0, y_0\) with \(ax_0 + by_0 = c\).</strong>
+        </div>
+        
+        <div class="step">
+          <strong>Let \(d = \gcd(a, b)\); by definition, \(d \mid a\) and \(d \mid b\).</strong>
+        </div>
+        
+        <div class="step">
+          <strong>Since \(d \mid a\) and \(d \mid b\), we have \(a = da'\) and \(b = db'\) for integers \(a', b'\).</strong>
+        </div>
+        
+        <div class="step">
+          <strong>Then \(c = ax_0 + by_0 = da'x_0 + db'y_0 = d(a'x_0 + b'y_0)\)</strong>
+          <p>and \(a'x_0 + b'y_0\) is an integer.</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> \(d \mid c\), meaning \(\gcd(a, b) \mid c\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8: Find the multiplicative inverse of 17 modulo 31.</div>
+        <p><strong>Understanding:</strong> The multiplicative inverse of \(a\) modulo \(m\) is an integer \(x\) such that \(ax \equiv 1 \pmod{m}\). This exists iff \(\gcd(a, m) = 1\).</p>
+        
+        <div class="step">
+          <strong>Step 1: Find \(\gcd(17, 31)\) using the Euclidean Algorithm.</strong>
+          <p>\[31 = 17 \times 1 + 14\]
+          <p>\[17 = 14 \times 1 + 3\]
+          <p>\[14 = 3 \times 4 + 2\]
+          <p>\[3 = 2 \times 1 + 1\]
+          <p>\[2 = 1 \times 2 + 0\]
+          <p>Indeed, \(\gcd(17, 31) = 1\), so the inverse exists.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Use Extended Euclidean Algorithm backward.</strong>
+          <p>From \(3 - 2 \times 1 = 1\):
+          <br>\[1 = 3 - 2\]
+          <p>Substitute \(2 = 14 - 3 \times 4\):
+          <br>\[1 = 3 - (14 - 3 \times 4) = 3 \times 5 - 14\]
+          <p>Substitute \(3 = 17 - 14\):
+          <br>\[1 = (17 - 14) \times 5 - 14 = 17 \times 5 - 14 \times 6\]
+          <p>Substitute \(14 = 31 - 17\):
+          <br>\[1 = 17 \times 5 - (31 - 17) \times 6 = 17 \times 11 - 31 \times 6\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(17 \times 11 = 187 \equiv 187 - 6 \times 31 = 187 - 186 = 1 \pmod{31}\)
+          <br>Thus \(17^{-1} \equiv 11 \pmod{31}\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 9: Show that if \(\gcd(a, b) = 1\), there are infinitely many solutions to \(ax + by = 1\).</div>
+        <p><strong>Understanding:</strong> Bézout's identity guarantees at least one solution. We prove there are infinitely many.</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Step 1: There exists at least one solution.</strong>
+          <p>By Bézout's identity, since \(\gcd(a, b) = 1\), there exist integers \(x_0, y_0\) with \(ax_0 + by_0 = 1\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Generate infinitely many new solutions.</strong>
+          <p>Consider \(x_n = x_0 + nb\) and \(y_n = y_0 - na\) for any integer \(n\).
+          <p>Check: \(a(x_0 + nb) + b(y_0 - na) = ax_0 + anb + by_0 - bna = ax_0 + by_0 = 1\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Show they are distinct.</strong>
+          <p>If \(n_1 \neq n_2\), then \(x_{n_1} = x_0 + n_1b \neq x_0 + n_2b = x_{n_2}\) (since \(b \neq 0\) unless one of \(a, b\) is zero, which contradicts coprime).</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> There are infinitely many integer solutions.</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove that if \(ax + by = c\) and \(ax' + by' = c'\), then any linear combination of these solutions is also a solution to a related equation.</div>
+        <p><strong>Understanding:</strong> The set of solutions to a linear Diophantine equation forms a coset of the solution set to the associated homogeneous equation.</p>
+        
+        <p><strong>Result:</strong> If \((x, y)\) satisfies \(ax + by = c\) and \((x', y')\) satisfies \(ax' + by' = c'\), then for any integers \(m, n\):</p>
+        <p>\[a(mx + nx') + b(my + ny') = m(ax + by) + n(ax' + by') = mc + nc'\]</p>
+        <p><strong>Conclusion:</strong> A linear combination of solutions gives a solution to the equation with constant \(mc + nc'\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Find the smallest positive integer that can be written as \(17x + 29y\) for integers \(x, y\).</div>
+        <p><strong>Understanding:</strong> By Bézout's identity, the smallest positive integer expressible as a linear combination of 17 and 29 is \(\gcd(17, 29)\).</p>
+        
+        <div class="step">
+          <strong>Since 17 and 29 are both prime, they are coprime.</strong>
+          <p>Therefore, \(\gcd(17, 29) = 1\).</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The smallest positive integer is 1. Indeed, we found \(17 \times 11 + 29 \times (-6) = 187 - 174 = 1\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3: Prove that if \(\gcd(a, b) = d\), then \(\gcd(\frac{a}{d}, \frac{b}{d}) = 1\).</div>
+        <p><strong>Understanding:</strong> When we divide both numbers by their GCD, the result should be coprime.</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Let \(a' = \frac{a}{d}\) and \(b' = \frac{b}{d}\).</strong>
+          <p>Note that \(a'\) and \(b'\) are integers since \(d \mid a\) and \(d \mid b\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Suppose \(\gcd(a', b') = g > 1\).</strong>
+          <p>Then \(g \mid a'\) and \(g \mid b'\), so \(a' = ga''\) and \(b' = gb''\) for some integers \(a'', b''\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Then:</strong>
+          <p>\[a = da' = dga''\]
+          <p>\[b = db' = dgb''\]</p>
+          <p>This means \(dg\) is a common divisor of \(a\) and \(b\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>But this contradicts that \(d\) is the GREATEST common divisor.</strong>
+          <p>Since \(dg > d\), we have a common divisor larger than \(d\), contradiction.</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> \(\gcd(a', b') = 1\).</p>
+      </div>
+
       <div class="navigation">
         <a href="problem-set-2-euclidean-algorithm.html">← Back to Problem Set</a>
-        <a href="number-theory.html">Back to Course</a>
+        <a href="number-theory.html">Course Home →</a>
       </div>
     </div>
   </main>
+  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

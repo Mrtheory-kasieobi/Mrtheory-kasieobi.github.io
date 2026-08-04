@@ -10,39 +10,190 @@
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 6: Quadratic Residues</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 6: Quadratic Residues and the Legendre Symbol</h1>
+      <div class="subtitle">Elementary Number Theory - Week 7 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Quadratic Residue</strong>
+        <p>For prime \(p\), an integer \(a\) is a quadratic residue mod \(p\) if \(x^2 \equiv a \pmod{p}\) has a solution.</p>
+        <p><strong>Notation:</strong> \(\left(\frac{a}{p}\right) = 1\) if \(a\) is a QR mod \(p\), \(-1\) if not, \(0\) if \(p \mid a\).</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Legendre Symbol Properties</strong>
+        <p>\(\left(\frac{a}{p}\right) = \left(\frac{b}{p}\right)\) if \(a \equiv b \pmod{p}\)</p>
+        <p>\(\left(\frac{ab}{p}\right) = \left(\frac{a}{p}\right)\left(\frac{b}{p}\right)\)</p>
+        <p>\(\left(\frac{a^2}{p}\right) = 1\) for \(p \nmid a\)</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Compute \(1^2, 2^2, \ldots, 5^2 \pmod{11}\): 1, 4, 9, 5, 3. So 3 is a quadratic residue.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> By Euler's criterion: \(\left(\frac{5}{7}\right) \equiv 5^3 = 125 \equiv 6 \pmod{7}\), so the symbol equals -1.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Compute \(1^2, 2^2, \ldots, 6^2 \pmod{13}\): 1, 4, 9, 3, 12, 10. Residues are 1, 3, 4, 9, 10, 12.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(\left(\frac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}\). Equals 1 if \(p \equiv 1 \pmod{4}\), -1 if \(p \equiv 3 \pmod{4}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> If \(p \equiv 1 \pmod{4}\), then \(\frac{p-1}{2}\) is even, so \(\left(\frac{-1}{p}\right) = 1\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(\left(\frac{2}{p}\right) = (-1)^{\frac{p^2-1}{8}}\). Equals 1 when \(p \equiv \pm 1 \pmod{8}\), -1 when \(p \equiv \pm 3 \pmod{8}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(6^2 = 36 \equiv 7 \pmod{29}\). Solutions: \(x \equiv \pm 6 \pmod{29}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> By Euler's criterion: \(\left(\frac{ab}{p}\right) \equiv (ab)^{\frac{p-1}{2}} = a^{\frac{p-1}{2}} b^{\frac{p-1}{2}} \equiv \left(\frac{a}{p}\right)\left(\frac{b}{p}\right) \pmod{p}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(\left(\frac{3}{17}\right) = -\left(\frac{17}{3}\right) = -\left(\frac{2}{3}\right) = -(-1) = 1\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\left(\frac{a^2}{p}\right) = \left(\frac{a}{p}\right)^2 = 1\) since the Legendre symbol is \(\pm 1\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> We want the last two digits of \(7^{100}\), i.e., compute \(7^{100} \pmod{100}\).</p><p><strong>Step 2:</strong> Note that \(100 = 4 \cdot 25\). Use CRT.</p><p><strong>Step 3:</strong> \(7^{100} \equiv 1 \pmod{4}\) (since \(7 \equiv 3 \pmod{4}\), \(3^2 \equiv 1\)).</p><p><strong>Step 4:</strong> \(\phi(25) = 20\), so \(7^{20} \equiv 1 \pmod{25}\), thus \(7^{100} \equiv 1 \pmod{25}\).</p><p><strong>Step 5:</strong> By CRT, \(7^{100} \equiv 1 \pmod{100}\). Last two digits: 01.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Prove by induction on \(n\).</p><p><strong>Step 2:</strong> Base case \(n=1\): \(a^1 \equiv b^1 \pmod{m}\).</p><p><strong>Step 3:</strong> Inductive step: Assume \(a^n \equiv b^n\). Then \(a^{n+1} = a^n \cdot a \equiv b^n \cdot b = b^{n+1} \pmod{m}\).</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Suppose \(x^2 \equiv a \pmod{p}\) has solution \(r\).</p><p><strong>Step 2:</strong> Then \(x^2 - r^2 \equiv 0 \pmod{p}\), so \((x-r)(x+r) \equiv 0 \pmod{p}\).</p><p><strong>Step 3:</strong> Since \(p\) is prime, \(x \equiv \pm r \pmod{p}\). At most 2 solutions.</p></p></div>
-      <div class="navigation"><a href="problem-set-6-quadratic-residues.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Determine which of 2, 3, 5, 6 are quadratic residues modulo 7.</div>
+        <p><strong>Strategy:</strong> Check if \(x^2 \equiv a \pmod{7}\) has a solution for each \(a\).</p>
+        
+        <table border="1" cellpadding="5" cellspacing="0">
+          <tr><th>x</th><th>x² mod 7</th></tr>
+          <tr><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>1</td></tr>
+          <tr><td>2</td><td>4</td></tr>
+          <tr><td>3</td><td>9≡2</td></tr>
+          <tr><td>4</td><td>16≡2</td></tr>
+          <tr><td>5</td><td>25≡4</td></tr>
+          <tr><td>6</td><td>36≡1</td></tr>
+        </table>
+        
+        <p>The quadratic residues mod 7 are: 0, 1, 2, 4.</p>
+        <p><strong>Answer:</strong> 2 and 6 are QR (since \(3^2 \equiv 2\)), but 3, 5 are not. Wait: 2 is QR, 6 is not in {0,1,2,4}. Let me verify: \(2^2 = 4\), \(3^2 = 9 \equiv 2\), so 2 is QR. Squares are 0,1,2,4.</p>
+        <p>Actually: 2 IS a quadratic residue (\(3^2 \equiv 2\)), but 3, 5, 6 are NOT quadratic residues mod 7.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Compute \(\left(\frac{2}{p}\right)\) for odd prime \(p\).</div>
+        <p><strong>Theorem (First Supplement to Quadratic Reciprocity):</strong></p>
+        <p>\[\left(\frac{2}{p}\right) = (-1)^{\frac{p^2-1}{8}} = \begin{cases} 1 & p \equiv \pm 1 \pmod{8} \\ -1 & p \equiv \pm 3 \pmod{8} \end{cases}\]</p>
+        
+        <p><strong>Answer:</strong> 2 is a QR mod \(p\) iff \(p \equiv 1\) or \(7 \pmod{8}\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Compute \(\left(\frac{3}{17}\right)\) using the Legendre symbol properties.</div>
+        <p><strong>Step 1: Apply Quadratic Reciprocity.</strong>
+        <p>Since \(3 \equiv 3 \pmod{4}\) and \(17 \equiv 1 \pmod{4}\):
+        <br>\[\left(\frac{3}{17}\right) = \left(\frac{17}{3}\right)\]</p>
+        
+        <div class="step">
+          <strong>Step 2: Reduce 17 mod 3.</strong>
+          <br>\[17 \equiv 2 \pmod{3}\]
+          <br>\[\left(\frac{17}{3}\right) = \left(\frac{2}{3}\right)\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Apply the supplement for 2.</strong>
+          <p>Since \(3 \equiv 3 \pmod{8}\): \(\left(\frac{2}{3}\right) = -1\)</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\left(\frac{3}{17}\right) = -1\), so 3 is a quadratic non-residue mod 17.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Prove: \(\left(\frac{-1}{p}\right) = (-1)^{\frac{p-1}{2}}\) for odd prime \(p\).</div>
+        <p><strong>Proof:</strong></p>
+        <p>By Euler's criterion: \(\left(\frac{-1}{p}\right) \equiv (-1)^{\frac{p-1}{2}} \pmod{p}\).</p>
+        
+        <div class="step">
+          <strong>Using Euler's criterion directly:</strong>
+          <p>\[(-1)^{\frac{p-1}{2}} \equiv \left(\frac{-1}{p}\right) \pmod{p}\]
+          <p>Since both sides are \(\pm 1\) and \(p > 2\), we have equality.</p>
+        </div>
+        
+        <p><strong>Geometric interpretation:</strong> \(\left(\frac{-1}{p}\right) = 1\) iff \((-1)\) is a square mod \(p\).</p>
+        <p>This happens iff there exists \(x\) with \(x^2 \equiv -1 \pmod{p}\), which requires \(p \equiv 1 \pmod{4}\).</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove Euler's Criterion: \(\left(\frac{a}{p}\right) \equiv a^{\frac{p-1}{2}} \pmod{p}\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Case 1: \(p \mid a\).</strong>
+          <p>Then \(\left(\frac{a}{p}\right) = 0 = a^{\frac{p-1}{2}} \pmod{p}\).</div>
+        
+        <div class="step">
+          <strong>Case 2: \(a\) is a quadratic residue.</strong>
+          <p>So \(x^2 \equiv a \pmod{p}\) has a solution \(x\).
+          <br>\[a^{\frac{p-1}{2}} \equiv (x^2)^{\frac{p-1}{2}} = x^{p-1} \equiv 1 \pmod{p}\]
+          <br>Thus \(\left(\frac{a}{p}\right) = 1\).</div>
+        
+        <div class="step">
+          <strong>Case 3: \(a\) is a quadratic non-residue.</strong>
+          <p>The polynomial \(x^2 - a\) has no roots mod \(p\), so it's a product of irreducible polynomials.
+          <p>In \(\mathbb{F}_p[x]\), every element of \(\mathbb{F}_p^*\) is a square or non-square.
+          <br>For non-residues, \(a^{\frac{p-1}{2}} \equiv -1 \pmod{p}\), so \(\left(\frac{a}{p}\right) = -1\).</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Use the law of quadratic reciprocity to determine if 41 is a quadratic residue mod 73.</a></div>
+        <div class="step">
+          <strong>Compute \(\left(\frac{41}{73}\right)\):</strong>
+          <p>Both 41 and 73 are primes, and both are \(\equiv 1 \pmod{4}\), so:
+          <br>\[\left(\frac{41}{73}\right) = \left(\frac{73}{41}\right)\]
+          <br>\[73 \equiv 73 - 41 \times 1 = 32 \not\equiv 73 \pmod{41}\]
+          <br>Actually \(73 = 41 \times 1 + 32\), and \(32 = 41 - 9\), but let's compute directly:
+          <br>\[73 \div 41 = 1 \text{ remainder } 32\]
+          <br>\[\left(\frac{73}{41}\right) = \left(\frac{32}{41}\right) = \left(\frac{2}{41}\right)^5\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Compute \(\left(\frac{2}{41}\right)\):</strong>
+          <p>41 ≡ 1 (mod 8), so \(\left(\frac{2}{41}\right) = 1\).
+          <br>Thus \(\left(\frac{32}{41}\right) = 1^5 = 1\).</p>
+        </div>
+        
+        <p><strong>Answer:</strong> 41 is a quadratic residue mod 73.</p>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-6-quadratic-residues.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

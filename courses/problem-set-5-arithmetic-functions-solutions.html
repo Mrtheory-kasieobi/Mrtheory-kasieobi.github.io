@@ -10,39 +10,239 @@
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 5: Arithmetic Functions</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 5: Arithmetic Functions and Möbius Inversion</h1>
+      <div class="subtitle">Elementary Number Theory - Week 6 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Divisor Function \(d(n)\)</strong>
+        <p>The number of positive divisors of \(n\).</p>
+        <p>If \(n = p_1^{a_1} \cdots p_k^{a_k}\), then \(d(n) = (a_1 + 1) \cdots (a_k + 1)\).</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Euler's Totient Function \(\phi(n)\)</strong>
+        <p>The number of positive integers \(\leq n\) that are coprime to \(n\).</p>
+        <p>Formula: \(\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right)\)</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Möbius Function \(\mu(n)\)</strong>
+        <p>\[\mu(n) = \begin{cases} 1 & n = 1 \\ (-1)^k & n = p_1 p_2 \cdots p_k \text{ (distinct primes)} \\ 0 & n \text{ has a squared prime factor} \end{cases}\]</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> \(\sigma(12) = 1+2+3+4+6+12 = 28\). \(\phi(12) = 12 \cdot (1-\frac{1}{2})(1-\frac{1}{3}) = 4\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \(\sigma(15) = 1+3+5+15 = 24\), \(\sigma(16) = 1+2+4+8+16 = 31\), \(\sigma(17) = 1+17 = 18\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(\phi(p) = p-1\) since all integers \(1, 2, \ldots, p-1\) are coprime to \(p\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(\sigma(p^k) = 1 + p + p^2 + \cdots + p^k\) is the sum of a geometric series.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> \(\mu(30) = \mu(2 \cdot 3 \cdot 5) = (-1)^3 = -1\). \(\mu(31) = -1\) (prime). \(\mu(32) = 0\) (has squared factor).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Möbius inversion: \(f(n) = \sum_{d|n} \mu(d) g(n/d)\)</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Each \(k\) from 1 to \(n\) contributes 1 to exactly \(\gcd(k, n)\) values of \(d\). The total count is \(n\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Testing: \(\phi(n) = 10\) gives \(n = 11\) (prime) or \(n = 22\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> Using multiplicativity of \(\phi\): \(\phi(n) = n \prod(1 - 1/p_i)\)</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\sum_{n=1}^{10} \phi(n) = 1+1+2+2+4+2+6+4+6+4 = 32\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> We need to prove \(\sum_{n \leq x} \phi(n) = \frac{3x^2}{\pi^2} + O(x \log x)\).</p><p><strong>Step 2:</strong> Use the identity \(\sum_{d|n} \phi(d) = n\).</p><p><strong>Step 3:</strong> Sum over \(n \leq x\): \(\sum_{n \leq x} \sum_{d|n} \phi(d) = \sum_{n \leq x} n = \frac{x(x+1)}{2}\).</p><p><strong>Step 4:</strong> Swap summation: \(\sum_{d \leq x} \phi(d) \lfloor \frac{x}{d} \rfloor = \frac{x^2}{2} + O(x)\).</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> The Dirichlet series for \(\mu\) is \(\sum_{n=1}^{\infty} \frac{\mu(n)}{n^s} = \frac{1}{\zeta(s)}\).</p><p><strong>Step 2:</strong> This follows from the Euler product: \(\zeta(s) = \prod_p (1 - p^{-s})^{-1}\), so \(\frac{1}{\zeta(s)} = \prod_p (1 - p^{-s}) = \sum_n \frac{\mu(n)}{n^s}\).</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(\phi(n) = \frac{n}{2}\), then \(n \prod(1 - \frac{1}{p_i}) = \frac{n}{2}\), giving \(\prod(1 - \frac{1}{p_i}) = \frac{1}{2}\).</p><p><strong>Step 2:</strong> This gives \(2 \prod(p_i - 1) = \prod p_i\).</p><p><strong>Step 3:</strong> Since \(p_i - 1 < p_i\) for all \(i\), we need \(k = 1\) and \(2(p-1) = p\), giving \(p = 2\).</p><p><strong>Conclusion:</strong> All \(n\) with \(\phi(n) = \frac{n}{2}\) are powers of 2.</p></p></div>
-      <div class="navigation"><a href="problem-set-5-arithmetic-functions.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Find \(\sigma(12)\), where \(\sigma(n)\) is the sum of all positive divisors of \(n\).</div>
+        <p><strong>Step 1: Find the prime factorization of 12.</strong>
+        <br>\[12 = 2^2 \times 3\]</p>
+        
+        <div class="step">
+          <strong>Step 2: Use the formula for \(\sigma\) with prime powers.</strong>
+          <p>\[\sigma(p^k) = 1 + p + p^2 + \cdots + p^k = \frac{p^{k+1} - 1}{p - 1}\]
+          <p>\[\sigma(12) = \sigma(2^2) \times \sigma(3) \quad \text{(since }\sigma\text{ is multiplicative)}\]
+          <br>\[\sigma(2^2) = 1 + 2 + 4 = 7\]
+          <br>\[\sigma(3) = 1 + 3 = 4\]
+          <br>\[\sigma(12) = 7 \times 4 = 28\]</p>
+        </div>
+        
+        <p><strong>Verification:</strong> Divisors of 12 are 1, 2, 3, 4, 6, 12. Sum = 1+2+3+4+6+12 = 28.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Compute \(\phi(36)\) and \(\sigma(36)\).</div>
+        <p><strong>Step 1: Prime factorization.</strong>
+        <br>\[36 = 2^2 \times 3^2\]</p>
+        
+        <div class="step">
+          <strong>Step 2: Compute \(\phi(36)\).</strong>
+          <p>\[\phi(36) = 36 \times \left(1 - \frac{1}{2}\right) \times \left(1 - \frac{1}{3}\right) = 36 \times \frac{1}{2} \times \frac{2}{3} = 12\]
+          <p>Or using \(\phi(p^k) = p^k - p^{k-1}\):
+          <br>\[\phi(36) = \phi(2^2) \times \phi(3^2) = (4 - 2) \times (9 - 3) = 2 \times 6 = 12\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Compute \(\sigma(36)\).</strong>
+          <p>\[\sigma(36) = \sigma(2^2) \times \sigma(3^2) = (1 + 2 + 4) \times (1 + 3 + 9) = 7 \times 13 = 91\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\phi(36) = 12\), \(\sigma(36) = 91\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Find \(\mu(30)\) and \(\mu(36)\).</div>
+        <p><strong>Understanding:</strong> \(\mu(n) = 0\) if \(n\) has a squared prime factor, otherwise \((-1)^{\text{number of prime factors}}\).</p>
+        
+        <div class="step">
+          <strong>For \(\mu(30)\):</strong>
+          <p>\[30 = 2 \times 3 \times 5\] (three distinct primes, no squares)
+          <br>\[\mu(30) = (-1)^3 = -1\]</div>
+        
+        <div class="step">
+          <strong>For \(\mu(36)\):</strong>
+          <p>\[36 = 2^2 \times 3^2\] (has squared primes)
+          <br>\[\mu(36) = 0\]</div>
+        
+        <p><strong>Answer:</strong> \(\mu(30) = -1\), \(\mu(36) = 0\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: State and prove Möbius Inversion Formula.</div>
+        <p><strong>Möbius Inversion Formula:</strong></p>
+        <p>If for all positive integers \(n\):
+        <br>\[g(n) = \sum_{d|n} f(d)\]
+        <p>then
+        <br>\[f(n) = \sum_{d|n} \mu(d) g\left(\frac{n}{d}\right)\]</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Step 1: Substitute the expression for \(g\).</strong>
+          <p>\[\sum_{d|n} \mu(d) g\left(\frac{n}{d}\right) = \sum_{d|n} \mu(d) \sum_{e|(n/d)} f(e)\]
+          <p>Let \(k = \frac{n}{de}\), so \(e = \frac{n}{dk}\) and the inner sum becomes:</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Change variables and use the key identity.</strong>
+          <p>\[\sum_{d|n} \mu(d) \sum_{k|n/d} f\left(\frac{n}{dk}\right) = \sum_{m|n} f\left(\frac{n}{m}\right) \sum_{d|m} \mu(d)\]
+          <p>The key identity: \[\sum_{d|m} \mu(d) = \begin{cases} 1 & m = 1 \\ 0 & m > 1 \end{cases}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Conclude.</strong>
+          <p>Only the term \(m = 1\) contributes, giving \(f(n)\).</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Prove that \(\sum_{d|n} \phi(d) = n\) for all positive integers \(n\).</div>
+        <p><strong>Understanding:</strong> This identity connects Euler's totient function to all positive integers.</p>
+        
+        <p><strong>Proof using group theory:</strong></p>
+        <div class="step">
+          <strong>Step 1: Consider the cyclic group \(C_n\) of order \(n\).</strong>
+          <p>An element of \(C_n\) has order \(d\) (where \(d \mid n\)) if and only if it generates a subgroup of order \(d\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Count elements by order.</strong>
+          <p>The number of elements of order exactly \(d\) in \(C_n\) equals the number of generators of the unique subgroup of order \(d\).
+          <p>This number is \(\phi(d)\):</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Sum over all divisors.</strong>
+          <p>Every element has order \(d\) for some divisor \(d\) of \(n\).
+          <br>\[n = |C_n| = \sum_{d|n} (\text{number of elements of order } d) = \sum_{d|n} \phi(d)\]</p>
+        </div>
+        
+        <p><strong>Combinatorial proof:</strong> List fractions \(\frac{a}{n}\) in lowest terms with \(1 \leq a \leq n\). Group by denominator \(d\) where \(d \mid n\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Find all positive integers \(n \leq 10\) with \(\mu(n) \neq 0\) and compute \(\mu(n)\) for each.</div>
+        <p><strong>Understanding:</strong> \(\mu(n) \neq 0\) means \(n\) is square-free.</p>
+        
+        <table border="1" cellpadding="5" cellspacing="0">
+          <tr><th>n</th><th>Prime Factorization</th><th>μ(n)</th></tr>
+          <tr><td>1</td><td>(none)</td><td>1</td></tr>
+          <tr><td>2</td><td>2</td><td>-1</td></tr>
+          <tr><td>3</td><td>3</td><td>-1</td></tr>
+          <tr><td>4</td><td>2²</td><td>0</td></tr>
+          <tr><td>5</td><td>5</td><td>-1</td></tr>
+          <tr><td>6</td><td>2×3</td><td>1</td></tr>
+          <tr><td>7</td><td>7</td><td>-1</td></tr>
+          <tr><td>8</td><td>2³</td><td>0</td></tr>
+          <tr><td>9</td><td>3²</td><td>0</td></tr>
+          <tr><td>10</td><td>2×5</td><td>1</td></tr>
+        </table>
+        
+        <p><strong>Values with \(\mu(n) \neq 0\):</strong> \(n = 1\) (μ = 1), \(n = 2, 3, 5, 7\) (μ = -1), \(n = 6, 10\) (μ = 1)</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove \(\sum_{d|n} \mu(d) = 0\) for all \(n > 1\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>If \(n = 1\):</strong> \(\sum_{d|1} \mu(d) = \mu(1) = 1\).</div>
+        
+        <div class="step">
+          <strong>If \(n > 1\) with prime factorization \(n = p_1^{a_1} \cdots p_k^{a_k}\):</strong>
+          <p>The divisors with \(\mu(d) \neq 0\) are the square-free products of distinct primes dividing \(n\).
+          <br>\[\sum_{d|n} \mu(d) = \sum_{S \subseteq \{p_1,\ldots,p_k\}} (-1)^{|S|}\]
+          <br>This equals \((1 - 1)^k = 0^k = 0\) for \(k \geq 1\).</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Show that if \(n = p_1^{a_1} \cdots p_k^{a_k}\), then \(\frac{\phi(n)}{n} = \prod_{i=1}^{k} \frac{p_i - 1}{p_i}\).</div>
+        <p><strong>Proof:</strong></p>
+        <p>From the formula \(\phi(n) = n \prod_{p|n} \left(1 - \frac{1}{p}\right)\):
+        <br>\[\frac{\phi(n)}{n} = \prod_{p|n} \left(1 - \frac{1}{p}\right) = \prod_{i=1}^{k} \left(1 - \frac{1}{p_i}\right) = \prod_{i=1}^{k} \frac{p_i - 1}{p_i}\]</p>
+        <p><strong>Example verification:</strong> For \(n = 12 = 2^2 \times 3\):
+        <br>\[\frac{\phi(12)}{12} = \frac{4}{12} = \frac{1}{3} = \frac{1}{2} \times \frac{2}{3} = \frac{1 \times 2}{2 \times 3} = \frac{2}{6} = \frac{1}{3} \checkmark\]</p>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-5-arithmetic-functions.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
+  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Problem Set 4 Solutions: Trigonometry and Unit Circle - Precalculus 12">
+  <title>Kasieobi Udumaga | Problem Set 4 Solutions: Trigonometry and Unit Circle - Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .solution-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .solution-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .step {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Problem Set 4: Trigonometry and Unit Circle</h1>
+      <div class="subtitle">Precalculus 12 - Chapter 4 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Solutions</h2>
+
+      <div class="solution-box">
+        <strong>Problem 1: Convert \(120°\) to radians. Find the reference angle and determine the sign of sine, cosine, and tangent in this quadrant.</strong>
+        <div class="step">Convert: \(120° \times \frac{\pi}{180°} = \frac{2\pi}{3}\) radians</div>
+        <div class="step">Reference angle: \(180° - 120° = 60° = \frac{\pi}{3}\)</div>
+        <div class="step">120° is in Quadrant II</div>
+        <div class="step">Signs in QII: sine positive, cosine negative, tangent negative</div>
+        <div class="step"><strong>Answer: \(\frac{2\pi}{3}\) rad, reference angle \(60°\), sin(+), cos(-), tan(-)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 2: Find all six trigonometric values for \(\theta = \frac{5\pi}{6}\). Explain the sign of each in quadrant II.</strong>
+        <div class="step">Reference angle: \(2\pi - \frac{5\pi}{6} = \frac{7\pi}{6}\) → actually, reference angle for QII is \(\pi - \frac{5\pi}{6} = \frac{\pi}{6}\)</div>
+        <div class="step">\(\sin(\frac{5\pi}{6}) = \sin(\frac{\pi}{6}) = \frac{1}{2}\) (positive in QII)</div>
+        <div class="step">\(\cos(\frac{5\pi}{6}) = -\cos(\frac{\pi}{6}) = -\frac{\sqrt{3}}{2}\) (negative in QII)</div>
+        <div class="step">\(\tan(\frac{5\pi}{6}) = -\tan(\frac{\pi}{6}) = -\frac{1}{\sqrt{3}} = -\frac{\sqrt{3}}{3}\)</div>
+        <div class="step">\(\csc(\frac{5\pi}{6}) = \frac{1}{\sin(\frac{5\pi}{6})} = 2\)</div>
+        <div class="step">\(\sec(\frac{5\pi}{6}) = \frac{1}{\cos(\frac{5\pi}{6})} = -\frac{2}{\sqrt{3}} = -\frac{2\sqrt{3}}{3}\)</div>
+        <div class="step">\(\cot(\frac{5\pi}{6}) = \frac{1}{\tan(\frac{5\pi}{6})} = -\sqrt{3}\)</div>
+        <div class="step"><strong>Answer: \(\sin = \frac{1}{2}\), \(\cos = -\frac{\sqrt{3}}{2}\), \(\tan = -\frac{\sqrt{3}}{3}\), and reciprocals</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 3: Solve \(\sin\theta = \frac{1}{2}\) for \(\theta \in [0, 2\pi)\) and give the general solution.</strong>
+        <div class="step">In \([0, 2\pi)\), \(\sin\theta = \frac{1}{2}\) at \(\theta = \frac{\pi}{6}\) and \(\theta = \pi - \frac{\pi}{6} = \frac{5\pi}{6}\)</div>
+        <div class="step">General solution: \(\theta = \frac{\pi}{6} + 2\pi n\) or \(\theta = \frac{5\pi}{6} + 2\pi n\) for any integer \(n\)</div>
+        <div class="step"><strong>Answer: \(\theta = \frac{\pi}{6}, \frac{5\pi}{6}\) in \([0, 2\pi)\); General: above formulas</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 4: A lighthouse is 2 km from point P on shore. The light rotates at 5 rev/min. Find the speed of the beam along the shore when it is 1 km from P.</strong>
+        <div class="step">Angular speed: \(\omega = 5 \frac{\text{rev}}{\text{min}} \times \frac{2\pi \text{ rad}}{1 \text{ rev}} = 10\pi\) rad/min</div>
+        <div class="step">Use: \(v = r\omega\) where \(r\) is distance from lighthouse</div>
+        <div class="step">When beam is 1 km from P, use right triangle: \(r = \frac{2}{\cos\theta}\) where \(\cos\theta = \frac{1}{r}\)</div>
+        <div class="step">Actually, when foot of perpendicular to shore is 1 km from P: \(r = \frac{2}{\cos\theta}\) and 1 = \(2\tan\theta\), so \(\tan\theta = \frac{1}{2}\)</div>
+        <div class="step">\(\cos\theta = \frac{2}{\sqrt{5}}\), so \(r = \frac{2\sqrt{5}}{2} = \sqrt{5}\) km</div>
+        <div class="step">Speed: \(v = \sqrt{5} \times 10\pi = 10\pi\sqrt{5}\) km/min ≈ 22.4 km/min</div>
+        <div class="step"><strong>Answer: \(10\pi\sqrt{5}\) km/min ≈ 22.4 km/min</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 5: Find the arc length and sector area of a circle with radius 5 cm and central angle \(2.5\) radians.</strong>
+        <div class="step">Arc length: \(s = r\theta = 5 \times 2.5 = 12.5\) cm</div>
+        <div class="step">Sector area: \(A = \frac{1}{2}r^2\theta = \frac{1}{2}(25)(2.5) = 31.25\) cm²</div>
+        <div class="step"><strong>Answer: Arc length = 12.5 cm, Sector area = 31.25 cm²</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 6: If \(\cos\theta = -\frac{4}{5}\) and \(\theta\) is in quadrant III, find \(\sin\theta\) and \(\tan\theta\).</strong>
+        <div class="step">Use Pythagorean identity: \(\sin^2\theta + \cos^2\theta = 1\)</div>
+        <div class="step">\(\sin^2\theta = 1 - \frac{16}{25} = \frac{9}{25}\)</div>
+        <div class="step">\(\sin\theta = \pm\frac{3}{5}\)</div>
+        <div class="step">In QIII, sine is negative: \(\sin\theta = -\frac{3}{5}\)</div>
+        <div class="step">\(\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{-3/5}{-4/5} = \frac{3}{4}\)</div>
+        <div class="step"><strong>Answer: \(\sin\theta = -\frac{3}{5}\), \(\tan\theta = \frac{3}{4}\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 7: Find the exact value of \(\sin(105°)\) using sum identities.</strong>
+        <div class="step">\(\sin(105°) = \sin(60° + 45°)\)</div>
+        <div class="step">Use: \(\sin(A + B) = \sin A \cos B + \cos A \sin B\)</div>
+        <div class="step">\(= \sin(60°)\cos(45°) + \cos(60°)\sin(45°)\)</div>
+        <div class="step">\(= \frac{\sqrt{3}}{2} \times \frac{\sqrt{2}}{2} + \frac{1}{2} \times \frac{\sqrt{2}}{2}\)</div>
+        <div class="step">\(= \frac{\sqrt{6}}{4} + \frac{\sqrt{2}}{4} = \frac{\sqrt{6} + \sqrt{2}}{4}\)</div>
+        <div class="step"><strong>Answer: \(\frac{\sqrt{6} + \sqrt{2}}{4}\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 8: A wheel with radius 10 cm rotates through an angle of \(75°\). Find the arc length traveled by a point on the rim.</strong>
+        <div class="step">Convert angle to radians: \(75° \times \frac{\pi}{180°} = \frac{5\pi}{12}\) radians</div>
+        <div class="step">Arc length: \(s = r\theta = 10 \times \frac{5\pi}{12} = \frac{50\pi}{12} = \frac{25\pi}{6}\) cm</div>
+        <div class="step"><strong>Answer: \(\frac{25\pi}{6}\) cm ≈ 13.1 cm</strong></div>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 1: Find all solutions to \(\sin(2\theta) = \cos\theta\) in the interval \([0, 2\pi)\).</strong>
+        <div class="step">Use identity: \(\sin(2\theta) = 2\sin\theta\cos\theta\)</div>
+        <div class="step">Equation: \(2\sin\theta\cos\theta = \cos\theta\)</div>
+        <div class="step">Rearrange: \(2\sin\theta\cos\theta - \cos\theta = 0\)</div>
+        <div class="step">Factor: \(\cos\theta(2\sin\theta - 1) = 0\)</div>
+        <div class="step">Case 1: \(\cos\theta = 0\) → \(\theta = \frac{\pi}{2}, \frac{3\pi}{2}\)</div>
+        <div class="step">Case 2: \(2\sin\theta - 1 = 0\) → \(\sin\theta = \frac{1}{2}\)</div>
+        <div class="step">→ \(\theta = \frac{\pi}{6}, \frac{5\pi}{6}\)</div>
+        <div class="step"><strong>Answer: \(\theta = \frac{\pi}{6}, \frac{\pi}{2}, \frac{5\pi}{6}, \frac{3\pi}{2}\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 2: A ladder leaning against a wall makes a \(60°\) angle with the ground. If the foot of the ladder is 2 ft from the wall, how far up the wall does the ladder reach? What angle would give the same height with one-third the distance from the wall?</strong>
+        <div class="step">Given: distance from wall = 2 ft, angle = 60°</div>
+        <div class="step">Let ladder length = \(L\). Then \(L\cos(60°) = 2\)</div>
+        <div class="step">\(L = \frac{2}{\cos(60°)} = \frac{2}{0.5} = 4\) ft</div>
+        <div class="step">Height on wall: \(h = L\sin(60°) = 4 \times \frac{\sqrt{3}}{2} = 2\sqrt{3}\) ft</div>
+        <div class="step">New setup: same height, distance = \(\frac{2}{3}\) ft</div>
+        <div class="step">New ladder length same = 4 ft</div>
+        <div class="step">New angle: \(\cos\phi = \frac{2/3}{4} = \frac{1}{6}\), so \(\phi = \arccos(\frac{1}{6})\)</div>
+        <div class="step">\(\sin\phi = \sqrt{1 - \frac{1}{36}} = \frac{\sqrt{35}}{6}\)</div>
+        <div class="step"><strong>Answer: Height = \(2\sqrt{3}\) ft, New angle = \(\arccos(\frac{1}{6})\) ≈ 80.4°</strong></div>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-4-p12.html">← Back to Problem Set</a>
+        <a href="../teaching.html">Course Home →</a>
+      </div>
+    </div>
+  </main>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
+  <script src="../script.js"></script>
+</body>
+</html>

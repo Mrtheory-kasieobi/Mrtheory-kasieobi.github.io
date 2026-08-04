@@ -10,39 +10,232 @@
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 10: Applications of Gaussian Integers</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 10: Applications of Gaussian Integers</h1>
+      <div class="subtitle">Elementary Number Theory - Week 11 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Fermat's Two Squares Theorem</strong>
+        <p>A prime \(p > 2\) can be written as \(p = x^2 + y^2\) with integers \(x, y\) iff \(p \equiv 1 \pmod{4}\).</p>
+        <p><strong>Connection to Gaussian integers:</strong> This is equivalent to \(p\) splitting in \(\mathbb{Z}[i]\).</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> \(5 = 1^2 + 2^2 = (1+2i)(1-2i)\). Both factors are Gaussian primes since \(N(1 \pm 2i) = 5\) is prime in \(\mathbb{Z}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \(13 = 2^2 + 3^2 = (2+3i)(2-3i)\). Check: \(N(2+3i) = 13\) prime, so both factors are Gaussian primes.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(17 = 1^2 + 4^2 = (1+4i)(1-4i)\). Verify: \(N(1+4i) = 17\) prime in \(\mathbb{Z}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(29 = 2^2 + 5^2 = (2+5i)(2-5i)\). Check: \(N(2+5i) = 29\) prime in \(\mathbb{Z}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Primes \(p \equiv 1 \pmod{4}\) can be written as sum of two squares: 5, 13, 17, 29, 37, 41, 53, 61, 73, 89, 97, ... This is Fermat's Two Squares Theorem.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(65 = 1^2 + 8^2 = 64 + 1\) and \(65 = 7^2 + 4^2 = 49 + 16\). So \(65 = (1+8i)(1-8i) = (7+4i)(7-4i)\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(85 = 2^2 + 9^2 = 4 + 81\) and \(85 = 6^2 + 7^2 = 36 + 49\). So \(85 = (2+9i)(2-9i) = (6+7i)(6-7i)\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> \(85 = 5 \cdot 17 = (1+2i)(1-2i)(2+3i)(2-3i)\). This is the prime factorization in \(\mathbb{Z}[i]\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(125 = 5^3\). In \(\mathbb{Z}[i]\): \(5 = (2+i)(2-i)\), so \(125 = (2+i)^3(2-i)^3\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> If \(p = a^2+b^2\) is prime, then \(p^k = \text{Re}((a+bi)^k)^2 + \text{Im}((a+bi)^k)^2\) by De Moivre's formula.</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(p \equiv 1 \pmod{4}\) is prime, then \(p = a^2+b^2\) is unique up to signs and order.</p><p><strong>Step 2:</strong> Suppose \(p = a^2+b^2 = c^2+d^2\) with \(a,b,c,d > 0\).</p><p><strong>Step 3:</strong> In \(\mathbb{Z}[i]\): \((a+bi)(a-bi) = (c+di)(c-di) = p\).</p><p><strong>Step 4:</strong> By unique factorization, \(a+bi = u(c+di)\) for some unit \(u \in \{1, -1, i, -i\}\).</p><p><strong>Step 5:</strong> This gives \((a,b) = (c,d), (-c,-d), (-d,c), (d,-c)\), all essentially the same representation.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Use the identity: if \(p \equiv 1 \pmod{4}\), then \(-1\) is a quadratic residue.</p><p><strong>Step 2:</strong> Find \(k\) with \(k^2 \equiv -1 \pmod{p}\) using Tonelli-Shanks or by testing.</p><p><strong>Step 3:</strong> Then \(p | (k^2+1) = (k+i)(k-i)\). Since \(k+i\) and \(k-i\) are not divisible by \(p\), we have \(p = (k+i)(k-i)\) up to units.</p><p><strong>Step 4:</strong> The triangle with sides \((k, 1, \sqrt{p})\) has area \(\frac{k}{2}\).</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(p \equiv 3 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = -1\).</p><p><strong>Step 2:</strong> So \(x^2 \equiv -1 \pmod{p}\) has no solution.</p><p><strong>Step 3:</strong> If \(p\) were congruent, there would exist \(a,b\) with \(a^2+b^2 = p\).</p><p><strong>Step 4:</strong> Then \((a/b)^2 \equiv -1 \pmod{p}\), contradiction.</p><p><strong>Conclusion:</strong> No right triangle with integer sides has area \(p\).</p></p></div>
-      <div class="navigation"><a href="problem-set-10-applications-gaussian-integers.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Express 17 as a sum of two squares.</div>
+        <p><strong>Solution:</strong>
+        <div class="step">
+          <strong>Factor 17 in \(\mathbb{Z}[i]\):</strong>
+          <p>We know 17 ≡ 1 (mod 4), so it factors.
+          <br>Need \(a^2 + b^2 = 17\) with integers \(a, b\).</div>
+        </div>
+        
+        <div class="step">
+          <strong>Try small values:</strong>
+          <p>1² + 4² = 1 + 16 = 17 ✓</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(17 = 1^2 + 4^2\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Show that 61 can be expressed as a sum of two squares and find the representation.</</div>
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Step 1: Verify 61 ≡ 1 (mod 4).</strong>
+          <br>61 = 15 × 4 + 1, so the theorem applies.</div>
+        
+        <div class="step">
+          <strong>Step 2: Find Gaussian integers with norm 61.</strong>
+          <p>Solve \(a^2 + b^2 = 61\):
+          <ul>
+            <li>\(a = 5\): \(b^2 = 36\), \(b = \pm 6\)</li>
+            <li>\(a = 6\): \(b^2 = 25\), \(b = \pm 5\)</li>
+          </ul>
+          So \(5 + 6i\) and \(6 + 5i\) have norm 61.</div>
+        </div>
+        
+        <p><strong>Answer:</strong> \(61 = 5^2 + 6^2 = 25 + 36\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Solve \(x^2 + y^2 = 89\) for integers \(x, y\).</div>
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Step 1: Check if 89 is prime and ≡ 1 (mod 4).</strong>
+          <p>89 is prime, 89 = 22 × 4 + 1, so it should be expressible.</div>
+        
+        <div class="step">
+          <strong>Step 2: Find representations.</strong>
+          <p>Trial values: \(8^2 = 64\), \(89 - 64 = 25 = 5^2\)
+          <br>So \(89 = 8^2 + 5^2\)</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \((x, y) = (\pm 8, \pm 5)\) and \((\pm 5, \pm 8)\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Prove that a prime \(p\) can be written as \(x^2 + y^2\) iff \(p = 2\) or \(p \equiv 1 \pmod{4}\).</div>
+        <p><strong>Proof:</strong> (See Problem Set 9, Problem 5 - this is a fundamental application)</p>
+        
+        <p><strong>(⇒) Direction:</strong> If \(p = x^2 + y^2 = (x+yi)(x-yi)\) in \(\mathbb{Z}[i]\), then \(p\) is not a Gaussian prime (unless it's 1+i up to units, giving \(p=2\)). So \(p\) splits, meaning \(p \equiv 1 \pmod{4}\).</p>
+        
+        <p><strong>(⇐) Direction:</strong> If \(p = 2\) or \(p \equiv 1 \pmod{4}\), then \(p\) factors as \(\pi\bar{\pi}\) in \(\mathbb{Z}[i]\), and \(p = N(\pi) = a^2 + b^2\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Find the number of representations of 50 as a sum of two squares (counting signs and order).</div>
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Step 1: Factor 50.</strong>
+          <br>50 = 2 × 25 = 2 × 5²</div>
+        
+        <div class="step">
+          <strong>Step 2: Factor in \(\mathbb{Z}[i]\).</strong>
+          <br>2 = -i(1+i)²
+          <br>5 = (2+i)(2-i)
+          <br>50 = -i(1+i)²(2+i)²(2-i)²</div>
+        
+        <div class="step">
+          <strong>Step 3: Find all ways to write 50 as norm.</strong>
+          <p>The representations correspond to \(z \in \mathbb{Z}[i]\) with \(N(z) = 50\).
+          <br>Method: \(50 = 1^2 + 7^2\) and \(50 = 5^2 + 5^2\) (checking: 1+49=50, 25+25=50)
+          <br>Also \(50 = 7^2 + 1^2\) (same, different order)</p>
+        </div>
+        
+        <p><strong>Answer:</strong> 50 = 1² + 7² and 5² + 5². Counting all sign/order variations: 4 + 4 = 8 representations.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Show that if \(p \equiv 3 \pmod{4}\) is prime, then \(x^2 + y^2 = p\) has no integer solutions.</</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Theorem:</strong> If \(p \equiv 3 \pmod{4}\) is prime, then \(p\) is a Gaussian prime.</div>
+        
+        <div class="step">
+          <strong>Result:</strong> If \(p\) is a Gaussian prime, it cannot be written as \(N(a + bi) = a^2 + b^2\) unless \(p\) is a unit times 1 or \(p\) itself.
+          <p>But \(N(a + bi) = p\) would require \(a + bi\) to be prime in \(\mathbb{Z}[i]\) with norm \(p\).
+          <p>For \(p \equiv 3 \pmod{4}\), no such Gaussian integer exists (as shown in PS8).
+          <p>Alternatively: if \(x^2 + y^2 = p\), then in \(\mathbb{Z}[i]\): \((x+yi)(x-yi) = p\).
+          <p>If \(p\) were prime in \(\mathbb{Z}[i]\), one factor would be a unit, implying \(|x+yi|^2 = 1\), so \(p = 1\), contradiction.</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7: Find integer solutions to \(x^2 + 2y^2 = 17\).</div>
+        <p><strong>Understanding:</strong> This involves the ring \(\mathbb{Z}[\sqrt{-2}]\) or direct search.</p>
+        
+        <div class="step">
+          <strong>Try small values of y:</strong>
+          <ul>
+            <li>y = 0: \(x^2 = 17\), no integer solution</li>
+            <li>y = 1: \(x^2 = 15\), no integer solution</li>
+            <li>y = 2: \(x^2 = 17 - 8 = 9\), so \(x = \pm 3\)</li>
+            <li>y = 3: \(x^2 = 17 - 18 < 0\), no solution</li>
+          </ul></div>
+        
+        <p><strong>Answer:</strong> \((x, y) = (\pm 3, 2)\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8: Prove that if \(p \equiv 1 \pmod{4}\) is prime, then \(p\) divides \(x^2 + 1\) for some integer \(x\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>From the theory of Gaussian integers:</strong>
+          <p>If \(p \equiv 1 \pmod{4}\), then \(p = \pi\bar{\pi}\) in \(\mathbb{Z}[i]\) for some prime \(\pi = a + bi\).
+          <br>Hence \(p = N(\pi) = a^2 + b^2\) for some integers \(a, b\).
+          <br>In particular, taking \(x = a\): \(p \mid (a^2 + 1)\)... wait, that's not quite right.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Better approach using Wilson's Theorem modification:</strong>
+          <p>For \(p \equiv 1 \pmod{4}\): \(\left(\frac{-1}{p}\right) = 1\)
+          <p>By Euler's criterion: \((-1)^{\frac{p-1}{2}} \equiv 1 \pmod{p}\)
+          <p>This means there exists \(x\) with \(x^2 \equiv -1 \pmod{p}\), i.e., \(p \mid (x^2 + 1)\)</p>
+        </div>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Find the number of ways to write 25 as a sum of two squares.</</div>
+        <p><strong>Solution:</strong>
+        <div class="step">
+          <strong>Factor: 25 = 5² = (2+i)²(2-i)²</strong>
+          <p>Finding all \(a+bi\) with norm 25:
+          <p>Direct search: \(0^2 + 5^2 = 25\), \(3^2 + 4^2 = 9 + 16 = 25\)
+          <br>So: ±5² + 0² and 0² + ±5² give 4 representations
+          <br>And: ±3² + ±4² and ±4² + ±3² give 8 representations
+          <br>Total: 12 representations (counting signs and order)</div>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Prove: If every prime \(p \equiv 1 \pmod{4}\) can be written as \(x^2 + y^2\), then every integer with all prime factors \(q \equiv 3 \pmod{4}\) appearing to even power can be written as \(x^2 + y^2\).</div>
+        <p><strong>Proof:</strong></p>
+        <p>If \(n = 2^a \prod_{p_i \equiv 1} p_i^{e_i} \prod_{q_j \equiv 3} q_j^{2f_j}\), then by the theorem each \(p_i = a_i^2 + b_i^2\) and \(q_j^{2f_j} = (q_j^{f_j})^2 + 0^2\).</p>
+        <p>Using the identity \((a^2+b^2)(c^2+d^2) = (ac-bd)^2 + (ad+bc)^2\) repeatedly, the product can be written as a sum of two squares.</p>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-10-applications-gaussian-integers.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

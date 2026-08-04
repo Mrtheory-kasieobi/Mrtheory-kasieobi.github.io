@@ -10,39 +10,128 @@
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(40, 167, 69, 0.1), rgba(40, 167, 69, 0.05)); border: 1px solid #28a745; border-left: 4px solid #28a745; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 12: Continued Fractions</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 12: Continued Fractions</h1>
+      <div class="subtitle">Elementary Number Theory - Week 13 Solutions</div>
+    </div>
+
+    <div class="lecture-content">      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Simple Continued Fraction</strong>
+        <p>[a₀; a₁, a₂, a₃, ...] = a₀ + 1/(a₁ + 1/(a₂ + 1/(a₃ + ...)))</p>
+        <p>where a₀ ≥ 0 and a₁, a₂, ... ≥ 1.</p>
+        <p><strong>Convergents:</strong> pₙ/qₙ are the rational approximations.</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> \(\frac{19}{7} = 2 + \frac{5}{7} = 2 + \frac{1}{\frac{7}{5}} = 2 + \frac{1}{1+\frac{2}{5}} = 2 + \frac{1}{1+\frac{1}{2}}\). So \([2; 1, 2]\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> For \([1; 2, 2, 2, 2]\): Convergents: \(\frac{p_0}{q_0} = \frac{1}{1}\), \(\frac{p_1}{q_1} = \frac{3}{2}\), \(\frac{p_2}{q_2} = \frac{7}{5}\), \(\frac{p_3}{q_3} = \frac{17}{12}\), \(\frac{p_4}{q_4} = \frac{41}{29}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(\sqrt{7} = 2 + (\sqrt{7}-2)\). Let \(r_0 = \sqrt{7}+2\). Then \(\frac{1}{r_0} = \frac{\sqrt{7}-2}{3}\). Continuing gives \(\sqrt{7} = [2; 1, 1, 1, 4, 1, 1, 1, 4, \ldots]\) with period 4.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Using recurrence \(p_n = a_n p_{n-1} + p_{n-2}\), \(q_n = a_n q_{n-1} + q_{n-2}\) with \(p_{-1}=1, p_0=a_0, q_{-1}=0, q_0=1\). The determinant formula: \(p_n q_{n-1} - p_{n-1} q_n = (-1)^{n-1}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> \(\frac{22}{7} = 3 + \frac{1}{7} = [3; 7]\). Verify: \(3 + \frac{1}{7} = \frac{22}{7}\). ✓</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> For rational \(\frac{p}{q}\), apply Euclidean algorithm: \(p = q a_0 + r_1\), \(q = r_1 a_1 + r_2\), etc. The quotients give the continued fraction.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Convergents of \(\pi\): \(\frac{3}{1}, \frac{22}{7}, \frac{333}{106}, \frac{355}{113}, \ldots\). \(\frac{22}{7} \approx 3.142857\), error \(\approx 0.00126 < 0.01\). ✓</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> From theory: \(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\). This is the key property of convergents.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(\frac{1+\sqrt{5}}{2} = [1; 1, 1, 1, \ldots]\) (all 1s). This is the golden ratio.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> Golden ratio satisfies \(\phi = 1 + \frac{1}{\phi}\). Solving: \(\phi^2 = \phi + 1\), so \(\phi = \frac{1+\sqrt{5}}{2}\). Continued fraction: \([1; 1, 1, 1, \ldots]\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(\frac{p_n}{q_n}\) and \(\frac{p_m}{q_m}\) are convergents with \(n < m\), then \(\left|\frac{p_n}{q_n} - \frac{p_m}{q_m}\right| \geq \frac{1}{q_n q_m}\).</p><p><strong>Step 2:</strong> Since convergents are distinct fractions, they cannot be equal.</p><p><strong>Step 3:</strong> The minimum distance between \(\frac{p_n}{q_n}\) and any other fraction with denominator \(\leq q_m\) is achieved by convergents.</p><p><strong>Conclusion:</strong> All convergents are in lowest terms.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> From the recurrence: \(q_{n+1} = a_{n+1} q_n + q_{n-1} > q_n\).</p><p><strong>Step 2:</strong> The error bound: \(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\).</p><p><strong>Step 3:</strong> Since \(q_{n+1} > q_n\), we have \(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n^2}\).</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> \(x^2 - 11y^2 = 1\). Compute continued fraction of \(\sqrt{11} = [3; 3, 6, 3, 6, \ldots]\).</p><p><strong>Step 2:</strong> Convergents: \(\frac{3}{1}, \frac{10}{3}, \frac{63}{19}, \frac{199}{60}, \ldots\).</p><p><strong>Step 3:</strong> Check: \(10^2 - 11 \cdot 3^2 = 100 - 99 = 1\).</p><p><strong>Conclusion:</strong> Fundamental solution: \((10, 3)\).</p></p></div>
-      <div class="navigation"><a href="problem-set-12-continued-fractions.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Find the continued fraction expansion of 22/7.</div>
+        <p><strong>Solution using Euclidean Algorithm:</strong>
+        <div class="step">
+          <strong>22 = 7 × 3 + 1, so a₀ = 3</strong>
+          <br>1/7 = 1/(7 × 1 + 0), so a₁ = 7</div>
+        </div>
+        <p><strong>Answer:</strong> \([3; 7] = 3 + \frac{1}{7} = \frac{22}{7}\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Find the continued fraction for √2 and show it is periodic.</</div>
+        <p><strong>Solution:</strong>
+        <div class="step">
+          <strong>Step 1:</strong> a₀ = ⌊√2⌋ = 1, remainder = √2 - 1
+          <br>\[\frac{1}{\sqrt{2}-1} = \frac{\sqrt{2}+1}{(\sqrt{2}-1)(\sqrt{2}+1)} = \frac{\sqrt{2}+1}{1} = \sqrt{2} + 1\]</div>
+        
+        <div class="step">
+          <strong>Step 2:</strong> a₁ = ⌊√2 + 1⌋ = 2, remainder = (√2 + 1) - 2 = √2 - 1
+          <br>This is the same as the original remainder!</div>
+        </div>
+        
+        <p><strong>Answer:</strong> √2 = [1; 2, 2, 2, ...] = [1; 2̄], a purely periodic continued fraction.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Find the first four convergents of π ≈ 3.14159....</</div>
+        <p><strong>Solution:</strong>
+        <p>π ≈ [3; 7, 15, 1, 292, ...]</p>
+        
+        <div class="step">
+          <strong>Convergent 0 (p₀/q₀):</strong>
+          <br>3/1 = 3</div>
+        
+        <div class="step">
+          <strong>Convergent 1 (p₁/q₁):</strong>
+          <br>3 + 1/7 = 22/7 ≈ 3.14285...</div>
+        
+        <div class="step">
+          <strong>Convergent 2 (p₂/q₂):</strong>
+          <br>3 + 1/(7 + 1/15) = 3 + 15/106 = 333/106 ≈ 3.14151...</div>
+        
+        <p><strong>Answer:</strong> Convergents: 3/1, 22/7, 333/106, 355/113, ...</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove that every rational number has a finite continued fraction expansion.</</div>
+        <p><strong>Proof:</strong> Apply the Euclidean algorithm to a/b. The process terminates when remainder is 0, giving a finite expansion.</p>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-12-continued-fractions.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

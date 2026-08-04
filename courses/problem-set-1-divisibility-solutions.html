@@ -11,73 +11,416 @@
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
+    .lecture-content h3 { color: var(--accent); margin-top: 2rem; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .step-explanation { margin: 0.5rem 0; color: var(--muted); font-size: 0.9rem; }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
     .navigation a:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25); color: #07111d; }
   </style>
 </head>
 <body>
-  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 1: Divisibility and Primes</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 1: Divisibility and Primes</h1>
+      <div class="subtitle">Elementary Number Theory - Week 1 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>What does "a divides b" mean?</strong>
+        <p>The notation \(a \mid b\) (read as "a divides b") means there exists an integer \(k\) such that \(b = ak\). In other words, \(b\) is a multiple of \(a\).</p>
+        <p><strong>Examples:</strong> \(3 \mid 12\) because \(12 = 3 \times 4\), and \(5 \mid -15\) because \(-15 = 5 \times (-3)\).</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Greatest Common Divisor (GCD)</strong>
+        <p>\(\gcd(a, b)\) is the largest positive integer that divides both \(a\) and \(b\).</p>
+        <p><strong>Bézout's Identity:</strong> For any integers \(a\) and \(b\), there exist integers \(x\) and \(y\) such that \(\gcd(a, b) = ax + by\).</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> If \(a \mid b\) and \(b \mid c\), then \(b = ak\) and \(c = b\ell\) for some integers \(k, \ell\). Thus \(c = ak\ell = a(k\ell)\), so \(a \mid c\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \(n \mid (n+5)\) means \(n+5 = nk\) for some integer \(k\). So \(5 = n(k-1)\), meaning \(n \mid 5\). Thus \(n \in \{-5, -1, 1, 5\}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> If \(a \mid b\) and \(a \mid c\), then \(b = am\) and \(c = an\). So \(bx + cy = amx + any = a(mx + ny)\), hence \(a \mid (bx + cy)\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> If \(\gcd(a, b) = 1\) and \(a \mid bc\), then \(bc = ak\). Since \(\gcd(a, b) = 1\), we have \(a \mid c\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Assume there are finitely many primes \(p_1, \ldots, p_n\). Consider \(N = p_1 \cdots p_n + 1\). Either \(N\) is prime or has a prime factor, but neither divides \(N\), contradiction.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(360 = 2^3 \cdot 3^2 \cdot 5\). The prime factorization is \(360 = 2^3 \cdot 3^2 \cdot 5\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> If \(p \mid ab\) and \(p\) is prime, then by Euclid's lemma, \(p \mid a\) or \(p \mid b\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Using Euclidean algorithm: \(144 = 84 \cdot 1 + 60\), \(84 = 60 \cdot 1 + 24\), \(60 = 24 \cdot 2 + 12\), \(24 = 12 \cdot 2 + 0\). So \(\gcd(144, 84) = 12\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> If \(n \mid m\) and \(m \mid n\), then \(m = nk\) and \(n = m\ell\). So \(n = nk\ell\), giving \(k\ell = 1\). Since \(k, \ell \in \mathbb{Z}\), we have \(k = \ell = \pm 1\), thus \(|n| = |m|\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\gcd(a, b) = \gcd(b, a - bq)\) because any common divisor of \(a\) and \(b\) divides \(a - bq\), and vice versa.</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1</div>
-        <p><strong>Solution:</strong></p>
-        <p>We want to prove that \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}\}\) where the minimum is taken over all positive values.</p>
-        <p><strong>Step 1:</strong> Let \(d = \gcd(a, b)\). By Bézout's identity, there exist integers \(x_0, y_0\) such that \(ax_0 + by_0 = d\).</p>
-        <p><strong>Step 2:</strong> We need to show that any positive element of the form \(ax + by\) is at least \(d\). Suppose \(ax + by > 0\) for some integers \(x, y\).</p>
-        <p><strong>Step 3:</strong> By the division algorithm, write \(x = qx_0 + r\) and \(y = qy_0 + s\) where \(0 \leq r < |d|\) and \(0 \leq s < |d|\).</p>
-        <p><strong>Step 4:</strong> Then \(ax + by = a(qx_0 + r) + b(qy_0 + s) = q(ax_0 + by_0) + (ar + bs) = qd + (ar + bs)\).</p>
-        <p><strong>Step 5:</strong> Since \(d = \gcd(a, b)\), both \(a\) and \(b\) are multiples of \(d\), so \(ar + bs\) is a multiple of \(d\).</p>
-        <p><strong>Step 6:</strong> The smallest positive multiple of \(d\) is \(d\) itself, so \(ax + by \geq d\).</p>
-        <p><strong>Conclusion:</strong> Therefore, \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}, ax + by > 0\}\).</p>
+        <div class="problem-number">Problem 1: Prove that if \(a \mid b\) and \(b \mid c\), then \(a \mid c\).</div>
+        <p><strong>Understanding the Problem:</strong> We need to show that if \(a\) divides \(b\), and \(b\) divides \(c\), then \(a\) must divide \(c\). This is called the <em>transitive property</em> of divisibility.</p>
+        
+        <div class="step">
+          <strong>Step 1: Write out what we know using the definition of divisibility.</strong>
+          <p>Since \(a \mid b\), there exists an integer \(k\) such that \(b = ak\).</p>
+          <p>Since \(b \mid c\), there exists an integer \(\ell\) such that \(c = b\ell\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Substitute the first equation into the second.</strong>
+          <p>Since \(c = b\ell\) and \(b = ak\), we have:</p>
+          <p>\[c = (ak)\ell = a(k\ell)\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Apply the definition of divisibility.</strong>
+          <p>We have expressed \(c\) as \(a\) times an integer \((k\ell)\). By definition, this means \(a \mid c\).</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> We have proven that if \(a \mid b\) and \(b \mid c\), then \(a \mid c\). This property will be very useful in later proofs.</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Assume \(\sqrt{p} = \frac{a}{b}\) where \(a, b \in \mathbb{Z}^+\) and \(\gcd(a, b) = 1\).</p>
-        <p><strong>Step 2:</strong> Squaring both sides: \(p = \frac{a^2}{b^2}\), so \(pb^2 = a^2\).</p>
-        <p><strong>Step 3:</strong> Since \(p \mid a^2\) and \(p\) is prime, by Euclid's lemma, \(p \mid a\). Write \(a = pc\) for some integer \(c\).</p>
-        <p><strong>Step 4:</strong> Substituting: \(pb^2 = (pc)^2 = p^2 c^2\), so \(b^2 = pc^2\).</p>
-        <p><strong>Step 5:</strong> This means \(p \mid b^2\), and again by Euclid's lemma, \(p \mid b\).</p>
-        <p><strong>Step 6:</strong> We now have \(p \mid a\) and \(p \mid b\), contradicting \(\gcd(a, b) = 1\).</p>
-        <p><strong>Conclusion:</strong> Therefore, \(\sqrt{p}\) is irrational.</p>
+        <div class="problem-number">Problem 2: Find all integers \(n\) such that \(n \mid (n+5)\).</</div>
+        <p><strong>Understanding the Problem:</strong> We need to find all integers \(n\) where \(n\) divides \(n+5\). This seems circular (like \(n\) divides itself plus 5), but it gives us a specific algebraic condition we can exploit.</p>
+        
+        <div class="step">
+          <strong>Step 1: Use the definition of divisibility.</strong>
+          <p>If \(n \mid (n+5)\), then there exists an integer \(k\) such that:</p>
+          <p>\[n + 5 = nk\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Rearrange the equation to isolate \(n\).</strong>
+          <p>Subtract \(n\) from both sides:</p>
+          <p>\[5 = nk - n = n(k - 1)\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Identify the implications.</strong>
+          <p>We have \(n(k - 1) = 5\). This means \(n\) must be a divisor of 5!</p>
+          <p>The divisors of 5 are: \(-5, -1, 1, 5\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: List all possible values.</strong>
+          <p>Therefore, \(n \in \{-5, -1, 1, 5\}\).</p>
+        </div>
+        
+        <p><strong>Verification:</strong> Check that each value works:</p>
+        <ul>
+          <li>\(n = -5\): \(-5 \mid 0\)? Yes, \(0 = (-5)(0)\)</li>
+          <li>\(n = -1\): \(-1 \mid 4\)? Yes, \(4 = (-1)(-4)\)</li>
+          <li>\(n = 1\): \(1 \mid 6\)? Yes, \(6 = (1)(6)\)</li>
+          <li>\(n = 5\): \(5 \mid 10\)? Yes, \(10 = (5)(2)\)</li>
+        </ul>
+        <p><strong>Answer:</strong> \(n \in \{-5, -1, 1, 5\}\)</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 3</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Let \(n = p_1^{a_1} \cdot p_2^{a_2} \cdots p_k^{a_k}\) be the prime factorization of \(n\).</p>
-        <p><strong>Step 2:</strong> Any divisor \(d\) of \(n\) has the form \(d = p_1^{e_1} \cdot p_2^{e_2} \cdots p_k^{e_k}\) where \(0 \leq e_i \leq a_i\) for each \(i\).</p>
-        <p><strong>Step 3:</strong> For each prime \(p_i\), we can choose the exponent \(e_i\) in \(a_i + 1\) ways: \(0, 1, 2, \ldots, a_i\).</p>
-        <p><strong>Step 4:</strong> Since the choices for each prime are independent, the total number of divisors is:</p>
-        <p>\[\tau(n) = (a_1 + 1)(a_2 + 1) \cdots (a_k + 1) = \prod_{i=1}^{k}(a_i + 1)\]</p>
-        <p><strong>Conclusion:</strong> The number of positive divisors is \((a_1+1)\cdots(a_k+1)\).</p>
+        <div class="problem-number">Problem 3: Prove: If \(a \mid b\) and \(a \mid c\), then \(a \mid (bx + cy)\) for all integers \(x, y\).</div>
+        <p><strong>Understanding the Problem:</strong> If \(a\) divides both \(b\) and \(c\), then \(a\) divides any linear combination \(bx + cy\). This is a fundamental property that generalizes Problem 1.</p>
+        
+        <div class="step">
+          <strong>Step 1: Write out the given information.</strong>
+          <p>Since \(a \mid b\), there exists integer \(m\) with \(b = am\).</p>
+          <p>Since \(a \mid c\), there exists integer \(n\) with \(c = an\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Compute the linear combination.</strong>
+          <p>\(bx + cy = (am)x + (an)y = amx + any = a(mx + ny)\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Conclude.</strong>
+          <p>Since \(x\) and \(y\) are integers, \(mx + ny\) is an integer. Therefore, \(a \mid (bx + cy)\).</p>
+        </div>
+        <p><strong>Answer:</strong> The statement is proven.</p>
       </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Show that if \(\gcd(a, b) = 1\) and \(a \mid bc\), then \(a \mid c\).</div>
+        <p><strong>Understanding the Problem:</strong> If \(a\) and \(b\) are coprime (share no common factors except 1), and \(a\) divides the product \(bc\), then \(a\) must divide \(c\). This is a key lemma used in many number theory proofs.</p>
+        
+        <div class="step">
+          <strong>Step 1: Recall important results.</strong>
+          <p>Since \(\gcd(a, b) = 1\), by Bézout's identity, there exist integers \(x, y\) such that:</p>
+          <p>\[ax + by = 1\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Use the fact that \(a \mid bc\).</strong>
+          <p>Since \(a \mid bc\), there exists integer \(k\) such that \(bc = ak\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Multiply Bézout's equation by \(c\).</strong>
+          <p>From \(ax + by = 1\), multiplying by \(c\) gives:</p>
+          <p>\[axc + byc = c\]</p>
+          <p>Which we can write as:</p>
+          <p>\[c = a(xc) + b(yc)\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Apply Problem 3 (the linear combination property).</strong>
+          <p>We have expressed \(c\) as a linear combination of \(a\) and \(bc\) (since \(b(yc) = (by)c\) and \(bc\) is a multiple of \(a\)).</p>
+          <p>Since \(a \mid a\) (trivially) and \(a \mid bc\) (given), by Problem 3, \(a\) divides any linear combination, including \(c\).</p>
+        </div>
+        <p><strong>Answer:</strong> Therefore, \(a \mid c\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Prove that there are infinitely many prime numbers.</div>
+        <p><strong>Understanding the Problem:</strong> A prime number is a positive integer greater than 1 that has no positive divisors other than 1 and itself. We need to prove there is no "largest prime."</p>
+        
+        <div class="step">
+          <strong>Step 1: Proof by contradiction.</strong>
+          <p><em>Assume</em> there are only finitely many primes. Call them \(p_1, p_2, p_3, \ldots, p_n\), where \(p_n\) is the largest prime.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Construct a new number.</strong>
+          <p>Consider the number:</p>
+          <p>\[N = p_1 \cdot p_2 \cdot p_3 \cdots p_n + 1\]</p>
+          <p>This is the product of all primes plus 1.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Analyze the divisibility of N.</strong>
+          <p>When we divide \(N\) by any prime \(p_i\) in our list:</p>
+          <p>\[N = p_i \cdot \left(\frac{p_1 \cdots p_n}{p_i}\right) + 1\]</p>
+          <p>The remainder is 1, so \(p_i \nmid N\) for each \(i\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Consider the prime factorization of N.</strong>
+          <p>Either:</p>
+          <ol>
+            <li><strong>N is prime:</strong> But \(N > p_n\) (since \(N > p_1 \cdots p_n\)), contradicting \(p_n\) being the largest prime.</li>
+            <li><strong>N is composite:</strong> Then \(N\) has a prime factor. But none of \(p_1, \ldots, p_n\) divide \(N\), so \(N\) has a prime factor not in our list.</li>
+          </ol>
+        </div>
+        
+        <div class="step">
+          <strong>Step 5: Conclude.</strong>
+          <p>In either case, we have a prime not in our original list, contradicting the assumption of finitely many primes.</p>
+          <p><strong>Conclusion:</strong> There are infinitely many primes.</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Find the prime factorization of 360.</div>
+        <p><strong>Understanding the Problem:</strong> Prime factorization expresses a number as a product of powers of primes. The Fundamental Theorem of Arithmetic guarantees this representation is unique.</p>
+        
+        <div class="step">
+          <strong>Step 1: Start with small primes.</strong>
+          <p>Test divisibility by 2: \(360 \div 2 = 180\)</p>
+          <p>Test divisibility by 2 again: \(180 \div 2 = 90\)</p>
+          <p>Test divisibility by 2 again: \(90 \div 2 = 45\)</p>
+          <p>Now \(360 = 2^3 \times 45\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Factor the remaining quotient.</strong>
+          <p>Test divisibility by 3: \(45 \div 3 = 15\)</p>
+          <p>Test divisibility by 3 again: \(15 \div 3 = 5\)</p>
+          <p>So \(45 = 3^2 \times 5\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Verify 5 is prime.</strong>
+          <p>5 has no divisors other than 1 and 5, so it is prime.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(360 = 2^3 \cdot 3^2 \cdot 5\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7: Prove: If \(p\) is prime and \(p \mid ab\), then \(p \mid a\) or \(p \mid b\).</div>
+        <p><strong>Understanding the Problem:</strong> This is Euclid's Lemma, a fundamental result connecting primality and divisibility. It states that if a prime divides a product, it must divide at least one factor.</p>
+        
+        <div class="step">
+          <strong>Case 1: \(\gcd(p, a) = 1\).</strong>
+          <p>If \(p\) and \(a\) are coprime, then by Problem 4, since \(p \mid ab\), we have \(p \mid b\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Case 2: \(\gcd(p, a) \neq 1\).</strong>
+          <p>Since \(p\) is prime, its only positive divisors are 1 and \(p\). If \(\gcd(p, a) \neq 1\), then \(\gcd(p, a) = p\).</p>
+          <p>This means \(p \mid a\).</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> In both cases, either \(p \mid a\) or \(p \mid b\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8: Find \(\gcd(144, 84)\) using the Euclidean algorithm.</div>
+        <p><strong>Understanding the Problem:</strong> The Euclidean algorithm finds GCD by repeatedly dividing and taking remainders, based on \(\gcd(a, b) = \gcd(b, a \mod b)\).</p>
+        
+        <div class="step">
+          <strong>Step 1: Apply the algorithm systematically.</strong>
+          <p>Start with \(\gcd(144, 84)\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Division 1:</strong> \(144 = 84 \cdot 1 + 60\)
+          <p>So \(\gcd(144, 84) = \gcd(84, 60)\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Division 2:</strong> \(84 = 60 \cdot 1 + 24\)
+          <p>So \(\gcd(84, 60) = \gcd(60, 24)\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Division 3:</strong> \(60 = 24 \cdot 2 + 12\)
+          <p>So \(\gcd(60, 24) = \gcd(24, 12)\)</p>
+        </div>
+        
+        <div class="step">
+          <strong>Division 4:</strong> \(24 = 12 \cdot 2 + 0\)
+          <p>When the remainder is 0, the last non-zero remainder is the GCD.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\gcd(144, 84) = 12\)</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove that \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}\}\).</</div>
+        <p><strong>Understanding the Problem:</strong> The GCD equals the smallest positive integer that can be written as a linear combination of \(a\) and \(b\). This is a deep result connecting the GCD to linear combinations.</p>
+        
+        <p><strong>Step 1: Call the GCD d and a linear combination m.</strong>
+        <p>Let \(d = \gcd(a, b)\) and let \(m = \min\{ax + by > 0 : x, y \in \mathbb{Z}\}\).</p>
+        </p>
+        
+        <p><strong>Step 2: Show d divides m.</strong>
+        <p>Since \(d \mid a\) and \(d \mid b\), we have \(a = da'\) and \(b = db'\) for some integers \(a', b'\).
+        <p>Any linear combination: \(ax + by = da'x + db'y = d(a'x + b'y)\).
+        <p>So all linear combinations are multiples of \(d\), meaning \(d \leq m\) (since \(m\) is the smallest positive such value).</p>
+        </p>
+        
+        <p><strong>Step 3: Show m divides d.</strong>
+        <p>By the division algorithm, divide \(d\) by \(m\): \(d = qm + r\) where \(0 \leq r < m\).
+        <p>Then \(r = d - qm = d - q(ax + by)\).
+        <p>Since \(d = \gcd(a,b)\), we have \(d = ax_0 + by_0\) for some \(x_0, y_0\).
+        <p>So \(r = (ax_0 + by_0) - q(ax + by) = a(x_0 - qx) + b(y_0 - qy)\).
+        <p>Thus \(r\) is also a linear combination of \(a\) and \(b\). Since \(r < m\) and \(m\) is the minimum positive value, we must have \(r = 0\).
+        <p>Therefore \(m \mid d\).</p>
+        </p>
+        
+        <p><strong>Conclusion:</strong> Since \(d \leq m\) and \(m \mid d\), we have \(d = m\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Prove that if \(p\) is prime, then \(\sqrt{p}\) is irrational.</</div>
+        <p><strong>Understanding the Problem:</strong> A number is irrational if it cannot be written as a fraction of integers. We'll prove this by contradiction, assuming \(\sqrt{p}\) is rational.</p>
+        
+        <p><strong>Proof:</strong></p>
+        
+        <div class="step">
+          <strong>Step 1: Assume the opposite.</strong>
+          <p>Suppose \(\sqrt{p}\) is rational. Then we can write \(\sqrt{p} = \frac{a}{b}\) where \(a, b\) are positive integers with \(\gcd(a, b) = 1\) (we can always reduce a fraction to lowest terms).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Square both sides.</strong>
+          <p>\[p = \frac{a^2}{b^2}\]
+          <p>Multiplying by \(b^2\): \[pb^2 = a^2\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Apply Euclid's Lemma (Problem 7).</strong>
+          <p>From \(pb^2 = a^2\), we see that \(p \mid a^2\).
+          <p>By Problem 7 (Euclid's Lemma), since \(p\) is prime, \(p \mid a\).
+          <p>So \(a = pc\) for some integer \(c\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Substitute back.</strong>
+          <p>From \(pb^2 = a^2\) and \(a = pc\):
+          <br>\[pb^2 = (pc)^2 = p^2c^2\]
+          <br>Dividing by \(p\): \[b^2 = pc^2\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 5: Reach a contradiction.</strong>
+          <p>From \(b^2 = pc^2\), we see \(p \mid b^2\).
+          <p>By Euclid's Lemma, \(p \mid b\).
+          <p>Now we have \(p \mid a\) AND \(p \mid b\), meaning \(\gcd(a, b) \geq p > 1\).
+          <p>This contradicts our assumption that \(\gcd(a, b) = 1\).</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> Our assumption was false. Therefore \(\sqrt{p}\) is irrational.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3: Prove that if \(n = p_1^{a_1} \cdots p_k^{a_k}\), then the number of positive divisors is \((a_1+1)\cdots(a_k+1)\).</</div>
+        <p><strong>Understanding the Problem:</strong> If we know the prime factorization, we can count how many positive integers divide \(n\) without listing them all.</p>
+        
+        <p><strong>Proof:</strong></p>
+        
+        <div class="step">
+          <strong>Step 1: Characterize the divisors.</strong>
+          <p>Let \(d\) be any positive divisor of \(n = p_1^{a_1} p_2^{a_2} \cdots p_k^{a_k}\).
+          <p>Since \(d \mid n\), every prime in \(d\) must also appear in \(n\). So:</p>
+          <p>\[d = p_1^{e_1} p_2^{e_2} \cdots p_k^{e_k}\]
+          <p>for some exponents \(e_i \geq 0\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Determine the possible exponents.</strong>
+          <p>Since \(d \mid n\), we need \(e_i \leq a_i\) for each \(i\).
+          <p>For each prime \(p_i\), the exponent \(e_i\) can be any integer from 0 to \(a_i\).</p>
+          <p>Number of choices for \(e_i\): \(a_i + 1\) (namely 0, 1, 2, ..., \(a_i\)).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Use the multiplication principle.</strong>
+          <p>The choices for different exponents are independent.
+          <p>By the multiplication principle:</p>
+          <p>\[\tau(n) = (a_1 + 1)(a_2 + 1) \cdots (a_k + 1) = \prod_{i=1}^{k}(a_i + 1)\]</p>
+        </div>
+        
+        <p><strong>Example:</strong> For \(360 = 2^3 \cdot 3^2 \cdot 5^1\), the number of divisors is \((3+1)(2+1)(1+1) = 4 \cdot 3 \cdot 2 = 24\).</p>
+      </div>
+
       <div class="navigation">
         <a href="problem-set-1-divisibility.html">← Back to Problem Set</a>
-        <a href="number-theory.html">Back to Course</a>
+        <a href="number-theory.html">Course Home →</a>
       </div>
     </div>
   </main>
+  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

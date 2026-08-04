@@ -3,46 +3,177 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Solutions: Problem Set 15: Pythagorean Triples | Elementary Number Theory</title>
+  <title>Solutions: Problem Set 15: Pythagorean Triples and Congruent Numbers | Elementary Number Theory</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(23, 162, 184, 0.1), rgba(23, 162, 184, 0.05)); border: 1px solid #17a2b8; border-left: 4px solid #17a2b8; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 15: Pythagorean Triples</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 15: Pythagorean Triples and Congruent Numbers</h1>
+      <div class="subtitle">Elementary Number Theory - Week 13 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Pythagorean Triple</strong>
+        <p>A triple (a, b, c) of positive integers with a² + b² = c².</p>
+        <p><strong>Primitive:</strong> gcd(a, b, c) = 1.</p>
+        <p><strong>Parameterization:</strong> All primitive triples: a = m² - n², b = 2mn, c = m² + n² (m > n, coprime, opposite parity).</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> For \(c = 25\): \(m^2+n^2 = 25\) gives \(m=4, n=3\). Triple: \((m^2-n^2, 2mn, m^2+n^2) = (7, 24, 25)\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> Primitive triples with \(c < 50\): \((3,4,5), (5,12,13), (8,15,17), (7,24,25), (20,21,29), (12,35,37), (9,40,41)\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Modulo 3: squares are 0, 1. If neither leg is divisible by 3, \(a^2+b^2 \equiv 1+1 \equiv 2 \pmod{3}\), not a square.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Modulo 4: squares are 0, 1. If neither leg is even, \(a^2+b^2 \equiv 1+1 \equiv 2 \pmod{4}\), not a square.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> In primitive triple, one leg divisible by 3, one by 4, one by 5. So \(abc\) divisible by \(3 \times 4 \times 5 = 60\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> For primitive triple \(a = m^2-n^2, b = 2mn, c = m^2+n^2\) with \(m,n\) of opposite parity. Then \(c \equiv 1+0 \equiv 1 \pmod{4}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Triangle \((3, 4, 5)\) has area \(\frac{3 \times 4}{2} = 6\). So 6 is a congruent number.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> If \(n\) is congruent, triangle with sides \((ka, kb, kc)\) has area \(k^2 n\). For \(k=2\), \(2^2 \cdot 6 = 24\) is also congruent.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(x^2+y^2=50\). Solutions: \((1, 7), (5, 5), (7, 1)\)</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> Triangle \((\frac{3}{2}, \frac{20}{3}, \frac{41}{6})\) has area \(\frac{1}{2} \cdot \frac{3}{2} \cdot \frac{20}{3} = 5\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> A Fermat right triangle has integer sides \(a, b, c\) with area \(ab/2\) an integer.</p><p><strong>Step 2:</strong> Such a triangle corresponds to a solution of \(x^2 - y^2 = z^2\) with \(xyz\) a square.</p><p><strong>Step 3:</strong> This is related to the equation \(x^4 - y^4 = z^2\), which has no non-trivial solutions by infinite descent.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> 5 is congruent if there exists a rational right triangle with area 5.</p><p><strong>Step 2:</strong> Try triangle with sides \((\frac{3}{2}, \frac{20}{3}, \frac{41}{6})\).</p><p><strong>Step 3:</strong> Area = \(\frac{1}{2} \cdot \frac{3}{2} \cdot \frac{20}{3} = 5\). ✓</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(p \equiv 3 \pmod{4}\) is prime and \(p\) is congruent, there exists rational right triangle with area \(p\).</p><p><strong>Step 2:</strong> Such a triangle corresponds to an elliptic curve \(y^2 = x^3 - p^2 x\).</p><p><strong>Step 3:</strong> By 2-descent, this curve has rank 0 for \(p \equiv 3 \pmod{4}\), so only trivial points exist. No congruent number.</p></p></div>
-      <div class="navigation"><a href="problem-set-15-pythagorean-triples.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Find all primitive Pythagorean triples with c ≤ 20.</</div>
+        <p><strong>Using the parameterization:</strong> a = m² - n², b = 2mn, c = m² + n² where m > n, gcd(m,n) = 1, m and n opposite parity.</p>
+        
+        <div class="step">
+          <strong>Find valid (m, n) pairs:</strong>
+          <table border="1" cellpadding="3">
+            <tr><th>m</th><th>n</th><th>c=m²+n²</th><th>a=m²-n²</th><th>b=2mn</th></tr>
+            <tr><td>2</td><td>1</td><td>5</td><td>3</td><td>4</td></tr>
+            <tr><td>3</td><td>2</td><td>13</td><td>5</td><td>12</td></tr>
+            <tr><td>3</td><td>1</td><td>10</td><td>8</td><td>6</td></tr>
+            <tr><td>4</td><td>1</td><td>17</td><td>15</td><td>8</td></tr>
+            <tr><td>4</td><td>3</td><td>25</td><td>7</td><td>24</td></tr>
+            <tr><td>5</td><td>2</td><td>29</td><td>21</td><td>20</td></tr>
+          </table>
+          <p>For c ≤ 20: c = 5, 10, 13, 17</div>
+        </div>
+        
+        <p><strong>Answer:</strong> (3,4,5), (5,12,13), (8,6,10) = 2×(3,4,5), (15,8,17)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Find a Pythagorean triple where one leg is 12.</</div>
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Case 1: b = 12 (even leg). Then 2mn = 12, so mn = 6.</strong>
+          <p>(m, n) = (6, 1): a = 36-1 = 35, b = 12, c = 37. Triple: (35, 12, 37)
+          <p>(m, n) = (3, 2): a = 9-4 = 5, b = 12, c = 13. Triple: (5, 12, 13)</div>
+        
+        <div class="step">
+          <strong>Case 2: a = 12 (odd leg). Then m² - n² = 12 = (m-n)(m+n).</strong>
+          <p>Factors of 12: (1,12), (2,6), (3,4)
+          <p>m - n = 1, m + n = 12 → m = 6.5 (not integer)
+          <p>m - n = 2, m + n = 6 → m = 4, n = 2. Then b = 16, c = 20. Triple: (12, 16, 20) = 4×(3,4,5)</p>
+        </div>
+        
+        <p><strong>Answer:</strong> Primitive: (5, 12, 13) and (35, 12, 37). Non-primitive: (12, 16, 20)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Prove the parameterization of primitive Pythagorean triples.</</div>
+        <p><strong>Proof:</strong></p>
+        <p>Let (a, b, c) be primitive with a² + b² = c² and a odd, b even.</p>
+        <p><strong>Step 1:</strong> Rewrite as b² = c² - a² = (c-a)(c+a).</p>
+        
+        <p><strong>Step 2:</strong> gcd(c-a, c+a) = gcd(c-a, 2c) = 2 (since gcd(a,c) = 1 and a is odd).</p>
+        <p>So c - a = 2s² and c + a = 2t² for coprime s, t of opposite parity.</p>
+        
+        <p><strong>Step 3:</strong> Solving,
+          <br>a = t² - s², c = t² + s², and b = 2st.</p>
+        <p>Setting m = t, n = s gives the parameterization.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Show that 5 is a congruent number.</</div>
+        <p><strong>Understanding:</strong> A congruent number n is the area of a right triangle with rational sides.</p>
+        
+        <p><strong>Proof:</strong>
+        <div class="step">
+          <strong>Find a rational right triangle with area 5.</strong>
+          <p>Consider (3/2, 20/3, 41/6):
+          <br>Area = (1/2)(3/2)(20/3) = 5 ✓
+          <br>Check: (3/2)² + (20/3)² = 9/4 + 400/9 = (81 + 1600)/36 = 1681/36 = (41/6)² ✓</div>
+        </div>
+        
+        <p><strong>Answer:</strong> Triangle with sides (3/2, 20/3, 41/6) has area 5, so 5 is congruent.
+        <p><strong>Minimal solution:</strong> corresponds to elliptic curve y² = x³ - 25x with rational point.</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Find all Pythagorean triples with leg difference 1.</</div>
+        <p><strong>Condition:</strong> |a - b| = 1 where a² + b² = c².</p>
+        <div class="step">
+          <strong>Case b = a + 1:</strong>
+          <br>a² + (a+1)² = c²
+          <br>2a² + 2a + 1 = c²
+          <br>(2a + 1)² - 2c² = -1 (Pell equation)
+          <br>Solutions: a = 0, 3, 20, 119, ...
+          <br>Triples: (0,1,1) degenerate, (3,4,5), (20,21,29), (119,120,169), ...</div>
+        <p><strong>Answer:</strong> Infinitely many via Pell equation solutions.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Prove Fermat's theorem on sum of two squares (if p ≡ 1 mod 4, then p = x² + y²).</</div>
+        <p><strong>Proof using Gaussian integers (already shown in PS8-10):</strong>
+        <p>If p ≡ 1 (mod 4), then p splits in \(\mathbb{Z}[i]\): p = ππ̄ for some Gaussian prime π = a + bi.
+        <p>Thus p = N(π) = a² + b² with integers a, b.</p>
+        
+        <p><strong>Constructive proof:</strong> Find x with x² ≡ -1 (mod p), then use lattice point argument to find a solution to x² + y² = p.</div>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-15-pythagorean-triples.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

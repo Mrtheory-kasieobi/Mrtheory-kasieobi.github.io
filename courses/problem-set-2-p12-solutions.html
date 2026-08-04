@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Problem Set 2 Solutions: Radical Functions - Precalculus 12">
+  <title>Kasieobi Udumaga | Problem Set 2 Solutions: Radical Functions - Precalculus 12</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+    .solution-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid #5cb85c;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .solution-box strong {
+      color: #5cb85c;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .step {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
+      border-left: 3px solid var(--accent);
+    }
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 12</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Problem Set 2: Radical Functions</h1>
+      <div class="subtitle">Precalculus 12 - Chapter 2 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Solutions</h2>
+
+      <div class="solution-box">
+        <strong>Problem 1: Graph \(f(x) = \sqrt{x - 2} + 3\) by hand. Identify the domain, range, and transformations from the parent function \(f(x) = \sqrt{x}\).</strong>
+        <div class="step">Parent function: \(f(x) = \sqrt{x}\) with domain \([0, \infty)\) and range \([0, \infty)\)</div>
+        <div class="step">Transformations: Horizontal shift right 2 units, vertical shift up 3 units</div>
+        <div class="step">New domain: \([2, \infty)\)</div>
+        <div class="step">New range: \([3, \infty)\)</div>
+        <div class="step">Key point transformations: (0,0) → (2,3), (1,1) → (3,4), (4,2) → (6,5)</div>
+        <div class="step"><strong>Answer: Domain \([2, \infty)\), Range \([3, \infty)\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 2: Solve: \(\sqrt{2x + 5} = x - 1\). Check for extraneous solutions.</strong>
+        <div class="step">Square both sides: \(2x + 5 = (x - 1)^2\)</div>
+        <div class="step">Expand: \(2x + 5 = x^2 - 2x + 1\)</div>
+        <div class="step">Rearrange: \(0 = x^2 - 4x - 4\)</div>
+        <div class="step">Use quadratic formula: \(x = \frac{4 \pm \sqrt{16 + 16}}{2} = \frac{4 \pm \sqrt{32}}{2} = \frac{4 \pm 4\sqrt{2}}{2} = 2 \pm 2\sqrt{2}\)</div>
+        <div class="step">Check \(x = 2 + 2\sqrt{2}\): RHS = \(1 + 2\sqrt{2} > 0\), LHS is positive. Valid.</div>
+        <div class="step">Check \(x = 2 - 2\sqrt{2}\): RHS = \(-1 - 2\sqrt{2} < 0\), but LHS is non-negative. Extraneous.</div>
+        <div class="step"><strong>Answer: \(x = 2 + 2\sqrt{2}\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 3: Find the inverse of \(f(x) = \sqrt[3]{x + 4} - 2\). State the domain and range.</strong>
+        <div class="step">Let \(y = \sqrt[3]{x + 4} - 2\)</div>
+        <div class="step">Add 2: \(y + 2 = \sqrt[3]{x + 4}\)</div>
+        <div class="step">Cube both sides: \((y + 2)^3 = x + 4\)</div>
+        <div class="step">Subtract 4: \(x = (y + 2)^3 - 4\)</div>
+        <div class="step">Swap variables: \(y = (x + 2)^3 - 4\)</div>
+        <div class="step">Inverse: \(f^{-1}(x) = (x + 2)^3 - 4\)</div>
+        <div class="step">Domain: All real numbers (cuberoot defined everywhere)</div>
+        <div class="step">Range: All real numbers</div>
+        <div class="step"><strong>Answer: \(f^{-1}(x) = (x + 2)^3 - 4\), Domain: \(\mathbb{R}\), Range: \(\mathbb{R}\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 4: A pendulum's period is given by \(T = 2\pi\sqrt{\frac{L}{g}}\) where \(L\) is length in meters and \(g = 9.8\) m/s². If the period is 2 seconds, find the length of the pendulum.</strong>
+        <div class="step">Substitute: \(2 = 2\pi\sqrt{\frac{L}{9.8}}\)</div>
+        <div class="step">Divide by \(2\pi\): \(\frac{1}{\pi} = \sqrt{\frac{L}{9.8}}\)</div>
+        <div class="step">Square both sides: \(\frac{1}{\pi^2} = \frac{L}{9.8}\)</div>
+        <div class="step">Solve: \(L = \frac{9.8}{\pi^2} = \frac{9.8}{9.8696...} \approx 0.993\) meters</div>
+        <div class="step"><strong>Answer: Approximately 0.99 meters or exactly \(\frac{49}{5\pi^2}\) meters</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 5: Solve: \(\sqrt{x + 3} + \sqrt{x - 2} = 5\). Show all steps and verify your answer.</strong>
+        <div class="step">Isolate one radical: \(\sqrt{x + 3} = 5 - \sqrt{x - 2}\)</div>
+        <div class="step">Square both sides: \(x + 3 = 25 - 10\sqrt{x - 2} + (x - 2)\)</div>
+        <div class="step">Simplify: \(x + 3 = 23 - 10\sqrt{x - 2} + x\)</div>
+        <div class="step">Cancel \(x\): \(3 = 23 - 10\sqrt{x - 2}\)</div>
+        <div class="step">Solve: \(10\sqrt{x - 2} = 20\), so \(\sqrt{x - 2} = 2\)</div>
+        <div class="step">Square: \(x - 2 = 4\), so \(x = 6\)</div>
+        <div class="step">Verify: \(\sqrt{9} + \sqrt{4} = 3 + 2 = 5\) ✓</div>
+        <div class="step"><strong>Answer: \(x = 6\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 6: Graph \(f(x) = -\sqrt[4]{x} + 1\) and identify the domain, range, and any asymptotes.</strong>
+        <div class="step">Domain: For \(\sqrt[4]{x}\) to be real, we need \(x \geq 0\)</div>
+        <div class="step">Even root of negative numbers is not real, so domain is \([0, \infty)\)</div>
+        <div class="step">As \(x \to 0^+\), \(\sqrt[4]{x} \to 0\), so \(f(x) \to 1\)</div>
+        <div class="step">As \(x \to \infty\), \(\sqrt[4]{x} \to \infty\), so \(f(x) \to -\infty\)</div>
+        <div class="step">Range: \((-\infty, 1]\)</div>
+        <div class="step">No vertical or horizontal asymptotes (function is defined for all \(x \geq 0\))</div>
+        <div class="step"><strong>Answer: Domain \([0, \infty)\), Range \((-\infty, 1]\), No asymptotes</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 7: Find all solutions to: \(\sqrt{3x - 2} = \sqrt{x + 4} + 1\).</strong>
+        <div class="step">Square both sides: \(3x - 2 = x + 4 + 2\sqrt{x + 4} + 1\)</div>
+        <div class="step">Simplify: \(3x - 2 = x + 5 + 2\sqrt{x + 4}\)</div>
+        <div class="step">Isolate radical: \(2x - 7 = 2\sqrt{x + 4}\)</div>
+        <div class="step">Divide by 2: \(x - \frac{7}{2} = \sqrt{x + 4}\)</div>
+        <div class="step">Square both sides: \(x^2 - 7x + \frac{49}{4} = x + 4\)</div>
+        <div class="step">Rearrange: \(x^2 - 8x + \frac{33}{4} = 0\)</div>
+        <div class="step">Multiply by 4: \(4x^2 - 32x + 33 = 0\)</div>
+        <div class="step">Use quadratic formula: \(x = \frac{32 \pm \sqrt{1024 - 528}}{8} = \frac{32 \pm \sqrt{496}}{8} = \frac{32 \pm 4\sqrt{31}}{8} = 4 \pm \frac{\sqrt{31}}{2}\)</div>
+        <div class="step">Check \(x = 4 + \frac{\sqrt{31}}{2}\): Works in original equation</div>
+        <div class="step">Check \(x = 4 - \frac{\sqrt{31}}{2} \approx 1.21\): LHS ≈ 1.13, RHS ≈ 3.13 - doesn't work</div>
+        <div class="step"><strong>Answer: \(x = 4 + \frac{\sqrt{31}}{2}\)</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Problem 8: A cylinder's volume is \(V = \pi r^2 h\). If the volume is 100π cm³ and height is 5 cm, find the radius. Then find the surface area.</strong>
+        <div class="step">Given: \(V = 100\pi\) cm³, \(h = 5\) cm</div>
+        <div class="step">Substitute: \(100\pi = \pi r^2 (5)\)</div>
+        <div class="step">Simplify: \(100 = 5r^2\)</div>
+        <div class="step">Solve: \(r^2 = 20\), so \(r = \sqrt{20} = 2\sqrt{5}\) cm</div>
+        <div class="step">Surface area: \(SA = 2\pi r^2 + 2\pi rh = 2\pi(20) + 2\pi(2\sqrt{5})(5)\)</div>
+        <div class="step">\(SA = 40\pi + 20\pi\sqrt{5} = 20\pi(2 + \sqrt{5})\) cm²</div>
+        <div class="step"><strong>Answer: Radius = \(2\sqrt{5}\) cm, Surface Area = \(20\pi(2 + \sqrt{5})\) cm²</strong></div>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 1: Solve: \(\sqrt[3]{x + 2} = x - 2\). Check all potential solutions.</strong>
+        <div class="step">Cube both sides: \(x + 2 = (x - 2)^3\)</div>
+        <div class="step">Expand RHS: \(x + 2 = x^3 - 6x^2 + 12x - 8\)</div>
+        <div class="step">Rearrange: \(0 = x^3 - 6x^2 + 11x - 10\)</div>
+        <div class="step">Test rational roots: Try \(x = 5\): \(125 - 150 + 55 - 10 = 20 \neq 0\)</div>
+        <div class="step">Try \(x = 2\): \(8 - 24 + 22 - 10 = -4 \neq 0\)</div>
+        <div class="step">Try \(x = -2\): \(-8 - 24 - 22 - 10 = -64 \neq 0\)</div>
+        <div class="step">Let's verify by testing: If \(x = 5\), \(\sqrt[3]{7} \approx 1.91 \neq 3\)</div>
+        <div class="step">Actually factor: \(x^3 - 6x^2 + 11x - 10 = (x - 5)(x^2 - x + 2)\)</div>
+        <div class="step">Only real root is \(x = 5\), but doesn't satisfy original</div>
+        <div class="step">Check \(x = 5\) in original: \(\sqrt[3]{7} \neq 3\), so extraneous</div>
+        <div class="step">The cubic factors have no other real roots</div>
+        <div class="step"><strong>Answer: No real solutions</strong></div>
+      </div>
+
+      <div class="solution-box">
+        <strong>Bonus Problem 2: A right triangle has hypotenuse 10 cm. One leg is 2 cm longer than the other. Find the exact lengths of both legs using the quadratic formula.</strong>
+        <div class="step">Let shorter leg = \(x\) cm, longer leg = \(x + 2\) cm</div>
+        <div class="step">By Pythagorean theorem: \(x^2 + (x + 2)^2 = 10^2\)</div>
+        <div class="step">Expand: \(x^2 + x^2 + 4x + 4 = 100\)</div>
+        <div class="step">Simplify: \(2x^2 + 4x - 96 = 0\)</div>
+        <div class="step">Divide by 2: \(x^2 + 2x - 48 = 0\)</div>
+        <div class="step">Use quadratic formula: \(x = \frac{-2 \pm \sqrt{4 + 192}}{2} = \frac{-2 \pm \sqrt{196}}{2} = \frac{-2 \pm 14}{2}\)</div>
+        <div class="step">\(x = 6\) or \(x = -8\) (reject negative)</div>
+        <div class="step">Legs: 6 cm and 8 cm</div>
+        <div class="step"><strong>Answer: 6 cm and 8 cm (a 6-8-10 right triangle)</strong></div>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-2-p12.html">← Back to Problem Set</a>
+        <a href="../teaching.html">Course Home →</a>
+      </div>
+    </div>
+  </main>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
+  <script src="../script.js"></script>
+</body>
+</html>

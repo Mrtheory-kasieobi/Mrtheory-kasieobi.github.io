@@ -10,39 +10,202 @@
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 9: Gaussian Primes</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 9: Gaussian Primes and Factorization</h1>
+      <div class="subtitle">Elementary Number Theory - Week 10 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Gaussian Prime Classification</strong>
+        <p>In \(\mathbb{Z}[i]\), an element \(\pi\) is prime if:</p>
+        <ul>
+          <li>\(\pi\) is a unit times a rational prime \(p\) where \(p \equiv 3 \pmod{4}\)</li>
+          <li>\(\pi = a + bi\) where \(a^2 + b^2 = p\) is a rational prime (so \(p \equiv 1 \pmod{4}\))</li>
+          <li>\(\pi = 1 + i\) (up to units) - the prime dividing 2</li>
+        </ul>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Gaussian primes with norm < 10: \(1+i\) (norm 2), \(2+i, 2-i\) (norm 5), and their associates \(-1+i, -2-i, -2+i, 1-i\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> In \(\mathbb{Z}[i]\): primes \(p \equiv 3 \pmod{4}\) remain prime (inert). Primes \(p \equiv 1 \pmod{4}\) split as \(p = (a+bi)(a-bi)\). \(p = 2\) ramifies: \(2 = -i(1+i)^2\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> \(5 = (2+i)(2-i)\). Both factors have norm 5, which is prime in \(\mathbb{Z}\), so both are Gaussian primes.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(7 \equiv 3 \pmod{4}\), so 7 is inert and remains prime in \(\mathbb{Z}[i]\). There is no factorization \(7 = \alpha\beta\) with non-units \(\alpha, \beta \in \mathbb{Z}[i]\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> If \(p \equiv 3 \pmod{4}\), then \(-1\) is not a quadratic residue mod \(p\). So \(x^2+1 \equiv 0 \pmod{p}\) has no solution, meaning \(p\) cannot be written as \(a^2+b^2\), hence remains prime in \(\mathbb{Z}[i]\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(13 \equiv 1 \pmod{4}\), so 13 splits. Find \(a, b\) with \(a^2+b^2 = 13\): \(2^2 + 3^2 = 13\). So \(13 = (2+3i)(2-3i)\). Both factors are Gaussian primes.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> If \(p \equiv 1 \pmod{4}\), then \(\left(\frac{-1}{p}\right) = 1\), so \(-1\) is a quadratic residue mod \(p\). Thus \(x^2 \equiv -1 \pmod{p}\) has a solution \(a\), meaning \(p | (a^2+1) = (a+i)(a-i)\) in \(\mathbb{Z}[i]\). Hence \(p\) splits.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> \(65 = 5 \cdot 13 = (2+i)(2-i)(3+2i)(3-2i)\). This is the complete factorization into Gaussian primes.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(50 = 2 \cdot 5^2 = (1+i)(1-i) \cdot 5^2\). In Gaussian integers: \(50 = (1+i)(1-i)(2+3i)^2(2-3i)^2\) or more simply \(50 = (1+i)(1-i) \cdot 5^2\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> \(\mathbb{Z}[i]\) is a Euclidean domain, hence a UFD. Unique factorization means every non-zero non-unit has a factorization into irreducibles, unique up to order and associates (units: \(1, -1, i, -i\)).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> For prime \(p \equiv 1 \pmod{4}\), we can write \(p = a^2 + b^2\) using Fermat's theorem on sums of two squares.</p><p><strong>Step 2:</strong> Find \(k\) with \(k^2 \equiv -1 \pmod{p}\) using Tonelli-Shanks algorithm.</p><p><strong>Step 3:</strong> Then \(p | (k^2+1)\), so in \(\mathbb{Z}[i]\), \(p | (k+i)(k-i)\).</p><p><strong>Step 4:</strong> Since \(p\) doesn't divide either factor, \(p = (k+i)(k-i)\) up to units.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> Suppose \(p = a^2+b^2 = c^2+d^2\) with \(a,b,c,d > 0\) and \((a,b) \neq (c,d), (d,c)\).</p><p><strong>Step 2:</strong> In \(\mathbb{Z}[i]\): \(p = (a+bi)(a-bi) = (c+di)(c-di)\).</p><p><strong>Step 3:</strong> By unique factorization in \(\mathbb{Z}[i]\), \(a+bi\) and \(c+di\) are associates.</p><p><strong>Step 4:</strong> This means \((a,b) = \pm(c,d)\) or \((a,b) = \pm(d,c)\), giving essentially the same representation.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> \(\mathbb{Z}[i]\) is Euclidean: for any \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), there exist \(\gamma, \delta\) with \(\alpha = \beta\gamma + \delta\) and \(N(\delta) < N(\beta)\).</p><p><strong>Step 2:</strong> Euclidean domains are UFDs by standard ring theory.</p><p><strong>Step 3:</strong> The Euclidean function \(N\) is multiplicative on units and respects division with remainder.</p></p></div>
-      <div class="navigation"><a href="problem-set-9-gaussian-primes.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Determine which Gaussian integers are prime among: 2, 3, 1+i, 2+i, 3+3i, 5.</div>
+        <p><strong>Strategy:</strong> Check each using the classification.</p>
+        
+        <div class="step">
+          <strong>2:</strong> \(2 = -i(1+i)^2\), so 2 is NOT prime (it ramifies).
+          <p>But \(1 + i\) IS prime since \(N(1+i) = 2\) is prime.</p>
+        </div>
+        
+        <div class="step">
+          <strong>3:</strong> 3 ≡ 3 (mod 4), so 3 remains prime in \(\mathbb{Z}[i]\).</div>
+        
+        <div class="step">
+          <strong>1 + i:</strong> \(N(1+i) = 2\) (prime), so 1+i is prime.</div>
+        
+        <div class="step">
+          <strong>2 + i:</strong> \(N(2+i) = 5\), and 5 ≡ 1 (mod 4), so 2+i is prime.</div>
+        
+        <div class="step">
+          <strong>3 + 3i = 3(1 + i):</strong> Product of two primes, not prime.</div>
+        
+        <div class="step">
+          <strong>5 = (2+i)(2-i):</strong> 5 factors, not prime.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The primes are: 3, 1+i, and 2+i.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Factor 13 in \(\mathbb{Z}[i]\).</div>
+        <p><strong>Analysis:</strong> 13 ≡ 1 (mod 4), so 13 splits (factors) in \(\mathbb{Z}[i]\).</p>
+        
+        <div class="step">
+          <strong>Find Gaussian integers with norm 13.</strong>
+          <p>Solve \(a^2 + b^2 = 13\):
+          <ul>
+            <li>\(a = 2\): \(b^2 = 9\), so \(b = \pm 3\)</li>
+            <li>\(a = 3\): \(b^2 = 4\), so \(b = \pm 2\)</li>
+          </ul>
+          So ±(2+3i), ±(3+2i), ±(2-3i), ±(3-2i) have norm 13.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Verify a factorization.</strong>
+          <br>\[(2 + 3i)(2 - 3i) = 4 + 9 = 13\]</div>
+        
+        <p><strong>Answer:</strong> \(13 = (2+3i)(2-3i) = (3+2i)(3-2i)\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Find the greatest common divisor of 5 and 13 in \(\mathbb{Z}[i]\).</div>
+        <p><strong>Strategy:</strong> Factor both and find common factors.</p>
+        
+        <div class="step">
+          <strong>Factor 5 and 13:</strong>
+          <br>5 = (2+i)(2-i)
+          <br>13 = (2+3i)(2-3i)</div>
+        
+        <div class="step">
+          <strong>Check if any Gaussian prime divides both.</strong>
+          <p>We need to check if 2+i or 2-i divides 2+3i or 2-3i.
+          <p>In \(\mathbb{Z}[i]\), primes are non-associated if they are not unit multiples.
+          <p>2+i and 2+3i are not associates (their ratio is not a unit).
+          <p>Therefore, gcd(5, 13) = 1.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\gcd(5, 13) = 1\) (they are coprime in \(\mathbb{Z}[i]\)).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Prove that \(\mathbb{Z}[i]\) is a unique factorization domain.</div>
+        <p><strong>Proof outline:</strong></p>
+        <div class="step">
+          <strong>Step 1: Show \(\mathbb{Z}[i]\) is a Euclidean domain.</strong>
+          <p>Define the Euclidean function: \(\delta(a + bi) = N(a + bi) = a^2 + b^2\).
+          <p>Given \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), find \(q, r\) such that \(\alpha = \beta q + r\) where \(r = 0\) or \(\delta(r) < \delta(\beta)\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Euclidean domains are UFDs.</strong>
+          <p>This is a standard theorem: every Euclidean domain is a PID, and every PID is a UFD.</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Use Gaussian integers to prove that a prime \(p\) can be written as \(x^2 + y^2\) iff \(p = 2\) or \(p \equiv 1 \pmod{4}\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>(⇒) If \(p = x^2 + y^2\), then \(p = (x + yi)(x - yi)\):</strong>
+          <p>If \(p\) were prime in \(\mathbb{Z}[i]\), it would be associate to a rational prime ≡ 3 (mod 4).
+          <p>But \(x + yi\) is not a unit (unless \(p = 2\)) and not a rational prime.
+          <p>Therefore \(p\) is not a Gaussian prime.
+          <p>Checking: 2 = 1² + 1², and for \(p > 2\): \(p \equiv 1 \pmod{4}\) iff it splits.</div>
+        
+        <div class="step">
+          <strong>(⇐) If \(p = 2\) or \(p \equiv 1 \pmod{4}\):</strong>
+          <p>We've shown these primes factor in \(\mathbb{Z}[i]\): \(p = \pi \bar{\pi}\) for some prime \(\pi = a + bi\).
+          <br>Then \(p = N(\pi) = a^2 + b^2\).</p>
+        </div>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Find the Gaussian primes that divide 65.</</div>
+        <div class="step">
+          <strong>Factor 65:</strong> \(65 = 5 \times 13\).
+          <br>5 = (2+i)(2-i)
+          <br>13 = (2+3i)(2-3i)</div>
+        <p><strong>Answer:</strong> The Gaussian primes dividing 65 are: 2+i, 2-i, 2+3i, 2-3i.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Solve \(xy = 39\) in \(\mathbb{Z}[i]\).</</div>
+        <div class="step">
+          <strong>Factor 39 in \(\mathbb{Z}[i]\):</strong>
+          <p>39 = 3 × 13
+          <br>3 remains prime (≡ 3 mod 4)
+          <br>13 = (2+3i)(2-3i)</div>
+        <p><strong>Answer:</strong> Solutions are (up to units): 3·(2+3i) = 6+9i, etc.</p>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-9-gaussian-primes.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

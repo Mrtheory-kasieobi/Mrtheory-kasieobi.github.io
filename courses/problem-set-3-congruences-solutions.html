@@ -11,69 +11,339 @@
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 3: Congruences</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
-    <div class="problem-content">
-      <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> We need to solve \(3x \equiv 7 \pmod{11}\). Since \(\gcd(3, 11) = 1\), 3 has a multiplicative inverse modulo 11.</p><p><strong>Step 1:</strong> Find \(3^{-1} \pmod{11}\). Try values: \(3 \cdot 4 = 12 \equiv 1 \pmod{11}\), so \(3^{-1} \equiv 4 \pmod{11}\).</p><p><strong>Step 2:</strong> Multiply both sides by 4: \(x \equiv 4 \cdot 7 \equiv 28 \equiv 6 \pmod{11}\).</p><p><strong>Conclusion:</strong> \(x \equiv 6 \pmod{11}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> We need to find all \(x\) such that \(x^2 \equiv 1 \pmod{8}\).</p><p><strong>Step 1:</strong> Test all residues modulo 8: \(0^2 = 0\), \(1^2 = 1\), \(2^2 = 4\), \(3^2 = 9 \equiv 1\), \(4^2 = 16 \equiv 0\), \(5^2 = 25 \equiv 1\), \(6^2 = 36 \equiv 4\), \(7^2 = 49 \equiv 1\).</p><p><strong>Conclusion:</strong> The solutions are \(x \equiv 1, 3, 5, 7 \pmod{8}\), i.e., all odd residues.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> If \(a \equiv b \pmod{m}\) and \(c \equiv d \pmod{m}\), then \(a - b = mk\) and \(c - d = ml\) for some integers \(k, l\).</p><p><strong>Step 1:</strong> Consider \(a + c - (b + d) = (a - b) + (c - d) = mk + ml = m(k + l)\).</p><p><strong>Step 2:</strong> This shows \(a + c \equiv b + d \pmod{m}\).</p><p><strong>Conclusion:</strong> Congruences are preserved under addition.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> Find \(2^{100} \pmod{11}\).</p><p><strong>Step 1:</strong> By Fermat's Little Theorem, since 11 is prime and \(\gcd(2, 11) = 1\), we have \(2^{10} \equiv 1 \pmod{11}\).</p><p><strong>Step 2:</strong> Write \(100 = 10 \cdot 10\), so \(2^{100} = (2^{10})^{10} \equiv 1^{10} = 1 \pmod{11}\).</p><p><strong>Conclusion:</strong> \(2^{100} \equiv 1 \pmod{11}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Determine if 5 has a multiplicative inverse modulo 14.</p><p><strong>Step 1:</strong> Check \(\gcd(5, 14)\). Since \(14 = 5 \cdot 2 + 4\), \(5 = 4 \cdot 1 + 1\), we have \(\gcd(5, 14) = 1\).</p><p><strong>Step 2:</strong> Since the gcd is 1, an inverse exists. Find it by testing: \(5 \cdot 1 = 5\), \(5 \cdot 2 = 10\), \(5 \cdot 3 = 15 \equiv 1 \pmod{14}\).</p><p><strong>Conclusion:</strong> The inverse of 5 modulo 14 is 3.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> Solve the system: \(x \equiv 2 \pmod{3}\) and \(x \equiv 3 \pmod{5}\).</p><p><strong>Step 1:</strong> From the first congruence, \(x = 2 + 3k\) for some integer \(k\).</p><p><strong>Step 2:</strong> Substitute into the second: \(2 + 3k \equiv 3 \pmod{5}\), so \(3k \equiv 1 \pmod{5}\).</p><p><strong>Step 3:</strong> Find \(3^{-1} \pmod{5}\): \(3 \cdot 2 = 6 \equiv 1 \pmod{5}\), so \(k \equiv 2 \pmod{5}\).</p><p><strong>Step 4:</strong> Thus \(k = 2 + 5t\) and \(x = 2 + 3(2 + 5t) = 8 + 15t\).</p><p><strong>Conclusion:</strong> \(x \equiv 8 \pmod{15}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> Prove Fermat's Little Theorem: \(a^{p-1} \equiv 1 \pmod{p}\) for prime \(p\) and \(p \nmid a\).</p><p><strong>Step 1:</strong> Consider the set \(S = \{a, 2a, 3a, \ldots, (p-1)a\}\).</p><p><strong>Step 2:</strong> None of these elements are congruent to 0 modulo \(p\) since \(p \nmid a\).</p><p><strong>Step 3:</strong> If \(ia \equiv ja \pmod{p}\) for \(1 \leq i < j \leq p-1\), then \(p \mid a(j-i)\), so \(p \mid (j-i)\), contradicting \(1 \leq j-i \leq p-2\).</p><p><strong>Step 4:</strong> Thus \(S\) contains \(p-1\) distinct non-zero residues modulo \(p\).</p><p><strong>Step 5:</strong> Since \(\{1, 2, \ldots, p-1\}\) also has \(p-1\) distinct non-zero residues, \(S \equiv \{1, 2, \ldots, p-1\} \pmod{p}\).</p><p><p><strong>Step 6:</strong> Therefore, \(a \cdot 2a \cdot 3a \cdots (p-1)a \equiv 1 \cdot 2 \cdot 3 \cdots (p-1) \pmod{p}\).</p><p><strong>Step 7:</strong> This gives \(a^{p-1} \cdot (p-1)! \equiv (p-1)! \pmod{p}\).</p><p><strong>Step 8:</strong> Cancel \((p-1)!\) (which is coprime to \(p\)): \(a^{p-1} \equiv 1 \pmod{p}\).</p><p><strong>Conclusion:</strong> Fermat's Little Theorem is proved.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> Find integers \(x\) such that \(x \equiv 1 \pmod{2}\), \(x \equiv 2 \pmod{3}\), and \(x \equiv 3 \pmod{5}\).</p><p><strong>Step 1:</strong> From \(x \equiv 1 \pmod{2}\), write \(x = 1 + 2k\).</p><p><strong>Step 2:</strong> Substitute: \(1 + 2k \equiv 2 \pmod{3}\), so \(2k \equiv 1 \pmod{3}\). Since \(2^{-1} \equiv 2 \pmod{3}\), we get \(k \equiv 2 \pmod{3}\).</p><p><strong>Step 3:</strong> Write \(k = 2 + 3m\), so \(x = 1 + 2(2 + 3m) = 5 + 6m\).</p><p><strong>Step 4:</strong> Substitute into the third congruence: \(5 + 6m \equiv 3 \pmod{5}\), so \(6m \equiv -2 \equiv 3 \pmod{5}\), giving \(m \equiv 3 \pmod{5}\).</p><p><strong>Step 5:</strong> Write \(m = 3 + 5t\), so \(x = 5 + 6(3 + 5t) = 23 + 30t\).</p><p><strong>Conclusion:</strong> \(x \equiv 23 \pmod{30}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> Prove Wilson's theorem: \((p-1)! \equiv -1 \pmod{p}\) for prime \(p\).</p><p><strong>Step 1:</strong> Consider the multiplicative group \(\mathbb{Z}_p^* = \{1, 2, \ldots, p-1\}\) under multiplication modulo \(p\).</p><p><strong>Step 2:</strong> Each element has a unique multiplicative inverse in this group.</p><p><strong>Step 3:</strong> The only elements that are their own inverses are 1 and \(p-1 \equiv -1 \pmod{p}\), since \(x^2 \equiv 1 \pmod{p}\) implies \(x \equiv \pm 1 \pmod{p}\).</p><p><strong>Step 4:</strong> Pair up the remaining elements: \(2 \cdot 2^{-1} \equiv 1\), \(3 \cdot 3^{-1} \equiv 1\), etc.</p><p><strong>Step 5:</strong> The product of all elements is: \(1 \cdot 2 \cdot 3 \cdots (p-1) \equiv 1 \cdot (p-1) \cdot 1 \cdot 1 \cdots 1 \equiv p-1 \equiv -1 \pmod{p}\).</p><p><strong>Conclusion:</strong> Wilson's theorem is proved.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> Show that \(n^3 - n\) is divisible by 6 for all integers \(n\).</p><p><strong>Step 1:</strong> Factor: \(n^3 - n = n(n^2 - 1) = n(n-1)(n+1)\), the product of three consecutive integers.</p><p><strong>Step 2:</strong> Among any three consecutive integers, one is divisible by 3 (since residues modulo 3 are 0, 1, 2).</p><p><strong>Step 3:</strong> Among any two consecutive integers, one is divisible by 2. Among three consecutive integers, at least one is even.</p><p><strong>Step 4:</strong> Therefore, the product \(n(n-1)(n+1)\) is divisible by both 2 and 3.</p><p><p><strong>Step 5:</strong> Since \(\gcd(2, 3) = 1\), the product is divisible by \(2 \cdot 3 = 6\).</p><p><strong>Conclusion:</strong> \(6 \mid (n^3 - n)\) for all integers \(n\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> We want to find the last two digits of \(7^{100}\), i.e., compute \(7^{100} \pmod{100}\).</p>
-        <p><strong>Step 2:</strong> Note that \(100 = 4 \cdot 25\). We'll use the Chinese Remainder Theorem.</p>
-        <p><strong>Step 3:</strong> Compute \(7^{100} \pmod{4}\): \(7 \equiv 3 \pmod{4}\), and \(3^2 = 9 \equiv 1 \pmod{4}\), so \(7^{100} = (7^2)^{50} \equiv 1^{50} = 1 \pmod{4}\).</p>
-        <p><strong>Step 4:</strong> Compute \(7^{100} \pmod{25}\): By Euler's theorem, \(\phi(25) = 20\), so \(7^{20} \equiv 1 \pmod{25}\). Thus \(7^{100} = (7^{20})^5 \equiv 1^5 = 1 \pmod{25}\).</p>
-        <p><strong>Step 5:</strong> We need \(x\) such that \(x \equiv 1 \pmod{4}\) and \(x \equiv 1 \pmod{25}\).</p>
-        <p><strong>Step 6:</strong> Since \(x \equiv 1\) modulo both 4 and 25, and \(\gcd(4, 25) = 1\), by CRT we have \(x \equiv 1 \pmod{100}\).</p>
-        <p><strong>Conclusion:</strong> The last two digits of \(7^{100}\) are 01.</p>
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 3: Congruences and Modular Arithmetic</h1>
+      <div class="subtitle">Elementary Number Theory - Week 3 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Modular Congruence</strong>
+        <p>For integers \(a, b, m\) with \(m > 0\), we say \(a \equiv b \pmod{m}\) (read "a is congruent to b modulo m") if \(m \mid (a - b)\).</p>
+        <p><strong>Example:</strong> \(17 \equiv 5 \pmod{12}\) because \(17 - 5 = 12\) and \(12 \mid 12\).</p>
       </div>
+
+      <div class="concept-callout">
+        <strong>Properties of Congruence</strong>
+        <p>1. Reflexive: \(a \equiv a \pmod{m}\)
+        <p>2. Symmetric: If \(a \equiv b \pmod{m}\), then \(b \equiv a \pmod{m}\)
+        <p>3. Transitive: If \(a \equiv b \pmod{m}\) and \(b \equiv c \pmod{m}\), then \(a \equiv c \pmod{m}\)</p>
+        <p>4. If \(a \equiv b \pmod{m}\) and \(c \equiv d \pmod{m}\), then:
+          <ul>
+            <li>\(a + c \equiv b + d \pmod{m}\)</li>
+            <li>\(ac \equiv bd \pmod{m}\)</li>
+          </ul>
+      </div>
+
+      <h2>Solutions</h2>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> We prove by induction on \(n\) that if \(a \equiv b \pmod{m}\), then \(a^n \equiv b^n \pmod{m}\) for all \(n \geq 1\).</p>
-        <p><strong>Step 2:</strong> Base case \(n = 1\): \(a^1 = a \equiv b = b^1 \pmod{m}\).</p>
-        <p><strong>Step 3:</strong> Inductive hypothesis: Assume \(a^k \equiv b^k \pmod{m}\) for some \(k \geq 1\).</p>
-        <p><strong>Step 4:</strong> Inductive step: \(a^{k+1} = a^k \cdot a \equiv b^k \cdot b = b^{k+1} \pmod{m}\), where we used the fact that if \(x \equiv x'\) and \(y \equiv y'\), then \(xy \equiv x'y' \pmod{m}\).</p>
+        <div class="problem-number">Problem 1: Prove that if \(a \equiv b \pmod{m}\) and \(c \equiv d \pmod{m}\), then \(a + c \equiv b + d \pmod{m}\).</div>
+        <p><strong>Understanding:</strong> Congruence preserves addition. This allows us to add congruences term by term.</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Step 1: Write out what the given congruences mean.</strong>
+          <p>Since \(a \equiv b \pmod{m}\), we have \(m \mid (a - b)\), so \(a - b = mk\) for some integer \(k\).
+          <p>Since \(c \equiv d \pmod{m}\), we have \(m \mid (c - d)\), so \(c - d = m\ell\) for some integer \(\ell\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Consider the difference of the sums.</strong>
+          <p>\[(a + c) - (b + d) = (a - b) + (c - d) = mk + m\ell = m(k + \ell)\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Conclude.</strong>
+          <p>Since \(m \mid (a + c) - (b + d)\), we have \(a + c \equiv b + d \pmod{m}\).</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Solve the congruence: \(3x \equiv 7 \pmod{11}\).</div>
+        <p><strong>Understanding:</strong> We need to find all integers \(x\) such that \(3x\) leaves remainder 7 when divided by 11.</p>
+        
+        <div class="step">
+          <strong>Step 1: Check if a solution exists.</strong>
+          <p>A linear congruence \(ax \equiv b \pmod{m}\) has a solution if and only if \(\gcd(a, m) \mid b\).
+          <p>\(\gcd(3, 11) = 1\) and \(1 \mid 7\), so a unique solution exists modulo 11.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Find the multiplicative inverse of 3 modulo 11.</strong>
+          <p>Using Extended Euclidean Algorithm:
+          <br>\[11 = 3 \times 3 + 2\]
+          <br>\[3 = 2 \times 1 + 1\]
+          <br>\[2 = 1 \times 2 + 0\]
+          <br>Back-substitute: \(1 = 3 - 2 = 3 - (11 - 3 \times 3) = 3 \times 4 - 11\)
+          <br>So \(3 \times 4 \equiv 1 \pmod{11}\), meaning \(3^{-1} \equiv 4 \pmod{11}\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Multiply both sides by the inverse.</strong>
+          <p>\[x \equiv 4 \times 7 \equiv 28 \equiv 6 \pmod{11}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(x \equiv 6 \pmod{11}\), meaning all solutions are \(x = 6 + 11k\) for integers \(k\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Find all solutions to \(x^2 \equiv 1 \pmod{8}\).</div>
+        <p><strong>Strategy:</strong> Check each residue class modulo 8, since there are only 8 possibilities.</p>
+        
+        <div class="step">
+          <strong>Check each value:</strong>
+          <table border="1" cellpadding="5" cellspacing="0">
+            <tr><td>\(x \mod 8\)</td><td>\(x^2 \mod 8\)</td></tr>
+            <tr><td>0</td><td>0</td></tr>
+            <tr><td>1</td><td>1</td></tr>
+            <tr><td>2</td><td>4</td></tr>
+            <tr><td>3</td><td>9 ≡ 1</td></tr>
+            <tr><td>4</td><td>16 ≡ 0</td></tr>
+            <tr><td>5</td><td>25 ≡ 1</td></tr>
+            <tr><td>6</td><td>36 ≡ 4</td></tr>
+            <tr><td>7</td><td>49 ≡ 1</td></tr>
+          </table>
+        </div>
+        
+        <p><strong>Answer:</strong> The solutions are \(x \equiv 1, 3, 5, 7 \pmod{8}\), i.e., all odd numbers not divisible by 2.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Prove that if \(a \equiv b \pmod{m}\), then \(a^n \equiv b^n \pmod{m}\) for any positive integer \(n\).</div>
+        <p><strong>Understanding:</strong> Congruence is preserved under exponentiation - a fundamental property.</p>
+        
+        <p><strong>Proof by Induction:</strong></p>
+        <div class="step">
+          <strong>Base case (\(n = 1\)):</strong> Trivially true: \(a^1 \equiv b^1 \pmod{m}\).</div>
+        
+        <div class="step">
+          <strong>Inductive step:</strong> Assume \(a^n \equiv b^n \pmod{m}\). We show \(a^{n+1} \equiv b^{n+1} \pmod{m}\).
+          <p>\[a^{n+1} = a^n \cdot a \equiv b^n \cdot b = b^{n+1} \pmod{m}\]
+          <p>This uses the fact that if \(x \equiv x'\) and \(y \equiv y'\), then \(xy \equiv x'y'\) (multiplication property of congruences).</p>
+        </div>
+        
         <p><strong>Conclusion:</strong> By mathematical induction, \(a^n \equiv b^n \pmod{m}\) for all \(n \geq 1\).</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 3</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Suppose \(x^2 \equiv a \pmod{p}\) has solutions. We show there are at most 2.</p>
-        <p><strong>Step 2:</strong> If \(r\) is a solution, then \(x^2 - r^2 \equiv 0 \pmod{p}\), so \((x-r)(x+r) \equiv 0 \pmod{p}\).</p>
-        <p><strong>Step 3:</strong> Since \(p\) is prime, \(p \mid (x-r)(x+r)\) implies \(p \mid (x-r)\) or \(p \mid (x+r)\).</p>
-        <p><strong>Step 4:</strong> Thus \(x \equiv r \pmod{p}\) or \(x \equiv -r \pmod{p}\).</p>
-        <p><strong>Step 5:</strong> These are at most two distinct solutions (they coincide when \(r \equiv -r \pmod{p}\), i.e., \(2r \equiv 0 \pmod{p}\), which means \(r \equiv 0 \pmod{p}\) since \(p \neq 2\)).</p>
-        <p><strong>Conclusion:</strong> The congruence \(x^2 \equiv a \pmod{p}\) has at most 2 solutions.</p>
+        <div class="problem-number">Problem 5: Solve the system of congruences:
+        <br> \(x \equiv 2 \pmod{3}\)
+        <br> \(x \equiv 3 \pmod{5}\)</div>
+        <p><strong>Understanding:</strong> This is a system of simultaneous congruences. We solve it step by step.</p>
+        
+        <div class="step">
+          <strong>Step 1: Express x from the first congruence.</strong>
+          <p>From \(x \equiv 2 \pmod{3}\): \(x = 3k + 2\) for some integer \(k\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Substitute into the second congruence.</strong>
+          <p>\[3k + 2 \equiv 3 \pmod{5}\]
+          <p>\[3k \equiv 1 \pmod{5}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Solve for k.</strong>
+          <p>Multiply by \(3^{-1} \pmod{5}\) (which is 2, since \(3 \times 2 = 6 \equiv 1\)):
+          <br>\[k \equiv 2 \pmod{5}\]
+          <p>So \(k = 5j + 2\) for some integer \(j\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Find x.</strong>
+          <p>\[x = 3(5j + 2) + 2 = 15j + 8\]
+          <p>So \(x \equiv 8 \pmod{15}\).</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(x \equiv 8 \pmod{15}\), or \(x = 8 + 15j\) for integers \(j\).</p>
       </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Prove Fermat's Little Theorem: If \(p\) is prime and \(p \nmid a\), then \(a^{p-1} \equiv 1 \pmod{p}\).</div>
+        <p><strong>Understanding:</strong> This fundamental theorem relates exponentiation to modular arithmetic for primes.</p>
+        
+        <p><strong>Proof Sketch:</strong></p>
+        <div class="step">
+          <strong>Step 1: Consider the multiples of a.</strong>
+          <p>Let \(S = \{a, 2a, 3a, \ldots, (p-1)a\}\) (all taken mod \(p\)).</p>
+          <p>We claim all elements of \(S\) are distinct and non-zero mod \(p\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Show distinctness.</strong>
+          <p>If \(ia \equiv ja \pmod{p}\) for \(1 \leq i < j \leq p-1\), then \(p \mid (j-i)a\).
+          Since \(p \nmid a\), we must have \(p \mid (j-i)\), meaning \(p \mid |j-i|\).
+          But \(|j-i| < p\), contradiction. So all elements are distinct.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Conclude.</strong>
+          <p>The set \(S\) is actually a permutation of \(\{1, 2, \ldots, p-1\}\) modulo \(p\).
+          <p>Therefore: \(a \times 2a \times 3a \times \cdots \times (p-1)a \equiv 1 \times 2 \times \cdots \times (p-1) \pmod{p}\)
+          <p>\[(p-1)! \times a^{p-1} \equiv (p-1)! \pmod{p}\]
+          <p>Since \((p-1)! \not\equiv 0 \pmod{p}\), we can cancel to get \(a^{p-1} \equiv 1 \pmod{p}\).</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7: Compute \(7^{100} \pmod{13}\).</div>
+        <p><strong>Strategy:</strong> Use Fermat's Little Theorem to reduce the exponent.</p>
+        
+        <div class="step">
+          <strong>Step 1: Apply Fermat's Little Theorem.</strong>
+          <p>Since 13 is prime and \(\gcd(7, 13) = 1\):
+          <br>\[7^{12} \equiv 1 \pmod{13}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Reduce the exponent.</strong>
+          <p>\[7^{100} = 7^{12 \times 8 + 4} = (7^{12})^8 \times 7^4 \equiv 1^8 \times 7^4 \pmod{13}\]
+          <br>\[7^4 = 2401\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Compute \(7^4 \mod 13\).</strong>
+          <p>\[7^2 = 49 \equiv 10 \pmod{13}\]
+          <br>\[7^4 = (7^2)^2 \equiv 10^2 = 100 \equiv 9 \pmod{13}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(7^{100} \equiv 9 \pmod{13}\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8: Find the remainder when \(2^{2023}\) is divided by 17.</div>
+        <p><strong>Strategy:</strong> Use Fermat's Little Theorem since 17 is prime.</p>
+        
+        <div class="step">
+          <strong>Step 1: Apply Fermat's Little Theorem.</strong>
+          <p>\[2^{16} \equiv 1 \pmod{17}\]
+          <p>Because \(\gcd(2, 17) = 1\) and 17 is prime.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Reduce the exponent modulo 16.</strong>
+          <p>\[2023 = 16 \times 126 + 7\]
+          <br>\[2^{2023} = 2^{16 \times 126 + 7} = (2^{16})^{126} \times 2^7 \equiv 1^{126} \times 2^7 \pmod{17}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Compute \(2^7\).</strong>
+          <p>\[2^7 = 128\]
+          <br>\[128 = 17 \times 7 + 9\]
+          <br>\[128 \equiv 9 \pmod{17}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The remainder is 9.</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove that if \(a \equiv b \pmod{m}\) and \(n \in \mathbb{Z}\), then \(a^n \equiv b^n \pmod{m}\).</div>
+        <p>This is a generalization of Problem 4, allowing negative exponents when the base is invertible.</p>
+        
+        <p><strong>Proof outline:</strong></p>
+        <ul>
+          <li>For positive exponents: use induction (same as Problem 4)</li>
+          <li>For \(n = 0\): \(a^0 = b^0 = 1\) when defined</li>
+          <li>For negative exponents: if \(a\) is invertible mod \(m\), use \((a^{-1})^n = (a^n)^{-1}\)</li>
+        </ul>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Solve: Find the last two digits of \(7^{2023}\).</div>
+        <p><strong>Understanding:</strong> The last two digits of a number are its remainder modulo 100.</p>
+        
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Step 1: Use Chinese Remainder Theorem with 100 = 4 × 25.</strong>
+          <p>We find \(7^{2023} \pmod{4}\) and \(7^{2023} \pmod{25}\), then combine.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Compute modulo 4.</strong>
+          <p>\[7 \equiv 3 \pmod{4}\]
+          <p>\[7^2 = 49 \equiv 1 \pmod{4}\]
+          <p>\[7^{2023} = (7^2)^{1011} \times 7 \equiv 1^{1011} \times 3 \equiv 3 \pmod{4}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Compute modulo 25.</strong>
+          <p>By Euler's theorem (or Fermat's Little Theorem for prime 5): \(\phi(25) = 20\), so \(7^{20} \equiv 1 \pmod{25}\).
+          <br>\[2023 = 20 \times 101 + 3\]
+          <br>\[7^{2023} = (7^{20})^{101} \times 7^3 \equiv 1 \times 343 \equiv 343 \pmod{25}\]
+          <br>\[343 = 25 \times 13 + 18 \equiv 18 \pmod{25}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Combine using CRT.</strong>
+          <p>Find \(x\) such that \(x \equiv 3 \pmod{4}\) and \(x \equiv 18 \pmod{25}\).
+          <p>From the second: \(x = 25k + 18\).
+          <p>Substitute: \(25k + 18 \equiv 3 \pmod{4}\)
+          <br>\[k + 2 \equiv 3 \pmod{4}\]
+          <br>\[k \equiv 1 \pmod{4}\]
+          <br>So \(k = 4j + 1\) and \(x = 25(4j + 1) + 18 = 100j + 43\).</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The last two digits are 43.</p>
+      </div>
+
       <div class="navigation">
         <a href="problem-set-3-congruences.html">← Back to Problem Set</a>
-        <a href="number-theory.html">Back to Course</a>
+        <a href="number-theory.html">Course Home →</a>
       </div>
     </div>
   </main>
+  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

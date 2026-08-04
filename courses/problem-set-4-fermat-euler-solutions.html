@@ -11,65 +11,286 @@
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 4: Fermat's Little Theorem and Euler's Theorem</h1><div class="subtitle">Elementary Number Theory <span class="difficulty medium">Medium</span></div></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 4: Fermat's Little Theorem and Euler's Theorem</h1>
+      <div class="subtitle">Elementary Number Theory - Week 5 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Fermat's Little Theorem</strong>
+        <p>If \(p\) is prime and \(\gcd(a, p) = 1\), then:</p>
+        <p>\[a^{p-1} \equiv 1 \pmod{p}\]</p>
+        <p><strong>Example:</strong> For \(p = 7\) and \(a = 3\): \(3^6 = 729 = 7 \times 104 + 1 \equiv 1 \pmod{7}\)</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Euler's Totient Function</strong>
+        <p>\(\phi(n)\) counts the number of positive integers \(\leq n\) that are coprime to \(n\).</p>
+        <p>Key values: \(\phi(p^k) = p^k - p^{k-1}\) for prime \(p\), and \(\phi\) is multiplicative.</p>
+        <p><strong>Euler's Theorem:</strong> If \(\gcd(a, n) = 1\), then \(a^{\phi(n)} \equiv 1 \pmod{n}\).</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Compute \(3^6 = 729\) and \(729 \div 7 = 104\) remainder 1. So \(3^6 \equiv 1 \pmod{7}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> By Fermat's Little Theorem, \(2^{10} \equiv 1 \pmod{11}\). Thus \(2^{100} = (2^{10})^{10} \equiv 1^{10} = 1 \pmod{11}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> By Fermat's Little Theorem: Since \(p\) is prime and \(p \nmid a\), we have \(a^{p-1} \equiv 1 \pmod{p}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> \(\phi(30) = \phi(2 \cdot 3 \cdot 5) = 30 \cdot (1-\frac{1}{2})(1-\frac{1}{3})(1-\frac{1}{5}) = 30 \cdot \frac{1}{2} \cdot \frac{2}{3} \cdot \frac{4}{5} = 8\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> By Euler's theorem, \(5^{\phi(12)} = 5^4 \equiv 1 \pmod{12}\). Compute: \(5^2 = 25 \equiv 1 \pmod{12}\), so \(5^4 \equiv 1 \pmod{12}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(\phi(100) = \phi(4 \cdot 25) = \phi(4) \cdot \phi(25) = 2 \cdot 20 = 40\). By Euler's theorem, \(3^{40} \equiv 1 \pmod{100}\). So \(3^{100} = (3^{40})^2 \cdot 3^{20} \equiv 3^{20} \pmod{100}\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(\phi(p) = |\{k : 1 \leq k \leq p-1, \gcd(k, p) = 1\}|\). Since \(p\) is prime, all integers \(1, 2, \ldots, p-1\) are coprime to \(p\). So \(\phi(p) = p-1\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> For \(n = 3\): \(\phi(3) = 2\). For \(n = 4\): \(\phi(4) = 2\). For \(n > 2\), if \(n\) has prime factor \(p\), then \(\phi(n) = n \prod(1-\frac{1}{p_i}) \geq n \cdot \frac{1}{2} \cdot \frac{p-1}{p} \geq 2\) for \(n \geq 4\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> By Fermat's Little Theorem, \(a^5 \equiv a \pmod{5}\) for all integers \(a\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> This statement is false. Counterexample: \(\phi(3) = 2\), \(\phi(6) = 2\), but \(2 \nmid 2\).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> A Carmichael number is a composite number \(n\) such that \(a^n \equiv a \pmod{n}\) for all integers \(a\) with \(\gcd(a, n) = 1\).</p>
-        <p><strong>Step 2:</strong> Verify 561 = 3 × 11 × 17 is a Carmichael number.</p>
-        <p><strong>Step 3:</strong> Check: \(\phi(561) = 561 \cdot \frac{2}{3} \cdot \frac{10}{11} \cdot \frac{16}{17} = 320\).</p>
-        <p><strong>Step 4:</strong> For any \(a\) with \(\gcd(a, 561) = 1\), we have \(a^{320} \equiv 1 \pmod{561}\), so \(a^{561} \equiv a \pmod{561}\).</p>
-        <p><strong>Conclusion:</strong> 561 is indeed a Carmichael number.</p>
+        <div class="problem-number">Problem 1: Use Fermat's Little Theorem to find \(3^{100} \pmod{7}\).</div>
+        <p><strong>Step 1: Apply Fermat's Little Theorem.</strong>
+        <p>Since 7 is prime and \(\gcd(3, 7) = 1\):
+        <br>\[3^{6} \equiv 1 \pmod{7}\]</p>
+        
+        <div class="step">
+          <strong>Step 2: Reduce the exponent.</strong>
+          <p>Write 100 in terms of 6:
+          <br>\[100 = 6 \times 16 + 4\]
+          <p>Therefore:
+          <br>\[3^{100} = 3^{6 \times 16 + 4} = (3^6)^{16} \times 3^4 \equiv 1^{16} \times 3^4 \equiv 3^4 \pmod{7}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Compute \(3^4\).</strong>
+          <p>\[3^4 = 81\]
+          <p>\[81 = 7 \times 11 + 4\]
+          <p>\[81 \equiv 4 \pmod{7}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(3^{100} \equiv 4 \pmod{7}\)</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> In the multiplicative group \((\mathbb{Z}/n\mathbb{Z})^*\) of order \(\phi(n)\), every element has order dividing \(\phi(n)\).</p>
-        <p><strong>Step 2:</strong> By Lagrange's theorem, the order of any element divides the order of the group.</p>
-        <p><strong>Step 3:</strong> Therefore, for any \(a\) coprime to \(n\), \(a^{\phi(n)} \equiv 1 \pmod{n}\).</p>
-        <p><strong>Conclusion:</strong> Euler's theorem follows from Lagrange's theorem.</p>
+        <div class="problem-number">Problem 2: Compute \(\phi(24)\) and use it to find \(5^{\phi(24)} \pmod{24}\).</div>
+        <p><strong>Step 1: Find the prime factorization of 24.</strong>
+        <br>\[24 = 2^3 \times 3\]</p>
+        
+        <div class="step">
+          <strong>Step 2: Compute \(\phi(24)\) using the multiplicative property.</strong>
+          <p>Since \(\gcd(8, 3) = 1\), we have \(\phi(24) = \phi(8) \times \phi(3)\):
+          <br>\[\phi(8) = 8 - 4 = 4 \quad \text{(integers 1, 3, 5, 7 are coprime to 8)}\]
+          <br>\[\phi(3) = 3 - 1 = 2 \quad \text{(integers 1, 2 are coprime to 3)}\]
+          <br>\[\phi(24) = 4 \times 2 = 8\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Apply Euler's Theorem.</strong>
+          <p>Since \(\gcd(5, 24) = 1\):
+          <br>\[5^{\phi(24)} = 5^8 \equiv 1 \pmod{24}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(\phi(24) = 8\) and \(5^8 \equiv 1 \pmod{24}\)</p>
       </div>
+
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 3</div>
-        <p><strong>Solution:</strong></p>
-        <p><strong>Step 1:</strong> Find the smallest \(k\) such that \(2^k \equiv 1 \pmod{37}\).</p>
-        <p><strong>Step 2:</strong> By Fermat's Little Theorem, \(2^{36} \equiv 1 \pmod{37}\).</p>
-        <p><strong>Step 3:</strong> The order of 2 divides 36. Check divisors: \(2^{18} = 262144 \equiv 36 \not\equiv 1 \pmod{37}\).</p>
-        <p><strong>Step 4:</strong> Check \(2^9 = 512 \equiv 36 \pmod{37}\). Check \(2^{12} = 4096 \equiv 1 \pmod{37}\).</p>
-        <p><strong>Conclusion:</strong> The smallest such \(k\) is 12.</p>
+        <div class="problem-number">Problem 3: Prove Wilson's Theorem: \((p-1)! \equiv -1 \pmod{p}\) for prime \(p\).</div>
+        <p><strong>Understanding:</strong> Wilson's Theorem states that for a prime \(p\), \((p-1)! + 1\) is divisible by \(p\).</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Step 1: Consider the multiplicative group modulo p.</strong>
+          <p>The set \(\{1, 2, \ldots, p-1\}\) forms a group under multiplication mod \(p\) (since \(p\) is prime).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Find self-inverse elements.</strong>
+          <p>An element \(a\) is self-inverse if \(a^2 \equiv 1 \pmod{p}\), i.e., \(p \mid (a^2 - 1) = (a-1)(a+1)\).
+          <p>Since \(p\) is prime, \(p \mid (a-1)\) or \(p \mid (a+1)\).
+          <p>So \(a \equiv 1 \pmod{p}\) or \(a \equiv -1 \equiv p-1 \pmod{p}\).
+          <p>The only self-inverse elements in \(\{1, \ldots, p-1\}\) are 1 and \(p-1\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Pair up the other elements.</strong>
+          <p>The remaining elements \(2, 3, \ldots, p-2\) can be paired as \(\{a, a'\}\) where \(aa' \equiv 1 \pmod{p}\).
+          <p>For example, with \(p = 7\): 2 and 4 are inverses since \(2 \times 4 = 8 \equiv 1 \pmod{7}\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Conclude.</strong>
+          <p>The product of all elements:
+          <br>\[(p-1)! = 1 \times 2 \times 3 \times \cdots \times (p-2) \times (p-1)\]
+          <br>The middle elements pair up to give 1, leaving:
+          <br>\[(p-1)! \equiv 1 \times 1 \times \cdots \times 1 \times (p-1) \equiv p-1 \equiv -1 \pmod{p}\]</p>
+        </div>
       </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Find the remainder when \(13^{759}\) is divided by 20.</div>
+        <p><strong>Strategy:</strong> Use Euler's theorem since we need \(\phi(20)\).</p>
+        
+        <div class="step">
+          <strong>Step 1: Compute \(\phi(20)\).</strong>
+          <p>\[20 = 2^2 \times 5\]
+          <br>\[\phi(20) = \phi(4) \times \phi(5) = (4 - 2) \times (5 - 1) = 2 \times 4 = 8\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Check if Euler's theorem applies.</strong>
+          <p>Since \(\gcd(13, 20) = 1\), Euler's theorem applies: \(13^{\phi(20)} = 13^8 \equiv 1 \pmod{20}\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Reduce the exponent.</strong>
+          <p>\[759 = 8 \times 94 + 7\]
+          <br>\[13^{759} = (13^8)^{94} \times 13^7 \equiv 1^{94} \times 13^7 \equiv 13^7 \pmod{20}\]</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 4: Compute \(13^7 \pmod{20}\).</strong>
+          <p>\[13^2 = 169 \equiv 9 \pmod{20}\]
+          <p>\[13^4 = (13^2)^2 \equiv 9^2 = 81 \equiv 1 \pmod{20}\]
+          <p>Therefore: \(13^7 = 13^4 \times 13^2 \times 13 \equiv 1 \times 9 \times 13 = 117 \equiv 17 \pmod{20}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The remainder is 17.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Use Euler's theorem to prove that if \(\gcd(a, n) = 1\), then \(a^{\phi(n)+1} \equiv a \pmod{n}\).</div>
+        <p><strong>Understanding:</strong> This is a useful corollary of Euler's theorem.</p>
+        
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>By Euler's theorem:</strong> Since \(\gcd(a, n) = 1\), we have \(a^{\phi(n)} \equiv 1 \pmod{n}\).</div>
+        
+        <div class="step">
+          <strong>Multiply both sides by \(a\):</strong>
+          <br>\[a \times a^{\phi(n)} \equiv a \times 1 \pmod{n}\]
+          <br>\[a^{\phi(n) + 1} \equiv a \pmod{n}\]</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Find \(\phi(30)\), \(\phi(100)\), and \(\phi(2^k)\) for \(k \geq 1\).</div>
+        <p><strong>Part a: \(\phi(30)\)</strong>
+        <br> \[30 = 2 \times 3 \times 5\]
+        <br> \[\phi(30) = \phi(2) \times \phi(3) \times \phi(5) = 1 \times 2 \times 4 = 8\]
+        <p><strong>Part b: \(\phi(100)\)</strong>
+        <br> \[100 = 2^2 \times 5^2\]
+        <br> \[\phi(100) = \phi(2^2) \times \phi(5^2) = (4 - 2) \times (25 - 5) = 2 \times 20 = 40\]
+        <p><strong>Part c: \(\phi(2^k)\)</strong>
+        <br> \[\phi(2^k) = 2^k - 2^{k-1} = 2^{k-1}\]</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7: Prove that if \(\gcd(a, b) = 1\), then \(\gcd(a, c) = \gcd(b, c) = 1\) implies \(\gcd(ab, c) = 1\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Let \(d = \gcd(ab, c)\):</strong>
+          <p>We need to show \(d = 1\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Since \(d \mid ab\) and \(d \mid c\):</strong>
+          <p>Any prime divisor of \(d\) divides both \(ab\) and \(c\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>If \(p \mid d\) for some prime \(p\):</strong>
+          <p>Then \(p \mid ab\), so \(p \mid a\) or \(p \mid b\) (by Problem 7 from Problem Set 1).
+          <p>Also \(p \mid c\).
+          <p>If \(p \mid a\) and \(p \mid c\), then \(p \mid \gcd(a, c) = 1\), contradiction.
+          <p>If \(p \mid b\) and \(p \mid c\), then \(p \mid \gcd(b, c) = 1\), contradiction.</p>
+        </div>
+        
+        <p><strong>Answer:</strong> No prime divides \(d\), so \(d = 1\).</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove that \(\phi(n)\) is even for all \(n > 2\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Case 1: \(n\) has an odd prime factor \(p\) with \(p \geq 3\).</strong>
+          <p>Since \(p - 1 \geq 2\) is even, and \(\phi\) is multiplicative, \(\phi(n)\) has a factor of \(p - 1\) (which is even).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Case 2: \(n = 2^k\) for \(k \geq 2\).</strong>
+          <p>\[\phi(2^k) = 2^{k-1}\]
+          <p>Since \(k \geq 2\), we have \(2^{k-1} \geq 2\), which is even.</p>
+        </div>
+        
+        <p><strong>Conclusion:</strong> \(\phi(n)\) is even for all \(n > 2\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Find the last digit of \(7^{2023}\).</div>
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Step 1: Note that the last digit is the remainder mod 10.</strong>
+          <p>We need \(7^{2023} \pmod{10}\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Use Euler's theorem or look for patterns.</strong>
+          <p>\[\phi(10) = \phi(2) \times \phi(5) = 1 \times 4 = 4\]
+          <p>Since \(\gcd(7, 10) = 1\): \(7^4 \equiv 1 \pmod{10}\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Reduce the exponent.</strong>
+          <p>\[2023 = 4 \times 505 + 3\]
+          <br>\[7^{2023} = (7^4)^{505} \times 7^3 \equiv 1 \times 343 \equiv 3 \pmod{10}\]</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The last digit is 3.</p>
+      </div>
+
       <div class="navigation">
         <a href="problem-set-4-fermat-euler.html">← Back to Problem Set</a>
-        <a href="number-theory.html">Back to Course</a>
+        <a href="number-theory.html">Course Home →</a>
       </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>

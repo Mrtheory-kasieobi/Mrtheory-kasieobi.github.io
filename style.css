@@ -4471,18 +4471,6 @@ body.track-page .track-content {
   }
 }
 
-.track-section {
-  opacity: 0;
-  animation: trackFadeIn 0.7s ease forwards;
-}
-
-@keyframes trackFadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .track-quote-box {
   background: linear-gradient(135deg, rgba(140, 200, 255, 0.15), rgba(140, 200, 255, 0.08));
   border-left: 4px solid var(--accent);

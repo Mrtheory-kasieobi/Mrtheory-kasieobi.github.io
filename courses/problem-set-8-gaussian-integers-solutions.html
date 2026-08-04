@@ -10,39 +10,226 @@
     @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
     .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-content { color: var(--text); line-height: 1.8; }
-    .problem-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
+    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
+    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
     .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
     .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header><div class="header-content"><h1>Elementary Number Theory</h1></div></header>
-  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../teaching.html" class="active">Teaching</a></li></ul></nav>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Elementary Number Theory</h1>
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
   <main>
-    <div class="problem-header"><h1>Solutions: Problem Set 8: Gaussian Integers</h1></div>
-    <div class="problem-content">
+    <div class="problem-header">
+      <h1>Solutions: Problem Set 8: Gaussian Integers - Definition and Arithmetic</h1>
+      <div class="subtitle">Elementary Number Theory - Week 9 Solutions</div>
+    </div>
+
+    <div class="lecture-content">
+      <h2>Key Definitions and Concepts</h2>
+
+      <div class="concept-callout">
+        <strong>Gaussian Integers</strong>
+        <p>\(\mathbb{Z}[i] = \{a + bi : a, b \in \mathbb{Z}\}\), where \(i = \sqrt{-1}\).</p>
+        <p>They form an integral domain - we can add, subtract, multiply, but division requires care.</p>
+      </div>
+
+      <div class="concept-callout">
+        <strong>Norm Function</strong>
+        <p>For \(z = a + bi \in \mathbb{Z}[i]\), the norm is \(N(z) = a^2 + b^2 = z \cdot \bar{z}\).</p>
+        <p>Key property: \(N(zw) = N(z) \cdot N(w)\)</p>
+      </div>
+
       <h2>Solutions</h2>
-      <div class="solution-box"><div class="problem-number">Problem 1</div><p><strong>Solution:</strong> Compute \(N(3+4i) = 3^2 + 4^2 = 9 + 16 = 25\). \(N(2-i) = 2^2 + (-1)^2 = 4 + 1 = 5\). \(N(-1+2i) = (-1)^2 + 2^2 = 1 + 4 = 5\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 2</div><p><strong>Solution:</strong> \((1+i)(1-i) = 1 - i^2 = 1 - (-1) = 2\). \(N(1+i) = 1^2 + 1^2 = 2\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 3</div><p><strong>Solution:</strong> Addition: \((2+3i) + (1-2i) = 3 + i\). Multiplication: \((2+3i)(1-2i) = 2 - 4i + 3i + 6 = 8 - i\). Both results are in \(\mathbb{Z}[i]\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 4</div><p><strong>Solution:</strong> The inverse of \(2+i\) in \(\mathbb{Q}(i)\) is \(\frac{1}{2+i} = \frac{2-i}{(2+i)(2-i)} = \frac{2-i}{5} = \frac{2}{5} - \frac{1}{5}i\). Since \(\frac{2}{5}\) and \(\frac{1}{5}\) are not integers, the inverse is not in \(\mathbb{Z}[i]\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 5</div><p><strong>Solution:</strong> Using Euclidean algorithm in \(\mathbb{Z}[i]\): \(\gcd(2+3i, 1+i)\). Compute \(\frac{2+3i}{1+i} = \frac{(2+3i)(1-i)}{(1+i)(1-i)} = \frac{5+i}{2} = \frac{5}{2} + \frac{1}{2}i\). Nearest Gaussian integer is \(2\). Remainder: \((2+3i) - 2(1+i) = i\). Continue with \(\gcd(1+i, i)\)... Result: \(\gcd = 1+i\) (up to associates).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 6</div><p><strong>Solution:</strong> \(N((1+2i)(2-i)) = N(4+3i) = 16 + 9 = 25\). \(N(1+2i) \cdot N(2-i) = 5 \cdot 5 = 25\). ✓</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 7</div><p><strong>Solution:</strong> \(N(a+bi) = a^2 + b^2 = 0\) iff \(a = b = 0\), so \(a+bi = 0\). Conversely, if \(\alpha = 0\), then \(N(0) = 0\). ✓</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 8</div><p><strong>Solution:</strong> We need \(a^2 + b^2 = 1\). Since \(a^2, b^2 \geq 0\), the only solutions are \((a,b) = (\pm 1, 0), (0, \pm 1)\). Thus the units are \(1, -1, i, -i\).</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 9</div><p><strong>Solution:</strong> \(N(1+i) = 1^2 + 1^2 = 2\), which is prime in \(\mathbb{Z}\). In \(\mathbb{Z}[i]\), if \(N(\alpha)\) is prime in \(\mathbb{Z}\), then \(\alpha\) is irreducible.</p></div>
-      <div class="solution-box"><div class="problem-number">Problem 10</div><p><strong>Solution:</strong> If \(\gcd(a,b) = 1\) and \(a^2 + b^2 = z^n\), then in \(\mathbb{Z}[i]\), \((a+bi)(a-bi) = z^n\). Since \(\gcd(a+bi, a-bi) = 1\) or \(1+i\), both factors are \(n\)th powers (up to units).</p></div>
-      <h2 class="bonus-section">Bonus Problems</h2>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 1</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> For any \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), consider \(\frac{\alpha}{\beta} = \frac{\alpha\bar{\beta}}{N(\beta)}\).</p><p><strong>Step 2:</strong> Write \(\frac{\alpha}{\beta} = q + r\) where \(q\) is the nearest Gaussian integer to \(\frac{\alpha}{\beta}\).</p><p><strong>Step 3:</strong> Then \(N(r) = N(\frac{\alpha}{\beta} - q) < 1\) (since the maximum distance to nearest integer is \(\frac{\sqrt{2}}{2}\)).</p><p><strong>Step 4:</strong> Thus \(N(\alpha - q\beta) = N(\beta)N(r) < N(\beta)\), proving the division algorithm.</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 2</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> If \(N(a+bi) = a^2 + b^2 = p\) is prime in \(\mathbb{Z}\), suppose \(a+bi = \gamma\delta\) in \(\mathbb{Z}[i]\).</p><p><strong>Step 2:</strong> Then \(p = N(a+bi) = N(\gamma)N(\delta)\).</p><p><strong>Step 3:</strong> Since \(p\) is prime, one of \(N(\gamma), N(\delta)\) equals 1, making it a unit.</p><p><strong>Conclusion:</strong> \(a+bi\) is irreducible in \(\mathbb{Z}[i]\).</p></p></div>
-      <div class="solution-box"><div class="problem-number">Bonus Problem 3</div><p><strong>Solution:</strong></p><p><strong>Step 1:</strong> \(\mathbb{Z}[i]\) is Euclidean with respect to \(N(a+bi) = a^2 + b^2\).</p><p><strong>Step 2:</strong> Euclidean domains are UFDs (unique factorization domains).</p><p><strong>Step 3:</strong> In a Euclidean domain, every non-zero non-unit element has a factorization into irreducibles, and this factorization is unique up to units.</p><p><strong>Conclusion:</strong> \(\mathbb{Z}[i]\) has unique factorization.</p></p></div>
-      <div class="navigation"><a href="problem-set-8-gaussian-integers.html">← Back to Problem Set</a><a href="number-theory.html">Back to Course</a></div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 1: Compute \((2 + 3i)(1 - 2i)\).</div>
+        <p><strong>Solution:</strong>
+        <p>\[(2 + 3i)(1 - 2i) = 2(1) + 2(-2i) + 3i(1) + 3i(-2i)\]
+        <br>\[= 2 - 4i + 3i - 6i^2\]
+        <br>\[= 2 - 4i + 3i + 6 \quad (i^2 = -1)\]
+        <br>\[= 8 - i\]</p>
+        <p><strong>Verification:</strong> \(N(2+3i) = 13\), \(N(1-2i) = 5\), \(N(8-i) = 65 = 13 \times 5\) ✓</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 2: Find the inverse of \(1 + i\) in \(\mathbb{Z}[i]\).</</div>
+        <p><strong>Solution:</strong>
+        <p>The inverse of \(z\) is \(\frac{\bar{z}}{N(z)}\).</p>
+        <div class="step">
+          <strong>Compute conjugate and norm:</strong>
+          <br>\(\bar{1+i} = 1 - i\)
+          <br>\[N(1+i) = 1^2 + 1^2 = 2\]</div>
+        
+        <div class="step">
+          <strong>Find the inverse:</strong>
+          <br>\[(1+i)^{-1} = \frac{1-i}{2} = \frac{1}{2} - \frac{1}{2}i\]
+          <p>This is NOT in \(\mathbb{Z}[i]\) (fractions don't work). But we can find which Gaussian integers have inverses in \(\mathbb{Z}[i]\): only units!</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The inverse is \(\frac{1}{2} - \frac{1}{2}i\), which is not a Gaussian integer. Only units \((1, -1, i, -i)\) have inverses in \(\mathbb{Z}[i]\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 3: Find all units in \(\mathbb{Z}[i]\).</</div>
+        <p><strong>Understanding:</strong> A unit is an element with a multiplicative inverse in the ring.</p>
+        <p><strong>Solution:</strong>
+        <div class="step">
+          <strong>Let \(u = a + bi\) be a unit.</strong>
+          <p>Then there exists \(v = c + di \in \mathbb{Z}[i]\) with \(uv = 1\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Take norms:</strong>
+          <br>\[N(uv) = N(1) = 1\]
+          <br>\[N(u) \cdot N(v) = 1\]
+          <br>Since norms are non-negative integers, \(N(u) = N(v) = 1\).</div>
+        
+        <div class="step">
+          <strong>Solve \(a^2 + b^2 = 1\):</strong>
+          <p>Integer solutions: \((a,b) = (1,0), (-1,0), (0,1), (0,-1)\)</p>
+        </div>
+        
+        <p><strong>Answer:</strong> The units are \(1, -1, i, -i\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4: Determine if \(3 + 2i\) is a Gaussian integer prime.</div>
+        <p><strong>Strategy:</strong> Check if \(N(3+2i)\) is prime in \(\mathbb{Z}\), or if it can be factored.</p>
+        
+        <div class="step">
+          <strong>Step 1: Compute the norm.</strong>
+          <br>\[N(3+2i) = 9 + 4 = 13\]</div>
+        
+        <div class="step">
+          <strong>Step 2: Check if 13 is prime in \(\mathbb{Z}\).</strong>
+          <p>Yes, 13 is prime.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 3: Conclusion.</strong>
+          <p><strong>Theorem:</strong> If \(N(z)\) is prime in \(\mathbb{Z}\), then \(z\) is prime in \(\mathbb{Z}[i]\).
+          <p>Therefore, \(3 + 2i\) is a Gaussian prime.</p>
+        </div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5: Factor 5 in \(\mathbb{Z}[i]\).</</div>
+        <p><strong>Solution:</strong></p>
+        <div class="step">
+          <strong>Step 1: Check if 5 is a Gaussian prime.</strong>
+          <p>Try to write \(5 = (a+bi)(c+di)\). Taking norms:
+          <br>\[N(5) = 25 = N(a+bi) \cdot N(c+di)\]
+          <p>If both factors are non-units, then \(N(a+bi) = N(c+di) = 5\).</p>
+        </div>
+        
+        <div class="step">
+          <strong>Find Gaussian integers with norm 5.</strong>
+          <p>Solve \(a^2 + b^2 = 5\):
+          <ul>
+            <li>\(a = 1\): \(1 + b^2 = 5 \Rightarrow b^2 = 4 \Rightarrow b = \pm 2\)
+            <li>\(a = 2\): \(4 + b^2 = 5 \Rightarrow b^2 = 1 \Rightarrow b = \pm 1\)</li>
+          </ul>
+          So \(\pm 1 \pm 2i\) and \(\pm 2 \pm i\) have norm 5.</p>
+        </div>
+        
+        <div class="step">
+          <strong>Step 2: Factor 5.</strong>
+          <br>\[5 = (1 + 2i)(1 - 2i) = (2 + i)(2 - i)\]
+          <p>Check: \((1+2i)(1-2i) = 1 - 4i^2 = 1 + 4 = 5\) ✓</p>
+        </div>
+        
+        <p><strong>Answer:</strong> \(5 = (1+2i)(1-2i)\) with \(1+2i\) and \(1-2i\) both Gaussian primes.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6: Prove: If \(p \equiv 3 \pmod{4}\) is prime, then \(p\) remains prime in \(\mathbb{Z}[i]\).</div>
+        <p><strong>Proof:</strong></p>
+        <div class="step">
+          <strong>Suppose \(p = \alpha\beta\) in \(\mathbb{Z}[i]\).</strong>
+          <p>Then \(N(p) = N(\alpha)N(\beta) = p^2\).</p>
+          <p>Since \(p\) is prime in \(\mathbb{Z}\), either \(N(\alpha) = 1\) and \(N(\beta) = p^2\), or vice versa.</div>
+        
+        <div class="step">
+          <strong>Case 1: \(N(\alpha) = 1\)</strong>
+          <p>Then \(\alpha\) is a unit, so \(p\) is irreducible (hence prime, since \(\mathbb{Z}[i]\) is a UFD).</div>
+        
+        <div class="step">
+          <strong>Case 2: \(N(\alpha) = p\)</strong>
+          <p>This requires solving \(a^2 + b^2 = p\).
+          <p>We need \(-1\) to be a quadratic residue mod \(p\).
+          <p>But \(p \equiv 3 \pmod{4}\) means \(\left(\frac{-1}{p}\right) = -1\), so \(-1\) is not a QR.</p>
+          <p>Therefore, no Gaussian integer has norm \(p\).</div>
+        
+        <p><strong>Conclusion:</strong> \(p\) is irreducible in \(\mathbb{Z}[i]\), hence prime.</p>
+      </div>
+
+      <h2>Bonus Solutions</h2>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 1: Prove that 2 ramifies in \(\mathbb{Z}[i]\): \(2 = -i(1+i)^2\).</</div>
+        <p><strong>Solution:</strong>
+        <p>We know \(N(1+i) = 2\), so \(1+i\) divides 2.
+        <br>\[(1+i)^2 = 1 + 2i + i^2 = 1 + 2i - 1 = 2i\]
+        <br>\[2 = -i(2i) = -i(1+i)^2\]</p>
+        
+        <p><strong>Interpretation:</strong> The prime 2 "ramifies" - it's (up to units) the square of a Gaussian prime.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2: Prove that if \(\gcd(a,b) = 1\), then \(\gcd(a, c) = \gcd(b, c) = 1\) implies \(\gcd(ab, c) = 1\).</div>
+        <p><strong>Proof:</strong> (This is actually Problem 7 from PS4)
+        <p>Let \(d = \gcd(ab, c)\). Any prime dividing \(d\) divides both \(ab\) and \(c\).</p>
+        <p>If prime \(p \mid d\), then \(p \mid ab\), so \(p \mid a\) or \(p \mid b\). Also \(p \mid c\).</p>
+        <p>If \(p \mid a\) and \(p \mid c\), then \(p \mid \gcd(a, c) = 1\) - contradiction.</p>
+        <p>If \(p \mid b\) and \(p \mid c\), then \(p \mid \gcd(b, c) = 1\) - contradiction.</p>
+        <p>Therefore, no prime divides \(d\), so \(d = 1\).</p>
+      </div>
+
+      <div class="navigation">
+        <a href="problem-set-8-gaussian-integers.html">← Back to Problem Set</a>
+        <a href="number-theory.html">Course Home →</a>
+      </div>
     </div>
   </main>
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version</span></p></footer>
+  
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  
   <script src="../script.js"></script>
 </body>
 </html>
