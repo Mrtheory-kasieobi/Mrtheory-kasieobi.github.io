@@ -1,6 +1,11 @@
-# Root .htaccess - Protect admin folder
+# Root .htaccess - Protect admin folder and redirect to home page
+
+# Redirect root domain to home page
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^$ /index.html [R=302,L]
 
 # Prevent direct access to admin folder
+RewriteEngine On
 RewriteCond %{REQUEST_URI} ^/admin/
 RewriteRule ^ - [F,L]
 
