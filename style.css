@@ -4691,3 +4691,44 @@ body.experimental-mode.track-page .track-section-heading {
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
 }
+
+/* Light Mode Navigation Styles */
+body.light-mode nav {
+  background: linear-gradient(145deg, rgba(248, 250, 252, 0.98), rgba(242, 247, 253, 0.96));
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+body.light-mode nav a {
+  color: #0f172a;
+  background: transparent;
+  border-radius: 999px;
+}
+
+body.light-mode nav a:hover,
+body.light-mode nav a:focus-visible {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+
+body.light-mode nav a.active {
+  background: rgba(59, 130, 246, 0.2);
+  color: #1e40af;
+}
+
+body.light-mode .dropdown-menu {
+  background: linear-gradient(145deg, rgba(248, 250, 252, 0.98), rgba(242, 247, 253, 0.96));
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode nav .dropdown-menu a {
+  color: #0f172a;
+}
+
+body.light-mode nav .dropdown-menu a:hover {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
