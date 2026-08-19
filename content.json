@@ -6,15 +6,15 @@
     "paragraphs": [
       "Hello! I'm Kasieobi Udumaga, a high school student from British Columbia, Canada with a strong interest in pure mathematics.",
       "My primary interests include algebra, algebraic number theory, commutative algebra, and arithmetic geometry. This website documents my learning, research projects, expository writing, and mathematical notes.",
-      "Outside of mathematics, I am a sprinter and love track and field. I am a 12 time provincial champion in the 100m and 200m. I also hold the tied electronically timed provincial record in the U15 100m dash.",
+      "Outside of mathematics, I am a sprinter and love track and field. I am a 12 time provincial champion in the 100m and 200m. I am also a co-holder of the electronically timed provincial record for the U15 100m dash.",
       "Major Website updates are typically released every 4-6 weeks, though the schedule may vary depending on the time of year."
     ]
   },
   "about": {
     "header": "About Me",
     "paragraphs": [
-      "Hi! As you may have already saw on the home page, I'm Kasieobi (Kasi) Udumaga, a high school student passionate about mathematics and understanding it at a deep level. Since discovering proof-based math, I've been drawn to how simple definitions can lead to complex theories. Rather than memorizing techniques, I focus on asking why things are true.",
-      "My current interests include commutative algebra, algebraic number theory, and arithmetic geometry. I'm especially interested in the connections between algebraic structures and number theory, and I hope to contribute original research in these areas. For now, I spend my time reading textbooks, writing notes, solving challenging problems(sometimes), and developing the mathematical maturity and tools/set ups needed for research.",
+      "Hi! As you may have already seen on the home page, I'm Kasieobi (Kasi) Udumaga, a high school student passionate about mathematics and understanding it at a deep level. Since discovering proof-based math, I've been drawn to how simple definitions can lead to complex theories. Rather than memorizing techniques, I focus on asking why things are true.",
+      "My current interests include commutative algebra, algebraic number theory, and arithmetic geometry. I'm especially interested in the connections between algebraic structures and number theory, and I hope to contribute original research in these areas. For now, I spend my time reading textbooks, writing notes, solving challenging problems (sometimes), and developing the mathematical maturity and tools needed for research.",
       "This website essentially documents that journey. It's a place where I organize notes, share expository writing, document projects, and explore ideas I find interesting. More than anything, I hope it becomes a record of my growth as a mathematician from what I'm learning now to the research I'll pursue in the future.",
       "Outside of mathematics, I'm just Kasi. I enjoy sprinting and compete in track and field, where I've learned discipline, perseverance, and consistency. Though math and athletics seem different, both have shown me that progress comes from patience, hard work, and embracing challenges.",
       "I also enjoy programming and exploring tools that support mathematics, especially theorem prover(Lean :D), and other computational tools. I'm fascinated by how computers can help explore, verify, and communicate mathematical ideas while still preserving the creativity at the heart of the subject.",
@@ -135,7 +135,7 @@
       "Although mathematics and sprinting may seem unrelated, I have found that they complement each other remarkably well. Mathematics teaches logical reasoning, creativity, and patience when solving difficult problems. Sprinting develops resilience, confidence, and the ability to perform under pressure. Both require sustained dedication over many years, and both reward careful preparation far more than natural talent alone.",
       "One of the aspects I enjoy most about sprinting is that progress is measurable. Every hundredth of a second represents months of work, and every race provides immediate feedback on what can be improved. This mindset of continuous refinement has shaped how I approach not only athletics, but also mathematics and research.",
       "As I continue my academic journey into commutative algebra and algebraic number theory, I also hope to continue competing at a high level in track and field. Whether I am preparing for a race or working through a difficult proof, my goal remains the same: to become a little better each day.",
-      "12-time provincial champion in the 100m and 200m with the tied electronically timed provincial record in the U15 100m dash."
+      "12-time provincial champion in the 100m and 200m, and a co-holder of the electronically timed provincial record for the U15 100m dash."
     ]
   },
   "expository": {
