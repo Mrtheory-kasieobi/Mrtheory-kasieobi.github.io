@@ -1,108 +1,5 @@
 const SITE_VERSION = "1.0";
 
-const mathFacts = [
-    { label: "Abstract Algebra", latex: "\\[\\text{If } G \\text{ is finite, then } G \\text{ admits a composition series with simple factors.}\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\text{Every subgroup of a cyclic group is itself cyclic.}\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\text{If } L/K \\text{ is a finite field extension, then } [L:K] < \\infty.\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\text{If } I \\subsetneq R \\text{ is maximal, then } R/I \\text{ is a field.}\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\dim_F D = n^2 \\quad \\text{for some } n \\in \\mathbb{N}.\\]" },
-    { label: "Abstract Algebra", latex: "\\[G/Z(G) \\text{ cyclic } \\implies G \\text{ abelian}.\\]" },
-    { label: "Abstract Algebra", latex: "\\[G \\text{ cyclic of order } n \\iff \\exists a \\in G \\text{ with } \\langle a \\rangle = G.\\]" },
-    { label: "Abstract Algebra", latex: "\\[G \\text{ group, } H \\leq G \\text{ normal } \\implies G/H \\text{ is a group with } (gH)(hH) = (gh)H.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[\\mathcal{O}_K \\text{ is a Dedekind domain.}\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[\\mathfrak{a} = \\mathfrak{p}_1^{e_1} \\cdots \\mathfrak{p}_r^{e_r}.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[N(\\mathfrak{a}) = \\left|\\mathcal{O}_K/\\mathfrak{a}\\right|.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[N_{K/\\mathbb{Q}}(\\alpha) = \\prod_{\\sigma} \\sigma(\\alpha).\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[r_1 + 2r_2 - 1 = \\dim_{\\mathbb{Q}} K \\text{ for number field } K.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[h_K = \\frac{|Cl_K|}{w_K} \\cdot \\frac{R_K \\sqrt{|d_K|}}{2^{r_1}(2\\pi)^{r_2}}.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[K \\text{ number field, } \\mathfrak{p} \\text{ prime } \\implies \\mathcal{O}_K/\\mathfrak{p} \\text{ is finite field}.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[K \\text{ number field, } \\mathfrak{p} \\text{ prime } \\implies v_{\\mathfrak{p}}(\\alpha) \\geq 0 \\iff \\alpha \\in \\mathcal{O}_K.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[K \\text{ totally real } \\iff \\text{all embeddings } K \\to \\mathbb{C} \\text{ have real image}.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I = \\bigcap_{j=1}^n \\mathfrak{q}_j,\\quad \\mathfrak{q}_j \\text{ primary.}\\]" },
-    { label: "Commutative Algebra", latex: "\\[\\dim R = \\mathrm{ht}(\\mathfrak{m}) \\quad \\text{for a Noetherian local ring } (R,\\mathfrak{m}).\\]" },
-    { label: "Commutative Algebra", latex: "\\[M \\text{ has a finite presentation over a Noetherian ring.}\\]" },
-    { label: "Commutative Algebra", latex: "\\[I \\subset R \\text{ prime } \\iff R/I \\text{ is an integral domain}.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I \\text{ finitely generated ideal, } R \\text{ Noetherian } \\implies R/I \\text{ Noetherian}.\\]" },
-    { label: "Commutative Algebra", latex: "\\[M \\text{ module over Noetherian } R, N \\subset M \\text{ submodule } \\implies M/N \\text{ finitely generated}.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I \\subset R \\text{ ideal, } R \\text{ Noetherian } \\implies I \\text{ finitely generated}.\\]" },
-    { label: "Commutative Algebra", latex: "\\[P \\subset R \\text{ prime, } \\mathfrak{q} \\subset R \\text{ primary } \\implies P \\subset \\sqrt{\\mathfrak{q}}.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[\\pi(x) \\sim \\frac{x}{\\log x} \\quad (x \\to \\infty).\\]" },
-    { label: "Analytic Number Theory", latex: "\\[\\sum_p \\frac{1}{p} = \\infty.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[\\sum_{n \\le x} \\Lambda(n) \\sim x.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[L(s,\\chi) \\text{ is entire for non-principal Dirichlet character } \\chi.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[(\\zeta(s) - 1)^{-1} = \\sum_{n=1}^\\infty \\frac{1}{n^s} \\text{ for } \\Re(s) > 1.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[p_n \\sim n \\log n, \\quad p_n \\text{ is the } n\\text{th prime}.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[(\\log x)^A \\ll x^{\\epsilon} \\text{ for any } \\epsilon > 0, A \\in \\mathbb{R}.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[|\\sigma(n) - \\frac{\\pi^2}{6}n| < \\frac{\\pi^2}{6}\\sqrt{n} \\text{ for } n \\geq 1.\\]" },
-    { label: "Real Analysis", latex: "\\[\\text{If } f \\text{ is continuous on a compact set, then } f \\text{ attains its extrema.}\\]" },
-    { label: "Real Analysis", latex: "\\[\\text{Every Cauchy sequence in } \\mathbb{R} \\text{ converges.}\\]" },
-    { label: "Real Analysis", latex: "\\[f'(a) \\text{ exists } \\implies f \\text{ is continuous at } a.\\]" },
-    { label: "Real Analysis", latex: "\\[\\int_a^b f(x) \\, dx \\text{ exists whenever } f \\text{ is continuous.}\\]" },
-    { label: "Real Analysis", latex: "\\[f_n \\to f \\text{ uniformly } \\implies f \\text{ is continuous.}\\]" },
-    { label: "Real Analysis", latex: "\\[\\text{A monotone sequence in } \\mathbb{R} \\text{ converges if and only if it is bounded.}\\]" },
-    { label: "Real Analysis", latex: "\\[f \\text{ continuous on compact } K \\implies f \\text{ attains max and min on } K.\\]" },
-    { label: "Real Analysis", latex: "\\[f: [a,b] \\to \\mathbb{R} \\text{ continuous } \\iff \\forall x_n \\to x, f(x_n) \\to f(x).\\]" },
-    { label: "Real Analysis", latex: "\\[f \\in C^1[a,b] \\text{ and } f'(x) > 0 \\implies f \\text{ strictly increasing}.\\]" },
-    { label: "Real Analysis", latex: "\\[f \\in C[a,b] \\cap C^1(a,b) \\implies \\exists c \\in (a,b): f'(c) = \\frac{f(b)-f(a)}{b-a}.\\]" },
-    { label: "Real Analysis", latex: "\\[f, g \\in L^1([a,b]) \\implies fg \\in L^1([a,b]) \\text{ and } \\int fg \\leq (\\int f^2)^{1/2} (\\int g^2)^{1/2}.\\]" },
-    { label: "Real Analysis", latex: "\\[f \\in C^1[a,b] \\text{ and } f'(x) \\geq 0 \\implies f \\text{ non-decreasing}.\\]" },
-    { label: "Real Analysis", latex: "\\[f \\to f \\text{ uniformly } \\implies f \\text{ continuous, integrable, and } \\int f_n \\to \\int f.\\]" },
-    { label: "Real Analysis", latex: "\\[f \\to f \\text{ uniformly on } [a,b] \\implies f \\text{ continuous and } f_n \\text{ Riemann integrable}.\\]" },
-    { label: "Linear Algebra", latex: "\\[\\text{If } T: V \\to W \\text{ is linear, then } \\ker T \\text{ is a subspace of } V.\\]" },
-    { label: "Linear Algebra", latex: "\\[\\text{A square matrix } A \\text{ is invertible } \\iff \\det A \\neq 0.\\]" },
-    { label: "Linear Algebra", latex: "\\[\\dim(\\ker T) + \\dim(\\operatorname{im} T) = \\dim(V) \\text{ for } T: V \\to W.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\text{ diagonalizable } \\iff \\text{geometric multiplicity = algebraic multiplicity for each eigenvalue}.\\]" },
-    { label: "Linear Algebra", latex: "\\[A^T A \\mathbf{x} = A^T \\mathbf{b} \\text{ is normal equations for least squares problem}.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\text{ symmetric } \\implies Q^T A Q = \\operatorname{diag}(\\lambda_1, \\ldots, \\lambda_n).\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\text{ real symmetric } \\implies \\text{exists orthogonal } Q \\text{ with } Q^T A Q \\text{ diagonal}.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\text{ invertible } \\iff \\det A \\neq 0 \\iff \\text{columns linearly independent}.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\text{ orthogonal } \\iff A^T A = I \\iff \\text{columns form orthonormal basis}.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[\\text{A projective variety is closed in } \\mathbb{P}^n \\text{ with the Zariski topology}.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[V(IJ) \\supseteq V(I) \\cap V(J) = V(IJ).\\]" },
-    { label: "Algebraic Geometry", latex: "\\[\\mathcal{O}(D) \\ni f \\mapsto \\operatorname{div}(f) + D \\in \\operatorname{Div}(X).\\]" },
-    { label: "Algebraic Geometry", latex: "\\[\\omega_X = \\Omega^n_X \\text{ canonical bundle of smooth projective variety } X.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[X \\text{ smooth projective curve, } \\deg \\mathcal{L} > 2g-2 \\implies H^1(X,\\mathcal{L}) = 0.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[X \\text{ variety, } Y \\subset X \\text{ closed subvariety } \\implies I(Y) \\text{ radical ideal}.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[X \\text{ smooth, } L \\text{ ample line bundle } \\implies \\chi(X,L^{\\otimes n}) = \\frac{\\deg L}{2}n(n-1) + \\chi(X,L) + 1.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[G \\text{ cyclic of order } n \\iff \\exists a \\in G \\text{ with } \\langle a \\rangle = G.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[E(K) \\cong \\mathbb{Z}^{r} \\oplus E(K)_{\\text{tors}}\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[|E(\\mathbb{F}_q)| = q + 1 - t \\text{ with } t^2 \\leq 4q.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[|X(\\mathbb{F}_q)| = q^n + a_1 q^{n-1} + \\cdots + a_n \\quad \\text{with } |a_i| \\leq C \\cdot q^{i/2}\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[\\sum_{P \\in C \\cap D} \\operatorname{mult}_P(C) \\cdot \\operatorname{mult}_P(D) = \\deg(C) \\cdot \\deg(D).\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[\\text{Curves of genus } g \\geq 2 \\text{ have finitely many } \\mathbb{Q}\\text{-points}.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[\\operatorname{rank} E(\\mathbb{Q}) = \\operatorname{ord}_{s=1} L(E,s).\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[\\text{Elliptic curve over Q is modular: } L(E,s) = L(f,s) \\text{ for weight 2 cusp form f}.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[\\operatorname{AJ}: J(C) \\to \\operatorname{Pic}^0(C) \\text{ isomorphism for smooth projective curve}.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[G(\\mathbb{A}_K) = \\prod_v' G(K_v) \\text{ restricted product over places}.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[f: [a,b] \\to \\mathbb{R} \\text{ monotone } \\iff \\exists N \\text{ such that } f(x_n) \\text{ converges for all } x_n \\to x.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[f \\in C[a,b] \\text{ continuous } \\implies f \\text{ uniformly continuous}.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[f, g \\in C[a,b] \\implies \\exists c \\in [a,b]: f(c) = g(c).\\]" },
-    { label: "Abstract Algebra", latex: "\\[G \\text{ finite, } H \\leq G \\text{ subgroup } \\implies [G:H] = |G|/|H|.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[K \\text{ number field, } [K:\\mathbb{Q}] = n \\implies \\text{there exists } \\alpha \\in K \\text{ with } [\\mathbb{Q}(\\alpha):\\mathbb{Q}] = n.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I \\text{ ideal, } R \\text{ commutative ring } \\implies I \\text{ radical } \\iff R/I \\text{ reduced}.\\]" },
-    { label: "Real Analysis", latex: "\\[f: [a,b] \\to \\mathbb{R} \\text{ continuous } \\implies f \\text{ bounded and attains bounds}.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\text{ orthogonal } \\iff A^T = A^{-1}.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[X \\text{ smooth, } D \\text{ divisor on } X \\implies \\ell(D) = \\dim H^0(X,\\mathcal{O}_X(D)).\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[E(K) \\text{ elliptic curve, } m \\in \\mathbb{N} \\implies E(K)[m] \\text{ is finite group}.\\]" },
-    { label: "Abstract Algebra", latex: "\\[G \\text{ group, } H \\leq G \\text{ normal } \\implies G/H \\text{ quotient group}.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[K \\text{ number field, } f(x) \\in \\mathbb{Z}[x] \\text{ monic irreducible } \\implies f \\text{ splits in } \\mathcal{O}_K.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I, J \\text{ ideals in } R \\implies \\sqrt{IJ} = \\sqrt{I \\cap J} = \\sqrt{I} \\cap \\sqrt{J}.\\]" },
-    { label: "Real Analysis", latex: "\\[f_n \\to f \\text{ pointwise, } f_n \\text{ bounded, } f \\text{ continuous } \\implies f \\text{ bounded and continuous}.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\in M_n(\\mathbb{R}) \\text{ symmetric } \\implies \\text{all eigenvalues real, eigenvectors orthogonal}.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[X \\text{ projective variety, } L \\text{ line bundle } \\implies X \\text{ embedded in } \\mathbb{P}(H^0(X,L)^*).\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[E: y^2 = x^3 + ax + b \\text{ elliptic curve, } \\Delta \\neq 0 \\implies E \\text{ smooth}.\\]" },
-    { label: "Abstract Algebra", latex: "\\[G \\text{ group, } H \\leq G \\text{ subgroup } \\implies \\text{orbit-stabilizer: } |G| = |G_x| \\cdot |Gx|.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[K \\text{ number field, } \\alpha \\in \\mathcal{O}_K \\implies \\operatorname{Tr}_{K/\\mathbb{Q}}(\\alpha) \\in \\mathbb{Z}.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I \\subset R \\text{ ideal, } M \\text{ } R\\text{-module } \\implies I \\text{ annihilates } M \\iff IM = 0.\\]" },
-    { label: "Real Analysis", latex: "\\[f: [a,b] \\to \\mathbb{R} \\text{ uniformly continuous } \\iff \\forall \\epsilon > 0, \\exists \\delta > 0: |x-y|<\\delta \\implies |f(x)-f(y)|<\\epsilon.\\]" },
-    { label: "Linear Algebra", latex: "\\[A \\in M_n(\\mathbb{C}) \\text{ normal } \\iff A \\text{ unitarily diagonalizable}.\\]" },
-    { label: "Algebraic Geometry", latex: "\\[X \\text{ smooth curve, } \\deg D > 2g-2 \\implies H^1(X,\\mathcal{O}_X(D)) = 0.\\]" },
-    { label: "Arithmetic Geometry", latex: "\\[E(K) \\text{ elliptic curve, } \\text{Tate-Shafarevich group finite } \\implies \\text{BSD holds}.\\]" },
-    { label: "Abstract Algebra", latex: "\\[G \\text{ finite group, } p \\text{ prime } \\implies \\text{number of Sylow } p\\text{-subgroups } \\equiv 1 \\mod p.\\]" },
-    { label: "Linear Algebra", latex: "\\[\\text{For any } m \\times n \\text{ matrix } A, \\text{rank } A + \\text{nullity } A = n.\\]" },
-    { label: "Real Analysis", latex: "\\[f: [a,b] \\to \\mathbb{R} \\text{ continuous } \\iff f \\text{ uniformly continuous on } [a,b].\\]" }
-];
-
 function initSiteFooter() {
     document.querySelectorAll("[data-site-version]").forEach(function (el) {
         el.textContent = "v" + SITE_VERSION;
@@ -117,9 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("site-search");
 
     initSiteFooter();
-
-    // Always render math fact (experimental mode no longer persists)
-    renderRandomMathFact();
 
     navLinks.forEach((link) => {
         const href = link.getAttribute("href");
@@ -476,77 +370,6 @@ function initSiteSearch(searchInput, searchableItems) {
     document.addEventListener("click", function (event) {
         if (!searchInput.parentElement.contains(event.target)) {
             closeResults();
-        }
-    });
-}
-
-function renderMathFactWithMathJax(textElement, latex) {
-    textElement.innerHTML = latex;
-
-    if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([textElement]).catch(() => {});
-        return;
-    }
-
-    if (!document.querySelector('script[src*="mathjax"]')) {
-        window.MathJax = window.MathJax || {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
-            svg: { fontCache: 'global' }
-        };
-
-        const script = document.createElement("script");
-        script.id = "mathjax-script";
-        script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-        script.async = true;
-        script.onload = () => {
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                window.MathJax.typesetPromise([textElement]).catch(() => {});
-            }
-        };
-        document.head.appendChild(script);
-    }
-}
-
-function renderRandomMathFact() {
-    const overlay = document.querySelector(".math-fact-overlay");
-    if (overlay) {
-        overlay.remove();
-    }
-
-    const fact = mathFacts[Math.floor(Math.random() * mathFacts.length)];
-    const wrapper = document.createElement("div");
-    wrapper.className = "math-fact-overlay";
-    wrapper.setAttribute("aria-hidden", "true");
-
-    const card = document.createElement("div");
-    card.className = "math-fact-overlay__card";
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", "Click for another math fact");
-
-    const label = document.createElement("div");
-    label.className = "math-fact-overlay__label";
-    label.textContent = fact.label;
-
-    const text = document.createElement("div");
-    text.className = "math-fact-overlay__text";
-
-    card.appendChild(label);
-    card.appendChild(text);
-    wrapper.appendChild(card);
-    document.body.appendChild(wrapper);
-
-    renderMathFactWithMathJax(text, fact.latex);
-
-    card.addEventListener("click", function (e) {
-        e.stopPropagation();
-        renderRandomMathFact();
-    });
-
-    card.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            renderRandomMathFact();
         }
     });
 }
