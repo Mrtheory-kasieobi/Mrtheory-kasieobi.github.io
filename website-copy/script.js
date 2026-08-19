@@ -1,28 +1,5 @@
 const SITE_VERSION = "1.0";
 
-const mathFacts = [
-    { label: "Abstract Algebra", latex: "\\[\\text{If } G \\text{ is finite, then } G \\text{ admits a composition series with simple factors.}\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\text{Every subgroup of a cyclic group is itself cyclic.}\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\text{If } L/K \\text{ is a finite field extension, then } [L:K] < \\infty.\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\text{If } I \\subsetneq R \\text{ is maximal, then } R/I \\text{ is a field.}\\]" },
-    { label: "Abstract Algebra", latex: "\\[\\dim_F D = n^2 \\quad \\text{for some } n \\in \\mathbb{N}.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[\\mathcal{O}_K \\text{ is a Dedekind domain.}\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[\\mathfrak{a} = \\mathfrak{p}_1^{e_1} \\cdots \\mathfrak{p}_r^{e_r}.\\]" },
-    { label: "Algebraic Number Theory", latex: "\\[N(\\mathfrak{a}) = \\left|\\mathcal{O}_K/\\mathfrak{a}\\right|.\\]" },
-    { label: "Commutative Algebra", latex: "\\[I = \\bigcap_{j=1}^n q_j,\\quad q_j \\text{ primary.}\\]" },
-    { label: "Commutative Algebra", latex: "\\[\\dim R = \\mathrm{ht}(\\mathfrak{m}) \\quad \\text{for a Noetherian local ring } (R,\\mathfrak{m}).\\]" },
-    { label: "Commutative Algebra", latex: "\\[M \\text{ has a finite presentation over a Noetherian ring.}\\]" },
-    { label: "Analytic Number Theory", latex: "\\[\\pi(x) \\sim \\frac{x}{\\log x} \\quad (x \\to \\infty).\\]" },
-    { label: "Analytic Number Theory", latex: "\\[\\sum_p \\frac{1}{p} = \\infty.\\]" },
-    { label: "Analytic Number Theory", latex: "\\[\\sum_{n \\le x} \\Lambda(n) \\sim x.\\]" },
-    { label: "Real Analysis", latex: "\\[\\text{If } f \\text{ is continuous on a compact set, then } f \\text{ attains its extrema.}\\]" },
-    { label: "Real Analysis", latex: "\\[\\text{Every Cauchy sequence in } \\mathbb{R} \\text{ converges.}\\]" },
-    { label: "Real Analysis", latex: "\\[f'(a) \\text{ exists } \\implies f \\text{ is continuous at } a.\\]" },
-    { label: "Real Analysis", latex: "\\[\\int_a^b f(x) \\, dx \\text{ exists whenever } f \\text{ is continuous.}\\]" },
-    { label: "Real Analysis", latex: "\\[f_n \\to f \\text{ uniformly } \\implies f \\text{ is continuous.}\\]" },
-    { label: "Real Analysis", latex: "\\[\\text{A monotone sequence in } \\mathbb{R} \\text{ converges if and only if it is bounded.}\\]" }
-];
-
 function initSiteFooter() {
     document.querySelectorAll("[data-site-version]").forEach(function (el) {
         el.textContent = "v" + SITE_VERSION;
@@ -37,9 +14,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("site-search");
 
     initSiteFooter();
-
-    // Always render math fact (experimental mode no longer persists)
-    renderRandomMathFact();
 
     navLinks.forEach((link) => {
         const href = link.getAttribute("href");
@@ -396,77 +370,6 @@ function initSiteSearch(searchInput, searchableItems) {
     document.addEventListener("click", function (event) {
         if (!searchInput.parentElement.contains(event.target)) {
             closeResults();
-        }
-    });
-}
-
-function renderMathFactWithMathJax(textElement, latex) {
-    textElement.innerHTML = latex;
-
-    if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([textElement]).catch(() => {});
-        return;
-    }
-
-    if (!document.querySelector('script[src*="mathjax"]')) {
-        window.MathJax = window.MathJax || {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] },
-            svg: { fontCache: 'global' }
-        };
-
-        const script = document.createElement("script");
-        script.id = "mathjax-script";
-        script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
-        script.async = true;
-        script.onload = () => {
-            if (window.MathJax && window.MathJax.typesetPromise) {
-                window.MathJax.typesetPromise([textElement]).catch(() => {});
-            }
-        };
-        document.head.appendChild(script);
-    }
-}
-
-function renderRandomMathFact() {
-    const overlay = document.querySelector(".math-fact-overlay");
-    if (overlay) {
-        overlay.remove();
-    }
-
-    const fact = mathFacts[Math.floor(Math.random() * mathFacts.length)];
-    const wrapper = document.createElement("div");
-    wrapper.className = "math-fact-overlay";
-    wrapper.setAttribute("aria-hidden", "true");
-
-    const card = document.createElement("div");
-    card.className = "math-fact-overlay__card";
-    card.setAttribute("tabindex", "0");
-    card.setAttribute("role", "button");
-    card.setAttribute("aria-label", "Click for another math fact");
-
-    const label = document.createElement("div");
-    label.className = "math-fact-overlay__label";
-    label.textContent = fact.label;
-
-    const text = document.createElement("div");
-    text.className = "math-fact-overlay__text";
-
-    card.appendChild(label);
-    card.appendChild(text);
-    wrapper.appendChild(card);
-    document.body.appendChild(wrapper);
-
-    renderMathFactWithMathJax(text, fact.latex);
-
-    card.addEventListener("click", function (e) {
-        e.stopPropagation();
-        renderRandomMathFact();
-    });
-
-    card.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            renderRandomMathFact();
         }
     });
 }
@@ -1387,103 +1290,166 @@ function initMathLabSimulations() {
         if (calculateBtn && canvas) {
             const ctx = canvas.getContext("2d");
             
-            function drawTiles(a, b, c) {
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
-                // Draw background
-                ctx.fillStyle = "rgba(15, 24, 37, 0.6)";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-                
-                const tileSize = 30;
-                const padding = 10;
-                let x = 20, y = 20;
-                
-                // Draw x² tiles (blue)
-                ctx.fillStyle = "#4a90e2";
-                for (let i = 0; i < Math.abs(a); i++) {
-                    ctx.fillRect(x, y, tileSize, tileSize);
-                    x += tileSize + padding;
-                }
-                
-                // Draw x tiles (green)
-                ctx.fillStyle = "#50c878";
-                x = 20;
-                y += tileSize + padding;
-                for (let i = 0; i < Math.abs(b); i++) {
-                    ctx.fillRect(x, y, tileSize, tileSize);
-                    x += tileSize + padding;
-                }
-                
-                // Draw unit tiles (yellow)
-                ctx.fillStyle = "#ffd700";
-                x = 20;
-                y += tileSize + padding;
-                for (let i = 0; i < Math.abs(c); i++) {
-                    ctx.fillRect(x, y, tileSize, tileSize);
-                    x += tileSize + padding;
-                }
-                
-                // Draw labels
-                ctx.fillStyle = "#f2f6fb";
-                ctx.font = "12px sans-serif";
-                ctx.textAlign = "left";
-                ctx.fillText(`x² tiles: ${a}`, 20, y + tileSize + 15);
-                ctx.fillText(`x tiles: ${b}`, 20, y + tileSize + 30);
-                ctx.fillText(`unit tiles: ${c}`, 20, y + tileSize + 45);
-            }
-            
-            calculateBtn.addEventListener("click", function() {
-                const expr = exprInput.value;
-                
-                // Parse simple quadratic expressions like "x^2 + 5x + 6" or "x^2 - 3x + 2"
-                const match = expr.match(/([+-]?\d*)x\^2\s*([+-]\s*\d+)x\s*([+-]\s*\d+)/i) || 
-                              expr.match(/([+-]?\d*)x\^2\s*([+-]\s*\d+)/i) ||
-                              expr.match(/x\^2\s*([+-]\s*\d+)x\s*([+-]\s*\d+)/i);
-                
+            function parseQuadratic(expr) {
+                const clean = expr.replace(/\s+/g, '');
                 let a = 1, b = 0, c = 0;
                 
-                if (match) {
-                    // Parse coefficients
-                    const exprClean = expr.replace(/\s/g, "");
-                    const aMatch = exprClean.match(/([+-]?\d*)x\^2/);
-                    const bMatch = exprClean.match(/([+-]\d+)x(?!\^)/);
-                    const cMatch = exprClean.match(/([+-]\d+)(?!.*x)/);
-                    
-                    if (aMatch) {
-                        const aVal = aMatch[1];
-                        a = aVal === "" || aVal === "+" ? 1 : (aVal === "-" ? -1 : parseFloat(aVal));
-                    }
-                    if (bMatch) {
-                        b = parseFloat(bMatch[1]);
-                    }
-                    if (cMatch) {
-                        c = parseFloat(cMatch[1]);
-                    }
+                // Parse ax²
+                const aMatch = clean.match(/^(-?\d*)x\^2/);
+                if (aMatch !== null) {
+                    const coef = aMatch[1];
+                    if (coef === '' || coef === '+') a = 1;
+                    else if (coef === '-') a = -1;
+                    else a = parseInt(coef);
                 }
                 
-                // Try to factor
-                let factored = "";
-                const discriminant = b * b - 4 * a * c;
+                // Parse bx (not x²)
+                const bMatch = clean.match(/([+-]?\d+)x(?!\^)/g);
+                if (bMatch !== null && bMatch.length > 0) {
+                    b = bMatch.reduce((sum, m) => sum + parseInt(m), 0);
+                }
                 
-                if (discriminant >= 0) {
-                    for (let m = -Math.abs(c); m <= Math.abs(c); m++) {
+                // Parse c - the standalone number at the end
+                const cMatch = clean.match(/([+-]?\d+)(?!.*x)/);
+                if (cMatch !== null) {
+                    c = parseInt(cMatch[0]);
+                }
+                
+                return { a, b, c };
+            }
+            
+            function factorQuadratic(a, b, c) {
+                if (c === 0) {
+                    return { factorable: true, m: b, n: 0, a: 1 };
+                }
+                if (a === 1) {
+                    for (let m = -Math.max(100, Math.abs(c) * 2); m <= Math.max(100, Math.abs(c) * 2); m++) {
                         if (m === 0) continue;
                         if (c % m === 0) {
                             const n = c / m;
                             if (m + n === b) {
-                                factored = `(x + ${m})(x + ${n})`;
-                                break;
+                                return { factorable: true, m, n, a: 1 };
+                            }
+                        }
+                    }
+                } else {
+                    for (let m = -100; m <= 100; m++) {
+                        if (m === 0) continue;
+                        if ((a * c) % m === 0) {
+                            const n = (a * c) / m;
+                            if (m + n === b) {
+                                return { factorable: true, m, n, a };
                             }
                         }
                     }
                 }
+                return { factorable: false };
+            }
+            
+            function drawAreaModel(a, b, c, m, n, isFactored = false) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
                 
-                drawTiles(a, b, c);
+                const W = canvas.width;
+                const H = canvas.height;
+                const pad = 20;
+                
+                if (isFactored && a !== 0) {
+                    ctx.fillStyle = "rgba(20, 30, 45, 0.4)";
+                    ctx.fillRect(0, 0, W, H);
+                    
+                    const w = Math.min(W - 2*pad, 200);
+                    const h = Math.min(H - 2*pad, 120);
+                    const leftPad = (W - w) / 2;
+                    const topPad = (H - h) / 2;
+                    
+                    ctx.strokeStyle = "#d4af37";
+                    ctx.lineWidth = 2;
+                    ctx.strokeRect(leftPad, topPad, w, h);
+                    
+                    const halfW = w / 2;
+                    const halfH = h / 2;
+                    
+                    ctx.fillStyle = "#4a90e2";
+                    ctx.textAlign = "center";
+                    ctx.font = "bold 14px sans-serif";
+                    ctx.fillText(`${a}x²`, leftPad + halfW/2, topPad + halfH/3);
+                    
+                    ctx.fillStyle = "#50c878";
+                    ctx.fillText(`${m}x`, leftPad + halfW/2, topPad + halfH/3 + halfH/3);
+                    
+                    ctx.fillStyle = "#ffd700";
+                    ctx.fillText(`${n > 0 ? '+' : ''}${n}`, leftPad + halfW/2, topPad + halfH/3 + 2*halfH/3);
+                    ctx.fillText(`${n > 0 ? '+' : ''}${n}`, leftPad + 3*halfW/2, topPad + halfH/3 + 2*halfH/3);
+                    
+                    ctx.strokeStyle = "#d4af37";
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([5, 3]);
+                    ctx.strokeRect(leftPad + halfW, topPad, halfW, h);
+                    ctx.setLineDash([]);
+                } else {
+                    ctx.fillStyle = "rgba(15, 24, 37, 0.3)";
+                    ctx.fillRect(0, 0, W, H);
+                    
+                    const tileSize = 35;
+                    const gap = 5;
+                    let currentX = pad;
+                    const rowY = H / 2;
+                    
+                    ctx.fillStyle = "#4a90e2";
+                    for (let i = 0; i < Math.abs(a); i++) {
+                        ctx.fillRect(currentX + i*(tileSize + gap), rowY, tileSize, tileSize);
+                    }
+                    
+                    ctx.fillStyle = "#50c878";
+                    currentX = pad + Math.max(0, Math.abs(a)) * (tileSize + gap) + gap;
+                    for (let i = 0; i < Math.abs(b); i++) {
+                        ctx.fillRect(currentX + i*(tileSize + gap), rowY, tileSize, tileSize);
+                    }
+                    
+                    ctx.fillStyle = "#ffd700";
+                    currentX = pad + Math.max(0, Math.abs(a)) * (tileSize + gap) + gap + Math.max(0, Math.abs(b)) * (tileSize + gap) + gap;
+                    for (let i = 0; i < Math.abs(c); i++) {
+                        ctx.fillRect(currentX + i*(tileSize + gap), rowY, tileSize, tileSize);
+                    }
+                    
+                    ctx.fillStyle = "#f2f6fb";
+                    ctx.textAlign = "left";
+                    ctx.font = "12px sans-serif";
+                    ctx.fillText(`Expression: ${a}x²${b >= 0 ? '+' : ''}${b}x${c >= 0 ? '+' : ''}${c}`, 10, H - 15);
+                }
+            }
+            
+            calculateBtn.addEventListener("click", function() {
+                const expr = exprInput.value.trim();
+                if (!expr) return;
+                
+                const { a, b, c } = parseQuadratic(expr);
+                const result = factorQuadratic(a, b, c);
+                
+                let factored = "";
+                
+                if (result.factorable) {
+                    const mVal = result.m;
+                    const nVal = result.n;
+                    
+                    if (result.a === 1) {
+                        const f1 = mVal >= 0 ? `(x + ${mVal})` : `(x - ${-mVal})`;
+                        const f2 = nVal >= 0 ? `(x + ${nVal})` : `(x - ${-nVal})`;
+                        factored = `${f1}${f2}`;
+                        drawAreaModel(a, b, c, mVal, nVal, true);
+                    } else {
+                        factored = `${a}x² + ${b}x + ${c} = (x + ${mVal})(x + ${nVal}) (after applying the AC method)`;
+                        drawAreaModel(a, b, c, 0, 0, false);
+                    }
+                } else {
+                    factored = `Cannot be factored with integer coefficients (discriminant = ${b*b - 4*a*c})`;
+                    drawAreaModel(a, b, c, 0, 0, false);
+                }
                 
                 resultsDiv.innerHTML = `
-                    <p><strong>Expression:</strong> ${a}x² + ${b}x + ${c}</p>
-                    <p><strong>Factored form:</strong> ${factored || "Cannot be factored with integer coefficients"}</p>
-                    <p><strong>Discriminant:</strong> ${discriminant}</p>
+                    <p><strong>Expression:</strong> ${a}x²${b >= 0 ? '+' : ''}${b}x${c >= 0 ? '+' : ''}${c}</p>
+                    <p><strong>Factored form:</strong> ${factored}</p>
+                    <p style="color: var(--muted); font-size: 0.85rem;">Try factoring by arranging tiles into a rectangle. The dimensions of the rectangle are your factors!</p>
                 `;
             });
         }
