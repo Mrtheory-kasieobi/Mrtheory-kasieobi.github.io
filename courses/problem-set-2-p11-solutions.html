@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Problem Set 2 Solutions: Trigonometry - Precalculus 11">
-  <title>Kasieobi Udumaga | Problem Set 2 Solutions: Trigonometry - Precalculus 11</title>
+  <meta name="description" content="Problem Set 1 Solutions: Sequences and Series - Precalculus 11">
+  <title>Kasieobi Udumaga | Problem Set 1 Solutions: Sequences and Series - Precalculus 11</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
@@ -117,108 +117,111 @@
 
   <main>
     <div class="lecture-header">
-      <h1>Problem Set 2: Trigonometry</h1>
-      <div class="subtitle">Precalculus 11 - Chapter 2 Solutions</div>
+      <h1>Problem Set 1: Sequences and Series</h1>
+      <div class="subtitle">Precalculus 11 - Chapter 1 Solutions</div>
     </div>
 
     <div class="lecture-content">
       <h2>Solutions</h2>
 
       <div class="solution-box">
-        <strong>Problem 1: Convert \(240°\) to radians</strong>
-        <div class="step">Use conversion: \(180° = \pi\) radians</div>
-        <div class="step">\(240° = 240° \times \frac{\pi}{180°} = \frac{240\pi}{180} = \frac{4\pi}{3}\)</div>
-        <div class="step"><strong>Answer: \(\frac{4\pi}{3}\) radians</strong></div>
+        <strong>Problem 1: Find the 15th term of the arithmetic sequence: 3, 7, 11, 15, ...</strong>
+        <div class="step">First term \(a_1 = 3\), common difference \(d = 7 - 3 = 4\)</div>
+        <div class="step">Use formula: \(a_n = a_1 + (n-1)d\)</div>
+        <div class="step">\(a_{15} = 3 + (15-1)(4) = 3 + 14(4) = 3 + 56 = 59\)</div>
+        <div class="step"><strong>Answer: 59</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 2: Find \(\sin \frac{5\pi}{6}\), \(\cos \frac{5\pi}{6}\), and \(\tan \frac{5\pi}{6}\)</strong>
-        <div class="step">\(\frac{5\pi}{6}\) is in quadrant II (between \(\frac{\pi}{2}\) and \(\pi\))</div>
-        <div class="step">Reference angle: \(\pi - \frac{5\pi}{6} = \frac{\pi}{6}\)</div>
-        <div class="step">\(\sin \frac{5\pi}{6} = \sin \frac{\pi}{6} = \frac{1}{2}\) (positive in QII)</div>
-        <div class="step">\(\cos \frac{5\pi}{6} = -\cos \frac{\pi}{6} = -\frac{\sqrt{3}}{2}\) (negative in QII)</div>
-        <div class="step">\(\tan \frac{5\pi}{6} = \frac{\sin}{\cos} = \frac{1/2}{-\sqrt{3}/2} = -\frac{1}{\sqrt{3}} = -\frac{\sqrt{3}}{3}\)</div>
-        <div class="step"><strong>Answer: \(\sin = \frac{1}{2}\), \(\cos = -\frac{\sqrt{3}}{2}\), \(\tan = -\frac{\sqrt{3}}{3}\)</strong></div>
+        <strong>Problem 2: Find the sum of the first 20 terms of the arithmetic sequence: 5, 9, 13, 17, ...</strong>
+        <div class="step">First term \(a_1 = 5\), common difference \(d = 4\), number of terms \(n = 20\)</div>
+        <div class="step">Use formula: \(S_n = \frac{n}{2}(a_1 + a_n)\)</div>
+        <div class="step">First find \(a_{20} = 5 + (20-1)(4) = 5 + 76 = 81\)</div>
+        <div class="step">\(S_{20} = \frac{20}{2}(5 + 81) = 10(86) = 860\)</div>
+        <div class="step"><strong>Answer: 860</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 3: Find all angles \(\theta\) in \([0°, 360°]\) where \(\sin \theta = \frac{1}{2}\)</strong>
-        <div class="step">\(\sin \theta = \frac{1}{2}\) occurs at reference angle \(30°\)</div>
-        <div class="step">In \([0°, 360°]\), sine is positive in quadrants I and II</div>
-        <div class="step">Angles: \(\theta = 30°\) (Q I) and \(\theta = 180° - 30° = 150°\) (Q II)</div>
-        <div class="step"><strong>Answer: \(\theta = 30°\) or \(\theta = 150°\)</strong></div>
+        <strong>Problem 3: Find the 8th term of the geometric sequence: 2, 6, 18, 54, ...</strong>
+        <div class="step">First term \(a_1 = 2\), common ratio \(r = \frac{6}{2} = 3\)</div>
+        <div class="step">Use formula: \(a_n = a_1 \cdot r^{n-1}\)</div>
+        <div class="step">\(a_8 = 2 \cdot 3^{8-1} = 2 \cdot 3^7 = 2 \cdot 2187 = 4374\)</div>
+        <div class="step"><strong>Answer: 4374</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 4: Find side \(c\) with \(a = 8\), \(b = 10\), \(C = 60°\)</strong>
-        <div class="step">Use Cosine Law: \(c^2 = a^2 + b^2 - 2ab\cos C\)</div>
-        <div class="step">\(c^2 = 8^2 + 10^2 - 2(8)(10)\cos 60°\)</div>
-        <div class="step">\(c^2 = 64 + 100 - 160(\frac{1}{2}) = 164 - 80 = 84\)</div>
-        <div class="step">\(c = \sqrt{84} = \sqrt{4 \times 21} = 2\sqrt{21}\)</div>
-        <div class="step"><strong>Answer: \(c = 2\sqrt{21}\) or approximately 9.17</strong></div>
+        <strong>Problem 4: Find the sum of the first 6 terms of the geometric sequence: 4, 12, 36, 108, ...</strong>
+        <div class="step">First term \(a_1 = 4\), common ratio \(r = 3\), number of terms \(n = 6\)</div>
+        <div class="step">Use formula: \(S_n = \frac{a_1(r^n - 1)}{r - 1}\) (for \(r \neq 1\))</div>
+        <div class="step">\(S_6 = \frac{4(3^6 - 1)}{3 - 1} = \frac{4(729 - 1)}{2} = \frac{4(728)}{2} = \frac{2912}{2} = 1456\)</div>
+        <div class="step"><strong>Answer: 1456</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 5: Find angle \(C\) with \(a = 7\), \(b = 10\), \(c = 5\)</strong>
-        <div class="step">Use Cosine Law: \(c^2 = a^2 + b^2 - 2ab\cos C\)</div>
-        <div class="step">Solve for \(\cos C\): \(\cos C = \frac{a^2 + b^2 - c^2}{2ab}\)</div>
-        <div class="step">\(\cos C = \frac{7^2 + 10^2 - 5^2}{2(7)(10)} = \frac{49 + 100 - 25}{140} = \frac{124}{140} = \frac{31}{35}\)</div>
-        <div class="step">\(C = \arccos(\frac{31}{35}) \approx 26.39°\)</div>
-        <div class="step"><strong>Answer: \(C \approx 26.4°\)</strong></div>
+        <strong>Problem 5: Write the first 5 terms of the sequence defined by \(a_n = 2n + 3\). Is this arithmetic or geometric?</strong>
+        <div class="step">\(a_1 = 2(1) + 3 = 5\)</div>
+        <div class="step">\(a_2 = 2(2) + 3 = 7\)</div>
+        <div class="step">\(a_3 = 2(3) + 3 = 9\)</div>
+        <div class="step">\(a_4 = 2(4) + 3 = 11\)</div>
+        <div class="step">\(a_5 = 2(5) + 3 = 13\)</div>
+        <div class="step">First 5 terms: 5, 7, 9, 11, 13</div>
+        <div class="step">Check if arithmetic: \(d = 7-5 = 2\), \(9-7 = 2\), \(11-9 = 2\) - common difference exists</div>
+        <div class="step"><strong>Answer: 5, 7, 9, 11, 13. It is an arithmetic sequence.</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 6: Find angle \(A\) with \(a = 6\), \(b = 8\), \(C = 45°\)</strong>
-        <div class="step">Use Sine Law: \(\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}\)</div>
-        <div class="step">First find \(c\) using Cosine Law: \(c^2 = 6^2 + 8^2 - 2(6)(8)\cos 45°\)</div>
-        <div class="step">\(c^2 = 36 + 64 - 96(\frac{\sqrt{2}}{2}) = 100 - 48\sqrt{2}\)</div>
-        <div class="step">\(c = \sqrt{100 - 48\sqrt{2}} \approx 5.74\)</div>
-        <div class="step">Use Sine Law: \(\frac{\sin A}{6} = \frac{\sin 45°}{c}\)</div>
-        <div class="step">\(\sin A = \frac{6 \sin 45°}{c} = \frac{6 \times \frac{\sqrt{2}}{2}}{\sqrt{100 - 48\sqrt{2}}}\)</div>
-        <div class="step">\(A = \arcsin(\frac{3\sqrt{2}}{\sqrt{100 - 48\sqrt{2}}}) \approx 36.87°\)</div>
-        <div class="step"><strong>Answer: \(A \approx 36.9°\)</strong></div>
+        <strong>Problem 6: Express the sum using sigma notation: \(5 + 10 + 15 + 20 + 25 + 30\)</strong>
+        <div class="step">Notice each term is a multiple of 5: \(5(1), 5(2), 5(3), 5(4), 5(5), 5(6)\)</div>
+        <div class="step">The pattern is \(5k\) where \(k\) goes from 1 to 6</div>
+        <div class="step"><strong>Answer: \(\sum_{k=1}^{6} 5k\)</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 7: Find area with \(a = 10\), \(b = 12\), \(C = 30°\)</strong>
-        <div class="step">Use formula: \(\text{Area} = \frac{1}{2}ab\sin C\)</div>
-        <div class="step">\(\text{Area} = \frac{1}{2}(10)(12)\sin 30°\)</div>
-        <div class="step">\(\text{Area} = 60 \times \frac{1}{2} = 30\)</div>
-        <div class="step"><strong>Answer: 30 square units</strong></div>
+        <strong>Problem 7: Find the sum: \(\sum_{i=1}^{10} (3i - 2)\)</strong>
+        <div class="step">Expand: \((3(1)-2) + (3(2)-2) + ... + (3(10)-2)\)</div>
+        <div class="step">= \((1) + (4) + (7) + (10) + (13) + (16) + (19) + (22) + (25) + (28)\)</div>
+        <div class="step">This is arithmetic with \(a_1 = 1\), \(d = 3\), \(n = 10\)</div>
+        <div class="step">Use formula: \(S_n = \frac{n}{2}(2a_1 + (n-1)d)\)</div>
+        <div class="step">\(S_{10} = \frac{10}{2}(2(1) + 9(3)) = 5(2 + 27) = 5(29) = 145\)</div>
+        <div class="step"><strong>Answer: 145</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 8: Simplify trigonometric expressions</strong>
-        <div class="step">First: \(\sin^2 \theta + \cos^2 \theta = 1\) (Pythagorean identity)</div>
-        <div class="step">Second: \(\tan \theta \cdot \cot \theta = \tan \theta \cdot \frac{1}{\tan \theta} = 1\)</div>
-        <div class="step"><strong>Answer: \(\sin^2 \theta + \cos^2 \theta = 1\) and \(\tan \theta \cdot \cot \theta = 1\)</strong></div>
+        <strong>Problem 8: An infinite geometric series has first term 8 and common ratio \(\frac{1}{4}\). Find the sum of the series.</strong>
+        <div class="step">For infinite geometric series with \(|r| < 1\): \(S_\infty = \frac{a_1}{1-r}\)</div>
+        <div class="step">Here \(a_1 = 8\), \(r = \frac{1}{4}\), and \(|r| = \frac{1}{4} < 1\) so the series converges</div>
+        <div class="step">\(S_\infty = \frac{8}{1 - \frac{1}{4}} = \frac{8}{\frac{3}{4}} = 8 \cdot \frac{4}{3} = \frac{32}{3}\)</div>
+        <div class="step"><strong>Answer: \(\frac{32}{3}\) or approximately 10.67</strong></div>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <strong>Bonus Problem 1: Find all angles of triangle with sides 7, 8, 9</strong>
-        <div class="step">Use Cosine Law for each angle</div>
-        <div class="step">For angle opposite side 7: \(\cos A = \frac{8^2 + 9^2 - 7^2}{2(8)(9)} = \frac{64 + 81 - 49}{144} = \frac{96}{144} = \frac{2}{3}\)</div>
-        <div class="step">\(A = \arccos(\frac{2}{3}) \approx 48.19°\)</div>
-        <div class="step">For angle opposite side 8: \(\cos B = \frac{7^2 + 9^2 - 8^2}{2(7)(9)} = \frac{49 + 81 - 64}{126} = \frac{66}{126} = \frac{11}{21}\)</div>
-        <div class="step">\(B = \arccos(\frac{11}{21}) \approx 58.41°\)</div>
-        <div class="step">For angle opposite side 9: \(\cos C = \frac{7^2 + 8^2 - 9^2}{2(7)(8)} = \frac{49 + 64 - 81}{112} = \frac{32}{112} = \frac{2}{7}\)</div>
-        <div class="step">\(C = \arccos(\frac{2}{7}) \approx 73.40°\)</div>
-        <div class="step">Check: \(48.19° + 58.41° + 73.40° \approx 180°\) ✓</div>
-        <div class="step"><strong>Answer: \(A \approx 48.2°\), \(B \approx 58.4°\), \(C \approx 73.4°\)</strong></div>
+        <strong>Bonus Problem 1: Ball distance before 5th bounce</strong>
+        <div class="step">Initial drop: 100 m</div>
+        <div class="step">Bounce 1 up & down: \(2 \times 100 \times \frac{3}{5} = 120\) m</div>
+        <div class="step">Bounce 2 up & down: \(2 \times 100 \times (\frac{3}{5})^2 = 72\) m</div>
+        <div class="step">Bounce 3 up & down: \(2 \times 100 \times (\frac{3}{5})^3 = 43.2\) m</div>
+        <div class="step">Bounce 4 up & down: \(2 \times 100 \times (\frac{3}{5})^4 = 25.92\) m</div>
+        <div class="step">Total = 100 + 120 + 72 + 43.2 + 25.92 = 361.12 m</div>
+        <div class="step"><strong>Answer: 361.12 meters</strong></div>
       </div>
 
       <div class="solution-box">
-        <strong>Bonus Problem 2: Find \(\theta\) where \(\sin \theta = \cos \theta\) in \([0, 2\pi)\)</strong>
-        <div class="step">Divide both sides by \(\cos \theta\) (assuming \(\cos \theta \neq 0\)): \(\tan \theta = 1\)</div>
-        <div class="step">\(\theta = \frac{\pi}{4}\) or \(\theta = \frac{5\pi}{4}\) in \([0, 2\pi)\)</div>
-        <div class="step">Check if \(\cos \theta = 0\) gives solutions: at \(\theta = \frac{\pi}{2}, \frac{3\pi}{2}\), \(\sin \theta = \pm 1\), \(\cos \theta = 0\), so \(\sin \neq \cos\)</div>
-        <div class="step"><strong>Answer: \(\theta = \frac{\pi}{4}, \frac{5\pi}{4}\)</strong></div>
+        <strong>Bonus Problem 2: Find geometric sequence</strong>
+        <div class="step">Given: \(a_4 = ar^3 = 16\) and \(S_4 = a\frac{r^4 - 1}{r - 1} = 30\)</div>
+        <div class="step">From first: \(a = \frac{16}{r^3}\)</div>
+        <div class="step">Substitute: \(\frac{16}{r^3} \cdot \frac{r^4 - 1}{r - 1} = 30\)</div>
+        <div class="step">Simplify: \(\frac{16(r^4 - 1)}{r^3(r - 1)} = 30\)</div>
+        <div class="step">Factor: \(r^4 - 1 = (r^2 - 1)(r^2 + 1) = (r-1)(r+1)(r^2 + 1)\)</div>
+        <div class="step">\(\frac{16(r+1)(r^2 + 1)}{r^3} = 30\)</div>
+        <div class="step">Trial: \(r = 2\) gives \(a = 2\), sequence: 2, 4, 8, 16</div>
+        <div class="step">Check: \(S_4 = 2 + 4 + 8 + 16 = 30\) ✓</div>
+        <div class="step"><strong>Answer: 2, 4, 8, 16 (with \(a = 2\), \(r = 2\))</strong></div>
       </div>
 
       <div class="navigation">
-        <a href="problem-set-2-p11.html">← Back to Problem Set</a>
+        <a href="problem-set-1-p11.html">← Back to Problem Set</a>
         <a href="../teaching.html">Course Home →</a>
       </div>
     </div>

@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Problem Set 1 Solutions: Sequences and Series - Precalculus 11">
-  <title>Kasieobi Udumaga | Problem Set 1 Solutions: Sequences and Series - Precalculus 11</title>
+  <title>Solutions: Problem Set 1 | Precalculus 11</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
@@ -18,50 +17,34 @@
         border-radius: 0 !important;
       }
     }
-    .lecture-header {
+    .solutions-header {
       text-align: center;
       padding: 2rem 0;
       border-bottom: 2px solid var(--accent);
       margin-bottom: 2rem;
     }
-    .lecture-header h1 {
+    .solutions-header h1 {
       font-size: 2.5rem;
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
-    .lecture-header .subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .lecture-content {
+    .solutions-content {
       color: var(--text);
       line-height: 1.8;
     }
-    .lecture-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
     .solution-box {
       background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5cb85c;
+      border-left: 4px solid var(--accent);
       border-radius: 12px;
       padding: 1.5rem;
       margin: 1.5rem 0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
-    .solution-box strong {
-      color: #5cb85c;
-      display: block;
+    .solution-number {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
-    }
-    .step {
-      margin: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
     }
     .navigation {
       margin-top: 3rem;
@@ -78,6 +61,12 @@
       text-decoration: none;
       border-radius: 999px;
       font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
     }
   </style>
 </head>
@@ -116,119 +105,99 @@
   </nav>
 
   <main>
-    <div class="lecture-header">
-      <h1>Problem Set 1: Sequences and Series</h1>
-      <div class="subtitle">Precalculus 11 - Chapter 1 Solutions</div>
+    <div class="solutions-header">
+      <h1>Solutions: Problem Set 1</h1>
+      <div class="subtitle">Real Numbers and Rational Exponents - Precalculus 11</div>
     </div>
 
-    <div class="lecture-content">
-      <h2>Solutions</h2>
+    <div class="solutions-content">
 
       <div class="solution-box">
-        <strong>Problem 1: Find the 15th term of the arithmetic sequence: 3, 7, 11, 15, ...</strong>
-        <div class="step">First term \(a_1 = 3\), common difference \(d = 7 - 3 = 4\)</div>
-        <div class="step">Use formula: \(a_n = a_1 + (n-1)d\)</div>
-        <div class="step">\(a_{15} = 3 + (15-1)(4) = 3 + 14(4) = 3 + 56 = 59\)</div>
-        <div class="step"><strong>Answer: 59</strong></div>
+        <div class="solution-number">Solution 1</div>
+        <p><strong>(a) \(\sqrt{49}\):</strong> \(\sqrt{49} = 7\) is a natural number, whole number, integer, and rational.</p>
+        <p><strong>(b) \(-\frac{8}{3}\):</strong> This is a rational number (negative fraction).</p>
+        <p><strong>(c) \(0.\overline{6}\):</strong> \(0.\overline{6} = \frac{2}{3}\) is rational (repeating decimal).</p>
+        <p><strong>(d) \(\pi\):</strong> Irrational (non-repeating, non-terminating decimal).</p>
+        <p><strong>(e) \(\sqrt{2}\):</strong> Irrational (cannot be expressed as a fraction).</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 2: Find the sum of the first 20 terms of the arithmetic sequence: 5, 9, 13, 17, ...</strong>
-        <div class="step">First term \(a_1 = 5\), common difference \(d = 4\), number of terms \(n = 20\)</div>
-        <div class="step">Use formula: \(S_n = \frac{n}{2}(a_1 + a_n)\)</div>
-        <div class="step">First find \(a_{20} = 5 + (20-1)(4) = 5 + 76 = 81\)</div>
-        <div class="step">\(S_{20} = \frac{20}{2}(5 + 81) = 10(86) = 860\)</div>
-        <div class="step"><strong>Answer: 860</strong></div>
+        <div class="solution-number">Solution 2</div>
+        <p><strong>(a) \(8^{2/3}\):</strong> \(8^{2/3} = (\sqrt[3]{8})^2 = 2^2 = 4\)</p>
+        <p><strong>(b) \(27^{-1/3}\):</strong> \(27^{-1/3} = \frac{1}{\sqrt[3]{27}} = \frac{1}{3}\)</p>
+        <p><strong>(c) \(x^{2/3} \cdot x^{1/2}\):</strong> \(x^{2/3 + 1/2} = x^{4/6 + 3/6} = x^{7/6}\)</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 3: Find the 8th term of the geometric sequence: 2, 6, 18, 54, ...</strong>
-        <div class="step">First term \(a_1 = 2\), common ratio \(r = \frac{6}{2} = 3\)</div>
-        <div class="step">Use formula: \(a_n = a_1 \cdot r^{n-1}\)</div>
-        <div class="step">\(a_8 = 2 \cdot 3^{8-1} = 2 \cdot 3^7 = 2 \cdot 2187 = 4374\)</div>
-        <div class="step"><strong>Answer: 4374</strong></div>
+        <div class="solution-number">Solution 3</div>
+        <p><strong>(a) \(\sqrt[3]{125}\):</strong> \(\sqrt[3]{125} = 5\)</p>
+        <p><strong>(b) \(16^{3/4}\):</strong> \(16^{3/4} = (\sqrt[4]{16})^3 = 2^3 = 8\)</p>
+        <p><strong>(c) \(\frac{1}{\sqrt{8}}\):</strong> \(\frac{1}{\sqrt{8}} = \frac{1}{2\sqrt{2}} = \frac{\sqrt{2}}{4}\)</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 4: Find the sum of the first 6 terms of the geometric sequence: 4, 12, 36, 108, ...</strong>
-        <div class="step">First term \(a_1 = 4\), common ratio \(r = 3\), number of terms \(n = 6\)</div>
-        <div class="step">Use formula: \(S_n = \frac{a_1(r^n - 1)}{r - 1}\) (for \(r \neq 1\))</div>
-        <div class="step">\(S_6 = \frac{4(3^6 - 1)}{3 - 1} = \frac{4(729 - 1)}{2} = \frac{4(728)}{2} = \frac{2912}{2} = 1456\)</div>
-        <div class="step"><strong>Answer: 1456</strong></div>
+        <div class="solution-number">Solution 4</div>
+        <p><strong>(a) \(x^{2/3} \cdot x^{1/6}\):</strong> \(x^{2/3 + 1/6} = x^{5/6}\)</p>
+        <p><strong>(b) \((y^{3/4})^2\):</strong> \(y^{3/4 \cdot 2} = y^{6/4} = y^{3/2}\)</p>
+        <p><strong>(c) \(\frac{a^{5/2}}{a^{1/2}}\):</strong> \(a^{5/2 - 1/2} = a^{4/2} = a^2\)</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 5: Write the first 5 terms of the sequence defined by \(a_n = 2n + 3\). Is this arithmetic or geometric?</strong>
-        <div class="step">\(a_1 = 2(1) + 3 = 5\)</div>
-        <div class="step">\(a_2 = 2(2) + 3 = 7\)</div>
-        <div class="step">\(a_3 = 2(3) + 3 = 9\)</div>
-        <div class="step">\(a_4 = 2(4) + 3 = 11\)</div>
-        <div class="step">\(a_5 = 2(5) + 3 = 13\)</div>
-        <div class="step">First 5 terms: 5, 7, 9, 11, 13</div>
-        <div class="step">Check if arithmetic: \(d = 7-5 = 2\), \(9-7 = 2\), \(11-9 = 2\) - common difference exists</div>
-        <div class="step"><strong>Answer: 5, 7, 9, 11, 13. It is an arithmetic sequence.</strong></div>
+        <div class="solution-number">Solution 5</div>
+        <p>For \(f(x) = \frac{1}{\sqrt[3]{x-2}}\):</p>
+        <p>The cube root is defined for all real numbers, so the only restriction is that the denominator cannot equal zero:</p>
+        <p>\(\sqrt[3]{x-2} \neq 0\), which means \(x - 2 \neq 0\), so \(x \neq 2\).</p>
+        <p><strong>Domain:</strong> \((-\infty, 2) \cup (2, \infty)\)</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 6: Express the sum using sigma notation: \(5 + 10 + 15 + 20 + 25 + 30\)</strong>
-        <div class="step">Notice each term is a multiple of 5: \(5(1), 5(2), 5(3), 5(4), 5(5), 5(6)\)</div>
-        <div class="step">The pattern is \(5k\) where \(k\) goes from 1 to 6</div>
-        <div class="step"><strong>Answer: \(\sum_{k=1}^{6} 5k\)</strong></div>
+        <div class="solution-number">Solution 6</div>
+        <p>Solution: \(\sqrt{x + 5} = 3\)</p>
+        <p>Square both sides: \(x + 5 = 9\)</p>
+        <p>Solve: \(x = 4\)</p>
+        <p><strong>Check:</strong> \(\sqrt{4 + 5} = \sqrt{9} = 3\) ✓</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 7: Find the sum: \(\sum_{i=1}^{10} (3i - 2)\)</strong>
-        <div class="step">Expand: \((3(1)-2) + (3(2)-2) + ... + (3(10)-2)\)</div>
-        <div class="step">= \((1) + (4) + (7) + (10) + (13) + (16) + (19) + (22) + (25) + (28)\)</div>
-        <div class="step">This is arithmetic with \(a_1 = 1\), \(d = 3\), \(n = 10\)</div>
-        <div class="step">Use formula: \(S_n = \frac{n}{2}(2a_1 + (n-1)d)\)</div>
-        <div class="step">\(S_{10} = \frac{10}{2}(2(1) + 9(3)) = 5(2 + 27) = 5(29) = 145\)</div>
-        <div class="step"><strong>Answer: 145</strong></div>
+        <div class="solution-number">Solution 7</div>
+        <p>Factor numerator: \(\frac{x^2 - 25}{x - 5} = \frac{(x-5)(x+5)}{x - 5}\)</p>
+        <p>Cancel: \(x + 5\), where \(x \neq 5\) (restriction - original denominator cannot be zero).</p>
       </div>
 
       <div class="solution-box">
-        <strong>Problem 8: An infinite geometric series has first term 8 and common ratio \(\frac{1}{4}\). Find the sum of the series.</strong>
-        <div class="step">For infinite geometric series with \(|r| < 1\): \(S_\infty = \frac{a_1}{1-r}\)</div>
-        <div class="step">Here \(a_1 = 8\), \(r = \frac{1}{4}\), and \(|r| = \frac{1}{4} < 1\) so the series converges</div>
-        <div class="step">\(S_\infty = \frac{8}{1 - \frac{1}{4}} = \frac{8}{\frac{3}{4}} = 8 \cdot \frac{4}{3} = \frac{32}{3}\)</div>
-        <div class="step"><strong>Answer: \(\frac{32}{3}\) or approximately 10.67</strong></div>
+        <div class="solution-number">Solution 8</div>
+        <p>Evaluate each term:</p>
+        <p>\(8^{2/3} = (\sqrt[3]{8})^2 = 2^2 = 4\)</p>
+        <p>\(9^{1/2} = \sqrt{9} = 3\)</p>
+        <p>\(27^{1/3} = \sqrt[3]{27} = 3\)</p>
+        <p>Compute: \(\frac{4 \cdot 3}{3} = 4\)</p>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <strong>Bonus Problem 1: Ball distance before 5th bounce</strong>
-        <div class="step">Initial drop: 100 m</div>
-        <div class="step">Bounce 1 up & down: \(2 \times 100 \times \frac{3}{5} = 120\) m</div>
-        <div class="step">Bounce 2 up & down: \(2 \times 100 \times (\frac{3}{5})^2 = 72\) m</div>
-        <div class="step">Bounce 3 up & down: \(2 \times 100 \times (\frac{3}{5})^3 = 43.2\) m</div>
-        <div class="step">Bounce 4 up & down: \(2 \times 100 \times (\frac{3}{5})^4 = 25.92\) m</div>
-        <div class="step">Total = 100 + 120 + 72 + 43.2 + 25.92 = 361.12 m</div>
-        <div class="step"><strong>Answer: 361.12 meters</strong></div>
+        <div class="solution-number">Bonus Solution 1</div>
+        <p>Simplify: \(\frac{\sqrt{18} \cdot \sqrt{2}}{\sqrt{8}}\)</p>
+        <p><strong>Solution:</strong></p>
+        <p>Combine radicals: \(\frac{\sqrt{18 \cdot 2}}{\sqrt{8}} = \frac{\sqrt{36}}{\sqrt{8}}\)</p>
+        <p>Simplify: \(\frac{6}{\sqrt{8}} = \frac{6}{2\sqrt{2}} = \frac{3}{\sqrt{2}} = \frac{3\sqrt{2}}{2}\)</p>
       </div>
 
       <div class="solution-box">
-        <strong>Bonus Problem 2: Find geometric sequence</strong>
-        <div class="step">Given: \(a_4 = ar^3 = 16\) and \(S_4 = a\frac{r^4 - 1}{r - 1} = 30\)</div>
-        <div class="step">From first: \(a = \frac{16}{r^3}\)</div>
-        <div class="step">Substitute: \(\frac{16}{r^3} \cdot \frac{r^4 - 1}{r - 1} = 30\)</div>
-        <div class="step">Simplify: \(\frac{16(r^4 - 1)}{r^3(r - 1)} = 30\)</div>
-        <div class="step">Factor: \(r^4 - 1 = (r^2 - 1)(r^2 + 1) = (r-1)(r+1)(r^2 + 1)\)</div>
-        <div class="step">\(\frac{16(r+1)(r^2 + 1)}{r^3} = 30\)</div>
-        <div class="step">Trial: \(r = 2\) gives \(a = 2\), sequence: 2, 4, 8, 16</div>
-        <div class="step">Check: \(S_4 = 2 + 4 + 8 + 16 = 30\) ✓</div>
-        <div class="step"><strong>Answer: 2, 4, 8, 16 (with \(a = 2\), \(r = 2\))</strong></div>
+        <div class="solution-number">Bonus Solution 2</div>
+        <p>Given \(x^{2/3} = 4\)</p>
+        <p>Raise both sides to the reciprocal power: \(x = 4^{3/2}\)</p>
+        <p>\(x = (\sqrt{4})^3 = 2^3 = 8\)</p>
+        <p><strong>Check:</strong> \(8^{2/3} = (\sqrt[3]{8})^2 = 2^2 = 4\) ✓</p>
       </div>
 
       <div class="navigation">
-        <a href="problem-set-1-p11.html">← Back to Problem Set</a>
-        <a href="../teaching.html">Course Home →</a>
+        <a href="problem-set-1-p11.html">← Back to Problems</a>
+        <a href="precalculus-11.html">Course Home →</a>
       </div>
     </div>
   </main>
-  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
-  
   <script src="../script.js"></script>
 </body>
 </html>

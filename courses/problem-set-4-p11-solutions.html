@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Problem Set 4 Solutions: Quadratic Equations - Precalculus 11">
-  <title>Kasieobi Udumaga | Problem Set 4 Solutions: Quadratic Equations - Precalculus 11</title>
+  <title>Solutions: Problem Set 4 | Precalculus 11</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
@@ -12,252 +11,38 @@
       body { margin: 0; padding: 0; }
       .no-print { display: none; }
       header, nav, footer { display: none; }
-      main { 
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
+      main { box-shadow: none !important; border: none !important; border-radius: 0 !important; }
     }
-    .lecture-header {
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .lecture-header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .lecture-header .subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .lecture-content {
-      color: var(--text);
-      line-height: 1.8;
-    }
-    .lecture-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
-    .solution-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5cb85c;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .solution-box strong {
-      color: #5cb85c;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .step {
-      margin: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
-    }
-    .navigation {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .navigation a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      background: linear-gradient(145deg, var(--accent), #4aa8f5);
-      color: #07111d;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-    }
+    .solutions-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .solutions-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .solutions-content { color: var(--text); line-height: 1.8; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .solution-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-controls">
-      <label class="search-bar" for="site-search">
-        <span class="search-bar__icon">⌕</span>
-        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
-      </label>
-    </div>
-    <div class="header-content">
-      <h1>Precalculus 11</h1>
-    </div>
-  </header>
-  
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About me</a></li>
-      <li><a href="../notes.html">Notes</a></li>
-      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
-      <li class="dropdown">
-        <a href="../expository.html">Expository Writing</a>
-        <ul class="dropdown-menu" aria-label="Expository submenu">
-          <li><a href="../olympiad.html">Olympiad</a></li>
-          <li><a href="../undergraduate.html">Undergraduate</a></li>
-          <li><a href="../graduate.html">Graduate</a></li>
-        </ul>
-      </li>
-      <li><a href="../research.html">Research</a></li>
-      <li><a href="../Track.html">Track and field</a></li>
-      <li><a href="../blog.html">Blog</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Precalculus 11</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></ul></li></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
   <main>
-    <div class="lecture-header">
-      <h1>Problem Set 4: Quadratic Equations</h1>
-      <div class="subtitle">Precalculus 11 - Chapter 4 Solutions</div>
-    </div>
-
-    <div class="lecture-content">
-      <h2>Solutions</h2>
-
-      <div class="solution-box">
-        <strong>Problem 1: Factor \(x^2 - 7x + 12\)</strong>
-        <div class="step">Find two numbers that multiply to 12 and add to -7: -3 and -4</div>
-        <div class="step">Factor: \((x - 3)(x - 4)\)</div>
-        <div class="step"><strong>Answer: \((x - 3)(x - 4)\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 2: Solve \(2x^2 + 3x - 2 = 0\) using quadratic formula</strong>
-        <div class="step">Quadratic formula: \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</div>
-        <div class="step">Here \(a = 2\), \(b = 3\), \(c = -2\)</div>
-        <div class="step">Discriminant: \(b^2 - 4ac = 9 - 4(2)(-2) = 9 + 16 = 25\)</div>
-        <div class="step">\(x = \frac{-3 \pm \sqrt{25}}{4} = \frac{-3 \pm 5}{4}\)</div>
-        <div class="step">\(x = \frac{2}{4} = \frac{1}{2}\) or \(x = \frac{-8}{4} = -2\)</div>
-        <div class="step"><strong>Answer: \(x = \frac{1}{2}\) or \(x = -2\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 3: Solve \(x^2 + 6x - 7 = 0\) by completing the square</strong>
-        <div class="step">Move constant: \(x^2 + 6x = 7\)</div>
-        <div class="step">Complete the square: \((\frac{6}{2})^2 = 9\)</div>
-        <div class="step">Add to both sides: \(x^2 + 6x + 9 = 7 + 9 = 16\)</div>
-        <div class="step">Factor: \((x + 3)^2 = 16\)</div>
-        <div class="step">Take square root: \(x + 3 = \pm 4\)</div>
-        <div class="step">\(x = -3 \pm 4\), so \(x = 1\) or \(x = -7\)</div>
-        <div class="step"><strong>Answer: \(x = 1\) or \(x = -7\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 4: Discriminant of \(3x^2 - 4x + 5 = 0\)</strong>
-        <div class="step">Discriminant: \(D = b^2 - 4ac = (-4)^2 - 4(3)(5) = 16 - 60 = -44\)</div>
-        <div class="step">Since \(D < 0\), there are no real roots (two complex conjugate roots)</div>
-        <div class="step"><strong>Answer: Discriminant = -44, no real roots</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 5: Solve \(x^4 - 13x^2 + 36 = 0\)</strong>
-        <div class="step">Let \(u = x^2\), then: \(u^2 - 13u + 36 = 0\)</div>
-        <div class="step">Factor: \((u - 4)(u - 9) = 0\)</div>
-        <div class="step">So \(u = 4\) or \(u = 9\)</div>
-        <div class="step">Substitute back: \(x^2 = 4\) gives \(x = \pm 2\)</div>
-        <div class="step">\(x^2 = 9\) gives \(x = \pm 3\)</div>
-        <div class="step"><strong>Answer: \(x = -3, -2, 2, 3\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 6: Exact and approximate solutions of \(x^2 - 5x + 1 = 0\)</strong>
-        <div class="step">Quadratic formula: \(x = \frac{5 \pm \sqrt{25 - 4}}{2} = \frac{5 \pm \sqrt{21}}{2}\)</div>
-        <div class="step">Exact: \(x = \frac{5 \pm \sqrt{21}}{2}\)</div>
-        <div class="step">Approximate: \(\sqrt{21} \approx 4.583\)</div>
-        <div class="step">\(x \approx \frac{5 + 4.583}{2} \approx 4.79\) and \(x \approx \frac{5 - 4.583}{2} \approx 0.21\)</div>
-        <div class="step"><strong>Answer: Exact: \(x = \frac{5 \pm \sqrt{21}}{2}\), Approx: \(x \approx 0.21, 4.79\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 7: Rectangle dimensions</strong>
-        <div class="step">Let width = \(w\), length = \(2w + 3\)</div>
-        <div class="step">Area = length × width: \(w(2w + 3) = 35\)</div>
-        <div class="step">\(2w^2 + 3w - 35 = 0\)</div>
-        <div class="step">Use quadratic formula: \(w = \frac{-3 \pm \sqrt{9 + 280}}{4} = \frac{-3 \pm \sqrt{289}}{4} = \frac{-3 \pm 17}{4}\)</div>
-        <div class="step">\(w = \frac{14}{4} = 3.5\) (positive) or \(w = \frac{-20}{4} = -5\) (reject)</div>
-        <div class="step">Width = 3.5 m, Length = \(2(3.5) + 3 = 10\) m</div>
-        <div class="step"><strong>Answer: Width = 3.5 m, Length = 10 m</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 8: Vertex and x-intercepts of \(y = 2x^2 - 8x + 5\)</strong>
-        <div class="step">Vertex x-coordinate: \(x = \frac{-b}{2a} = \frac{8}{4} = 2\)</div>
-        <div class="step">Vertex y-coordinate: \(y = 2(2)^2 - 8(2) + 5 = 8 - 16 + 5 = -3\)</div>
-        <div class="step">Vertex: \((2, -3)\)</div>
-        <div class="step">x-intercepts: solve \(2x^2 - 8x + 5 = 0\)</div>
-        <div class="step">\(x = \frac{8 \pm \sqrt{64 - 40}}{4} = \frac{8 \pm \sqrt{24}}{4} = \frac{8 \pm 2\sqrt{6}}{4} = 2 \pm \frac{\sqrt{6}}{2}\)</div>
-        <div class="step">\(x \approx 2 \pm 1.225\), so \(x \approx 0.77\) and \(x \approx 3.23\)</div>
-        <div class="step"><strong>Answer: Vertex (2, -3), x-intercepts at \(x = 2 \pm \frac{\sqrt{6}}{2}\) (approx 0.77 and 3.23)</strong></div>
-      </div>
-
+    <div class="solutions-header"><h1>Solutions: Problem Set 4</h1><div class="subtitle">Quadratic Functions - Precalculus 11</div></div>
+    <div class="solutions-content">
+      <div class="solution-box"><div class="solution-number">Solution 1</div><p>Vertex: \((2, 3)\), Axis of symmetry: \(x = 2\), Opens upward (a > 0)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 2</div><p>\(y = x^2 - 6x + 9 - 9 + 5 = (x - 3)^2 - 4\)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 3</div><p>x-intercepts: \((6, 0)\) and \((1, 0)\), y-intercept: \((0, 6)\)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 4</div><p>Domain: all real numbers. Range: \(y \leq -4\)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 5</div><p>\(y = 4(x - 3)^2 - 2\), passes through \((1, 6)\): \(6 = 4(1-3)^2 - 2 = 4(4) - 2 = 14\) ✗</p><p>Correction: \(y = a(x-3)^2 - 2\). Using \((1, 6)\): \(6 = a(4) - 2\), so \(a = 2\). Final: \(y = 2(x-3)^2 - 2\)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 6</div><p>x-intercepts: \((x-4)^2 = 9\), so \(x = 7\) or \(x = 1\)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 7</div><p>Vertex: \((-2, 1)\). Opens downward. Axis: \(x = -2\). y-intercept: \(y = -11\)</p></div>
+      <div class="solution-box"><div class="solution-number">Solution 8</div><p>Maximum: \(t = 1\) sec, height = 64 ft. Hits ground: \(t = 4\) sec</p></div>
       <h2>Bonus Solutions</h2>
-
-      <div class="solution-box">
-        <strong>Bonus Problem 1: Vertex Insight</strong>
-        <div class="step">For \(y = -2x^2 + 12x - 5\), vertex x = \(-\frac{b}{2a} = -\frac{12}{2(-2)} = 3\)</div>
-        <div class="step">Vertex y = \(-2(3)^2 + 12(3) - 5 = -18 + 36 - 5 = 13\)</div>
-        <div class="step">Vertex: \((3, 13)\)</div>
-        <div class="step">Since a = -2 < 0, parabola opens down, so range is \(y \leq 13\)</div>
-        <div class="step">New equation with vertex up 3: vertex moves from (3, 13) to (3, 16)</div>
-        <div class="step">New equation: \(y = -2(x - 3)^2 + 16\)</div>
-        <div class="step">Expand: \(y = -2(x^2 - 6x + 9) + 16 = -2x^2 + 12x - 18 + 16 = -2x^2 + 12x - 2\)</div>
-        <div class="step"><strong>Answer: Vertex (3, 13), Range: \(y \leq 13\). New equation: \(y = -2x^2 + 12x - 2\).</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Bonus Problem 2: Discriminant Detective</strong>
-        <div class="step">Discriminant of \(x^2 + px + q = 0\): \(D_1 = p^2 - 4q\)</div>
-        <div class="step">Discriminant of \(x^2 + qx + p = 0\): \(D_2 = q^2 - 4p\)</div>
-        <div class="step">Set equal: \(p^2 - 4q = q^2 - 4p\)</div>
-        <div class="step">Rearrange: \(p^2 - q^2 + 4p - 4q = 0\)</div>
-        <div class="step">Factor: \((p-q)(p+q) + 4(p-q) = 0\)</div>
-        <div class="step">Factor: \((p-q)(p+q+4) = 0\)</div>
-        <div class="step">Since \(p \neq q\), we need \(p + q + 4 = 0\)</div>
-        <div class="step">So: \(p + q = -4\)</div>
-        <div class="step">For discriminants to be non-negative: \(p^2 \geq 4q\) and \(q^2 \geq 4p\)</div>
-        <div class="step">With \(q = -4 - p\): \(p^2 \geq 4(-4-p) = -16 - 4p\)</div>
-        <div class="step">\(p^2 + 4p + 16 \geq 0\) (always true)</div>
-        <div class="step"><strong>Answer: \(p + q = -4\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Bonus Problem 3: Quadratic Chain</strong>
-        <div class="step">Let \(n = a^2\) and \(n + 2025 = b^2\) for integers \(a, b\)</div>
-        <div class="step">Then: \(b^2 - a^2 = 2025\)</div>
-        <div class="step">Factor: \((b-a)(b+a) = 2025\)</div>
-        <div class="step">Factor 2025: \(2025 = 3^4 \times 5^2 = 81 \times 25\)</div>
-        <div class="step">Find factor pairs where both factors have same parity (both odd or both even)</div>
-        <div class="step">Since 2025 is odd, all factor pairs are odd</div>
-        <div class="step">Factor pairs: (1, 2025), (3, 675), (5, 405), (9, 225), (15, 135), (25, 81), (27, 75), (45, 45)</div>
-        <div class="step">For each pair (d, e) where d < e: \(b - a = d\), \(b + a = e\)</div>
-        <div class="step">Then: \(b = \frac{d+e}{2}\), \(a = \frac{e-d}{2}\)</div>
-        <div class="step">For (45, 45): \(a = 0\), \(n = 0\) (not positive)</div>
-        <div class="step">For (27, 75): \(a = 24\), \(n = 576\)</div>
-        <div class="step"><strong>Answer: \(n = 576\) (since \(576 = 24^2\) and \(771 = 27.77^2\)... wait, let me recalculate)</strong></div>
-        <div class="step">Actually: \(n + 2025 = 576 + 2025 = 2601 = 51^2\)</div>
-        <div class="step">So \(n = 576\) is quadratic-perfect</div>
-        <div class="step"><strong>Answer: \(n = 576\)</strong></div>
-      </div>
-
-      <div class="navigation">
-        <a href="problem-set-4-p11.html">← Back to Problem Set</a>
-        <a href="../teaching.html">Course Home →</a>
-      </div>
+      <div class="solution-box"><div class="solution-number">Bonus Solution 1</div><p>\(y = a(x+2)(x-5)\). Passes through \((1, 6)\): \(6 = a(3)(-4)\), so \(a = -\frac{1}{2}\)</p><p>Equation: \(y = -\frac{1}{2}(x+2)(x-5)\)</p></div>
+      <div class="solution-box"><div class="solution-number">Bonus Solution 2</div><p>Maximum at \(t = 2\) sec (vertex of parabola). Height at t=2: \(h(2) = 144\) ft</p><p>Hits ground: solve \(-16t^2 + 64t + 80 = 0\) → \(t = 5\) sec</p></div>
+      <div class="navigation"><a href="problem-set-4-p11.html">← Back to Problems</a><a href="precalculus-11.html">Course Home →</a></div>
     </div>
   </main>
-  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
-  
   <script src="../script.js"></script>
 </body>
 </html>

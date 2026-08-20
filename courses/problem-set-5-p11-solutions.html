@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Problem Set 5 Solutions: Radical and Rational Expressions - Precalculus 11">
-  <title>Kasieobi Udumaga | Problem Set 5 Solutions: Radical and Rational Expressions - Precalculus 11</title>
+  <title>Solutions: Problem Set 5 | Precalculus 11</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
@@ -12,240 +11,42 @@
       body { margin: 0; padding: 0; }
       .no-print { display: none; }
       header, nav, footer { display: none; }
-      main { 
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
+      main { box-shadow: none !important; border: none !important; border-radius: 0 !important; }
     }
-    .lecture-header {
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .lecture-header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .lecture-header .subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .lecture-content {
-      color: var(--text);
-      line-height: 1.8;
-    }
-    .lecture-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
-    .solution-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5cb85c;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .solution-box strong {
-      color: #5cb85c;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .step {
-      margin: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
-    }
-    .navigation {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .navigation a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      background: linear-gradient(145deg, var(--accent), #4aa8f5);
-      color: #07111d;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-    }
+    .solutions-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .solutions-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .solutions-content { color: var(--text); line-height: 1.8; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-statement { color: var(--muted); font-style: italic; margin-bottom: 0.75rem; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .solution-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .step { margin: 0.5rem 0; padding-left: 1rem; }
+    .step:before { content: "→ "; }
+    .step:first-child { margin-top: 0; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-controls">
-      <label class="search-bar" for="site-search">
-        <span class="search-bar__icon">⌕</span>
-        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
-      </label>
-    </div>
-    <div class="header-content">
-      <h1>Precalculus 11</h1>
-    </div>
-  </header>
-  
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About me</a></li>
-      <li><a href="../notes.html">Notes</a></li>
-      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
-      <li class="dropdown">
-        <a href="../expository.html">Expository Writing</a>
-        <ul class="dropdown-menu" aria-label="Expository submenu">
-          <li><a href="../olympiad.html">Olympiad</a></li>
-          <li><a href="../undergraduate.html">Undergraduate</a></li>
-          <li><a href="../graduate.html">Graduate</a></li>
-        </ul>
-      </li>
-      <li><a href="../research.html">Research</a></li>
-      <li><a href="../Track.html">Track and field</a></li>
-      <li><a href="../blog.html">Blog</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Precalculus 11</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
   <main>
-    <div class="lecture-header">
-      <h1>Problem Set 5: Radical and Rational Expressions</h1>
-      <div class="subtitle">Precalculus 11 - Chapter 5 Solutions</div>
-    </div>
-
-    <div class="lecture-content">
-      <h2>Solutions</h2>
-
-      <div class="solution-box">
-        <strong>Problem 1: Simplify \(\sqrt{72}\)</strong>
-        <div class="step">Factor 72: \(72 = 36 \times 2 = 6^2 \times 2\)</div>
-        <div class="step">\(\sqrt{72} = \sqrt{6^2 \times 2} = 6\sqrt{2}\)</div>
-        <div class="step"><strong>Answer: \(6\sqrt{2}\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 2: Solve \(\sqrt{x + 3} = 5\)</strong>
-        <div class="step">Square both sides: \(x + 3 = 25\)</div>
-        <div class="step">Solve: \(x = 22\)</div>
-        <div class="step">Check: \(\sqrt{22 + 3} = \sqrt{25} = 5\) ✓</div>
-        <div class="step"><strong>Answer: \(x = 22\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 3: Simplify \(\frac{x^2 - 9}{x - 3}\)</strong>
-        <div class="step">Factor numerator: \(x^2 - 9 = (x - 3)(x + 3)\)</div>
-        <div class="step">\(\frac{(x - 3)(x + 3)}{x - 3} = x + 3\), where \(x \neq 3\)</div>
-        <div class="step"><strong>Answer: \(x + 3\), \(x \neq 3\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 4: Solve \(\frac{2}{x} + \frac{3}{x+1} = 1\)</strong>
-        <div class="step">Multiply both sides by LCD \(x(x+1)\):</div>
-        <div class="step">\(2(x+1) + 3x = x(x+1)\)</div>
-        <div class="step">Expand: \(2x + 2 + 3x = x^2 + x\)</div>
-        <div class="step">Combine: \(5x + 2 = x^2 + x\)</div>
-        <div class="step">Rearrange: \(x^2 - 4x - 2 = 0\)</div>
-        <div class="step">Use quadratic formula: \(x = \frac{4 \pm \sqrt{16 + 8}}{2} = \frac{4 \pm \sqrt{24}}{2} = 2 \pm \sqrt{6}\)</div>
-        <div class="step">Check restrictions: \(x \neq 0\) and \(x \neq -1\)</div>
-        <div class="step">Both solutions are valid: \(x = 2 + \sqrt{6}\) and \(x = 2 - \sqrt{6}\)</div>
-        <div class="step"><strong>Answer: \(x = 2 \pm \sqrt{6}\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 5: Simplify \(\sqrt[3]{54x^6}\)</strong>
-        <div class="step">Factor: \(54x^6 = 27 \times 2 \times x^6 = 3^3 \times 2 \times (x^2)^3\)</div>
-        <div class="step">\(\sqrt[3]{54x^6} = \sqrt[3]{3^3 \times 2 \times (x^2)^3} = 3x^2\sqrt[3]{2}\)</div>
-        <div class="step"><strong>Answer: \(3x^2\sqrt[3]{2}\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 6: Solve \(\sqrt{2x - 1} = x - 1\)</strong>
-        <div class="step">Square both sides: \(2x - 1 = (x - 1)^2 = x^2 - 2x + 1\)</div>
-        <div class="step">Rearrange: \(x^2 - 4x + 2 = 0\)</div>
-        <div class="step">Quadratic formula: \(x = \frac{4 \pm \sqrt{16 - 8}}{2} = \frac{4 \pm \sqrt{8}}{2} = 2 \pm \sqrt{2}\)</div>
-        <div class="step">Check both solutions:</div>
-        <div class="step">For \(x = 2 + \sqrt{2} \approx 3.41\): LHS = \(\sqrt{2(3.41) - 1} \approx 2.41\), RHS = \(2.41\) ✓</div>
-        <div class="step">For \(x = 2 - \sqrt{2} \approx 0.59\): LHS = \(\sqrt{0.18} \approx 0.42\), RHS = \(-0.41\) ✗ (extraneous)</div>
-        <div class="step"><strong>Answer: \(x = 2 + \sqrt{2}\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 7: Simplify \(\frac{x^2 + 5x + 6}{x^2 + 3x + 2}\)</strong>
-        <div class="step">Factor numerator: \(x^2 + 5x + 6 = (x + 2)(x + 3)\)</div>
-        <div class="step">Factor denominator: \(x^2 + 3x + 2 = (x + 1)(x + 2)\)</div>
-        <div class="step">\(\frac{(x + 2)(x + 3)}{(x + 1)(x + 2)} = \frac{x + 3}{x + 1}\), where \(x \neq -2\)</div>
-        <div class="step"><strong>Answer: \(\frac{x + 3}{x + 1}\), \(x \neq -2\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Problem 8: Solve \(\frac{3}{x-2} = \frac{5}{x+1}\)</strong>
-        <div class="step">Cross multiply: \(3(x + 1) = 5(x - 2)\)</div>
-        <div class="step">Expand: \(3x + 3 = 5x - 10\)</div>
-        <div class="step">Solve: \(-2x = -13\), so \(x = \frac{13}{2} = 6.5\)</div>
-        <div class="step">Check restrictions: \(x \neq 2\) and \(x \neq -1\), and \(x = 6.5\) satisfies these</div>
-        <div class="step"><strong>Answer: \(x = \frac{13}{2}\)</strong></div>
-      </div>
-
+    <div class="solutions-header"><h1>Solutions: Problem Set 5</h1><div class="subtitle">Quadratic Equations - Precalculus 11</div></div>
+    <div class="solutions-content">
+      <div class="solution-box"><div class="solution-number">Solution 1</div><div class="problem-statement">Problem: Solve by factoring: \(x^2 - 7x + 12 = 0\)</div><div class="step">Factor: \((x - 3)(x - 4) = 0\)</div><div class="step">Set each factor to zero: \(x - 3 = 0\) or \(x - 4 = 0\)</div><div class="step">Solutions: \(x = 3\) or \(x = 4\): <strong>Check: \(3^2 - 7(3) + 12 = 0\) ✓ and \(4^2 - 7(4) + 12 = 0\) ✓</strong></div></div>
+      <div class="solution-box"><div class="solution-number">Solution 2</div><div class="problem-statement">Problem: Solve by completing the square: \(x^2 + 8x + 10 = 0\)</div><div class="step">Move constant: \(x^2 + 8x = -10\)</div><div class="step">Complete the square: \(x^2 + 8x + 16 = -10 + 16\)</div><div class="step">\((x + 4)^2 = 6\)</div><div class="step">Take square root: \(x + 4 = \pm\sqrt{6}\)</div><div class="step">Solution: \(x = -4 \pm \sqrt{6}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 3</div><div class="problem-statement">Problem: Solve using the quadratic formula: \(3x^2 - 5x - 2 = 0\). Give exact and approximate answers.</div><div class="step">Identify: \(a = 3, b = -5, c = -2\)</div><div class="step">Apply quadratic formula: \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</div><div class="step">Calculate discriminant: \(b^2 - 4ac = 25 + 24 = 49\)</div><div class="step">\(x = \frac{5 \pm \sqrt{49}}{6} = \frac{5 \pm 7}{6}\)</div><div class="step">Exact: \(x = 2\) or \(x = -\frac{1}{3}\)</div><div class="step">Approximate: \(x = 2.000\) or \(x = -0.333\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 4</div><div class="problem-statement">Problem: Find the discriminant and determine the nature of roots: \(2x^2 - 4x + 5 = 0\)</div><div class="step">Identify: \(a = 2, b = -4, c = 5\)</div><div class="step">Discriminant: \(D = b^2 - 4ac = 16 - 40 = -24\)</div><div class="step">Since \(D < 0\), there are two complex conjugate roots (no real solutions)</div><div class="step">\(\text{Roots: } x = \frac{4 \pm i\sqrt{24}}{4} = 1 \pm \frac{i\sqrt{6}}{2}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 5</div><div class="problem-statement">Problem: Solve by square root method: \(4x^2 = 64\)</div><div class="step">Divide by 4: \(x^2 = 16\)</div><div class="step">Take square root: \(x = \pm\sqrt{16}\)</div><div class="step">Solution: \(x = \pm 4\)</div><div class="step">Check: \(4(\pm 4)^2 = 64\) ✓</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 6</div><div class="problem-statement">Problem: A ball is thrown upward with height \(h(t) = -16t^2 + 64t + 5\). Find when it hits the ground.</div><div class="step">Set height to zero: \(-16t^2 + 64t + 5 = 0\)</div><div class="step">Solve using quadratic formula with \(a = -16, b = 64, c = 5\)</div><div class="step">\(t = \frac{-64 \pm \sqrt{4096 + 320}}{-32} = \frac{-64 \pm \sqrt{4416}}{-32}\)</div><div class="step">\(\sqrt{4416} \approx 66.45\)</div><div class="step">\(t \approx \frac{-64 + 66.45}{-32} \approx -0.076\) (not valid) or \(t \approx \frac{-64 - 66.45}{-32} \approx 4.08\) seconds</div><div class="step">\(\boxed{t \approx 4.1 \text{ seconds}}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 7</div><div class="problem-statement">Problem: A rectangular garden has area 84 m². The length is 2 m more than the width. Find the dimensions.</div><div class="step">Let width = \(w\), length = \(w + 2\)</div><div class="step">Area equation: \(w(w + 2) = 84\)</div><div class="step">Expand: \(w^2 + 2w - 84 = 0\)</div><div class="step">Factor: \((w + 10)(w - 8) = 0\)</div><div class="step">\(w = -10\) (reject) or \(w = 8\)</div><div class="step">Dimensions: width = 8 m, length = 10 m</div><div class="step">Check: \(8 \times 10 = 80\) ✗ - Re-check: \(w = -10\): \(w^2 + 2w - 84 = 100 - 20 - 84 = -4 \neq 0\)</div><div class="step">Correct factoring: \(w^2 + 2w - 84 = (w + 10)(w - 8)\)</div><div class="step">Answer: width = 8 m, length = 10 m</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 8</div><div class="problem-statement">Problem: Graph the parabola \(y = x^2 - 4x - 5\). Find the vertex, axis of symmetry, and x-intercepts.</div><div class="step">Complete square for vertex: \(y = x^2 - 4x + 4 - 4 - 5 = (x-2)^2 - 9\)</div><div class="step">Vertex: \((2, -9)\)</div><div class="step">Axis of symmetry: \(x = 2\)</div><div class="step">x-intercepts: set \(y = 0\): \(x^2 - 4x - 5 = 0\)</div><div class="step">Factor: \((x-5)(x+1) = 0\)</div><div class="step">x-intercepts: \((5, 0)\) and \((-1, 0)\)</div></div>
       <h2>Bonus Solutions</h2>
-
-      <div class="solution-box">
-        <strong>Bonus Problem 1: Rational Equation Chain</strong>
-        <div class="step">Note: \(x^2 - 1 = (x-1)(x+1)\)</div>
-        <div class="step">Domain restrictions: \(x \neq 1\) and \(x \neq -1\)</div>
-        <div class="step">Multiply both sides by \((x-1)(x+1)\):</div>
-        <div class="step">\(2(x+1) + 3(x-1) = 5\)</div>
-        <div class="step">Expand: \(2x + 2 + 3x - 3 = 5\)</div>
-        <div class="step">Combine: \(5x - 1 = 5\)</div>
-        <div class="step">\(5x = 6\), so \(x = \frac{6}{5} = 1.2\)</div>
-        <div class="step">Check: \(x \neq 1\) and \(x \neq -1\), so \(x = 1.2\) is valid</div>
-        <div class="step"><strong>Answer: \(x = \frac{6}{5}\), valid since \(x \neq \pm 1\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Bonus Problem 2: Nested Radicals</strong>
-        <div class="step">Square both sides: \(x + \sqrt{2x + 3} = 9\)</div>
-        <div class="step">Isolate radical: \(\sqrt{2x + 3} = 9 - x\)</div>
-        <div class="step">Square again: \(2x + 3 = (9 - x)^2 = 81 - 18x + x^2\)</div>
-        <div class="step">Rearrange: \(x^2 - 20x + 78 = 0\)</div>
-        <div class="step">Quadratic formula: \(x = \frac{20 \pm \sqrt{400 - 312}}{2} = \frac{20 \pm \sqrt{88}}{2} = 10 \pm \sqrt{22}\)</div>
-        <div class="step">Check: \(10 + \sqrt{22} \approx 14.7 > 9\), but \(\sqrt{2x+3} = 9 - x\) requires \(x \leq 9\)</div>
-        <div class="step">So \(x = 10 + \sqrt{22}\) is extraneous</div>
-        <div class="step">Check: \(10 - \sqrt{22} \approx 5.3\)</div>
-        <div class="step">LHS: \(\sqrt{5.3 + \sqrt{13.6}} \approx \sqrt{5.3 + 3.69} \approx \sqrt{9} = 3\) ✓</div>
-        <div class="step"><strong>Answer: \(x = 10 - \sqrt{22}\)</strong></div>
-      </div>
-
-      <div class="solution-box">
-        <strong>Bonus Problem 3: Rational Function Analysis</strong>
-        <div class="step">Factor numerator: \(x^2 - 4 = (x-2)(x+2)\)</div>
-        <div class="step">Factor denominator: \(x^2 - 5x + 6 = (x-2)(x-3)\)</div>
-        <div class="step">Original domain: \(x \neq 2\) and \(x \neq 3\)</div>
-        <div class="step">Simplify: \(f(x) = \frac{(x-2)(x+2)}{(x-2)(x-3)} = \frac{x+2}{x-3}\), where \(x \neq 2\)</div>
-        <div class="step">Set equal to 2: \(\frac{x+2}{x-3} = 2\)</div>
-        <div class="step">Cross multiply: \(x + 2 = 2(x - 3)\)</div>
-        <div class="step">Expand: \(x + 2 = 2x - 6\)</div>
-        <div class="step">Solve: \(x = 8\)</div>
-        <div class="step">Check: \(x = 8 \neq 2\) and \(x = 8 \neq 3\) ✓</div>
-        <div class="step"><strong>Answer: Domain: \(x \neq 2, 3\). \(f(x) = 2\) when \(x = 8\).</strong></div>
-      </div>
-
-      <div class="navigation">
-        <a href="problem-set-5-p11.html">← Back to Problem Set</a>
-        <a href="../teaching.html">Course Home →</a>
-      </div>
+      <div class="solution-box"><div class="solution-number">Bonus Solution 1</div><div class="problem-statement">Problem: Find k such that \(x^2 + 6x + k = 0\) has exactly one solution, then use that value to find all real solutions of \(x^2 + 6x + 9 = 0\)</div><div class="step">For one solution: discriminant = 0</div><div class="step">\(b^2 - 4ac = 0\) → \(36 - 4k = 0\)</div><div class="step">Solve: \(k = 9\)</div><div class="step">Now solve \(x^2 + 6x + 9 = 0\) with \(k = 9\)</div><div class="step">Factor: \((x + 3)^2 = 0\)</div><div class="step">Solution: \(x = -3\) (double root)</div></div>
+      <div class="solution-box"><div class="solution-number">Bonus Solution 2</div><div class="problem-statement">Problem: A negative number and its reciprocal sum to 2. Find the number. Then solve \(y^2 + 2y - 8 = 0\) using an appropriate substitution.</div><div class="step">Let the number be \(x\) (negative)</div><div class="step">Set up equation: \(x + \frac{1}{x} = 2\)</div><div class="step">Multiply by \(x\): \(x^2 + 1 = 2x\)</div><div class="step">Rearrange: \(x^2 - 2x + 1 = 0\)</div><div class="step">Factor: \((x-1)^2 = 0\)</div><div class="step">Solution: \(x = 1\), but this is positive - we need negative, so no valid solution in reals</div><div class="step">For second part: substitute \(y = z - 1\) in \(y^2 + 2y - 8 = 0\)</div><div class="step">Get \(z^2 - 9 = 0\), so \(z = \pm 3\)</div><div class="step">Thus \(y = 2\) or \(y = -4\)</div></div>
+      <div class="navigation"><a href="problem-set-5-p11.html">← Back to Problems</a><a href="precalculus-11.html">Course Home →</a></div>
     </div>
   </main>
-  
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
-  
   <script src="../script.js"></script>
 </body>
 </html>

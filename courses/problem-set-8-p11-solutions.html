@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Problem Set 8 Solutions: Rational Equations and Extraneous Solutions | Precalculus 11</title>
+  <title>Solutions: Problem Set 8 | Precalculus 11</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
@@ -11,229 +11,41 @@
       body { margin: 0; padding: 0; }
       .no-print { display: none; }
       header, nav, footer { display: none; }
-      main { 
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
+      main { box-shadow: none !important; border: none !important; border-radius: 0 !important; }
     }
-    .solution-header {
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .solution-header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .solution-content {
-      color: var(--text);
-      line-height: 1.8;
-    }
-    .solution-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
-    .solution-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .problem-number {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .navigation {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .navigation a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      background: linear-gradient(145deg, var(--accent), #4aa8f5);
-      color: #07111d;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .navigation a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
-      color: #07111d;
-    }
+    .solutions-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
+    .solutions-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .solutions-content { color: var(--text); line-height: 1.8; }
+    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
+    .problem-statement { color: var(--muted); font-style: italic; margin-bottom: 0.75rem; padding-left: 1rem; border-left: 3px solid var(--accent); }
+    .solution-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .step { margin: 0.5rem 0; padding-left: 1rem; }
+    .step:before { content: "→ "; }
+    .step:first-child { margin-top: 0; }
+    .graph-note { background: rgba(158, 158, 158, 0.1); border-left: 3px solid #9e9e9e; padding: 0.5rem 1rem; margin: 1rem 0; font-size: 0.9rem; }
+    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
+    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-controls">
-      <label class="search-bar" for="site-search">
-        <span class="search-bar__icon">⌕</span>
-        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
-      </label>
-    </div>
-    <div class="header-content">
-      <h1>Precalculus 11</h1>
-    </div>
-  </header>
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../about.html">About me</a></li>
-      <li><a href="../notes.html">Notes</a></li>
-      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
-      <li class="dropdown">
-        <a href="../expository.html">Expository Writing</a>
-        <ul class="dropdown-menu" aria-label="Expository submenu">
-          <li><a href="../olympiad.html">Olympiad</a></li>
-          <li><a href="../undergraduate.html">Undergraduate</a></li>
-          <li><a href="../graduate.html">Graduate</a></li>
-        </ul>
-      </li>
-      <li><a href="../research.html">Research</a></li>
-      <li><a href="../Track.html">Track and field</a></li>
-      <li><a href="../blog.html">Blog</a></li>
-      <li><a href="../contact.html">Contact</a></li>
-    </ul>
-  </nav>
+  <header><div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div><div class="header-content"><h1>Precalculus 11</h1></div></header>
+  <nav><ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li><li class="dropdown"><a href="../expository.html">Expository Writing</a><ul class="dropdown-menu"><li><a href="../olympiad.html">Olympiad</a></li><li><a href="../undergraduate.html">Undergraduate</a></li><li><a href="../graduate.html">Graduate</a></li></ul></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul></nav>
   <main>
-    <div class="solution-header">
-      <h1>Problem Set 8 Solutions</h1>
-      <div class="subtitle">Rational Equations and Extraneous Solutions | Precalculus 11</div>
+    <div class="solutions-header"><h1>Solutions: Problem Set 8</h1><div class="subtitle">Absolute Value - Precalculus 11</div></div>
+    <div class="solutions-content">
+      <div class="solution-box"><div class="solution-number">Solution 1</div><div class="problem-statement">Problem: Evaluate: \(|5 - 9|\)</div><div class="step">Compute inside: \(5 - 9 = -4\)</div><div class="step">Absolute value: \(|-4| = 4\)</div><div class="step">Answer: \(\boxed{4}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 2</div><div class="problem-statement">Problem: Solve: \(|x| = 7\)</div><div class="step">By definition of absolute value: \(x = 7\) or \(x = -7\)</div><div class="step">Answer: \(\boxed{x = 7 \text{ or } x = -7}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 3</div><div class="problem-statement">Problem: Solve: \(|2x - 3| = 5\)</div><div class="step">Case 1: \(2x - 3 = 5\) → \(2x = 8\) → \(x = 4\)</div><div class="step">Case 2: \(2x - 3 = -5\) → \(2x = -2\) → \(x = -1\)</div><div class="step">Answer: \(\boxed{x = 4 \text{ or } x = -1}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 4</div><div class="problem-statement">Problem: Solve: \(|x + 4| = |x - 2|\)</div><div class="step">Square both sides: \((x+4)^2 = (x-2)^2\)</div><div class="step">Expand: \(x^2 + 8x + 16 = x^2 - 4x + 4\)</div><div class="step">Cancel \(x^2\): \(8x + 16 = -4x + 4\)</div><div class="step">Combine: \(12x = -12\) → \(x = -1\)</div><div class="step">Answer: \(\boxed{x = -1}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 5</div><div class="problem-statement">Problem: Graph \(y = |x - 3| + 2\). State the vertex.</</div><div class="step">The parent function \(y = |x|\) has vertex at \((0, 0)\)</div><div class="step">Transformations: right 3, up 2</div><div class="step">Vertex: \((3, 2)\)</div><div class="step">Answer: \(\boxed{\text{Vertex: } (3, 2)}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 6</div><div class="problem-statement">Problem: Graph \(y = -2|x + 1|\). State the domain, range, and vertex.</</div><div class="step">Parent: \(y = |x|\) with vertex at \((-1, 0)\)</div><div class="step">Transformations: reflected over x-axis, vertically stretched by 2</div><div class="step">Vertex: \((-1, 0)\)</div><div class="step">Domain: \((-\infty, \infty)\)</div><div class="step">Range: \((-\infty, 0]\)</div><div class="step">Answer: \(\boxed{\text{Vertex: } (-1, 0), \text{Domain: } (-\infty, \infty), \text{Range: } (-\infty, 0]}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 7</div><div class="problem-statement">Problem: Solve by graphing: \(|x - 5| = x + 1\)</div><div class="step">Case 1 (x ≥ 5): \(x - 5 = x + 1\) → \(-5 = 1\) ✗</div><div class="step">Case 2 (x < 5): \(-(x - 5) = x + 1\) → \(-x + 5 = x + 1\) → \(4 = 2x\) → \(x = 2\)</div><div class="step">Verify: \(|2 - 5| = 3 = 2 + 1\) ✓</div><div class="step">Answer: \(\boxed{x = 2}\)</div></div>
+      <div class="solution-box"><div class="solution-number">Solution 8</div><div class="problem-statement">Problem: Write an absolute value function with vertex at \((-2, 3)\) that opens downward.</div><div class="step">Standard form: \(y = a|x - h| + k\) with vertex \((h, k)\)</div><div class="step">Plug in vertex: \(y = a|x + 2| + 3\)</div><div class="step">For downward opening: \(a < 0\), let \(a = -1\)</div><div class="step">Answer: \(\boxed{y = -|x + 2| + 3}\)</div></div>
+      <h2>Bonus Solutions</h2>
+      <div class="solution-box"><div class="solution-number">Bonus Solution 1</div><div class="problem-statement">Problem: Solve: \(|2x + 1| = |x - 3| + 4\). Then graph the solution set of \(|x - 2| \leq 3\) on a number line.</div><div class="step">Case 1: \(x \geq 3\) → \(2x + 1 = x - 3 + 4\) → \(x = 0\) (not in domain)</div><div class="step">Case 2: \(x < 3\) and \(x \geq -0.5\) → \(2x + 1 = -(x-3) + 4 = -x + 7\) → \(3x = 6\) → \(x = 2\)</div><div class="step">Case 3: \(x < -0.5\) → \(-(2x + 1) = x - 3 + 4 = x + 1\) → \(-2x - 1 = x + 1\) → \(x = -2/3\)</div><div class="step">Verify case 3: \(|-4/3 + 1| = 1/3\), \(|-2/3 - 3| + 4 = 19/3 + 4 \neq 1/3\) ✗</div><div class="step">Solution: \(x = 2\)</div><div class="step">Inequality: \(|x - 2| \leq 3\) → \(-3 \leq x - 2 \leq 3\) → \(-1 \leq x \leq 5\)</div><div class="step">Answer: \(\boxed{x = 2}\) and graph: closed interval \([-1, 5]\)</div></div>
+      <div class="solution-box"><div class="solution-number">Bonus Solution 2</div><div class="problem-statement">Problem: Find the x-intercept(s) of \(y = |x^2 - 4|\). Hence, determine all x for which \(|x^2 - 4| = x + 2\)</div><div class="step">x-intercepts: \(|x^2 - 4| = 0\) → \(x^2 - 4 = 0\) → \(x = \pm 2\)</div><div class="step">For equation: Consider cases</div><div class="step">Case 1: \(x^2 \geq 4\) → \(x^2 - 4 = x + 2\) → \(x^2 - x - 6 = 0\) → \((x-3)(x+2) = 0\)</div><div class="step">Solutions: \(x = 3, -2\). Need \(|x| \geq 2\) → both valid</div><div class="step">Case 2: \(x^2 < 4\) → \(-(x^2 - 4) = x + 2\) → \(-x^2 + 4 = x + 2\) → \(x^2 + x - 2 = 0\) → \((x+2)(x-1) = 0\)</div><div class="step">Solutions: \(x = -2, 1\). Need \(|x| < 2\) → only \(x = 1\) valid</div><div class="step">Answer: \(\boxed{x = 3, -2, \text{ and } 1}\)</div></div>
+      <div class="navigation"><a href="problem-set-8-p11.html">← Back to Problems</a><a href="precalculus-11.html">Course Home →</a></div>
     </div>
-    <div class="solution-content">
-      <h2>Solutions</h2>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 1</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x)(x+4)(x+2)\):</p>
-        <p>\[(x+4)(x+2) + x(x+2) = 2x(x+4)\]</</p>
-        <p>\[x^2 + 6x + 8 + x^2 + 2x = 2x^2 + 8x\]</p>
-        <p>\[2x^2 + 8x + 8 = 2x^2 + 8x\]</p>
-        <p>\[8 = 0 \quad \text{(contradiction)}\]</</p>
-        <p><strong>Solution:</strong> No solution.</p>
-        <p><strong>Check:</strong> Exclude \(x = 0, -4, -2\)</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 2</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x-1)(x+1)\):</p>
-        <p>\[3(x+1) - 2(x-1) = 5\]</p>
-        <p>\[3x + 3 - 2x + 2 = 5\]</p>
-        <p>\[x + 5 = 5\]</p>
-        <p>\[x = 0\]</p>
-        <p><strong>Check:</strong> \(x \neq 1, -1\). Solution \(x = 0\) is valid.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 3</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x^2-9) = (x-3)(x+3)\):</p>
-        <p>\[x(x+3) + 2(x-3) = 3\]</p>
-        <p>\[x^2 + 3x + 2x - 6 = 3\]</p>
-        <p>\[x^2 + 5x - 9 = 0\]</p>
-        <p>Using quadratic formula: \(x = \frac{-5 \pm \sqrt{25 + 36}}{2} = \frac{-5 \pm \sqrt{61}}{2}\)</</p>
-        <p><strong>Check:</strong> \(x \neq 3, -3\). Both solutions valid.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 4</div>
-        <p><strong>Solution:</strong></p>
-        <p>Cross multiply: \(x + 2 = 2(x-2)\)</p>
-        <p>\[x + 2 = 2x - 4\]</p>
-        <p>\[x = 6\]</p>
-        <p><strong>Check:</strong> \(x \neq 2\). Solution \(x = 6\) is valid.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 5</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x^2-1) = (x-1)(x+1)\):</p>
-        <p>\[(x+1) + (x-1) = 4\]</p>
-        <p>\[2x = 4\]</p>
-        <p>\[x = 2\]</p>
-        <p><strong>Check:</strong> \(x \neq 1, -1\). Solution \(x = 2\) is valid.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 6</div>
-        <p><strong>Solution:</strong></p>
-        <p>\(2|x - 4| = x + 2\)</p>
-        <p>Let \(u = x - 4\), so \(x = u + 4\)</p>
-        <p>\[2|u| = u + 6\]</p>
-        <p>Case 1: \(u \geq 0\): \(2u = u + 6 \Rightarrow u = 6 \Rightarrow x = 10\)</p>
-        <p>Check: \(2|6| = 12 = 10 + 2 = 12 \checkmark\)</p>
-        <p>Case 2: \(u < 0\): \(-2u = u + 6 \Rightarrow -3u = 6 \Rightarrow u = -2 \Rightarrow x = 2\)</p>
-        <p>Check: \(2|-2| = 4 = 2 + 2 = 4 \checkmark\)</p>
-        <p><strong>Solutions:</strong> \(x = 2, 10\)</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 7</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x^2-4) = (x-2)(x+2)\):</p>
-        <p>\[(3x+2)(x+2) = 2(x-2)(x+2) + (x-2)\]</p>
-        <p>\[3x^2 + 8x + 4 = 2(x^2-4) + x - 2\]</p>
-        <p>\[3x^2 + 8x + 4 = 2x^2 - 8 + x - 2\]</p>
-        <p>\[x^2 + 7x + 14 = x - 10\]</p>
-        <p>\[x^2 + 6x + 24 = 0\]</p>
-        <p>Discriminant: \(36 - 96 = -60 < 0\)</p>
-        <p><strong>Solution:</strong> No real solutions.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 8</div>
-        <p><strong>Solution:</strong></p>
-        <p>Cross multiply: \(x(x-5) = (x-3)(x+5)\]</p>
-        <p>\[x^2 - 5x = x^2 + 2x - 15\]</p>
-        <p>\[-7x = -15\]</p>
-        <p>\[x = \frac{15}{7}\]</p>
-        <p><strong>Check:</strong> \(x \neq 5, -5\). Solution valid.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 9</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x^2-1)\):</p>
-        <p>\[2(x+1) + 3(x-1) = 5x\]</p>
-        <p>\[2x + 2 + 3x - 3 = 5x\]</p>
-        <p>\[5x - 1 = 5x\]</p>
-        <p>\[-1 = 0 \quad \text{(contradiction)}\]</</p>
-        <p><strong>Solution:</strong> No solution.</p>
-      </div>
-
-      <div class="solution-box">
-        <div class="problem-number">Problem 10</div>
-        <p><strong>Solution:</strong></p>
-        <p>Multiply by \((x^2-9)\):</p>
-        <p>\[(x+2)(x+3) - (x-2)(x+3) = 10(x+3)\]</</p>
-        <p>Wait, let me recalculate using correct LCD.</p>
-        <p>\[(x+2)(x-3) - (x-2)(x+3) = 10\]</p>
-        <p>\[(x^2 - x - 6) - (x^2 + x - 6) = 10\]</p>
-        <p>\[-2x = 10\]</p>
-        <p>\[x = -5\]</p>
-        <p><strong>Check:</strong> \(x \neq 3, -3, 2, -2\). Solution \(x = -5\) valid.</p>
-      </div>
-
-    </div>
-    <nav class="navigation">
-      <a href="problem-set-7-p11.html">← Previous</a>
-      <a href="problem-set-9-p11.html">Next →</a>
-    </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>
