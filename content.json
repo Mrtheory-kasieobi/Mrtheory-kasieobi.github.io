@@ -110,7 +110,7 @@
   },
   "notes": {
     "header": "Notes",
-    "intro": "Welcome to my collection of mathematical notes. This page is a growing library of notes that I have written while learning and exploring different areas of mathematics, ranging from olympiad topics to undergraduate and graduate subjects. Mathematics is best understood through examples, proofs, problem solving, and revisiting ideas over time, and these notes reflect that process. Most of these notes are living documents that will continue to be refined and expanded as I learn more. I hope they are useful to students, problem solvers, and anyone with an interest in mathematics, and that they encourage others to explore the beauty, creativity, and depth of the subject."
+    "intro": "This section houses detailed mathematical notes and expository articles on specific topics. Unlike the structured courses in Teaching or the chronological journal entries in the Blog, Notes organize by subject area and provide in-depth exploration of individual concepts. These are self-contained write-ups that develop ideas fully, with definitions, examples, proofs, and exercises. This distinguishes them from Expository Writing (which focuses on broader surveys and historical context), Research Notes (which document ongoing investigations), and the Blog (which serves as a learning journal for current questions and explorations)."
   },
   "blog": {
     "header": "Research Notebook",
