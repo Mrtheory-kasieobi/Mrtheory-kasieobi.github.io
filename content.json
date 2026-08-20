@@ -119,14 +119,14 @@
     "notebookSubtitle": "Personal learning journal and mathematical explorations",
     "currentlyReading1Title": "Abstract Algebra",
     "currentlyReading1Author": "Dummit and Foote, 3rd edition",
-    "currentlyReading1Progress": "5%",
+    "currentlyReading1Progress": "Chapter 2: Subgroups",
     "currentlyReading2Title": "Linear Algebra Done Right",
     "currentlyReading2Author": "Sheldon Axler",
-    "currentlyReading2Progress": "22%",
+    "currentlyReading2Progress": "Chapter 3: Linear Maps",
     "currentlyReading3Title": "Understanding Analysis",
     "currentlyReading3Author": "Stephen Abbott",
-    "currentlyReading3Progress": "2%",
-    "currentQuestion": "Current mathematical question or problem I'm exploring..."
+    "currentlyReading3Progress": "Chapter 1: The Real Numbers",
+    "currentQuestion": "What is the Gelfond–Schneider theorem?"
   },
   "Track": {
     "header": "Track and Field",
