@@ -1,0 +1,405 @@
+{
+  "pages": [
+    {
+      "title": "Home",
+      "url": "index.html",
+      "category": "Page",
+      "description": "Welcome page introducing your mathematical journey and track career",
+      "keywords": ["home", "welcome", "introduction", "about"]
+    },
+    {
+      "title": "About Me",
+      "url": "about.html",
+      "category": "Page",
+      "description": "Personal background, interests in commutative algebra and algebraic number theory",
+      "keywords": ["about", "bio", "background", "personal"]
+    },
+    {
+      "title": "Notes",
+      "url": "notes.html",
+      "category": "Page",
+      "description": "Collection of mathematical notes ranging from olympiad to graduate topics",
+      "keywords": ["notes", "mathematics", "theory", "study", "learning"]
+    },
+    {
+      "title": "Teaching",
+      "url": "teaching.html",
+      "category": "Page",
+      "description": "Course listings and materials for Mathematics 10 through Calculus III and beyond",
+      "keywords": ["teaching", "courses", "lessons", "education", "mathematics"]
+    },
+    {
+      "title": "Expository Writing",
+      "url": "expository.html",
+      "category": "Page",
+      "description": "Mathematical exposition, problem analysis, and experimental mathematics articles",
+      "keywords": ["expository", "writing", "articles", "mathematics", "exposition"]
+    },
+    {
+      "title": "Olympiad",
+      "url": "olympiad.html",
+      "category": "Expository Writing",
+      "description": "Problem solving and contest mathematics in number theory, algebra, combinatorics, and geometry",
+      "keywords": ["olympiad", "competition", "problems", "olympiad problems", "contest math"]
+    },
+    {
+      "title": "Undergraduate",
+      "url": "undergraduate.html",
+      "category": "Expository Writing",
+      "description": "Expository material for undergraduate mathematics including proofs and advanced topics",
+      "keywords": ["undergraduate", "college", "university", "math", "undergraduate math"]
+    },
+    {
+      "title": "Graduate",
+      "url": "graduate.html",
+      "category": "Expository Writing",
+      "description": "Advanced expository writing for graduate-level mathematics and research topics",
+      "keywords": ["graduate", "advanced", "research", "graduate math", "advanced mathematics"]
+    },
+    {
+      "title": "Research",
+      "url": "research.html",
+      "category": "Page",
+      "description": "Research interests in commutative algebra, algebraic number theory, and arithmetic geometry",
+      "keywords": ["research", "interests", "projects", "math research"]
+    },
+    {
+      "title": "Track and Field",
+      "url": "Track.html",
+      "category": "Page",
+      "description": "Track career with multiple provincial championships in sprints",
+      "keywords": ["track", "field", "athletics", "sprint", "sports", "12-time champion"]
+    },
+    {
+      "title": "Blog",
+      "url": "blog.html",
+      "category": "Page",
+      "description": "Research notebook and mathematical journal entries",
+      "keywords": ["blog", "journal", "research notebook", "updates"]
+    },
+    {
+      "title": "Contact",
+      "url": "contact.html",
+      "category": "Page",
+      "description": "Contact information for mathematical discussions and collaboration",
+      "keywords": ["contact", "email", "reach out"]
+    },
+    {
+      "title": "Publications",
+      "url": "publications.html",
+      "category": "Page",
+      "description": "Mathematical publications and papers",
+      "keywords": ["publications", "papers", "articles", "published"]
+    },
+    {
+      "title": "Recent Updates",
+      "url": "Recent-Updates.html",
+      "category": "Page",
+      "description": "Recent changes and updates to the website",
+      "keywords": ["updates", "changelog", "news", "recent"]
+    },
+    {
+      "title": "2026 Fields Medalist Reflections",
+      "url": "2026-fields-medalists-reflections.html",
+      "category": "Blog",
+      "description": "Analysis of the 2026 Fields Medal leak and winner announcements",
+      "keywords": ["fields medal", "IMO", "2026", "international mathematical union", "medal"]
+    },
+    {
+      "title": "IMO 2026 Solutions and Commentary",
+      "url": "imo2026-solutions-and-commentary.html",
+      "category": "Expository Writing",
+      "description": "Solutions and commentary on the 2026 International Mathematical Olympiad",
+      "keywords": ["IMO", "olympiad", "solutions", "2026", "international math olympiad"]
+    }
+  ],
+  "courses": [
+    {
+      "title": "Mathematics 10",
+      "url": "courses/mathematics-10.html",
+      "category": "Course",
+      "level": "High School",
+      "description": "Linear relations, polynomials, trigonometry, and data analysis foundations",
+      "keywords": ["math 10", "grade 10", "M10", "high school math", "mathematics 10", "algebra", "trigonometry", "linear functions"]
+    },
+    {
+      "title": "Precalculus 11",
+      "url": "courses/precalculus-11.html",
+      "category": "Course",
+      "level": "High School",
+      "description": "Foundations of algebra, functions, and trigonometry for high school students",
+      "keywords": ["precalculus 11", "math 11", "grade 11", "precalc 11", "high school"]
+    },
+    {
+      "title": "Precalculus 12",
+      "url": "courses/precalculus-12.html",
+      "category": "Course",
+      "level": "High School",
+      "description": "Advanced functions, calculus concepts, and mathematical analysis preparation",
+      "keywords": ["precalculus 12", "math 12", "grade 12", "precalc 12", "high school", "calculus"]
+    },
+    {
+      "title": "Calculus I",
+      "url": "courses/calculus-1.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Limits, continuity, derivatives, and applications of differential calculus",
+      "keywords": ["calculus i", "calculus 1", "calculus", "limits", "derivatives", "differential calculus", "cal 1", "single variable calculus"]
+    },
+    {
+      "title": "Calculus II",
+      "url": "courses/calculus-2.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Integration techniques, applications, sequences, series, and Taylor series",
+      "keywords": ["calculus ii", "calculus 2", "calculus", "integration", "series", "sequences", "cal 2", "applications of integration"]
+    },
+    {
+      "title": "Calculus III",
+      "url": "courses/calculus-3.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Multivariable calculus: partial derivatives, multiple integrals, vector calculus",
+      "keywords": ["calculus iii", "calculus 3", "multivariable calculus", "partial derivatives", "vector calculus", "cal 3"]
+    },
+    {
+      "title": "Introduction to Proofs",
+      "url": "courses/introduction-to-proofs.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Logic, set theory, and fundamental techniques of mathematical proof",
+      "keywords": ["introduction to proofs", "proofs", "mathematical proofs", "proof", "logic", "set theory"]
+    },
+    {
+      "title": "Number Theory",
+      "url": "courses/number-theory.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Divisibility, primes, congruences, and classical number-theoretic problems",
+      "keywords": ["number theory", "NT", "primes", "congruences", "modular arithmetic", "Fermat", "quadratic reciprocity"]
+    },
+    {
+      "title": "Real Analysis",
+      "url": "courses/real-analysis.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Rigorous foundations of calculus: sequences, series, continuity, and integration",
+      "keywords": ["real analysis", "analysis", "intro to analysis", "mathematical analysis", "rigorous calculus"]
+    },
+    {
+      "title": "Linear Algebra",
+      "url": "courses/linear-algebra.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Vector spaces, linear transformations, matrices, and eigenvalues",
+      "keywords": ["linear algebra", "LA", "matrix", "vector space", "eigenvalues", " Gilbert Strang"]
+    },
+    {
+      "title": "Algebra I",
+      "url": "courses/algebra-I.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Group theory, rings, fields, and abstract algebra fundamentals",
+      "keywords": ["algebra I", "abstract algebra", "group theory", "rings", "fields", "Galois", "Galois theory"]
+    },
+    {
+      "title": "Algebra II",
+      "url": "courses/algebra-II.html",
+      "category": "Course",
+      "level": "Undergraduate",
+      "description": "Advanced algebra including modules, Galois theory, and representation theory",
+      "keywords": ["algebra II", "abstract algebra", "Galois theory", "modules", "representation theory"]
+    }
+  ],
+  "notes": [
+    {
+      "title": "Lecture Notes: Real Numbers and Rational Exponents",
+      "url": "courses/lecture-notes-real-numbers-rational-exponents.html",
+      "category": "Notes",
+      "course": "Precalculus 11",
+      "description": "Classification of real numbers, rational exponents, exponent laws, radicals, and properties of numbers",
+      "keywords": ["real numbers", "rational exponents", "radicals", "exponent laws", "laws of exponents", "properties of numbers", "precalculus 11"]
+    },
+    {
+      "title": "Lecture Notes: Systems of Equations and Applications",
+      "url": "courses/lecture-notes-systems-of-equations.html",
+      "category": "Notes",
+      "course": "Precalculus 11",
+      "description": "Solving systems of equations with applications, linear-quadratic systems, and real-world modeling",
+      "keywords": ["systems of equations", "linear systems", "quadratic systems", "applications", "intersection points", "precalculus 11"]
+    },
+    {
+      "title": "Lecture Notes: Functions (Calculus 1)",
+      "url": "courses/lecture-notes-functions-calc1.html",
+      "category": "Notes",
+      "course": "Calculus I",
+      "description": "Introduction to functions and their representations for calculus",
+      "keywords": ["functions", "calculus 1", "function representation", "domain", "range", "composition"]
+    },
+    {
+      "title": "Lecture Notes: Limits and Derivatives (Calculus 1)",
+      "url": "courses/lecture-notes-limits-calc1.html",
+      "category": "Notes",
+      "course": "Calculus I",
+      "description": "Limits and the definition of derivatives in single-variable calculus",
+      "keywords": ["limits", "derivatives", "calculus 1", "continuity", "epsilon delta"]
+    },
+    {
+      "title": "Lecture Notes: Trigonometry (Mathematics 10)",
+      "url": "courses/lecture-notes-trigonometry-m10.html",
+      "category": "Notes",
+      "course": "Mathematics 10",
+      "description": "Right triangle trigonometry and trigonometric ratios",
+      "keywords": ["trigonometry", "trig", "sine", "cosine", "tangent", "SOHCAHTOA", "sine law", "cosine law", "math 10"]
+    },
+    {
+      "title": "Lecture Notes: Linear Functions (Mathematics 10)",
+      "url": "courses/lecture-notes-linear-functions-m10.html",
+      "category": "Notes",
+      "course": "Mathematics 10",
+      "description": "Slope, forms of linear equations, and graphing linear functions",
+      "keywords": ["linear functions", "linear", "slope", "y = mx + b", "math 10", "M10"]
+    },
+    {
+      "title": "Lecture Notes: Number Theory",
+      "url": "courses/lecture-notes-number-theory.html",
+      "category": "Notes",
+      "course": "Number Theory",
+      "description": "Introduction to primes, divisibility, and the fundamental theorem of arithmetic",
+      "keywords": ["number theory", "NT", "primes", "divisibility", "fundamental theorem of arithmetic", "FTA"]
+    },
+    {
+      "title": "Lecture Notes: Algebraic Number Theory",
+      "url": "courses/lecture-notes-algebraic-number-theory.html",
+      "category": "Notes",
+      "course": "Number Theory",
+      "description": "Algebraic integers, rings of integers, and ideal theory",
+      "keywords": ["algebraic number theory", "ANT", "algebraic integers", "rings", "ideals", "class group"]
+    },
+    {
+      "title": "Lecture Notes: Commutative Algebra",
+      "url": "courses/lecture-notes-commutative-algebra.html",
+      "category": "Notes",
+      "course": "Algebra I",
+      "description": "Rings, modules, ideals, and Noetherian rings",
+      "keywords": ["commutative algebra", "CA", "rings", "modules", "ideals", "Noetherian", "Hilbert's Nullstellensatz"]
+    },
+    {
+      "title": "Lecture Notes: Galois Theory",
+      "url": "courses/lecture-notes-galois-theory.html",
+      "category": "Notes",
+      "course": "Algebra II",
+      "description": "Field extensions, Galois groups, and solvability by radicals",
+      "keywords": ["galois theory", "Galois", "field extensions", "Galois groups", "solvability", "Abel"]
+    },
+    {
+      "title": "Lecture Notes: Elliptic Curves",
+      "url": "courses/lecture-notes-elliptic-curves.html",
+      "category": "Notes",
+      "course": "Number Theory",
+      "description": "Introduction to elliptic curves and their applications in number theory",
+      "keywords": ["elliptic curves", "EC", "Weierstrass form", "Mordell-Weil", "abelian varieties"]
+    },
+    {
+      "title": "Lecture Notes: Modular Forms",
+      "url": "courses/lecture-notes-modular-forms.html",
+      "category": "Notes",
+      "course": "Number Theory",
+      "description": "Modular forms, the modular group, and applications to number theory",
+      "keywords": ["modular forms", "MF", "modular group", "SL(2,Z)", "theta functions", "Fourier coefficients"]
+    }
+  ],
+  "expository": [
+    {
+      "title": "The 2026 Fields Medal: Before and after the Official Announcement",
+      "url": "2026-fields-medalists-reflections.html",
+      "category": "Expository Writing",
+      "topic": "Fields Medal",
+      "description": "Analysis of the ICM 2026 leak revealing the Fields Medalists before the official announcement",
+      "keywords": ["fields medal", "IMC", "ICM", "2026", "John Pardon", "Yu Deng", "Jacob Tsimerman", "Hong Wang", "leak", "announcement"]
+    },
+    {
+      "title": "The Fundamental Theorem of Algebra",
+      "url": "courses/the-fundamental-theorem-algebra.html",
+      "category": "Expository Writing",
+      "topic": "Fundamental Theorem of Algebra",
+      "description": "Proof and exploration of the Fundamental Theorem of Algebra using complex analysis",
+      "keywords": ["fundamental theorem of algebra", "FTA", "complex analysis", "algebraic closure", "Liouville's theorem", "argument principle"]
+    },
+    {
+      "title": "Chebotarev's Density Theorem",
+      "url": "courses/chebotarev-density.html",
+      "category": "Expository Writing",
+      "topic": "Number Theory",
+      "description": "The Chebotarev Density Theorem and its applications in algebraic number theory",
+      "keywords": ["Chebotarev density theorem", "density theorem", "Frobenius", "Galois groups", "splitting of primes", "antithetic types"]
+    },
+    {
+      "title": "Hilbert's Nullstellensatz",
+      "url": "courses/hilberts-nullstellensatz.html",
+      "category": "Expository Writing",
+      "topic": "Commutative Algebra",
+      "description": "Hilbert's Nullstellensatz and its role in algebraic geometry",
+      "keywords": ["Nullstellensatz", "Hilbert", "algebraic geometry", "ideal", "variety", "Zariski topology"]
+    }
+  ],
+  "problem_sets": [
+    {
+      "title": "Cumulative Problem Set (Mathematics 10)",
+      "url": "courses/problem-set-cumulative-m10.html",
+      "category": "Problem Set",
+      "course": "Mathematics 10",
+      "description": "Mixed review problems covering all Mathematics 10 topics",
+      "keywords": ["problem set", "practice", "review", "cumulative", "math 10", "M10", "mixed review"]
+    },
+    {
+      "title": "Problem Set 1 (Precalculus 11)",
+      "url": "courses/problem-set-1-p11.html",
+      "category": "Problem Set",
+      "course": "Precalculus 11",
+      "description": "Sequences and series practice problems",
+      "keywords": ["problem set", "sequences", "series", "arithmetic", "geometric", "sigma notation", "practice"]
+    },
+    {
+      "title": "Problem Set 6 (Precalculus 12)",
+      "url": "courses/problem-set-6-p12.html",
+      "category": "Problem Set",
+      "course": "Precalculus 12",
+      "description": "Systems of equations and linear inequalities",
+      "keywords": ["problem set", "systems", "linear equations", "substitution", "elimination", "inequalities", "practice"]
+    },
+    {
+      "title": "Problem Set: Divisibility and Primes",
+      "url": "courses/problem-set-1-divisibility.html",
+      "category": "Problem Set",
+      "course": "Number Theory",
+      "description": "Problems on divisibility, primes, and the fundamental theorem of arithmetic",
+      "keywords": ["problem set", "divisibility", "primes", "fundamental theorem", "Euclidean algorithm", "Fermat's little theorem"]
+    },
+    {
+      "title": "Problem Set: Quadratic Reciprocity",
+      "url": "courses/problem-set-5-congruences.html",
+      "category": "Problem Set",
+      "course": "Number Theory",
+      "description": "Problems on congruences and quadratic reciprocity",
+      "keywords": ["problem set", "congruences", "quadratic reciprocity", "Legendre symbol", "Gauss lemma", "quadratic residues"]
+    }
+  ],
+  "acronyms": {
+    "ANT": "algebraic number theory",
+    "CA": "commutative algebra",
+    "NT": "number theory",
+    "FTA": "fundamental theorem of algebra",
+    "LA": "linear algebra",
+    "MF": "modular forms",
+    "EC": "elliptic curves",
+    "M10": "Mathematics 10",
+    "P11": "Precalculus 11",
+    "P12": "Precalculus 12",
+    "CAL1": "Calculus I",
+    "CAL2": "Calculus II",
+    "CAL3": "Calculus III",
+    "ICM": "International Congress of Mathematicians",
+    "IMC": "International Mathematical Congress"
+  }
+}

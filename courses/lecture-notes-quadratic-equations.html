@@ -251,177 +251,381 @@
       <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
     </div>
 
-    <div class="lecture-content">
+<div class="lecture-content">
 
   <h2>1. Introduction to Quadratic Equations</h2>
   
   <p>A <strong>quadratic equation</strong> is an equation of the form:</p>
-
+  
   <div class="formula-box">
     \[ax^2 + bx + c = 0\]
   </div>
-
-  <p>Where \(a\), \(b\), and \(c\) are constants, and \(a \neq 0\).</p>
-
+  
+  <p>Where \(a\), \(b\), and \(c\) are constants, and \(a \neq 0\). When \(a = 0\), the equation is linear, not quadratic.</p>
+  
   <div class="definition-box">
-    <strong>Definition:</strong> A quadratic equation has at most two solutions, called roots or x-intercepts. These solutions can be real or complex numbers.
+    <strong>Definition:</strong> A quadratic equation has at most two solutions, called <strong>roots</strong> or <strong>x-intercepts</strong>. These solutions can be real or complex numbers. The solutions are the x-coordinates where the parabola \(y = ax^2 + bx + c\) crosses the x-axis.
+  </div>
+  
+  <h3>1.1 Standard vs. Quadratic Forms</h3>
+  <p>All quadratic equations can be written in standard form, but some have special forms that suggest specific solving strategies:</p>
+  <ul>
+    <li><strong>Standard form:</strong> \(ax^2 + bx + c = 0\)</li>
+    <li><strong>Empty quadratic:</strong> \(ax^2 + c = 0\) (no x-term) — solve with square root method</li>
+    <li><strong>Perfect square trinomial:</strong> \((x + p)^2 = 0\) — one repeated solution</li>
+  </ul>
+
+  <h2>2. The Square Root Method</h2>
+  
+  <p>The <strong>square root method</strong> is the simplest technique for solving quadratics of the form \(x^2 = c\) or \(ax^2 = c\).</p>
+  
+  <div class="definition-box">
+    <strong>Square Root Property:</strong> If \(x^2 = c\), then \(x = \sqrt{c}\) or \(x = -\sqrt{c}\) (when \(c \geq 0\)). If \(c < 0\), the solutions are complex: \(x = \pm i\sqrt{|c|}\).
+  </div>
+  
+  <h3>2.1 Solving \(x^2 = c\)</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 1: Positive Constant</div>
+    <p>Solve \(x^2 = 25\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[x = \pm \sqrt{25} = \pm 5\]</p>
+    <p><strong>Solutions:</strong> \(x = 5\) or \(x = -5\)</p>
+    <p><strong>Check:</strong> \(5^2 = 25\) and \((-5)^2 = 25\) ✓</p>
+  </div>
+  
+  <div class="example-box">
+    <div class="example-title">Example 2: Negative Constant</div>
+    <p>Solve \(x^2 = -9\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>Since we cannot take the square root of a negative number in the real numbers, there are no real solutions.</p>
+    <p>In the complex numbers: \(x = \pm 3i\)</p>
+  </div>
+  
+  <h3>2.2 Solving \(ax^2 = c\)</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 3: Isolating x²</div>
+    <p>Solve \(3x^2 = 27\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>Divide both sides by 3: \(x^2 = 9\)</p>
+    <p>Take square root: \(x = \pm 3\)</p>
+    <p><strong>Solutions:</strong> \(x = 3\) or \(x = -3\)</p>
+  </div>
+  
+  <h3>2.3 Clearing Fractions and Radicals</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 4: Fractional Coefficient</div>
+    <p>Solve \(\frac{2x^2}{3} = 8\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>Multiply both sides by \(\frac{3}{2}\): \(x^2 = 12\)</p>
+    <p>\[x = \pm \sqrt{12} = \pm \sqrt{4 \cdot 3} = \pm 2\sqrt{3}\]</p>
   </div>
 
-  <h2>2. Graphical Solutions</h2>
+  <h2>3. Graphical Methods</h2>
 
-  <p>Quadratic equations can be solved graphically by finding the x-intercepts of the parabola \(y = ax^2 + bx + c\).</p>
+  <p>The graph of \(y = ax^2 + bx + c\) is a parabola. The solutions to \(ax^2 + bx + c = 0\) are the <strong>x-intercepts</strong> (where the parabola crosses the x-axis).</p>
 
-  <h3>2.1 Using Graphs to Solve</h3>
-  <p>To solve \(ax^2 + bx + c = 0\) graphically:</p>
-  <ol>
-    <li>Graph the function \(y = ax^2 + bx + c\)</li>
-    <li>Identify the x-intercepts (where \(y = 0\))</li>
-    <li>The x-coordinates of the intercepts are the solutions</li>
-  </ol>
+  <h3>3.1 Reading Solutions from a Graph</h3>
 
   <div class="example-box">
-    <div class="example-title">Example 1: Graphical Solution</div>
+    <div class="example-title">Example 5: Graphical Solution</div>
     <p>Solve \(x^2 - 5x + 6 = 0\) graphically.</p>
     <p><strong>Solution:</strong></p>
     <p>Graph \(y = x^2 - 5x + 6\)</p>
-    <p>The x-intercepts are at \(x = 2\) and \(x = 3\)</p>
+    <p>The parabola opens upward (a > 0) and crosses the x-axis at \(x = 2\) and \(x = 3\)</p>
     <p><strong>Solutions:</strong> \(x = 2\) or \(x = 3\)</p>
   </div>
 
-  <h2>3. Factoring Quadratic Equations</h2>
+  <h3>3.2 How Many Solutions?</h3>
 
-  <p><strong>Factoring</strong> is one of the simplest methods for solving quadratic equations when the equation can be factored easily.</p>
+  <p>The discriminant tells us about the graph:</p>
+  <table>
+    <tr>
+      <th>D Value</th>
+      <th>Graph Shows</th>
+      <th>Solutions</th>
+    </tr>
+    <tr>
+      <td>D > 0</td>
+      <td>Parabola crosses x-axis at 2 points</td>
+      <td>2 distinct real solutions</td>
+    </tr>
+    <tr>
+      <td>D = 0</td>
+      <td>Parabola touches x-axis at 1 point (vertex)</td>
+      <td>1 repeated solution</td>
+    </tr>
+    <tr>
+      <td>D < 0</td>
+      <td>Parabola does not cross x-axis</td>
+      <td>0 real solutions (2 complex)</td>
+    </tr>
+  </table>
 
-  <div class="formula-box">
-    <strong>Zero Product Property:</strong><br>
-    If \(ab = 0\), then \(a = 0\) or \(b = 0\)
+  <h3>3.3 Using Graphs to Estimate</h3>
+
+  <p>Graphs can help estimate solutions and check algebra:</p>
+  <div class="important-note">
+    <div class="important-note-title">Connection:</div>
+    <p>The x-intercepts of the graph correspond to the solutions found algebraically. All three methods give the same roots!</p>
   </div>
 
-  <h3>3.1 Factoring Methods</h3>
+  <h2>4. Solving by Factoring</h2>
+  
+  <p><strong>Factoring</strong> is one of the most efficient methods when the quadratic expression can be written as a product of simpler factors.</p>
+  
+  <div class="formula-box">
+    <strong>Zero Product Property:</strong><br>
+    If \((x - r_1)(x - r_2) = 0\), then \(x = r_1\) or \(x = r_2\)
+  </div>
+  
+  <h3>3.1 Connection to x-Intercepts</h3>
+  <p>When we factor \(ax^2 + bx + c = a(x - r_1)(x - r_2) = 0\), the solutions \(x = r_1\) and \(x = r_2\) correspond exactly to the x-intercepts of the parabola. This is why the factored form is so useful!</p>
+  
+  <h3>3.2 Factoring Methods</h3>
   <ul>
-    <li><strong>Common factoring:</strong> Factor out the GCF</li>
+    <li><strong>Common factoring:</strong> Factor out GCD first</li>
     <li><strong>Difference of squares:</strong> \(a^2 - b^2 = (a + b)(a - b)\)</li>
     <li><strong>Trinomial factoring:</strong> \(ax^2 + bx + c = (dx + e)(fx + g)\)</li>
   </ul>
-
+  
   <div class="example-box">
-    <div class="example-title">Example 2: Factoring a Trinomial</div>
+    <div class="example-title">Example 5: Factoring a Trinomial</div>
     <p>Solve \(x^2 - 5x + 6 = 0\) by factoring.</p>
     <p><strong>Solution:</strong></p>
     <p>Find two numbers that multiply to 6 and add to -5: -2 and -3</p>
     <p>\[x^2 - 5x + 6 = (x - 2)(x - 3) = 0\]</p>
-    <p>Using the zero product property:</p>
-    <p>\(x - 2 = 0\) or \(x - 3 = 0\)</p>
+    <p>By the Zero Product Property: \(x - 2 = 0\) or \(x - 3 = 0\)</p>
     <p><strong>Solutions:</strong> \(x = 2\) or \(x = 3\)</p>
   </div>
-
-  <h3>3.2 Factoring with \(a \neq 1\)</h3>
-  <p>When the leading coefficient is not 1, use the grouping method or the AC method:</p>
-
+  
+  <h3>3.3 Factoring with \(a \neq 1\)</h3>
+  
   <div class="example-box">
-    <div class="example-title">Example 3: Factoring with \(a \neq 1\)</div>
+    <div class="example-title">Example 6: AC Method</div>
     <p>Solve \(2x^2 + 7x + 3 = 0\) by factoring.</p>
     <p><strong>Solution:</strong></p>
     <p>Multiply \(a \times c = 2 \times 3 = 6\)</p>
     <p>Find two numbers that multiply to 6 and add to 7: 6 and 1</p>
-    <p>Split the middle term: \(2x^2 + 6x + x + 3 = 0\)</p>
+    <p>Rewrite: \(2x^2 + 6x + x + 3 = 0\)</p>
     <p>Factor by grouping: \(2x(x + 3) + 1(x + 3) = 0\)</p>
-    <p>\((2x + 1)(x + 3) = 0\)</p>
+    <p>Factor out common: \((2x + 1)(x + 3) = 0\)</p>
     <p><strong>Solutions:</strong> \(x = -\frac{1}{2}\) or \(x = -3\)</p>
+  </div>
+  
+  <h3>3.4 Difference of Squares</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 7: Special Pattern</div>
+    <p>Solve \(x^2 - 16 = 0\).</p>
+    <p><strong>Solution:</strong></p>
+    <p>This is a difference of squares: \(x^2 - 4^2 = (x + 4)(x - 4) = 0\)</p>
+    <p><strong>Solutions:</strong> \(x = -4\) or \(x = 4\)</p>
   </div>
 
   <h2>4. Completing the Square</h2>
-
-  <p><strong>Completing the square</strong> is a method that transforms a quadratic equation into vertex form, making it easy to solve.</p>
-
-  <h3>4.1 Steps for Completing the Square</h3>
-  <ol>
-    <li>Divide all terms by \(a\) (if \(a \neq 1\))</li>
-    <li>Move the constant term to the right side</li>
-    <li>Add \((\frac{b}{2})^2\) to both sides</li>
-    <li>Factor the left side as a perfect square</li>
-    <li>Solve for \(x\)</li>
-  </ol>
+  
+  <p><strong>Completing the square</strong> transforms a quadratic into vertex form, revealing both the vertex and the solutions.</p>
+  
+  <h3>4.1 The Method</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 8: Step-by-Step</div>
+    <p>Solve \(x^2 + 6x - 7 = 0\) by completing the square.</p>
+    <p><strong>Solution:</strong></p>
+    <p>Step 1: Move constant: \(x^2 + 6x = 7\)</p>
+    <p>Step 2: Complete the square: Add \((\frac{b}{2})^2 = (\frac{6}{2})^2 = 9\) to both sides</p>
+    <p>\[x^2 + 6x + 9 = 7 + 9\]</p>
+    <p>Step 3: Factor: \((x + 3)^2 = 16\)</p>
+    <p>Step 4: Take square root: \(x + 3 = \pm 4\)</p>
+    <p>Step 5: Solve: \(x = -3 \pm 4\)</p>
+    <p><strong>Solutions:</strong> \(x = 1\) or \(x = -7\)</p>
+  </div>
+  
+<h3>4.2 When \(a \neq 1\)</h3>
 
   <div class="example-box">
-    <div class="example-title">Example 4: Completing the Square</div>
-    <p>Solve \(x^2 + 6x + 4 = 0\) by completing the square.</p>
+    <div class="example-title">Example 9: Leading Coefficient</div>
+    <p>Solve \(3x^2 + 12x + 9 = 0\) by completing the square.</p>
     <p><strong>Solution:</strong></p>
-    <p>Step 1: Move constant: \(x^2 + 6x = -4\)</p>
-    <p>Step 2: Add \((\frac{6}{2})^2 = 9\) to both sides:</p>
-    <p>\[x^2 + 6x + 9 = -4 + 9\]</p>
-    <p>Step 3: Factor: \((x + 3)^2 = 5\)</p>
-    <p>Step 4: Take square root: \(x + 3 = \pm\sqrt{5}\)</p>
-    <p>Step 5: Solve: \(x = -3 \pm \sqrt{5}\)</p>
-    <p><strong>Solutions:</strong> \(x \approx -5.24\) or \(x \approx -0.76\)</p>
+    <p>Step 1: Divide by 3: \(x^2 + 4x + 3 = 0\)</p>
+    <p>Step 2: Move constant: \(x^2 + 4x = -3\)</p>
+    <p>Step 3: Complete: \((\frac{4}{2})^2 = 4\)</p>
+    <p>\[x^2 + 4x + 4 = -3 + 4\]</p>
+    <p>\[(x + 2)^2 = 1\]</p>
+    <p>Step 4: \(x + 2 = \pm 1\)</p>
+    <p><strong>Solutions:</strong> \(x = -1\) or \(x = -3\)</p>
   </div>
+  
+  <h3>4.3 Vertex Form Connection</h3>
+  <p>Completing the square transforms \(ax^2 + bx + c = 0\) into \(a(x - h)^2 + k = 0\), where \((h, k)\) is the vertex. The solutions appear when we solve for \(x\): \(x = h \pm \sqrt{-k/a}\).</p>
 
   <h2>5. The Quadratic Formula</h2>
-
-  <p>The <strong>quadratic formula</strong> provides a universal method for solving any quadratic equation:</p>
-
+  
+  <p>The <strong>quadratic formula</strong> is derived from completing the square on the general form \(ax^2 + bx + c = 0\). It works for ALL quadratic equations.</p>
+  
   <div class="formula-box">
     \[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]
   </div>
-
-  <p>Where \(a\), \(b\), and \(c\) are the coefficients from \(ax^2 + bx + c = 0\).</p>
-
-  <h3>5.1 The Discriminant</h3>
-  <p>The expression under the square root, \(b^2 - 4ac\), is called the <strong>discriminant</strong>. It determines the nature of the roots:</p>
-
-  <div class="formula-box">
+  
+  <h3>5.1 Derivation (Completing the Square)</h3>
+  <p>Starting with \(ax^2 + bx + c = 0\) (assuming \(a \neq 0\)):</p>
+  <ol>
+    <li>Divide by \(a\): \(x^2 + \frac{b}{a}x + \frac{c}{a} = 0\)</li>
+    <li>Move constant: \(x^2 + \frac{b}{a}x = -\frac{c}{a}\)</li>
+    <li>Complete square: Add \((\frac{b}{2a})^2 = \frac{b^2}{4a^2}\)</li>
+    <li>\[\left(x + \frac{b}{2a}\right)^2 = \frac{b^2 - 4ac}{4a^2}\]</li>
+    <li>Take square root: \(x + \frac{b}{2a} = \pm\frac{\sqrt{b^2 - 4ac}}{2a}\)</li>
+    <li>Solve: \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</li>
+  </ol>
+  <p><em>This shows the quadratic formula is just completing the square with letters instead of numbers!</em></p>
+  
+  <h3>5.2 The Discriminant</h3>
+  
+  <div class="definition-box">
+    <strong>The Discriminant:</strong><br>
     \[D = b^2 - 4ac\]
   </div>
-
-  <ul>
-    <li>If \(D > 0\): Two distinct real roots</li>
-    <li>If \(D = 0\): One real root (repeated)</li>
-    <li>If \(D < 0\): Two complex (non-real) roots</li>
-  </ul>
-
+  
+  <p>The discriminant tells us the nature of the solutions:</p>
+  <table>
+    <tr>
+      <th>D Value</th>
+      <th>Number of Solutions</th>
+      <th>Solution Type</th>
+    </tr>
+    <tr>
+      <td>\(D > 0\)</td>
+      <td>2 distinct solutions</td>
+      <td>Real and different</td>
+    </tr>
+    <tr>
+      <td>\(D = 0\)</td>
+      <td>1 solution (repeated)</td>
+      <td>Real and equal</td>
+    </tr>
+    <tr>
+      <td>\(D < 0\)</td>
+      <td>0 real solutions</td>
+      <td>Two complex conjugates</td>
+    </tr>
+  </table>
+  
+  <h3>5.3 Using the Formula</h3>
+  
   <div class="example-box">
-    <div class="example-title">Example 5: Using the Quadratic Formula</div>
-    <p>Solve \(3x^2 + 2x - 1 = 0\) using the quadratic formula.</p>
+    <div class="example-title">Example 10: Applying the Formula</div>
+    <p>Solve \(2x^2 + 3x - 2 = 0\).</p>
     <p><strong>Solution:</strong></p>
-    <p>\(a = 3\), \(b = 2\), \(c = -1\)</p>
-    <p>\[x = \frac{-2 \pm \sqrt{2^2 - 4(3)(-1)}}{2(3)}\]</p>
-    <p>\[x = \frac{-2 \pm \sqrt{4 + 12}}{6}\]</p>
-    <p>\[x = \frac{-2 \pm \sqrt{16}}{6}\]</p>
-    <p>\[x = \frac{-2 \pm 4}{6}\]</p>
-    <p><strong>Solutions:</strong> \(x = \frac{2}{6} = \frac{1}{3}\) or \(x = \frac{-6}{6} = -1\)</p>
+    <p>\(a = 2\), \(b = 3\), \(c = -2\)</p>
+    <p>\[x = \frac{-3 \pm \sqrt{9 - 4(2)(-2)}}{2(2)} = \frac{-3 \pm \sqrt{25}}{4}\]</p>
+    <p>\[x = \frac{-3 \pm 5}{4}\]</p>
+    <p><strong>Solutions:</strong> \(x = \frac{1}{2}\) or \(x = -2\)</p>
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">Common Error Alert:</div>
+    <p>Always write DOWN the values of \(a\), \(b\), and \(c\) before substituting into the formula. It's easy to misread coefficients!</p>
   </div>
 
-  <h2>6. Choosing a Solution Method</h2>
+  <h2>6. Choosing the Best Method</h2>
+  
+  <p>Understanding when to use each method saves time and reduces errors:</p>
+  
+  <table>
+    <tr>
+      <th>Form of Equation</th>
+      <th>Best Method</th>
+      <th>Why?</th>
+    </tr>
+    <tr>
+      <td>\(x^2 = c\) (no x-term)</td>
+      <td>Square Root Method</td>
+      <td>Direct and fastest</td>
+    </tr>
+    <tr>
+      <td>Factorable with integers</td>
+      <td>Factoring</td>
+      <td>Quickest for simple numbers</td>
+    </tr>
+    <tr>
+      <td>\(a = 1\), even \(b\)</td>
+      <td>Completing the Square</td>
+      <td>Reveals vertex and exact form</td>
+    </tr>
+    <tr>
+      <td>Any quadratic, especially with decimals/fractions</td>
+      <td>Quadratic Formula</td>
+      <td>Works every time</td>
+    </tr>
+    <tr>
+      <td>Real-world problems</td>
+      <td>Any method + verification</td>
+      <td>Check answers make sense</td>
+    </tr>
+  </table>
+  
+  <div class="important-note">
+    <div class="important-note-title">All Methods Are Connected:</div>
+    <p>Factoring ↔ Zeros of the polynomial ↔ x-intercepts of the graph. Completing the square and the quadratic formula are algebraically equivalent. The square root method is a special case of both when \(b = 0\).</p>
+  </div>
 
+  <h2>7. Applications</h2>
+  
+  <h3>7.1 Projectile Motion</h3>
+  <p>The height of a projectile follows a quadratic path:</p>
+  <div class="formula-box">
+    \[h(t) = -16t^2 + v_0 t + h_0\]
+  </div>
+  <p>where \(v_0\) = initial velocity (ft/s) and \(h_0\) = initial height (ft)</p>
+  
+  <div class="example-box">
+    <div class="example-title">Example 11: Ball Trajectory</div>
+    <p>A ball is thrown upward with velocity 64 ft/s from a height of 6 ft. When does it hit the ground?</p>
+    <p><strong>Solution:</strong></p>
+    <p>\[h(t) = -16t^2 + 64t + 6 = 0\]</p>
+    <p>Using quadratic formula: \(t = \frac{-64 \pm \sqrt{4096 + 384}}{-32}\)</p>
+    <p>\[t = \frac{-64 \pm 67.2}{-32}\]</p>
+    <p><strong>Positive solution:</strong> \(t \approx 4.1\) seconds</p>
+  </div>
+  
+  <h3>7.2 Area and Geometry Problems</h3>
+  
+  <div class="example-box">
+    <div class="example-title">Example 12: Rectangle Dimensions</div>
+    <p>A rectangular garden has area 60 m². The length is 4 m more than the width. Find the dimensions.</p>
+    <p><strong>Solution:</strong></p>
+    <p>Let \(w\) = width. Then length = \(w + 4\)</p>
+    <p>Area equation: \(w(w + 4) = 60\)</p>
+    <p>Expand: \(w^2 + 4w - 60 = 0\)</p>
+    <p>Factoring: \((w + 10)(w - 6) = 0\)</p>
+    <p>\(w = 6\) (width must be positive)</p>
+    <p><strong>Dimensions:</strong> Width = 6 m, Length = 10 m</p>
+  </div>
+  
+  <h3>7.3 Optimization: Maximum/Minimum</h3>
+  <p>Setting the derivative of a quadratic to zero gives the vertex, which is the optimal value.</p>
+
+  <h2>8. Summary</h2>
+  
   <table>
     <tr>
       <th>Method</th>
-      <th>When to Use</th>
+      <th>Formula/Process</th>
+    </tr>
+    <tr>
+      <td>Square Root</td>
+      <td>\(x^2 = c \Rightarrow x = \pm\sqrt{c}\)</td>
     </tr>
     <tr>
       <td>Factoring</td>
-      <td>When the quadratic factors easily</td>
+      <td>\(ax^2 + bx + c = a(x - r_1)(x - r_2)\)</td>
     </tr>
     <tr>
-      <td>Completing the Square</td>
-      <td>When \(a = 1\) and you need vertex form</td>
-    </tr>
-    <tr>
-      <td>Quadratic Formula</td>
-      <td>Works for all quadratics, especially when factoring is difficult</td>
-    </tr>
-    <tr>
-      <td>Graphing</td>
-      <td>To visualize solutions or when approximate answers are acceptable</td>
-    </tr>
-  </table>
-
-  <h2>7. Summary of Key Concepts</h2>
-
-  <table>
-    <tr>
-      <th>Concept</th>
-      <th>Formula/Definition</th>
+      <td>Completing Square</td>
+      <td>Add \((\frac{b}{2a})^2\), factor, solve</td>
     </tr>
     <tr>
       <td>Quadratic Formula</td>
@@ -431,44 +635,48 @@
       <td>Discriminant</td>
       <td>\(D = b^2 - 4ac\)</td>
     </tr>
-    <tr>
-      <td>Zero Product Property</td>
-      <td>If \(ab = 0\), then \(a = 0\) or \(b = 0\)</td>
-    </tr>
-    <tr>
-      <td>Completing the Square</td>
-      <td>Add \((\frac{b}{2})^2\) to both sides</td>
-    </tr>
   </table>
 
-  <h2>8. Practice Problems</h2>
-
+  <h2>9. Practice Problems</h2>
+  
   <div class="example-box">
     <div class="example-title">Problem 1</div>
-    <p>Solve by factoring: \(x^2 - 7x + 12 = 0\)</p>
+    <p>Solve by square root method: \(4x^2 = 36\)</p>
   </div>
-
+  
   <div class="example-box">
     <div class="example-title">Problem 2</div>
-    <p>Solve by completing the square: \(x^2 + 4x - 5 = 0\)</p>
+    <p>Solve by factoring: \(x^2 - 9x + 18 = 0\)</p>
   </div>
-
+  
   <div class="example-box">
     <div class="example-title">Problem 3</div>
-    <p>Solve using the quadratic formula: \(2x^2 - 3x - 4 = 0\)</p>
+    <p>Solve by completing the square: \(x^2 + 8x + 10 = 0\)</p>
   </div>
-
+  
   <div class="example-box">
     <div class="example-title">Problem 4</div>
-    <p>Determine the nature of the roots for \(x^2 + 2x + 5 = 0\) without solving.</p>
+    <p>Solve using the quadratic formula: \(3x^2 + 5x - 2 = 0\). Give exact and approximate answers.</p>
   </div>
-
+  
+  <div class="example-box">
+    <div class="example-title">Problem 5</div>
+    <p>Find the discriminant and determine the nature of roots: \(2x^2 - 4x + 5 = 0\)</p>
+  </div>
+  
+  <div class="example-box">
+    <div class="example-title">Problem 6</div>
+    <p>A ball is thrown upward with height \(h(t) = -16t^2 + 80t + 4\). Find when it reaches maximum height and when it hits the ground.</p>
+  </div>
+  
   <div class="navigation">
-    <a href="precalculus-11.html">← Back to Course</a>
+    <a href="lecture-notes-quadratic-functions.html">← Quadratic Functions</a>
+    <a href="lecture-notes-radical-expressions.html">Radical Expressions →</a>
   </div>
     </div>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>
   <script src="../math-simulator.js"></script>
- </body>
+  </body>
+</html>

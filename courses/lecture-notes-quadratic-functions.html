@@ -254,28 +254,93 @@
       <div class="subtitle">British Columbia Curriculum | Last Updated: 2026</div>
     </div>
 
-    <div class="lecture-content">
+<div class="lecture-content">
 
-  <h2>1. Introduction to Quadratic Functions</h2>
+  <h2>1. The Real Number System</h2>
+  
+  <p>Understanding the real number system is fundamental to all algebraic work. Every number we encounter in this course belongs to the set of real numbers.</p>
+  
+  <div class="formula-box">
+    <strong>The Real Number Hierarchy:</strong><br>
+    Natural Numbers (ℕ) ⊂ Whole Numbers ⊂ Integers (ℤ) ⊂ Rational Numbers (ℚ) ⊂ Real Numbers (ℝ)
+  </div>
+  
+  <h3>1.1 Classification of Real Numbers</h3>
+  
+  <table>
+    <tr>
+      <th>Set</th>
+      <th>Definition</th>
+      <th>Examples</th>
+    </tr>
+    <tr>
+      <td><strong>Natural Numbers (ℕ)</strong></td>
+      <td>Positive counting numbers</td>
+      <td>1, 2, 3, 4, ...</td>
+    </tr>
+    <tr>
+      <td><strong>Whole Numbers</strong></td>
+      <td>Natural numbers plus zero</td>
+      <td>0, 1, 2, 3, ...</td>
+    </tr>
+    <tr>
+      <td><strong>Integers (ℤ)</strong></td>
+      <td>Positive and negative whole numbers</td>
+      <td>...-3, -2, -1, 0, 1, 2, 3...</td>
+    </tr>
+    <tr>
+      <td><strong>Rational Numbers (ℚ)</strong></td>
+      <td>Numbers that can be expressed as a fraction a/b where a, b are integers and b ≠ 0</td>
+      <td>1/2, -3/4, 5, 0.75, 0.333...</td>
+    </tr>
+    <tr>
+      <td><strong>Irrational Numbers</strong></td>
+      <td>Numbers that cannot be expressed as fractions; non-repeating, non-terminating decimals</td>
+      <td>√2, π, √3, e</td>
+    </tr>
+  </table>
+  
+  <div class="definition-box">
+    <strong>Definition:</strong> A rational number can be written in the form \(\frac{p}{q}\) where \(p\) and \(q\) are integers and \(q \neq 0\). An irrational number cannot be expressed as such a fraction.
+  </div>
+  
+  <h3>1.2 Square Roots and Rational Numbers</h3>
+  
+  <p>Whether a square root is rational or irrational depends on whether the radicand is a perfect square:</p>
+  
+  <ul>
+    <li>If \(n\) is a perfect square, then \(\sqrt{n}\) is rational</li>
+    <li>If \(n\) is not a perfect square, then \(\sqrt{n}\) is irrational</li>
+  </ul>
+  
+  <div class="example-box">
+    <div class="example-title">Example 1: Classifying Square Roots</div>
+    <p>Determine if each square root is rational or irrational:</p>
+    <p>(a) \(\sqrt{25} = 5\) → rational (it's an integer)</p>
+    <p>(b) \(\sqrt{18} = \sqrt{9 \times 2} = 3\sqrt{2}\) → irrational</p>
+    <p>(c) \(\sqrt{\frac{25}{4}} = \frac{5}{2}\) → rational</p>
+  </div>
+  
+  <h2>2. Introduction to Quadratic Functions</h2>
   
   <p>A <strong>quadratic function</strong> is a polynomial function of degree 2. It has the general form:</p>
-
+  
   <div class="formula-box">
     \[f(x) = ax^2 + bx + c\]
   </div>
-
-  <p>Where \(a\), \(b\), and \(c\) are constants, and \(a \neq 0\).</p>
-
+  
+  <p>Where \(a\), \(b\), and \(c\) are real number constants, and \(a \neq 0\).</p>
+  
   <div class="definition-box">
     <strong>Definition:</strong> The graph of a quadratic function is a parabola - a U-shaped curve that opens either upward or downward.
   </div>
-
-  <h3>1.1 Characteristics of Quadratic Functions</h3>
+  
+  <h3>2.1 Characteristics of Quadratic Functions</h3>
   <ul>
     <li><strong>Direction of opening:</strong> If \(a > 0\), the parabola opens upward. If \(a < 0\), it opens downward.</li>
     <li><strong>y-intercept:</strong> The point \((0, c)\)</li>
     <li><strong>Axis of symmetry:</strong> The vertical line \(x = -\frac{b}{2a}\)</li>
-    <li><strong>Vertex:</strong> The turning point at \((-\frac{b}{2a}, f(-\frac{b}{2a}))\)</li>
+    <li><strong>Vertex:</strong> The turning point at \((-b/2a, f(-b/2a))\)</li>
   </ul>
 
   <h2>2. Vertex Form of Quadratic Functions</h2>
@@ -288,9 +353,9 @@
 
   <p>Where \((h, k)\) is the vertex of the parabola.</p>
 
-  <h3>2.1 Converting from Standard to Vertex Form</h3>
+<h3>3.1 Converting from Standard to Vertex Form</h3>
   <p>To convert from standard form \(f(x) = ax^2 + bx + c\) to vertex form, we use <strong>completing the square</strong>:</p>
-
+  
   <div class="example-box">
     <div class="example-title">Example 1: Converting to Vertex Form</div>
     <p>Convert \(f(x) = x^2 + 6x + 5\) to vertex form.</p>
@@ -303,7 +368,7 @@
     <p><strong>Vertex:</strong> \((-3, -4)\)</p>
   </div>
 
-  <h3>2.2 Properties from Vertex Form</h3>
+  <h3>3.2 Properties from Vertex Form</h3>
   <p>From the vertex form \(f(x) = a(x - h)^2 + k\):</p>
   <ul>
     <li><strong>Vertex:</strong> \((h, k)\)</li>
@@ -418,6 +483,10 @@
       <th>Formula/Definition</th>
     </tr>
     <tr>
+      <td>Real Numbers</td>
+      <td>ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ</td>
+    </tr>
+    <tr>
       <td>Standard Form</td>
       <td>\(f(x) = ax^2 + bx + c\)</td>
     </tr>
@@ -495,7 +564,8 @@
   </div>
 
   <div class="navigation">
-    <a href="precalculus-11.html">← Back to Course</a>
+    <a href="lecture-notes-trigonometry-angles.html">← Trigonometry</a>
+    <a href="lecture-notes-quadratic-equations.html">Quadratic Equations →</a>
   </div>
     </div>
   </main>

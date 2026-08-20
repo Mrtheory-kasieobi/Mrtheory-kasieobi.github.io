@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real Numbers and Rational Exponents - Lecture Notes | Precalculus 11</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .no-print { display: none; }
+      header, nav, footer { display: none; }
+      main { 
+        box-shadow: none !important;
+        border: none !important;
+        border-radius: 0 !important;
+      }
+    }
+    
+    .lecture-header {
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .lecture-header h1 {
+      font-size: 2.5rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .lecture-header .subtitle {
+      font-size: 1.2rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .lecture-content {
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .lecture-content h2 {
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .lecture-content h3 {
+      color: var(--text);
+      margin-top: 2rem;
+    }
+
+    .definition-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .definition-box strong {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .example-box {
+      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .example-title {
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(140, 200, 255, 0.08);
+      border: 2px solid var(--accent);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .important-note {
+      background: rgba(240, 173, 78, 0.1);
+      border: 1px solid rgba(240, 173, 78, 0.4);
+      border-left: 4px solid #f0ad4e;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .important-note-title {
+      color: #f0ad4e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .navigation {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .navigation a {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem;
+      background: linear-gradient(145deg, var(--accent), #4aa8f5);
+      color: #07111d;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
+      color: #07111d;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      background: rgba(15, 24, 37, 0.6);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      text-align: left;
+      color: var(--text);
+    }
+
+    th {
+      background: rgba(140, 200, 255, 0.15);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <h1>Precalculus 11</h1>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About me</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li class="dropdown">
+        <a href="../expository.html">Expository Writing</a>
+        <ul class="dropdown-menu" aria-label="Expository submenu">
+          <li><a href="../olympiad.html">Olympiad</a></li>
+          <li><a href="../undergraduate.html">Undergraduate</a></li>
+          <li><a href="../graduate.html">Graduate</a></li>
+        </ul>
+      </li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="lecture-header">
+      <h1>Real Numbers and Rational Exponents</h1>
+      <div class="subtitle">Precalculus 11 - Lecture Notes</div>
+      <div class="subtitle">British Columbia Curriculum | Week 1-2</div>
+    </div>
+
+    <div class="lecture-content">
+
+  <h2>1. The Real Number System</h2>
+  
+  <p>Understanding the classification of numbers is fundamental to algebra. The real number system is organized into nested subsets.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> The real numbers are all rational and irrational numbers. They can be represented on the number line.
+  </div>
+
+  <h3>1.1 Classification of Real Numbers</h3>
+  <p>Real numbers are classified as follows:</p>
+  
+  <table>
+    <tr>
+      <th>Set</th>
+      <th>Definition</th>
+      <th>Examples</th>
+    </tr>
+    <tr>
+      <td><strong>Natural Numbers (\(\mathbb{N}\))</strong></td>
+      <td>Positive counting numbers</td>
+      <td>\(1, 2, 3, 4, \ldots\)</td>
+    </tr>
+    <tr>
+      <td><strong>Whole Numbers</strong></td>
+      <td>Natural numbers plus zero</td>
+      <td>\(0, 1, 2, 3, \ldots\)</td>
+    </tr>
+    <tr>
+      <td><strong>Integers (\(\mathbb{Z}\))</strong></td>
+      <td>Positive and negative whole numbers</td>
+      <td>\(\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\)</td>
+    </tr>
+    <tr>
+      <td><strong>Rational Numbers (\(\mathbb{Q}\))</strong></td>
+      <td>Numbers that can be expressed as a fraction \(\frac{a}{b}\) where \(a, b\) are integers and \(b \neq 0\)</td>
+      <td>\(\frac{1}{2}, -\frac{3}{4}, 5, 0.75, 0.\overline{33}\)</td>
+    </tr>
+    <tr>
+      <td><strong>Irrational Numbers</strong></td>
+      <td>Numbers that cannot be expressed as fractions; non-repeating, non-terminating decimals</td>
+      <td>\(\sqrt{2}, \pi, \sqrt{3}, e\)</td>
+    </tr>
+  </table>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Classifying Numbers</div>
+    <p>Classify each number: (a) 5 (b) \(-\frac{3}{7}\) (c) \(\sqrt{16}\) (d) \(0.25\overline{25}\) (e) \(\pi\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>(a) 5 is a natural number, whole number, integer, and rational</p>
+    <p>(b) \(-\frac{3}{7}\) is rational</p>
+    <p>(c) \(\sqrt{16} = 4\) is rational (it's an integer)</p>
+    <p>(d) \(0.25\overline{25} = \frac{25}{99}\) is rational (repeating decimal)</p>
+    <p>(e) \(\pi\) is irrational</p>
+  </div>
+
+  <h3>1.2 Properties of Real Numbers</h3>
+  <p>The following properties are essential for algebraic manipulation:</p>
+  
+  <div class="formula-box">
+    <strong>For all real numbers \(a\), \(b\), and \(c\):</strong><br>
+    <strong>Commutative:</strong> \(a + b = b + a\); \(ab = ba\)<br>
+    <strong>Associative:</strong> \((a + b) + c = a + (b + c)\); \((ab)c = a(bc)\)<br>
+    <strong>Distributive:</strong> \(a(b + c) = ab + ac\)<br>
+    <strong>Identity:</strong> \(a + 0 = a\); \(a \cdot 1 = a\)<br>
+    <strong>Inverse:</strong> \(a + (-a) = 0\); \(a^{-1} \cdot \frac{1}{a} = 1\) (where \(a \neq 0\))
+  </div>
+
+  <h2>2. Rational Exponents</h2>
+
+  <h3>2.1 Definition and Relationship to Radicals</h3>
+  <p>Rational exponents provide an alternative notation for radicals.</p>
+
+  <div class="definition-box">
+    <strong>Definition:</strong> For any real number \(a \geq 0\) and integers \(m, n\) with \(n > 0\):<br>
+    \(a^{1/n} = \sqrt[n]{a}\) (n-th root)<br>
+    \(a^{m/n} = (\sqrt[n]{a})^{m} = \sqrt[n]{a^{m}}\)
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Converting Between Radicals and Exponents</div>
+    <p>Express as radicals and evaluate:<br>
+    (a) \(8^{1/3}\) (b) \(16^{3/4}\) (c) \(25^{-1/2}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>(a) \(8^{1/3} = \sqrt[3]{8} = 2\)</p>
+    <p>(b) \(16^{3/4} = (\sqrt[4]{16})^{3} = 2^{3} = 8\)</p>
+    <p>(c) \(25^{-1/2} = \frac{1}{25^{1/2}} = \frac{1}{\sqrt{25}} = \frac{1}{5}\)</p>
+  </div>
+
+  <h3>2.2 When are Rational Exponents Defined?</h3>
+  <p>The domain depends on whether the denominator (index) is even or odd:</p>
+  <ul>
+    <li><strong>Even index (n even):</strong> \(a^{m/n}\) requires \(a \geq 0\) (or \(a > 0\) for \(m > 0\))</li>
+    <li><strong>Odd index (n odd):</strong> \(a^{m/n}\) is defined for all real \(a\)</li>
+  </ul>
+
+  <div class="important-note">
+    <div class="important-note-title">Key Point:</div>
+    <p>For even roots in the denominator, the base must be non-negative to stay in real numbers. For example, \((-8)^{1/3} = -2\) (odd root), but \((-4)^{1/2}\) is not real.</p>
+  </div>
+
+  <h2>3. Exponent Laws with Rational Exponents</h2>
+
+  <p>The same exponent laws that apply to integer exponents also apply to rational exponents.</p>
+
+  <div class="formula-box">
+    <strong>For rational exponents where expressions are defined:</strong><br><br>
+    1. <strong>Product Law:</strong> \(a^{m/n} \cdot a^{p/q} = a^{m/n + p/q}\)<br>
+    2. <strong>Quotient Law:</strong> \(a^{m/n} / a^{p/q} = a^{m/n - p/q}\)<br>
+    3. <strong>Power Law:</strong> \((a^{m/n})^{p/q} = a^{mp/nq}\)<br>
+    4. <strong>Power Rule:</strong> \((ab)^{m/n} = a^{m/n} \cdot b^{m/n}\)<br>
+    5. <strong>Quotient Rule:</strong> \((a/b)^{m/n} = a^{m/n} / b^{m/n}\)
+  </div>
+
+  <h3>3.1 Simplifying Expressions with Rational Exponents</h3>
+
+  <div class="example-box">
+    <div class="example-title">Example 3: Using Exponent Laws</div>
+    <p>Simplify: \((x^{2/3} \cdot x^{1/6}) / (x^{1/2})\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Apply product law in numerator: \(x^{2/3 + 1/6} = x^{4/6 + 1/6} = x^{5/6}\)</p>
+    <p>Apply quotient law: \(x^{5/6 - 1/2} = x^{5/6 - 3/6} = x^{2/6} = x^{1/3}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 4: Power of a Power</div>
+    <p>Simplify: \((\sqrt[3]{x^{3}})^{2/5}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Convert to exponent form: \((x^{3})^{2/5} = x^{3 \cdot 2/5} = x^{6/5} = \sqrt[5]{x^{6}} = x\sqrt[5]{x}\)</p>
+  </div>
+
+  <h2>4. Evaluating Expressions with Rational Exponents</h2>
+
+  <h3>4.1 Evaluating with Numerical Bases</h3>
+
+  <div class="example-box">
+    <div class="example-title">Example 5: Evaluating Numerical Expressions</div>
+    <p>Evaluate: (a) \(64^{1/3}\) (b) \(32^{3/5}\) (c) \(125^{-2/3}\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>(a) \(64 = 4^{3}\), so \(64^{1/3} = (4^{3})^{1/3} = 4\)</p>
+    <p>(b) \(32 = 2^{5}\), so \(32^{3/5} = (2^{5})^{3/5} = 2^{3} = 8\)</p>
+    <p>(c) \(125^{-2/3} = \frac{1}{125^{2/3}} = \frac{1}{\sqrt[3]{125^{2}}} = \frac{1}{5^{2}} = \frac{1}{25}\)</p>
+  </div>
+
+  <h3>4.2 Evaluating with Variable Bases</h3>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Evaluating Variable Expressions</div>
+    <p>Evaluate: \((x^{2}y^{3})^{1/2}\) for \(x = 4, y = 3\)</p>
+    <p><strong>Solution:</strong></p>
+    <p><strong>Algebraic simplification first:</strong><br>
+    \((x^{2}y^{3})^{1/2} = x^{2 \cdot 1/2} y^{3 \cdot 1/2} = x^{1} y^{3/2} = xy^{3/2}\)</p>
+    <p><strong>Substitute:</strong><br>
+    \(xy^{3/2} = 4 \cdot 3^{3/2} = 4 \cdot (\sqrt{3})^{3} = 4 \cdot 3\sqrt{3} = 12\sqrt{3}\)</p>
+  </div>
+
+  <h2>5. Connections Between Rational Exponents and Radicals</h2>
+
+  <p>Every radical can be written as a rational exponent and vice versa. This connection is essential for solving equations.</p>
+
+  <div class="definition-box">
+    <strong>Key Relationships:</strong><br>
+    \(\sqrt{a} = a^{1/2}\) (square root)<br>
+    \(\sqrt[3]{a} = a^{1/3}\) (cube root)<br>
+    \(\sqrt[3]{a^{n}} = a^{n/3}\)<br>
+    \(\sqrt[n]{a^{m}} = a^{m/n}\)
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Solving Radical Equations</div>
+    <p>Solve: \(\sqrt{x + 1} = 5\)</p>
+    <p><strong>Solution:</strong></p>
+    <p>Rewrite using rational exponent: \((x + 1)^{1/2} = 5\)</p>
+    <p>Square both sides: \(x + 1 = 25\)</p>
+    <p>Solve: \(x = 24\)</p>
+    <p><strong>Check:</strong> \(\sqrt{24 + 1} = \sqrt{25} = 5\) ✓</p>
+  </div>
+
+  <div class="important-note">
+    <div class="important-note-title">Important:</div>
+    <p>When solving equations involving radicals or rational exponents, always check for extraneous solutions by substituting back into the original equation.</p>
+  </div>
+
+  <h2>6. Summary of Key Formulas</h2>
+
+  <table>
+    <tr>
+      <th>Concept</th>
+      <th>Formula/Definition</th>
+    </tr>
+    <tr>
+      <td>Rational Exponent Definition</td>
+      <td>\(a^{m/n} = (\sqrt[n]{a})^{m} = \sqrt[n]{a^{m}}\)</td>
+    </tr>
+    <tr>
+      <td>Negative Rational Exponent</td>
+      <td>\(a^{-m/n} = \frac{1}{a^{m/n}}\)</td>
+    </tr>
+    <tr>
+      <td>Product of Powers</td>
+      <td>\(a^{m} \cdot a^{n} = a^{m+n}\)</td>
+    </tr>
+    <tr>
+      <td>Quotient of Powers</td>
+      <td>\(\frac{a^{m}}{a^{n}} = a^{m-n}\)</td>
+    </tr>
+    <tr>
+      <td>Power of a Power</td>
+      <td>\((a^{m})^{n} = a^{mn}\)</td>
+    </tr>
+  </table>
+
+  <h2>7. Practice Problems</h2>
+
+  <div class="example-box">
+    <div class="example-title">Problem 1</div>
+    <p>Simplify: \(125^{1/3} \cdot 49^{3/2}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 2</div>
+    <p>Express using radical notation and simplify: \((x^{4}y^{2})^{1/2}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 3</div>
+    <p>Simplify: \((8x^{6})^{2/3}\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Solve: \(2x^{3/2} = 16\)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 5</div>
+    <p>Solve: \(\sqrt{x - 2} + 3 = 8\)</p>
+  </div>
+
+  <div class="navigation">
+    <a href="lecture-notes-sequences-series.html">Sequences and Series →</a>
+  </div>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../math-simulator.js"></script>
+  </body>
+</html>
