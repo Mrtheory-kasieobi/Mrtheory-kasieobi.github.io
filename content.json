@@ -61,14 +61,16 @@
         "title": "British Columbia Precalculus 12",
         "level": "High School",
         "description": "Advanced functions, calculus concepts, and mathematical analysis preparation.",
-        "status": "Complete",
+        "status": "Near Complete",
+        "statusColor": "#f0ad4e",
         "lastUpdated": "2026"
       },
       {
         "title": "Calculus I",
         "level": "Undergraduate",
         "description": "Limits, continuity, derivatives, and applications of differential calculus.",
-        "status": "In Progress",
+        "status": "Near Complete",
+        "statusColor": "#f0ad4e",
         "lastUpdated": "2026"
       },
       {
