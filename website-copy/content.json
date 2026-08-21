@@ -5,7 +5,7 @@
     "welcome": "Welcome",
     "paragraphs": [
       "Hello! I'm Kasieobi Udumaga, a high school student from Canada with a strong interest in pure mathematics.",
-      "My primary interests include algebra, algebraic number theory, commutative algebra, and arithmetic geometry. This website documents my learning, research projects, expository writing, and mathematical notes.",
+      "My primary interests include algebraic number theory and commutative algebra. This website documents my learning, research projects, expository writing, and mathematical notes.",
       "Outside Mathematics, I am a sprinter and enjoy track and field. I am a 12-time provincial champion in the 100m and 200m. I also have some interest in computer science, though not as much as mathematics :)",
       "Website updates are typically released every 2-4 weeks, though the schedule may vary depending on the time of year."
     ]
@@ -39,7 +39,7 @@
   },
   "teaching": {
     "header": "Teaching",
-    "intro": "I love teaching people! Teaching concepts and presenting ideas is part of how we can grow as a society.",
+    "intro": "I like teaching people! Teaching concepts and presenting ideas is part of how we can grow as a society.",
     "courses": [
       {
         "title": "Mathematics 10",
