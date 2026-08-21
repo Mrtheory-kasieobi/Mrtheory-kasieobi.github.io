@@ -212,151 +212,354 @@
 
     <div class="lecture-content">
 
-  <h2>1. Characteristics of Exponential Functions</h2>
+  <h2>1. Exponential Functions</h2>
   
-  <p>An exponential function has the form \(f(x) = a^x\) where \(a > 0\) and \(a \neq 1\).</p>
-
+  <p>Exponential functions model phenomena where the rate of change is proportional to the current value - from bacterial growth to compound interest. They are fundamental to understanding continuous processes.</p>
+  
+  <h3>1.1 Definition and Standard Form</h3>
   <div class="definition-box">
-    <strong>Definition:</strong> An exponential function is a function of the form \(f(x) = a \cdot b^x\) where \(a\) and \(b\) are positive real numbers and \(b \neq 1\).
+    <strong>Definition:</strong> An exponential function has the form \(f(x) = a \cdot b^x\) where:
+    <ul>
+      <li>\(a\) = initial value (y-intercept when x = 0)</li>
+      <li>\(b\) = base (b > 0, b ≠ 1)</li>
+      <li>\(x\) = exponent (input variable)</li>
+    </ul>
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">Why b > 0?</div>
+    <p>If b ≤ 0, then b^x is undefined for many values of x (like b = -2 and x = 1/2 gives √(-2)). We require b > 0 to ensure the function is defined for all real numbers.</p>
   </div>
 
-  <h3>1.1 Key Properties</h3>
+  <h3>1.2 The Natural Exponential f(x) = e^x</h3>
+  <p>The number \(e \approx 2.71828\) is a special base. The function \(f(x) = e^x\) is called the natural exponential function.</p>
+  
+  <div class="definition-box">
+    <strong>Natural Base:</strong> \(e = \lim_{n \to \infty} \left(1 + \frac{1}{n}\right)^n \approx 2.71828\)
+  </div>
+  
+  <p>The natural exponential has the special property that its rate of change equals its value at every point.</p>
+
+  <h3>1.3 Domain and Range</h3>
+  <table>
+    <tr>
+      <th>Function Type</th>
+      <th>Domain</th>
+      <th>Range</th>
+    </tr>
+    <tr>
+      <td>\(f(x) = a \cdot b^x\) (a > 0)</td>
+      <td>All real numbers</td>
+      <td>\((0, \infty)\)</td>
+    </tr>
+    <tr>
+      <td>\(f(x) = a \cdot b^x\) (a < 0)</td>
+      <td>All real numbers</td>
+      <td>\((-\infty, 0)\)</td>
+    </tr>
+    <tr>
+      <td>\(f(x) = e^x\)</td>
+      <td>All real numbers</td>
+      <td>\((0, \infty)\)</td>
+    </tr>
+  </table>
+
+  <h3>1.4 Growth and Decay Models</h3>
+  <p>When b > 1: exponential growth (values increase rapidly)<br>
+  When 0 < b < 1: exponential decay (values decrease toward 0)</p>
+  
+  <div class="formula-box">
+    <strong>Compound Growth Model:</strong><br>
+    \(A = P(1 + r)^t\) for discrete compounding<br>
+    \(A = Pe^{rt}\) for continuous compounding
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Example 1: Population Growth</div>
+    <p>A population of 1000 doubles every 5 years. Find the population after 15 years.</p>
+    <p>Growth model: \(P(t) = 1000 \cdot 2^{t/5}\)</p>
+    <p>After 15 years: \(P(15) = 1000 \cdot 2^{15/5} = 1000 \cdot 2^3 = 8000\)</p>
+  </div>
+
+  <h3>1.5 Transformations of Exponential Functions</h3>
+  <p>The general form combines all transformations:</p>
+  
+  <div class="formula-box">
+    <strong>Transformed Exponential:</strong><br>
+    \(f(x) = a \cdot b^{x - h} + k\)
+  </div>
+  
+  <table>
+    <tr>
+      <th>Parameter</th>
+      <th>Effect</th>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>Vertical stretch/compression by |a|, reflection if a < 0</td>
+    </tr>
+    <tr>
+      <td>b</td>
+      <td>Base: b > 1 (growth), 0 < b < 1 (decay)</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>Horizontal shift by h units</td>
+    </tr>
+    <tr>
+      <td>k</td>
+      <td>Vertical shift by k units (shifts horizontal asymptote)</td>
+    </tr>
+  </table>
+
+  <div class="example-box">
+    <div class="example-title">Example 2: Transforming an Exponential</div>
+    <p>Describe the transformations from \(f(x) = e^x\) to \(g(x) = -2e^{x+1} + 3\):</p>
+    <ol>
+      <li>Left shift by 1: \(e^{x+1}\)</li>
+      <li>Vertical stretch by 2: \(2e^{x+1}\)</li>
+      <li>Reflection across x-axis: \(-2e^{x+1}\)</li>
+      <li>Up shift by 3: \(-2e^{x+1} + 3\)</li>
+    </ol>
+    <p>Horizontal asymptote: y = 3</p>
+  </div>
+
+  <h2>2. Logarithmic Functions</h2>
+  
+  <h3>2.1 Definition as Inverse Functions</h3>
+  <p>Logarithms are defined as the inverse operation of exponentials.</p>
+  
+  <div class="definition-box">
+    <strong>Definition:</strong> If \(b^y = x\) where b > 0, b ≠ 1, then \(\log_b(x) = y\)
+  </div>
+  
+  <p>This means: "The logarithm base b of x is the exponent to which b must be raised to get x."
+
+  <h3>2.2 Domain and Range</h3>
+  <table>
+    <tr>
+      <th>Function Type</th>
+      <th>Domain</th>
+      <th>Range</th>
+    </tr>
+    <tr>
+      <td>\(f(x) = \log_b(x)\)</td>
+      <td>\((0, \infty)\)</td>
+      <td>All real numbers</td>
+    </tr>
+    <tr>
+      <td>\(f(x) = \ln(x)\)</td>
+      <td>\((0, \infty)\)</td>
+      <td>All real numbers</td>
+    </tr>
+  </table>
+
+  <h3>2.3 Common and Natural Logarithms</h3>
   <ul>
-    <li>Domain: all real numbers</li>
-    <li>Range: \((0, \infty)\)</li>
-    <li>Horizontal asymptote: \(y = 0\)</li>
-    <li>If \(a > 1\): increasing function</li>
-    <li>If \(0 < a < 1\): decreasing function</li>
+    <li><strong>Common Logarithm:</strong> \(\log x\) means \(\log_{10}(x)\)</li>
+    <li><strong>Natural Logarithm:</strong> \(\ln x\) means \(\log_e(x)\)</li>
   </ul>
 
-  <div class="example-box">
-    <div class="example-title">Example 1: Analyzing Exponential Functions</div>
-    <p>Analyze \(f(x) = 2 \cdot 3^x\).</p>
-    <p>Since \(a = 2 > 0\) and \(b = 3 > 1\), this is an increasing exponential function.</p>
-    <p>Y-intercept: \(f(0) = 2 \cdot 3^0 = 2\)</p>
-    <p>As \(x \to \infty\), \(f(x) \to \infty\); as \(x \to -\infty\), \(f(x) \to 0\)</p>
+  <div class="important-note">
+    <div class="important-note-title">Why Only x > 0?</div>
+    <p>There is no real number y such that \(b^y = x\) when x ≤ 0 (for b > 0, b ≠ 1). This is why the domain of logarithms is only positive numbers.</p>
   </div>
 
-  <h2>2. Transformations of Exponential Functions</h2>
-
+  <h3>2.4 Transformations of Logarithmic Functions</h3>
   <div class="formula-box">
-    <strong>Transformed Exponential Function:</strong><br>
-    \[f(x) = a \cdot b^{x - h} + k\]
+    <strong>Transformed Logarithm:</strong><br>
+    \(f(x) = a \cdot \log_b(x - h) + k\)
   </div>
+  
+  <table>
+    <tr>
+      <th>Parameter</th>
+      <th>Effect</th>
+    </tr>
+    <tr>
+      <td>a</td>
+      <td>Vertical stretch by |a|, reflection if a < 0</td>
+    </tr>
+    <tr>
+      <td>h</td>
+      <td>Horizontal shift (vertical asymptote at x = h)</td>
+    </tr>
+    <tr>
+      <td>k</td>
+      <td>Vertical shift by k units</td>
+    </tr>
+  </table>
 
   <div class="example-box">
-    <div class="example-title">Example 2: Transformed Exponential</div>
-    <p>Graph \(f(x) = 2 \cdot 3^{x - 1} - 4\).</p>
-    <p>Starting from \(g(x) = 3^x\):</p>
-    <ol>
-      <li>Shift right 1 unit: \(3^{x-1}\)</li>
-      <li>Vertical stretch by 2: \(2 \cdot 3^{x-1}\)</li>
-      <li>Shift down 4 units: \(2 \cdot 3^{x-1} - 4\)</li>
-    </ol>
-    <p>Horizontal asymptote: \(y = -4\)</p>
+    <div class="example-title">Example 3: Graphing a Logarithm</div>
+    <p>Graph \(f(x) = 2\log_3(x + 1) - 1\):</p>
+    <ul>
+      <li>Vertical asymptote: x = -1 (where log argument = 0)</li>
+      <li>Point when x = 0: \(f(0) = 2\log_3(1) - 1 = -1\) → point (0, -1)</li>
+      <li>Point when x = 2: \(f(2) = 2\log_3(3) - 1 = 1\) → point (2, 1)</li>
+    </ul>
   </div>
 
-  <h2>3. Solving Exponential Equations</h2>
+  <h2>3. Laws of Logarithms</h2>
+  
+  <p>Logarithm laws are not arbitrary formulas to memorize. They arise from the fundamental properties of exponents.</p>
 
-  <div class="example-box">
-    <div class="example-title">Example 3: Solving Exponential Equations</div>
-    <p>Solve \(2^{x+1} = 16\).</p>
-    <p>Express both sides with base 2: \(2^{x+1} = 2^4\)</p>
-    <p>Therefore: \(x + 1 = 4\), so \(x = 3\)</p>
-  </div>
-
-  <h3>3.1 Using Logarithms to Solve</h3>
-  <p>When we cannot easily express both sides with the same base, we use logarithms.</p>
-
-  <div class="example-box">
-    <div class="example-title">Example 4: Using Logarithms</div>
-    <p>Solve \(3^x = 10\).</p>
-    <p>Take logarithm of both sides: \(\log(3^x) = \log(10)\)</p>
-    <p>\(x\log(3) = 1\)</p>
-    <p>\(x = \frac{1}{\log(3)} = \frac{1}{\ln(3)} \approx 0.910\)</p>
-  </div>
-
-  <h2>4. Understanding Logarithms</h2>
-
-  <h3>4.1 Definition and Properties</h3>
-  <p>A logarithm is the inverse of an exponential function.</p>
-
+  <h3>3.1 Derivation from Exponent Laws</h3>
+  <p>Since \(b^m \cdot b^n = b^{m+n}\), taking \(\log_b\) of both sides gives \(\log_b(b^m \cdot b^n) = m + n = \log_b(b^m) + \log_b(b^n)\)</p>
+  
   <div class="definition-box">
-    <strong>Definition:</strong> If \(b^y = x\), then \(\log_b(x) = y\).
+    <strong>PRODUCT RULE:</strong> \(\log_b(xy) = \log_b(x) + \log_b(y)\)<br>
+    This works because multiplication of arguments becomes addition of exponents, which becomes addition of logarithms.
   </div>
 
+  <h3>3.2 The Three Fundamental Laws</h3>
   <div class="formula-box">
-    <strong>Key Properties:</strong><br>
-    \[\log_b(xy) = \log_b(x) + \log_b(y)\]<br>
-    \[\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)\]<br>
-    \[\log_b(x^n) = n\log_b(x)\]
-  </div>
-
-  <h2>5. Transformations of Logarithmic Functions</h2>
-
-  <div class="formula-box">
-    <strong>Transformed Logarithmic Function:</strong><br>
-    \[f(x) = a \cdot \log_b(x - h) + k\]
+    \[
+    \begin{aligned}
+    \text{Product Rule: } & \log_b(xy) = \log_b(x) + \log_b(y) \\[6pt]
+    \text{Quotient Rule: } & \log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y) \\[6pt]
+    \text{Power Rule: } & \log_b(x^n) = n\log_b(x)
+    \end{aligned}
+    \]
   </div>
 
   <div class="example-box">
-    <div class="example-title">Example 5: Logarithmic Transformation</div>
-    <p>Graph \(f(x) = 2\log_3(x + 1) - 1\).</p>
-    <p>Starting from \(g(x) = \log_3(x)\):</p>
+    <div class="example-title">Example 4: Applying Log Laws</div>
+    <p>Simplify: \(\log_2(8x^2) - \log_2(4x)\)</p>
     <ol>
-      <li>Shift left 1 unit: \(\log_3(x + 1)\)</li>
-      <li>Vertical stretch by 2: \(2\log_3(x + 1)\)</li>
-      <li>Shift down 1 unit: \(2\log_3(x + 1) - 1\)</li>
+      <li>Apply quotient rule: \(\log_2\left(\frac{8x^2}{4x}\right) = \log_2(2x)\)</li>
+      <li>Apply product rule: \(\log_2(2) + \log_2(x) = 1 + \log_2(x)\)</li>
     </ol>
-    <p>Vertical asymptote: \(x = -1\)</p>
   </div>
 
-  <h2>6. Laws of Logarithms</h2>
+  <div class="example-box">
+    <div class="example-title">Example 5: Deriving a Log Law</div>
+    <p>Show why \(\log_b(x^n) = n\log_b(x)\):</p>
+    <p>Let \(y = \log_b(x)\), so \(b^y = x\)</p>
+    <p>Then \(x^n = (b^y)^n = b^{ny}\)</p>
+    <p>Therefore \(\log_b(x^n) = ny = n \cdot \log_b(x)\)</p>
+  </div>
 
+  <h3>3.3 Change of Base Formula</h3>
   <div class="formula-box">
-    <strong>Product Rule:</strong> \(\log_b(xy) = \log_b(x) + \log_b(y)\)<br>
-    <strong>Quotient Rule:</strong> \(\log_b\left(\frac{x}{y}\right) = \log_b(x) - \log_b(y)\)<br>
-    <strong>Power Rule:</strong> \(\log_b(x^n) = n\log_b(x)\)
+    <strong>Change of Base:</strong><br>
+    \(\log_b(x) = \frac{\log_k(x)}{\log_k(b)}\) for any valid base k<br><br>
+    Common forms: \(\log_b(x) = \frac{\ln(x)}{\ln(b)} = \frac{\log(x)}{\log(b)}\)
+  </div>
+
+  <h2>4. Solving Exponential Equations</h2>
+  
+  <h3>4.1 Same Base Method</h3>
+  <p>When both sides can be expressed with the same base, equate the exponents.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 6: Same Base</div>
+    <p>Solve \(3^{2x-1} = 27\)</p>
+    <p>Express 27 as power of 3: \(3^{2x-1} = 3^3\)</p>
+    <p>Equate exponents: \(2x - 1 = 3\) → \(x = 2\)</p>
+  </div>
+
+  <h3>4.2 Using Logarithms</h3>
+  <p>When bases cannot easily match, use logarithms to solve.</p>
+
+  <div class="example-box">
+    <div class="example-title">Example 7: Using Logarithms</div>
+    <p>Solve \(5^x = 20\)</p>
+    <p>Take natural log: \(\ln(5^x) = \ln(20)\)</p>
+    <p>Power rule: \(x \ln(5) = \ln(20)\)</p>
+    <p>Solve: \(x = \frac{\ln(20)}{\ln(5)} \approx 1.861\)</p>
+  </div>
+
+  <h2>5. Solving Logarithmic Equations</h2>
+
+  <div class="example-box">
+    <div class="example-title">Example 8: Solving Log Equations</div>
+    <p>Solve \(\ln(x + 2) + \ln(x - 1) = \ln(6)\)</p>
+    <ol>
+      <li>Combine left side: \(\ln((x+2)(x-1)) = \ln(6)\)</li>
+      <li>Remove logs: \((x+2)(x-1) = 6\)</li>
+      <li>Expand: \(x^2 + x - 2 = 6\)</li>
+      <li>Solve: \(x^2 + x - 8 = 0\)</li>
+      <li>Quadratic formula: \(x = \frac{-1 \pm \sqrt{33}}{2}\)</li>
+    </ol>
+    <p>Check domain: need x + 2 > 0 AND x - 1 > 0, so x > 1</p>
+    <p>Valid solution: \(x = \frac{-1 + \sqrt{33}}{2} \approx 2.37\)</p>
+  </div>
+
+  <h2>6. Applications</h2>
+
+  <h3>6.1 Exponential Growth and Decay</h3>
+  <div class="formula-box">
+    <strong>General Model:</strong><br>
+    \(y = y_0 e^{kt}\)<br>
+    where \(y_0\) = initial value, k = growth rate constant
+  </div>
+
+  <div class="important-note">
+    <div class="important-note-title">Sign of k:</div>
+    <p>k > 0 means growth (population, compound interest)<br>
+    k < 0 means decay (radioactive decay, Newton's Law of Cooling)</p>
   </div>
 
   <div class="example-box">
-    <div class="example-title">Example 6: Using Laws of Logarithms</div>
-    <p>Simplify: \(\log_2(8x^3) - \log_2(4x)\)</p>
-    <p>\(\log_2(8x^3) - \log_2(4x) = \log_2\left(\frac{8x^3}{4x}\right) = \log_2(2x^2) = \log_2(2) + \log_2(x^2) = 1 + 2\log_2(x)\)</p>
+    <div class="example-title">Example 9: Continuous Compound Interest</div>
+    <p>You invest $1000 at 5% annual interest compounded continuously. Find the value after 10 years.</p>
+    <p>\(A = Pe^{rt} = 1000e^{0.05 \cdot 10} = 1000e^{0.5} \approx \$1,648.72\)</p>
   </div>
 
-  <h2>7. Logarithmic and Exponential Equations</h2>
-
-  <div class="example-box">
-    <div class="example-title">Example 7: Solving Logarithmic Equations</div>
-    <p>Solve \(\log_3(x + 2) + \log_3(x - 1) = 1\).</p>
-    <p>Combine: \(\log_3((x + 2)(x - 1)) = 1\)</p>
-    <p>\((x + 2)(x - 1) = 3^1 = 3\)</p>
-    <p>\(x^2 + x - 2 = 3\)</p>
-    <p>\(x^2 + x - 5 = 0\)</p>
-    <p>\(x = \frac{-1 \pm \sqrt{21}}{2}\) (check domain: \(x > 1\) or \(x < -2\))</p>
-  </div>
-
-  <h2>8. Practice Problems</h2>
+  <h2>7. Practice Problems</h2>
 
   <div class="example-box">
     <div class="example-title">Problem 1</div>
-    <p>Solve \(5^{2x} = 125\) for \(x\).</p>
+    <p>Solve \(2^{x+3} = 5^{2x-1}\). Express your answer in terms of natural logarithms.</p>
   </div>
 
   <div class="example-box">
     <div class="example-title">Problem 2</div>
-    <p>Simplify: \(\log(x^2) + \log(\sqrt{x}) - \log(2x)\)</p>
+    <p>Simplify: \(\log_3(54) + \log_3(2) - \log_3(8)\)</p>
   </div>
 
   <div class="example-box">
     <div class="example-title">Problem 3</div>
-    <p>Solve \(\ln(x - 1) + \ln(x + 2) = \ln(6)\)</p>
+    <p>A bacteria culture grows exponentially. There are 500 bacteria at t = 0 and 4000 at t = 3 hours. Find an exponential model and use it to predict the population after 5 hours.</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 4</div>
+    <p>Solve: \(\log(x + 3) - \log(x) = 1\) (use common logarithm)</p>
+  </div>
+
+  <div class="example-box">
+    <div class="example-title">Problem 5</div>
+    <p>Find the pH of a solution with hydrogen ion concentration \([H^+] = 1 \times 10^{-4}\) M using \(pH = -\log[H^+]\).</p>
+  </div>
+
+  <h2>Why These Concepts Matter</h2>
+  
+  <div class="important-note">
+    <div class="important-note-title">Domain of Logarithms (x > 0):</div>
+    <p>There is no real number y such that b^y = x when x ≤ 0 (for b > 0, b ≠ 1). This is why the domain of logarithms is only positive numbers.</p>
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">Base Restriction (b > 0, b ≠ 1):</div>
+    <p>For b ≤ 0, b^x is undefined for many values of x (like b = -2 and x = 1/2 gives √(-2)). We require b > 0 to ensure the function is defined for all real numbers.</p>
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">Sign of k in Transformed Exponentials:</div>
+    <p>The vertical shift parameter k determines the horizontal asymptote. This is crucial in modeling real-world scenarios where quantities approach but never reach a limiting value (like cooling objects approaching room temperature).</p>
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">Logarithm Laws:</div>
+    <p>Logarithm laws are not arbitrary formulas to memorize. They derive directly from exponent laws. Because b^m · b^n = b^(m+n), we get log_b(xy) = log_b(x) + log_b(y). Understanding these derivations prevents rote memorization and builds deeper mathematical insight.</p>
   </div>
 
   <div class="navigation">
     <a href="precalculus-12.html">← Back to Course</a>
   </div>
+    
     <script src="../script.js"></script>
-</body>
+  </body>
 </html>

@@ -212,68 +212,79 @@
 
     <div class="lecture-content">
 
-  <h2>1. Angles and Angle Measure</h2>
+  <h2>1. Angle Measurement</h2>
   
-  <h3>1.1 Why Study Angles?</h3>
-  <p>Angles are fundamental to understanding periodic phenomena in nature - from the rotation of planets to the oscillation of waves. The study of angles connects geometry with algebra through the unit circle, providing a bridge to more advanced mathematics.</p>
-
-  <h3>1.2 Angle Measurement Systems</h3>
-  <p>Angles can be measured in degrees or radians. The radian measure is based on the radius of a circle, making it the natural choice for higher mathematics.</p>
-
-  <div class="important-note">
-    <div class="important-note-title">Why Radians?</div>
-    <p>Radians are preferred in calculus and higher mathematics because they create a direct relationship between arc length and angle measure. When an angle is measured in radians, the arc length equals the radius times the angle: s = rθ.</p>
-  </div>
-
-  <div class="formula-box">
-    <strong>Conversion Formulas:</strong><br>
-    \[180° = \pi \text{ radians}\]
-    \[\text{radians} = \text{degrees} \times \frac{\pi}{180}\]
-    \[\text{degrees} = \text{radians} \times \frac{180}{\pi}\]
-  </div>
-
-  <div class="example-box">
-    <div class="example-title">Example 1: Converting Between Units</div>
-    <p>Convert \(120°\) to radians.</p>
-    <p>\[120° \times \frac{\pi}{180} = \frac{2\pi}{3} \text{ radians}\]</p>
-    <p><strong>Motivation:</strong> This conversion is essential for working with trigonometric functions in calculus, where all formulas assume radian measure.</p>
-  </div>
-
-  <h3>1.3 Arc Length and Sector Area</h3>
-  <p>For a circle of radius \(r\) and central angle \(\theta\) in radians, we can calculate the arc length and sector area.</p>
-
-  <div class="formula-box">
-    <strong>Arc Length:</strong> \(s = r\theta\)<br>
-    <strong>Sector Area:</strong> \(A = \frac{1}{2}r^2\theta\)
-  </div>
-
-  <div class="example-box">
-    <div class="example-title">Example 2: Real-World Application</div>
-    <p>A Ferris wheel has radius 20 meters. If it completes one full revolution in 4 minutes, what is the angular speed in radians per minute?</p>
-    <p>One revolution = \(2\pi\) radians, so angular speed = \(\frac{2\pi}{4} = \frac{\pi}{2}\) rad/min</p>
-    <p><strong>Motivation:</strong> Understanding angular speed helps us model periodic motion in physics and engineering.</p>
-  </div>
-
-  <h2>2. The Unit Circle</h2>
-
-  <h3>2.1 Definition and Properties</h3>
-  <p>The unit circle is a circle with radius 1 centered at the origin. This simple geometric object is the foundation for all trigonometric functions and connects right triangle trigonometry to the coordinate plane.</p>
-
+  <p>Angles are fundamental to understanding periodic phenomena. We measure angles in degrees or radians, each with its place in mathematics.</p>
+  
+  <h3>1.1 Degrees and Radians</h3>
+  <p>The degree system divides a circle into 360 equal parts. The radian system is based on the radius of a circle.</p>
+  
   <div class="definition-box">
-    <strong>Unit Circle Definition:</strong> For any angle \(\theta\) in standard position (vertex at origin, initial side on positive x-axis), the point where the terminal arm intersects the unit circle has coordinates \((\cos\theta, \sin\theta)\).
+    <strong>Key Relationships:</strong><br>
+    360° = 2π radians<br>
+    180° = π radians<br>
+    90° = π/2 radians
+  </div>
+  
+  <div class="formula-box">
+    <strong>Conversion:</strong><br>
+    \(\text{radians} = \text{degrees} \times \frac{\pi}{180}\)<br>
+    \(\text{degrees} = \text{radians} \times \frac{180}{\pi}\)
   </div>
 
-  <h3>2.2 Why the Unit Circle Matters</h3>
-  <p>The unit circle extends trigonometry beyond acute angles. While right triangle definitions only work for angles between 0° and 90°, the unit circle allows us to define trigonometric functions for any real number.</p>
-
+  <h3>1.2 Coterminal Angles</h3>
+  <p>Two angles are coterminal if they share the same terminal side. Coterminal angles differ by multiples of 2π radians (or 360°).</p>
+  
   <div class="example-box">
-    <div class="example-title">Example 3: Understanding the Unit Circle</div>
-    <p>Consider angle \(\theta = \frac{5\pi}{6}\) (150°). This angle is in the second quadrant, where x-coordinates are negative and y-coordinates are positive. Therefore, \(\cos\theta < 0\) and \(\sin\theta > 0\).</p>
-    <p><strong>Motivation:</strong> This explains why cosine is negative and sine is positive for obtuse angles - a key insight for understanding trigonometric signs in different quadrants.</p>
+    <div class="example-title">Example 1: Finding Coterminal Angles</div>
+    <p>Find an angle coterminal to \(\frac{5\pi}{3}\):</p>
+    <p>\(\frac{5\pi}{3} + 2\pi = \frac{5\pi}{3} + \frac{6\pi}{3} = \frac{11\pi}{3}\)</p>
   </div>
 
-  <h3>2.3 Special Angles and Symmetry</h3>
-  <p>Key angles and their trigonometric values on the unit circle. These values are derived from special right triangles (30-60-90 and 45-45-90).</p>
+  <h3>1.3 Reference Angles</h3>
+  <p>The reference angle is the acute angle to the x-axis. It's always positive and between 0 and π/2 (0° and 90°).</p>
+  
+  <table>
+    <tr>
+      <th>Quadrant</th>
+      <th>Reference Angle Formula</th>
+    </tr>
+    <tr>
+      <td>I (0 to π/2)</td>
+      <td>θ</td>
+    </tr>
+    <tr>
+      <td>II (π/2 to π)</td>
+      <td>π - θ</td>
+    </tr>
+    <tr>
+      <td>III (π to 3π/2)</td>
+      <td>θ - π</td>
+    </tr>
+    <tr>
+      <td>IV (3π/2 to 2π)</td>
+      <td>2π - θ</td>
+    </tr>
+  </table>
+
+  <h2>2. Special Angles and Exact Values</h2>
+
+  <h3>2.1 30-60-90 and 45-45-90 Triangles</h3>
+  <p>The unit circle values come from two special right triangles.</p>
+  
+  <div class="important-note">
+    <div class="important-note-title">30-60-90 Triangle:</div>
+    <p>Sides are in ratio 1 : √3 : 2</p>
+    <p>Correct trig values: sin 30° = 1/2, cos 30° = √3/2</p>
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">45-45-90 Triangle:</div>
+    <p>Sides are in ratio 1 : 1 : √2</p>
+    <p>Correct trig values: sin 45° = cos 45° = √2/2</p>
+  </div>
+
+  <h3>2.2 The Complete Unit Circle</h3>
 
   <table>
     <tr>
@@ -291,180 +302,205 @@
       <td>0</td>
     </tr>
     <tr>
-      <td>\(\pi/6\)</td>
+      <td>π/6</td>
       <td>30°</td>
-      <td>\(\sqrt{3}/2\)</td>
+      <td>√3/2</td>
       <td>1/2</td>
-      <td>\(\sqrt{3}/3\)</td>
+      <td>√3/3</td>
     </tr>
     <tr>
-      <td>\(\pi/4\)</td>
+      <td>π/4</td>
       <td>45°</td>
-      <td>\(\sqrt{2}/2\)</td>
-      <td>\(\sqrt{2}/2\)</td>
+      <td>√2/2</td>
+      <td>√2/2</td>
       <td>1</td>
     </tr>
     <tr>
-      <td>\(\pi/3\)</td>
+      <td>π/3</td>
       <td>60°</td>
       <td>1/2</td>
-      <td>\(\sqrt{3}/2\)</td>
-      <td>\(\sqrt{3}\)</td>
+      <td>√3/2</td>
+      <td>√3</td>
     </tr>
     <tr>
-      <td>\(\pi/2\)</td>
+      <td>π/2</td>
       <td>90°</td>
       <td>0</td>
       <td>1</td>
-      <td>undefined</td>
+      <td>∞</td>
     </tr>
   </table>
 
-  <h3>2.4 Reference Angles</h3>
-  <p>For any angle, we can find its reference angle - the acute angle to the x-axis. This helps us determine trigonometric values in all quadrants.</p>
+  <h3>2.3 Where Do These Values Come From?</h3>
+  <p>Consider a 30-60-90 triangle inscribed in the unit circle. If the hypotenuse is 1 (the radius), the side opposite 30° is 1/2, and the side adjacent is √3/2. The coordinates on the unit circle are (cos θ, sin θ).</p>
 
-  <div class="important-note">
-    <div class="important-note-title">Reference Angle Rules:</div>
-    <ul>
-      <li>Quadrant I: Reference angle = \(\theta\)</li>
-      <li>Quadrant II: Reference angle = \(\pi - \theta\)</li>
-      <li>Quadrant III: Reference angle = \(\theta - \pi\)</li>
-      <li>Quadrant IV: Reference angle = \(2\pi - \theta\)</li>
-    </ul>
-  </div>
-
-  <h2>3. Trigonometric Ratios</h2>
+  <h2>3. The Trigonometric Functions</h2>
 
   <h3>3.1 Definitions on the Unit Circle</h3>
-  <p>For any angle \(\theta\) in standard position, the six trigonometric functions are defined as ratios of the coordinates on the unit circle.</p>
-
-  <div class="formula-box">
-    \[\sin\theta = y\text{-coordinate of point on unit circle}\]
-    \[\cos\theta = x\text{-coordinate of point on unit circle}\]
-    \[\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{y}{x}\]
+  <p>For an angle θ in standard position on the unit circle:</p>
+  
+  <div class="definition-box">
+    <strong>Primary Functions:</strong><br>
+    \(\sin\theta = y\) (y-coordinate)<br>
+    \(\cos\theta = x\) (x-coordinate)<br>
+    \(\tan\theta = \frac{y}{x}\) (where x ≠ 0)
   </div>
 
-  <div class="example-box">
-    <div class="example-title">Example 4: Finding Trig Values</div>
-    <p>Find \(\sin\frac{3\pi}{4}\), \(\cos\frac{3\pi}{4}\), and \(\tan\frac{3\pi}{4}\).</p>
-    <p>The angle \(\frac{3\pi}{4}\) is in quadrant II, with reference angle \(\frac{\pi}{4}\).</p>
-    <p>\(\sin\frac{3\pi}{4} = \frac{\sqrt{2}}{2}\) (positive in QII)</p>
-    <p>\(\cos\frac{3\pi}{4} = -\frac{\sqrt{2}}{2}\) (negative in QII)</p>
-    <p>\(\tan\frac{3\pi}{4} = -1\) (negative in QII)</p>
-    <p><strong>Motivation:</strong> Understanding how signs change by quadrant is crucial for solving trigonometric equations and analyzing wave behavior.</p>
-  </div>
-
-  <h3>3.2 Reciprocal and Quotient Identities</h3>
-  <p>The remaining four trigonometric functions are defined as reciprocals of the primary functions. These relationships are essential for simplifying complex trigonometric expressions.</p>
-
-  <div class="formula-box">
-    \[\csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{1}{\tan\theta} = \frac{\cos\theta}{\sin\theta}\]
-  </div>
-
-  <h3>3.3 Signs of Trigonometric Functions</h3>
-  <p>The signs of trigonometric functions depend on the quadrant. This is summarized by the acronym "All Students Take Calculus":</p>
+  <h3>3.2 Domain, Range, Zeros, and Asymptotes</h3>
 
   <table>
     <tr>
-      <th>Quadrant</th>
-      <th>\(\sin\theta\)</th>
-      <th>\(\cos\theta\)</th>
-      <th>\(\tan\theta\)</th>
+      <th>Function</th>
+      <th>Domain</th>
+      <th>Range</th>
+      <th>X-Intercepts</th>
+      <th>Vertical Asymptotes</th>
     </tr>
     <tr>
-      <td>I</td>
-      <td>+</td>
-      <td>+</td>
-      <td>+</td>
+      <td>\(\sin x\)</td>
+      <td>All real numbers</td>
+      <td>\([-1, 1]\)</td>
+      <td>\(x = n\pi\)</td>
+      <td>None</td>
     </tr>
     <tr>
-      <td>II</td>
-      <td>+</td>
-      <td>-</td>
-      <td>-</td>
+      <td>\(\cos x\)</td>
+      <td>All real numbers</td>
+      <td>\([-1, 1]\)</td>
+      <td>\(x = \frac{\pi}{2} + n\pi\)</td>
+      <td>None</td>
     </tr>
     <tr>
-      <td>III</td>
-      <td>-</td>
-      <td>-</td>
-      <td>+</td>
-    </tr>
-    <tr>
-      <td>IV</td>
-      <td>-</td>
-      <td>+</td>
-      <td>-</td>
+      <td>\(\tan x\)</td>
+      <td>All real numbers except \(\frac{\pi}{2} + n\pi\)</td>
+      <td>All real numbers</td>
+      <td>\(x = n\pi\)</td>
+      <td>\(x = \frac{\pi}{2} + n\pi\)</td>
     </tr>
   </table>
 
-  <h2>4. Introduction to Trigonometric Equations</h2>
-
-  <h3>4.1 Solving Basic Trigonometric Equations</h3>
-  <p>To solve equations like \(\sin\theta = a\) or \(\cos\theta = a\), we use the unit circle to find all solutions. This process connects algebraic problem-solving with geometric intuition.</p>
+  <h3>3.3 Amplitude and Period</h3>
+  <p>For transformed functions \(y = a \sin(bx + c) + d\) and \(y = a \cos(bx + c) + d\):</p>
+  <ul>
+    <li><strong>Amplitude</strong> = |a| (distance from midline to maximum)</li>
+    <li><strong>Period</strong> = \(\frac{2\pi}{|b|}\) (one complete cycle)</li>
+    <li><strong>Phase shift</strong> = \(-\frac{c}{b}\) (horizontal shift)</li>
+    <li><strong>Vertical shift</strong> = d (midline: y = d)</li>
+  </ul>
 
   <div class="example-box">
-    <div class="example-title">Example 5: Solving Trigonometric Equations</div>
-    <p>Solve \(\sin\theta = \frac{1}{2}\) for \(\theta \in [0, 2\pi)\).</p>
-    <p>From the unit circle, \(\sin\theta = \frac{1}{2}\) at \(\theta = \frac{\pi}{6}\) and \(\theta = \frac{5\pi}{6}\).</p>
-    <p><strong>Motivation:</strong> These solutions represent the two angles in the first and second quadrants where the y-coordinate equals 1/2. This geometric interpretation helps us understand wave interference and signal processing.</p>
+    <div class="example-title">Example 4: Identifying Parameters</div>
+    <p>For \(f(x) = -3\sin(2x - \pi) + 1\):</p>
+    <p>Amplitude = 3, Period = π, Phase shift = π/2, Vertical shift = 1, Midline: y = 1</p>
   </div>
 
-  <h3>4.2 General Solutions</h3>
-  <p>Trigonometric equations have infinitely many solutions due to the periodic nature of trigonometric functions. We express them using the period.</p>
+  <h2>4. Transformations of Trigonometric Functions</h2>
 
   <div class="formula-box">
-    <strong>General Solution for Sine:</strong><br>
-    \[\sin\theta = a \Rightarrow \theta = \arcsin(a) + 2\pi n \text{ or } \theta = \pi - \arcsin(a) + 2\pi n\]<br><br>
-    <strong>General Solution for Cosine:</strong><br>
-    \[\cos\theta = a \Rightarrow \theta = \pm\arccos(a) + 2\pi n\]
+    <strong>Sine Transformation:</strong><br>
+    \(y = a \sin(b(x - h)) + k\)<br><br>
+    <strong>Cosine Transformation:</strong><br>
+    \(y = a \cos(b(x - h)) + k\)<br><br>
+    <strong>Tangent Transformation:</strong><br>
+    \(y = a \tan(b(x - h)) + k\)
   </div>
+
+  <table>
+    <tr>
+      <th>Parameter</th>
+      <th>Effect on Sine/Cosine</th>
+      <th>Effect on Tangent</th>
+    </tr>
+    <tr>
+      <td>\(a\)</td>
+      <td>Vertical stretch by |a|, reflection if a < 0</td>
+      <td>Vertical stretch by |a|, reflection if a < 0</td>
+    </tr>
+    <tr>
+      <td>\(b\)</td>
+      <td>Horiz. compression by 1/|b|, period = 2π/|b|</td>
+      <td>Horiz. compression by 1/|b|, period = π/|b|</td>
+    </tr>
+    <tr>
+      <td>\(h\)</td>
+      <td>Horizontal shift by h units</td>
+      <td>Horizontal shift by h units</td>
+    </tr>
+    <tr>
+      <td>\(k\)</td>
+      <td>Vertical shift (midline)</td>
+      <td>Vertical shift ( asymptote at y = k )</td>
+    </tr>
+  </table>
 
   <div class="example-box">
-    <div class="example-title">Example 6: General Solutions</div>
-    <p>Find all solutions to \(\sin\theta = \frac{1}{2}\).</p>
-    <p>Principal solutions: \(\theta = \frac{\pi}{6}, \frac{5\pi}{6}\)</p>
-    <p>General solutions: \(\theta = \frac{\pi}{6} + 2\pi n\) or \(\theta = \frac{5\pi}{6} + 2\pi n\) for any integer \(n\)</p>
-    <p><strong>Motivation:</strong> This infinite family of solutions models periodic phenomena like the times when a pendulum reaches a certain height.</p>
+    <div class="example-title">Example 5: Graphing a Transformed Sine Function</div>
+    <p>Graph \(y = 2\sin(x + \frac{\pi}{3}) - 1\):</p>
+    <p>Amplitude = 2, Period = 2π, Phase shift = -π/3, Vertical shift = -1</p>
   </div>
 
-  <h2>5. Applications of Trigonometry</h2>
+  <h2>5. Trigonometric Equations</h2>
 
-  <h3>5.1 Real-World Applications</h3>
-  <p>Trigonometry is essential for modeling periodic phenomena. From the height of tides to the voltage in alternating current, trigonometric functions describe oscillations in nature and technology.</p>
+  <h3>5.1 Solving Basic Equations</h3>
+  <p>Equations of the form \(\sin x = a\), \(\cos x = a\), or \(\tan x = a\) are solved using reference angles and quadrant analysis.</p>
+
+  <h3>5.2 Solving Equations with Transformations</h3>
+  <p>For equations like \(a \sin(bx + c) + d = 0\), isolate the trigonometric function and apply inverse functions.</p>
 
   <div class="example-box">
-    <div class="example-title">Example 7: Modeling with Trigonometry</div>
-    <p>A Ferris wheel with radius 25 meters completes one revolution every 4 minutes. If you board at the bottom, what is your height after 90 seconds?</p>
-    <p>Angular position: \(\theta = \frac{\pi}{2} \times \frac{90}{60} = \frac{3\pi}{4}\) radians</p>
-    <p>Height: \(h = 25 + 25\sin\frac{3\pi}{4} = 25 + 25 \times \frac{\sqrt{2}}{2} \approx 39.3\) meters</p>
-    <p><strong>Motivation:</strong> This demonstrates how trigonometry models circular motion, which is fundamental to understanding waves, rotations, and oscillations.</p>
+    <div class="example-title">Example 6: Solving with Transformations</div>
+    <p>Solve \(2\sin(x) - 1 = 0\) for \(x \in [0, 2\pi)\):</p>
+    <p>\(\sin x = \frac{1}{2}\)</p>
+    <p>Reference angle: π/6</p>
+    <p>Solutions: \(x = \frac{\pi}{6}, \frac{5\pi}{6}\)</p>
   </div>
 
-  <h2>6. Practice Problems</h2>
+  <h2>6. Trigonometric Identities</h2>
 
+  <h3>6.1 Pythagorean Identities</h3>
+  <p>Derived from the Pythagorean theorem applied to the unit circle:</p>
+  <div class="formula-box">
+    \(\sin^2\theta + \cos^2\theta = 1\)<br>
+    \(1 + \tan^2\theta = \sec^2\theta\)<br>
+    \(1 + \cot^2\theta = \csc^2\theta\)
+  </div>
+
+  <h3>6.2 Reciprocal Identities</h3>
+  <div class="formula-box">
+    \(\csc\theta = \frac{1}{\sin\theta}, \quad \sec\theta = \frac{1}{\cos\theta}, \quad \cot\theta = \frac{1}{\tan\theta}\)
+  </div>
+
+<h3>6.3 Quotient Identities</h3>
+    <div class="formula-box">
+      \(\tan\theta = \frac{\sin\theta}{\cos\theta}, \quad \cot\theta = \frac{\cos\theta}{\sin\theta}\)
+    </div>
+
+  <h2>7. Practice Problems</h2>
+  
   <div class="example-box">
     <div class="example-title">Problem 1</div>
-    <p>Convert \(\frac{5\pi}{6}\) radians to degrees and find the reference angle.</p>
+    <p>Convert \(240°\) to radians and find the reference angle. Determine the values of \(\sin 240°\) and \(\cos 240°\) without a calculator.</p>
   </div>
 
   <div class="example-box">
     <div class="example-title">Problem 2</div>
-    <p>Find all six trigonometric values for \(\theta = \frac{7\pi}{4}\) and explain the signs in each quadrant.</p>
+    <p>Graph \(y = -\frac{3}{2}\cos(2x + \pi) + 1\) and state the amplitude, period, and phase shift.</p>
   </div>
 
   <div class="example-box">
     <div class="example-title">Problem 3</div>
-    <p>Solve \(\cos\theta = -\frac{\sqrt{3}}{2}\) for \(\theta \in [0, 2\pi)\) and give the general solution.</p>
+    <p>Solve \(2\cos x + \sqrt{3} = 0\) for \(x \in [0, 2\pi)\). Give all solutions in radians.</p>
   </div>
 
   <div class="example-box">
     <div class="example-title">Problem 4</div>
-    <p>A lighthouse is located on a small island 2 km from the nearest point P on a straight shoreline. The light rotates at 5 revolutions per minute. Find the rate at which the beam moves along the shore when it is 1 km from point P.</p>
+    <p>Verify the identity: \(\frac{\sin\theta}{1 + \cos\theta} = \frac{1 - \cos\theta}{\sin\theta}\)</p>
   </div>
 
   <div class="navigation">
     <a href="precalculus-12.html">← Back to Course</a>
   </div>
+    
     <script src="../script.js"></script>
-</body>
+  </body>
 </html>
