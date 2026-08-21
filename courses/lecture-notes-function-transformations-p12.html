@@ -214,10 +214,12 @@
 
   <h2>1. Introduction to Function Transformations</h2>
   
-  <p>Function transformations allow us to modify the graph of a function by shifting, stretching, compressing, or reflecting it. Understanding transformations helps us graph complex functions quickly and analyze their behavior.</p>
-
-  <div class="definition-box">
-    <strong>Definition:</strong> A transformation of a function changes its graph in some way while maintaining its basic shape. The parent function is the simplest form of a function family, and transformations create related functions.
+  <p>Function transformations allow us to modify the graph of a function by shifting, stretching, compressing, or reflecting it. Understanding transformations systematically helps us graph complex functions and analyze their behavior. The general form combines all transformations:</p>
+  
+  <div class="formula-box">
+    <strong>General Form:</strong><br>
+    \[f(x) = a \cdot f(x - h) + k\]<br>
+    where each parameter controls a different transformation.
   </div>
 
   <h2>2. Horizontal and Vertical Translations</h2>
@@ -354,41 +356,85 @@
     <p>Vertex: \((-2, 3)\)</p>
   </div>
 
-  <h2>6. Inverse of a Relation</h2>
-
-  <h3>6.1 Finding the Inverse</h3>
-  <p>The inverse of a function reverses the input and output. To find the inverse:</p>
-
+<h2>6. Inverse of a Relation</h2>
+  
+  <p>The inverse of a function reverses the input and output. Understanding inverse relationships is fundamental to many areas of mathematics.</p>
+  
+  <h3>6.1 Inverse Relations</h3>
+  <div class="definition-box">
+    <strong>Definition:</strong> Given a relation \(R\) with ordered pairs \((x, y)\), the inverse relation \(R^{-1}\) consists of the ordered pairs \((y, x)\).
+  </div>
+  <p>For a function \(f\), the inverse notation \(f^{-1}\) represents a relation where if \(f(x) = y\), then \(f^{-1}(y) = x\).</p>
+  
+  <h3>6.2 One-to-One Functions</h3>
+  <div class="definition-box">
+    <strong>Definition:</strong> A function is one-to-one (injective) if each output corresponds to exactly one input. Formally, if \(f(a) = f(b)\), then \(a = b\).
+  </div>
+  
+  <div class="important-note">
+    <div class="important-note-title">Importance Note:</div>
+    <p>Only one-to-one functions have inverse functions. If a function is not one-to-one, we can restrict its domain to make it one-to-one.</p>
+  </div>
+  
+  <h3>6.3 Horizontal-Line Test</h3>
+  <p>A function has an inverse that is also a function if and only if no horizontal line intersects its graph more than once.</p>
+  
+  <div class="example-box">
+    <div class="example-title">Example: Applying the Horizontal-Line Test</div>
+    <p>Test the function \(f(x) = x^2\):</p>
+    <p>A horizontal line at \(y = 4\) intersects \(f(x) = x^2\) at both \((-2, 4)\) and \((2, 4)\)</p>
+    <p>Therefore, \(f(x) = x^2\) is NOT one-to-one over its entire domain.</p>
+    <p>However, if we restrict the domain to \(x \geq 0\), then \(f(x) = x^2\) IS one-to-one.</p>
+  </div>
+  
+  <h3>6.4 Finding Inverses Algebraically</h3>
   <div class="formula-box">
-    <strong>Steps to Find Inverse:</strong><br>
+    <strong>Steps to Find Inverse Algebraically:</strong><br>
     <ol style="text-align: left; margin: 0;">
       <li>Replace \(f(x)\) with \(y\)</li>
       <li>Swap \(x\) and \(y\)</li>
       <li>Solve for \(y\)</li>
       <li>Replace \(y\) with \(f^{-1}(x)\)</li>
+      <li>State the domain restriction if necessary</li>
     </ol>
   </div>
-
+  
   <div class="example-box">
-    <div class="example-title">Example 7: Finding an Inverse</div>
-    <p>Find the inverse of \(f(x) = 2x + 5\)</p>
-    <p>Step 1: \(y = 2x + 5\)</p>
-    <p>Step 2: \(x = 2y + 5\)</p>
-    <p>Step 3: \(y = \frac{x - 5}{2}\)</p>
-    <p>Step 4: \(f^{-1}(x) = \frac{x - 5}{2}\)</p>
+    <div class="example-title">Example 7: Linear Function Inverse</div>
+    <p>Find the inverse of \(f(x) = 3x - 4\)</p>
+    <p>Step 1: \(y = 3x - 4\)</p>
+    <p>Step 2: \(x = 3y - 4\)</p>
+    <p>Step 3: \(x + 4 = 3y\), so \(y = \frac{x + 4}{3}\)</p>
+    <p>Step 4: \(f^{-1}(x) = \frac{x + 4}{3}\)</p>
+    <p>Domain of \(f^{-1}\): All real numbers</p>
   </div>
-
-  <h3>6.2 Inverse of a Function with Transformations</h3>
-  <p>For a function in the form \(f(x) = a \cdot g(x - h) + k\), the inverse involves reversing the transformations in reverse order.</p>
-
+  
   <div class="example-box">
-    <div class="example-title">Example 8: Inverse of Transformed Function</div>
-    <p>Find the inverse of \(f(x) = 3(x - 1)^2 + 2\) for \(x \geq 1\)</p>
-    <p>Step 1: \(y = 3(x - 1)^2 + 2\)</p>
-    <p>Step 2: \(x = 3(y - 1)^2 + 2\)</p>
-    <p>Step 3: \((y - 1)^2 = \frac{x - 2}{3}\)</p>
-    <p>Step 4: \(y - 1 = \sqrt{\frac{x - 2}{3}}\) (positive root since \(x \geq 1\))</p>
-    <p>Step 5: \(f^{-1}(x) = 1 + \sqrt{\frac{x - 2}{3}}\)</p>
+    <div class="example-title">Example 8: Square Root Function Inverse</div>
+    <p>Find the inverse of \(f(x) = \sqrt{x - 2} + 1\) for \(x \geq 2\)</p>
+    <p>Step 1: \(y = \sqrt{x - 2} + 1\)</p>
+    <p>Step 2: \(x = \sqrt{y - 2} + 1\)</p>
+    <p>Step 3: \(x - 1 = \sqrt{y - 2}\)</p>
+    <p>Step 4: \((x - 1)^2 = y - 2\)</p>
+    <p>Step 5: \(y = (x - 1)^2 + 2\)</p>
+    <p>Step 6: \(f^{-1}(x) = (x - 1)^2 + 2\)</p>
+    <p>Domain of \(f^{-1}\): \(x \geq 1\) (output of \(f\) starts at 1)</p>
+  </div>
+  
+  <h3>6.5 Graphing Inverses</h3>
+  <p>To graph the inverse of a function, reflect the original graph across the line \(y = x\). This is because points \((a, b)\) on \(f\) correspond to points \((b, a)\) on \(f^{-1}\)</p>
+  
+  <div class="important-note">
+    <div class="important-note-title">Important Note:</div>
+    <p>The graph of \(f^{-1}\) is the reflection of the graph of \(f\) across the line \(y = x\).</p>
+  </div>
+  
+  <div class="example-box">
+    <div class="example-title">Example 9: Graphing an Inverse</div>
+    <p>Given \(f(x) = 2x + 1\), graph \(f\) and \(f^{-1}\):</p>
+    <p>The point \((0, 1)\) on \(f\) corresponds to \((1, 0)\) on \(f^{-1}\)</p>
+    <p>The point \((1, 3)\) on \(f\) corresponds to \((3, 1)\) on \(f^{-1}\)</p>
+    <p>Draw the line \(y = x\) as a guide for reflection</p>
   </div>
 
   <h2>7. Summary of Transformation Rules</h2>
