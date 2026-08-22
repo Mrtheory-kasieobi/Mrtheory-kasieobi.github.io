@@ -207,7 +207,7 @@
             </header>
             
             <div class="blog-content">
-                <p>When I checked the ICARM leaderboard this morning, entry #273 had just appeared, reporting a new record: an elliptic curve with rank at least 30. The curve was submitted yesterday by Claude, Levent Alpöge, and Ava Howell. What struck me immediately was that this pushes the record up from 29—set by Elkies and collaborators in 2024—to exactly 30, all in just two years.</p>
+                <p>When I checked the ICARM leaderboard this morning, entry #273 had just appeared, reporting a new record: an elliptic curve with rank at least 30. The curve was submitted yesterday by Claude, Levent Alpöge, and Ava Howell. What struck me immediately was that this pushes the record up from 29, set by Elkies and collaborators in 2024, to exactly 30, all in just two years.</p>
 
                 <p>I find myself thinking about what "rank 30" actually means here. Most people know elliptic curves through their canonical form $y^2 = x^3 + ax + b$, but this particular curve is given by a more general equation:</p>
 $$y^2 + xy = x^3 + ax + b$$
@@ -220,7 +220,7 @@ $$y^2 + xy = x^3 + ax + b$$
 <p>The set of rational points $E(\mathbb{Q})$ forms an abelian group under the chord-and-tangent construction. The Mordell–Weil theorem tells us this group decomposes canonically as</p>
 $$E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r$$
 
-<p>The integer $r$ is the rank. It measures how many independent directions the rational points span—how many generators the free part has.</p>
+<p>The integer $r$ is the rank. It measures how many independent directions the rational points span, how many generators the free part has.</p>
 
 <h2>What "Rank at Least 30" Actually Means</h2>
 
@@ -228,11 +228,11 @@ $$E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r$$
 
 <p>Independence in this context means that in the Mordell–Weil group, no nontrivial integer linear combination of these points equals the identity $\mathcal{O}$. Formally, points $P_1, \ldots, P_{30}$ are independent if</p>
 $$n_1 P_1 + n_2 P_2 + \cdots + n_{30} P_{30} = \mathcal{O}$$
-<p>implies all $n_i = 0$ (up to torsion). This is not ordinary linear independence—it's independence in a finitely generated abelian group.</p>
+<p>implies all $n_i = 0$ (up to torsion). This is not ordinary linear independence, it's independence in a finitely generated abelian group.</p>
 
 <h2>Why 30 Matters for the Record</h2>
 
-<p>Finding 30 independent points is substantial. The curve comes with 30 witness points explicitly listed—each with enormous coordinates—and their independence has been certified. The ICARM leaderboard only accepts entries with such computational certificates, so these records are rigorously verified, not just reported.</p>
+<p>Finding 30 independent points is substantial. The curve comes with 30 witness points explicitly listed, each with enormous coordinates, and their independence has been certified. The ICARM leaderboard only accepts entries with such computational certificates, so these records are rigorously verified, not just reported.</p>
 
 <p>The curve also has the smallest discriminant among all rank-30 curves, and holds records for naive height, Faltings height, and discriminant. That's why it's listed as a record in multiple categories.</p>
 
@@ -253,7 +253,7 @@ $$n_1 P_1 + n_2 P_2 + \cdots + n_{30} P_{30} = \mathcal{O}$$
 
 <h2>The Enduring Question</h2>
 
-<p>Are elliptic curve ranks bounded over $\mathbb{Q}$? We don't know. Each new record simply raises the known lower bound. The existence of rank-30 curves shows the rank can be at least 30—but it doesn't prove unboundedness. Some number theorists expect ranks to be unbounded; others suspect there's a maximum. This discovery keeps both possibilities very much alive.</p>
+<p>Are elliptic curve ranks bounded over $\mathbb{Q}$? We don't know. Each new record simply raises the known lower bound. The existence of rank-30 curves shows the rank can be at least 30, but it doesn't prove unboundedness. Some number theorists expect ranks to be unbounded; others suspect there's a maximum. This discovery keeps both possibilities very much alive.</p>
 
 <p>The fact that such a simple-looking cubic equation can conceal 30 independent rational directions never fails to amaze me. Every time I check the height pairing matrix or work through the descent calculations, I'm struck by how much arithmetic structure is encoded in these objects.</p>
 
