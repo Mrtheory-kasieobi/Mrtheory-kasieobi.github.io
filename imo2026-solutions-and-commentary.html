@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2026 International Mathematical Olympiad: Solutions and Commentary - Rigorous solutions to all six IMO problems with detailed mathematical analysis.">
+    <meta name="description" content="2026 International Mathematical Olympiad: Official problems, AoPS reference solutions, and original commentary.">
     <title>2026 IMO Solutions and Commentary | Kasieobi Udumaga</title>
     <link rel="stylesheet" href="style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -17,22 +17,6 @@
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem 1.5rem;
-        }
-        
-        .paper-viewer-container {
-            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-            border-radius: 16px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-3d), var(--shadow-inset);
-            overflow: hidden;
-            margin-bottom: 2rem;
-        }
-        
-        .pdf-frame {
-            width: 100%;
-            height: 85vh;
-            border: none;
-            background: white;
         }
         
         .paper-actions {
@@ -61,9 +45,25 @@
             box-shadow: 0 6px 16px rgba(140, 200, 255, 0.3);
         }
         
+        .section {
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .section h2 {
+            margin-top: 0;
+            color: var(--accent);
+        }
+        
         @media (max-width: 768px) {
-            .pdf-frame {
-                height: 60vh;
+            .paper-container {
+                padding: 1rem;
+            }
+            .section {
+                padding: 1.5rem;
             }
         }
     </style>
@@ -78,7 +78,7 @@
         </div>
         <div class="header-content">
             <h1 data-content="paper.header">2026 IMO Solutions</h1>
-            <p data-content="paper.subtitle">Rigorous solutions and mathematical commentary on the International Mathematical Olympiad</p>
+            <p data-content="paper.subtitle">Official problems, reference solutions, and original commentary on the International Mathematical Olympiad</p>
         </div>
     </header>
     
@@ -111,17 +111,27 @@
                 </a>
             </div>
             
-            <div class="paper-viewer-container">
-                <div class="coming-soon-placeholder" style="display: flex; align-items: center; justify-content: center; height: 85vh; text-align: center; flex-direction: column; gap: 1rem;">
-                    <h3>Coming Soon</h3>
-                    <p>This paper is currently being prepared. Check back later for the full solutions and commentary.</p>
-                </div>
+            <p>This page is organized into three clearly separated components:</p>
+            
+            <div class="section" id="official-problems">
+                <h2>Official Problems</h2>
+                <p>All six problems from the 2026 International Mathematical Olympiad, as originally posed.</p>
+            </div>
+            
+            <div class="section" id="reference-solutions">
+                <h2>Reference Solutions</h2>
+                <p>Solutions contributed by AoPS users, available as reference material on the <a href="https://artofproblemsolving.com/community/c6h">AoPS forums</a>.</p>
+            </div>
+            
+            <div class="section" id="my-commentary">
+                <h2>My Commentary</h2>
+                <p>Original mathematical commentary, observations, alternative approaches, and insights on the problems and their solutions. This section contains only my own work.</p>
             </div>
         </div>
     </main>
     
     <footer>
-        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version"></span></p>
     </footer>
     
     <script src="content-loader.js"></script>
