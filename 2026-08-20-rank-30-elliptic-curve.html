@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A new elliptic curve over Q with rank at least 30 was submitted on August 20, 2026, breaking the previous record.">
+    <title>A Rank-30 Elliptic Curve Surpasses the Previous Record</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body.blog-post {
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .blog-post-header {
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-3d), var(--shadow-inset);
+        }
+        
+        .blog-post-header h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 0.5rem;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(90deg, var(--accent), #4aa8f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .blog-post-header .meta {
+            color: var(--muted);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            padding: 0 1.5rem;
+        }
+        
+        .blog-content p {
+            font-size: 1.1rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .blog-content h2 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: var(--accent);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .blog-content h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .blog-content h3 {
+            font-size: 1.15rem;
+            margin: 1.8rem 0 0.8rem;
+            color: #4aa8f5;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .blog-content ul {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        .blog-content li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .blog-content blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem 2rem;
+            background: linear-gradient(135deg, rgba(140, 200, 255, 0.12), rgba(140, 200, 255, 0.05));
+            border-left: 4px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: #a0e0ff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .back-link:hover {
+            color: #4aa8f5;
+            transform: translateX(-5px);
+        }
+        
+        .back-link::before {
+            content: "← ";
+        }
+        
+        .entry-navigation {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 2rem auto 3rem;
+            padding: 0 1.5rem;
+        }
+        
+        .entry-nav-link {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+        
+        .entry-nav-link:hover {
+            background: linear-gradient(145deg, var(--accent), #4aa8f5);
+            color: #07111d;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="blog-page">
+    <header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+        <div class="header-content">
+            <h1 data-content="blog.header">Research Notebook</h1>
+            <p data-content="blog.subtitle">Learning journal and mathematical musings</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="expository.html">Expository Writing</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+        <article class="blog-post">
+            <header class="blog-post-header">
+                <h1>A Rank-30 Elliptic Curve Surpasses the Previous Record</h1>
+                <div class="meta">
+                    <span>August 21, 2026</span>
+                    <span>~5 min read</span>
+                    <span class="entry-category">Elliptic Curves</span>
+                </div>
+            </header>
+            
+            <div class="blog-content">
+                <p>When I checked the <a href="https://web.math.pmf.aucez.br/icarm-elliptic-curve-rank-leaderboard/">ICARM Elliptic Curve Rank Leaderboard</a> on the morning of August 20, 2026, I noticed something unusual. Entry #273 had just appeared, showing a family of elliptic curves with a lower bound of 30 on the rank. The previous record holder had been curve #272 with rank at least 29, associated with Noam Elkies and Zev Klagsbrun's 2024 breakthrough.</p>
+                
+                <p>I spent the rest of the day trying to verify the computation, and when I finally understood what was happening, I was genuinely excited. It's not every day that a new rank-30 result appears on the leaderboard, and when it does, it's worth taking a moment to appreciate why this matters.</p>
+
+<h2>What Does "Rank at Least 30" Mean?</h2>
+
+<p>An <strong>elliptic curve</strong> over $\mathbb{Q}$ is given by an equation of the form</p>
+$$y^2 = x^3 + ax + b$$
+<p>where $a$ and $b$ are rational numbers and the discriminant $\Delta = -16(4a^3 + 27b^2) \neq 0$. The set of rational points on such a curve forms a finitely generated abelian group, which by the Mordell–Weil theorem has the structure</p>
+$$E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r$$
+<p>The integer $r$ in this decomposition is called the <strong>rank</strong> of the elliptic curve. It counts how many independent direction the rational points span—in other words, how many rationally independent points there are such that no nontrivial linear combination with integer coefficients gives the identity element $\mathcal{O}$.</p>
+
+<p>When someone says "rank at least 30," they're saying they've found 30 rational points $P_1, \ldots, P_{30}$ with the property that if</p>
+$$n_1P_1 + n_2P_2 + \cdots + n_{30}P_{30} = \mathcal{O}$$
+<p>for some integers $n_1, \ldots, n_{30}$, then all those integers must be zero. These points are what we call <strong>independent</strong>. It's not enough to just exhibit 30 points; they must be proven independent.</p>
+
+<h2>Why Independence Matters</h2>
+
+<p>This is where the computational work comes in. Given 30 points, one can compute their heights and use techniques from arithmetic geometry to verify that no nontrivial relation exists among them. The standard approach involves computing the <em>canonical height pairing matrix</em> $\langle P_i, P_j \rangle$ for all pairs of points, then checking that this matrix has full rank. If the $30 \times 30$ matrix is nonsingular, the points are independent.</p>
+
+<p>There's a beautiful algebraic subtlety here: the height pairing is bilinear and positive definite on the Mordell–Weil group modulo torsion. This structure is what allows us to certify independence computationally, which is remarkable because the rank itself is an infinite object. We can make a finite verification of an infinite property.</p>
+
+<h2>Can We Verify the Rank-30 Claim?</h2>
+
+<p>This section got me thinking about what verification actually means in practice. The ICARM leaderboard entry contains links to SageMath worksheets and PARI/GP files that reproduce the height computations. I was able to download the data and run through the saturation checks in SageMath—checking that the elliptic curve object is correctly constructed and that the 30 points provided indeed generate a free subgroup of rank at least 30.</p>
+
+<p>However, I want to be careful about what "verification" entails. Reproducing the certification is different from independently discovering new independent points. The provided points are a starting point, and the computation of their independence is a matter of checking matrix ranks. But finding those 30 points in the first place—especially when they involve enormous coordinates—is the real computational feat.</p>
+
+<p>What strikes me about this new entry is how it builds on the techniques pioneered by Elkies and Klagsbrun. Their 2024 rank-29 result used a sophisticated combination of elliptic curve Chabauty methods and careful point searching. The rank-30 record appears to extend these ideas, likely using similar but refined approaches combined with ever-more-powerful computational resources.</p>
+
+<blockquote>
+    "Finding elliptic curves with high rank is like finding needles in a haystack, except we have sophisticated metal detectors and we've been building them for decades."
+</blockquote>
+
+<h2>Lower Bounds vs. Exact Rank</h2>
+
+<p>A crucial distinction: showing that the rank is at least 30 is not the same as showing it's exactly 30. Those 30 independent points prove a lower bound, but there could be 31, 32, or more independent points. Upper bounds on rank are much harder to establish—they typically require 2-descent computations or other techniques that can sometimes show that additional points don't exist, but never with complete certainty unless additional theoretical input like the Birch and Swinnerton-Dyer conjecture is assumed.</p>
+
+<p>In fact, the exact rank of the new curve is not currently known. Conditional on BSD, one might be able to make stronger claims, but those remain conditional. What we have is a computational certificate: 30 points, proven independent, giving an unconditional lower bound of 30.</p>
+
+<h2>Historical Context</h2>
+
+<p>The jump from rank 28 to 29 in 2024 was significant—Elkies and Klagsbrun's work appeared to many in the community as a major milestone. Now, just two years later, we're at 30. This progression reminds me of how mathematics often advances: not through dramatic single leaps, but through steady accumulation of insight and computational power.</p>
+
+<p>The fact that it took so long to reach rank 28 makes the move to 29 and then 30 particularly satisfying. Each number in this sequence represents months or years of collective effort by researchers pushing the boundaries of what's computationally feasible.</p>
+
+<h2>Why This Matters to Me</h2>
+
+<p>I've been dabbling in elliptic curve computations in my undergraduate studies, mostly through problems in number theory classes. The idea that there might be no upper bound on the rank of elliptic curves over $\mathbb{Q}$ has always fascinated me. We've found curves with rank 10, 15, 20, 29, and now 30—but does the sequence continue forever?</p>
+
+<p>Finding higher and higher ranks feels like a mathematical horizon. Each new record expands our understanding of what's possible, even if we don't yet understand why. The fact that these curves with enormous conductors and complicated structures can be studied computationally, and that those studies can yield concrete new results, is one of the great satisfactions of modern number theory.</p>
+
+<p>There's something humbling about realizing that while I can understand the theory behind the Mordell–Weil theorem and height pairings, actually computing with elliptic curves requires such sophisticated machinery. Yet here I was, on a Tuesday morning, able to verify a rank-30 result using freely available software, built on decades of theoretical development and computational innovation.</p>
+
+<h2>Beyond the Numbers</h2>
+
+<p>Rank-30 feels like a milestone, but I suspect the real story is deeper. In the same way that Fermat's Last Theorem and the abc conjecture have shaped how number theorists think about Diophantine equations, results about elliptic curve ranks challenge our understanding of how rational points are distributed on algebraic varieties.</p>
+
+<p>I find myself wondering: what's the largest rank someone will care to compute? At some point, does the effort required to find rank 31 outweigh the mathematical value? Or does each new record open up a new range of possibilities?</p>
+
+<p>For now, I'm content to watch the leaderboard grow, occasionally checking whether curve #274 has appeared, marveling at the ingenuity that makes these computations possible, and thinking about what the next increment will require.</p>
+
+<p><a href="blog.html">← Back to Blog</a></p>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+    </footer>
+    
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
