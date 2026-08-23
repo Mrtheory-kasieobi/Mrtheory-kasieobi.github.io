@@ -180,7 +180,7 @@ function formatSectionName(section) {
         'undergraduate': 'Undergraduate',
         'graduate': 'Graduate',
         'research': 'Research',
-        'research notebook': 'Research Notebook',
+        'research notebook': 'Blog',
         'track and field': 'Track and Field',
         'contact': 'Contact'
     };

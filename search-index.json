@@ -92,7 +92,7 @@
     },
     {
       "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
-      "section": "Research Notebook",
+      "section": "Blog",
       "url": "2026-08-20-rank-30-elliptic-curve.html",
       "description": "Discussion of the new elliptic curve with rank at least 30, including the mathematical significance, independent points, and verification.",
       "content": "elliptic curves rank 30 independent points Chudnovsky Cremona height pairing matrix ICARM discriminant elliptic curves over Q Mordell-Weil theorem lower bound exact value GRH BSD conjecture Weil bounds Birch and Swinnerton-Dyer conditional results analytic rank algebraic rank Selmer group Tate-Shafarevich group 2-Selmer group 3-Selmer group full descent elliptic curves databases Miller Newton Stephens Gauss factorization algorithms elliptic curves factorization methods",
@@ -119,7 +119,7 @@
     },
     {
       "title": "A Brief Look at Topology",
-      "section": "Research Notebook",
+      "section": "Blog",
       "url": "topology-introduction-exploration.html",
       "description": "An exploration of basic topology concepts including topological spaces, open and closed sets, and clopen sets.",
       "content": "topology topological spaces open sets closed sets clopen sets topology axioms subset X topology empty set union intersection finite intersection topology axioms open sets topological space topology topological spaces real line Euclidean topology standard topology open intervals closed intervals basis for topology subbasis topology subspace topology product topology box topology product topology quotient topology quotient map quotient space identification space quotient topology continuity open map sequential continuity first countability second countability separability compactness compactness Heine-Borel theorem compactness closed bounded intervals sequential compactness limit point compactness countable compactness Lindelof spaces metrizability metrizable spaces metric topology metric space metric distance function topology induced topology product topology metric spaces metric topology uniform topology topological equivalence",
@@ -280,7 +280,7 @@
         {
           "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
           "url": "2026-08-20-rank-30-elliptic-curve.html",
-          "section": "Research Notebook",
+          "section": "Blog",
           "excerpt": "A new elliptic curve over Q with rank at least 30 was submitted by Claude, Levent Alpoge, and Ava Howell on August 20, 2026, breaking the previous record held by Elkies and collaborators in 2024."
         }
       ]

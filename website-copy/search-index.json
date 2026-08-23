@@ -74,8 +74,8 @@
       "title": "Blog",
       "url": "blog.html",
       "category": "Page",
-      "description": "Research notebook and mathematical journal entries",
-      "keywords": ["blog", "journal", "research notebook", "updates"]
+      "description": "Blog and learning journal with mathematical musings",
+      "keywords": ["blog", "journal", "blog posts", "updates"]
     },
     {
       "title": "Contact",
