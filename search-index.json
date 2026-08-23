@@ -2,404 +2,444 @@
   "pages": [
     {
       "title": "Home",
+      "section": "Home",
       "url": "index.html",
-      "category": "Page",
-      "description": "Welcome page introducing your mathematical journey and track career",
-      "keywords": ["home", "welcome", "introduction", "about"]
+      "description": "Welcome to my mathematics portfolio and research site. I'm a high school student specializing in algebraic number theory and commutative algebra.",
+      "content": "Kasieobi Udumaga mathematician track and field sprint algebraic number theory commutative algebra research notes expository writing",
+      "keywords": ["home", "welcome", "algebraic number theory", "commutative algebra", "research", "notes", "expository"],
+      "priority": 100
     },
     {
       "title": "About Me",
+      "section": "About",
       "url": "about.html",
-      "category": "Page",
-      "description": "Personal background, interests in commutative algebra and algebraic number theory",
-      "keywords": ["about", "bio", "background", "personal"]
+      "description": "Learn about my journey in mathematics, my interests in commutative algebra and algebraic number theory, and my work as a researcher.",
+      "content": "Kasieobi Udumaga high school student mathematics proof-based mathematical maturity research commutative algebra algebraic number theory Lean theorem prover programming",
+      "keywords": ["about", "bio", "commutative algebra", "algebraic number theory", "proof", "research", "Lean"],
+      "priority": 100
     },
     {
       "title": "Notes",
+      "section": "Notes",
       "url": "notes.html",
-      "category": "Page",
-      "description": "Collection of mathematical notes ranging from olympiad to graduate topics",
-      "keywords": ["notes", "mathematics", "theory", "study", "learning"]
+      "description": "Collection of mathematical notes covering olympiad mathematics, undergraduate mathematics (algebra, analysis, number theory), and graduate mathematics (commutative algebra, algebraic geometry, transcendence theory).",
+      "content": "mathematical notes olympiad undergraduate graduate commutative algebra algebraic geometry number theory transcendence theory algebraic number theory algebraic independence Krull domains integral closure localization Noetherian rings primary decomposition unique factorization domain maximal ideals minimal primes Krull dimension Artin rings field extensions Galois theory Dedekind domains class groups ramification theory elliptic curves",
+      "keywords": ["notes", "mathematics", "commutative algebra", "algebraic geometry", "number theory", "transcendence"],
+      "priority": 100
     },
     {
       "title": "Teaching",
+      "section": "Teaching",
       "url": "teaching.html",
-      "category": "Page",
-      "description": "Course listings and materials for Mathematics 10 through Calculus III and beyond",
-      "keywords": ["teaching", "courses", "lessons", "education", "mathematics"]
-    },
-    {
-      "title": "Expository Writing",
-      "url": "expository.html",
-      "category": "Page",
-      "description": "Mathematical exposition, problem analysis, and experimental mathematics articles",
-      "keywords": ["expository", "writing", "articles", "mathematics", "exposition"]
-    },
-    {
-      "title": "Olympiad",
-      "url": "olympiad.html",
-      "category": "Expository Writing",
-      "description": "Problem solving and contest mathematics in number theory, algebra, combinatorics, and geometry",
-      "keywords": ["olympiad", "competition", "problems", "olympiad problems", "contest math"]
-    },
-    {
-      "title": "Undergraduate",
-      "url": "undergraduate.html",
-      "category": "Expository Writing",
-      "description": "Expository material for undergraduate mathematics including proofs and advanced topics",
-      "keywords": ["undergraduate", "college", "university", "math", "undergraduate math"]
-    },
-    {
-      "title": "Graduate",
-      "url": "graduate.html",
-      "category": "Expository Writing",
-      "description": "Advanced expository writing for graduate-level mathematics and research topics",
-      "keywords": ["graduate", "advanced", "research", "graduate math", "advanced mathematics"]
-    },
-    {
-      "title": "Research",
-      "url": "research.html",
-      "category": "Page",
-      "description": "Research interests in commutative algebra, algebraic number theory, and arithmetic geometry",
-      "keywords": ["research", "interests", "projects", "math research"]
-    },
-    {
-      "title": "Track and Field",
-      "url": "Track.html",
-      "category": "Page",
-      "description": "Track career with multiple provincial championships in sprints",
-      "keywords": ["track", "field", "athletics", "sprint", "sports", "12-time champion"]
-    },
-    {
-      "title": "Blog",
-      "url": "blog.html",
-      "category": "Page",
-      "description": "Research notebook and mathematical journal entries",
-      "keywords": ["blog", "journal", "research notebook", "updates"]
-    },
-    {
-      "title": "Contact",
-      "url": "contact.html",
-      "category": "Page",
-      "description": "Contact information for mathematical discussions and collaboration",
-      "keywords": ["contact", "email", "reach out"]
-    },
-    {
-      "title": "Publications",
-      "url": "publications.html",
-      "category": "Page",
-      "description": "Mathematical publications and papers",
-      "keywords": ["publications", "papers", "articles", "published"]
-    },
-    {
-      "title": "Recent Updates",
-      "url": "Recent-Updates.html",
-      "category": "Page",
-      "description": "Recent changes and updates to the website",
-      "keywords": ["updates", "changelog", "news", "recent"]
-    },
-    {
-      "title": "2026 Fields Medalist Reflections",
-      "url": "2026-fields-medalists-reflections.html",
-      "category": "Blog",
-      "description": "Analysis of the 2026 Fields Medal leak and winner announcements",
-      "keywords": ["fields medal", "IMO", "2026", "international mathematical union", "medal"]
-    },
-    {
-      "title": "IMO 2026 Solutions and Commentary",
-      "url": "imo2026-solutions-and-commentary.html",
-      "category": "Expository Writing",
-      "description": "Solutions and commentary on the 2026 International Mathematical Olympiad",
-      "keywords": ["IMO", "olympiad", "solutions", "2026", "international math olympiad"]
-    }
-  ],
-  "courses": [
-    {
-      "title": "Mathematics 10",
-      "url": "courses/mathematics-10.html",
-      "category": "Course",
-      "level": "High School",
-      "description": "Linear relations, polynomials, trigonometry, and data analysis foundations",
-      "keywords": ["math 10", "grade 10", "M10", "high school math", "mathematics 10", "algebra", "trigonometry", "linear functions"]
-    },
-    {
-      "title": "Precalculus 11",
-      "url": "courses/precalculus-11.html",
-      "category": "Course",
-      "level": "High School",
-      "description": "Foundations of algebra, functions, and trigonometry for high school students",
-      "keywords": ["precalculus 11", "math 11", "grade 11", "precalc 11", "high school"]
+      "description": "Course catalog for Mathematics 10, Precalculus 11, Precalculus 12, Calculus I, Calculus II, Calculus III, Linear Algebra, Introduction to Proofs, Number Theory, Real Analysis, Algebra I, and Algebra II with lecture notes and problem sets.",
+      "content": "Mathematics 10 Precalculus 11 Precalculus 12 Calculus I Calculus II Calculus III Linear Algebra Introduction to Proofs Number Theory Real Analysis Algebra I Algebra II limits derivatives integrals series sequences multivariable calculus vectors matrices linear transformations eigenvalues eigenvectors proof techniques divisibility primes congruences quadratic reciprocity Gaussian integers real analysis continuity differentiability Fundamental Theorem of Algebra",
+      "keywords": ["teaching", "courses", "calculus", "precalculus", "algebra", "analysis", "proofs", "number theory"],
+      "priority": 100
     },
     {
       "title": "Precalculus 12",
+      "section": "Teaching",
       "url": "courses/precalculus-12.html",
-      "category": "Course",
-      "level": "High School",
-      "description": "Advanced functions, calculus concepts, and mathematical analysis preparation",
-      "keywords": ["precalculus 12", "math 12", "grade 12", "precalc 12", "high school", "calculus"]
+      "description": "Advanced functions, transformations, trigonometric functions, exponential and logarithmic functions, rational functions, function operations, sequences and series, permutations and combinations, and combinatorics.",
+      "content": "functions transformations polynomial functions rational functions exponential logarithmic trigonometric identities unit circle sequences series permutations combinations binomial theorem probability",
+      "keywords": ["precalculus 12", "functions", "trigonometry", "exponential", "logarithmic", "rational functions", "sequences", "series", "combinatorics"],
+      "priority": 95
     },
     {
       "title": "Calculus I",
+      "section": "Teaching",
       "url": "courses/calculus-1.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Limits, continuity, derivatives, and applications of differential calculus",
-      "keywords": ["calculus i", "calculus 1", "calculus", "limits", "derivatives", "differential calculus", "cal 1", "single variable calculus"]
+      "description": "Limits, continuity, derivatives, applications of differential calculus, integration techniques, and the Fundamental Theorem of Calculus.",
+      "content": "limits continuity derivatives differentiation chain rule product rule quotient rule implicit differentiation applications related rates optimization curve sketching integration Fundamental Theorem of Calculus definite integral",
+      "keywords": ["calculus", "derivatives", "limits", "integration", "continuity"],
+      "priority": 95
     },
     {
       "title": "Calculus II",
+      "section": "Teaching",
       "url": "courses/calculus-2.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Integration techniques, applications, sequences, series, and Taylor series",
-      "keywords": ["calculus ii", "calculus 2", "calculus", "integration", "series", "sequences", "cal 2", "applications of integration"]
+      "description": "Advanced integration techniques, applications of integration, sequences and series, Taylor and Maclaurin series, and convergence tests.",
+      "content": "integration techniques substitution integration by parts trigonometric substitution partial fractions sequences series Taylor series Maclaurin series convergence tests p-series integral test comparison test ratio test root test absolute convergence conditional convergence",
+      "keywords": ["calculus 2", "integration", "series", "sequences", "Taylor"],
+      "priority": 90
     },
     {
-      "title": "Calculus III",
-      "url": "courses/calculus-3.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Multivariable calculus: partial derivatives, multiple integrals, vector calculus",
-      "keywords": ["calculus iii", "calculus 3", "multivariable calculus", "partial derivatives", "vector calculus", "cal 3"]
+      "title": "Research",
+      "section": "Research",
+      "url": "research.html",
+      "description": "Research portfolio in commutative algebra, algebraic number theory, arithmetic geometry, transcendence theory, algebraic geometry, noncommutative ring theory, and geometric measure theory.",
+      "content": "commutative algebra ideals modules rings integral closure Noetherian rings local rings spectrum maximal ideals prime ideals Krull dimension Krull domains Dedekind domains class groups ramification theory Number Field rings of integers ideal class groups units Minkowski bound Minkowski theorem Minkowski bound finiteness of class group unit theorem Dirichlet unit theorem S-unit group regulator class number formula Dedekind zeta function analytic continuation Euler product Tauberian theorems Prime Ideal Factorization principal ideal theorem inertia degree ramified split inert unramified splitting behavior residue field extension completion algebraic integer p-adic valuation valuation ring discrete valuation ring p-adic numbers p-adic analysis Newton polygon Eisenstein polynomials irreducible polynomials reduction modulo p Hensel lemma Henselian rings Hensel ideal etale algebras separable extensions unramified extensions formally unramified morphisms ramified morphisms residue field extension",
+      "keywords": ["research", "commutative algebra", "algebraic number theory", "elliptic curves", "transcendence", "algebraic geometry"],
+      "priority": 100
+    },
+    {
+      "title": "Commutative Algebra",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "I am interested in the study of ideals, modules, rings, and their structural properties, particularly dimension, factorization, localization, Krull domains, Dedekind domains, primary decomposition, and the Going-Up theorem.",
+      "content": "commutative algebra ideals modules rings prime ideals maximal ideals minimal primes integral closure Noetherian rings local rings spectrum localization Krull dimension Krull domains Dedekind domains primary decomposition irredundant primary decomposition irredundant primary decomposition Laskin theorem irreducible decomposition minimal primes embedded primes radical ideals unmixed rings Gorenstein rings Cohen-Macaulay rings depth global dimension projective dimension free resolutions flat modules faithfully flat descent Serre criterion regular local rings canonical module dualizing module finitely generated modules finite length modules Artin rings discrete valuation rings principal ideal domains unique factorization domains integrally closed domains normal domains localizations localization at prime ideal completion ring Hensels lemma Henselian rings etale algebras separable algebras separable extensions separable polynomials polynomial rings polynomial rings modulo ideals polynomial rings quotient rings Hilbert basis theorem Hilberts Nullstellensatz maximal ideals Zariski topology spectrum radical ideal variety ideal correspondence coordinate ring function ring affine variety algebraic sets finite-dimensional algebras",
+      "keywords": ["commutative algebra", "Krull", "ideals", "modules", "rings", "dimension", "localization", "local rings"],
+      "priority": 98
+    },
+    {
+      "title": "Algebraic Number Theory",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "I am currently exploring Algebraic Number Theory and its approach to understanding arithmetic through algebraic structures. My interests include number fields, ideals, valuations, factorization, and the behavior of primes.",
+      "content": "algebraic number theory number field ring of integers algebraic integers monic irreducible polynomial discriminant basis integral basis orders maximal orders fractional ideals principal ideals Dedekind domains class group ideal class group Minkowski bound Minkowskis theorem Minkowski bound finiteness of class group unit theorem Dirichlet unit theorem S-unit group regulator class number formula Dedekind zeta function analytic continuation functional equation Euler product Tauberian theorems",
+      "keywords": ["algebraic number theory", "number fields", "class group", "ramification", "units", "discriminant"],
+      "priority": 98
+    },
+    {
+      "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
+      "section": "Research Notebook",
+      "url": "2026-08-20-rank-30-elliptic-curve.html",
+      "description": "Discussion of the new elliptic curve with rank at least 30, including the mathematical significance, independent points, and verification.",
+      "content": "elliptic curves rank 30 independent points Chudnovsky Cremona height pairing matrix ICARM discriminant elliptic curves over Q Mordell-Weil theorem lower bound exact value GRH BSD conjecture Weil bounds Birch and Swinnerton-Dyer conditional results analytic rank algebraic rank Selmer group Tate-Shafarevich group 2-Selmer group 3-Selmer group full descent elliptic curves databases Miller Newton Stephens Gauss factorization algorithms elliptic curves factorization methods",
+      "keywords": ["elliptic curves", "rank", "independent points", "Mordell-Weil", "descent", "verification"],
+      "priority": 90
+    },
+    {
+      "title": "Transcendence Theory",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "I am currently exploring Transcendence Theory, with a particular interest in the arithmetic properties of transcendental numbers and their connections to Algebraic Number Theory.",
+      "content": "transcendence theory transcendental numbers algebraic independence Gelfond-Schneider theorem Lindemann-Weierstrass theorem transcendence measure Mahler method Diophantine approximation Roth theorem Thue-Siegel-Roth theorem Baker method linear forms in logarithms exponential Diophantine equations Schanuel conjecture transcendence Schanuel conjecture complex numbers exponential algebraic numbers log algebraic numbers algebraic independence Gelfond-Schneider Gelfond-Schneider theorem Gelfond-Schneider transcendence Gelfond-Schneider theorem complex exponential transcendental numbers algebraic independence Schanuel conjecture Lindemann-Weierstrass theorem",
+      "keywords": ["transcendence theory", "Gelfond-Schneider", "Lindemann-Weierstrass", "algebraic independence", "transcendental numbers"],
+      "priority": 92
+    },
+    {
+      "title": "Algebraic Geometry",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "Algebraic varieties, schemes, sheaf cohomology, divisors, Riemann-Roch theorem, and connections to commutative algebra and number theory.",
+      "content": "algebraic geometry varieties schemes sheaf cohomology Zariski topology local rings affine varieties projective varieties projective space homogeneous coordinates Grassmannians Proj construction Spec construction schemes affine schemes local rings maximal ideals prime ideals nilradical radical ideal sheaves quasi-coherent sheaves coherent sheaves structure sheaf ringed space locally ringed space affine scheme structure sheaf stalks fibers geometric points points of schemes morphisms of schemes ring homomorphisms schemes morphisms locally ringed maps fiber products fibers of morphisms products of schemes fiber product gluing scheme affine open cover scheme separated scheme proper scheme projective morphism finite type morphism Noetherian schemes dimension of schemes Krull dimension transcendence degree coherent sheaves quasi-coherent sheaves modules over structure sheaf Serre criterion regular local rings finite type algebras dimension theory smooth schemes etale morphisms unramified morphisms formally unramified morphisms separable algebras separable morphisms unramified morphisms etale morphisms smooth morphisms smooth schemes regular local rings geometric fibers regular sequences Cohen-Macaulay rings depth global dimension finite projective dimension regular local rings smooth schemes regular schemes regular schemes local complete intersection schemes Gorenstein rings canonical module Cohen-Macaulay rings dualizing complexes Grothendieck duality Serre duality duality for schemes proper schemes coherent sheaves proper schemes K3 surfaces abelian varieties curves genus arithmetic genus geometric genus canonical divisor canonical class Riemann-Roch theorem Riemann-Roch theorem Riemann-Roch theorem Riemann-Roch theorem Hirzebruch-Riemann-Roch Riemann-Roch theorem Grothendieck-Riemann-Roch Riemann-Roch theorem Noether-Lefschetz theorem Lefschetz hyperplane theorem cohomological",
+      "keywords": ["algebraic geometry", "varieties", "schemes", "sheaf cohomology", "divisors", "Riemann-Roch"],
+      "priority": 90
+    },
+    {
+      "title": "A Brief Look at Topology",
+      "section": "Research Notebook",
+      "url": "topology-introduction-exploration.html",
+      "description": "An exploration of basic topology concepts including topological spaces, open and closed sets, and clopen sets.",
+      "content": "topology topological spaces open sets closed sets clopen sets topology axioms subset X topology empty set union intersection finite intersection topology axioms open sets topological space topology topological spaces real line Euclidean topology standard topology open intervals closed intervals basis for topology subbasis topology subspace topology product topology box topology product topology quotient topology quotient map quotient space identification space quotient topology continuity open map sequential continuity first countability second countability separability compactness compactness Heine-Borel theorem compactness closed bounded intervals sequential compactness limit point compactness countable compactness Lindelof spaces metrizability metrizable spaces metric topology metric space metric distance function topology induced topology product topology metric spaces metric topology uniform topology topological equivalence",
+      "keywords": ["topology", "open sets", "closed sets", "clopen", "topological spaces"],
+      "priority": 85
+    },
+    {
+      "title": "Sequences and Series",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-sequences-series.html",
+      "description": "Arithmetic and geometric sequences, sigma notation, arithmetic and geometric series, infinite series, and summation formulas.",
+      "content": "sequences series arithmetic sequences geometric sequences arithmetic series geometric series sigma notation summation infinite series convergence arithmetic sequence explicit formula recursive formula common difference common ratio nth term partial sums arithmetic series formula geometric series formula infinite geometric series convergence ratio limit divergence geometric mean arithmetic mean arithmetic progression geometric progression quadratic convergence",
+      "keywords": ["sequences", "series", "arithmetic", "geometric", "sigma notation"],
+      "priority": 90
+    },
+    {
+      "title": "Rational Functions",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-rational-functions-p12.html",
+      "description": "Rational function definitions, domain, vertical and horizontal asymptotes, oblique asymptotes, holes, and graphing techniques.",
+      "content": "rational functions domain asymptotes vertical asymptote horizontal asymptote oblique asymptote slant asymptote hole removable discontinuity factoring numerator denominator polynomial division end behavior x-intercepts y-intercept sign analysis sign chart testing sign changes limits at infinity degree numerator degree denominator",
+      "keywords": ["rational functions", "asymptotes", "domain", "holes", "polynomial"],
+      "priority": 90
+    },
+    {
+      "title": "Trigonometry",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-trigonometric-functions-p12.html",
+      "description": "Unit circle, trigonometric functions, identities, graphs, and applications of sine, cosine, and tangent.",
+      "content": "trigonometry unit circle sine cosine tangent cosecant secant cotangent radian degree conversion unit circle definitions right triangle definitions CAST rule all students take calculus plus trigonometry reference angle quadrant angle graphs amplitude period phase shift vertical shift transformations sine curve cosine curve tangent curve periodic functions period 2 pi fundamental period symmetry even odd functions supplementary angle subtraction formula double angle formula half angle formula product-to-sum sum-to-product compound angle formula angle sum formulas angle difference formulas",
+      "keywords": ["trigonometry", "unit circle", "trigonometric identities", "sine", "cosine", "tangent"],
+      "priority": 90
     },
     {
       "title": "Introduction to Proofs",
+      "section": "Teaching",
       "url": "courses/introduction-to-proofs.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Logic, set theory, and fundamental techniques of mathematical proof",
-      "keywords": ["introduction to proofs", "proofs", "mathematical proofs", "proof", "logic", "set theory"]
+      "description": "Logic, set theory, quantifiers, proof techniques including direct proof, proof by contradiction, and mathematical induction.",
+      "content": "mathematical proofs logic set theory quantifiers universal quantifier existential quantifier negation proof techniques direct proof proof by contradiction proof by contrapositive mathematical induction base case inductive hypothesis inductive step strong induction well-ordering principle equivalence relations reflexive symmetric transitive equivalence classes partitions quotient sets functions injective surjective bijective inverse functions composition of functions identity function domain codomain range image preimage",
+      "keywords": ["proofs", "logic", "set theory", "induction"],
+      "priority": 85
     },
     {
       "title": "Number Theory",
-      "url": "courses/number-theory.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Divisibility, primes, congruences, and classical number-theoretic problems",
-      "keywords": ["number theory", "NT", "primes", "congruences", "modular arithmetic", "Fermat", "quadratic reciprocity"]
+      "section": "Teaching",
+      "url": "teaching.html",
+      "description": "Divisibility, primes, congruences, quadratic reciprocity, Gaussian integers, Diophantine equations, and continued fractions.",
+      "content": "number theory divisibility primes modular arithmetic prime numbers congruences quadratic residues Legendre symbol Jacobi symbol law of quadratic reciprocity quadratic reciprocity proof Gaussian integers i imaginary unit unique factorization Gaussian integers ring of integers quotient ring residue field field extensions quadratic fields ramified split inert Gaussian integers",
+      "keywords": ["number theory", "primes", "modular arithmetic", "quadratic reciprocity", "Gaussian integers"],
+      "priority": 85
     },
     {
       "title": "Real Analysis",
-      "url": "courses/real-analysis.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Rigorous foundations of calculus: sequences, series, continuity, and integration",
-      "keywords": ["real analysis", "analysis", "intro to analysis", "mathematical analysis", "rigorous calculus"]
+      "section": "Teaching",
+      "url": "teaching.html",
+      "description": "Rigorous foundations of calculus: sequences, series, continuity, differentiation, and integration.",
+      "content": "real analysis sequences series limits continuity differentiability integration Riemann integral improper integrals uniform convergence power series Taylor series Maclaurin series completeness least upper bound property supremum infimum Cauchy sequence Cauchy criterion compact set Heine-Borel theorem Bolzano-Weierstrass theorem monotone convergence theorem nested interval theorem intermediate value theorem mean value theorem Rolle theorem Taylor theorem LHopital rule fundamental theorem calculus Lebesgue integration measure theory Lebesgue integral measurable function",
+      "keywords": ["real analysis", "sequences", "continuity", "differentiation", "integration"],
+      "priority": 85
     },
     {
-      "title": "Linear Algebra",
-      "url": "courses/linear-algebra.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Vector spaces, linear transformations, matrices, and eigenvalues",
-      "keywords": ["linear algebra", "LA", "matrix", "vector space", "eigenvalues", " Gilbert Strang"]
+      "title": "Real Analysis",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "Real analysis concepts including sequences, series, continuity, and integration.",
+      "content": "real analysis sequences series limits continuity differentiability integration Riemann integral improper integrals uniform convergence power series Taylor series Maclaurin series completeness least upper bound property supremum infimum Cauchy sequence Cauchy criterion compact set Heine-Borel theorem Bolzano-Weierstrass theorem monotone convergence theorem nested interval theorem intermediate value theorem mean value theorem Rolle theorem Taylor theorem LHopital rule fundamental theorem calculus Lebesgue integration measure theory Lebesgue integral measurable function",
+      "keywords": ["real analysis"],
+      "priority": 88
     },
     {
-      "title": "Algebra I",
-      "url": "courses/algebra-I.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Group theory, rings, fields, and abstract algebra fundamentals",
-      "keywords": ["algebra I", "abstract algebra", "group theory", "rings", "fields", "Galois", "Galois theory"]
+      "title": "Galois Theory",
+      "section": "Teaching",
+      "url": "teaching.html",
+      "description": "Field extensions, Galois extensions, Galois groups, and applications including solvability by radicals.",
+      "content": "Galois theory field extensions splitting fields simple extensions algebraic extensions transcendental extensions Galois extension separable extension normal extension Galois group fundamental theorem Galois extensions intermediate fields fixed fields Galois correspondence automorphism subgroups intermediate fields Galois theory applications unsolvability quintic equation primitive element theorem separable polynomials splitting fields Galois theory",
+      "keywords": ["Galois theory", "field extensions", "Galois groups"],
+      "priority": 82
     },
     {
-      "title": "Algebra II",
-      "url": "courses/algebra-II.html",
-      "category": "Course",
-      "level": "Undergraduate",
-      "description": "Advanced algebra including modules, Galois theory, and representation theory",
-      "keywords": ["algebra II", "abstract algebra", "Galois theory", "modules", "representation theory"]
+      "title": "Krull Domains",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "Krull domains are integral domains where every nonzero non-unit element can be written as a product of prime elements, generalizing unique factorization domains.",
+      "content": "Krull domains unique factorization domains integrally closed Noetherian domains prime elements factorization into primes divisor theory divisorial ideals valuations Krull dimension class groups Picard group Dedekind domains regular local rings UFDs Noetherian domains localizations completion ring Hensels lemma regular local rings factorial domains",
+      "keywords": ["Krull domains", "unique factorization", "integral closure"],
+      "priority": 88
+    },
+    {
+      "title": "Ideal Theory",
+      "section": "Research",
+      "url": "research.html#interests",
+      "description": "Ideal theory studies properties of ideals in commutative rings, including prime ideals, maximal ideals, and their applications.",
+      "content": "ideal theory ideals prime ideals maximal ideals minimal primes radical ideals idempotent ideals primary ideals embedded primes unmixed ideals intersection ideals product ideals sum ideals colon ideals in localization localization at prime maximal ideals primary decomposition unmixed rings associated primes",
+      "keywords": ["ideals", "prime ideals", "maximal ideals", "primary decomposition"],
+      "priority": 85
+    },
+    {
+      "title": "Ring Theory",
+      "section": "Teaching",
+      "url": "teaching.html",
+      "description": "Abstract algebra fundamentals: groups, subgroups, cosets, quotient groups, rings, integral domains, and unique factorization domains.",
+      "content": "ring theory rings integral domains fields groups subgroups cosets quotient groups normal subgroups homomorphisms isomorphism theorems ideals principal ideals maximal ideals prime ideals Noetherian rings Artin rings modules vector spaces boolean rings matrix rings polynomial rings",
+      "keywords": ["rings", "integral domains", "groups", "subgroups", "modules"],
+      "priority": 83
+    },
+    {
+      "title": "Polynomial Theory",
+      "section": "Research",
+      "url": "teaching.html",
+      "description": "Polynomial rings, factorization, and applications in field extensions.",
+      "content": "polynomial rings polynomial rings modulo ideals polynomial rings quotient rings factorization Hilsberts Nullstellensatz resultant discriminant polynomial equations Groebner bases multivariate polynomials symmetric polynomials polynomial ideals radical ideals",
+      "keywords": ["polynomials", "polynomial rings", "factorization"],
+      "priority": 80
+    },
+    {
+      "title": "Quadratic Reciprocity",
+      "section": "Teaching",
+      "url": "teaching.html",
+      "description": "The Law of Quadratic Reciprocity relates the solvability of quadratic congruences modulo different primes.",
+      "content": "quadratic reciprocitylaw of quadratic reciprocity Legendre symbol Jacobi symbol Euler criterion supplementary laws sign of Legendre symbol  quadratic residues non-quadratic residues modulo p modulo q primes congruent to 1 or 3 mod 4 reciprocity law proof Gauss lemma Gauss sums",
+      "keywords": ["quadratic reciprocity", "Legendre symbol", "Gauss"],
+      "priority": 84
     }
   ],
-  "notes": [
+  "expository": {
+    "sections": [
+      {
+        "title": "Olympiad Mathematics",
+        "section": "Expository Writing",
+        "url": "olympiad.html",
+        "description": "Problem solving and contest exposition in number theory, algebra, combinatorics, and geometry.",
+        "content": "olympiad mathematics number theory algebra combinatorics geometry inequalities functional equations polynomial equations graph theory combinatorics permutations combinations binomial theorem inequalities cyclic inequalities Jensen inequality substitution method Cauchy-Schwarz inequality AM-GM inequality",
+        "keywords": ["olympiad", "contest", "number theory", "algebra", "combinatorics", "geometry"]
+      },
+      {
+        "title": "Undergraduate Mathematics",
+        "section": "Expository Writing",
+        "url": "undergraduate.html",
+        "description": "Expository material aimed at undergraduate mathematics, with proofs and interesting concepts.",
+        "content": "undergraduate mathematics real analysis complex analysis algebra abstract algebra linear algebra number theory topology metric spaces Banach spaces Hilbert spaces",
+        "keywords": ["undergraduate", "real analysis", "complex analysis", "abstract algebra", "linear algebra"]
+      },
+      {
+        "title": "Graduate Mathematics",
+        "section": "Expository Writing",
+        "url": "graduate.html",
+        "description": "Advanced expository writing for graduate-level mathematics, focusing on proofs and exposition.",
+        "content": "graduate mathematics commutative algebra algebraic geometry algebraic number theory representation theory homological algebra category theory scheme theory",
+        "keywords": ["graduate", "commutative algebra", "algebraic geometry", "algebraic number theory", "representation theory"]
+      }
+    ]
+  },
+  "categories": [
     {
-      "title": "Lecture Notes: Real Numbers and Rational Exponents",
-      "url": "courses/lecture-notes-real-numbers-rational-exponents.html",
-      "category": "Notes",
-      "course": "Precalculus 11",
-      "description": "Classification of real numbers, rational exponents, exponent laws, radicals, and properties of numbers",
-      "keywords": ["real numbers", "rational exponents", "radicals", "exponent laws", "laws of exponents", "properties of numbers", "precalculus 11"]
+      "name": "elliptic-curves",
+      "displayName": "Elliptic Curves",
+      "pages": [
+        {
+          "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
+          "url": "2026-08-20-rank-30-elliptic-curve.html",
+          "section": "Research Notebook",
+          "excerpt": "A new elliptic curve over Q with rank at least 30 was submitted by Claude, Levent Alpoge, and Ava Howell on August 20, 2026, breaking the previous record held by Elkies and collaborators in 2024."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Systems of Equations and Applications",
-      "url": "courses/lecture-notes-systems-of-equations.html",
-      "category": "Notes",
-      "course": "Precalculus 11",
-      "description": "Solving systems of equations with applications, linear-quadratic systems, and real-world modeling",
-      "keywords": ["systems of equations", "linear systems", "quadratic systems", "applications", "intersection points", "precalculus 11"]
+      "name": "commutative-algebra",
+      "displayName": "Commutative Algebra",
+      "pages": [
+        {
+          "title": "Commutative Algebra",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "I am interested in the study of ideals, modules, rings, and their structural properties, particularly dimension, factorization, localization, Krull domains, Dedekind domains, primary decomposition, and the Going-Up theorem."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Functions (Calculus 1)",
-      "url": "courses/lecture-notes-functions-calc1.html",
-      "category": "Notes",
-      "course": "Calculus I",
-      "description": "Introduction to functions and their representations for calculus",
-      "keywords": ["functions", "calculus 1", "function representation", "domain", "range", "composition"]
+      "name": "algebraic-number-theory",
+      "displayName": "Algebraic Number Theory",
+      "pages": [
+        {
+          "title": "Algebraic Number Theory",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "I am currently exploring Algebraic Number Theory and its approach to understanding arithmetic through algebraic structures. My interests include number fields, ideals, valuations, factorization, and the behavior of primes."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Limits and Derivatives (Calculus 1)",
-      "url": "courses/lecture-notes-limits-calc1.html",
-      "category": "Notes",
-      "course": "Calculus I",
-      "description": "Limits and the definition of derivatives in single-variable calculus",
-      "keywords": ["limits", "derivatives", "calculus 1", "continuity", "epsilon delta"]
+      "name": "transcendence-theory",
+      "displayName": "Transcendence Theory",
+      "pages": [
+        {
+          "title": "Transcendence Theory",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "I am currently exploring Transcendence Theory, with a particular interest in the arithmetic properties of transcendental numbers and their connections to Algebraic Number Theory."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Trigonometry (Mathematics 10)",
-      "url": "courses/lecture-notes-trigonometry-m10.html",
-      "category": "Notes",
-      "course": "Mathematics 10",
-      "description": "Right triangle trigonometry and trigonometric ratios",
-      "keywords": ["trigonometry", "trig", "sine", "cosine", "tangent", "SOHCAHTOA", "sine law", "cosine law", "math 10"]
+      "name": "real-analysis",
+      "displayName": "Real Analysis",
+      "pages": [
+        {
+          "title": "Real Analysis",
+          "url": "teaching.html",
+          "section": "Teaching",
+          "excerpt": "Rigorous foundations of calculus: sequences, series, continuity, differentiation, and integration."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Linear Functions (Mathematics 10)",
-      "url": "courses/lecture-notes-linear-functions-m10.html",
-      "category": "Notes",
-      "course": "Mathematics 10",
-      "description": "Slope, forms of linear equations, and graphing linear functions",
-      "keywords": ["linear functions", "linear", "slope", "y = mx + b", "math 10", "M10"]
+      "name": "galois-theory",
+      "displayName": "Galois Theory",
+      "pages": [
+        {
+          "title": "Algebra II",
+          "url": "teaching.html",
+          "section": "Teaching",
+          "excerpt": "Group representations, characters, ideals, polynomial rings, modules, field extensions, and Galois theory applications."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Number Theory",
-      "url": "courses/lecture-notes-number-theory.html",
-      "category": "Notes",
-      "course": "Number Theory",
-      "description": "Introduction to primes, divisibility, and the fundamental theorem of arithmetic",
-      "keywords": ["number theory", "NT", "primes", "divisibility", "fundamental theorem of arithmetic", "FTA"]
+      "name": "krull-domains",
+      "displayName": "Krull Domains",
+      "pages": [
+        {
+          "title": "Commutative Algebra",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "Krull domains are integral domains where every nonzero non-unit element can be written as a product of prime elements, generalizing unique factorization domains."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Algebraic Number Theory",
-      "url": "courses/lecture-notes-algebraic-number-theory.html",
-      "category": "Notes",
-      "course": "Number Theory",
-      "description": "Algebraic integers, rings of integers, and ideal theory",
-      "keywords": ["algebraic number theory", "ANT", "algebraic integers", "rings", "ideals", "class group"]
+      "name": "ideal",
+      "displayName": "Ideal Theory",
+      "pages": [
+        {
+          "title": "Commutative Algebra",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "Ideal theory studies properties of ideals in commutative rings, including prime ideals, maximal ideals, and their applications."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Commutative Algebra",
-      "url": "courses/lecture-notes-commutative-algebra.html",
-      "category": "Notes",
-      "course": "Algebra I",
-      "description": "Rings, modules, ideals, and Noetherian rings",
-      "keywords": ["commutative algebra", "CA", "rings", "modules", "ideals", "Noetherian", "Hilbert's Nullstellensatz"]
+      "name": "ring",
+      "displayName": "Ring Theory",
+      "pages": [
+        {
+          "title": "Algebra I",
+          "url": "teaching.html",
+          "section": "Teaching",
+          "excerpt": "Abstract algebra fundamentals: groups, subgroups, cosets, quotient groups, rings, integral domains, and unique factorization domains."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Galois Theory",
-      "url": "courses/lecture-notes-galois-theory.html",
-      "category": "Notes",
-      "course": "Algebra II",
-      "description": "Field extensions, Galois groups, and solvability by radicals",
-      "keywords": ["galois theory", "Galois", "field extensions", "Galois groups", "solvability", "Abel"]
+      "name": "polynomial",
+      "displayName": "Polynomial Theory",
+      "pages": [
+        {
+          "title": "Algebra II",
+          "url": "teaching.html",
+          "section": "Teaching",
+          "excerpt": "Polynomial rings, factorization, and applications in field extensions."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Elliptic Curves",
-      "url": "courses/lecture-notes-elliptic-curves.html",
-      "category": "Notes",
-      "course": "Number Theory",
-      "description": "Introduction to elliptic curves and their applications in number theory",
-      "keywords": ["elliptic curves", "EC", "Weierstrass form", "Mordell-Weil", "abelian varieties"]
+      "name": "number-theory",
+      "displayName": "Number Theory",
+      "pages": [
+        {
+          "title": "Number Theory",
+          "url": "teaching.html",
+          "section": "Teaching",
+          "excerpt": "Divisibility, primes, congruences, quadratic reciprocity, Gaussian integers, Diophantine equations, and continued fractions."
+        }
+      ]
     },
     {
-      "title": "Lecture Notes: Modular Forms",
-      "url": "courses/lecture-notes-modular-forms.html",
-      "category": "Notes",
-      "course": "Number Theory",
-      "description": "Modular forms, the modular group, and applications to number theory",
-      "keywords": ["modular forms", "MF", "modular group", "SL(2,Z)", "theta functions", "Fourier coefficients"]
+      "name": "quadratic-reciprocity",
+      "displayName": "Quadratic Reciprocity",
+      "pages": [
+        {
+          "title": "Number Theory",
+          "url": "teaching.html",
+          "section": "Teaching",
+          "excerpt": "The Law of Quadratic Reciprocity relates the solvability of quadratic congruences modulo different primes."
+        }
+      ]
+    },
+    {
+      "name": "algebraic-independence",
+      "displayName": "Algebraic Independence",
+      "pages": [
+        {
+          "title": "Transcendence Theory",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "A set of complex numbers is algebraically independent over Q if no non-zero polynomial with rational coefficients vanishes at those numbers."
+        }
+      ]
+    },
+    {
+      "name": "dedekind-domain",
+      "displayName": "Dedekind Domains",
+      "pages": [
+        {
+          "title": "Commutative Algebra",
+          "url": "research.html#interests",
+          "section": "Research",
+          "excerpt": "Dedekind domains are Noetherian integral domains where every nonzero prime ideal is maximal, characterized by unique factorization of ideals into prime ideals."
+        }
+      ]
     }
-  ],
-  "expository": [
-    {
-      "title": "The 2026 Fields Medal: Before and after the Official Announcement",
-      "url": "2026-fields-medalists-reflections.html",
-      "category": "Expository Writing",
-      "topic": "Fields Medal",
-      "description": "Analysis of the ICM 2026 leak revealing the Fields Medalists before the official announcement",
-      "keywords": ["fields medal", "IMC", "ICM", "2026", "John Pardon", "Yu Deng", "Jacob Tsimerman", "Hong Wang", "leak", "announcement"]
-    },
-    {
-      "title": "The Fundamental Theorem of Algebra",
-      "url": "courses/the-fundamental-theorem-algebra.html",
-      "category": "Expository Writing",
-      "topic": "Fundamental Theorem of Algebra",
-      "description": "Proof and exploration of the Fundamental Theorem of Algebra using complex analysis",
-      "keywords": ["fundamental theorem of algebra", "FTA", "complex analysis", "algebraic closure", "Liouville's theorem", "argument principle"]
-    },
-    {
-      "title": "Chebotarev's Density Theorem",
-      "url": "courses/chebotarev-density.html",
-      "category": "Expository Writing",
-      "topic": "Number Theory",
-      "description": "The Chebotarev Density Theorem and its applications in algebraic number theory",
-      "keywords": ["Chebotarev density theorem", "density theorem", "Frobenius", "Galois groups", "splitting of primes", "antithetic types"]
-    },
-    {
-      "title": "Hilbert's Nullstellensatz",
-      "url": "courses/hilberts-nullstellensatz.html",
-      "category": "Expository Writing",
-      "topic": "Commutative Algebra",
-      "description": "Hilbert's Nullstellensatz and its role in algebraic geometry",
-      "keywords": ["Nullstellensatz", "Hilbert", "algebraic geometry", "ideal", "variety", "Zariski topology"]
-    }
-  ],
-  "problem_sets": [
-    {
-      "title": "Cumulative Problem Set (Mathematics 10)",
-      "url": "courses/problem-set-cumulative-m10.html",
-      "category": "Problem Set",
-      "course": "Mathematics 10",
-      "description": "Mixed review problems covering all Mathematics 10 topics",
-      "keywords": ["problem set", "practice", "review", "cumulative", "math 10", "M10", "mixed review"]
-    },
-    {
-      "title": "Problem Set 1 (Precalculus 11)",
-      "url": "courses/problem-set-1-p11.html",
-      "category": "Problem Set",
-      "course": "Precalculus 11",
-      "description": "Sequences and series practice problems",
-      "keywords": ["problem set", "sequences", "series", "arithmetic", "geometric", "sigma notation", "practice"]
-    },
-    {
-      "title": "Problem Set 6 (Precalculus 12)",
-      "url": "courses/problem-set-6-p12.html",
-      "category": "Problem Set",
-      "course": "Precalculus 12",
-      "description": "Systems of equations and linear inequalities",
-      "keywords": ["problem set", "systems", "linear equations", "substitution", "elimination", "inequalities", "practice"]
-    },
-    {
-      "title": "Problem Set: Divisibility and Primes",
-      "url": "courses/problem-set-1-divisibility.html",
-      "category": "Problem Set",
-      "course": "Number Theory",
-      "description": "Problems on divisibility, primes, and the fundamental theorem of arithmetic",
-      "keywords": ["problem set", "divisibility", "primes", "fundamental theorem", "Euclidean algorithm", "Fermat's little theorem"]
-    },
-    {
-      "title": "Problem Set: Quadratic Reciprocity",
-      "url": "courses/problem-set-5-congruences.html",
-      "category": "Problem Set",
-      "course": "Number Theory",
-      "description": "Problems on congruences and quadratic reciprocity",
-      "keywords": ["problem set", "congruences", "quadratic reciprocity", "Legendre symbol", "Gauss lemma", "quadratic residues"]
-    }
-  ],
-  "acronyms": {
-    "ANT": "algebraic number theory",
-    "CA": "commutative algebra",
-    "NT": "number theory",
-    "FTA": "fundamental theorem of algebra",
-    "LA": "linear algebra",
-    "MF": "modular forms",
-    "EC": "elliptic curves",
-    "M10": "Mathematics 10",
-    "P11": "Precalculus 11",
-    "P12": "Precalculus 12",
-    "CAL1": "Calculus I",
-    "CAL2": "Calculus II",
-    "CAL3": "Calculus III",
-    "ICM": "International Congress of Mathematicians",
-    "IMC": "International Mathematical Congress"
-  }
+  ]
 }
