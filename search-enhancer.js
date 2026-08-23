@@ -51,7 +51,7 @@ function getTokenFields(text) {
     return text.toLowerCase().split(/[\s\-_.,:()]+/).filter(Boolean);
 }
 
-function calculateRelevance(item, query, queryFields) {
+function calculateRelevance(item, query) {
     const queryLower = query.toLowerCase();
     const titleLower = item.title ? item.title.toLowerCase() : '';
     const sectionLower = item.section ? item.section.toLowerCase() : '';
@@ -189,70 +189,6 @@ function formatSectionName(section) {
     return sectionMap[lower] || section;
 }
 
-function renderResults(query, results, searchInput, resultsBox) {
-    if (!results.length) {
-        resultsBox.innerHTML = '<div class="search-results__empty">No results found for "' + escapeHtml(query) + '". Try a different mathematical term or phrase.</div>';
-        resultsBox.classList.add("visible");
-        searchInput.setAttribute("aria-expanded", "true");
-        return;
-    }
-    
-    const grouped = {};
-    results.forEach(function(item) {
-        const section = item.item.section || 'General';
-        if (!grouped[section]) {
-            grouped[section] = [];
-        }
-        grouped[section].push(item);
-    });
-    
-    var html = '';
-    
-    const instructionHtml = '<div class="search-results__instruction">Search mathematical content across my website...</div>';
-    
-    const sectionKeys = Object.keys(grouped).sort();
-    
-    sectionKeys.forEach(function(section, sectionIdx) {
-        if (sectionIdx === 0) {
-            html += instructionHtml;
-        }
-        
-        html += '<div class="search-results__section">';
-        html += '<div class="search-results__section-header">' + highlightMatch(formatSectionName(section), query) + '</div>';
-        
-        const sectionResults = grouped[section].slice(0, 6);
-        
-        sectionResults.forEach(function(result, itemIdx) {
-            const item = result.item;
-            const score = result.score;
-            
-            const excerpt = extractSnippet(item.content || item.description || '', query, 180);
-            
-            html += '<a class="search-results__item" href="' + item.url + '" id="search-result-' + section + '-' + itemIdx + '">';
-            html += '<strong class="search-results__title">' + highlightMatch(item.title, query) + '</strong>';
-            
-            if (item.description) {
-                html += '<div class="search-results__excerpt">' + highlightMatch(item.description, query) + '</div>';
-            } else if (excerpt) {
-                html += '<div class="search-results__excerpt">' + highlightMatch(excerpt, query) + '</div>';
-            }
-            
-            html += '</a>';
-        });
-        
-        html += '</div>';
-    });
-    
-    resultsBox.innerHTML = html;
-    resultsBox.classList.add("visible");
-    searchInput.setAttribute("aria-expanded", "true");
-    
-    if (results.length > 12) {
-        resultsBox.querySelector('.search-results__section:last-of-type').innerHTML += 
-            '<div class="search-results__more">and ' + (results.length - 12) + ' more results</div>';
-    }
-}
-
 function initEnhancedSearch(searchInput) {
     const resultsBox = document.createElement("div");
     resultsBox.className = "search-results";
@@ -266,16 +202,13 @@ function initEnhancedSearch(searchInput) {
     searchInput.parentElement.appendChild(resultsBox);
 
     let activeIndex = 0;
-    let currentResults = [];
     let debounceTimer = null;
     let currentIndex = 0;
-    let hasActiveResults = false;
 
     function closeResults() {
         resultsBox.classList.remove("visible");
         searchInput.setAttribute("aria-expanded", "false");
         activeIndex = 0;
-        currentResults = [];
     }
 
     function setActive(newIndex) {
@@ -310,26 +243,46 @@ function initEnhancedSearch(searchInput) {
         
         const grouped = {};
         items.forEach(function(item) {
-            const section = item.section || 'General';
+            const page = item.item;
+            const section = page.section || 'General';
             if (!grouped[section]) {
                 grouped[section] = [];
             }
-            grouped[section].push(item);
+            grouped[section].push({page: page, score: item._score});
+        });
+        
+        // Sort sections by their highest scoring item
+        const sectionKeys = Object.keys(grouped).sort(function(a, b) {
+            const maxScoreA = grouped[a].reduce(function(max, item) {
+                return Math.max(max, item.score);
+            }, 0);
+            const maxScoreB = grouped[b].reduce(function(max, item) {
+                return Math.max(max, item.score);
+            }, 0);
+            return maxScoreB - maxScoreA;
         });
         
         var html = '';
-        const sectionKeys = Object.keys(grouped).sort();
+        let firstSection = true;
         
-        sectionKeys.forEach(function(section, sectionIdx) {
-            if (sectionIdx === 0) {
+        sectionKeys.forEach(function(section) {
+            // Sort items within each section by score
+            grouped[section].sort(function(a, b) {
+                return b.score - a.score;
+            });
+            
+            if (firstSection) {
                 html += '<div class="search-results__instruction">Search mathematical content across my website...</div>';
+                firstSection = false;
             }
             
             html += '<div class="search-results__section">';
             html += '<div class="search-results__section-header">' + highlightMatch(formatSectionName(section), query) + '</div>';
             
-            const sectionResults = grouped[section].slice(0, 6);
-            sectionResults.forEach(function(item, itemIdx) {
+            var totalInSection = grouped[section].length;
+            const sectionResults = grouped[section].slice(0, 10);
+            sectionResults.forEach(function(result, itemIdx) {
+                const item = result.page;
                 const excerpt = extractSnippet(item.content || item.description || '', query, 160);
                 
                 html += '<a class="search-results__item" href="' + item.url + '" id="sr-' + section.replace(/\s+/g, '-') + '-' + itemIdx + '">';
@@ -343,6 +296,10 @@ function initEnhancedSearch(searchInput) {
                 
                 html += '</a>';
             });
+            
+            if (totalInSection > 10) {
+                html += '<div class="search-results__more">and ' + (totalInSection - 10) + ' more results in this section</div>';
+            }
             
             html += '</div>';
         });
@@ -367,24 +324,27 @@ function initEnhancedSearch(searchInput) {
                 if (!indexData || !indexData.pages) return;
                 
                 const allItems = indexData.pages.map(function(page) {
+                    const score = calculateRelevance(page, query);
+                    if (score <= 0) return null;
                     return {
                         item: page,
-                        score: calculateRelevance(page, query)
+                        score: score,
+                        _score: score
                     };
                 }).filter(function(r) {
-                    return r.score > 0;
+                    return r !== null;
                 }).sort(function(a, b) {
                     return b.score - a.score || (a.item.title || '').localeCompare(b.item.title || '');
                 });
 
-                currentResults = [];
-                allItems.forEach(function(item) {
-                    currentResults.push(item.item);
-                });
-                
-                hasActiveResults = true;
-                renderResultsForQuery(query, currentResults);
-                setActive(0);
+                if (allItems.length === 0) {
+                    resultsBox.innerHTML = '<div class="search-results__empty">No results found for "' + escapeHtml(query) + '". Try a different mathematical term or phrase.</div>';
+                    resultsBox.classList.add("visible");
+                    searchInput.setAttribute("aria-expanded", "true");
+                } else {
+                    renderResultsForQuery(query, allItems);
+                    setActive(0);
+                }
             });
         }, 150);
     });
@@ -431,10 +391,6 @@ function initEnhancedSearch(searchInput) {
             closeResults();
         }
     });
-}
-
-function initSiteSearch(searchInput, searchableItems) {
-    initEnhancedSearch(searchInput);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
