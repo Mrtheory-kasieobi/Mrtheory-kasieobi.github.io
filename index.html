@@ -11,6 +11,72 @@
     <title>Kasieobi Udumaga | Home</title>
     <link rel="stylesheet" href="style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .recent-updates {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+      }
+      
+      .update-card {
+        background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+      
+      .update-card__title {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.1rem;
+        color: var(--text);
+      }
+      
+      .update-card__category {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      
+      .update-card__date {
+        margin: 0.5rem 0;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      
+      .update-card__description {
+        margin: 1rem 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      
+.update-card__link {
+          display: inline-block;
+          margin-top: 0.5rem;
+          color: var(--accent);
+          text-decoration: none;
+          font-weight: 600;
+        }
+        
+        .update-card__link:hover {
+          text-decoration: underline;
+        }
+        
+        .view-all-notes {
+          color: var(--accent);
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s ease;
+        }
+        
+        .view-all-notes:hover {
+          color: #4aa8f5;
+        }
+        
+        .section-title--smaller {
+          font-size: 1.5rem;
+        }
+    </style>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -74,9 +140,25 @@
                 Outside Mathematics, I am a sprinter and enjoy track and field. I am a 13 time provincial champion in the 100m and 200m. I am also a co-holder of the electronically timed provincial record for the U15 100m.
             </p>
 
-            <p data-content="index.paragraphs.3">
-                Major Website updates are typically released every 4-6 weeks, though the schedule may vary depending on the time of year.
+<p data-content="index.paragraphs.3">
+                Major Website updates are typically released every 4-6 weeks, though the schedule may vary depending on the time of the year.
             </p>
+        </div>
+        
+        <h2 data-content="index.recent" class="section-title--smaller">Recently Updated</h2>
+        
+        <div class="recent-updates">
+          <div class="update-card">
+            <h3 class="update-card__title">A Rank-30 Elliptic Curve Surpasses the Previous Record</h3>
+            <p class="update-card__category">Elliptic Curves</p>
+            <p class="update-card__date">August 21, 2026</p>
+            <p class="update-card__description">An elliptic curve over Q with rank at least 30 was submitted, breaking the previous record. Explores the mathematical significance and verification.</p>
+            <a href="2026-08-20-rank-30-elliptic-curve.html" class="update-card__link">Read article</a>
+          </div>
+          
+          <div class="recent-updates__view-all" style="margin-top: 1.5rem; text-align: center;">
+            <a href="changelog.html" class="view-all-notes">Entire log →</a>
+          </div>
         </div>
     </main>
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log of all content updates to the website - articles, notes, papers, and course material.">
+    <title>Change Log | Kasieobi Udumaga</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body.log-page {
+            background: var(--bg);
+            color: var(--text);
+        }
+        
+        .log-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .log-entry {
+            border-left: 3px solid var(--accent);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .log-entry h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+        
+        .log-entry .log-date {
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .log-entry p {
+            margin: 0.5rem 0 0 0;
+            color: var(--text);
+        }
+        
+        .log-entry a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .log-entry a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .log-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="log-page">
+    <header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+        <div class="header-content">
+            <h1 data-content="log.header">Change Log</h1>
+            <p data-content="log.subtitle">Log of content updates to articles, notes, papers, and course material</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li class="dropdown">
+                <a href="expository.html">Expository Writing</a>
+                <ul class="dropdown-menu" aria-label="Expository submenu">
+                    <li><a href="olympiad.html">Olympiad</a></li>
+                    <li><a href="undergraduate.html">Undergraduate</a></li>
+                    <li><a href="graduate.html">Graduate</a></li>
+                </ul>
+            </li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main class="log-container">
+        <div class="log-entry">
+            <h3><a href="2026-08-20-rank-30-elliptic-curve.html">A Rank-30 Elliptic Curve Surpasses the Previous Record</a></h3>
+            <div class="log-date">August 21, 2026</div>
+            <p>Published analysis of the new ICARM record: an elliptic curve over Q with rank at least 30, achieved by Claude, Levent Alpöge, and Ava Howell. Includes precise mathematical explanation of rank, independence, and verification methods.</p>
+        </div>
+    </main>
+    
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+    </footer>
+    
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
