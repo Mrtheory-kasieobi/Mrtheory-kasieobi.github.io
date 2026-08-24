@@ -1,0 +1,214 @@
+/* V1.1 Experimental Design - Mathematical Website */
+/* Toggle by adding class 'v1_1_experiment' to <body> */
+
+/* === Typography Enhancements === */
+body.v1_1_experiment {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body.v1_1_experiment h1,
+body.v1_1_experiment h2,
+body.v1_1_experiment h3,
+body.v1_1_experiment h4 {
+  font-family: 'Crimson Pro', Georgia, 'Palatino Linotype', serif;
+}
+
+body.v1_1_experiment h1 {
+  font-size: clamp(2.4rem, 4.7vw, 3.4rem);
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+body.v1_1_experiment h2 {
+  font-size: clamp(1.8rem, 2.8vw, 2.2rem);
+  font-weight: 500;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.v1_1_experiment h3 {
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* === Reduced Visual Density === */
+body.v1_1_experiment main {
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  padding: 3rem 3.5rem;
+  margin-bottom: 2rem;
+}
+
+body.v1_1_experiment nav {
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-bottom: 2rem;
+}
+
+/* Remove heavy shadows from components */
+body.v1_1_experiment .article-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+body.v1_1_experiment .course-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+body.v1_1_experiment .update-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+/* === Editorial Homepage Layout === */
+body.v1_1_experiment .recent-updates {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+body.v1_1_experiment .update-card {
+  border-left: 4px solid var(--accent);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 0 0 0;
+  margin: 0;
+  background: transparent;
+}
+
+body.v1_1_experiment .update-card__title {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+  color: var(--text);
+}
+
+body.v1_1_experiment .update-card__category {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.15rem;
+}
+
+body.v1_1_experiment .update-card__date {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+body.v1_1_experiment .update-card__description {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+body.v1_1_experiment .update-card__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+}
+
+body.v1_1_experiment .update-card__link:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* === Remove Glassmorphism === */
+body.v1_1_experiment .search-bar {
+  background: rgba(15, 24, 37, 0.92);
+  backdrop-filter: none;
+}
+
+body.v1_1_experiment .dropdown-menu,
+body.v1_1_experiment .search-results {
+  backdrop-filter: none;
+  background: var(--surface);
+}
+
+/* === Improved Content Spacing === */
+body.v1_1_experiment .blog-content p {
+  max-width: 75ch;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+body.v1_1_experiment .notes-content p {
+  max-width: 75ch;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* === Simpler Section Rules === */
+body.v1_1_experiment main h2 {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 1.25rem;
+}
+
+body.v1_1_experiment .course-section__title {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: 1.6rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* === Reduced Gradients === */
+body.v1_1_experiment header h1,
+body.v1_1_experiment .article-card h3,
+body.v1_1_experiment .course-card__title {
+  background: none;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+  background-clip: initial;
+}
+
+/* === Preserve Key Elements === */
+body.v1_1_experiment .blog-content blockquote,
+body.v1_1_experiment .math-lab {
+  padding: 1.5rem 2rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+}
+
+/* === Experimental Toggle Button === */
+.v1_1-toggle {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 10000;
+  background: var(--accent);
+  color: #07111d;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.v1_1-toggle:hover {
+  background: #6bb0e0;
+  transform: translateY(-1px);
+}
