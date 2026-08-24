@@ -278,10 +278,16 @@
       "displayName": "Elliptic Curves",
       "pages": [
         {
+          "title": "A Rank-31 Elliptic Curve: A New Record in the Search for High-Rank Curves",
+          "url": "2026-08-23-rank-31-elliptic-curve.html",
+          "section": "Blog",
+          "excerpt": "Curve #302, submitted by Ava Howell and Claude, establishes rank at least 31 with 31 independent rational points. BSD+GRH certified to exact rank 31."
+        },
+        {
           "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
           "url": "2026-08-20-rank-30-elliptic-curve.html",
           "section": "Blog",
-          "excerpt": "A new elliptic curve over Q with rank at least 30 was submitted by Claude, Levent Alpoge, and Ava Howell on August 20, 2026, breaking the previous record held by Elkies and collaborators in 2024."
+          "excerpt": "ICARM Curve #273, submitted by Claude, Levent Alpöge, and Ava Howell on August 20, establishes rank at least 30. BSD+GRH certified to exact rank 30."
         }
       ]
     },

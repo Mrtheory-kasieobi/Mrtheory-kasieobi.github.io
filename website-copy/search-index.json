@@ -99,6 +99,20 @@
       "keywords": ["updates", "changelog", "news", "recent"]
     },
     {
+      "title": "A Rank-31 Elliptic Curve: A New Record in the Search for High-Rank Curves",
+      "url": "2026-08-23-rank-31-elliptic-curve.html",
+      "category": "Blog",
+      "description": "Curve #302, submitted by Ava Howell and Claude, establishes rank at least 31 with BSD+GRH certification to exact rank.",
+      "keywords": ["elliptic curves", "rank 31", "Mordell-Weil", "high-rank", "Diophantine equations", "Birch Swinnerton-Dyer"]
+    },
+    {
+      "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
+      "url": "2026-08-20-rank-30-elliptic-curve.html",
+      "category": "Blog",
+      "description": "ICARM Curve #273, submitted by Claude, Levent Alpöge, and Ava Howell on August 20, 2026, establishes rank ≥30 with BSD+GRH certification.",
+      "keywords": ["elliptic curves", "rank 30", "Mordell-Weil", "high-rank", "Diophantine equations", "Birch Swinnerton-Dyer"]
+    },
+    {
       "title": "2026 Fields Medalist Reflections",
       "url": "2026-fields-medalists-reflections.html",
       "category": "Blog",
