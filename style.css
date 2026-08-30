@@ -1002,36 +1002,164 @@ nav a.active {
 main {
     position: relative;
     z-index: 0;
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.99), rgba(20, 30, 45, 0.96));
-    border: 1px solid var(--border);
-    border-radius: 32px;
-    padding: 42px 48px;
-    box-shadow: var(--shadow-3d), var(--shadow-inset);
-    margin-bottom: 40px;
+    background: rgba(140, 200, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: none;
+    margin-bottom: 2rem;
 }
 
 main h2 {
-    margin-top: 0;
-    font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.6rem, 2.2vw, 2rem);
     color: var(--text);
     letter-spacing: -0.01em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-    padding-bottom: 0.65rem;
+    line-height: 1.25;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+main h2:first-child {
+    margin-top: 0;
+}
+
+main h3 {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+    color: var(--text);
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+}
+
+main h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+    color: var(--text);
+    line-height: 1.35;
 }
 
 main section {
-    margin-top: 1.25rem;
+    margin-top: 2rem;
+}
+
+main p {
+    margin: 1rem 0 0;
+    font-size: 1.02rem;
+    color: var(--muted);
+    max-width: 70ch;
+    line-height: 1.7;
+}
+
+main p:last-child {
+    margin-bottom: 0;
+}
+
+main ul,
+main ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    color: var(--muted);
+}
+
+main li {
+    margin-bottom: 0.35rem;
+    line-height: 1.65;
+}
+
+main li::marker {
+    color: var(--accent);
+}
+
+main blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    color: var(--muted);
+    font-style: italic;
+    background: rgba(140, 200, 255, 0.04);
+    border-radius: 0 8px 8px 0;
+}
+
+main table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.95rem;
+}
+
+main th,
+main td {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+}
+
+main th {
+    background: rgba(140, 200, 255, 0.08);
+    color: var(--text);
+    font-weight: 600;
+}
+
+main tr:nth-child(even) {
+    background: rgba(140, 200, 255, 0.03);
+}
+
+main code {
+    background: rgba(140, 200, 255, 0.1);
+    color: var(--accent);
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+main pre {
+    background: rgba(140, 200, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+main pre code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    font-size: 0.9rem;
+}
+
+main hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 2.5rem 0;
+}
+
+main a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+main a:hover,
+main a:focus-visible {
+    color: #a8d4ff;
+    border-bottom-color: rgba(140, 200, 255, 0.3);
 }
 
 .empty-expository-panel {
-    min-height: 320px;
+    min-height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 24px;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+    background: rgba(140, 200, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: none;
     padding: 2rem;
     text-align: center;
 }
@@ -1040,17 +1168,8 @@ main section {
     margin: 0;
     color: var(--muted);
     font-size: 1.02rem;
-}
-
-main p {
-    margin: 1rem 0 0;
-    font-size: 1.01rem;
-    color: var(--muted);
-    max-width: 78ch;
-}
-
-main p:last-child {
-    margin-bottom: 0;
+    line-height: 1.7;
+    max-width: 65ch;
 }
 
 .article-archive {
