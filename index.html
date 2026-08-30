@@ -19,48 +19,62 @@
       }
       
       .update-card {
-        background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background: transparent;
+        border: none;
+        border-left: 3px solid var(--accent);
+        padding: 1.1rem 1.25rem;
+        box-shadow: none;
       }
       
       .update-card__title {
-        margin: 0 0 0.5rem 0;
-        font-size: 1.1rem;
+        margin: 0 0 0.4rem 0;
+        font-size: 1.15rem;
         color: var(--text);
+        line-height: 1.35;
       }
       
       .update-card__category {
         margin: 0;
-        color: var(--muted);
-        font-size: 0.9rem;
+        color: var(--accent);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
       
       .update-card__date {
-        margin: 0.5rem 0;
+        margin: 0.35rem 0;
         color: var(--muted);
         font-size: 0.85rem;
+        font-variant-numeric: tabular-nums;
       }
       
       .update-card__description {
-        margin: 1rem 0;
+        margin: 0.6rem 0;
         font-size: 0.95rem;
-        line-height: 1.5;
+        line-height: 1.6;
+        color: var(--muted);
+        max-width: 65ch;
       }
       
-.update-card__link {
-          display: inline-block;
-          margin-top: 0.5rem;
-          color: var(--accent);
-          text-decoration: none;
-          font-weight: 600;
-        }
-        
-        .update-card__link:hover {
-          text-decoration: underline;
-        }
+      .update-card__link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 0.5rem;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      
+      .update-card__link:hover {
+        text-decoration: underline;
+      }
+      
+      .update-card__link::after {
+        content: "→";
+        font-size: 0.95rem;
+      }
         
         .view-all-notes {
           color: var(--accent);

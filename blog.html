@@ -53,11 +53,12 @@
     }
 
     .notebook-main {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.99), rgba(20, 30, 45, 0.96));
-      border-radius: 20px;
+      background: rgba(140, 200, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
       padding: 2.5rem;
-      box-shadow: var(--shadow-3d), var(--shadow-inset);
-      border: 1px solid var(--border);
+      box-shadow: none;
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .notebook-header {
@@ -166,17 +167,19 @@
     }
 
     .notebook-card {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: rgba(140, 200, 255, 0.04);
+      border: none;
+      border-left: 3px solid var(--accent);
+      border-radius: 0;
       padding: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: none;
+      transition: background 0.2s ease;
     }
 
     .notebook-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      transform: none;
+      box-shadow: none;
+      background: rgba(140, 200, 255, 0.08);
     }
 
     .entry-meta {
@@ -229,12 +232,12 @@
     }
 
     .sidebar-section {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-radius: 12px;
+      background: rgba(140, 200, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
       padding: 1.25rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: none;
     }
 
     .sidebar-title {
@@ -344,6 +347,14 @@
     body.experimental-mode .entry-category,
     body.experimental-mode .related-links a {
       color: #0055cc !important;
+    }
+
+    body.experimental-mode .notebook-card {
+      border-left-color: #0055cc !important;
+    }
+
+    body.experimental-mode .notebook-card:hover {
+      background: #f0f6ff !important;
     }
 
     body.experimental-mode .blog-search input,
