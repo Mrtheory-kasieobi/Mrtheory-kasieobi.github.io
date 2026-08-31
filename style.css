@@ -2415,6 +2415,10 @@ body.experimental-mode.notes-page header {
     border-color: rgba(140, 200, 255, 0.25);
 }
 
+.contact-info__card--mse:hover {
+    border-color: rgba(140, 200, 255, 0.25);
+}
+
 .contact-info__card--placeholder {
     cursor: default;
     opacity: 0.75;
@@ -2459,6 +2463,10 @@ body.experimental-mode.notes-page header {
 }
 
 .contact-info__card--aops .contact-info__value {
+    color: var(--accent);
+}
+
+.contact-info__card--mse .contact-info__value {
     color: var(--accent);
 }
 
