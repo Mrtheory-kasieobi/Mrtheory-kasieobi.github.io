@@ -4471,3 +4471,533 @@ body.light-mode nav .dropdown-menu a:hover {
   color: #0055cc;
   border-color: rgba(0, 85, 204, 0.15);
 }
+
+/* Mathematics 10 scoped content design language */
+.math-10 .lecture-header,
+.math-10 .problem-header,
+.math-10 .practice-header,
+.math-10 .solution-header {
+  text-align: center;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.math-10 .lecture-header h1,
+.math-10 .problem-header h1,
+.math-10 .practice-header h1,
+.math-10 .solution-header h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.math-10 .lecture-header .subtitle,
+.math-10 .problem-header .subtitle,
+.math-10 .practice-header .subtitle,
+.math-10 .solution-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.math-10 .lecture-content,
+.math-10 .problem-content,
+.math-10 .solution-content {
+  color: var(--text);
+  line-height: 1.75;
+}
+
+.math-10 .lecture-content h2,
+.math-10 .problem-content h2,
+.math-10 .solution-content h2 {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.math-10 .theorem-box,
+.math-10 .example-box,
+.math-10 .problem-box,
+.math-10 .solution-section {
+  background: rgba(140, 200, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  box-shadow: none;
+}
+
+.math-10 .theorem-box {
+  border-left: 3px solid var(--accent);
+}
+
+.math-10 .solution-section {
+  border-left: 3px solid #5cb85c;
+}
+
+.math-10 .theorem-title,
+.math-10 .example-title,
+.math-10 .problem-number,
+.math-10 .solution-number {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.math-10 .solution-section strong {
+  color: #5cb85c;
+}
+
+.math-10 .step {
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent);
+}
+
+.math-10 .navigation {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.math-10 .navigation a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid rgba(140, 200, 255, 0.3);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.math-10 .navigation a:hover {
+  background: rgba(140, 200, 255, 0.08);
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: none;
+  box-shadow: none;
+}
+
+.math-10 .difficulty {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.math-10 .difficulty.medium {
+  background: rgba(240, 173, 78, 0.15);
+  color: #f0ad4e;
+  border: 1px solid rgba(240, 173, 78, 0.3);
+}
+
+.math-10 .difficulty.hard {
+  background: rgba(255, 215, 0, 0.15);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.35);
+}
+
+.math-10 .math-lab {
+  background: rgba(140, 200, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.math-10 .math-lab__title {
+  color: var(--text);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.math-10 .math-lab__description {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.math-10 .math-lab__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.math-10 .math-lab__controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.math-10 .math-lab__input {
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(8, 16, 28, 0.6);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.math-10 .math-lab__input:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+.math-10 .math-lab__button {
+  padding: 0.5rem 1.25rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(140, 200, 255, 0.3);
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.math-10 .math-lab__button:hover {
+  background: rgba(140, 200, 255, 0.08);
+  border-color: var(--accent);
+}
+
+.math-10 .math-lab__output {
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.math-10 .math-lab__output p {
+  margin: 0.4rem 0;
+}
+
+.math-10 .math-lab canvas {
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.math-10 .practice-intro,
+.math-10 .test-section {
+  background: rgba(140, 200, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.math-10 .test-title {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.math-10 .part-label {
+  display: inline-block;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0.3rem 0.9rem;
+  border-radius: 6px;
+  margin: 1.25rem 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.math-10 .mc-question,
+.math-10 .written-question {
+  background: rgba(140, 200, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+
+.math-10 .written-question {
+  border-left: 3px solid var(--accent);
+}
+
+.math-10 .mc-question__num,
+.math-10 .written-question__num {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.math-10 .mc-question__text,
+.math-10 .written-question__text {
+  color: var(--text);
+  margin: 0.35rem 0 0.75rem;
+  line-height: 1.65;
+}
+
+.math-10 .mc-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.math-10 .mc-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.math-10 .mc-option:hover {
+  border-color: var(--accent);
+  background: rgba(140, 200, 255, 0.06);
+}
+
+.math-10 .mc-option input {
+  accent-color: var(--accent);
+}
+
+.math-10 .written-parts {
+  padding-left: 1.25rem;
+  margin: 0.5rem 0 0.25rem;
+  color: var(--text);
+}
+
+.math-10 .written-parts li {
+  margin: 0.5rem 0;
+  line-height: 1.65;
+}
+
+.math-10 .written-answer {
+  width: 100%;
+  margin-top: 0.75rem;
+  background: rgba(8, 16, 28, 0.5);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  padding: 0.6rem 0.8rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.math-10 .written-answer:focus {
+  outline: 2px solid var(--accent);
+  border-color: var(--accent);
+}
+
+.math-10 .submit-btn {
+  display: inline-block;
+  padding: 0.75rem 1.75rem;
+  margin: 1.25rem 0 0.5rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid rgba(140, 200, 255, 0.3);
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.math-10 .submit-btn:hover {
+  background: rgba(140, 200, 255, 0.08);
+  border-color: var(--accent);
+  transform: none;
+  box-shadow: none;
+}
+
+.math-10 .test-results {
+  background: rgba(140, 200, 255, 0.04);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+}
+
+.math-10 .test-results h3 {
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.math-10 .test-results p {
+  margin: 0.35rem 0;
+}
+
+.math-10 .test-results__score {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.math-10 .test-results__percent {
+  color: var(--muted);
+}
+
+.math-10 .question-feedback {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.math-10 .question-feedback.correct { background: rgba(80, 200, 120, 0.12); color: #7ee2a0; }
+.math-10 .question-feedback.incorrect { background: rgba(240, 90, 90, 0.12); color: #ff9a9a; }
+.math-10 .question-feedback.partial { background: rgba(240, 173, 78, 0.12); color: #f0ad4e; }
+.math-10 .question-feedback.unanswered { background: rgba(159, 176, 193, 0.1); color: var(--muted); }
+.math-10 .question-feedback.show-answer { background: rgba(140, 200, 255, 0.1); color: #8cc8ff; margin-top: 0.25rem; }
+
+.math-10 .mc-question.is-correct,
+.math-10 .written-question.is-correct { border-color: #4caf70; }
+.math-10 .mc-question.is-incorrect,
+.math-10 .written-question.is-incorrect { border-color: #e06060; }
+.math-10 .mc-question.is-partial,
+.math-10 .written-question.is-partial { border-color: #f0ad4e; }
+
+.math-10 .correct-answer {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  background: rgba(140, 200, 255, 0.08);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #8cc8ff;
+}
+
+.math-10 .problem-box.bonus {
+  border-left: 3px solid #f0ad4e;
+}
+
+.math-10 .problem-box.bonus .problem-number {
+  color: #f0ad4e;
+}
+
+.math-10 .bonus-section {
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.4rem;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.math-10 .math-display {
+  margin: 0.25rem 0;
+}
+
+@media print {
+  .math-10 .no-print { display: none; }
+  .math-10 header, .math-10 nav, .math-10 footer { display: none; }
+  .math-10 main {
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+}
+
+body.experimental-mode .math-10 .lecture-header,
+body.experimental-mode .math-10 .problem-header,
+body.experimental-mode .math-10 .practice-header,
+body.experimental-mode .math-10 .solution-header,
+body.experimental-mode .math-10 .lecture-content,
+body.experimental-mode .math-10 .problem-content,
+body.experimental-mode .math-10 .solution-content,
+body.experimental-mode .math-10 .theorem-box,
+body.experimental-mode .math-10 .example-box,
+body.experimental-mode .math-10 .problem-box,
+body.experimental-mode .math-10 .solution-section,
+body.experimental-mode .math-10 .math-lab,
+body.experimental-mode .math-10 .practice-intro,
+body.experimental-mode .math-10 .test-section,
+body.experimental-mode .math-10 .mc-question,
+body.experimental-mode .math-10 .written-question,
+body.experimental-mode .math-10 .test-results {
+  background: #ffffff !important;
+  border-color: #d0e0ff !important;
+}
+
+body.experimental-mode .math-10 .lecture-header h1,
+body.experimental-mode .math-10 .problem-header h1,
+body.experimental-mode .math-10 .practice-header h1,
+body.experimental-mode .math-10 .solution-header h1,
+body.experimental-mode .math-10 .lecture-content h2,
+body.experimental-mode .math-10 .problem-content h2,
+body.experimental-mode .math-10 .solution-content h2,
+body.experimental-mode .math-10 .bonus-section,
+body.experimental-mode .math-10 .test-title {
+  color: #003366 !important;
+}
+
+body.experimental-mode .math-10 .theorem-title,
+body.experimental-mode .math-10 .example-title,
+body.experimental-mode .math-10 .problem-number,
+body.experimental-mode .math-10 .solution-number,
+body.experimental-mode .math-10 .mc-question__num,
+body.experimental-mode .math-10 .written-question__num,
+body.experimental-mode .math-10 .part-label,
+body.experimental-mode .math-10 .test-results h3 {
+  color: #0055cc !important;
+}
+
+body.experimental-mode .math-10 .theorem-box,
+body.experimental-mode .math-10 .example-box,
+body.experimental-mode .math-10 .problem-box,
+body.experimental-mode .math-10 .solution-section,
+body.experimental-mode .math-10 .written-question {
+  border-left-color: #0055cc !important;
+}
+
+body.experimental-mode .math-10 .solution-section {
+  border-left-color: #5cb85c !important;
+}
+
+body.experimental-mode .math-10 .problem-box.bonus {
+  border-left-color: #f0ad4e !important;
+}
+
+body.experimental-mode .math-10 .lecture-content,
+body.experimental-mode .math-10 .problem-content,
+body.experimental-mode .math-10 .solution-content,
+body.experimental-mode .math-10 .mc-question__text,
+body.experimental-mode .math-10 .written-question__text,
+body.experimental-mode .math-10 footer {
+  color: #2a3a5a !important;
+}
+
+body.experimental-mode .math-10 .navigation a {
+  color: #0055cc !important;
+}
+
+body.experimental-mode .math-10 .navigation a:hover {
+  color: #0044aa !important;
+}

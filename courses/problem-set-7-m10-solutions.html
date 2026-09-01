@@ -7,81 +7,9 @@
   <title>Kasieobi Udumaga | Problem Set 7 Solutions: Systems of Linear Equations - Mathematics 10</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    @media print {
-      body { margin: 0; padding: 0; }
-      .no-print { display: none; }
-      header, nav, footer { display: none; }
-      main { 
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
-    }
-    .lecture-header {
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .lecture-header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .lecture-header .subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .lecture-content {
-      color: var(--text);
-      line-height: 1.8;
-    }
-    .lecture-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
-    .solution-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5cb85c;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .solution-box strong {
-      color: #5cb85c;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .step {
-      margin: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
-    }
-    .navigation {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .navigation a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      background: linear-gradient(145deg, var(--accent), #4aa8f5);
-      color: #07111d;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-    }
-  </style>
+
 </head>
-<body>
+<body class="math-10">
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
@@ -124,7 +52,7 @@
     <div class="lecture-content">
       <h2>Solutions</h2>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 1: Solve by substitution: \(y = 2x + 1\) and \(3x + y = 10\)</strong>
         <div class="step">Substitute \(y = 2x + 1\) into \(3x + y = 10\):</div>
         <div class="step">\(3x + (2x + 1) = 10\)</div>
@@ -135,7 +63,7 @@
         <div class="step"><strong>Answer: \((\frac{9}{5}, \frac{23}{5})\) or \((1.8, 4.6)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 2: Solve by elimination: \(2x + 3y = 12\) and \(4x - 3y = 6\)</strong>
         <div class="step">Add the equations to eliminate \(y\):</div>
         <div class="step">\((2x + 3y) + (4x - 3y) = 12 + 6\)</div>
@@ -148,7 +76,7 @@
         <div class="step"><strong>Answer: \((3, 2)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 3: Solve: \(x + y + z = 6\), \(2x - y + z = 2\), \(x + 2y - z = 4\)</strong>
         <div class="step">Label equations: (1) \(x + y + z = 6\), (2) \(2x - y + z = 2\), (3) \(x + 2y - z = 4\)</div>
         <div class="step">Add (1) and (3): \(3x + 3y = 10\)</div>
@@ -165,7 +93,7 @@
         <div class="step"><strong>Answer: \((\frac{8}{9}, \frac{22}{9}, \frac{8}{3})\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 4: Investment problem - $3000 split between 4% and 6% accounts, $150 total interest</strong>
         <div class="step">Let \(x\) = amount at 4%, then \((3000 - x)\) = amount at 6%</div>
         <div class="step">Interest equation: \(0.04x + 0.06(3000 - x) = 150\)</div>
@@ -177,7 +105,7 @@
         <div class="step"><strong>Answer: $1500 at 4% and $1500 at 6%</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 5: Find intersection of \(y = x + 2\) and \(y = -2x + 10\)</strong>
         <div class="step">Set equations equal: \(x + 2 = -2x + 10\)</div>
         <div class="step">\(3x = 8\)</div>
@@ -186,14 +114,14 @@
         <div class="step"><strong>Answer: \((\frac{8}{3}, \frac{14}{3})\) or approximately \((2.67, 4.67)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 6: Determine number of solutions for \(3x + 2y = 6\) and \(6x + 4y = 12\)</strong>
         <div class="step">Notice that \(6x + 4y = 12\) is exactly \(2(3x + 2y = 6)\)</div>
         <div class="step">The second equation is a multiple of the first - they are the same line</div>
         <div class="step"><strong>Answer: Infinitely many solutions (same line)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 7: Solve \(\frac{1}{2}x + \frac{1}{3}y = 2\) and \(\frac{1}{4}x - y = -1\)</strong>
         <div class="step">Clear fractions from first equation (multiply by 6): \(3x + 2y = 12\)</div>
         <div class="step">Clear fractions from second equation (multiply by 4): \(x - 4y = -4\)</div>
@@ -206,23 +134,19 @@
         <div class="step"><strong>Answer: \((\frac{20}{7}, \frac{12}{7})\)</strong></div>
       </div>
 
-<div class="solution-box">
+<div class="solution-section">
         <strong>Bonus Problem 1: Reflection Puzzle</strong>
-        <div class="step">Reflect A(2, 3) over line \(y = x + 1\)</div>
-        <div class="step">Step 1: Find perpendicular line through A. Slope of y = x + 1 is 1, so perpendicular slope is -1</div>
-        <div class="step">Equation of perpendicular: \(y - 3 = -1(x - 2)\), so \(y = -x + 5\)</div>
-        <div class="step">Step 2: Find intersection of y = x + 1 and y = -x + 5</div>
-        <div class="step">Set equal: \(x + 1 = -x + 5\), so \(2x = 4\), \(x = 2\)</div>
-        <div class="step">\(y = 2 + 1 = 3\). Intersection point: (2, 3) = A itself!</div>
-        <div class="step">Wait - A is on the line y = x + 1? Check: 3 = 2 + 1 ✓</div>
-        <div class="step">So A is on the line, and its reflection is itself!</div>
-        <div class="step">A' = (2, 3)</div>
-        <div class="step">Reflect A' over x-axis: y-coordinate changes sign</div>
-        <div class="step">B = (2, -3)</div>
-        <div class="step"><strong>Answer: A' = (2, 3), B = (2, -3)</strong></div>
+        <div class="step">Reflect \(A(2, 3)\) over the line \(y = x + 1\)</div>
+        <div class="step">First, check if \(A\) lies on the line: substitute \(x = 2\), \(y = 3\) into \(y = x + 1\)</div>
+        <div class="step">\(3 = 2 + 1\) ✓ The point \(A\) is on the line!</div>
+        <div class="step">When a point lies on the mirror line, its reflection is itself.</div>
+        <div class="step">So \(A' = (2, 3)\)</div>
+        <div class="step">Now reflect \(A'\) over the \(x\)-axis: the \(x\)-coordinate stays the same, the \(y\)-coordinate changes sign.</div>
+        <div class="step">\(B = (2, -3)\)</div>
+        <div class="step"><strong>Answer: \(A' = (2, 3)\), \(B = (2, -3)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Bonus Problem 2: Intersection Detective</strong>
         <div class="step">Find intersection of L₁ and L₂:</div>
         <div class="step">L₁: \(y = x + 1\)</div>
@@ -239,26 +163,22 @@
         <div class="step"><strong>Answer: All three lines intersect at (2, 3). All distances are equal (0).</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Bonus Problem 3: System Constraint</strong>
         <div class="step">Original system: \(2x + 3y = 12\) and \(ax + by = 10\)</div>
-        <div class="step">If we swap coefficients in second: \(bx + ay = 10\)</div>
-        <div class="step">Let original solution be (x₀, y₀) and swapped solution be (x₁, y₁)</div>
+        <div class="step">Swapped system: \(2x + 3y = 12\) and \(bx + ay = 10\)</div>
+        <div class="step">Let the original solution be \((x_0, y_0)\) and the swapped solution be \((x_1, y_1)\)</div>
         <div class="step">Given: \(x_1 - x_0 = 2\) and \(y_1 - y_0 = 2\)</div>
-        <div class="step">From first equation: \(y_0 = \frac{12 - 2x_0}{3}\)</div>
-        <div class="step">Original second: \(ax_0 + by_0 = 10\)</div>
-        <div class="step">Swapped second: \(bx_1 + ay_1 = 10\)</div>
-        <div class="step">With \(x_1 = x_0 + 2\) and \(y_1 = y_0 + 2\)</div>
-        <div class="step">Substitute and solve for a and b</div>
-        <div class="step">Let's try specific values. If a = 3, b = 2 (swapped from first equation):</div>
-        <div class="step">Original: \(2x + 3y = 12\), \(3x + 2y = 10\)</div>
-        <div class="step">Solve: multiply first by 3, second by 2: \(6x + 9y = 36\), \(6x + 4y = 20\)</div>
-        <div class="step">Subtract: \(5y = 16\), \(y = 16/5 = 3.2\)</div>
-        <div class="step">\(x = (12 - 3(3.2))/2 = (12 - 9.6)/2 = 1.2\)</div>
-        <div class="step">Swapped system: \(2x + 3y = 12\), \(2x + 3y = 10\)? No, that's the same</div>
-        <div class="step">Actually swapped would be: \(2x + 3y = 12\), \(3x + 2y = 10\) - same as original if a=3, b=2</div>
-        <div class="step">Need different approach. Let a = b for the constraint to work</div>
-        <div class="step"><strong>Answer: This problem requires more constraints to solve uniquely.</strong></div>
+        <div class="step">Since both solutions satisfy the first equation:</div>
+        <div class="step">\(2x_0 + 3y_0 = 12\)</div>
+        <div class="step">\(2x_1 + 3y_1 = 12\)</div>
+        <div class="step">Subtract the first from the second:</div>
+        <div class="step">\(2(x_1 - x_0) + 3(y_1 - y_0) = 0\)</div>
+        <div class="step">Substitute the given differences:</div>
+        <div class="step">\(2(2) + 3(2) = 4 + 6 = 10 \neq 0\)</div>
+        <div class="step">This is a contradiction! Both solutions cannot lie on the line \(2x + 3y = 12\) while also differing by \((2, 2)\).</div>
+        <div class="step">The constraint \(x_1 - x_0 = 2\) and \(y_1 - y_0 = 2\) is incompatible with both systems sharing the equation \(2x + 3y = 12\).</div>
+        <div class="step"><strong>Answer: No such values of \(a\) and \(b\) exist. The given constraints are contradictory.</strong></div>
       </div>
 
       <div class="navigation">

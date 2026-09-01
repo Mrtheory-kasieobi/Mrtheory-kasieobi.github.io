@@ -7,81 +7,9 @@
   <title>Kasieobi Udumaga | Problem Set 5 Solutions: Relations and Functions - Mathematics 10</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    @media print {
-      body { margin: 0; padding: 0; }
-      .no-print { display: none; }
-      header, nav, footer { display: none; }
-      main { 
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
-    }
-    .lecture-header {
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .lecture-header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .lecture-header .subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .lecture-content {
-      color: var(--text);
-      line-height: 1.8;
-    }
-    .lecture-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
-    .solution-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5cb85c;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .solution-box strong {
-      color: #5cb85c;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .step {
-      margin: 0.5rem 0;
-      padding-left: 1rem;
-      border-left: 3px solid var(--accent);
-    }
-    .navigation {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .navigation a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      background: linear-gradient(145deg, var(--accent), #4aa8f5);
-      color: #07111d;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-    }
-  </style>
+
 </head>
-<body>
+<body class="math-10">
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
@@ -124,7 +52,7 @@
     <div class="lecture-content">
       <h2>Solutions</h2>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 1: Determine if the relation \(\{(1,2), (2,3), (3,4), (4,5)\}\) is a function.</strong>
         <div class="step">A relation is a function if each input (first element) maps to exactly one output (second element)</div>
         <div class="step">Check inputs: 1, 2, 3, 4 - all distinct</div>
@@ -132,7 +60,7 @@
         <div class="step"><strong>Answer: Yes, it is a function.</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 2: Find the domain and range of \(f(x) = \sqrt{x-3}\)</strong>
         <div class="step">Domain: The expression under the square root must be non-negative: \(x - 3 \geq 0\)</div>
         <div class="step">So: \(x \geq 3\), meaning domain is \([3, \infty)\)</div>
@@ -141,14 +69,14 @@
         <div class="step"><strong>Answer: Domain: \([3, \infty)\), Range: \([0, \infty)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 3: If \(g(x) = 2x^2 - 5x + 1\), find \(g(-1)\) and \(g(0)\)</strong>
         <div class="step">For \(g(-1)\): \(g(-1) = 2(-1)^2 - 5(-1) + 1 = 2(1) + 5 + 1 = 8\)</div>
         <div class="step">For \(g(0)\): \(g(0) = 2(0)^2 - 5(0) + 1 = 0 - 0 + 1 = 1\)</div>
         <div class="step"><strong>Answer: \(g(-1) = 8\), \(g(0) = 1\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 4: Find the distance between \((2, 3)\) and \((7, 11)\)</strong>
         <div class="step">Use distance formula: \(d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\)</div>
         <div class="step">Substitute: \(d = \sqrt{(7-2)^2 + (11-3)^2}\)</div>
@@ -156,7 +84,7 @@
         <div class="step"><strong>Answer: \(\sqrt{89}\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 5: Find the domain of \(f(x) = \frac{1}{x+2} + \sqrt{2x-4}\)</strong>
         <div class="step">First condition (denominator): \(x + 2 \neq 0\), so \(x \neq -2\)</div>
         <div class="step">Second condition (square root): \(2x - 4 \geq 0\), so \(x \geq 2\)</div>
@@ -164,7 +92,7 @@
         <div class="step"><strong>Answer: Domain: \([2, \infty)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 6: Given table \(x: -2, 0, 1, 3, 5\) and \(y: 5, 2, 1, 3, 7\)</strong>
         <div class="step">Is it a function? Each x-value maps to exactly one y-value: Yes</div>
         <div class="step">Domain: set of all x-values = \(\{-2, 0, 1, 3, 5\}\)</div>
@@ -172,7 +100,7 @@
         <div class="step"><strong>Answer: Yes, it is a function. Domain: \(\{-2, 0, 1, 3, 5\}\), Range: \(\{1, 2, 3, 5, 7\}\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 7: Find the midpoint of the line segment joining \((4, -2)\) and \((-6, 8)\)</strong>
         <div class="step">Use midpoint formula: \(\left(\frac{x_1+x_2}{2}, \frac{y_1+y_2}{2}\right)\)</div>
         <div class="step">Substitute: \(\left(\frac{4+(-6)}{2}, \frac{-2+8}{2}\right)\)</div>
@@ -180,7 +108,7 @@
         <div class="step"><strong>Answer: \((-1, 3)\)</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Problem 8: Determine if \(f(x) = x^2 + 3x - 2\) is even, odd, or neither</strong>
         <div class="step">Test for even: \(f(-x) = f(x)\)?</div>
         <div class="step">\(f(-x) = (-x)^2 + 3(-x) - 2 = x^2 - 3x - 2\)</div>
@@ -193,7 +121,7 @@
 
       <h2>Bonus Solutions</h2>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Bonus Problem 1: Domain Detective</strong>
         <div class="step">For \(f(x) = \sqrt{9 - x^2}\), need \(9 - x^2 \geq 0\)</div>
         <div class="step">So: \(x^2 \leq 9\), meaning \(-3 \leq x \leq 3\)</div>
@@ -202,7 +130,7 @@
         <div class="step"><strong>Answer: Maximum output is 3. The graph is a circle of radius 3.</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Bonus Problem 2: Composite Function Puzzle</strong>
         <div class="step">Find x where \(f(g(x)) = g(f(x))\)</div>
         <div class="step">\(f(g(x)) = f(x+3) = (x+3)^2 = x^2 + 6x + 9\)</div>
@@ -217,7 +145,7 @@
         <div class="step"><strong>Answer: \(x = -1\). \(f(g(h(x))) = 4x^2 + 8x + 4\).</strong></div>
       </div>
 
-      <div class="solution-box">
+      <div class="solution-section">
         <strong>Bonus Problem 3: Distance Mystery</strong>
         <div class="step">Point equidistant from (2, 3) and (6, -1)</div>
         <div class="step">This is the perpendicular bisector of the segment joining the two points</div>
