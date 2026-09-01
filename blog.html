@@ -101,6 +101,22 @@
       font-size: 0.95rem;
     }
 
+    .blog-search-no-results {
+      display: none;
+      padding: 1.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-style: italic;
+      background: rgba(140, 200, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .blog-search-no-results.is-visible {
+      display: block;
+    }
+
     .category-filters {
       display: flex;
       gap: 0.5rem;
@@ -152,6 +168,10 @@
     .timeline-entry.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .timeline-entry.hidden {
+      display: none;
     }
 
     .timeline-entry::before {
@@ -423,6 +443,7 @@
         <div class="blog-search">
           <input type="search" id="blog-search" placeholder="Search blog posts...">
         </div>
+        <div id="blog-search-no-results" class="blog-search-no-results">No blog posts found</div>
 
         <div class="category-filters">
           <button class="active">All</button>
@@ -550,6 +571,49 @@
         setTimeout(() => {
           entry.classList.add("visible");
         }, i * 100);
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const searchInput = document.getElementById("blog-search");
+      const noResults = document.getElementById("blog-search-no-results");
+      const entries = document.querySelectorAll(".timeline-entry");
+
+      if (!searchInput || !entries.length) return;
+
+      function filterEntries(query) {
+        const lowerQuery = query.toLowerCase();
+        let visibleCount = 0;
+
+        entries.forEach(function(entry) {
+          const title = (entry.querySelector(".entry-title") ? entry.querySelector(".entry-title").textContent : "").toLowerCase();
+          const preview = (entry.querySelector(".entry-preview") ? entry.querySelector(".entry-preview").textContent : "").toLowerCase();
+          const category = (entry.querySelector(".entry-category") ? entry.querySelector(".entry-category").textContent : "").toLowerCase();
+
+          const matches = title.includes(lowerQuery) ||
+                          preview.includes(lowerQuery) ||
+                          category.includes(lowerQuery);
+
+          if (matches) {
+            entry.classList.remove("hidden");
+            visibleCount++;
+          } else {
+            entry.classList.add("hidden");
+          }
+        });
+
+        if (noResults) {
+          if (visibleCount === 0 && query.trim() !== "") {
+            noResults.classList.add("is-visible");
+          } else {
+            noResults.classList.remove("is-visible");
+          }
+        }
+      }
+
+      searchInput.addEventListener("input", function() {
+        filterEntries(this.value);
       });
     });
   </script>
