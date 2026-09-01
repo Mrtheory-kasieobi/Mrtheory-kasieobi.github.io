@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mathematics notes by Kasieobi Udumaga covering number theory, algebra, geometry, and other mathematical topics.">
-  <title>Mathematics Notes | Kasieobi Udumaga</title>
+  <meta name="description" content="Graduate mathematics notes by Kasieobi Udumaga.">
+  <title>Graduate Notes | Kasieobi Udumaga</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
     body.notes-page {
@@ -118,25 +119,6 @@
       text-decoration: underline;
     }
 
-    .note-card__view-all {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 0.75rem;
-      margin-left: 0.75rem;
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      font-size: inherit;
-    }
-
-    .note-card__view-all:hover {
-      text-decoration: underline;
-    }
-
     /* Experimental mode overrides */
     body.experimental-mode .notes-intro,
     body.experimental-mode .note-card {
@@ -173,14 +155,14 @@
       </label>
     </div>
     <div class="header-content">
-      <h1 data-content="notes.header">Notes</h1>
+      <h1>Graduate Mathematics</h1>
     </div>
   </header>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About me</a></li>
-      <li><a href="notes.html" class="active" aria-current="page">Notes</a></li>
+      <li><a href="notes.html">Notes</a></li>
       <li><a href="teaching.html">Teaching</a></li>
       <li class="dropdown">
         <a href="expository.html">Expository Writing</a>
@@ -199,51 +181,18 @@
   <main>
     <div class="notes-index">
       <div class="notes-intro">
-        <p data-content="notes.intro">Welcome to my collection of mathematical notes. This section is a record of my ongoing study and exploration of mathematics, covering material ranging from olympiad problem solving to undergraduate and graduate-level mathematics. The notes are intended to help me organize what I learn while developing a deeper understanding of the definitions, techniques, proofs, examples, and connections that arise throughout different areas of mathematics.
-
-These notes are different from the more polished and self-contained material in my Expository Writing section. Some may focus on developing the theory of a subject from its foundations, while others may collect results, work through examples and proofs, or explore connections between different areas.
-
-At the moment, this section is still under development, and I do not yet have any notes that I would consider fully complete. New notes will be added and existing ones will be expanded, revised, and refined as my understanding develops. 
-
-The notes are organized into three broad categories: Olympiad Mathematics, Undergraduate Mathematics, and Graduate Notes.</p>
-      </div>
-
-    <div class="notes-placeholder">
-      <div class="notes-category">
-        <h2>Olympiad Mathematics</h2>
-        <div class="notes-scroll-container">
-          <div class="note-card">
-            <h3 class="note-card__title">Coming Soon</h3>
-            <p class="note-card__description">Notes will be added here as they are developed.</p>
-            <div class="note-card__meta">
-              <span>Olympiad</span>
-            </div>
-          </div>
-        </div>
+        <p>Graduate notes covering advanced topics. These notes are more technical and proof-oriented than the undergraduate material, and they often connect to current research interests.</p>
       </div>
 
       <div class="notes-category">
-        <h2>Undergraduate Mathematics</h2>
+        <h2>Graduate Notes</h2>
         <div class="notes-scroll-container">
           <div class="note-card">
-            <h3 class="note-card__title">Coming Soon</h3>
-            <p class="note-card__description">Notes will be added here as they are developed.</p>
+            <h3 class="note-card__title">Transcendental Number Theory Overview</h3>
+            <p class="note-card__description">An overview of transcendental number theory covering elementary ideas, classical results like Gelfond–Schneider and Lindemann–Weierstrass theorems, algebraic independence, transcendence methods, and modern directions.</p>
             <div class="note-card__meta">
-              <span>Undergraduate</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="notes-category" id="graduate-notes">
-        <h2>Graduate Mathematics</h2>
-        <div class="notes-scroll-container">
-          <div class="note-card">
-            <h3 class="note-card__title">Coming Soon</h3>
-            <p class="note-card__description">Notes will be added here as they are developed.</p>
-            <div class="note-card__meta">
-              <span>Graduate</span>
-              <a href="graduate-notes.html" class="note-card__view-all">View All Notes</a>
+              <span>Graduate Notes</span>
+              <span class="status-badge">Coming Soon</span>
             </div>
           </div>
         </div>
@@ -256,6 +205,6 @@ The notes are organized into three broad categories: Olympiad Mathematics, Under
   <script src="content-loader.js"></script>
   <script src="math-simulator.js"></script>
   <script src="script.js"></script>
-    <script src="search-enhancer.js"></script>
+  <script src="search-enhancer.js"></script>
 </body>
 </html>
