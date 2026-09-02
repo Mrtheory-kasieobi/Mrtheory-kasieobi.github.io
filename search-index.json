@@ -46,10 +46,10 @@
       "priority": 92
     },
     {
-      "title": "The Mystery of \(e^{\\pi\\sqrt{163}}\)",
+      "title": "The Mystery of \\(e^{\\pi\\sqrt{163}}\\)",
       "section": "Expository Writing",
       "url": "graduate.html",
-      "description": "An exploration of the remarkable appearance of 163 in the near-integer \(e^{\\pi\\sqrt{163}}\), leading into imaginary quadratic fields, Heegner numbers, class numbers, modular forms, and the deeper mathematics behind Ramanujan's constant.",
+      "description": "An exploration of the remarkable appearance of 163 in the near-integer \\(e^{\\pi\\sqrt{163}}\\), leading into imaginary quadratic fields, Heegner numbers, class numbers, modular forms, and the deeper mathematics behind Ramanujan's constant.",
       "content": "Heegner numbers class numbers modular forms imaginary quadratic fields Ramanujan constant e^{\\pi\\sqrt{163}} algebraic number theory transcendence theory",
       "keywords": ["Heegner numbers", "class numbers", "modular forms", "Ramanujan constant", "e^{\\pi\\sqrt{163}}", "algebraic number theory"],
       "priority": 92
@@ -284,7 +284,7 @@
         "title": "Graduate Expository Writing",
         "section": "Expository Writing",
         "url": "graduate.html",
-        "description": "Advanced expository writing for graduate-level mathematics, including The Mystery of \(e^{\\pi\\sqrt{163}}\) and other graduate articles.",
+        "description": "Advanced expository writing for graduate-level mathematics, including The Mystery of \\(e^{\\pi\\sqrt{163}}\\) and other graduate articles.",
         "content": "graduate mathematics expository writing Heegner numbers class numbers modular forms e^{\\pi\\sqrt{163}} Ramanujan constant imaginary quadratic fields algebraic number theory",
         "keywords": ["graduate", "expository", "Heegner numbers", "modular forms", "algebraic number theory", "Ramanujan constant"],
         "priority": 90
