@@ -1,0 +1,37 @@
+name: Archive website
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Every Monday at midnight UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Create dated snapshot
+        run: |
+          DATE=$(date +%Y-%m-%d)
+          if [ -d "website-copy/$DATE" ]; then
+            echo "Snapshot for $DATE already exists. Skipping."
+            exit 0
+          fi
+          mkdir -p website-copy/$DATE
+          rsync -av --exclude='.git/' --exclude='website-copy/' ./ website-copy/$DATE/
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add website-copy/
+          git diff --cached --quiet || git commit -m "[skip ci] Add weekly website archive snapshot $(date +%Y-%m-%d)"
+          git push

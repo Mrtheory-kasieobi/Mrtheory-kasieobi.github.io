@@ -305,55 +305,6 @@ nav a.active {
     border-color: rgba(255, 255, 255, 0.08);
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 1000;
-    background: transparent;
-    border: none;
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s ease, color 0.2s ease;
-    color: var(--text);
-    pointer-events: auto;
-}
-
-.theme-toggle svg {
-    width: 20px;
-    height: 20px;
-    stroke: currentColor;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.1);
-    color: var(--accent);
-}
-
-.theme-toggle:active {
-    transform: scale(0.95);
-}
-
-/* Light mode theme toggle button */
-body.light-mode .theme-toggle {
-    color: #0f172a;
-}
-
-body.light-mode .theme-toggle:hover {
-    color: #2563eb;
-}
-
-/* Dark mode theme toggle button */
-body:not(.light-mode) .theme-toggle {
-    color: var(--text);
-}
-
 .article-feed::-webkit-scrollbar-thumb {
     background: rgba(140, 200, 255, 0.32);
 }
@@ -2939,25 +2890,6 @@ body.experimental-mode .contact-footer__quote blockquote {
     }
 }
 
-/* Dark theme support for canvas */
-@media (prefers-color-scheme: dark) {
-    .math-lab__canvas--enhanced {
-        filter: brightness(1.05);
-    }
-}
-
-/* Light theme support */
-@media (prefers-color-scheme: light) {
-    .math-lab--enhanced {
-        background: #ffffff;
-        border-color: #d0e0ff;
-    }
-    
-.math-lab__canvas--enhanced {
-      background: #f8fbff;
-    }
-}
-
 /* =========================================
    Research Page Styles - Restrained Editorial
    ========================================= */
@@ -3987,30 +3919,6 @@ body.redirect-page {
   box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
 }
 
-@media (prefers-color-scheme: light) {
-  body.redirect-page {
-    background: #f5f5f5;
-    color: #07111d;
-  }
-
-  .redirect-title {
-    background: linear-gradient(90deg, #2563eb, #d4af37);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .redirect-message {
-    color: #5a6478;
-  }
-
-  .redirect-link {
-    background: linear-gradient(145deg, #2563eb, #d4af37);
-    color: #fff;
-    border-color: #d4af37;
-  }
-}
-
 @media (max-width: 768px) {
   .redirect-container {
     padding: 2rem 1.5rem;
@@ -4424,52 +4332,6 @@ body.experimental-mode.track-page .track-pr-card {
 
 body.experimental-mode.track-page .track-pr-value {
   color: #0055cc !important;
-}
-
-/* Light Mode Navigation Styles */
-body.light-mode nav {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 999px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-body.light-mode nav a {
-  color: #0f172a;
-  background: transparent;
-  border-radius: 999px;
-  border: 1px solid transparent;
-}
-
-body.light-mode nav a:hover,
-body.light-mode nav a:focus-visible {
-  background: rgba(0, 85, 204, 0.08);
-  color: #0055cc;
-  border-color: rgba(0, 85, 204, 0.2);
-}
-
-body.light-mode nav a.active {
-  background: rgba(0, 85, 204, 0.12);
-  color: #0055cc;
-  border-color: rgba(0, 85, 204, 0.35);
-  font-weight: 700;
-}
-
-body.light-mode .dropdown-menu {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
-}
-
-body.light-mode nav .dropdown-menu a {
-  color: #0f172a;
-  border: 1px solid transparent;
-}
-
-body.light-mode nav .dropdown-menu a:hover {
-  background: rgba(0, 85, 204, 0.08);
-  color: #0055cc;
-  border-color: rgba(0, 85, 204, 0.15);
 }
 
 /* Mathematics 10 scoped content design language */
