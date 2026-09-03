@@ -2430,3 +2430,67 @@ function initMathLabSimulations() {
 }
 
 // End of script.js
+
+// Dropdown keyboard accessibility
+(function() {
+    const dropdownTriggers = document.querySelectorAll('li.dropdown > a[aria-haspopup="true"]');
+    
+    function openDropdown(dropdown) {
+        dropdown.classList.add('open');
+        const trigger = dropdown.querySelector('a[aria-haspopup="true"]');
+        if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    }
+    
+    function closeDropdown(dropdown) {
+        dropdown.classList.remove('open');
+        const trigger = dropdown.querySelector('a[aria-haspopup="true"]');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    }
+    
+    function closeAllDropdowns() {
+        document.querySelectorAll('li.dropdown.open').forEach(closeDropdown);
+    }
+    
+    dropdownTriggers.forEach(trigger => {
+        const dropdown = trigger.closest('li.dropdown');
+        if (!dropdown) return;
+        
+        trigger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                if (dropdown.classList.contains('open')) {
+                    closeDropdown(dropdown);
+                } else {
+                    closeAllDropdowns();
+                    openDropdown(dropdown);
+                }
+            }
+        });
+        
+        dropdown.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                e.preventDefault();
+                closeDropdown(dropdown);
+                trigger.focus();
+            }
+        });
+        
+        dropdown.addEventListener('focusin', function() {
+            openDropdown(dropdown);
+        });
+        
+        dropdown.addEventListener('focusout', function() {
+            setTimeout(() => {
+                if (!dropdown.contains(document.activeElement)) {
+                    closeDropdown(dropdown);
+                }
+            }, 0);
+        });
+    });
+    
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('li.dropdown')) {
+            closeAllDropdowns();
+        }
+    });
+})();

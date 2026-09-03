@@ -727,7 +727,8 @@ nav .dropdown-menu {
 }
 
 nav li:hover > .dropdown-menu,
-nav li:focus-within > .dropdown-menu {
+nav li:focus-within > .dropdown-menu,
+nav li.open > .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
