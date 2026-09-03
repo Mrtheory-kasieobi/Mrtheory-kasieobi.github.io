@@ -118,35 +118,10 @@
     .note-card__link:hover {
       text-decoration: underline;
     }
-
-    /* Experimental mode overrides */
-    body.experimental-mode .notes-intro,
-    body.experimental-mode .note-card {
-      background: #ffffff !important;
-      border-color: #d0e0ff !important;
-    }
-
-    body.experimental-mode .notes-intro p,
-    body.experimental-mode .note-card__title,
-    body.experimental-mode .note-card__description,
-    body.experimental-mode .note-card__meta {
-      color: #2a3a5a !important;
-    }
-
-    body.experimental-mode .notes-category h2 {
-      color: #003366 !important;
-    }
-
-    body.experimental-mode .note-card__link {
-      color: #0055cc !important;
-    }
-
-    body.experimental-mode .note-card:hover {
-      background: #f0f6ff !important;
-    }
-  </style>
+</style>
 </head>
 <body class="notes-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
@@ -178,7 +153,7 @@
       <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
-  <main>
+  <main id="main-content">
     <div class="notes-index">
       <div class="notes-intro">
         <p>Graduate notes covering advanced topics. These notes are more technical and proof-oriented than the undergraduate material, and they often connect to current research interests.</p>

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /website-copy/
 
-Sitemap: https://kasieobiudumaga.com/sitemap.xml
+Sitemap: https://mrtheory-kasieobi.github.io/sitemap.xml

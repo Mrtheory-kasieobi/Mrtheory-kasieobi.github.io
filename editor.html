@@ -237,6 +237,7 @@
     </style>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header>
         <div class="header-controls">
             <label class="search-bar" for="site-search">
@@ -270,13 +271,14 @@
         </ul>
     </nav>
     
-    <main>
+    <main id="main-content">
         <div class="editor-container">
             <!-- Password Screen -->
             <div class="password-screen" id="password-screen">
                 <h2>Private Editor</h2>
                 <p style="color: var(--muted); margin: 0;">Enter password to access content editor</p>
-                <input type="password" id="editor-password" class="password-input" placeholder="Password" autocomplete="off">\n                
+                 <label for="editor-password" class="sr-only">Password</label>
+                 <input type="password" id="editor-password" class="password-input" placeholder="Password" autocomplete="off">\n                
                 <button class="unlock-btn" id="unlock-btn">Unlock Editor</button>
                 <p class="error-message" id="error-message" style="display: none;"></p>
             </div>

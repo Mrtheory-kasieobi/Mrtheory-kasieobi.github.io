@@ -26,35 +26,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// Experimental Mode Toggle
-function initExperimentalToggle() {
-    const toggle = document.createElement("button");
-    toggle.className = "experimental-toggle";
-    toggle.textContent = "Experimental Mode";
-    toggle.setAttribute("aria-pressed", "false");
-
-    // Restore persisted state on page load
-    if (localStorage.getItem("experimental-mode") === "enabled") {
-        document.body.classList.add("experimental-mode");
-        document.documentElement.classList.add("experimental-mode");
-        toggle.setAttribute("aria-pressed", "true");
-        toggle.textContent = "Standard Mode";
-    }
-
-    toggle.addEventListener("click", function () {
-        const isEnabled = document.body.classList.toggle("experimental-mode");
-        // Also toggle on <html> so rem-based font sizes (relative to the
-        // root element) scale up site-wide, not just properties on <body>.
-        document.documentElement.classList.toggle("experimental-mode", isEnabled);
-        this.setAttribute("aria-pressed", isEnabled);
-        this.textContent = isEnabled ? "Standard Mode" : "Experimental Mode";
-        // Persist the preference across page refreshes
-        localStorage.setItem("experimental-mode", isEnabled ? "enabled" : "disabled");
-    });
-
-    document.body.appendChild(toggle);
-}
-
 // Background equations rendered with MathJax
 // Two vertical columns of mathematical theorems on left and right edges
 function initMathBackground() {
@@ -163,7 +134,6 @@ function initMathBackground() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // initExperimentalToggle(); // Disabled for public release - experimental mode not ready
     initMathBackground();
     
     // Initialize Math Lab simulations

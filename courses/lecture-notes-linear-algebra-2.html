@@ -21,9 +21,10 @@
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
   <header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
-    <div class="header-content"><h1>Linear Algebra</h1></div>
+    <div class="header-content"><p class="site-title">Linear Algebra</p></div>
   </header>
   <nav>
     <ul>
@@ -36,7 +37,7 @@
       <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
     </ul>
   </nav>
-  <main>
+  <main id="main-content">
     <div class="lecture-header">
       <h1>Linear Independence and Span</h1>
       <div class="subtitle">Linear Algebra - Lecture 2 • Based on Axler's "Linear Algebra Done Right" and MIT 18.700</div>
@@ -90,7 +91,7 @@
       <div class="problem-box"><div class="problem-title">Problem 2</div><p>Show that any two vectors in <span class="math-inline">\(F^2\)</span> are linearly dependent if and only if one is a scalar multiple of the other.</p></div>
       <div class="problem-box"><div class="problem-title">Problem 3</div><p>Find the span of <span class="math-inline">\{ (1, 2), (3, 4) \}\)</span> in <span class="math-inline">\(F^2\)</span>.</p></div>
     </div>
-    <nav class="navigation">
+    <nav class="navigation" aria-label="Course navigation">
       <a href="lecture-notes-linear-algebra-1.html">← Lecture 1</a>
       <a href="linear-algebra.html">Course Home</a>
       <a href="lecture-notes-linear-algebra-3.html">Lecture 3 →</a>
