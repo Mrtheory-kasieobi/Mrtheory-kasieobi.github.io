@@ -6,7 +6,7 @@
     "paragraphs": [
       "Hello! I’m Kasieobi Udumaga, a high school student from British Columbia, Canada with a strong interest in pure mathematics.",
       "My primary interests are in algebraic number theory and commutative algebra. I will explore related areas of mathematics as I develop my background and pursue research questions of my own.",
-      "This website documents my mathematical progress through research projects, expository writing, mathematical notes, and explorations of topics ranging from olympiad mathematics to graduate-level mathematics.",
+      "This website documents my mathematical progress through research projects, expository writing, mathematical notes, and explorations of topics ranging from olympiad problem solving to graduate-level mathematics.",
       "Outside of mathematics, I am a sprinter and enjoy track and field. I am a 12-time provincial champion in the 100m and 200m and a co-holder of the electronically timed provincial record for the U15 100m dash.",
       "Major website updates are typically released every 4–6 weeks, though the schedule may vary depending on the time of year."
     ]
@@ -142,7 +142,7 @@
     "header": "Expository Writing",
     "subtitle": "Mathematical exposition, problem analysis, and experimental mathematics.",
     "paragraphs": [
-      "Expository writing is one of the most important forms of mathematical communication. Its purpose is not to present new research, but rather to explain existing mathematics in a clear, logical, and accessible way. A well-written exposition bridges the gap between technical rigor and intuition, helping readers understand not only what is true, but also why it is true and how different ideas are connected. This page is my collection of expository articles spanning several areas of mathematics. It is organized into sections covering olympiad mathematics, undergraduate topics, and graduate-level subjects, each containing notes, expository essays, problem discussions, or surveys of interesting mathematical ideas. Some articles are intended to introduce foundational concepts, while others provide detailed solutions, commentary, historical context, or connections to more advanced mathematics."
+      "Expository writing is one of the most important forms of mathematical communication. Its purpose is not to present new research, but rather to explain existing mathematics in a clear, logical, and accessible way. A well-written exposition bridges the gap between technical rigor and intuition, helping readers understand not only what is true, but also why it is true and how different ideas are connected. This page is my collection of expository articles spanning several areas of mathematics. It is organized into sections covering olympiad problem solving, undergraduate topics, and graduate-level subjects, each containing notes, expository essays, problem discussions, or surveys of interesting mathematical ideas. Some articles are intended to introduce foundational concepts, while others provide detailed solutions, commentary, historical context, or connections to more advanced mathematics."
     ]
   },
   "olympiad": {
