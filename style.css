@@ -5,18 +5,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap');
 
 :root {
-    --page-bg: #07111d;
-    --surface: rgba(15, 24, 37, 0.96);
+    --page-bg: #0b1520;
+    --surface: rgba(16, 26, 40, 0.98);
     --surface-strong: #111c2a;
-    --text: #f2f6fb;
-    --muted: #9fb0c1;
+    --text: #e8f0f8;
+    --muted: #8fa3b8;
     --accent: #8cc8ff;
-    --accent-soft: #20384d;
-    --border: rgba(255, 255, 255, 0.1);
-    --shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
-    --shadow-3d: 0 18px 45px rgba(0, 0, 0, 0.28), 0 6px 16px rgba(0, 0, 0, 0.2);
-    --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 0 -2px 6px rgba(0, 0, 0, 0.2);
-    --bg: linear-gradient(145deg, #07111d 0%, #0d1827 35%, #111d2e 100%);
+    --accent-soft: rgba(140, 200, 255, 0.12);
+    --border: rgba(140, 200, 255, 0.18);
+    --border-strong: rgba(140, 200, 255, 0.28);
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    --bg: #0b1520;
 }
 
 .sr-only {
@@ -60,15 +60,14 @@ h3 {
     font-weight: 500;
 }
 
-/* Background pseudo-elements */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(circle at top left, rgba(140, 200, 255, 0.12), transparent 28%),
-                radial-gradient(circle at bottom right, rgba(140, 200, 255, 0.08), transparent 30%);
+    background: radial-gradient(circle at top left, rgba(140, 200, 255, 0.06), transparent 28%),
+                radial-gradient(circle at bottom right, rgba(140, 200, 255, 0.04), transparent 30%);
 }
 
 body::after {
@@ -77,12 +76,10 @@ body::after {
     inset: 0;
     pointer-events: none;
     z-index: -1;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 36px 36px;
-    opacity: 0.2;
-    transform: perspective(800px) rotateX(8deg);
-    transform-origin: top;
+    opacity: 0.15;
 }
 
 /* Scale rem-based sizing site-wide (rem is relative to the root <html>
@@ -109,23 +106,22 @@ main,
 nav .dropdown-menu {
     background: var(--surface);
     border-color: var(--border);
-    box-shadow: var(--shadow-3d), var(--shadow-inset);
+    box-shadow: var(--shadow);
 }
 
 nav a {
     color: var(--text);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 nav a:hover,
 nav a:focus-visible,
 nav a.active {
-    background: linear-gradient(145deg, var(--accent), #4aa8f5);
-    color: #07111d;
+    background: rgba(140, 200, 255, 0.1);
+    color: var(--accent);
 }
 
 .article-card {
-    border-color: rgba(255, 255, 255, 0.08);
+    border-color: var(--border);
 }
 
 .article-feed::-webkit-scrollbar-thumb {
@@ -244,26 +240,25 @@ body.no-math-background .math-background {
 }
 
 body.notes-page {
-    background: linear-gradient(135deg, #0d1827 0%, #111d2e 45%, #0a1520 100%);
+    background: var(--bg);
     color: var(--text);
 }
 
 body.notes-page::before {
-    background: radial-gradient(circle at top right, rgba(140, 200, 255, 0.08), transparent 28%),
-                radial-gradient(circle at bottom left, rgba(140, 200, 255, 0.05), transparent 24%);
+    background: radial-gradient(circle at top right, rgba(140, 200, 255, 0.06), transparent 28%),
+                radial-gradient(circle at bottom left, rgba(140, 200, 255, 0.04), transparent 24%);
 }
 
 body.notes-page::after {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
     background-size: 32px 32px;
-    opacity: 0.55;
+    opacity: 0.15;
 }
 
 body.notes-page header,
 body.notes-page footer {
     background: transparent;
-    box-shadow: none;
     border-radius: 0;
 }
 
@@ -276,7 +271,6 @@ body.notes-page header {
 body.notes-page main {
     background: transparent;
     border: none;
-    box-shadow: none;
     min-height: 280px;
     padding: 0 24px 34px;
 }
@@ -299,7 +293,7 @@ body.notes-page main {
 }
 
 body.notes-page footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--border);
     margin-top: 24px;
     padding-top: 20px;
 }
@@ -313,21 +307,21 @@ body.notes-page .equation {
 }
 
 body.chalkboard {
-    background: linear-gradient(135deg, #18372d 0%, #214338 42%, #11261e 100%);
+    background: #18372d;
     color: #eef3e7;
 }
 
 body.chalkboard::before {
-    background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08), transparent 16%),
-                radial-gradient(circle at 80% 12%, rgba(255,255,255,0.06), transparent 14%),
-                radial-gradient(circle at 50% 85%, rgba(255,255,255,0.05), transparent 20%);
+    background: radial-gradient(circle at 15% 20%, rgba(255,255,255,0.06), transparent 16%),
+                radial-gradient(circle at 80% 12%, rgba(255,255,255,0.04), transparent 14%),
+                radial-gradient(circle at 50% 85%, rgba(255,255,255,0.04), transparent 20%);
 }
 
 body.chalkboard::after {
-    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
     background-size: 32px 32px;
-    opacity: 0.2;
+    opacity: 0.15;
 }
 
 .chalkboard-background {
@@ -339,7 +333,7 @@ body.chalkboard::after {
     gap: 2rem;
     padding: 3rem;
     pointer-events: none;
-    opacity: 0.13;
+    opacity: 0.1;
 }
 
 .chalkboard-background .equation {
@@ -353,20 +347,17 @@ body.chalkboard::after {
 body.chalkboard header,
 body.chalkboard main,
 body.chalkboard footer {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.06);
     border-radius: 24px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
 }
 
 body.chalkboard nav {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.9);
     border: 1px solid rgba(15, 23, 42, 0.08);
-    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.16);
 }
 
 body.chalkboard main {
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--border);
 }
 
 body.chalkboard h1,
@@ -451,17 +442,16 @@ header {
     align-items: center;
     gap: 0.45rem;
     padding: 0.5rem 0.7rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
     border-radius: 999px;
     background: rgba(140, 200, 255, 0.04);
-    box-shadow: none;
     min-width: 220px;
     margin-left: 0;
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .search-bar:hover {
-    border-color: rgba(140, 200, 255, 0.25);
+    border-color: var(--border-strong);
 }
 
 .search-bar:focus-within {
@@ -511,10 +501,9 @@ header {
     right: 0;
     min-width: 260px;
     max-height: 400px;
-    background: rgba(100, 160, 225, 0.40);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    box-shadow: none;
     padding: 0.5rem 0;
     opacity: 0;
     visibility: hidden;
@@ -533,72 +522,13 @@ header {
 
 .search-results__item {
     display: block;
-    padding: 0.6rem 1rem;
-    color: var(--text);
-    text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 600;
-    transition: background 0.15s ease, color 0.15s ease;
-}
-
-.search-results__item:hover,
-.search-results__item:focus-visible,
-.search-results__item.is-active {
-    background: rgba(140, 200, 255, 0.12);
-    color: var(--accent);
-}
-
-.search-results__item strong {
-    font-weight: 700;
-}
-
-.search-results__item mark {
-    background: rgba(140, 200, 255, 0.35);
-    color: inherit;
-    border-radius: 3px;
-    padding: 0 1px;
-}
-
-.search-results__empty {
-    padding: 0.7rem 1rem;
-    color: var(--muted);
-    font-size: 0.88rem;
-}
-
-.search-results__instruction {
-    padding: 0.7rem 1rem;
-    color: var(--muted);
-    font-size: 0.85rem;
-    font-style: italic;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.search-results__section {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.search-results__section + .search-results__section {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.search-results__section-header {
-    padding: 0.5rem 1rem;
-    color: var(--muted);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-}
-
-.search-results__item {
-    display: block;
     padding: 0.7rem 1rem;
     color: var(--text);
     text-decoration: none;
     font-size: 0.92rem;
     font-weight: 500;
     transition: background 0.15s ease, color 0.15s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border);
 }
 
 .search-results__item:last-child {
@@ -608,7 +538,7 @@ header {
 .search-results__item:hover,
 .search-results__item:focus-visible,
 .search-results__item.is-active {
-    background: rgba(140, 200, 255, 0.12);
+    background: rgba(140, 200, 255, 0.08);
     color: var(--accent);
 }
 
@@ -645,6 +575,31 @@ header {
     text-align: center;
 }
 
+.search-results__instruction {
+    padding: 0.7rem 1rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-style: italic;
+    border-bottom: 1px solid var(--border);
+}
+
+.search-results__section {
+    border-bottom: 1px solid var(--border);
+}
+
+.search-results__section + .search-results__section {
+    border-bottom: 1px solid var(--border);
+}
+
+.search-results__section-header {
+    padding: 0.5rem 1rem;
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
 header .header-content {
     display: flex;
     flex-direction: column;
@@ -674,10 +629,9 @@ nav {
     z-index: 1000;
     isolation: isolate;
     background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
     border-radius: 999px;
     padding: 10px 14px;
-    box-shadow: none;
     margin-bottom: 28px;
 }
 
@@ -714,10 +668,9 @@ nav .dropdown-menu {
     top: calc(100% + 10px);
     left: 0;
     min-width: 220px;
-    background: rgba(80, 145, 215, 0.35);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
-    box-shadow: none;
     padding: 8px 0;
     opacity: 0;
     visibility: hidden;
@@ -758,7 +711,7 @@ nav .dropdown-menu a:focus-visible {
     background: rgba(140, 200, 255, 0.08);
     color: var(--accent);
     transform: none;
-    border-color: rgba(140, 200, 255, 0.15);
+    border-color: var(--border);
 }
 
 nav a:hover,
@@ -766,24 +719,23 @@ nav a:focus-visible {
     background: rgba(140, 200, 255, 0.08);
     color: var(--accent);
     transform: none;
-    border-color: rgba(140, 200, 255, 0.2);
+    border-color: var(--border);
 }
 
 nav a.active {
     background: rgba(140, 200, 255, 0.1);
     color: var(--accent);
-    border-color: rgba(140, 200, 255, 0.35);
+    border-color: var(--border-strong);
     font-weight: 700;
 }
 
 main {
     position: relative;
     z-index: 0;
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 16px;
     padding: 2.5rem;
-    box-shadow: none;
     margin-bottom: 2rem;
 }
 
@@ -794,7 +746,7 @@ main h2 {
     color: var(--text);
     letter-spacing: -0.01em;
     line-height: 1.25;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 0.5rem;
 }
 
@@ -871,7 +823,7 @@ main table {
 main th,
 main td {
     padding: 0.6rem 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
     text-align: left;
 }
 
@@ -895,7 +847,7 @@ main code {
 
 main pre {
     background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1rem;
     overflow-x: auto;
@@ -911,7 +863,7 @@ main pre code {
 
 main hr {
     border: none;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--border);
     margin: 2.5rem 0;
 }
 
@@ -925,7 +877,7 @@ main a {
 main a:hover,
 main a:focus-visible {
     color: #a8d4ff;
-    border-bottom-color: rgba(140, 200, 255, 0.3);
+    border-bottom-color: var(--border-strong);
 }
 
 .about-layout {
@@ -946,8 +898,7 @@ main a:focus-visible {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: none;
+    border: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
@@ -966,10 +917,9 @@ main a:focus-visible {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 12px;
-    box-shadow: none;
     padding: 2rem;
     text-align: center;
 }
@@ -991,7 +941,7 @@ main a:focus-visible {
 .archive-intro {
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid var(--border);
 }
 
 .archive-intro h2 {
@@ -1022,7 +972,6 @@ main a:focus-visible {
     border-left: 3px solid var(--accent);
     border-radius: 0;
     padding: 1.1rem 1.25rem;
-    box-shadow: none;
     scroll-snap-align: start;
     margin-bottom: 0;
     transition: background 0.2s ease;
@@ -1040,7 +989,7 @@ main a:focus-visible {
 }
 
 .article-card + .article-card {
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--border);
 }
 
 .article-card .article-date {
@@ -1134,7 +1083,7 @@ footer {
     color: var(--muted);
     text-align: center;
     font-size: 0.95rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--border);
 }
 
 .site-footer {
@@ -1150,7 +1099,7 @@ footer {
     display: inline-block;
     padding: 0.12rem 0.55rem;
     border-radius: 999px;
-    border: 1px solid rgba(140, 200, 255, 0.22);
+    border: 1px solid var(--border);
     background: rgba(140, 200, 255, 0.08);
     color: #9ec8ef;
     font-size: 0.72rem;
@@ -1209,11 +1158,10 @@ footer {
 }
 
 .course-card {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1.5rem;
-    box-shadow: none;
     transition: background 0.2s ease;
     display: flex;
     flex-direction: column;
@@ -1222,8 +1170,7 @@ footer {
 
 .course-card:hover {
     transform: none;
-    box-shadow: none;
-    background: rgba(140, 200, 255, 0.08);
+    background: rgba(140, 200, 255, 0.04);
 }
 
 .course-card__header {
@@ -1267,7 +1214,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     padding-top: 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid var(--border);
     font-size: 0.85rem;
     color: var(--muted);
 }
@@ -1290,15 +1237,15 @@ footer {
 
 .course-card__status--in-progress {
     color: #f0ad4e;
-  }
+}
 
-  .course-card__status--near-complete {
+.course-card__status--near-complete {
     color: #f0ad4e;
-  }
+}
 
-  .course-card__status--complete {
+.course-card__status--complete {
     color: #5cb85c;
-  }
+}
 
 .course-card__status--incomplete {
     color: #d9534f;
@@ -1312,7 +1259,7 @@ footer {
     background: transparent;
     color: var(--accent);
     text-decoration: none;
-    border: 1px solid rgba(140, 200, 255, 0.3);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.85rem;
@@ -1323,7 +1270,6 @@ footer {
 .course-card__button:hover,
 .course-card__button:focus-visible {
     transform: none;
-    box-shadow: none;
     background: rgba(140, 200, 255, 0.08);
     border-color: var(--accent);
     color: var(--accent);
@@ -1342,12 +1288,11 @@ footer {
 }
 
 .teaching-description {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: none;
 }
 
 .teaching-description__title {
@@ -1366,12 +1311,11 @@ footer {
 
 /* Course Page Styles */
 .course-header {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: none;
 }
 
 .course-header__title {
@@ -1403,12 +1347,11 @@ footer {
 }
 
 .course-info {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     padding: 1.5rem;
     margin-bottom: 2rem;
-    box-shadow: none;
 }
 
 .course-info__title {
@@ -1430,7 +1373,7 @@ footer {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border);
 }
 
 .course-info__list-item:last-child {
@@ -1477,7 +1420,7 @@ footer {
     align-items: baseline;
     gap: 1rem;
     padding: 0.75rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--border);
 }
 
 .course-syllabus__item:last-child {
@@ -1509,11 +1452,10 @@ footer {
 }
 
 .course-note-card {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.25rem;
-    box-shadow: none;
     transition: background 0.2s ease;
     display: flex;
     flex-direction: column;
@@ -1522,8 +1464,7 @@ footer {
 
 .course-note-card:hover {
     transform: none;
-    box-shadow: none;
-    background: rgba(140, 200, 255, 0.08);
+    background: rgba(140, 200, 255, 0.04);
 }
 
 .course-note-card__number {
@@ -1557,7 +1498,7 @@ footer {
     background: transparent;
     color: var(--accent);
     text-decoration: none;
-    border: 1px solid rgba(140, 200, 255, 0.3);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.85rem;
@@ -1568,7 +1509,6 @@ footer {
 .course-note-card__button:hover,
 .course-note-card__button:focus-visible {
     transform: none;
-    box-shadow: none;
     background: rgba(140, 200, 255, 0.08);
     border-color: var(--accent);
     color: var(--accent);
@@ -1588,19 +1528,17 @@ footer {
 }
 
 .course-problem-set {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.25rem;
     margin-bottom: 1rem;
-    box-shadow: none;
     transition: background 0.2s ease;
 }
 
 .course-problem-set:hover {
     transform: none;
-    box-shadow: none;
-    background: rgba(140, 200, 255, 0.08);
+    background: rgba(140, 200, 255, 0.04);
 }
 
 .course-problem-set__header {
@@ -1642,7 +1580,7 @@ footer {
     background: transparent;
     color: var(--accent);
     text-decoration: none;
-    border: 1px solid rgba(140, 200, 255, 0.3);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.85rem;
@@ -1652,7 +1590,6 @@ footer {
 .course-problem-set__button:hover,
 .course-problem-set__button:focus-visible {
     transform: none;
-    box-shadow: none;
     background: rgba(140, 200, 255, 0.08);
     border-color: var(--accent);
     color: var(--accent);
@@ -1670,11 +1607,10 @@ footer {
 }
 
 .course-resources__category {
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 1.25rem;
-    box-shadow: none;
 }
 
 .course-resources__title {
@@ -1714,11 +1650,10 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 10px;
     margin-top: 3rem;
-    box-shadow: none;
 }
 
 .course-related__link {
@@ -1729,7 +1664,7 @@ footer {
     background: transparent;
     color: var(--accent);
     text-decoration: none;
-    border: 1px solid rgba(140, 200, 255, 0.3);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-weight: 600;
     font-size: 0.9rem;
@@ -1739,7 +1674,6 @@ footer {
 .course-related__link:hover,
 .course-related__link:focus-visible {
     transform: none;
-    box-shadow: none;
     background: rgba(140, 200, 255, 0.08);
     border-color: var(--accent);
     color: var(--accent);
@@ -1763,21 +1697,19 @@ footer {
     font-style: italic;
     margin-bottom: 1.5rem;
     padding: 1rem;
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
     border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Math Lab Simulation Styles */
 .math-lab {
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+    background: var(--surface);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
     border-radius: 16px;
     padding: 2rem;
     margin: 2.5rem 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .math-lab__title {
@@ -1804,7 +1736,7 @@ footer {
     padding: 1rem;
     background: rgba(8, 16, 28, 0.4);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
 }
 
 .math-lab__controls label {
@@ -1835,34 +1767,30 @@ footer {
 }
 
 .math-lab__input:hover {
-    border-color: rgba(140, 200, 255, 0.4);
+    border-color: var(--border-strong);
 }
 
 .math-lab__button {
     padding: 0.6rem 1.5rem;
-    background: linear-gradient(145deg, var(--accent), #4aa8f5);
-    color: #07111d;
-    border: none;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--border);
     border-radius: 10px;
     font-weight: 700;
     font-size: 0.9rem;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 12px rgba(140, 200, 255, 0.2);
+    transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .math-lab__button:hover,
 .math-lab__button:focus-visible {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(140, 200, 255, 0.3);
+    background: rgba(140, 200, 255, 0.08);
+    border-color: var(--accent);
 }
 
 .math-lab__button:focus-visible {
-    box-shadow: 0 0 0 3px rgba(140, 200, 255, 0.35), 0 6px 16px rgba(140, 200, 255, 0.3);
-}
-
-.math-lab__button:active {
-    transform: translateY(0);
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .math-lab__output {
@@ -1871,7 +1799,7 @@ footer {
     padding: 1.25rem;
     min-height: 60px;
     color: var(--text);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
 }
 
 .math-lab__output p {
@@ -1888,10 +1816,9 @@ footer {
 
 /* Canvas styling for simulators */
 .math-lab canvas {
-    background: linear-gradient(145deg, #0d1520, #111824);
+    background: #0d1520;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
     max-width: 100%;
     height: auto;
 }
@@ -1912,7 +1839,7 @@ footer {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(1.5rem, 2.2vw, 1.9rem);
     color: var(--text);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 0.6rem;
     margin-bottom: 1.5rem;
 }
@@ -1929,33 +1856,31 @@ footer {
     gap: 0.35rem;
     padding: 1.3rem 1.5rem;
     border-radius: 8px;
-    background: rgba(140, 200, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: none;
+    background: var(--surface);
+    border: 1px solid var(--border);
     text-decoration: none;
     transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .contact-info__card:hover {
     transform: none;
-    box-shadow: none;
-    background: rgba(140, 200, 255, 0.08);
+    background: rgba(140, 200, 255, 0.04);
 }
 
 .contact-info__card--email:hover {
-    border-color: rgba(140, 200, 255, 0.25);
+    border-color: var(--border-strong);
 }
 
 .contact-info__card--github:hover {
-    border-color: rgba(140, 200, 255, 0.25);
+    border-color: var(--border-strong);
 }
 
 .contact-info__card--aops:hover {
-    border-color: rgba(140, 200, 255, 0.25);
+    border-color: var(--border-strong);
 }
 
 .contact-info__card--mse:hover {
-    border-color: rgba(140, 200, 255, 0.25);
+    border-color: var(--border-strong);
 }
 
 .contact-info__card--placeholder {
@@ -1964,8 +1889,8 @@ footer {
 }
 
 .contact-info__card--placeholder:hover {
-    border-color: rgba(255, 255, 255, 0.12);
-    background: rgba(140, 200, 255, 0.04);
+    border-color: var(--border);
+    background: var(--surface);
 }
 
 .contact-info__icon {
@@ -2025,7 +1950,7 @@ footer {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     font-size: clamp(1.5rem, 2.2vw, 1.9rem);
     color: var(--text);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    border-bottom: 1px solid var(--border);
     padding-bottom: 0.6rem;
     margin-bottom: 1.5rem;
 }
@@ -2038,16 +1963,14 @@ footer {
 
 .contact-faq__item {
     border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.97), rgba(20, 30, 45, 0.95));
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border);
+    background: var(--surface);
     overflow: hidden;
-    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    transition: border-color 0.25s ease;
 }
 
 .contact-faq__item[open] {
-    border-color: rgba(140, 200, 255, 0.15);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-color: var(--border-strong);
 }
 
 .contact-faq__question {
@@ -2134,7 +2057,7 @@ footer {
     text-align: center;
     margin-bottom: 40px;
     padding-block: 30px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: 1px solid var(--border);
 }
 
 .contact-footer__quote {
@@ -2142,15 +2065,14 @@ footer {
     margin: 0 auto 1.5rem;
     padding: 1.2rem 1.8rem;
     border-radius: 18px;
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.96), rgba(20, 30, 45, 0.92));
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .contact-footer__quote:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    border-color: var(--border-strong);
 }
 
 .contact-footer__quote blockquote {
@@ -2194,9 +2116,8 @@ footer {
 }
 
 .problem-box.bonus {
-    background: linear-gradient(145deg, rgba(20, 35, 55, 0.98), rgba(25, 40, 60, 0.96));
-    border: 2px solid rgba(140, 200, 255, 0.3);
-    box-shadow: 0 6px 18px rgba(140, 200, 255, 0.15);
+    background: var(--surface);
+    border: 2px solid var(--border-strong);
 }
 
 .problem-box.bonus .problem-number {
@@ -2220,13 +2141,12 @@ footer {
 
 /* Simulator container with enhanced visual design */
 .math-lab--enhanced {
-    background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
+    background: var(--surface);
     border: 1px solid var(--border);
     border-left: 4px solid var(--accent);
     border-radius: 16px;
     padding: 2rem;
     margin: 2.5rem 0;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -2238,7 +2158,7 @@ footer {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, var(--accent), transparent);
+    background: var(--accent);
     opacity: 0.5;
 }
 
@@ -2272,7 +2192,7 @@ footer {
     padding: 1rem;
     background: rgba(8, 16, 28, 0.4);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
 }
 
 .math-lab__control-group {
@@ -2292,10 +2212,9 @@ footer {
 
 /* Enhanced canvas with smooth rendering */
 .math-lab__canvas--enhanced {
-    background: linear-gradient(145deg, #0d1520, #111824);
+    background: #0d1520;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border);
     max-width: 100%;
     height: auto;
     cursor: crosshair;
@@ -2303,7 +2222,7 @@ footer {
 }
 
 .math-lab__canvas--enhanced:hover {
-    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(140, 200, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(140, 200, 255, 0.2);
 }
 
 /* Interactive point indicator */
@@ -2332,7 +2251,7 @@ footer {
     padding: 1.25rem;
     min-height: 60px;
     color: var(--text);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
 }
 
@@ -2420,7 +2339,7 @@ footer {
     padding: 0.4rem 0.8rem;
     background: rgba(140, 200, 255, 0.1);
     color: var(--accent);
-    border: 1px solid rgba(140, 200, 255, 0.2);
+    border: 1px solid var(--border);
     border-radius: 6px;
     font-size: 0.8rem;
     cursor: pointer;
@@ -2439,9 +2358,9 @@ footer {
 }
 
 .math-lab__action-btn--primary {
-    background: linear-gradient(145deg, var(--accent), #4aa8f5);
-    color: #07111d;
-    border: none;
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--border);
 }
 
 /* Mobile responsive adjustments */
@@ -2473,10 +2392,10 @@ footer {
   --research-accent: #d4af37;
   --research-accent-soft: rgba(212, 175, 55, 0.12);
   --research-border: rgba(212, 175, 55, 0.25);
-  --research-bg: rgba(15, 24, 37, 0.96);
+  --research-bg: rgba(16, 26, 40, 0.98);
   --research-muted: #a0b0c8;
   --research-text: #e6f0ff;
-  --research-surface: #0d1827;
+  --research-surface: #0b1520;
 }
 
 body.research-page {
@@ -3361,7 +3280,7 @@ body.research-page main {
 }
 /* Redirect Page Styles */
 body.redirect-page {
-  background: linear-gradient(135deg, #0d1827 0%, #111d2e 45%, #0a1520 100%);
+  background: var(--bg);
   color: #e6f0ff;
   min-height: 100vh;
   display: flex;
@@ -3381,10 +3300,6 @@ body.redirect-page {
   color: #d4af37;
   margin: 0 0 1.5rem;
   font-weight: 600;
-  background: linear-gradient(90deg, #d4af37, var(--dark-blue));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .redirect-message {
@@ -3397,29 +3312,24 @@ body.redirect-page {
 .redirect-link {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(145deg, #d4af37, var(--dark-blue));
-  color: #07111d;
+  background: transparent;
+  color: var(--accent);
   text-decoration: none;
+  border: 1px solid var(--border);
   border-radius: 10px;
   font-weight: 600;
   font-size: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  border: 2px solid #d4af37;
+  transition: background 0.2s ease, border-color 0.2s ease;
 }
 
 .redirect-link:hover,
 .redirect-link:focus-visible {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.4);
-}
-
-.redirect-link:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 8px rgba(212, 175, 55, 0.3);
+  background: rgba(140, 200, 255, 0.08);
+  border-color: var(--accent);
 }
 
 .redirect-link:focus-visible {
-  outline: 2px solid #d4af37;
+  outline: 2px solid var(--accent);
   outline-offset: 2px;
 }
 
@@ -3460,7 +3370,7 @@ body.track-page header::after {
   top: 0;
   height: 100%;
   width: 4px;
-  background: linear-gradient(180deg, var(--accent), var(--light-blue), var(--blue-deep), var(--gold-dark), transparent);
+  background: linear-gradient(180deg, var(--accent), #4aa8f5, #2a7ad4, transparent);
   opacity: 0.5;
 }
 
@@ -3481,11 +3391,10 @@ body.track-page main {
 }
 
 .track-content {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 2.5rem;
-  box-shadow: none;
   margin-bottom: 2rem;
 }
 
@@ -3507,7 +3416,7 @@ body.track-page main {
 
 .track-section + .track-section {
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--border);
 }
 
 .track-main-title {
@@ -3518,7 +3427,7 @@ body.track-page main {
   line-height: 1.25;
   letter-spacing: -0.01em;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--border);
 }
 
 .track-section-heading {
@@ -3620,8 +3529,8 @@ body.track-page main {
 }
 
 .track-stat-box {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.25rem 1.75rem;
   text-align: center;
@@ -3632,8 +3541,7 @@ body.track-page main {
 
 .track-stat-box:hover {
   transform: none;
-  box-shadow: none;
-  background: rgba(140, 200, 255, 0.08);
+  background: rgba(140, 200, 255, 0.04);
 }
 
 .track-stat-label {
@@ -3653,8 +3561,8 @@ body.track-page main {
 }
 
 .track-pr-card {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.5rem 1.25rem;
   text-align: center;
@@ -3665,20 +3573,19 @@ body.track-page main {
 
 .track-pr-card:hover {
   transform: none;
-  box-shadow: none;
-  background: rgba(140, 200, 255, 0.08);
+  background: rgba(140, 200, 255, 0.04);
 }
 
 .track-pr-primary {
-  border-color: rgba(140, 200, 255, 0.25);
+  border-color: var(--border-strong);
 }
 
 .track-pr-secondary {
-  border-color: rgba(140, 200, 255, 0.15);
+  border-color: var(--border);
 }
 
 .track-pr-tertiary {
-  border-color: rgba(140, 200, 255, 0.1);
+  border-color: rgba(140, 200, 255, 0.12);
 }
 
 .track-pr-label {
@@ -3717,8 +3624,7 @@ body.track-page main {
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: none;
+  border: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
@@ -3825,12 +3731,11 @@ body.track-page .track-content {
 .math-10 .example-box,
 .math-10 .problem-box,
 .math-10 .solution-section {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.25rem;
   margin: 1.25rem 0;
-  box-shadow: none;
 }
 
 .math-10 .theorem-box {
@@ -3879,7 +3784,7 @@ body.track-page .track-content {
   background: transparent;
   color: var(--accent);
   text-decoration: none;
-  border: 1px solid rgba(140, 200, 255, 0.3);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-weight: 600;
   font-size: 0.9rem;
@@ -3891,7 +3796,6 @@ body.track-page .track-content {
   border-color: var(--accent);
   color: var(--accent);
   transform: none;
-  box-shadow: none;
 }
 
 .math-10 .difficulty {
@@ -3919,8 +3823,8 @@ body.track-page .track-content {
 }
 
 .math-10 .math-lab {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.25rem;
   margin: 1.25rem 0;
@@ -3974,7 +3878,7 @@ body.track-page .track-content {
   padding: 0.5rem 1.25rem;
   background: transparent;
   color: var(--accent);
-  border: 1px solid rgba(140, 200, 255, 0.3);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -4010,8 +3914,8 @@ body.track-page .track-content {
 
 .math-10 .practice-intro,
 .math-10 .test-section {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.25rem;
   margin: 1.25rem 0;
@@ -4039,8 +3943,8 @@ body.track-page .track-content {
 
 .math-10 .mc-question,
 .math-10 .written-question {
-  background: rgba(140, 200, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.25rem;
   margin: 1rem 0;
@@ -4134,7 +4038,7 @@ body.track-page .track-content {
   margin: 1.25rem 0 0.5rem;
   background: transparent;
   color: var(--accent);
-  border: 1px solid rgba(140, 200, 255, 0.3);
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-weight: 600;
   font-size: 1rem;
@@ -4148,7 +4052,6 @@ body.track-page .track-content {
   background: rgba(140, 200, 255, 0.08);
   border-color: var(--accent);
   transform: none;
-  box-shadow: none;
 }
 
 .math-10 .submit-btn:focus-visible {
