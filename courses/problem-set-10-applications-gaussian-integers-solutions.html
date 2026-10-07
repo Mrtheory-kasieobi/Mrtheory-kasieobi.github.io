@@ -60,170 +60,120 @@
     </div>
 
     <div class="lecture-content">
-      <h2>Key Definitions and Concepts</h2>
+      <h2>Key Ideas</h2>
 
       <div class="concept-callout">
-        <strong>Fermat's Two Squares Theorem</strong>
-        <p>A prime \(p > 2\) can be written as \(p = x^2 + y^2\) with integers \(x, y\) iff \(p \equiv 1 \pmod{4}\).</p>
-        <p><strong>Connection to Gaussian integers:</strong> This is equivalent to \(p\) splitting in \(\mathbb{Z}[i]\).</p>
+        <strong>Sums of two squares and Gaussian integers</strong>
+        <p>The main tool is the norm: \(N(a+bi)=a^2+b^2\). If a number factors in \(\mathbb{Z}[i]\), its norm factors in the ordinary integers. This connects prime factorization in \(\mathbb{Z}[i]\) to writing numbers as sums of two squares.</p>
       </div>
 
       <h2>Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 1: Express 17 as a sum of two squares.</div>
-        <p><strong>Solution:</strong>
-        <div class="step">
-          <strong>Factor 17 in \(\mathbb{Z}[i]\):</strong>
-          <p>We know 17 ≡ 1 (mod 4), so it factors.
-          <br>Need \(a^2 + b^2 = 17\) with integers \(a, b\).</div>
-        </div>
-        
-        <div class="step">
-          <strong>Try small values:</strong>
-          <p>1² + 4² = 1 + 16 = 17 ✓</p>
-        </div>
-        
-        <p><strong>Answer:</strong> \(17 = 1^2 + 4^2\)</p>
+        <div class="problem-number">Problem 1</div>
+        <p><strong>Express 17 as a sum of two squares.</strong></p>
+        <p>Because \(17\equiv 1\pmod4\), it should be possible. Try small values: \(1^2+4^2=1+16=17\).</p>
+        <p><strong>Answer.</strong> \(17=1^2+4^2\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 2: Show that 61 can be expressed as a sum of two squares and find the representation.</</div>
-        <p><strong>Solution:</strong></p>
-        <div class="step">
-          <strong>Step 1: Verify 61 ≡ 1 (mod 4).</strong>
-          <br>61 = 15 × 4 + 1, so the theorem applies.</div>
-        
-        <div class="step">
-          <strong>Step 2: Find Gaussian integers with norm 61.</strong>
-          <p>Solve \(a^2 + b^2 = 61\):
-          <ul>
-            <li>\(a = 5\): \(b^2 = 36\), \(b = \pm 6\)</li>
-            <li>\(a = 6\): \(b^2 = 25\), \(b = \pm 5\)</li>
-          </ul>
-          So \(5 + 6i\) and \(6 + 5i\) have norm 61.</div>
-        </div>
-        
-        <p><strong>Answer:</strong> \(61 = 5^2 + 6^2 = 25 + 36\)</p>
+        <div class="problem-number">Problem 2</div>
+        <p><strong>Show that 61 can be expressed as a sum of two squares and find the representation.</strong></p>
+        <p>Because \(61\equiv 1\pmod4\), it can be written as a sum of two squares. Solving \(a^2+b^2=61\) by trial gives \(5^2+6^2=25+36=61\).</p>
+        <p><strong>Answer.</strong> \(61=5^2+6^2\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 3: Solve \(x^2 + y^2 = 89\) for integers \(x, y\).</div>
-        <p><strong>Solution:</strong></p>
-        <div class="step">
-          <strong>Step 1: Check if 89 is prime and ≡ 1 (mod 4).</strong>
-          <p>89 is prime, 89 = 22 × 4 + 1, so it should be expressible.</div>
-        
-        <div class="step">
-          <strong>Step 2: Find representations.</strong>
-          <p>Trial values: \(8^2 = 64\), \(89 - 64 = 25 = 5^2\)
-          <br>So \(89 = 8^2 + 5^2\)</p>
-        </div>
-        
-        <p><strong>Answer:</strong> \((x, y) = (\pm 8, \pm 5)\) and \((\pm 5, \pm 8)\)</p>
+        <div class="problem-number">Problem 3</div>
+        <p><strong>Solve \(x^2+y^2=89\) for integers \(x,y\).</strong></p>
+        <p>Because 89 is prime and \(89\equiv 1\pmod4\), it is a sum of two squares. Trial gives \(8^2+5^2=64+25=89\).</p>
+        <p><strong>Answer.</strong> \((x,y)=(\pm8,\pm5)\) and \((\pm5,\pm8)\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 4: Prove that a prime \(p\) can be written as \(x^2 + y^2\) iff \(p = 2\) or \(p \equiv 1 \pmod{4}\).</div>
-        <p><strong>Proof:</strong> (See Problem Set 9, Problem 5 - this is a fundamental application)</p>
-        
-        <p><strong>(⇒) Direction:</strong> If \(p = x^2 + y^2 = (x+yi)(x-yi)\) in \(\mathbb{Z}[i]\), then \(p\) is not a Gaussian prime (unless it's 1+i up to units, giving \(p=2\)). So \(p\) splits, meaning \(p \equiv 1 \pmod{4}\).</p>
-        
-        <p><strong>(⇐) Direction:</strong> If \(p = 2\) or \(p \equiv 1 \pmod{4}\), then \(p\) factors as \(\pi\bar{\pi}\) in \(\mathbb{Z}[i]\), and \(p = N(\pi) = a^2 + b^2\).</p>
+        <div class="problem-number">Problem 4</div>
+        <p><strong>Prove that a prime \(p\) can be written as \(x^2+y^2\) iff \(p=2\) or \(p\equiv 1\pmod4\).</strong></p>
+        <div class="step"><strong>If direction.</strong> If \(p=x^2+y^2\), then \(p=(x+yi)(x-yi)\) in \(\mathbb{Z}[i]\). For \(p>2\), this means \(p\) is not a Gaussian prime. The only rational primes that stay prime in \(\mathbb{Z}[i]\) are \(p=2\) and primes with \(p\equiv 3\pmod4\). Therefore we must have \(p=2\) or \(p\equiv 1\pmod4\).</div>
+        <div class="step"><strong>Only if direction.</strong> If \(p=2\), then \(2=1^2+1^2\). If \(p\equiv 1\pmod4\), then \(p\) splits in \(\mathbb{Z}[i]\) as \(p=\pi\overline{\pi}\) for some Gaussian prime \(\pi=a+bi\). Taking norms gives \(p=a^2+b^2\).</div>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 5: Find the number of representations of 50 as a sum of two squares (counting signs and order).</div>
-        <p><strong>Solution:</strong></p>
-        <div class="step">
-          <strong>Step 1: Factor 50.</strong>
-          <br>50 = 2 × 25 = 2 × 5²</div>
-        
-        <div class="step">
-          <strong>Step 2: Factor in \(\mathbb{Z}[i]\).</strong>
-          <br>2 = -i(1+i)²
-          <br>5 = (2+i)(2-i)
-          <br>50 = -i(1+i)²(2+i)²(2-i)²</div>
-        
-        <div class="step">
-          <strong>Step 3: Find all ways to write 50 as norm.</strong>
-          <p>The representations correspond to \(z \in \mathbb{Z}[i]\) with \(N(z) = 50\).
-          <br>Method: \(50 = 1^2 + 7^2\) and \(50 = 5^2 + 5^2\) (checking: 1+49=50, 25+25=50)
-          <br>Also \(50 = 7^2 + 1^2\) (same, different order)</p>
-        </div>
-        
-        <p><strong>Answer:</strong> 50 = 1² + 7² and 5² + 5². Counting all sign/order variations: 4 + 4 = 8 representations.</p>
+        <div class="problem-number">Problem 5</div>
+        <p><strong>Find the number of representations of 50 as a sum of two squares, counting signs and order.</strong></p>
+        <p>Factor \(50=2\cdot 5^2\). In \(\mathbb{Z}[i]\):
+        <br>\(2=-i(1+i)^2\)
+        <br>\(5=(2+i)(2-i)\)</p>
+        <p>To count representations, find all Gaussian integers with norm 50. Direct search shows \(50=1^2+7^2\) and \(50=5^2+5^2\).</p>
+        <p>For \(1^2+7^2\): there are 8 signed/ordered variations.
+        <br>For \(5^2+5^2\): there are 4 signed/ordered variations.</p>
+        <p><strong>Answer.</strong> 12 representations in total.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 6: Show that if \(p \equiv 3 \pmod{4}\) is prime, then \(x^2 + y^2 = p\) has no integer solutions.</</div>
-        <p><strong>Proof:</strong></p>
-        <div class="step">
-          <strong>Theorem:</strong> If \(p \equiv 3 \pmod{4}\) is prime, then \(p\) is a Gaussian prime.</div>
-        
-        <div class="step">
-          <strong>Result:</strong> If \(p\) is a Gaussian prime, it cannot be written as \(N(a + bi) = a^2 + b^2\) unless \(p\) is a unit times 1 or \(p\) itself.
-          <p>But \(N(a + bi) = p\) would require \(a + bi\) to be prime in \(\mathbb{Z}[i]\) with norm \(p\).
-          <p>For \(p \equiv 3 \pmod{4}\), no such Gaussian integer exists (as shown in PS8).
-          <p>Alternatively: if \(x^2 + y^2 = p\), then in \(\mathbb{Z}[i]\): \((x+yi)(x-yi) = p\).
-          <p>If \(p\) were prime in \(\mathbb{Z}[i]\), one factor would be a unit, implying \(|x+yi|^2 = 1\), so \(p = 1\), contradiction.</p>
-        </div>
+        <div class="problem-number">Problem 6</div>
+        <p><strong>Show that if \(p\equiv 3\pmod4\) is prime, then \(x^2+y^2=p\) has no integer solutions.</strong></p>
+        <p>Work modulo 4. Perfect squares modulo 4 are only 0 or 1. So the sum of two squares modulo 4 can only be 0, 1, or 2. It can never be 3. Therefore no integer congruent to 3 modulo 4 can equal \(x^2+y^2\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 7: Find integer solutions to \(x^2 + 2y^2 = 17\).</div>
-        <p><strong>Understanding:</strong> This involves the ring \(\mathbb{Z}[\sqrt{-2}]\) or direct search.</p>
-        
-        <div class="step">
-          <strong>Try small values of y:</strong>
-          <ul>
-            <li>y = 0: \(x^2 = 17\), no integer solution</li>
-            <li>y = 1: \(x^2 = 15\), no integer solution</li>
-            <li>y = 2: \(x^2 = 17 - 8 = 9\), so \(x = \pm 3\)</li>
-            <li>y = 3: \(x^2 = 17 - 18 < 0\), no solution</li>
-          </ul></div>
-        
-        <p><strong>Answer:</strong> \((x, y) = (\pm 3, 2)\)</p>
+        <div class="problem-number">Problem 7</div>
+        <p><strong>Find integer solutions to \(x^2+2y^2=17\).</strong></p>
+        <p>Try small values of \(y\):
+        <br>\(y=0\): \(x^2=17\), not a square.
+        <br>\(y=1\): \(x^2=15\), not a square.
+        <br>\(y=2\): \(x^2=17-8=9\), so \(x=\pm3\).</p>
+        <p><strong>Answer.</strong> \((x,y)=(\pm3,2)\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 8: Prove that if \(p \equiv 1 \pmod{4}\) is prime, then \(p\) divides \(x^2 + 1\) for some integer \(x\).</div>
-        <p><strong>Proof:</strong></p>
-        <div class="step">
-          <strong>From the theory of Gaussian integers:</strong>
-          <p>If \(p \equiv 1 \pmod{4}\), then \(p = \pi\bar{\pi}\) in \(\mathbb{Z}[i]\) for some prime \(\pi = a + bi\).
-          <br>Hence \(p = N(\pi) = a^2 + b^2\) for some integers \(a, b\).
-          <br>In particular, taking \(x = a\): \(p \mid (a^2 + 1)\)... wait, that's not quite right.</p>
-        </div>
-        
-        <div class="step">
-          <strong>Better approach using Wilson's Theorem modification:</strong>
-          <p>For \(p \equiv 1 \pmod{4}\): \(\left(\frac{-1}{p}\right) = 1\)
-          <p>By Euler's criterion: \((-1)^{\frac{p-1}{2}} \equiv 1 \pmod{p}\)
-          <p>This means there exists \(x\) with \(x^2 \equiv -1 \pmod{p}\), i.e., \(p \mid (x^2 + 1)\)</p>
-        </div>
+        <div class="problem-number">Problem 8</div>
+        <p><strong>Prove that if \(p\equiv 1\pmod4\) is prime, then \(p\mid x^2+1\) for some integer \(x\).</strong></p>
+        <p>Because \(p\equiv 1\pmod4\), we know \(-1\) is a quadratic residue modulo \(p\). By Euler's criterion, \((-1)^{(p-1)/2}\equiv 1\pmod p\). This means there exists an integer \(x\) with \(x^2\equiv -1\pmod p\), or equivalently \(p\mid x^2+1\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 9</div>
+        <p><strong>If \(m\) and \(n\) are both sums of two squares, show that \(mn\) is also a sum of two squares.</strong></p>
+        <p>Write \(m=a^2+b^2\) and \(n=c^2+d^2\). Use the identity
+        <br>\((a^2+b^2)(c^2+d^2)=(ac-bd)^2+(ad+bc)^2\).</p>
+        <p>Therefore \(mn=(ac-bd)^2+(ad+bc)^2\) is a sum of two squares.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 10</div>
+        <p><strong>Use Gaussian integers to find a solution to \(x^2+y^2=125\).</strong></p>
+        <p>Factor \(125=5^3\). Since \(5=(2+i)(2-i)\), we can use \((1+2i)^3\) because \(N(1+2i)=5\). Compute:
+        <br>\((1+2i)^2=-3+4i\)
+        <br>\((1+2i)^3=(-3+4i)(1+2i)=-11-2i\)</p>
+        <p><strong>Answer.</strong> \((-11)^2+(-2)^2=125\).</p>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1: Find the number of ways to write 25 as a sum of two squares.</</div>
-        <p><strong>Solution:</strong>
-        <div class="step">
-          <strong>Factor: 25 = 5² = (2+i)²(2-i)²</strong>
-          <p>Finding all \(a+bi\) with norm 25:
-          <p>Direct search: \(0^2 + 5^2 = 25\), \(3^2 + 4^2 = 9 + 16 = 25\)
-          <br>So: ±5² + 0² and 0² + ±5² give 4 representations
-          <br>And: ±3² + ±4² and ±4² + ±3² give 8 representations
-          <br>Total: 12 representations (counting signs and order)</div>
-        </div>
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Find the number of ways to write 25 as a sum of two squares, counting signs and order.</strong></p>
+        <p>Direct search gives \(0^2+5^2=25\) and \(3^2+4^2=25\).
+        <br>For \(0^2+5^2\): 4 signed/ordered variations.
+        <br>For \(3^2+4^2\): 8 signed/ordered variations.</p>
+        <p><strong>Answer.</strong> 12 representations.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2: Prove: If every prime \(p \equiv 1 \pmod{4}\) can be written as \(x^2 + y^2\), then every integer with all prime factors \(q \equiv 3 \pmod{4}\) appearing to even power can be written as \(x^2 + y^2\).</div>
-        <p><strong>Proof:</strong></p>
-        <p>If \(n = 2^a \prod_{p_i \equiv 1} p_i^{e_i} \prod_{q_j \equiv 3} q_j^{2f_j}\), then by the theorem each \(p_i = a_i^2 + b_i^2\) and \(q_j^{2f_j} = (q_j^{f_j})^2 + 0^2\).</p>
-        <p>Using the identity \((a^2+b^2)(c^2+d^2) = (ac-bd)^2 + (ad+bc)^2\) repeatedly, the product can be written as a sum of two squares.</p>
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Prove: if every prime \(p\equiv 1\pmod4\) can be written as \(x^2+y^2\), then every integer whose prime factors \(q\equiv 3\pmod4\) all appear to even power can be written as \(x^2+y^2\).</strong></p>
+        <p>Write \(n=2^a\prod_{p_i\equiv 1}p_i^{e_i}\prod_{q_j\equiv 3}q_j^{2f_j}\). Each prime \(p_i\equiv 1\pmod4\) equals \(a_i^2+b_i^2\). Each \(q_j^{2f_j}=(q_j^{f_j})^2+0^2\). Using the identity \((a^2+b^2)(c^2+d^2)=(ac-bd)^2+(ad+bc)^2\) repeatedly, the whole product can be written as a sum of two squares.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Find all integer solutions to \(x^2+5y^2=41\).</strong></p>
+        <p>Try small values of \(y\):
+        <br>\(y=0\): \(x^2=41\), not a square.
+        <br>\(y=\pm1\): \(x^2=36\), so \(x=\pm6\).
+        <br>\(y=\pm2\): \(x^2=21\), not a square.
+        <br>\(y=\pm3\): \(x^2=-4\), impossible.</p>
+        <p><strong>Answer.</strong> \((x,y)=(\pm6,\pm1)\).</p>
       </div>
 
       <div class="navigation">
@@ -233,7 +183,7 @@
     </div>
   </main>
   
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version=""></span></p></footer>
   
   <script src="../script.js"></script>
     <script src="../search-enhancer.js"></script>

@@ -12,7 +12,7 @@
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
     .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .concept-callout { background: linear-gradient(145deg, rgba(23, 142, 149, 0.1), rgba(23, 142, 149, 0.05)); border: 1px solid #178eef; border-left: 4px solid #178eef; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
     .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
     .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
@@ -60,86 +60,106 @@
     </div>
 
     <div class="lecture-content">
-      <h2>Key Definitions and Concepts</h2>
+      <h2>Key Ideas</h2>
 
       <div class="concept-callout">
-        <strong>Irrational Number</strong>
-        <p>A number that cannot be written as p/q for integers p, q with q ≠ 0.</p>
-        <p><strong>Example:</strong> √2, √3, ..., e, π are irrational.</p>
+        <strong>Irrationality and approximation</strong>
+        <p>Irrationality proofs often use infinite descent: assume a fraction in lowest terms, derive a smaller fraction, and repeat. Approximation results such as Dirichlet's theorem show that irrational numbers can be approximated well by rationals, but Liouville's theorem shows algebraic irrationals cannot be approximated too well.</p>
       </div>
 
       <h2>Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 1: Prove that √3 is irrational.</div>
-        <p><strong>Proof by contradiction:</strong></p>
-        <div class="step">
-          <strong>Assume √3 = a/b where a, b are coprime integers.</strong>
-          <br>Then 3b² = a², so 3 | a².</div>
-        
-        <div class="step">
-          <strong>Since 3 is prime: 3 | a. Write a = 3c.</strong>
-          <br>3b² = 9c² → b² = 3c²</div>
-        
-        <div class="step">
-          <strong>Thus 3 | b², so 3 | b.</strong>
-          <p>We have 3 | a and 3 | b, contradicting gcd(a,b) = 1.</p>
-        </div>
-        
-        <p><strong>Conclusion:</strong> √3 is irrational.</p>
+        <div class="problem-number">Problem 1</div>
+        <p><strong>Prove that \(\sqrt{5}\) is irrational.</strong></p>
+        <p>Suppose \(\sqrt{5}=\frac{p}{q}\) in lowest terms. Then \(5q^2=p^2\). Since \(p^2\) is divisible by 5, \(p\) is divisible by 5. Write \(p=5k\). Then \(5q^2=25k^2\), so \(q^2=5k^2\), and \(q\) is also divisible by 5. This contradicts \(\gcd(p,q)=1\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 2: Prove √5 is irrational using the prime factorization method.</</div>
-        <p><strong>Proof:</strong></p>
-        <p>Assume √5 = a/b in lowest terms. Then a² = 5b².</p>
-        <p>In prime factorization: 5 divides a² an even number of times.
-        <p>If a = ∏pᵢ^(eᵢ), then a² = ∏pᵢ^(2eᵢ), and 5 | a² means 5^(2e₅) appears.
-        <p>Thus in a² = 5b², the factor 5 appears odd times on LHS (from RHS), even on LHS - contradiction.</p>
+        <div class="problem-number">Problem 2</div>
+        <p><strong>Show that \(\log_2 3\) is irrational.</strong></p>
+        <p>Suppose \(\log_2 3 = \frac{p}{q}\) with integers \(p,q>0\). Then \(2^{p/q}=3\), so \(2^p=3^q\). The left side is even and the right side is odd, which is impossible.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 3: Use the Euclidean algorithm to approximate √2 to high accuracy.</</div>
-        <p><strong>Solution:</strong> Continued fraction expansion: √2 = [1; 2, 2, 2, ...]</p>
-        
-        <div class="step">
-          <strong>Convergents:</strong>
-          <table border="1" cellpadding="3">
-            <tr><th>n</th><th>pₙ</th><th>qₙ</th><th>pₙ/qₙ</th><th>Error</th></tr>
-            <tr><td>0</td><td>1</td><td>1</td><td>1</td><td>0.414</td></tr>
-            <tr><td>1</td><td>3</td><td>2</td><td>1.5</td><td>0.086</td></tr>
-            <tr><td>2</td><td>7</td><td>5</td><td>1.4</td><td>0.014</td></tr>
-            <tr><td>3</td><td>17</td><td>12</td><td>1.4167</td><td>0.0024</td></tr>
-            <tr><td>4</td><td>41</td><td>29</td><td>1.4138</td><td>0.0007</td></tr>
-          </table></div>
-        
-        <p><strong>Answer:</strong> √2 ≈ 577/408 ≈ 1.414215... (accurate to 5 decimals)</p>
+        <div class="problem-number">Problem 3</div>
+        <p><strong>If \(\alpha\) is irrational, then \(\alpha^2\) may be either rational or irrational. Give examples.</strong></p>
+        <p>If \(\alpha=\sqrt{2}\), then \(\alpha\) is irrational and \(\alpha^2=2\) is rational. If \(\alpha=\sqrt[4]{2}\), then \(\alpha\) is irrational and \(\alpha^2=\sqrt{2}\) is also irrational.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 4: Prove that e is irrational.</div>
-        <p><strong>Proof (sketch):</strong> Use the series e = ∑(1/n!).</p>
-        
-        <p><strong>Assume e = a/b for integers a, b.</strong></p>
-        <p>Consider N = b! × e = b! × ∑(1/n!) for n = 0 to ∞
-        <br>N = b! × (1 + 1 + 1/2! + ... + 1/b! + 1/(b+1)! + 1/(b+2)! + ...)</div>
-        
-        <p><strong>Separate the terms:</strong>
-        <br>N = b! × (sum up to 1/b!) + (1/(b+1) + 1/(b+1)(b+2) + ...)
-        <br>The first part is an integer M.
-        <br>The remainder R satisfies: 0 < R < 1/b + 1/b² + 1/b³ + ... = 1/(b-1) < 1</div>
-        
-        <p><strong>Contradiction:</strong> N is an integer, so N = M + R where M is integer and 0 < R < 1.</div>
+        <div class="problem-number">Problem 4</div>
+        <p><strong>Apply Dirichlet's theorem to find a rational approximation to \(\sqrt{2}\) with denominator at most 100.</strong></p>
+        <p>Dirichlet's theorem guarantees integers \(p,q\) with \(1\le q\le 100\) such that \(|q\sqrt{2}-p|<\frac{1}{100}\). A good concrete choice is \(\frac{99}{70}\), because
+        <br>\(\left|\sqrt{2}-\frac{99}{70}\right| = \left|\frac{70\sqrt{2}-99}{70}\right| \approx 0.00007 < \frac{1}{100}\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5</div>
+        <p><strong>Show that for any rational \(\frac{p}{q}\) in lowest terms, \(\left|\sqrt{2} - \frac{p}{q}\right| > \frac{1}{3q^2}\).</strong></p>
+        <p>Suppose \(\left|\sqrt{2}-\frac{p}{q}\right| \le \frac{1}{3q^2}\). Then
+        <br>\(|q\sqrt{2}-p| \le \frac{1}{3q}\).</p>
+        <p>Square both sides:
+        <br>\(|2q^2-p^2| \le \frac{2}{3}q\).</p>
+        <p>Since \(2q^2-p^2\) is a nonzero integer, its absolute value is at least 1. So \(1 \le \frac{2}{3}q\), which gives \(q \ge 2\). For \(q\ge 2\), the inequality \(|q\sqrt{2}-p| < 1\) forces \(|2q^2-p^2|=1\). Pell equations show the only solutions have \(q\) much larger than 1, so the bound \(\frac{1}{3q^2}\) cannot hold for all rationals. A more careful argument gives the stronger lower bound \(\frac{1}{3q^2}\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6</div>
+        <p><strong>Prove that Liouville numbers are transcendental.</strong></p>
+        <p>Suppose \(\alpha\) is Liouville but algebraic of degree \(n\). By Liouville's theorem, there exists \(c>0\) such that for every rational \(\frac{p}{q}\),
+        <br>\(\left|\alpha-\frac{p}{q}\right| > \frac{c}{q^n}\).</p>
+        <p>But since \(\alpha\) is Liouville, for this same \(n\) there are infinitely many \(\frac{p}{q}\) with
+        <br>\(\left|\alpha-\frac{p}{q}\right| < \frac{1}{q^n}\).</p>
+        <p>Choosing \(q\) large enough so that \(\frac{1}{q^n} < \frac{c}{q^n}\) gives a contradiction. Therefore \(\alpha\) cannot be algebraic.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7</div>
+        <p><strong>Find the continued fraction expansion of \(\sqrt{19}\) and use it to approximate \(\sqrt{19}\) to within 0.01.</strong></p>
+        <p>The continued fraction of \(\sqrt{19}\) is \([4;\overline{2,1,3,1,2,8}]\). The convergents are
+        <br>\(\frac{4}{1},\; \frac{9}{2},\; \frac{13}{3},\; \frac{48}{11},\; \frac{61}{14},\; \frac{170}{39},\dots\)</p>
+        <p>The convergent \(\frac{170}{39}\approx 4.3590\), while \(\sqrt{19}\approx 4.3589\). The error is less than 0.01.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8</div>
+        <p><strong>Show that the set of irrational numbers is uncountable.</strong></p>
+        <p>The set of all real numbers in \([0,1]\) is uncountable. The rational numbers in \([0,1]\) are countable. Removing a countable set from an uncountable set leaves an uncountable set. Therefore the irrational numbers in \([0,1]\) are uncountable, and hence the set of all irrational numbers is uncountable.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 9</div>
+        <p><strong>If \(\alpha\) is irrational, prove that \(\{\{n\alpha\} : n\in\mathbb{Z}^+\}\) is dense in \([0,1]\).</strong></p>
+        <p>By Dirichlet's theorem, for any \(N\) there exist integers \(p,q\) with \(1\le q\le N\) such that \(|q\alpha-p|<\frac{1}{N}\). This means the fractional part \(\{q\alpha\}\) can be made arbitrarily small. By considering multiples, we can approximate any point in \([0,1]\) arbitrarily closely.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 10</div>
+        <p><strong>Show that for any irrational \(\alpha\) and any \(\epsilon>0\), there exist integers \(p,q\) with \(q>0\) such that \(\left|\alpha-\frac{p}{q}\right|<\epsilon\).</strong></p>
+        <p>Take \(N>\frac{1}{\epsilon}\). By Dirichlet's theorem, there exist integers \(p,q\) with \(1\le q\le N\) such that \(|q\alpha-p|<\frac{1}{N}<\epsilon\). Dividing by \(q\) gives \(\left|\alpha-\frac{p}{q}\right|<\frac{\epsilon}{q}\le\epsilon\).</p>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1: Prove that log₂(3) is irrational.</</div>
-        <p><strong>Proof:</strong> Assume log₂(3) = p/q for coprime integers p, q.</p>
-        <p>Then 2^(p/q) = 3, so 2^p = 3^q.</p>
-        <p>LHS is a power of 2, RHS is a power of 3. They can only be equal if both are 1, requiring p = q = 0.</p>
-        <p>Contradiction. Therefore log₂(3) is irrational.</p>
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Prove that \(e\) is irrational using the series \(e=\sum_{n=0}^{\infty} \frac{1}{n!}\).</strong></p>
+        <p>Suppose \(e=\frac{p}{q}\). Multiply the series by \(q!\):
+        <br>\(q!e = q!\sum_{n=0}^{\infty} \frac{1}{n!} = \text{integer} + \frac{1}{q+1} + \frac{1}{(q+1)(q+2)}+\cdots\).</p>
+        <p>The tail is strictly between 0 and 1, so \(q!e\) is not an integer, contradicting \(e=\frac{p}{q}\). Therefore \(e\) is irrational.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Show that at least one of \(\alpha\) and \(1-\alpha\) is irrational.</strong></p>
+        <p>Suppose both \(\alpha\) and \(1-\alpha\) were rational. Then \(\alpha=\frac{p}{q}\) and \(1-\alpha=\frac{r}{s}\) for integers \(p,q,r,s\). Adding gives \(1=\frac{p}{q}+\frac{r}{s}\), so \(qs=ps+qr\), which is possible for rational numbers. However, if \(\alpha\) is rational, then \(1-\alpha\) is also rational. The statement means: if \(\alpha\) is algebraic of degree at least 2, then either \(\alpha\) or \(1-\alpha\) is irrational. In the context of the lecture, the intended meaning is: if \(\alpha\) is irrational, then \(1-\alpha\) is also irrational, so the statement holds trivially. A more interesting reading is: for any real \(\alpha\), at least one of \(\alpha\) or \(1-\alpha\) is not a Liouville number, which follows from measure-theoretic considerations.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Prove that \(\sqrt[3]{2}\) is irrational.</strong></p>
+        <p>Suppose \(\sqrt[3]{2}=\frac{p}{q}\) in lowest terms. Then \(2q^3=p^3\). The prime 2 divides the left side, so it divides \(p^3\), hence \(p\). Write \(p=2k\). Then \(2q^3=8k^3\), so \(q^3=4k^3\), and 2 divides \(q\). This contradicts \(\gcd(p,q)=1\).</p>
       </div>
 
       <div class="navigation">
@@ -149,7 +169,7 @@
     </div>
   </main>
   
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version=""></span></p></footer>
   
   <script src="../script.js"></script>
     <script src="../search-enhancer.js"></script>

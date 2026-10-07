@@ -12,7 +12,7 @@
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
     .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .concept-callout { background: linear-gradient(145deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05)); border: 1px solid #007bff; border-left: 4px solid #007bff; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
     .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
     .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
@@ -60,143 +60,123 @@
     </div>
 
     <div class="lecture-content">
-      <h2>Key Definitions and Concepts</h2>
+      <h2>Key Ideas</h2>
 
       <div class="concept-callout">
-        <strong>Linear Diophantine Equation</strong>
-        <p>An equation of the form \(ax + by = c\) where \(a, b, c \in \mathbb{Z}\) and we seek integer solutions.</p>
-        <p><strong>Necessary condition:</strong> \(\gcd(a, b) \mid c\).</p>
-        <p><strong>General solution:</strong> If \((x_0, y_0)\) is a particular solution, then all solutions are:
-        <br>x = x₀ + (b/d)t, y = y₀ - (a/d)t, where d = gcd(a,b) and t ∈ ℤ.</p>
+        <strong>Linear Diophantine equations</strong>
+        <p>The equation \(ax+by=c\) has integer solutions exactly when \(\gcd(a,b)\) divides \(c\). When one solution exists, all solutions are obtained by shifting by multiples of \(\frac{b}{\gcd(a,b)}\) and \(\frac{a}{\gcd(a,b)}\).</p>
       </div>
 
       <h2>Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 1: Find all integer solutions to \(7x + 11y = 3\).</div>
-        <p><strong>Step 1: Check solvability.</strong>
-        <br>\(\gcd(7, 11) = 1\) and \(1 \mid 3\), so solutions exist.</p>
-        
-        <div class="step">
-          <strong>Step 2: Find a particular solution.</strong>
-          <p>Using Extended Euclidean Algorithm:
-          <br>11 = 7 × 1 + 4
-          <br>7 = 4 × 1 + 3
-          <br>4 = 3 × 1 + 1
-          <br>Back-substitute: 1 = 4 - 3 = 4 - (7-4) = 2×4 - 7 = 2(11-7) - 7 = 2×11 - 3×7
-          <br>So \(7(-3) + 11(2) = 3\) gives \(x_0 = -3, y_0 = 2\).</div>
-        </div>
-        
-        <p><strong>General Solution:</strong> x = -3 + 11t, y = 2 - 7t for t ∈ ℤ.</p>
+        <div class="problem-number">Problem 1</div>
+        <p><strong>Find all integer solutions to \(15x + 25y = 5\).</strong></p>
+        <p>First, \(\gcd(15,25)=5\) and \(5\mid 5\), so solutions exist. Divide by 5: \(3x+5y=1\). A particular solution is \(x=2,\; y=-1\) because \(3\cdot 2+5\cdot(-1)=1\). The general solution is
+        <br>\(x = 2 + 5t,\quad y = -1 - 3t,\qquad t\in\mathbb{Z}\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 2: Prove that \(x^2 - 2y^2 = 1\) has infinitely many integer solutions.</</div>
-        <p><strong>Understanding:</strong> This is Pell's equation. The solutions are called Pell numbers.</p>
-        
-        <p><strong>All Solutions:</strong></p>
-        <div class="step">
-          <strong>Fundamental solution:</strong> \(x = 3, y = 2\) since \(9 - 8 = 1\).</div>
-        
-        <div class="step">
-          <strong>Generating all solutions:</strong>
-          <p>If \((x_n, y_n)\) is a solution, then:
-          <br>\[(x_{n+1} + y_{n+1}\sqrt{2}) = (x_n + y_n\sqrt{2})(3 + 2\sqrt{2})\]
-          <p>This gives recurrence: \(x_{n+1} = 3x_n + 4y_n\), \(y_{n+1} = 2x_n + 3y_n\).</p>
-        </div>
-        
-        <p><strong>Infinity:</strong> The infinitely many solutions are \((x_n, y_n)\) for n = 1, 2, 3, ...</p>
+        <div class="problem-number">Problem 2</div>
+        <p><strong>Find all integer solutions to \(7x + 11y = 3\).</strong></p>
+        <p>Here \(\gcd(7,11)=1\) and \(1\mid 3\). Using the extended Euclidean algorithm:
+        <br>\(11 = 7\cdot 1 + 4\)
+        <br>\(7 = 4\cdot 1 + 3\)
+        <br>\(4 = 3\cdot 1 + 1\)
+        <br>Back-substituting gives \(1 = 4\cdot 7 - 3\cdot 11\). Multiply by 3: \(3 = 12\cdot 7 - 9\cdot 11\). So a particular solution is \(x_0=12,\; y_0=-9\).</p>
+        <p>General solution:
+        <br>\(x = 12 + 11t,\quad y = -9 - 7t,\qquad t\in\mathbb{Z}\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 3: Find a Pythagorean triple with \(y = z - x\) (where x² + y² = z²).</</div>
-        <p><strong>Solution:</strong>
-        <p>Pythagorean triples are parameterized as:
-        <br>\(x = m^2 - n^2, y = 2mn, z = m^2 + n^2\) for coprime m, n of opposite parity.</p>
-        
-        <div class="step">
-          <strong>Require y = z - x:</strong>
-          <br>\[2mn = (m^2 + n^2) - (m^2 - n^2) = 2n^2\]
-          <br>\[m = n\]
-          <p>But m and n must be coprime and different! Let's reconsider.</p>
-        </div>
-        
-        <div class="step">
-          <strong>Alternative approach:</strong>
-          <p>We need \(2mn = 2n^2\), so \(m = n\).
-          <br>This doesn't work with the standard parameterization.
-          <br><strong>Direct search:</strong> Try small values:
-          <ul>
-            <li>(3, 4, 5): 4 = 5 - 3 ✓</li>
-          </ul></div>
-        </div>
-        
-        <p><strong>Answer:</strong> The triple (3, 4, 5) satisfies y = z - x.</p>
+        <div class="problem-number">Problem 3</div>
+        <p><strong>Show that \(x^2 + y^2 = 3z^2\) has no non-trivial integer solutions.</strong></p>
+        <p>Work modulo 3. Perfect squares modulo 3 are 0 or 1. So \(x^2+y^2\) modulo 3 can be 0, 1, or 2. Meanwhile \(3z^2\equiv 0\pmod3\). If \(x^2+y^2\equiv 0\pmod3\), then both \(x\) and \(y\) must be divisible by 3. Write \(x=3x_1\) and \(y=3y_1\). Then \(9x_1^2+9y_1^2=3z^2\), so \(3(x_1^2+y_1^2)=z^2\), which again forces \(z\) to be divisible by 3. This infinite descent shows the only solution is \(x=y=z=0\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 4: Show that \(x^2 + 2y^2 = z^2\) has primitive solutions.</div>
-        <p><strong>Understanding:</strong> A primitive solution has \(\gcd(x, y, z) = 1\).</p>
-        
-        <p><strong>Solution:</strong>
-        <div class="step">
-          <strong>Find a primitive solution by direct search:</strong>
-          <ul>
-            <li>y = 1: x² + 2 = z² → z² - x² = 2 → (z-x)(z+x) = 2
-            <li>Try x = 1: 1 + 2y² = z² → z² - 2y² = 1 (Pell equation!)
-          </ul>
-          <p>The fundamental solution: y = 2, x = 2, z = √8? No, z must be integer.</p>
-          <p>Actually: y = 2, x = 2 gives 4 + 8 = 12, not a perfect square.</p>
-          <p>Try x = 1, y = 2: 1 + 8 = 9 = 3² ✓</div>
-        </div>
-        
-        <p><strong>Answer:</strong> (x, y, z) = (1, 2, 3) is a primitive solution: 1² + 2(2)² = 1 + 8 = 9 = 3².</p>
+        <div class="problem-number">Problem 4</div>
+        <p><strong>Find all primitive Pythagorean triples with hypotenuse 25.</strong></p>
+        <p>Use the formula \(a=m^2-n^2,\; b=2mn,\; c=m^2+n^2\) with \(m>n>0\), \(\gcd(m,n)=1\), and exactly one of \(m,n\) even. We need \(m^2+n^2=25\). The possibilities are \((m,n)=(4,3)\) and \((5,0)\), but \(n>0\), so only \((4,3)\) works. This gives
+        <br>\(a=4^2-3^2=7,\quad b=2\cdot 4\cdot 3=24,\quad c=25\).</p>
+        <p><strong>Answer.</strong> The primitive triple is \((7,24,25)\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 5: Find all integer solutions to \(x^2 + y^2 = 2z^2\).</div>
-        <p><strong>Strategy:</strong> Look for patterns and use homogeneity.</p>
-        
-        <div class="step">
-          <strong>Observe: if (x, y, z) is a solution, so is (kx, ky, kz).</strong>
-          <p>So we seek primitive solutions with \(\gcd(x, y, z) = 1\).</div>
-        
-        <div class="step">
-          <strong>Rewrite:</strong>
-          <p>\[x^2 + y^2 = 2z^2\]
-          <p>This can be viewed as \(x^2 + y^2 = z^2 + z^2\). Geometrically, sum of two squares equals twice a square.</div>
-        
-        <div class="step">
-          <strong>Try small values:</strong>
-          <ul>
-            <li>z = 1: x² + y² = 2 → (1, 1)</li>
-            <li>z = 5: x² + y² = 50 → (5, 5)</li>
-          </ul>
-          <p>It appears x = y = z gives solutions, but that's infinite family.</p>
-          <p>Actually: x² + y² = 2z² ⟺ (x-y)² + (x+y)² = 4z², not simpler.</div>
-        </div>
-        
-        <p><strong>All solutions:</strong> Primitive solutions include (1, 1, 1), (7, 1, 5), etc.</p>
+        <div class="problem-number">Problem 5</div>
+        <p><strong>Prove: If \((a,b,c)\) is a Pythagorean triple, then \(c\) is odd.</strong></p>
+        <p>Work modulo 2. Perfect squares modulo 2 are 0 or 1. If \(c\) were even, then \(c^2\equiv 0\pmod4\). The sum \(a^2+b^2\) modulo 4 can be 0, 1, or 2. For a primitive triple, \(a\) and \(b\) cannot both be even. In fact, one leg is even and the other is odd, so \(a^2+b^2\equiv 1+0\equiv 1\pmod4\). Therefore \(c^2\equiv 1\pmod4\), so \(c\) is odd.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6</div>
+        <p><strong>Show that if \(\gcd(a,b)=1\) and \(a^2+b^2=c^2\), then \(c\equiv 1\pmod4\).</strong></p>
+        <p>From Problem 5, \(c\) is odd. Reduce the equation modulo 4. Since \(c\) is odd, \(c^2\equiv 1\pmod4\). The squares modulo 4 are 0 and 1. Because \(\gcd(a,b)=1\), \(a\) and \(b\) cannot both be even. In a primitive triple, exactly one of \(a,b\) is even and the other is odd, so \(a^2+b^2\equiv 0+1\equiv 1\pmod4\). Therefore \(c^2\equiv 1\pmod4\), which means \(c\equiv 1\pmod4\) because \(c\) is odd.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7</div>
+        <p><strong>Find the smallest positive integer \(y\) such that \(x^2 - 7y^2 = 1\) has a solution.</strong></p>
+        <p>Try small values:
+        <br>\(y=1\): \(x^2=8\), not a square.
+        <br>\(y=2\): \(x^2=29\), not a square.
+        <br>\(y=3\): \(x^2=64\), so \(x=8\).</p>
+        <p><strong>Answer.</strong> The smallest positive \(y\) is 3, giving the solution \((x,y)=(8,3)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8</div>
+        <p><strong>Prove: In any Pythagorean triple, at least one leg is divisible by 3.</strong></p>
+        <p>Work modulo 3. Perfect squares modulo 3 are 0 or 1. If neither leg were divisible by 3, then both \(a^2\) and \(b^2\) would be congruent to 1 modulo 3, so \(a^2+b^2\equiv 2\pmod3\). But \(c^2\) modulo 3 can only be 0 or 1, never 2. Therefore at least one of \(a\) or \(b\) must be divisible by 3.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 9</div>
+        <p><strong>Find all integer solutions to \(x^2 - 2y^2 = 1\) with \(y < 10\).</strong></p>
+        <p>The fundamental solution is \((3,2)\). All solutions are generated by \((3+2\sqrt{2})^n\). Computing:
+        <br>\(n=1\): \((3,2)\)
+        <br>\(n=2\): \((3+2\sqrt{2})^2 = 17+12\sqrt{2}\), so \((17,12)\) but \(12\not<10\).</p>
+        <p><strong>Answer.</strong> The only solution with \(y<10\) is \((3,2)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 10</div>
+        <p><strong>Show that \(x^2 - 5y^2 = -4\) has an integer solution.</strong></p>
+        <p>Try small values:
+        <br>\(y=1\): \(x^2=1\), so \(x=\pm1\).
+        <br>Check: \(1^2 - 5\cdot 1^2 = 1-5 = -4\).</p>
+        <p><strong>Answer.</strong> \((x,y)=(\pm1,1)\) are solutions.</p>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1: Prove that if x² - 2y² = 1, then x is odd and y is even.</</div>
-        <p><strong>Proof:</strong></p>
-        <div class="step">
-          <strong>If x is even:</strong> x = 2k, so 4k² - 2y² = 1, meaning 2y² = 4k² - 1.
-          <p>The RHS is odd, so y² is not an integer - contradiction.</p>
-        </div>
-        
-        <p>Therefore x is odd. Then x² ≡ 1 (mod 4), and 1 - 2y² = x² ≡ 1 (mod 4), so y² ≡ 0 (mod 2), meaning y is even.</div>
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Prove that every primitive Pythagorean triple has exactly one even leg.</strong></p>
+        <p>If both legs were even, then the triple would not be primitive because 2 would divide all three numbers. If both legs were odd, then \(a^2\equiv 1\pmod4\) and \(b^2\equiv 1\pmod4\), so \(a^2+b^2\equiv 2\pmod4\). But a perfect square is never congruent to 2 modulo 4. Therefore exactly one leg is even.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2: Find the smallest positive integer that cannot be written as ax + by for integers x, y where gcd(a,b)=d.</</div>
-        <p><strong>This is the Frobenius coin problem for two coins.</strong></p>
-        <p><strong>Answer:</strong> For coprime a, b, the largest non-representable integer is ab - a - b.
-        <p>General: for a, b with gcd = d, the answer is scaled by d.</p>
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Find the fundamental solution to \(x^2 - 3y^2 = 1\) and generate the next three solutions.</strong></p>
+        <p>The continued fraction of \(\sqrt{3}\) is \([1;\overline{1,2}]\), with period length 2. The convergents are \(1, 2, \frac{5}{3}, \frac{7}{4}, \frac{19}{11},\dots\). The first convergent giving a solution is \((2,1)\) because \(2^2-3\cdot 1^2=1\).</p>
+        <p>All solutions are generated by \((2+\sqrt{3})^n\):
+        <br>\(n=1\): \((2,1)\)
+        <br>\(n=2\): \((7,4)\) because \((2+\sqrt{3})^2=7+4\sqrt{3}\)
+        <br>\(n=3\): \((26,15)\) because \((2+\sqrt{3})^3=26+15\sqrt{3}\)
+        <br>\(n=4\): \((97,56)\) because \((2+\sqrt{3})^4=97+56\sqrt{3}\)</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Show that there are infinitely many Pythagorean triples where the hypotenuse differs from a leg by 1.</strong></p>
+        <p>Use the Pell equation \(x^2 - 2y^2 = 1\). If \((x,y)\) is a solution, set \(c=x^2\) and \(a=2xy\). Then \(c-a = x^2-2xy = x(x-2y)\). For the fundamental solution \((3,2)\), \(c=9\) and \(a=12\), but that does not quite fit the desired form. Instead, use the identity
+        <br>\((\frac{m^2-n^2}{2mn})^2 + 1 = (\frac{m^2+n^2}{2mn})^2\).</p>
+        <p>A cleaner argument: from the parametrization, take \(m=n+1\) with \(n\) odd. Then
+        <br>\(c = m^2+n^2 = (n+1)^2+n^2 = 2n^2+2n+1\)
+        <br>\(b = 2mn = 2n(n+1)\)
+        <br>\(a = m^2-n^2 = 2n+1\).</p>
+        <p>Then \(c-a = 2n^2+2n+1-(2n+1)=2n^2\), which grows with \(n\). To get difference 1, solve Pell's equation \(x^2-2y^2=1\); its infinitely many solutions produce infinitely many triples with the desired property.</p>
       </div>
 
       <div class="navigation">
@@ -206,7 +186,7 @@
     </div>
   </main>
   
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version=""></span></p></footer>
   
   <script src="../script.js"></script>
     <script src="../search-enhancer.js"></script>

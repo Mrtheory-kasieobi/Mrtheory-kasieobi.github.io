@@ -12,7 +12,7 @@
     .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
     .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
     .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .concept-callout { background: linear-gradient(145deg, rgba(40, 167, 69, 0.1), rgba(40, 167, 69, 0.05)); border: 1px solid #28a745; border-left: 4px solid #28a745; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
+    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
     .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
     .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
     .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
@@ -59,67 +59,131 @@
       <div class="subtitle">Elementary Number Theory - Week 13 Solutions</div>
     </div>
 
-    <div class="lecture-content">      <h2>Key Definitions and Concepts</h2>
+    <div class="lecture-content">
+      <h2>Key Ideas</h2>
 
       <div class="concept-callout">
-        <strong>Simple Continued Fraction</strong>
-        <p>[a₀; a₁, a₂, a₃, ...] = a₀ + 1/(a₁ + 1/(a₂ + 1/(a₃ + ...)))</p>
-        <p>where a₀ ≥ 0 and a₁, a₂, ... ≥ 1.</p>
-        <p><strong>Convergents:</strong> pₙ/qₙ are the rational approximations.</p>
+        <strong>Continued fractions and convergents</strong>
+        <p>A finite continued fraction gives a rational number. An infinite continued fraction can represent an irrational number. The convergents are the best rational approximations, and they satisfy simple recurrence relations.</p>
       </div>
 
       <h2>Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 1: Find the continued fraction expansion of 22/7.</div>
-        <p><strong>Solution using Euclidean Algorithm:</strong>
-        <div class="step">
-          <strong>22 = 7 × 3 + 1, so a₀ = 3</strong>
-          <br>1/7 = 1/(7 × 1 + 0), so a₁ = 7</div>
-        </div>
-        <p><strong>Answer:</strong> \([3; 7] = 3 + \frac{1}{7} = \frac{22}{7}\)</p>
+        <div class="problem-number">Problem 1</div>
+        <p><strong>Find the continued fraction expansion of \(\frac{19}{7}\) and compute its convergents.</strong></p>
+        <p>Apply the Euclidean algorithm:
+        <br>\(19 = 2\cdot 7 + 5\)
+        <br>\(7 = 1\cdot 5 + 2\)
+        <br>\(5 = 2\cdot 2 + 1\)
+        <br>\(2 = 2\cdot 1 + 0\)</p>
+        <p>The quotients give \([2;1,2,2]\). The convergents are
+        <br>\(\frac{2}{1},\; \frac{3}{1},\; \frac{8}{3},\; \frac{19}{7}\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 2: Find the continued fraction for √2 and show it is periodic.</</div>
-        <p><strong>Solution:</strong>
-        <div class="step">
-          <strong>Step 1:</strong> a₀ = ⌊√2⌋ = 1, remainder = √2 - 1
-          <br>\[\frac{1}{\sqrt{2}-1} = \frac{\sqrt{2}+1}{(\sqrt{2}-1)(\sqrt{2}+1)} = \frac{\sqrt{2}+1}{1} = \sqrt{2} + 1\]</div>
-        
-        <div class="step">
-          <strong>Step 2:</strong> a₁ = ⌊√2 + 1⌋ = 2, remainder = (√2 + 1) - 2 = √2 - 1
-          <br>This is the same as the original remainder!</div>
-        </div>
-        
-        <p><strong>Answer:</strong> √2 = [1; 2, 2, 2, ...] = [1; 2̄], a purely periodic continued fraction.</p>
+        <div class="problem-number">Problem 2</div>
+        <p><strong>Find the continued fraction expansion of \(\sqrt{7}\) and determine its period length.</strong></p>
+        <p>Use the standard algorithm for square roots:
+        <br>\(\sqrt{7}=2+(\sqrt{7}-2)\)
+        <br>\(\frac{1}{\sqrt{7}-2}=\frac{\sqrt{7}+2}{3}=1+\frac{\sqrt{7}-1}{2}\)
+        <br>\(\frac{2}{\sqrt{7}-1}=\frac{\sqrt{7}+1}{3}=1+\frac{\sqrt{7}-2}{1}\)
+        <br>\(\frac{1}{\sqrt{7}-2}=\sqrt{7}+2=4+(\sqrt{7}-2)\)</p>
+        <p>The pattern repeats, so \(\sqrt{7}=[2;\overline{1,1,1,4}]\). The period length is 4.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 3: Find the first four convergents of π ≈ 3.14159....</</div>
-        <p><strong>Solution:</strong>
-        <p>π ≈ [3; 7, 15, 1, 292, ...]</p>
-        
-        <div class="step">
-          <strong>Convergent 0 (p₀/q₀):</strong>
-          <br>3/1 = 3</div>
-        
-        <div class="step">
-          <strong>Convergent 1 (p₁/q₁):</strong>
-          <br>3 + 1/7 = 22/7 ≈ 3.14285...</div>
-        
-        <div class="step">
-          <strong>Convergent 2 (p₂/q₂):</strong>
-          <br>3 + 1/(7 + 1/15) = 3 + 15/106 = 333/106 ≈ 3.14151...</div>
-        
-        <p><strong>Answer:</strong> Convergents: 3/1, 22/7, 333/106, 355/113, ...</p>
+        <div class="problem-number">Problem 3</div>
+        <p><strong>Find the fundamental solution to \(x^2 - 2y^2 = 1\) using continued fractions.</strong></p>
+        <p>The continued fraction of \(\sqrt{2}\) is \([1;\overline{2}]\), so the period length is \(k=1\). The convergents are
+        <br>\(\frac{p_0}{q_0}=1,\quad \frac{p_1}{q_1}=\frac{3}{2}\).</p>
+        <p>Since \(k\) is odd, the fundamental solution comes from the convergent just before the period repeats: \((x_1,y_1)=(3,2)\). Check: \(3^2-2\cdot 2^2=9-8=1\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 4</div>
+        <p><strong>Find the continued fraction expansion of \(\sqrt{13}\) and its period length.</strong></p>
+        <p>Apply the algorithm:
+        <br>\(\sqrt{13}=3+(\sqrt{13}-3)\)
+        <br>\(\frac{1}{\sqrt{13}-3}=\frac{\sqrt{13}+3}{4}=1+\frac{\sqrt{13}-1}{4}\)
+        <br>\(\frac{4}{\sqrt{13}-1}=\frac{\sqrt{13}+1}{3}=1+\frac{\sqrt{13}-2}{3}\)
+        <br>\(\frac{3}{\sqrt{13}-2}=\frac{\sqrt{13}+2}{3}=1+\frac{\sqrt{13}-1}{3}\)
+        <br>\(\frac{3}{\sqrt{13}-1}=\frac{\sqrt{13}+1}{4}=1+\frac{\sqrt{13}-3}{4}\)</p>
+        <p>The sequence repeats with period 5. So \(\sqrt{13}=[3;\overline{1,1,1,1,6}]\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 5</div>
+        <p><strong>Find the fundamental solution to \(x^2 - 13y^2 = 1\).</strong></p>
+        <p>The period length of \(\sqrt{13}\) is 5, which is odd. Compute convergents up to the end of the first full period. The convergent \(\frac{p_4}{q_4}\) gives \(p_4=649\) and \(q_4=180\). Check: \(649^2-13\cdot 180^2=421201-421200=1\).</p>
+        <p><strong>Answer.</strong> The fundamental solution is \((649,180)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6</div>
+        <p><strong>Show that every rational number has a finite continued fraction expansion.</strong></p>
+        <p>Apply the Euclidean algorithm to the numerator and denominator. At each step we get a quotient and a smaller remainder. Because the remainders are non-negative integers and strictly decrease, the process must stop after finitely many steps. The recorded quotients form a finite continued fraction.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7</div>
+        <p><strong>Prove: if \(\frac{p}{q}\) is a convergent to \(\alpha\), then \(|q\alpha - p| < 1\).</strong></p>
+        <p>By definition, a convergent is obtained by truncating a continued fraction. The error after truncation is less than the next term, which is at most 1 in absolute value. More precisely, the difference between \(\alpha\) and the convergent \(\frac{p_n}{q_n}\) is smaller than \(\frac{1}{q_n q_{n+1}}\). Multiplying by \(q_n\) gives \(|q_n\alpha - p_n| < \frac{1}{q_{n+1}} \le 1\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8</div>
+        <p><strong>Find all solutions to \(x^2 - 3y^2 = 1\) with \(x, y < 100\).</strong></p>
+        <p>The fundamental solution is \((2,1)\). All solutions are generated by \((2+\sqrt{3})^n\):
+        <br>\(n=1\): \((2,1)\)
+        <br>\(n=2\): \((7,4)\)
+        <br>\(n=3\): \((26,15)\)
+        <br>\(n=4\): \((97,56)\)</p>
+        <p>The next solution would have \(y>100\).</p>
+        <p><strong>Answer.</strong> \((2,1)\), \((7,4)\), \((26,15)\), \((97,56)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 9</div>
+        <p><strong>Prove that consecutive convergents satisfy \(|p_n q_{n+1} - p_{n+1} q_n| = 1\).</strong></p>
+        <p>Use the recurrence relations for convergents:
+        <br>\(p_{n+1}=a_{n+1}p_n+p_{n-1}\)
+        <br>\(q_{n+1}=a_{n+1}q_n+q_{n-1}\).</p>
+        <p>Compute:
+        <br>\(p_{n+1}q_n - p_n q_{n+1} = (a_{n+1}p_n+p_{n-1})q_n - p_n(a_{n+1}q_n+q_{n-1}) = p_{n-1}q_n - p_n q_{n-1}\).</p>
+        <p>By induction, this alternating determinant is always \(\pm1\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 10</div>
+        <p><strong>Show that the convergents of an irrational number are all in lowest terms.</strong></p>
+        <p>From Problem 9, consecutive convergents satisfy \(|p_n q_{n+1} - p_{n+1} q_n| = 1\). If a convergent \(\frac{p_n}{q_n}\) had a common factor \(d>1\), then \(d\) would divide the left-hand side for any \(n\), including \(n-1\) and \(n\). That would force \(d\mid 1\), a contradiction. Hence each convergent is in lowest terms.</p>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1: Prove that every rational number has a finite continued fraction expansion.</</div>
-        <p><strong>Proof:</strong> Apply the Euclidean algorithm to a/b. The process terminates when remainder is 0, giving a finite expansion.</p>
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Find the continued fraction expansion of \(\frac{1+\sqrt{5}}{2}\) and verify it is \([1; \overline{1}]\).</strong></p>
+        <p>Let \(\alpha=\frac{1+\sqrt{5}}{2}\). Then \(\alpha=1+\frac{1}{\alpha}\), so the continued fraction repeats immediately: \([1;\overline{1}]\). This is the golden ratio.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Compute the first 5 convergents of \(\sqrt{3}\) using the recurrence relations.</strong></p>
+        <p>The continued fraction of \(\sqrt{3}\) is \([1;\overline{1,2}]\). The partial quotients are \(a_0=1, a_1=1, a_2=2, a_3=1, a_4=2\). Using the recurrences
+        <br>\(p_n=a_n p_{n-1}+p_{n-2},\quad q_n=a_n q_{n-1}+q_{n-2}\)
+        <br>with \(p_{-2}=0, p_{-1}=1, q_{-2}=1, q_{-1}=0\), we get
+        <br>\(\frac{p_0}{q_0}=\frac{1}{1},\; \frac{p_1}{q_1}=\frac{2}{1},\; \frac{p_2}{q_2}=\frac{5}{3},\; \frac{p_3}{q_3}=\frac{7}{4},\; \frac{p_4}{q_4}=\frac{19}{11}\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Prove that if \(\frac{p_n}{q_n}\) and \(\frac{p_{n+1}}{q_{n+1}}\) are consecutive convergents, then \(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\).</strong></p>
+        <p>Write \(\alpha\) as \([a_0;a_1,\dots,a_n,\theta]\) where \(\theta>1\). Then \(\alpha = \frac{\theta p_n + p_{n-1}}{\theta q_n + q_{n-1}}\). Subtracting \(\frac{p_n}{q_n}\) gives
+        <br>\(\alpha - \frac{p_n}{q_n} = \frac{(-1)^n}{\theta q_n^2 + q_n q_{n-1}}\).</p>
+        <p>Since \(\theta>1\) and \(q_{n+1}=\theta q_n+q_{n-1}\), the denominator exceeds \(q_n q_{n+1}\). Therefore
+        <br>\(\left|\alpha - \frac{p_n}{q_n}\right| < \frac{1}{q_n q_{n+1}}\).</p>
       </div>
 
       <div class="navigation">
@@ -129,7 +193,7 @@
     </div>
   </main>
   
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version=""></span></p></footer>
   
   <script src="../script.js"></script>
     <script src="../search-enhancer.js"></script>

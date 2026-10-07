@@ -60,140 +60,112 @@
     </div>
 
     <div class="lecture-content">
-      <h2>Key Definitions and Concepts</h2>
+      <h2>Key Ideas</h2>
 
       <div class="concept-callout">
-        <strong>Gaussian Prime Classification</strong>
-        <p>In \(\mathbb{Z}[i]\), an element \(\pi\) is prime if:</p>
+        <strong>How to recognize Gaussian primes</strong>
+        <p>A Gaussian integer is a number of the form \(a+bi\). Its norm is \(a^2+b^2\). In practice, we use three simple rules:</p>
         <ul>
-          <li>\(\pi\) is a unit times a rational prime \(p\) where \(p \equiv 3 \pmod{4}\)</li>
-          <li>\(\pi = a + bi\) where \(a^2 + b^2 = p\) is a rational prime (so \(p \equiv 1 \pmod{4}\))</li>
-          <li>\(\pi = 1 + i\) (up to units) - the prime dividing 2</li>
+          <li>If the norm is an ordinary prime, the number is Gaussian prime.</li>
+          <li>If a rational prime \(p\equiv 3\pmod4\), it stays prime in \(\mathbb{Z}[i]\).</li>
+          <li>The prime 2 factors as \(2=-i(1+i)^2\), so \(1+i\) is the key prime dividing 2.</li>
         </ul>
       </div>
 
       <h2>Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 1: Determine which Gaussian integers are prime among: 2, 3, 1+i, 2+i, 3+3i, 5.</div>
-        <p><strong>Strategy:</strong> Check each using the classification.</p>
-        
-        <div class="step">
-          <strong>2:</strong> \(2 = -i(1+i)^2\), so 2 is NOT prime (it ramifies).
-          <p>But \(1 + i\) IS prime since \(N(1+i) = 2\) is prime.</p>
-        </div>
-        
-        <div class="step">
-          <strong>3:</strong> 3 ≡ 3 (mod 4), so 3 remains prime in \(\mathbb{Z}[i]\).</div>
-        
-        <div class="step">
-          <strong>1 + i:</strong> \(N(1+i) = 2\) (prime), so 1+i is prime.</div>
-        
-        <div class="step">
-          <strong>2 + i:</strong> \(N(2+i) = 5\), and 5 ≡ 1 (mod 4), so 2+i is prime.</div>
-        
-        <div class="step">
-          <strong>3 + 3i = 3(1 + i):</strong> Product of two primes, not prime.</div>
-        
-        <div class="step">
-          <strong>5 = (2+i)(2-i):</strong> 5 factors, not prime.</p>
-        </div>
-        
-        <p><strong>Answer:</strong> The primes are: 3, 1+i, and 2+i.</p>
+        <div class="problem-number">Problem 1</div>
+        <p><strong>Which of these are Gaussian primes: 2, 3, 1+i, 2+i, 3+3i, 5?</strong></p>
+        <div class="step"><strong>2.</strong> The norm of 2 is 4, so 2 is not a Gaussian prime. It factors as \(2=-i(1+i)^2\).</div>
+        <div class="step"><strong>3.</strong> The norm of 3 is 9. Since \(3\equiv 3\pmod4\), 3 remains prime in \(\mathbb{Z}[i]\).</div>
+        <div class="step"><strong>1+i.</strong> Its norm is \(1^2+1^2=2\), which is prime. So \(1+i\) is Gaussian prime.</div>
+        <div class="step"><strong>2+i.</strong> Its norm is \(2^2+1^2=5\), which is prime. So \(2+i\) is Gaussian prime.</div>
+        <div class="step"><strong>3+3i.</strong> This equals \(3(1+i)\), a product of two non-units, so it is not prime.</div>
+        <div class="step"><strong>5.</strong> The norm of 5 is 25. Since \(5\equiv 1\pmod4\), it splits: \(5=(2+i)(2-i)\). So 5 is not prime.</div>
+        <p><strong>Answer.</strong> The Gaussian primes in the list are \(3\), \(1+i\), and \(2+i\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 2: Factor 13 in \(\mathbb{Z}[i]\).</div>
-        <p><strong>Analysis:</strong> 13 ≡ 1 (mod 4), so 13 splits (factors) in \(\mathbb{Z}[i]\).</p>
-        
-        <div class="step">
-          <strong>Find Gaussian integers with norm 13.</strong>
-          <p>Solve \(a^2 + b^2 = 13\):
-          <ul>
-            <li>\(a = 2\): \(b^2 = 9\), so \(b = \pm 3\)</li>
-            <li>\(a = 3\): \(b^2 = 4\), so \(b = \pm 2\)</li>
-          </ul>
-          So ±(2+3i), ±(3+2i), ±(2-3i), ±(3-2i) have norm 13.</p>
-        </div>
-        
-        <div class="step">
-          <strong>Verify a factorization.</strong>
-          <br>\[(2 + 3i)(2 - 3i) = 4 + 9 = 13\]</div>
-        
-        <p><strong>Answer:</strong> \(13 = (2+3i)(2-3i) = (3+2i)(3-2i)\)</p>
+        <div class="problem-number">Problem 2</div>
+        <p><strong>Factor 13 in \(\mathbb{Z}[i]\).</strong></p>
+        <p>Because \(13\equiv 1\pmod4\), it splits. We need integers \(a,b\) with \(a^2+b^2=13\). Trying small values gives \(2^2+3^2=13\).</p>
+        <p>Therefore \(13=(2+3i)(2-3i)\). Both factors are Gaussian primes because their norm is 13.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 3: Find the greatest common divisor of 5 and 13 in \(\mathbb{Z}[i]\).</div>
-        <p><strong>Strategy:</strong> Factor both and find common factors.</p>
-        
-        <div class="step">
-          <strong>Factor 5 and 13:</strong>
-          <br>5 = (2+i)(2-i)
-          <br>13 = (2+3i)(2-3i)</div>
-        
-        <div class="step">
-          <strong>Check if any Gaussian prime divides both.</strong>
-          <p>We need to check if 2+i or 2-i divides 2+3i or 2-3i.
-          <p>In \(\mathbb{Z}[i]\), primes are non-associated if they are not unit multiples.
-          <p>2+i and 2+3i are not associates (their ratio is not a unit).
-          <p>Therefore, gcd(5, 13) = 1.</p>
-        </div>
-        
-        <p><strong>Answer:</strong> \(\gcd(5, 13) = 1\) (they are coprime in \(\mathbb{Z}[i]\)).</p>
+        <div class="problem-number">Problem 3</div>
+        <p><strong>Find \(\gcd(5,13)\) in \(\mathbb{Z}[i]\).</strong></p>
+        <p>Factor each number into Gaussian primes. The prime factors of 5 are \(2+i\) and \(2-i\). The prime factors of 13 are \(2+3i\) and \(2-3i\). These four primes are different from each other, so 5 and 13 share no common Gaussian prime factor.</p>
+        <p><strong>Answer.</strong> \(\gcd(5,13)=1\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 4: Prove that \(\mathbb{Z}[i]\) is a unique factorization domain.</div>
-        <p><strong>Proof outline:</strong></p>
-        <div class="step">
-          <strong>Step 1: Show \(\mathbb{Z}[i]\) is a Euclidean domain.</strong>
-          <p>Define the Euclidean function: \(\delta(a + bi) = N(a + bi) = a^2 + b^2\).
-          <p>Given \(\alpha, \beta \in \mathbb{Z}[i]\) with \(\beta \neq 0\), find \(q, r\) such that \(\alpha = \beta q + r\) where \(r = 0\) or \(\delta(r) < \delta(\beta)\).</p>
-        </div>
-        
-        <div class="step">
-          <strong>Step 2: Euclidean domains are UFDs.</strong>
-          <p>This is a standard theorem: every Euclidean domain is a PID, and every PID is a UFD.</p>
-        </div>
+        <div class="problem-number">Problem 4</div>
+        <p><strong>Explain why factorization in \(\mathbb{Z}[i]\) is unique up to order and units.</strong></p>
+        <p>This is analogous to unique factorization for ordinary integers. If a Gaussian integer had two different factorizations into Gaussian primes, comparing norms would eventually lead to a contradiction. In other words, Gaussian integers have one prime factorization, just like the integers do.</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 5: Use Gaussian integers to prove that a prime \(p\) can be written as \(x^2 + y^2\) iff \(p = 2\) or \(p \equiv 1 \pmod{4}\).</div>
-        <p><strong>Proof:</strong></p>
-        <div class="step">
-          <strong>(⇒) If \(p = x^2 + y^2\), then \(p = (x + yi)(x - yi)\):</strong>
-          <p>If \(p\) were prime in \(\mathbb{Z}[i]\), it would be associate to a rational prime ≡ 3 (mod 4).
-          <p>But \(x + yi\) is not a unit (unless \(p = 2\)) and not a rational prime.
-          <p>Therefore \(p\) is not a Gaussian prime.
-          <p>Checking: 2 = 1² + 1², and for \(p > 2\): \(p \equiv 1 \pmod{4}\) iff it splits.</div>
-        
-        <div class="step">
-          <strong>(⇐) If \(p = 2\) or \(p \equiv 1 \pmod{4}\):</strong>
-          <p>We've shown these primes factor in \(\mathbb{Z}[i]\): \(p = \pi \bar{\pi}\) for some prime \(\pi = a + bi\).
-          <br>Then \(p = N(\pi) = a^2 + b^2\).</p>
-        </div>
+        <div class="problem-number">Problem 5</div>
+        <p><strong>Prove: a prime \(p\) can be written as \(x^2+y^2\) iff \(p=2\) or \(p\equiv 1\pmod4\).</strong></p>
+        <div class="step"><strong>If direction.</strong> If \(p=x^2+y^2\), then in \(\mathbb{Z}[i]\) we have \(p=(x+yi)(x-yi)\). For \(p>2\), this means \(p\) is not a Gaussian prime. The only rational primes that stay prime in \(\mathbb{Z}[i]\) are \(p=2\) and primes with \(p\equiv 3\pmod4\). Therefore we must have \(p=2\) or \(p\equiv 1\pmod4\).</div>
+        <div class="step"><strong>Only if direction.</strong> If \(p=2\), then \(2=1^2+1^2\). If \(p\equiv 1\pmod4\), then \(p\) splits in \(\mathbb{Z}[i]\) as \(p=\pi\overline{\pi}\) for some Gaussian prime \(\pi=a+bi\). Taking norms gives \(p=a^2+b^2\).</div>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 6</div>
+        <p><strong>List the Gaussian prime factors of 13.</strong></p>
+        <p>From Problem 2, \(13=(2+3i)(2-3i)\). Both factors are Gaussian primes.</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 7</div>
+        <p><strong>Prove: if \(p\equiv 1\pmod4\) is prime, then \(p\) splits in \(\mathbb{Z}[i]\).</strong></p>
+        <p>When \(p\equiv 1\pmod4\), the number \(-1\) is a square modulo \(p\). That means there is an integer \(a\) with \(a^2\equiv -1\pmod p\), or \(p\mid a^2+1\). In \(\mathbb{Z}[i]\) this says \(p\mid (a+i)(a-i)\). Because \(p\) is an ordinary prime and does not divide \(a+i\) or \(a-i\) individually, it cannot be prime in \(\mathbb{Z}[i]\). Hence \(p\) factors as \(p=\pi\overline{\pi}\) for some non-unit \(\pi\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 8</div>
+        <p><strong>Find the prime factorization of 65 in \(\mathbb{Z}[i]\).</strong></p>
+        <p>Factor \(65=5\cdot 13\) and split each piece:
+        <br>\(5=(2+i)(2-i)\)
+        <br>\(13=(2+3i)(2-3i)\)
+        <br>So \(65=(2+i)(2-i)(2+3i)(2-3i)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 9</div>
+        <p><strong>Factor 50 in \(\mathbb{Z}[i]\).</strong></p>
+        <p>Write \(50=2\cdot 5^2\). We know \(2=-i(1+i)^2\) and \(5=(2+i)(2-i)\). Therefore
+        <br>\(50=-i(1+i)^2(2+i)^2(2-i)^2\).</p>
+        <p>Up to units, the Gaussian prime factors are \((1+i)\), \((2+i)\), and \((2-i)\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Problem 10</div>
+        <p><strong>Explain why every nonzero Gaussian integer can be factored into Gaussian primes.</strong></p>
+        <p>The norm \(N(a+bi)=a^2+b^2\) is a positive ordinary integer. Each time we factor a Gaussian integer into smaller pieces, the norm decreases. Because the norm is a positive integer, this process cannot continue forever. It must stop, and it can only stop at Gaussian primes.</p>
       </div>
 
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1: Find the Gaussian primes that divide 65.</</div>
-        <div class="step">
-          <strong>Factor 65:</strong> \(65 = 5 \times 13\).
-          <br>5 = (2+i)(2-i)
-          <br>13 = (2+3i)(2-3i)</div>
-        <p><strong>Answer:</strong> The Gaussian primes dividing 65 are: 2+i, 2-i, 2+3i, 2-3i.</p>
+        <div class="problem-number">Bonus Problem 1</div>
+        <p><strong>Find the Gaussian primes that divide 65.</strong></p>
+        <p>From Problem 8, the Gaussian primes dividing 65 are \(2+i\), \(2-i\), \(2+3i\), and \(2-3i\).</p>
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2: Solve \(xy = 39\) in \(\mathbb{Z}[i]\).</</div>
-        <div class="step">
-          <strong>Factor 39 in \(\mathbb{Z}[i]\):</strong>
-          <p>39 = 3 × 13
-          <br>3 remains prime (≡ 3 mod 4)
-          <br>13 = (2+3i)(2-3i)</div>
-        <p><strong>Answer:</strong> Solutions are (up to units): 3·(2+3i) = 6+9i, etc.</p>
+        <div class="problem-number">Bonus Problem 2</div>
+        <p><strong>Solve \(xy=39\) in \(\mathbb{Z}[i]\).</strong></p>
+        <p>Factor \(39=3\cdot 13\). In \(\mathbb{Z}[i]\), 3 stays prime because \(3\equiv 3\pmod4\), and \(13=(2+3i)(2-3i)\). Any solution \((x,y)\) must distribute these prime factors between \(x\) and \(y\) in some way, up to multiplication by \(1\), \(-1\), \(i\), or \(-i\).</p>
+      </div>
+
+      <div class="solution-box">
+        <div class="problem-number">Bonus Problem 3</div>
+        <p><strong>Prove that if \(p\equiv 3\pmod4\) is prime, then \(p\) cannot equal \(x^2+y^2\) for integers \(x,y\).</strong></p>
+        <p>Work modulo 4. Perfect squares modulo 4 are only 0 or 1. Therefore the sum of two squares modulo 4 can only be 0, 1, or 2. It can never be 3. So no integer congruent to 3 modulo 4 can be written as a sum of two squares.</p>
       </div>
 
       <div class="navigation">
@@ -203,7 +175,7 @@
     </div>
   </main>
   
-  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version=""></span></p></footer>
   
   <script src="../script.js"></script>
     <script src="../search-enhancer.js"></script>
