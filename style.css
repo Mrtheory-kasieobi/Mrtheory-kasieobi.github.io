@@ -1888,6 +1888,10 @@ footer {
     border-color: var(--border-strong);
 }
 
+.contact-info__card--youtube:hover {
+    border-color: var(--border-strong);
+}
+
 .contact-info__card--placeholder {
     cursor: default;
     opacity: 0.75;
@@ -1936,6 +1940,10 @@ footer {
 }
 
 .contact-info__card--mse .contact-info__value {
+    color: var(--accent);
+}
+
+.contact-info__card--youtube .contact-info__value {
     color: var(--accent);
 }
 
