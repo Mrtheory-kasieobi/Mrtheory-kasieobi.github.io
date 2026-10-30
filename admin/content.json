@@ -128,22 +128,10 @@
       "displayName": "Expository Writing",
       "pages": [
         {
-          "path": "olympiad.html",
-          "name": "Olympiad",
+          "path": "expository.html",
+          "name": "Expository Writing",
           "editable": true,
-          "description": "Olympiad-level mathematics articles"
-        },
-        {
-          "path": "undergraduate.html",
-          "name": "Undergraduate",
-          "editable": true,
-          "description": "Undergraduate-level expository writing"
-        },
-        {
-          "path": "graduate.html",
-          "name": "Graduate",
-          "editable": true,
-          "description": "Graduate-level mathematical exposition"
+          "description": "Olympiad mathematics and a unified archive of mathematical expositions"
         }
       ]
     }

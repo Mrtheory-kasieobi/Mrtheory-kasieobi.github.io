@@ -39,9 +39,7 @@ $pages = [
         'courses/linear-algebra.html' => 'Linear Algebra'
     ],
     'expository' => [
-        'olympiad.html' => 'Olympiad',
-        'undergraduate.html' => 'Undergraduate',
-        'graduate.html' => 'Graduate'
+        'expository.html' => 'Expository Writing'
     ]
 ];
 

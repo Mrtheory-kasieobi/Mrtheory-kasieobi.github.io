@@ -44,27 +44,9 @@
   </url>
   <url>
     <loc>https://mrtheory-kasieobi.github.io/expository.html</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mrtheory-kasieobi.github.io/olympiad.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mrtheory-kasieobi.github.io/undergraduate.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://mrtheory-kasieobi.github.io/graduate.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://mrtheory-kasieobi.github.io/graduate-notes.html</loc>

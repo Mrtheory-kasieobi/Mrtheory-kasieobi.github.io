@@ -69,10 +69,8 @@ const pages = {
         { path: 'courses/algebra-II.html', name: 'Algebra II' },
         { path: 'courses/linear-algebra.html', name: 'Linear Algebra' }
     ],
-    olympiad: [
-        { path: 'olympiad.html', name: 'Olympiad' },
-        { path: 'undergraduate.html', name: 'Undergraduate' },
-        { path: 'graduate.html', name: 'Graduate' }
+    expository: [
+        { path: 'expository.html', name: 'Expository Writing' }
     ]
 };
 

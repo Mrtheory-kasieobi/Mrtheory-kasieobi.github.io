@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Expository writing and olympiad mathematics by Kasieobi Udumaga.">
+    <meta name="description" content="Olympiad mathematics and a unified archive of mathematical expositions by Kasieobi Udumaga.">
     <title>Kasieobi Udumaga | Expository Writing</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -40,14 +40,7 @@
             <li><a href="about.html">About me</a></li>
             <li><a href="notes.html">Notes</a></li>
             <li><a href="teaching.html">Teaching</a></li>
-            <li class="dropdown">
-                <a href="expository.html" aria-haspopup="true" aria-expanded="false" class="active" aria-current="page">Expository Writing</a>
-                <ul class="dropdown-menu" aria-label="Expository submenu">
-                    <li><a href="olympiad.html">Olympiad</a></li>
-                    <li><a href="undergraduate.html">Undergraduate</a></li>
-                    <li><a href="graduate.html">Graduate</a></li>
-                </ul>
-            </li>
+            <li><a href="expository.html" class="active" aria-current="page">Expository Writing</a></li>
             <li><a href="research.html">Research</a></li>
             <li><a href="Track.html">Track and field</a></li>
             <li><a href="blog.html">Blog</a></li>
@@ -56,8 +49,43 @@
     </nav>
 
     <main>
-        <section class="empty-expository-panel" aria-label="Expository writing overview">
-            <p data-content="expository.paragraphs.0">Expository writing is one of the most important forms of mathematical communication. Its purpose is not to present new research, but rather to explain existing mathematics in a clear, logical, and accessible way. A well-written exposition bridges the gap between technical rigor and intuition, helping readers understand not only what is true, but also why it is true and how different ideas are connected. This page is my collection of expository articles spanning several areas of mathematics. It is organized into sections covering olympiad mathematics, undergraduate topics, and graduate-level subjects, each containing notes, expository essays, problem discussions, or surveys of interesting mathematical ideas. Some articles are intended to introduce foundational concepts, while others provide detailed solutions, commentary, historical context, or connections to more advanced mathematics.</p>
+        <div class="empty-expository-panel" aria-label="Expository writing overview">
+            <p data-content="expository.paragraphs.0">Expository writing is one of the most important forms of mathematical communication. Its purpose is not to present new research, but rather to explain existing mathematics in a clear, logical, and accessible way. A well-written exposition bridges the gap between technical rigor and intuition, helping readers understand not only what is true, but also why it is true and how different ideas are connected. This page is my collection of expository writing, organized into two sections: Olympiad Mathematics contains selected contest solutions and mathematical commentary, while Mathematical Expositions gathers longer writing across algebra, analysis, number theory, geometry, and related areas. Some pieces introduce foundational concepts, while others provide detailed solutions, historical context, or connections to more advanced mathematics.</p>
+        </div>
+
+        <section class="article-archive" id="olympiad" aria-labelledby="olympiad-archive-title">
+            <div class="archive-intro">
+                <h2 id="olympiad-archive-title">Olympiad Mathematics</h2>
+            </div>
+            <div class="article-feed" role="list">
+                <article class="article-card" role="listitem">
+                    <p class="article-date">2026</p>
+                    <h3>The 2026 International Mathematical Olympiad: Solutions and Commentary</h3>
+                    <p class="article-summary">This page brings together the official 2026 IMO problems, solutions contributed by AoPS users, and my own commentary, where I explore the ideas, techniques, and broader insights behind each problem and its solution.</p>
+                    <span class="status-badge">Coming Soon</span>
+                </article>
+            </div>
+        </section>
+
+        <section class="article-archive" id="mathematical-expositions" aria-labelledby="mathematical-expositions-title">
+            <div class="archive-intro">
+                <h2 id="mathematical-expositions-title">Mathematical Expositions</h2>
+                <p>A collection of longer and more advanced papers and advanced research-oriented expositions.</p>
+            </div>
+            <div class="article-feed" role="list">
+                <article class="article-card" role="listitem">
+                    <p class="article-date">2026 · Algebra</p>
+                    <h3>The Fundamental Theorem of Algebra</h3>
+                    <p class="article-summary">Exploring the Fundamental Theorem of Algebra through complex numbers, polynomial factorization, and algebraic closure.</p>
+                    <span class="status-badge">Coming Soon</span>
+                </article>
+                <article class="article-card" role="listitem">
+                    <p class="article-date">2026 · Number Theory</p>
+                    <h3>The Mystery of \(e^{\pi\sqrt{163}}\)</h3>
+                    <p class="article-summary">An exploration of the remarkable appearance of 163 in the near-integer \(e^{\pi\sqrt{163}}\), leading into imaginary quadratic fields, Heegner numbers, class numbers, modular forms, and the deeper mathematics behind Ramanujan's constant.</p>
+                    <span class="status-badge status-badge--in-progress">In progress</span>
+                </article>
+            </div>
         </section>
     </main>
 

@@ -67,9 +67,8 @@ Then visit http://localhost:5501/admin/
 - Linear Algebra
 
 ### Expository Writing
-- Olympiad
-- Undergraduate
-- Graduate
+- Olympiad Mathematics
+- Mathematical Expositions
 
 ## Editor Features
 
