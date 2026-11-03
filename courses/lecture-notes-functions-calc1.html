@@ -7,153 +7,9 @@
   <title>Kasieobi Udumaga | Functions and Their Representations - Detailed Notes</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    @media print {
-      body { margin: 0; padding: 0; }
-      .no-print { display: none; }
-      header, nav, footer { display: none; }
-      main { 
-        box-shadow: none !important;
-        border: none !important;
-        border-radius: 0 !important;
-      }
-    }
-    
-    .lecture-header {
-      text-align: center;
-      padding: 2rem 0;
-      border-bottom: 2px solid var(--accent);
-      margin-bottom: 2rem;
-    }
-    .lecture-header h1 {
-      font-size: 2.5rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .lecture-header .subtitle {
-      font-size: 1.2rem;
-      color: var(--muted);
-      font-style: italic;
-    }
-    .lecture-content {
-      color: var(--text);
-      line-height: 1.8;
-    }
-    .lecture-content h2 {
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      margin-top: 2.5rem;
-    }
-    .lecture-content h3 {
-      color: var(--text);
-      margin-top: 2rem;
-    }
-    .definition-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .definition-box strong {
-      color: var(--accent);
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .theorem-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5cb85c;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .theorem-box strong {
-      color: #5cb85c;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .proof-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #5bc0de;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .proof-box strong {
-      color: #5bc0de;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .example-box {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #f0ad4e;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .example-box strong {
-      color: #f0ad4e;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .formula-box {
-      background: rgba(140, 200, 255, 0.1);
-      border: 1px solid var(--border);
-      border-left: 4px solid var(--accent);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      text-align: center;
-      font-size: 1.1rem;
-    }
-    .important-note {
-      background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96));
-      border: 1px solid var(--border);
-      border-left: 4px solid #d9534f;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1.5rem 0;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .important-note strong {
-      color: #d9534f;
-      display: block;
-      margin-bottom: 0.5rem;
-    }
-    .navigation {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center;
-    }
-    .navigation a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin: 0.5rem;
-      background: linear-gradient(145deg, var(--accent), #4aa8f5);
-      color: #07111d;
-      text-decoration: none;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .navigation a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25);
-      color: #07111d;
-    }
-  </style>
 </head>
-<body><header>
+<body><div class="site-topbar">
+<header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
         <span class="search-bar__icon">⌕</span>
@@ -179,6 +35,7 @@
       <li><a href="../contact.html">Contact</a></li>
     </ul>
   </nav>
+</div>
 
   <main>
     <div class="lecture-header">
@@ -197,11 +54,11 @@
 
       <div class="important-note">
         <strong>Key Point - The "Exactly One" Rule:</strong>
-        For every input \(x\) in the domain, there must be exactly ONE output. This means:
+        For every input \(x\) in the domain, there must be exactly one output. This means:
         <ul>
           <li>If \(x\) is in the domain, then \(f(x)\) must be defined</li>
           <li>One input cannot give two different outputs</li>
-          <li>Multiple inputs CAN give the same output</li>
+          <li>Multiple inputs can give the same output</li>
         </ul>
       </div>
 
@@ -214,10 +71,10 @@
       </div>
 
       <div class="example-box">
-        <strong>Example 1.2 - NOT a Function:</strong>
+        <strong>Example 1.2 - not a Function:</strong>
         \(y^2 = x\) solved for \(y\)
-        <p>For \(x = 4\): \(y^2 = 4\) gives \(y = 2\) OR \(y = -2\)</p>
-        <p>One input gives TWO outputs - this violates the definition!</p>
+        <p>For \(x = 4\): \(y^2 = 4\) gives \(y = 2\) or \(y = -2\)</p>
+        <p>One input gives two outputs - this violates the definition!</p>
       </div>
 
       <h3>1.2 Function Notation and Terminology</h3>
@@ -265,7 +122,7 @@
         <ol>
           <li>Identify restrictions (division by zero, square roots of negatives, logarithms of non-positives)</li>
           <li>Find the values of \(x\) that cause these restrictions</li>
-          <li>The domain is all real numbers EXCEPT those values</li>
+          <li>The domain is all real numbers except those values</li>
         </ol>
       </div>
 
@@ -306,15 +163,15 @@
           <th style="padding: 0.5rem; border: 1px solid var(--border);">x (input)</th>
           <th style="padding: 0.5rem; border: 1px solid var(--border);">f(x) (output)</th>
         </tr>
-        <tr style="background: rgba(15, 24, 37, 0.5);">
+        <tr style="background: var(--off-white);">
           <td style="padding: 0.5rem; border: 1px solid var(--border);">0</td>
           <td style="padding: 0.5rem; border: 1px solid var(--border);">1</td>
         </tr>
-        <tr style="background: rgba(15, 24, 37, 0.5);">
+        <tr style="background: var(--off-white);">
           <td style="padding: 0.5rem; border: 1px solid var(--border);">1</td>
           <td style="padding: 0.5rem; border: 1px solid var(--border);">3</td>
         </tr>
-        <tr style="background: rgba(15, 24, 37, 0.5);">
+        <tr style="background: var(--off-white);">
           <td style="padding: 0.5rem; border: 1px solid var(--border);">2</td>
           <td style="padding: 0.5rem; border: 1px solid var(--border);">5</td>
         </tr>
@@ -455,7 +312,7 @@
         If \(f\) is a function, its inverse \(f^{-1}\) satisfies:
         \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)
         
-        <strong>Important:</strong> \(f^{-1}\) does NOT mean \(\frac{1}{f(x)}\)!
+        <strong>Important:</strong> \(f^{-1}\) does not mean \(\frac{1}{f(x)}\)!
       </div>
 
       <div class="important-note">
@@ -483,14 +340,14 @@
         <strong>Example 5.1 - Finding the Inverse:</strong>
         Find the inverse of \(f(x) = 2x + 3\)
         
-        <strong>Step 1:** Write \(y = 2x + 3\)</p>
-        <strong>Step 2:** Swap: \(x = 2y + 3\)</p>
-        <strong>Step 3:** Solve for y:</p>
+        <p><strong>Step 1:** Write \(y = 2x + 3\)</strong></p>
+        <p><strong>Step 2:** Swap: \(x = 2y + 3\)</strong></p>
+        <p><strong>Step 3:** Solve for y:</strong></p>
         <p>\(x - 3 = 2y\)</p>
         <p>\(y = \frac{x - 3}{2}\)</p>
         <p>So \(f^{-1}(x) = \frac{x - 3}{2}\)</p>
         
-        <strong>Step 4:** Verify:</p>
+        <p><strong>Step 4:** Verify:</strong></p>
         <p>\(f(f^{-1}(x)) = f\left(\frac{x-3}{2}\right) = 2 \cdot \frac{x-3}{2} + 3 = (x-3) + 3 = x\) ✓</p>
         <p>\(f^{-1}(f(x)) = f^{-1}(2x+3) = \frac{(2x+3)-3}{2} = \frac{2x}{2} = x\) ✓</p>
       </div>

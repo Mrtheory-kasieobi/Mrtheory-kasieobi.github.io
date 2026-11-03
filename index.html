@@ -11,91 +11,6 @@
     <title>Kasieobi Udumaga | Home</title>
     <link rel="stylesheet" href="style.css">
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <style>
-      .recent-updates {
-        margin-top: 2rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--border);
-      }
-      
-      .update-card {
-        background: transparent;
-        border: none;
-        border-left: 3px solid var(--accent);
-        padding: 1.1rem 1.25rem;
-        box-shadow: none;
-      }
-      
-      .update-card__title {
-        margin: 0 0 0.4rem 0;
-        font-size: 1.15rem;
-        color: var(--text);
-        line-height: 1.35;
-      }
-      
-      .update-card__category {
-        margin: 0;
-        color: var(--accent);
-        font-size: 0.8rem;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-      
-      .update-card__date {
-        margin: 0.35rem 0;
-        color: var(--muted);
-        font-size: 0.85rem;
-        font-variant-numeric: tabular-nums;
-      }
-      
-      .update-card__description {
-        margin: 0.6rem 0;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        color: var(--muted);
-        max-width: 65ch;
-      }
-      
-      .update-card__link {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.35rem;
-        margin-top: 0.5rem;
-        color: var(--accent);
-        text-decoration: none;
-        font-weight: 600;
-      }
-      
-      .update-card__link:hover {
-        text-decoration: underline;
-      }
-      
-      .update-card__link::after {
-        content: "→";
-        font-size: 0.95rem;
-      }
-        
-        .view-all-notes {
-          color: var(--accent);
-          text-decoration: none;
-          font-weight: 500;
-          transition: color 0.2s ease;
-        }
-        
-        .view-all-notes:hover {
-          color: #4aa8f5;
-        }
-        
-        .recent-updates__view-all {
-          margin-top: 1.5rem;
-          text-align: center;
-        }
-        
-        .section-title--smaller {
-          font-size: 1.5rem;
-        }
-    </style>
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -108,7 +23,8 @@
     }
     </script>
 </head>
-<body><header>
+<body class="home-page"><div class="site-topbar">
+<header>
         <div class="header-controls">
             <label class="search-bar" for="site-search">
                 <span class="search-bar__icon">⌕</span>
@@ -117,7 +33,6 @@
         </div>
         <div class="header-content">
             <h1 data-content="index.header">Kasieobi Udumaga</h1>
-            
         </div>
     </header>
     
@@ -136,6 +51,7 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
+</div>
 
     <main>
         <h2 data-content="index.welcome">Welcome</h2>

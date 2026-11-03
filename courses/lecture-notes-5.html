@@ -8,36 +8,16 @@
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
-  <style>
-    .lecture-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
-    .lecture-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .lecture-content { color: var(--text); line-height: 1.8; }
-    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .lecture-content h3 { color: var(--text); margin-top: 2rem; font-weight: 500; }
-    .lecture-content h4 { color: var(--text); margin-top: 1.5rem; font-weight: 500; }
-    .definition-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-    .definition-box strong { color: var(--accent); display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .theorem-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-    .theorem-box strong { color: #5cb85c; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .proof-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #5bc0de; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-    .proof-box strong { color: #5bc0de; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .step-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1rem 1.5rem; margin: 0.5rem 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
-    .step-box strong { color: #f0ad4e; font-weight: 600; margin-bottom: 0.25rem; }
-    .example-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #f0ad4e; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-    .example-box strong { color: #f0ad4e; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .exercise-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-left: 4px solid #d9534f; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-    .exercise-box strong { color: #d9534f; display: block; margin-bottom: 0.5rem; font-size: 1.1rem; }
-    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
-    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; }
-  </style>
 </head>
-<body><header>
+<body><div class="site-topbar">
+<header>
     <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
     <div class="header-content"><p class="site-title">Lecture 5: Fermat's Little Theorem and Euler's Theorem</p></div>
   </header>
   <nav>
     <ul><li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li><li><a href="../teaching.html" class="active">Teaching</a></li><li><a href="../expository.html">Expository Writing</a></li><li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li><li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li></ul>
   </nav>
+</div>
   <main>
     <div class="lecture-header"><h1>Lecture 5: Fermat's Little Theorem and Euler's Theorem</h1></div>
     <div class="lecture-content">
@@ -74,9 +54,9 @@
           <strong>Proof:</strong>
           
           <div class="step-box">
-            <strong>Step 1: Count integers NOT coprime to n</strong>
+            <strong>Step 1: Count integers not coprime to n</strong>
             <p>We count integers \(1 \leq a \leq n\) such that \(\gcd(a, n) > 1\).</p>
-            <p>An integer \(a\) is NOT coprime to \(n\) if and only if it shares a prime factor with \(n\).</p>
+            <p>An integer \(a\) is not coprime to \(n\) if and only if it shares a prime factor with \(n\).</p>
           </div>
           
           <div class="step-box">
@@ -107,7 +87,7 @@
       <div class="lecture-section"><h2>2. Fermat's Little Theorem</h2>
         <div class="theorem-box">
           <strong>Theorem 2.1 (Fermat's Little Theorem)</strong> If \(p\) is prime and \(a\) is any integer not divisible by \(p\), then:</p>
-          \[a^{p-1} \equiv 1 \pmod{p}\]</</p>
+          \[a^{p-1} \equiv 1 \pmod{p}\]</p>
           <p>Equivalently: If \(p\) is prime and \(a \in \mathbb{Z}\), then \(a^p \equiv a \pmod{p}\).</p>
         </div>
         
@@ -151,7 +131,7 @@
           <div class="step-box">
             <strong>Step 6: Take the product</strong>
             <p>Since the sets are equal:</p>
-            \[a \cdot 2a \cdot 3a \cdots (p-1)a \equiv 1 \cdot 2 \cdot 3 \cdots (p-1) \pmod{p}\]</</p>
+            \[a \cdot 2a \cdot 3a \cdots (p-1)a \equiv 1 \cdot 2 \cdot 3 \cdots (p-1) \pmod{p}\]</p>
             \[(p-1)! \cdot a^{p-1} \equiv (p-1)! \pmod{p}\]</p>
           </div>
           
@@ -180,7 +160,6 @@
             <p>\(3^6 \equiv 1 \pmod{7}\). ✓ Fermat's Little Theorem verified.</p>
           </div>
         </div>
-      </div>
       </div>
 
       <div class="lecture-section"><h2>3. Euler's Theorem</h2>
@@ -264,7 +243,7 @@
           <div class="step-box">
             <strong>Step 2: Show r = 0</strong>
             <p>Then:</p>
-            \[a^k = a^{dq+r} = (a^d)^q \cdot a^r \equiv 1^q \cdot a^r = a^r \pmod{n}\]</</p>
+            \[a^k = a^{dq+r} = (a^d)^q \cdot a^r \equiv 1^q \cdot a^r = a^r \pmod{n}\]</p>
             <p>Since \(a^k \equiv 1 \pmod{n}\), we have \(a^r \equiv 1 \pmod{n}\).</p>
             <p>But \(0 \leq r < d = \text{ord}_n(a)\), and \(d\) is the smallest positive integer with \(a^d \equiv 1\).</p>
             <p>Therefore \(r = 0\).</p>
@@ -308,8 +287,8 @@
           
           <div class="step-box">
             <strong>Step 4: Compute (p-1)!</strong>
-            <p>\[(p-1)! = 1 \cdot 2 \cdot 3 \cdots (p-2) \cdot (p-1)\]</</p>
-            <p>Pairing: \(= 1 \cdot (2 \cdot 2^{-1}) \cdot (3 \cdot 3^{-1}) \cdots ((p-2) \cdot (p-2)^{-1}) \cdot (p-1)\)</</p>
+            <p>\[(p-1)! = 1 \cdot 2 \cdot 3 \cdots (p-2) \cdot (p-1)\]</p>
+            <p>Pairing: \(= 1 \cdot (2 \cdot 2^{-1}) \cdot (3 \cdot 3^{-1}) \cdots ((p-2) \cdot (p-2)^{-1}) \cdot (p-1)\)</p>
             <p>Each pair is \(\equiv 1 \pmod{p}\), so:</p>
             \[(p-1)! \equiv 1 \cdot 1 \cdots 1 \cdot (p-1) \equiv p-1 \equiv -1 \pmod{p}\]</p>
             <p>This proves one direction. \(\square\)</p>
@@ -332,7 +311,6 @@
       </div>
 
       <div class="navigation"><a href="lecture-notes-4.html">← Previous Lecture</a><a href="number-theory.html">← Back to Course</a><a href="lecture-notes-6.html">Next Lecture →</a></div>
-    </div>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>

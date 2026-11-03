@@ -51,7 +51,10 @@ class ResearchPage {
       const isExpanded = filterToggle.getAttribute("aria-expanded") === "true";
       filterToggle.setAttribute("aria-expanded", !isExpanded);
       filters.hidden = isExpanded;
-      filterToggle.querySelector("span")?.textContent = isExpanded ? "Filter Publications" : "Close Filter";
+      const label = filterToggle.querySelector("span");
+      if (label) {
+        label.textContent = isExpanded ? "Filter Publications" : "Close Filter";
+      }
     });
 
     filterButtons.forEach(btn => {

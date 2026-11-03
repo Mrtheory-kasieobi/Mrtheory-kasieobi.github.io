@@ -16,7 +16,8 @@
   <link rel="stylesheet" href="style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body><header>
+<body><div class="site-topbar">
+<header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
         <span class="search-bar__icon">⌕</span>
@@ -25,7 +26,6 @@
     </div>
     <div class="header-content">
       <h1 data-content="contact.header">Contact</h1>
-      
     </div>
   </header>
   <nav>
@@ -43,6 +43,7 @@
       <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
     </ul>
   </nav>
+</div>
   <main>
     <!-- Contact Information -->
     <section class="contact-info">
@@ -132,19 +133,21 @@
         If you notice a mathematical error, unclear argument, or potential issue in one of my notes, articles, course materials, or other mathematical content, I would greatly appreciate it if you let me know. To help me investigate the issue efficiently, please include the page or article where you found it, the relevant theorem, proposition, problem, or section number if applicable, a brief explanation of what you believe is incorrect, and a suggested correction if you have one.
       </p>
     </section>
-    </main>
 
-   <!-- Footer with Quote -->
-   <footer class="contact-footer">
-     <div class="contact-footer__quote">
-       <blockquote id="math-quote">
-         "Pure mathematics is, in its way, the poetry of logical ideas."
-       </blockquote>
-       <cite id="math-quote-attribution">- Albert Einstein</cite>
-     </div>
-     <p class="contact-footer__thanks">Thank you for visiting. I look forward to hearing from you.</p>
-     <p class="contact-footer__copyright site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
-   </footer>
+    <section class="contact-footer">
+      <div class="contact-footer__quote">
+        <blockquote id="math-quote">
+          "Pure mathematics is, in its way, the poetry of logical ideas."
+        </blockquote>
+        <cite id="math-quote-attribution">- Albert Einstein</cite>
+      </div>
+      <p class="contact-footer__thanks">Thank you for visiting. I look forward to hearing from you.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+  </footer>
 
    <script src="content-loader.js"></script>
    <script src="math-simulator.js"></script>

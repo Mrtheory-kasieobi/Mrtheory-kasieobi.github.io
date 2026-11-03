@@ -6,25 +6,9 @@
   <title>Solutions: Problem Set 1: Divisibility and Primes | Elementary Number Theory</title>
   <link rel="stylesheet" href="../style.css">
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <style>
-    @media print { body { margin: 0; padding: 0; } .no-print { display: none; } header, nav, footer { display: none; } main { box-shadow: none !important; border: none !important; border-radius: 0 !important; } }
-    .problem-header { text-align: center; padding: 2rem 0; border-bottom: 2px solid var(--accent); margin-bottom: 2rem; }
-    .problem-header h1 { font-size: 2.5rem; color: var(--accent); margin-bottom: 0.5rem; }
-    .problem-header .subtitle { font-size: 1.2rem; color: var(--muted); font-style: italic; }
-    .lecture-content { color: var(--text); line-height: 1.8; max-width: 800px; margin: 0 auto; padding: 0 1rem; }
-    .lecture-content h2 { color: var(--accent); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; margin-top: 2.5rem; }
-    .lecture-content h3 { color: var(--accent); margin-top: 2rem; }
-    .solution-box { background: linear-gradient(145deg, rgba(15, 24, 37, 0.98), rgba(20, 30, 45, 0.96)); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); }
-    .concept-callout { background: linear-gradient(145deg, rgba(92, 184, 92, 0.1), rgba(92, 184, 92, 0.05)); border: 1px solid #5cb85c; border-left: 4px solid #5cb85c; border-radius: 12px; padding: 1.5rem; margin: 1.5rem 0; }
-    .problem-number { color: var(--accent); font-weight: 700; font-size: 1.1rem; margin-bottom: 1rem; }
-    .step { margin: 0.75rem 0; padding-left: 1rem; border-left: 3px solid var(--accent); }
-    .step-explanation { margin: 0.5rem 0; color: var(--muted); font-size: 0.9rem; }
-    .navigation { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); text-align: center; }
-    .navigation a { display: inline-block; padding: 0.75rem 1.5rem; margin: 0.5rem; background: linear-gradient(145deg, var(--accent), #4aa8f5); color: #07111d; text-decoration: none; border-radius: 999px; font-weight: 700; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-    .navigation a:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(140, 200, 255, 0.25); color: #07111d; }
-  </style>
 </head>
-<body><header>
+<body><div class="site-topbar">
+<header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
         <span class="search-bar__icon">⌕</span>
@@ -51,6 +35,7 @@
       <li><a href="../contact.html">Contact</a></li>
     </ul>
   </nav>
+</div>
 
   <main>
     <div class="problem-header">
@@ -100,7 +85,7 @@
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Problem 2: Find all integers \(n\) such that \(n \mid (n+5)\).</</div>
+        <div class="problem-number">Problem 2: Find all integers \(n\) such that \(n \mid (n+5)\).</div>
         <p><strong>Understanding the Problem:</strong> We need to find all integers \(n\) where \(n\) divides \(n+5\). This seems circular (like \(n\) divides itself plus 5), but it gives us a specific algebraic condition we can exploit.</p>
         
         <div class="step">
@@ -308,7 +293,7 @@
       <h2>Bonus Solutions</h2>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 1: Prove that \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}\}\).</</div>
+        <div class="problem-number">Bonus Problem 1: Prove that \(\gcd(a, b) = \min\{ax + by : x, y \in \mathbb{Z}\}\).</div>
         <p><strong>Understanding the Problem:</strong> The GCD equals the smallest positive integer that can be written as a linear combination of \(a\) and \(b\). This is a deep result connecting the GCD to linear combinations.</p>
         
         <p><strong>Step 1: Call the GCD d and a linear combination m.</strong>
@@ -334,7 +319,7 @@
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 2: Prove that if \(p\) is prime, then \(\sqrt{p}\) is irrational.</</div>
+        <div class="problem-number">Bonus Problem 2: Prove that if \(p\) is prime, then \(\sqrt{p}\) is irrational.</div>
         <p><strong>Understanding the Problem:</strong> A number is irrational if it cannot be written as a fraction of integers. We'll prove this by contradiction, assuming \(\sqrt{p}\) is rational.</p>
         
         <p><strong>Proof:</strong></p>
@@ -368,7 +353,7 @@
           <strong>Step 5: Reach a contradiction.</strong>
           <p>From \(b^2 = pc^2\), we see \(p \mid b^2\).
           <p>By Euclid's Lemma, \(p \mid b\).
-          <p>Now we have \(p \mid a\) AND \(p \mid b\), meaning \(\gcd(a, b) \geq p > 1\).
+          <p>Now we have \(p \mid a\) and \(p \mid b\), meaning \(\gcd(a, b) \geq p > 1\).
           <p>This contradicts our assumption that \(\gcd(a, b) = 1\).</p>
         </div>
         
@@ -376,7 +361,7 @@
       </div>
 
       <div class="solution-box">
-        <div class="problem-number">Bonus Problem 3: Prove that if \(n = p_1^{a_1} \cdots p_k^{a_k}\), then the number of positive divisors is \((a_1+1)\cdots(a_k+1)\).</</div>
+        <div class="problem-number">Bonus Problem 3: Prove that if \(n = p_1^{a_1} \cdots p_k^{a_k}\), then the number of positive divisors is \((a_1+1)\cdots(a_k+1)\).</div>
         <p><strong>Understanding the Problem:</strong> If we know the prime factorization, we can count how many positive integers divide \(n\) without listing them all.</p>
         
         <p><strong>Proof:</strong></p>
