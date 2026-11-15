@@ -127,6 +127,15 @@
       "priority": 90
     },
     {
+      "title": "A Brief Introduction to Transfinite Numbers",
+      "section": "Blog",
+      "url": "2026-11-15-transfinite-numbers.html",
+      "description": "An introduction to transfinite numbers, from ordinal and cardinal arithmetic to Cantor's theorem and the aleph hierarchy.",
+      "content": "transfinite numbers transfinite ordinals transfinite cardinals ordinal numbers cardinal numbers well-ordered sets well-orderings finite ordinals natural numbers omega limit ordinals successors ordinal arithmetic noncommutative ordinal addition commutativity bijection countably infinite cardinality aleph null aleph zero aleph-naught continuum Cantor diagonal argument Cantor theorem power set uncountable sets real numbers rational numbers natural numbers even natural numbers proper subsets aleph hierarchy aleph one omega one cardinality of the continuum set theory infinite sets",
+      "keywords": ["transfinite numbers", "ordinals", "cardinals", "aleph", "Cantor's theorem", "set theory"],
+      "priority": 90
+    },
+    {
       "title": "Transcendence Theory",
       "section": "Research",
       "url": "research.html#interests",
@@ -307,6 +316,18 @@
           "url": "2026-08-20-rank-30-elliptic-curve.html",
           "section": "Blog",
           "excerpt": "ICARM Curve #273, submitted by Claude, Levent Alpöge, and Ava Howell on August 20, establishes rank at least 30. BSD+GRH certified to exact rank 30."
+        }
+      ]
+    },
+    {
+      "name": "set-theory",
+      "displayName": "Set Theory",
+      "pages": [
+        {
+          "title": "A Brief Introduction to Transfinite Numbers",
+          "url": "2026-11-15-transfinite-numbers.html",
+          "section": "Blog",
+          "excerpt": "An introduction to transfinite numbers, from ordinal and cardinal arithmetic to Cantor's theorem and the aleph hierarchy."
         }
       ]
     },

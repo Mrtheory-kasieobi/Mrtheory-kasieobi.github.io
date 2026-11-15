@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An introduction to transfinite numbers, from ordinal and cardinal arithmetic to Cantor's theorem and the aleph hierarchy.">
+  <link rel="canonical" href="https://mrtheory-kasieobi.github.io/2026-11-15-transfinite-numbers.html">
+  <meta property="og:title" content="A Brief Introduction to Transfinite Numbers">
+  <meta property="og:description" content="An introduction to transfinite numbers, from ordinal and cardinal arithmetic to Cantor's theorem and the aleph hierarchy.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mrtheory-kasieobi.github.io/2026-11-15-transfinite-numbers.html">
+  <title>A Brief Introduction to Transfinite Numbers | Kasieobi Udumaga</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        },
+        options: {
+          ignoreHtmlClass: 'tex2jax_ignore'
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="blog-page"><div class="site-topbar">
+<header>
+        <div class="header-controls">
+            <label class="search-bar" for="site-search">
+                <span class="search-bar__icon">⌕</span>
+                <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+            </label>
+        </div>
+        <div class="header-content">
+            <h1 class="site-title">Blog</h1>
+            <p class="site-subtitle" data-content="blog.subtitle">Learning journal and mathematical musings</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About me</a></li>
+            <li><a href="notes.html">Notes</a></li>
+            <li><a href="teaching.html">Teaching</a></li>
+            <li><a href="expository.html">Expository Writing</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="Track.html">Track and field</a></li>
+            <li><a href="blog.html" class="active" aria-current="page">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</div>
+    
+    <main>
+        <article class="blog-post">
+            <header class="blog-post-header">
+                <h1>A Brief Introduction to Transfinite Numbers</h1>
+                <div class="meta">
+                    <span>November 15, 2026</span>
+                    <span>~6 min read</span>
+                    <span class="entry-category">Set Theory</span>
+                </div>
+            </header>
+            
+            <div class="blog-content">
+                <p>Transfinite numbers extend the concept of number beyond the finite, providing a mathematical framework for studying different infinite quantities and infinite orderings. They allow us to distinguish between infinite sets of different cardinalities and investigate structures that extend beyond the familiar sequence of natural numbers.</p>
+                
+                <p>What I find particularly interesting about transfinite numbers is that infinity is no longer treated as a single concept. There are different types of infinity and different ways of constructing them.</p>
+                
+                <h2>1. Ordinal Numbers</h2>
+                
+                <p>Ordinal numbers describe the order types of well-ordered sets. A set is well-ordered if every nonempty subset has a least element with respect to its ordering.</p>
+                
+                <p>The finite ordinals correspond to the natural numbers:</p>
+                
+                <p>\[0,1,2,3,\ldots\]</p>
+                
+                <p>However, the ordinal sequence does not terminate at any finite number. Its first infinite member is denoted by</p>
+                
+                <p>\[\omega.\]</p>
+                
+                <p>The ordinal \(\omega\) represents the order type of the natural numbers under their usual ordering:</p>
+                
+                <p>\[0 \lt 1 \lt 2 \lt 3 \lt \cdots\]</p>
+                
+                <p>Unlike a finite ordinal, \(\omega\) has no immediate predecessor. Nevertheless, it has a successor, just like every ordinal:</p>
+                
+                <p>\[\omega+1,\quad \omega+2,\quad \omega+3,\ldots\]</p>
+                
+                <p>For example, \(\omega+1\) represents the ordering of all natural numbers followed by one additional element.</p>
+                
+                <p>This leads to an interesting distinction in ordinal arithmetic. Unlike ordinary finite arithmetic, ordinal addition is not commutative:</p>
+                
+                <p>\[1+\omega=\omega,\]</p>
+                
+                <p>but</p>
+                
+                <p>\[\omega+1\neq\omega.\]</p>
+                
+                <p>The difference comes from the ordering of the elements. In \(1+\omega\), the initial element is followed by a sequence with order type \(\omega\), which still has order type \(\omega\). In \(\omega+1\), an additional element is placed after the entire infinite sequence.</p>
+                
+                <p>There are also limit ordinals, which are nonzero ordinals that are not successors. The ordinal \(\omega\) is the simplest example. Further examples include</p>
+                
+                <p>\[\omega\cdot 2,\qquad \omega^2,\qquad \omega^\omega.\]</p>
+                
+                
+                <h2>2. Cardinal Numbers</h2>
+                
+                <p>While ordinals describe order, cardinal numbers measure the size of sets.</p>
+                
+                <p>The cardinality of a finite set is simply its number of elements. For infinite sets, however, cardinality requires a different approach.</p>
+                
+                <p>Two sets \(A\) and \(B\) have the same cardinality if there exists a bijection between them. In other words, every element of one set can be paired uniquely with an element of the other.</p>
+                
+                <p>The cardinality of the natural numbers is denoted by</p>
+                
+                <p>\[|\mathbb N|=\aleph_0.\]</p>
+                
+                <p>It is the smallest infinite cardinal and is called countably infinite.</p>
+                
+                <p>One initially surprising property of infinite sets is that they can have the same cardinality as some of their proper subsets. For example, consider the natural numbers and the even natural numbers:</p>
+                
+                <p>\[\mathbb N=\{0,1,2,3,\ldots\},\]</p>
+                
+                <p>\[2\mathbb N=\{0,2,4,6,\ldots\}.\]</p>
+                
+                <p>The function</p>
+                
+                <p>\[f:\mathbb N\longrightarrow 2\mathbb N,\qquad f(n)=2n\]</p>
+                
+                <p>is a bijection. Consequently,</p>
+                
+                <p>\[|\mathbb N|=|2\mathbb N|=\aleph_0.\]</p>
+                
+                <p>This is one of the fundamental differences between finite and infinite sets.</p>
+                
+                <p>The rational numbers also have cardinality \(\aleph_0\), despite appearing considerably more numerous than the natural numbers. Thus,</p>
+                
+                <p>\[|\mathbb Q|=|\mathbb N|=\aleph_0.\]</p>
+                
+                <p>However, not every infinite set is countable.</p>
+                
+                <h2>3. Different Sizes of Infinity</h2>
+                
+                <p>The real numbers provide an important example of an uncountable set:</p>
+                
+                <p>\[|\mathbb R|\gt\aleph_0.\]</p>
+                
+                <p>Cantor's diagonal argument establishes that the real numbers cannot be placed into a sequence indexed by the natural numbers.</p>
+                
+                <p>This result reveals that there are infinite sets strictly larger than the natural numbers.</p>
+                
+                <p>A more general result is Cantor's theorem, which states that for every set \(A\),</p>
+                
+                <p>\[|A|\lt|\mathcal P(A)|,\]</p>
+                
+                <p>where \(\mathcal P(A)\) denotes the power set of \(A\), consisting of all subsets of \(A\).</p>
+                
+                <p>For the natural numbers, this gives</p>
+                
+                <p>\[|\mathbb N|\lt|\mathcal P(\mathbb N)|.\]</p>
+                
+                <p>In fact, the cardinality of the power set of the natural numbers is equal to that of the real numbers:</p>
+                
+                <p>\[|\mathcal P(\mathbb N)|=|\mathbb R|=2^{\aleph_0}.\]</p>
+                
+                <p>This cardinality is commonly called the cardinality of the continuum.</p>
+                
+                <p>Cantor's theorem has a particularly significant consequence: there is no largest cardinal number. Given any cardinality, the power set construction produces a strictly larger one.</p>
+                
+                <h2>4. The Transfinite Hierarchy</h2>
+                
+                <p>Infinite cardinalities can be arranged into an increasing hierarchy using the aleph notation:</p>
+                
+                <p>\[\aleph_0,\quad \aleph_1,\quad \aleph_2,\quad \aleph_3,\quad \ldots\]</p>
+                
+                <p>Here, \(\aleph_0\) is the smallest infinite cardinal, while \(\aleph_1\) is the smallest uncountable cardinal. Each subsequent aleph represents the next larger cardinal.</p>
+                
+                <p>The ordinal \(\omega_1\) is the first uncountable ordinal, and its cardinality is</p>
+                
+                <p>\[|\omega_1|=\aleph_1.\]</p>
+                
+                <p>This distinction is important: ordinals describe well-orderings, whereas cardinals describe sizes. Although closely related, they are not interchangeable.</p>
+                
+                <p>The hierarchy continues beyond these initial cardinals. More generally, the aleph numbers are indexed by ordinals, allowing the construction of increasingly large infinite cardinalities.</p>
+                
+                <p>The result is an unending hierarchy of transfinite numbers, extending far beyond the first infinite ordinal and the cardinality of the natural numbers.</p>
+                
+                <div class="entry-navigation">
+                    <a href="blog.html" class="entry-nav-link">Back to Blog</a>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p>
+    </footer>
+    
+    <script src="content-loader.js"></script>
+    <script src="script.js"></script>
+    <script src="search-enhancer.js"></script>
+    <script src="math-simulator.js"></script>
+</body>
+</html>
