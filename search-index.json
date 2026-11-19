@@ -5,8 +5,8 @@
       "section": "Home",
       "url": "index.html",
       "description": "Welcome to my mathematics portfolio and research site. I'm a high school student specializing in algebraic number theory and commutative algebra.",
-      "content": "Kasieobi Udumaga mathematician track and field sprint algebraic number theory commutative algebra research notes expository writing",
-      "keywords": ["home", "welcome", "algebraic number theory", "commutative algebra", "research", "notes", "expository"],
+      "content": "Kasieobi Udumaga mathematician track and field sprint algebraic number theory iwasawa theory arithmetic geometry commutative algebra research notes expository writing",
+      "keywords": ["home", "welcome", "algebraic number theory", "iwasawa theory", "arithmetic geometry", "commutative algebra", "research", "notes", "expository"],
       "priority": 100
     },
     {
@@ -55,13 +55,22 @@
       "priority": 92
     },
     {
-      "title": "The Fundamental Theorem of Algebra",
+      "title": "Bertrand's Postulate and Quantitative Distribution",
       "section": "Expository Writing",
       "url": "expository.html#mathematical-expositions",
-      "description": "Exploring the Fundamental Theorem of Algebra through complex numbers, polynomial factorization, and algebraic closure.",
-      "content": "fundamental theorem of algebra complex numbers polynomial factorization algebraic closure roots polynomials field extensions",
-      "keywords": ["fundamental theorem of algebra", "complex numbers", "polynomials", "algebraic closure"],
+      "description": "An exposition of Bertrand's postulate and the quantitative distribution of primes, from Chebyshev's estimates to refinements on primes between n and 2n.",
+      "content": "Bertrand postulate quantitative distribution primes Chebyshev estimates prime number theorem primes between n and 2n binomial coefficients",
+      "keywords": ["Bertrand's postulate", "prime distribution", "Chebyshev", "number theory"],
       "priority": 92
+    },
+    {
+      "title": "Introduction to Quaternions",
+      "section": "Expository Writing",
+      "url": "expository.html#mathematical-expositions",
+      "description": "An introduction to the quaternions, covering their algebraic structure, their relationship to complex numbers, and their role in describing rotations in three dimensions.",
+      "content": "quaternions Hamilton division algebra noncommutative multiplication complex numbers four-dimensional algebra unit quaternions rotations three dimensions SO(3) Lie groups",
+      "keywords": ["quaternions", "Hamilton", "division algebra", "rotations", "abstract algebra"],
+      "priority": 90
     },
     {
       "title": "Precalculus 12",
@@ -94,7 +103,7 @@
       "title": "Research",
       "section": "Research",
       "url": "research.html",
-      "description": "Research portfolio in commutative algebra, algebraic number theory, arithmetic geometry, transcendence theory, algebraic geometry, noncommutative ring theory, and geometric measure theory.",
+      "description": "Research portfolio in commutative algebra, algebraic number theory, arithmetic geometry, transcendence theory, algebraic geometry, Iwasawa theory, and noncommutative ring theory.",
       "content": "commutative algebra ideals modules rings integral closure Noetherian rings local rings spectrum maximal ideals prime ideals Krull dimension Krull domains Dedekind domains class groups ramification theory Number Field rings of integers ideal class groups units Minkowski bound Minkowski theorem Minkowski bound finiteness of class group unit theorem Dirichlet unit theorem S-unit group regulator class number formula Dedekind zeta function analytic continuation Euler product Tauberian theorems Prime Ideal Factorization principal ideal theorem inertia degree ramified split inert unramified splitting behavior residue field extension completion algebraic integer p-adic valuation valuation ring discrete valuation ring p-adic numbers p-adic analysis Newton polygon Eisenstein polynomials irreducible polynomials reduction modulo p Hensel lemma Henselian rings Hensel ideal etale algebras separable extensions unramified extensions formally unramified morphisms ramified morphisms residue field extension",
       "keywords": ["research", "commutative algebra", "algebraic number theory", "elliptic curves", "transcendence", "algebraic geometry"],
       "priority": 100
@@ -116,6 +125,15 @@
       "content": "algebraic number theory number field ring of integers algebraic integers monic irreducible polynomial discriminant basis integral basis orders maximal orders fractional ideals principal ideals Dedekind domains class group ideal class group Minkowski bound Minkowskis theorem Minkowski bound finiteness of class group unit theorem Dirichlet unit theorem S-unit group regulator class number formula Dedekind zeta function analytic continuation functional equation Euler product Tauberian theorems",
       "keywords": ["algebraic number theory", "number fields", "class group", "ramification", "units", "discriminant"],
       "priority": 98
+    },
+    {
+      "title": "Iwasawa Theory",
+      "section": "Research",
+      "url": "research.html#interests-secondary",
+      "description": "I am exploring Iwasawa Theory and its approach to studying arithmetic objects in infinite towers of number fields using p-adic methods.",
+      "content": "Iwasawa theory p-adic L-functions class groups Iwasawa algebras cyclotomic fields Z_p extensions infinite towers of number fields zeta functions ideal class groups",
+      "keywords": ["Iwasawa theory", "p-adic L-functions", "class groups", "cyclotomic fields", "Iwasawa algebras"],
+      "priority": 90
     },
     {
       "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
@@ -290,11 +308,11 @@
         "keywords": ["olympiad", "contest", "number theory", "combinatorics", "geometry"]
       },
       {
-        "title": "Mathematical Expositions",
+        "title": "Formal Mathematical exposition",
         "section": "Expository Writing",
         "url": "expository.html#mathematical-expositions",
         "description": "A collection of longer and more advanced papers and advanced research-oriented expositions.",
-        "content": "mathematical expositions algebra abstract algebra algebraic number theory analytic number theory real analysis complex analysis Galois theory field extensions algebraic geometry commutative algebra transcendental number theory The Fundamental Theorem of Algebra The Mystery of e^{\\pi\\sqrt{163}}",
+        "content": "formal mathematical exposition algebra abstract algebra algebraic number theory analytic number theory real analysis complex analysis Galois theory field extensions algebraic geometry commutative algebra transcendental number theory Bertrand's Postulate and Quantitative Distribution The Mystery of e^{\\pi\\sqrt{163}} Introduction to Quaternions",
         "keywords": ["expository", "algebra", "number theory", "analysis", "Galois theory", "algebraic geometry"],
         "priority": 90
       }

@@ -68,7 +68,7 @@ Then visit http://localhost:5501/admin/
 
 ### Expository Writing
 - Olympiad Mathematics
-- Mathematical Expositions
+- Formal Mathematical exposition
 
 ## Editor Features
 
