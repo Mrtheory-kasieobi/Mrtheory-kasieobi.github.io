@@ -48,197 +48,275 @@
 
       <h2>6.1 Representing Linear Functions</h2>
       <p>
-        A linear function has the form \(f(x) = mx + b\) where \(m\) is the slope and \(b\) is 
-        the y-intercept. The graph is a straight line.
+        A linear function has the form \(f(x) = mx + b\), where \(m\) is the slope and \(b\)
+        is the \(y\)-intercept. Its graph is a straight line, and its rate of change is
+         constant: every step of \(1\) in \(x\) changes \(y\) by the same amount.
       </p>
-      <p><strong>Why Linear Functions Are Important:</strong> Linear functions model situations 
-      with constant rate of change. They're used in economics for supply and demand, in physics 
-      for uniform motion, and in everyday life for calculating costs, distances, and simple 
-      interest.</p>
-      
+      <p><strong>Constant rate:</strong> A relation is linear when equal steps in \(x\) give
+      equal changes in \(y\). This common change is called the <strong>first difference</strong>
+      in a table and the <strong>slope</strong> on a graph.</p>
+      <table>
+        <tr>
+          <th>\(x\)</th>
+          <th>\(y\)</th>
+          <th>First difference</th>
+        </tr>
+        <tr>
+          <td>\(0\)</td>
+          <td>\(2\)</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td>\(1\)</td>
+          <td>\(5\)</td>
+          <td>\(+3\)</td>
+        </tr>
+        <tr>
+          <td>\(2\)</td>
+          <td>\(8\)</td>
+          <td>\(+3\)</td>
+        </tr>
+        <tr>
+          <td>\(3\)</td>
+          <td>\(11\)</td>
+          <td>\(+3\)</td>
+        </tr>
+      </table>
+      <p>The first differences are all \(+3\), so the rate is constant and the rule
+      \(y=3x+2\) is linear.</p>
+      <p><strong>Why Linear Functions Are Important:</strong> They model situations with a
+      constant rate of change, such as a taxi fare that adds the same amount per kilometre,
+      a fixed cost plus a cost per item, or distance travelled at a steady speed.</p>
+
       <div class="theorem-box">
         <div class="theorem-title">Linear Function Forms</div>
-        <p><strong>Slope-Intercept Form:</strong> \(y = mx + b\)</p>
-        <p><strong>Point-Slope Form:</strong> \(y - y_1 = m(x - x_1)\)</p>
-        <p><strong>Standard Form:</strong> \(Ax + By = C\)</p>
-        <p>where \(m\) is the slope and \(b\) is the y-intercept.</p>
+        <p><strong>Slope-intercept form:</strong> \(y = mx + b\)</p>
+        <p><strong>Point-slope form:</strong> \(y - y_1 = m(x - x_1)\)</p>
+        <p><strong>Standard form:</strong> \(Ax + By = C\)</p>
+        <p>Here \(m\) is the slope and \(b\) is the \(y\)-intercept.</p>
       </div>
+      <p><strong>Changing forms:</strong> Start with \(y - 3 = 2(x - 1)\). Distribute:
+      \(y - 3 = 2x - 2\). Add \(3\) to both sides: \(y = 2x + 1\), which is slope-intercept
+      form.</p>
+      <p>To reach standard form, subtract \(2x\) from both sides: \(-2x + y = 1\). Multiply
+      by \(-1\) to get \(2x - y = -1\). All three forms describe the same line.</p>
+      <p><strong>Check your answer:</strong> Does \((1, 3)\) satisfy \(y = 2x + 1\)? Since
+      \(2(1) + 1 = 3\), yes.</p>
 
       <div class="example-box">
         <div class="example-title">Example 1: Identifying Linear Functions</div>
-        <p>Which of these are linear? \(f(x) = 3x - 2\), \(g(x) = x^2 + 1\), \(h(x) = \frac{1}{x} + 5\)</p>
-        <p>Only \(f(x) = 3x - 2\) is linear. The others have variables with exponents other than 1.</p>
-        <p><strong>Motivation:</strong> Linear functions are the foundation for understanding 
-        more complex functions and for linear approximation in calculus.</p>
+        <p>Which are linear: \(f(x) = 3x - 2\), \(g(x) = x^2 + 1\), \(h(x) = \frac{1}{x} + 5\)?</p>
+        <p>Only \(f(x) = 3x - 2\) is linear. The others are not, because \(x^2\) and
+        \(\frac{1}{x}\) are not constant multiples of \(x\).</p>
+        <p><strong>Check:</strong> In a linear rule, \(x\) has no exponent other than \(1\)
+        and never appears in a denominator.</p>
       </div>
 
       <h2>6.2 Interpreting Slope and Intercepts</h2>
       <p>
-        The slope represents the rate of change. A positive slope means increasing, negative 
-        means decreasing. The y-intercept is the starting value when \(x = 0\).
+        The slope \(m\) is the rate of change: it tells how much \(y\) changes for each
+        increase of \(1\) in \(x\). A positive slope rises to the right, a negative slope
+        falls to the right, and a slope of \(0\) is a horizontal line. The \(y\)-intercept
+        \(b\) is the output when \(x = 0\), where the line crosses the \(y\)-axis.
       </p>
-      <p><strong>Real-World Meaning:</strong> If \(C(t) = 50t + 1000\) represents the cost 
-      of production after \(t\) items, the slope 50 is the cost per item, and 1000 is the 
-      fixed cost.</p>
+      <p><strong>Rise over run:</strong> From one point to another, the "rise" is the
+        vertical change and the "run" is the horizontal change. Moving right counts as a
+        positive run, and moving up counts as a positive rise.</p>
+      <p><strong>Real-World Meaning:</strong> If \(C(t) = 50t + 1000\) is the cost of making
+        \(t\) items, then \(50\) is the cost per item and \(1000\) is the fixed cost when
+        \(t = 0\). For \(20\) items, \(C(20) = 50(20) + 1000 = 2000\).</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Slope Formula</div>
         <p>\(m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{\text{rise}}{\text{run}}\)</p>
-        <p><strong>Interpretation:</strong> For each unit increase in \(x\), \(y\) changes by \(m\) units.</p>
+        <p><strong>Interpretation:</strong> Each increase of \(1\) in \(x\) changes \(y\) by
+        \(m\) units.</p>
       </div>
+      <p><strong>Worked example:</strong> Find the slope through \((1, 2)\) and \((3, 8)\).
+      The rise is \(8 - 2 = 6\) and the run is \(3 - 1 = 2\), so \(m = \frac{6}{2} = 3\).</p>
+      <p><strong>Check your answer:</strong> Starting at \((1, 2)\), run \(2\) to the right
+      and rise \(6\) up. You land at \((3, 8)\), the second point.</p>
+      <p><strong>Worked example with negative coordinates:</strong> Find the slope through
+      \((-1,2)\) and \((3,10)\).</p>
+      <p>Rise: \(10-2=8\). Run: \(3-(-1)=4\). Therefore \(m=\frac{8}{4}=2\).</p>
+      <p><strong>Check:</strong> Starting at \((-1,2)\), run \(4\) right and rise \(8\) to
+      land at \((3,10)\).</p>
 
       <h2>6.3 Linear Interpolation and Extrapolation</h2>
       <p>
-        Interpolation estimates values between known data points. Extrapolation estimates values 
-        beyond the known data.
+        Interpolation estimates a value between known data points. Extrapolation estimates a
+        value beyond the known data by extending the same line.
       </p>
-      <p><strong>Important Note:</strong> Extrapolation can be dangerous! Just because data 
-      follows a linear pattern in one range doesn't mean it will continue that way. Population 
-      growth looks linear for a short time but eventually becomes exponential.</p>
+      <p><strong>Forms of linear equations:</strong> <strong>Slope-intercept form</strong>
+      \(y=mx+b\) highlights the slope \(m\) and \(y\)-intercept \(b\).
+      <strong>Point-slope form</strong> \(y-y_1=m(x-x_1)\) highlights a known point.
+      <strong>Standard form</strong> \(Ax+By=C\) puts both variables on one side.</p>
+      <p><strong>Conversion example:</strong> \(y-3=2(x-1)\) expands to
+      \(y-3=2x-2\), so \(y=2x+1\). Subtract \(2x\): \(-2x+y=1\), or
+      \(2x-y=-1\) in standard form.</p>
+      <p><strong>\(x\)-intercept:</strong> where the line crosses the \(x\)-axis. Set
+      \(y=0\) and solve. For \(y=2x+1\), \(0=2x+1\) gives \(x=-\frac{1}{2}\), so the
+      \(x\)-intercept is \((-\frac{1}{2},0)\).</p>
+      <p><strong>Important Note:</strong> Interpolation is usually safer because data on
+      both sides support the estimate. Extrapolation assumes the pattern keeps going, which
+      may fail. A population can grow almost linearly for a short time and then speed up,
+      so a long-range prediction from a straight line can be wrong.</p>
 
       <div class="example-box">
         <div class="example-title">Example 2: Linear Interpolation</div>
-        <p>A car travels 60 km in 1 hour and 120 km in 2 hours. Estimate the distance at 1.5 hours.</p>
-        <p>Using the linear model: \(d = 60t\), at \(t = 1.5\): \(d = 90\) km</p>
-        <p><strong>Motivation:</strong> This is used in science to estimate values between 
-        measurements and in business to predict sales.</p>
+        <p>A car travels \(60\) km in \(1\) hour and \(120\) km in \(2\) hours. Estimate the
+        distance at \(1.5\) hours.</p>
+        <p>Speed: \(\frac{120 - 60}{2 - 1} = 60\) km/h, so \(d = 60t\).</p>
+        <p>At \(t = 1.5\): \(d = 60(1.5) = 90\) km.</p>
+        <p><strong>Check:</strong> \(1.5\) hours lies between \(1\) and \(2\) hours, and
+        \(90\) km lies between \(60\) km and \(120\) km, so the answer is reasonable.</p>
       </div>
+      <p><strong>Caution:</strong> Predicting \(d = 60(5) = 300\) km at \(5\) hours is
+      extrapolation. It only works if the car keeps the same steady speed.</p>
 
       <h2>6.4 Solving Linear Function Equations</h2>
       <p>
-        To solve a linear equation, isolate the variable. The goal is to get \(x\) alone on one side.
+        To solve a linear equation, isolate the variable: use opposite operations (add/subtract,
+        multiply/divide) to get \(x\) alone on one side. Whatever you do to one side, do to the other.
       </p>
       <p><strong>Systematic Approach:</strong></p>
       <ol>
-        <li>Collect like terms on each side</li>
-        <li>Move the variable term to one side</li>
-        <li>Move the constant term to the other side</li>
+        <li>Expand brackets and collect like terms on each side</li>
+        <li>Move the variable terms to one side</li>
+        <li>Move the constants to the other side</li>
         <li>Divide by the coefficient of the variable</li>
+        <li>Substitute your answer back into the original equation to check</li>
       </ol>
 
       <div class="example-box">
         <div class="example-title">Example 3: Solving a Linear Equation</div>
-        <p>Solve: \(3(x - 2) + 5 = 2x + 10\)</p>
-        <p>\(3x - 6 + 5 = 2x + 10\)</p>
-        <p>\(3x - 1 = 2x + 10\)</p>
-        <p>\(x = 11\)</p>
-        <p><strong>Motivation:</strong> This is used to find break-even points, solve for 
-        unknown quantities, and find intersection points of lines.</p>
+        <p>Solve: \(3(x - 2) + 5 = 2x + 10\).</p>
+        <p>Expand: \(3x - 6 + 5 = 2x + 10\), so \(3x - 1 = 2x + 10\).</p>
+        <p>Subtract \(2x\): \(x - 1 = 10\). Then add \(1\): \(x = 11\).</p>
+        <p><strong>Check:</strong> Left side \(= 3(11 - 2) + 5 = 27 + 5 = 32\). Right side
+        \(= 2(11) + 10 = 32\). Both sides match, so \(x = 11\) is correct.</p>
       </div>
+      <p><strong>Graphing a linear function:</strong> To graph \(y=-\frac{2}{3}x+4\),
+      start at the \(y\)-intercept \((0,4)\).</p>
+      <p>The slope \(-\frac{2}{3}\) means run \(3\) right and fall \(2\), giving the point
+      \((3,2)\). Draw the straight line through \((0,4)\) and \((3,2)\).</p>
+      <p><strong>Boundary line preview:</strong> Later this line can bound an inequality.
+      Use a solid line for \(\leq\) or \(\geq\) and a dashed line for \(<\) or \(>\).</p>
 
       <h2>6.5 Linear Inequalities</h2>
       <p>
-        Linear inequalities are solved like equations, but the inequality sign flips when we 
-        multiply or divide by a negative number.
+        A linear inequality is solved like a linear equation, with one extra rule: when you
+        multiply or divide both sides by a negative number, flip the inequality sign.
       </p>
-      <p><strong>Real-World Application:</strong> If you need to sell at least 50 items to 
-      break even, and you sell 5 per day, you need \(5d \geq 50\), so \(d \geq 10\) days.</p>
+      <p><strong>Why flip?</strong> Multiplying by a negative reverses the order. Since
+      \(3 > 2\), multiplying both by \(-1\) gives \(-3 < -2\). Their order reversed.</p>
+      <p><strong>Quick example:</strong> Solve \(-2x < 6\). Divide both sides by \(-2\) and
+      flip the sign: \(x > -3\). Check with \(x = 0\): \(-2(0) = 0 < 6\), and \(0 > -3\) is
+       true. Check with \(x = -4\): \(-2(-4) = 8\), which is not less than \(6\), and
+       \(-4 > -3\) is false.</p>
+      <p><strong>Worked inequality with a sign flip:</strong> Solve
+      \(-3x+5\le 14\).</p>
+      <p>Subtract \(5\): \(-3x\le 9\). Divide by \(-3\) and flip the sign:
+      \(x\ge -3\).</p>
+      <p><strong>Check:</strong> \(x=-3\) gives \(-3(-3)+5=9+5=14\), which satisfies
+      equality. Try \(x=0\): \(5\le 14\) is true and \(0\ge -3\) is true. Try \(x=-4\):
+      \(17\le 14\) is false and \(-4\ge -3\) is false.</p>
+      <p><strong>Real-World Application:</strong> If you need to sell at least \(50\) items
+      to break even and you sell \(5\) per day, then \(5d \geq 50\), so \(d \geq 10\) days.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Inequality Symbols</div>
-        <p>\(a < b\): a is less than b</p>
-        <p>\(a \leq b\): a is less than or equal to b</p>
-        <p>\(a > b\): a is greater than b</p>
-        <p>\(a \geq b\): a is greater than or equal to b</p>
+        <p>\(a < b\): \(a\) is less than \(b\)</p>
+        <p>\(a \leq b\): \(a\) is less than or equal to \(b\)</p>
+        <p>\(a > b\): \(a\) is greater than \(b\)</p>
+        <p>\(a \geq b\): \(a\) is greater than or equal to \(b\)</p>
       </div>
 
       <h2>6.6 Graphing Linear Inequalities</h2>
       <p>
-        To graph a linear inequality:
+        The solution to a linear inequality is a whole region of the graph. To find it:
       </p>
       <ol>
-        <li>Graph the corresponding equation as a boundary line</li>
-        <li>Use a solid line for \(\leq\) or \(\geq\), dashed for \(<\) or \(>\)</li>
-        <li>Test a point not on the line to determine which side to shade</li>
+        <li>Graph the related equation as a boundary line</li>
+        <li>Use a solid line for \(\leq\) or \(\geq\), and a dashed line for \(<\) or \(>\)</li>
+        <li>Pick a test point not on the line and substitute it into the inequality</li>
+        <li>Shade the side containing the point that makes the inequality true</li>
       </ol>
 
       <div class="example-box">
         <div class="example-title">Example 4: Graphing an Inequality</div>
-        <p>Graph \(2x + 3y < 6\)</p>
-        <p>Boundary line: \(2x + 3y = 6\) or \(y = -\frac{2}{3}x + 2\)</p>
-        <p>Test point (0,0): \(2(0) + 3(0) = 0 < 6\) ✓</p>
-        <p>Shade the side containing (0,0) with a dashed line.</p>
-        <p><strong>Motivation:</strong> This is used in optimization problems, business constraints, 
-        and engineering design limits.</p>
+        <p>Graph \(2x + 3y < 6\).</p>
+        <p>Boundary: \(2x + 3y = 6\), or \(y = -\frac{2}{3}x + 2\). Use a dashed line.</p>
+        <p>Test \((0,0)\): \(2(0) + 3(0) = 0 < 6\), which is true.</p>
+        <p>Shade the side containing \((0,0)\). Points on the dashed line are not included.</p>
+        <p><strong>Check:</strong> \((3,0)\) gives \(2(3) + 0 = 6\), which is not less than
+        \(6\), so it lies on the boundary and is not a solution.</p>
       </div>
+      <p><strong>Application preview:</strong> A cost model \(C=25+8n\) has the same
+      straight-line structure. Here \(n\) is the number of items, \(8\) is the cost per
+      item (the slope), and \(25\) is the fixed cost (the intercept).</p>
+      <p>For \(n=10\): \(C=25+8(10)=105\). Each extra item adds \(8\) to the cost.</p>
 
       <h2>6.7 Linear Function Applications</h2>
       <p>
-        Linear functions model many real-world situations with constant rates of change.
+        Linear functions model situations where a quantity changes by the same amount for
+        each equal step in the input. The slope is the "per unit" rate, and the
+        \(y\)-intercept is the starting amount.
       </p>
       <p><strong>Common Applications:</strong></p>
       <ul>
         <li>Cost functions: \(C(x) = \text{fixed cost} + (\text{cost per item}) \times x\)</li>
-        <li>Distance-speed-time: \(d = vt\) (constant speed)</li>
+        <li>Distance-speed-time: \(d = vt\) at constant speed</li>
         <li>Simple interest: \(I = P \times r \times t\)</li>
         <li>Temperature conversion: \(C = \frac{5}{9}(F - 32)\)</li>
       </ul>
+      <p><strong>Worked example:</strong> A booth costs \(\$200\) to set up and \(\$5\) per
+        item made. Then \(C(x) = 5x + 200\), so making \(30\) items costs
+        \(C(30) = 5(30) + 200 = 350\) dollars.</p>
+      <p><strong>Check your answer:</strong> The fixed cost is the line's \(y\)-intercept
+       \(200\), and the slope \(5\) is the cost of one more item. Check:
+       \(C(31) - C(30) = 355 - 350 = 5\).</p>
+      <p><strong>Common Mistakes and Considerations:</strong></p>
+      <ul>
+        <li>Mixing up slope and intercept: in \(y=mx+b\), \(m\) is the rate and \(b\) is the
+        starting value.</li>
+        <li>Forgetting negative rise or run: \(-\frac{2}{3}\) means fall \(2\), run \(3\),
+        not rise \(2\).</li>
+        <li>Dividing by a negative in an inequality without flipping the sign.</li>
+        <li>Using a dashed boundary for \(\leq\) or \(\geq\): those include the line, so
+        the boundary is solid.</li>
+        <li>Trusting extrapolation too far: a linear model may stop being accurate outside
+        the data range.</li>
+        <li>Dropping units or context: interpret the slope as "per item" and the intercept
+        as the value at \(x=0\).</li>
+      </ul>
 
-      <div class="math-lab" id="linear-grapher">
-        <h3 class="math-lab__title">Linear Function Grapher</h3>
-        <p class="math-lab__description">
-          Visualize linear functions and see their slope and y-intercept.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Slope (m):</span>
-            <input type="number" id="lm-input" class="math-lab__input" value="2" step="any">
-          </label>
-          <label>
-            <span>Y-intercept (b):</span>
-            <input type="number" id="lb-input" class="math-lab__input" value="1" step="any">
-          </label>
-          <button id="lcalculate-btn" class="math-lab__button">Graph</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter slope and y-intercept to see the line.</p>
-          <canvas id="linear-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 0; margin-top: 1rem;"></canvas>
-          <div id="linear-results" style="margin-top: 1rem;"></div>
-        </div>
+      <h2>6.8 Check Your Understanding</h2>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Try These</div>
+        <ol>
+          <li>Find the slope through \((1,3)\) and \((4,12)\).</li>
+          <li>Solve \(-2x+4\ge 10\).</li>
+          <li>For \(C=25+8n\), find \(C(6)\) and state what \(8\) means.</li>
+        </ol>
       </div>
 
-      <div class="math-lab" id="slope-calculator">
-        <h3 class="math-lab__title">Slope Calculator</h3>
-        <p class="math-lab__description">
-          Calculate the slope between two points.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Point 1 (x₁, y₁):</span>
-            <input type="number" id="sp1x" class="math-lab__input" value="1" step="any">,
-            <input type="number" id="sp1y" class="math-lab__input" value="2" step="any">
-          </label>
-          <label>
-            <span>Point 2 (x₂, y₂):</span>
-            <input type="number" id="sp2x" class="math-lab__input" value="3" step="any">,
-            <input type="number" id="sp2y" class="math-lab__input" value="8" step="any">
-          </label>
-          <button id="scalculate-btn" class="math-lab__button">Calculate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter two points to find the slope.</p>
-          <div id="slope-results" style="margin-top: 1rem;"></div>
-        </div>
+      <div class="example-box">
+        <div class="example-title">Answers with Brief Work</div>
+        <p><strong>1.</strong> \(m=\frac{12-3}{4-1}=\frac{9}{3}=3\).</p>
+        <p><strong>2.</strong> \(-2x\ge 6\), so dividing by \(-2\) and flipping gives
+        \(x\le -3\). Check: \(x=-4\) gives \(12\ge 10\), true.</p>
+        <p><strong>3.</strong> \(C(6)=25+8(6)=73\). The \(8\) is the cost of one more
+        item, in dollars per item.</p>
       </div>
 
-      <div class="math-lab" id="inequality-grapher">
-        <h3 class="math-lab__title">Linear Inequality Grapher</h3>
-        <p class="math-lab__description">
-          Graph linear inequalities and see the solution region.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Inequality:</span>
-            <input type="text" id="ineq-expr" class="math-lab__input" value="2*x + 3*y < 6" placeholder="e.g., 2*x + 3*y < 6">
-          </label>
-          <button id="ineq-calculate-btn" class="math-lab__button">Graph</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a linear inequality to see its graph.</p>
-          <canvas id="ineq-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 0; margin-top: 1rem;"></canvas>
-          <div id="ineq-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
+      <h2>Bonus: Where Two Lines Meet</h2>
+      <p>When two linear functions are graphed together, their crossing point is the input
+      where they give the same output. For \(y = 2x + 1\) and \(y = -x + 4\), set
+      \(2x + 1 = -x + 4\). This gives \(3x = 3\), so \(x = 1\) and \(y = 3\).</p>
+      <p><strong>Check:</strong> \(2(1) + 1 = 3\) and \(-1 + 4 = 3\), so \((1, 3)\) lies on
+      both lines. Solving equations like this is how intersections are found.</p>
 
       <div class="navigation">
         <a href="mathematics-10.html">← Back to Course</a>

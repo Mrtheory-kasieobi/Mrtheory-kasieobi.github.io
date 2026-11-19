@@ -47,253 +47,227 @@
     <div class="lecture-content">
 
       <h2>7.1 Solving Systems by Graphing</h2>
-      <p>
-        A system of linear equations consists of two or more linear equations with the same 
-        variables. The solution is the point where the lines intersect.
-      </p>
-      <p><strong>Why Systems Matter:</strong> Many real-world problems involve multiple 
-      constraints. For example, if you have $100 to spend on two types of items, you need 
-      to find the combination that satisfies both your budget and your needs. This is a system 
-      of equations.</p>
-      
+      <p>A system of linear equations is a pair (or more) of linear equations using the same variables. Each equation graphs as a straight line, and every point on that line is a solution of that equation.</p>
+      <p><strong>What the intersection means:</strong> The solution of the system is the point that lies on both lines at once. Its coordinates make both equations true at the same time, and no other point does.</p>
+      <p><strong>Vocabulary:</strong> The pair of equations is called a <strong>system</strong>. An ordered pair \((x, y)\) that makes every equation true is a <strong>solution</strong>. Finding all such pairs is called solving the system.</p>
+      <p><strong>Checking a proposed solution:</strong> Substitute the coordinates into both equations. For \(x + y = 6\) and \(x - y = -2\), test \((2, 4)\):</p>
+      <p>First equation: \(2 + 4 = 6\) ✓. Second equation: \(2 - 4 = -2\) ✓. Both statements are true, so \((2, 4)\) is a solution.</p>
+      <p><strong>Why Systems Matter:</strong> Many real-world problems have two conditions to satisfy at once. If you have $100 to spend on two types of items, your choice must fit both your budget and your needs. That is a system of equations.</p>
+      <p><strong>Making a table for each line:</strong> Pick a few \(x\)-values, compute \(y\) from each equation, and record the pairs in a table. Plot each line through its own points. Where the two tables give the same \(y\) for the same \(x\), you have found the intersection.</p>
+
       <div class="theorem-box">
         <div class="theorem-title">Types of Solutions</div>
-        <p><strong>One Solution:</strong> Lines intersect at exactly one point (consistent, independent)</p>
-        <p><strong>No Solution:</strong> Lines are parallel and never intersect (inconsistent)</p>
-        <p><strong>Infinitely Many Solutions:</strong> Lines are the same (consistent, dependent)</p>
+        <p><strong>One solution:</strong> The lines cross once. Their slopes are different, so exactly one point works in both equations.</p>
+        <p><strong>No solution:</strong> The lines are parallel. They have the same slope but different \(y\)-intercepts, so they never meet.</p>
+        <p><strong>Infinitely many solutions:</strong> The two equations describe the same line. Every point on that line works in both.</p>
       </div>
+
+      <p><strong>Connecting tables to these cases:</strong> If the two tables never share a \(y\) for the same \(x\), the lines are parallel and there is no solution. If the tables match for every \(x\), the lines are the same and there are infinitely many solutions.</p>
 
       <div class="example-box">
         <div class="example-title">Example 1: Graphing a System</div>
-        <p>Solve: \(y = 2x + 1\) and \(y = -x + 4\)</p>
-        <p>Graph both lines. They intersect at approximately (1, 3).</p>
-        <p>Check: \(3 = 2(1) + 1\) ✓ and \(3 = -(1) + 4\) ✓</p>
-        <p><strong>Motivation:</strong> This is used in business to find break-even points where 
-        revenue equals cost.</p>
+        <p>Solve by graphing: \(y = 2x + 1\) and \(y = -x + 4\)</p>
+        <p><strong>First line:</strong> Start at the \(y\)-intercept \((0, 1)\). A slope of \(2\) means "up 2, right 1," which lands on \((1, 3)\).</p>
+        <p><strong>Second line:</strong> Start at \((0, 4)\). A slope of \(-1\) means "down 1, right 1," which also lands on \((1, 3)\).</p>
+        <p>Both lines pass through \((1, 3)\), so that is their intersection.</p>
+        <p>Check the first equation: \(2(1) + 1 = 3\) ✓</p>
+        <p>Check the second: \(-(1) + 4 = 3\) ✓</p>
+        <p>The solution is \((1, 3)\): it satisfies both equations at the same time.</p>
+        <p><strong>Motivation:</strong> If one line shows revenue and the other shows cost, their intersection is the break-even point.</p>
       </div>
 
       <h2>7.2 Solving Systems by Substitution</h2>
-      <p>
-        The substitution method involves solving one equation for one variable and substituting 
-        into the other equation.
-      </p>
-      <p><strong>When to Use Substitution:</strong> When one equation is already solved for 
-      a variable, or when coefficients are 1 or -1, making substitution straightforward.</p>
+      <p>Substitution means replacing a variable with an equal expression. If \(y = 3x - 2\), then anywhere you see \(y\) in the other equation you may write \(3x - 2\) instead. The pair of equations becomes one equation with only \(x\), which you already know how to solve.</p>
+      <p><strong>When to Use Substitution:</strong> Use it when one equation is already solved for a variable, or when a coefficient is \(1\) or \(-1\) so solving for that variable is easy.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Substitution Method Steps</div>
         <ol>
-          <li>Solve one equation for one variable (if not already done)</li>
-          <li>Substitute this expression into the other equation</li>
-          <li>Solve the resulting single-variable equation</li>
-          <li>Substitute back to find the other variable</li>
-          <li>Check the solution in both original equations</li>
+          <li>Solve one equation for one variable, if needed</li>
+          <li>Substitute that expression into the other equation</li>
+          <li>Solve the new equation for the single variable</li>
+          <li>Substitute back to find the first variable</li>
+          <li>Check the pair in both original equations</li>
         </ol>
       </div>
 
       <div class="example-box">
         <div class="example-title">Example 2: Substitution Method</div>
         <p>Solve: \(y = 3x - 2\) and \(2x + y = 8\)</p>
-        <p>Substitute: \(2x + (3x - 2) = 8\)</p>
-        <p>\(5x - 2 = 8\), so \(x = 2\)</p>
-        <p>Then \(y = 3(2) - 2 = 4\)</p>
-        <p>Solution: (2, 4)</p>
-        <p><strong>Motivation:</strong> This is used in chemistry to find concentrations 
-        in mixtures and in economics to find equilibrium points.</p>
+        <p>Replace \(y\) in the second equation: \(2x + (3x - 2) = 8\)</p>
+        <p>Combine like terms: \(5x - 2 = 8\)</p>
+        <p>Add 2 to both sides: \(5x = 10\), so \(x = 2\)</p>
+        <p>Substitute back: \(y = 3(2) - 2 = 4\)</p>
+        <p>The solution is \((2, 4)\)</p>
+        <p>Check: \(3(2) - 2 = 4\) ✓ and \(2(2) + 4 = 8\) ✓</p>
+        <p><strong>Motivation:</strong> This is handy for mixtures: two amounts are linked by a total amount and a total value, so one quantity can replace the other.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Substitution with \(x\) Already Isolated</div>
+        <p>Solve: \(x = y + 1\) and \(2x + y = 8\)</p>
+        <p>Substitute \(y + 1\) for \(x\) in the second equation: \(2(y + 1) + y = 8\)</p>
+        <p>Distribute: \(2y + 2 + y = 8\), so \(3y + 2 = 8\)</p>
+        <p>Subtract 2: \(3y = 6\), so \(y = 2\)</p>
+        <p>Substitute back: \(x = 2 + 1 = 3\)</p>
+        <p>The solution is \((3, 2)\)</p>
+        <p>Check: \(3 = 2 + 1\) ✓ and \(2(3) + 2 = 8\) ✓</p>
       </div>
 
       <h2>7.3 Solving Systems by Elimination</h2>
-      <p>
-        The elimination method involves adding or subtracting equations to eliminate one variable.
-      </p>
-      <p><strong>Why Elimination Works:</strong> If \(a = b\) and \(c = d\), then \(a + c = b + d\). 
-      This allows us to combine equations strategically to eliminate variables.</p>
+      <p>Elimination means adding (or subtracting) two equations so that one variable cancels. You can also multiply an entire equation by a number first, because multiplying both sides by the same number keeps the equality true.</p>
+      <p><strong>Why Elimination Works:</strong> If \(a = b\) and \(c = d\), then \(a + c = b + d\). Choosing equations whose coefficients are opposites makes one variable disappear when you add.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Elimination Method Steps</div>
         <ol>
-          <li>Multiply one or both equations to get opposite coefficients for one variable</li>
-          <li>Add the equations to eliminate that variable</li>
-          <li>Solve for the remaining variable</li>
-          <li>Substitute back to find the eliminated variable</li>
-          <li>Check the solution in both original equations</li>
+          <li>Multiply one or both equations to make one pair of coefficients opposite</li>
+          <li>Add the equations so that variable cancels</li>
+          <li>Solve the remaining one-variable equation</li>
+          <li>Substitute back to find the other variable</li>
+          <li>Check the pair in both original equations</li>
         </ol>
       </div>
 
       <div class="example-box">
         <div class="example-title">Example 3: Elimination Method</div>
         <p>Solve: \(3x + 2y = 12\) and \(5x - 2y = 8\)</p>
-        <p>Add equations: \(8x = 20\), so \(x = 2.5\)</p>
-        <p>Substitute: \(3(2.5) + 2y = 12\), so \(y = 3\)</p>
-        <p>Solution: (2.5, 3)</p>
-        <p><strong>Motivation:</strong> This is used in engineering to solve for forces 
-        in structures and in finance to find portfolio allocations.</p>
+        <p>The \(+2y\) and \(-2y\) are opposites, so add the equations:</p>
+        <p>\((3x + 2y) + (5x - 2y) = 12 + 8\)</p>
+        <p>\(8x = 20\), so \(x = \frac{20}{8} = 2.5\)</p>
+        <p>Substitute into the first equation: \(3(2.5) + 2y = 12\)</p>
+        <p>\(7.5 + 2y = 12\), so \(2y = 4.5\) and \(y = 2.25\)</p>
+        <p>The solution is \((2.5, 2.25)\)</p>
+        <p>Check: \(3(2.5) + 2(2.25) = 12\) ✓</p>
+        <p>Also \(5(2.5) - 2(2.25) = 8\) ✓</p>
+        <p><strong>Motivation:</strong> Use elimination whenever two amounts combine into totals — for example, finding two prices from the cost of two different purchases.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Elimination After Multiplying</div>
+        <p>Solve: \(2x + 3y = 7\) and \(3x - 2y = 4\)</p>
+        <p>No coefficients match, so multiply to make the \(y\)-terms opposites.</p>
+        <p>Multiply the first equation by \(2\): \(4x + 6y = 14\)</p>
+        <p>Multiply the second equation by \(3\): \(9x - 6y = 12\)</p>
+        <p>Add: \(13x = 26\), so \(x = 2\)</p>
+        <p>Substitute into \(2x + 3y = 7\): \(2(2) + 3y = 7\), so \(3y = 3\) and \(y = 1\)</p>
+        <p>The solution is \((2, 1)\)</p>
+        <p>Verify: \(2(2) + 3(1) = 7\) ✓ and \(3(2) - 2(1) = 4\) ✓</p>
       </div>
 
       <h2>7.4 Solving Systems with Fractions and Decimals</h2>
-      <p>
-        When equations have fractions or decimals, multiply to clear them before solving.
-      </p>
-      <p><strong>Strategy:</strong> Multiply each equation by the LCD of all fractions to 
-      work with integers, making arithmetic easier and less error-prone.</p>
+      <p>Fractions and decimals make arithmetic messy, but you can remove them. Multiply every term of an equation by the same nonzero number and the equation keeps exactly the same solutions.</p>
+      <p><strong>Strategy:</strong> For fractions, multiply by the lowest common denominator (LCD) of the fractions in that equation. For decimals, multiply by \(10\), \(100\), and so on. Then solve the integer system with substitution or elimination.</p>
+      <p><strong>Clear denominators first:</strong> Before using substitution or elimination, multiply each equation by a nonzero number that removes its fractions or decimals. Multiply <strong>every</strong> term, including the constant on the right, or the equation changes. Use the lowest common denominator for fractions and a power of \(10\) for decimals.</p>
 
       <div class="example-box">
         <div class="example-title">Example 4: Clearing Fractions</div>
         <p>Solve: \(\frac{1}{2}x + \frac{1}{3}y = 2\) and \(\frac{1}{4}x - y = -1\)</p>
-        <p>Multiply first by 6: \(3x + 2y = 12\)</p>
-        <p>Multiply second by 4: \(x - 4y = -4\)</p>
-        <p>Now solve using elimination or substitution.</p>
-        <p><strong>Motivation:</strong> This technique is used in chemistry for balancing 
-        equations and in physics for solving equations with many constants.</p>
+        <p>The first equation has denominators 2 and 3, so multiply every term by \(6\):</p>
+        <p>\(6 \times \frac{1}{2}x = 3x\) and \(6 \times \frac{1}{3}y = 2y\), giving \(3x + 2y = 12\)</p>
+        <p>Multiply the second equation by \(4\): \(x - 4y = -4\)</p>
+        <p>From \(x - 4y = -4\), we get \(x = 4y - 4\)</p>
+        <p>Substitute: \(3(4y - 4) + 2y = 12\)</p>
+        <p>\(12y - 12 + 2y = 12\), so \(14y = 24\) and \(y = \frac{24}{14} = \frac{12}{7}\)</p>
+        <p>Then \(x = 4\left(\frac{12}{7}\right) - 4 = \frac{48}{7} - \frac{28}{7} = \frac{20}{7}\)</p>
+        <p>The solution is \(\left(\frac{20}{7}, \frac{12}{7}\right)\)</p>
+        <p>Check in the first original equation: \(\frac{1}{2}\left(\frac{20}{7}\right) = \frac{10}{7}\) and \(\frac{1}{3}\left(\frac{12}{7}\right) = \frac{4}{7}\)</p>
+        <p>They add to \(\frac{14}{7} = 2\) ✓</p>
+        <p>Check in the second original equation: \(\frac{1}{4}\left(\frac{20}{7}\right) - \frac{12}{7} = \frac{5}{7} - \frac{12}{7} = -1\) ✓</p>
+        <p><strong>Motivation:</strong> Problems described in halves, thirds, or percentages become much easier once the fractions are cleared first.</p>
       </div>
 
       <h2>7.5 Real-World Applications of Systems</h2>
-      <p>
-        Systems of equations model situations with multiple constraints or conditions.
-      </p>
+      <p>Real situations often give two facts about the same two unknown quantities. Each fact becomes an equation, and the solution gives the pair of values that satisfies both facts.</p>
       <p><strong>Common Applications:</strong></p>
       <ul>
-        <li><strong>Mixture Problems:</strong> Finding amounts of different solutions to mix</li>
-        <li><strong>Investment Problems:</strong> Finding amounts invested at different rates</li>
-        <li><strong>Distance Problems:</strong> Finding speeds or times for different routes</li>
+        <li><strong>Mixture Problems:</strong> Finding how much of each solution to mix, using total volume and total amount of solute</li>
+        <li><strong>Investment Problems:</strong> Finding amounts invested at different rates, using total invested and total interest</li>
+        <li><strong>Distance Problems:</strong> Finding speeds or times using distance = speed \(\times\) time</li>
         <li><strong>Break-Even Analysis:</strong> Finding when revenue equals cost</li>
       </ul>
 
       <div class="example-box">
         <div class="example-title">Example 5: Investment Problem</div>
-        <p>$5000 is invested in two accounts paying 3% and 5% interest. If total interest 
-        is $210, how much is in each account?</p>
-        <p>Let \(x\) = amount at 3%, \(y\) = amount at 5%</p>
-        <p>\(x + y = 5000\) and \(0.03x + 0.05y = 210\)</p>
-        <p>Solving: \(x = 2000\), \(y = 3000\)</p>
-        <p><strong>Motivation:</strong> This is used in personal finance and business 
-        planning to optimize returns.</p>
+        <p>$5000 is invested in two accounts paying 3% and 5% interest. The total interest is $210. How much is in each account?</p>
+        <p>Let \(x\) be the amount at 3% and \(y\) the amount at 5%</p>
+        <p>Total invested: \(x + y = 5000\)</p>
+        <p>Total interest: \(0.03x + 0.05y = 210\)</p>
+        <p>Clear decimals by multiplying by \(100\): \(3x + 5y = 21000\)</p>
+        <p>From \(x + y = 5000\), \(y = 5000 - x\)</p>
+        <p>Substitute: \(3x + 5(5000 - x) = 21000\)</p>
+        <p>\(3x + 25000 - 5x = 21000\), so \(-2x = -4000\) and \(x = 2000\)</p>
+        <p>Then \(y = 5000 - 2000 = 3000\)</p>
+        <p>So $2000 is at 3% and $3000 is at 5%</p>
+        <p>Check: \(0.03(2000) + 0.05(3000) = 60 + 150 = 210\) ✓</p>
+        <p><strong>Motivation:</strong> This is how anyone compares options when a total amount and a total return are both fixed.</p>
       </div>
 
-      <h2>7.6 Math Lab: Exploring Systems</h2>
-      <p>
-        In this lab, you'll use graphing technology to explore how changing coefficients affects 
-        the solution to a system.
-      </p>
-      <p><strong>Key Insights:</strong> Small changes in coefficients can dramatically 
-      change the solution. This is important in numerical analysis and computer modeling, where 
-      rounding errors can accumulate.</p>
+      <p><strong>Break-even means revenue equals cost.</strong> Suppose selling \(x\) items brings in \(R = 15x\) dollars, while costs are \(C = 100 + 10x\) dollars (a $100 setup fee plus $10 per item). Setting revenue equal to cost gives \(15x = 100 + 10x\).</p>
+      <p>Subtract \(10x\): \(5x = 100\), so \(x = 20\). At 20 items, \(R = 15(20) = 300\) and \(C = 100 + 10(20) = 300\). Below 20 items you lose money; above 20 you make a profit.</p>
+
+      <p><strong>Common Mistakes:</strong></p>
+      <ul>
+        <li>Forgetting to check the solution in both equations; it must satisfy both</li>
+        <li>Sign errors in elimination, such as adding when coefficients are equal instead of opposite</li>
+        <li>Distributing mistakes, such as writing \(2(y + 1) = 2y + 1\) instead of \(2y + 2\)</li>
+        <li>Treating parallel lines as one solution when they have no solution at all</li>
+      </ul>
+
+      <h2>7.6 Comparing Systems by Their Slopes</h2>
+      <p>Changing the coefficients of a system shows what happens to the intersection.</p>
+      <p><strong>Key Insights:</strong> The slopes decide how many solutions exist. Different slopes give one crossing point; equal slopes with different intercepts give no solution; equal slopes and equal intercepts give the same line and infinitely many solutions. Changing a coefficient changes where the lines intersect.</p>
+
+      <p><strong>Beginner comparison guide:</strong> Write each line as \(y = mx + b\), where \(m\) is the slope and \(b\) is the \(y\)-intercept.</p>
+      <div class="theorem-box">
+        <div class="theorem-title">Comparing Slopes and Intercepts</div>
+        <p><strong>Different slopes (\(m_1 \neq m_2\)):</strong> The lines cross exactly once, so there is one solution.</p>
+        <p><strong>Same slope, different intercepts (\(m_1 = m_2\), \(b_1 \neq b_2\)):</strong> Parallel lines never meet, so there is no solution.</p>
+        <p><strong>Same slope, same intercept (\(m_1 = m_2\), \(b_1 = b_2\)):</strong> The lines are identical, so there are infinitely many solutions.</p>
+        <p><strong>Quick check:</strong> Compare \(m\) first, then compare \(b\) only if the slopes match.</p>
+      </div>
 
       <h2>7.7 Solving Systems with Three Variables</h2>
-      <p>
-        Systems with three variables can be solved using elimination, working with pairs of 
-        equations to reduce to a 2-variable system.
-      </p>
-      <p><strong>Application:</strong> Three-variable systems appear in chemistry for 
-      balancing complex reactions, in economics for market equilibrium with three products, 
-      and in engineering for 3D force analysis.</p>
+      <p><strong>Extension (beyond Math 10):</strong> You will not need this on the Math 10 exam, but the same elimination idea works with three unknowns \(x\), \(y\), and \(z\). The trick is to combine pairs of equations to cancel one variable, leaving a two-variable system you already know how to solve.</p>
+      <p><strong>Where it appears:</strong> Any situation with three linked amounts can be modelled this way, such as combining three ingredients to reach a target total amount, value, and weight. We keep the numbers small so every step stays visible.</p>
 
       <div class="example-box">
-        <div class="example-title">Example 6: Three-Variable System</div>
-        <p>Solve: \(x + y + z = 6\), \(2x - y + z = 3\), \(x + 2y - z = 2\)</p>
-        <p>Using elimination: Solution is (1, 2, 3)</p>
-        <p><strong>Motivation:</strong> This extends to n-variable systems used in 
-      computer algorithms, optimization, and data science.</p>
+        <div class="example-title">Example 6: Three-Variable System (Extension)</div>
+        <p>Solve this extension system:</p>
+        <p>\(x + y + z = 6\)</p>
+        <p>\(2x - y + z = 3\)</p>
+        <p>\(x + 2y - z = 2\)</p>
+        <p>Add the first and third equations to cancel \(z\): \(2x + 3y = 8\)</p>
+        <p>Add the second and third to cancel \(z\): \(3x + y = 5\)</p>
+        <p>From \(3x + y = 5\), \(y = 5 - 3x\). Substitute into \(2x + 3y = 8\):</p>
+        <p>\(2x + 3(5 - 3x) = 8\), so \(2x + 15 - 9x = 8\)</p>
+        <p>\(-7x = -7\), so \(x = 1\) and \(y = 5 - 3(1) = 2\)</p>
+        <p>Now \(1 + 2 + z = 6\), so \(z = 3\). The solution is \((1, 2, 3)\)</p>
+        <p>Check the first two: \(1 + 2 + 3 = 6\) ✓ and \(2(1) - 2 + 3 = 3\) ✓</p>
+        <p>Check the third: \(1 + 2(2) - 3 = 2\) ✓</p>
+        <p>The method simply repeats: cancel one variable at a time until only one is left.</p>
       </div>
 
-      <div class="math-lab" id="systems-solver">
-        <h3 class="math-lab__title">Systems of Equations Solver</h3>
-        <p class="math-lab__description">
-          Solve systems of two linear equations using substitution or elimination.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Equation 1 (ax + by = c):</span>
-            <input type="number" id="sys-a1" class="math-lab__input" value="2" step="any">x +
-            <input type="number" id="sys-b1" class="math-lab__input" value="-1" step="any">y =
-            <input type="number" id="sys-c1" class="math-lab__input" value="4" step="any">
-          </label>
-          <label>
-            <span>Equation 2 (ax + by = c):</span>
-            <input type="number" id="sys-a2" class="math-lab__input" value="1" step="any">x +
-            <input type="number" id="sys-b2" class="math-lab__input" value="1" step="any">y =
-            <input type="number" id="sys-c2" class="math-lab__input" value="3" step="any">
-          </label>
-          <label>
-            <span>Method:</span>
-            <select id="sys-method" class="math-lab__input">
-              <option value="graphing">Graphing</option>
-              <option value="substitution">Substitution</option>
-              <option value="elimination">Elimination</option>
-            </select>
-          </label>
-          <button id="sys-calculate-btn" class="math-lab__button">Solve</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter coefficients to solve the system.</p>
-          <canvas id="sys-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 0; margin-top: 1rem;"></canvas>
-          <div id="sys-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
+      <h2>7.8 Check Your Understanding</h2>
+      <p>Work on a separate page first, then compare your answers below.</p>
+      <ol>
+        <li>Solve \(x + y = 5\) and \(x - y = 1\) by elimination.</li>
+        <li>Solve \(y = 2x\) and \(x + y = 9\) by substitution.</li>
+        <li>How many solutions do \(y = 3x + 1\) and \(y = 3x - 2\) have?</li>
+      </ol>
+      <p><strong>Worked answers:</strong></p>
+      <ol>
+        <li>Add the equations: \(2x = 6\), so \(x = 3\). Then \(3 + y = 5\), so \(y = 2\). Check: \(3 + 2 = 5\) ✓ and \(3 - 2 = 1\) ✓.</li>
+        <li>Replace \(y\): \(x + 2x = 9\), so \(3x = 9\) and \(x = 3\). Then \(y = 2(3) = 6\). Check: \(3 + 6 = 9\) ✓.</li>
+        <li>The slopes are both \(3\), but the intercepts are \(1\) and \(-2\). The lines are parallel, so there is no solution.</li>
+      </ol>
 
-      <div class="math-lab" id="three-var-solver">
-        <h3 class="math-lab__title">Three-Variable System Solver</h3>
-        <p class="math-lab__description">
-          Solve systems of three linear equations.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Equation 1:</span>
-            <input type="number" id="t3-a1" class="math-lab__input" value="1" step="any">x +
-            <input type="number" id="t3-b1" class="math-lab__input" value="1" step="any">y +
-            <input type="number" id="t3-c1" class="math-lab__input" value="1" step="any">z =
-            <input type="number" id="t3-d1" class="math-lab__input" value="6" step="any">
-          </label>
-          <label>
-            <span>Equation 2:</span>
-            <input type="number" id="t3-a2" class="math-lab__input" value="2" step="any">x +
-            <input type="number" id="t3-b2" class="math-lab__input" value="-1" step="any">y +
-            <input type="number" id="t3-c2" class="math-lab__input" value="1" step="any">z =
-            <input type="number" id="t3-d2" class="math-lab__input" value="3" step="any">
-          </label>
-          <label>
-            <span>Equation 3:</span>
-            <input type="number" id="t3-a3" class="math-lab__input" value="1" step="any">x +
-            <input type="number" id="t3-b3" class="math-lab__input" value="2" step="any">y +
-            <input type="number" id="t3-c3" class="math-lab__input" value="-1" step="any">z =
-            <input type="number" id="t3-d3" class="math-lab__input" value="2" step="any">
-          </label>
-          <button id="t3-calculate-btn" class="math-lab__button">Solve</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter coefficients to solve the 3-variable system.</p>
-          <div id="t3-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
-
-      <div class="math-lab" id="mixture-solver">
-        <h3 class="math-lab__title">Mixture Problem Solver</h3>
-        <p class="math-lab__description">
-          Solve mixture problems with two solutions.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Total amount:</span>
-            <input type="number" id="mix-total" class="math-lab__input" value="10" step="any">
-          </label>
-          <label>
-            <span>Concentration 1 (%):</span>
-            <input type="number" id="mix-c1" class="math-lab__input" value="30" step="any">
-          </label>
-          <label>
-            <span>Concentration 2 (%):</span>
-            <input type="number" id="mix-c2" class="math-lab__input" value="50" step="any">
-          </label>
-          <label>
-            <span>Desired concentration (%):</span>
-            <input type="number" id="mix-desired" class="math-lab__input" value="40" step="any">
-          </label>
-          <button id="mix-calculate-btn" class="math-lab__button">Calculate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter values to find the mixture amounts.</p>
-          <div id="mix-results" style="margin-top: 1rem;"></div>
-        </div>
+      <h2>Bonus: Choosing an Efficient Method</h2>
+      <div class="theorem-box">
+        <div class="theorem-title">Before You Start Solving</div>
+        <p>Compare the slopes first. Different slopes mean one intersection; matching slopes mean either no solution or infinitely many, depending on the intercepts.</p>
+        <p>Otherwise, substitute when a variable is already alone, and eliminate when coefficients match or are opposites.</p>
+        <p>Every method should end at the same point, so check your answer in both equations.</p>
       </div>
 
       <div class="navigation">

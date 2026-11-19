@@ -47,36 +47,70 @@
     <div class="lecture-content">
 
       <h2>Introduction to Quadratic Functions</h2>
-      <p>
-        A quadratic function is a function of the form \(f(x) = ax^2 + bx + c\) where \(a \neq 0\). 
-        The graph of a quadratic function is a parabola.
-      </p>
+      <p>A quadratic function has the form \(f(x) = ax^2 + bx + c\) with \(a \neq 0\). The highest power of \(x\) is 2, and its graph is a U-shaped curve called a parabola. The condition \(a \neq 0\) matters: if \(a = 0\), the \(x^2\) term disappears and the graph is just a line.</p>
+      <p>For example, \(f(x) = x^2 - 4x + 3\) has \(a = 1\), \(b = -4\), and \(c = 3\). We will use it throughout these notes to connect the algebra to the picture.</p>
+      <p><strong>Standard form of a quadratic equation:</strong> \(ax^2 + bx + c = 0\), with \(a \neq 0\). This is the function \(f(x) = ax^2 + bx + c\) set equal to zero. Solving the equation means finding the \(x\)-values that make the expression zero.</p>
+      <p><strong>Parabola, zeros, and intercepts in plain language:</strong> The graph is a U-shaped curve called a <strong>parabola</strong>. A <strong>zero</strong> (or root) is an \(x\)-value where \(f(x) = 0\). On the graph, zeros are the <strong>\(x\)-intercepts</strong>: the points where the curve crosses or touches the \(x\)-axis. A parabola may have two zeros, one zero, or none.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Standard Form and Vertex Form</div>
-        <p>Standard form: \(f(x) = ax^2 + bx + c\)</p>
-        <p>Vertex form: \(f(x) = a(x - h)^2 + k\) where \((h, k)\) is the vertex</p>
+        <p>Standard form: \(f(x) = ax^2 + bx + c\). The coefficients \(a\), \(b\), and \(c\) are easy to read off.</p>
+        <p>Vertex form: \(f(x) = a(x - h)^2 + k\), where \((h, k)\) is the vertex, the turning point of the graph.</p>
+        <p>In both forms, \(a\) controls which way the parabola opens and how wide it is.</p>
       </div>
 
       <h2>Properties of Quadratic Functions</h2>
 
       <h3>Vertex</h3>
-      <p>The vertex of a parabola is the maximum or minimum point. For \(f(x) = ax^2 + bx + c\), 
-      the x-coordinate of the vertex is \(x = -\frac{b}{2a}\).</p>
+      <p>The vertex is the turning point of the parabola: the lowest point if it opens up, or the highest point if it opens down. For \(f(x) = ax^2 + bx + c\), the \(x\)-coordinate of the vertex is \(x = -\frac{b}{2a}\). To find the \(y\)-coordinate, substitute that \(x\) back into the function.</p>
+      <p><strong>Reading the vertex:</strong> Think of the vertex as the tip of the U. In vertex form \(f(x) = a(x - h)^2 + k\), it is simply \((h, k)\). In standard form, first find \(x = -\frac{b}{2a}\), then evaluate \(f(x)\).</p>
 
       <h3>Axis of Symmetry</h3>
-      <p>The axis of symmetry is the vertical line \(x = -\frac{b}{2a}\) that passes through the vertex.</p>
+      <p>A parabola is symmetric: its left and right sides are mirror images. The axis of symmetry is the vertical line \(x = -\frac{b}{2a}\) through the vertex. Points the same distance from this line have the same height.</p>
+      <p><strong>Why it works:</strong> Points the same horizontal distance from \(x = -\frac{b}{2a}\) have equal \(y\)-values. That is why two zeros, when they exist, sit evenly on either side of the axis.</p>
 
       <h3>Direction</h3>
-      <p>If \(a > 0\), the parabola opens upward (minimum at vertex). If \(a < 0\), it opens downward (maximum at vertex).</p>
+      <p>The sign of \(a\) decides the direction. If \(a > 0\), the parabola opens upward and the vertex is a minimum. If \(a < 0\), it opens downward and the vertex is a maximum.</p>
+      <p><strong>Width from \(a\):</strong> The size of \(a\) controls how wide or narrow the parabola is. If \(|a| > 1\), the curve is narrower than \(y = x^2\) because the \(y\)-values grow faster. If \(0 < |a| < 1\), it is wider because the \(y\)-values grow more slowly. When \(a = 1\) or \(a = -1\), the width is the standard width.</p>
+
+      <p><strong>Worked example:</strong> For \(f(x) = x^2 - 4x + 3\), we have \(a = 1\) and \(b = -4\).</p>
+      <p>Vertex \(x\): \(x = -\frac{-4}{2(1)} = \frac{4}{2} = 2\)</p>
+      <p>Vertex \(y\): \(f(2) = 2^2 - 4(2) + 3 = 4 - 8 + 3 = -1\), so the vertex is \((2, -1)\)</p>
+      <p>The axis of symmetry is \(x = 2\), and since \(a = 1 > 0\), the parabola opens upward with a minimum at the vertex.</p>
+
+      <div class="example-box">
+        <div class="example-title">Worked Table for \(f(x) = x^2 - 4x + 3\)</div>
+        <p>Choose \(x\)-values around \(x = 2\), the axis of symmetry, and compute each output.</p>
+        <p>\(x = 0\): \(f(0) = 0 - 0 + 3 = 3\)</p>
+        <p>\(x = 1\): \(f(1) = 1 - 4 + 3 = 0\)</p>
+        <p>\(x = 2\): \(f(2) = 4 - 8 + 3 = -1\)</p>
+        <p>\(x = 3\): \(f(3) = 9 - 12 + 3 = 0\)</p>
+        <p>\(x = 4\): \(f(4) = 16 - 16 + 3 = 3\)</p>
+        <p>The outputs \(3, 0, -1, 0, 3\) are symmetric about \(x = 2\).</p>
+        <p>The smallest output is \(-1\) at \(x = 2\), so the vertex is \((2, -1)\) and the axis of symmetry is \(x = 2\).</p>
+        <p>Where \(f(x) = 0\) we get \(x = 1\) and \(x = 3\), so the zeros are \(1\) and \(3\), with intercepts \((1, 0)\) and \((3, 0)\).</p>
+      </div>
 
       <h2>Factoring Quadratic Expressions</h2>
+      <p>Factoring reverses expansion. We rewrite \(ax^2 + bx + c\) as a product of two simpler expressions, which makes the zeros easy to see.</p>
       <p>Common factoring patterns:</p>
       <ul>
         <li>\(a^2 - b^2 = (a - b)(a + b)\) - Difference of squares</li>
         <li>\(a^2 + 2ab + b^2 = (a + b)^2\) - Perfect square trinomial</li>
         <li>\(ax^2 + bx + c\) - Factor by finding two numbers that multiply to \(ac\) and add to \(b\)</li>
       </ul>
+      <p><strong>Factored form and zeros:</strong> When \(f(x) = a(x - r_1)(x - r_2)\), the numbers \(r_1\) and \(r_2\) are the zeros: the \(x\)-values where \(f(x) = 0\). These are exactly the \(x\)-intercepts of the graph.</p>
+      <p>For our example, \(x^2 - 4x + 3\) factors as \((x - 1)(x - 3)\), so \(f(x) = (x - 1)(x - 3)\). Its zeros are \(x = 1\) and \(x = 3\), giving intercepts \((1, 0)\) and \((3, 0)\). Notice that 1 and 3 sit evenly on either side of the axis \(x = 2\).</p>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Sign Logic for \(x^2 + bx + c\)</div>
+        <p>We need numbers \(m\) and \(n\) with \(mn = c\) and \(m + n = b\). The signs of \(b\) and \(c\) tell us what to try.</p>
+        <ul>
+          <li>If \(c > 0\), both numbers share a sign: positive when \(b > 0\), negative when \(b < 0\).</li>
+          <li>If \(c < 0\), the signs are opposite, and the larger number takes the sign of \(b\).</li>
+          <li>Always check by expanding your factors back to the original expression.</li>
+        </ul>
+      </div>
 
       <div class="theorem-box">
         <div class="theorem-title">Solving Quadratic Equations by Factoring</div>
@@ -84,45 +118,80 @@
         <ol>
           <li>Factor the quadratic expression</li>
           <li>Set each factor equal to zero</li>
-          <li>Solve for \(x\)</li>
+          <li>Solve the small equation for \(x\)</li>
         </ol>
-        <p>Example: \(x^2 - 5x + 6 = 0\) factors as \((x - 2)(x - 3) = 0\), giving \(x = 2\) or \(x = 3\)</p>
+        <p>Example: \(x^2 - 5x + 6 = 0\) becomes \((x - 2)(x - 3) = 0\), so \(x = 2\) or \(x = 3\)</p>
+      </div>
+      <p>You can always check by expanding: \((x - 2)(x - 3) = x^2 - 5x + 6\) ✓</p>
+
+      <div class="example-box">
+        <div class="example-title">Worked Example: \(x^2 - 5x + 6\)</div>
+        <p>Here \(b = -5\) and \(c = 6\). Since \(c > 0\) and \(b < 0\), both numbers are negative.</p>
+        <p>We need two negative numbers with product \(6\) and sum \(-5\): try \(-2\) and \(-3\), since \((-2)(-3) = 6\) and \(-2 + (-3) = -5\).</p>
+        <p>So \(x^2 - 5x + 6 = (x - 2)(x - 3)\).</p>
+        <p>Set each factor to zero: \(x - 2 = 0\) gives \(x = 2\), and \(x - 3 = 0\) gives \(x = 3\).</p>
+        <p>The zeros are \(2\) and \(3\), so the graph crosses the \(x\)-axis at \((2, 0)\) and \((3, 0)\).</p>
+        <p>Check: \((x - 2)(x - 3) = x^2 - 3x - 2x + 6 = x^2 - 5x + 6\) ✓</p>
       </div>
 
       <h2>Quadratic Formula</h2>
-      <p>If factoring is not possible, use the quadratic formula:</p>
-      <p>\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</p>
+      <p>Factoring is fast when it works, but many quadratics do not factor nicely. The quadratic formula solves \(ax^2 + bx + c = 0\) for any \(a \neq 0\):</p>
+      <p>\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\]</p>
+      <p>The \(\pm\) means there are usually two answers: one using \(+\) and one using \(-\).</p>
+      <p>Example: solve \(x^2 - 4x + 3 = 0\), where \(a = 1\), \(b = -4\), and \(c = 3\)</p>
+      <p>\(x = \frac{4 \pm \sqrt{(-4)^2 - 4(1)(3)}}{2(1)}\)</p>
+      <p>Inside the square root: \(16 - 12 = 4\), so \(\sqrt{4} = 2\)</p>
+      <p>Using \(+\): \(x = \frac{4 + 2}{2} = 3\)</p>
+      <p>Using \(-\): \(x = \frac{4 - 2}{2} = 1\)</p>
+      <p>These are the same zeros we found by factoring. The formula always works; factoring is simply quicker when it is possible.</p>
 
-      <h2>Math Lab: Quadratic Function Explorer</h2>
-      <p>
-        Explore how changing the coefficients affects the shape and position of a parabola.
-      </p>
+      <p><strong>Another worked example:</strong> Solve \(2x^2 - 3x - 2 = 0\), where \(a = 2\), \(b = -3\), and \(c = -2\)</p>
+      <p>Discriminant: \(b^2 - 4ac = (-3)^2 - 4(2)(-2) = 9 + 16 = 25\)</p>
+      <p>Since \(\sqrt{25} = 5\), substitute into the formula:</p>
+      <p>\[x = \frac{-(-3) \pm 5}{2(2)} = \frac{3 \pm 5}{4}\]</p>
+      <p>Using \(+\): \(x = \frac{3 + 5}{4} = \frac{8}{4} = 2\)</p>
+      <p>Using \(-\): \(x = \frac{3 - 5}{4} = \frac{-2}{4} = -\frac{1}{2}\)</p>
+      <p>The solutions are \(x = 2\) or \(x = -\frac{1}{2}\). Check \(x = 2\): \(2(4) - 3(2) - 2 = 8 - 6 - 2 = 0\) ✓</p>
+      <p>Check \(x = -\frac{1}{2}\): \(2\left(\frac{1}{4}\right) - 3\left(-\frac{1}{2}\right) - 2 = \frac{1}{2} + \frac{3}{2} - 2 = 0\) ✓</p>
 
-      <div class="math-lab" id="quadratic-sim">
-        <h3 class="math-lab__title">Quadratic Function Grapher</h3>
-        <p class="math-lab__description">
-          Visualize quadratic functions and see their vertex, axis of symmetry, and roots.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Coefficient a:</span>
-            <input type="number" id="qa-input" class="math-lab__input" value="1" step="any">
-          </label>
-          <label>
-            <span>Coefficient b:</span>
-            <input type="number" id="qb-input" class="math-lab__input" value="0" step="any">
-          </label>
-          <label>
-            <span>Coefficient c:</span>
-            <input type="number" id="qc-input" class="math-lab__input" value="0" step="any">
-          </label>
-          <button id="qcalculate-btn" class="math-lab__button">Graph</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter coefficients to see the parabola and its properties.</p>
-          <canvas id="quadratic-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 0; margin-top: 1rem;"></canvas>
-          <div id="quadratic-results" style="margin-top: 1rem;"></div>
-        </div>
+      <h2>Exploring Quadratic Coefficients</h2>
+      <p>Changing the coefficients affects the shape and position of a parabola. Change one coefficient at a time: \(a\) makes the graph wider, narrower, or flips it; \(c\) slides it up or down; and \(b\) shifts the vertex sideways. The vertex, axis of symmetry, and zeros change with the coefficients.</p>
+
+      <p><strong>Beginner summary:</strong></p>
+      <ul>
+        <li>\(a\) controls opening and width: \(a > 0\) opens up, \(a < 0\) opens down. Larger \(|a|\) makes it narrower; smaller \(|a|\) makes it wider.</li>
+        <li>\(c\) is the \(y\)-intercept: since \(f(0) = c\), the curve always passes through \((0, c)\).</li>
+        <li>\(b\) helps shift the vertex: the axis is \(x = -\frac{b}{2a}\), so changing \(b\) moves the vertex left or right.</li>
+      </ul>
+      <p><strong>Boundary examples:</strong> For \(y = x^2\) we have \(a = 1\), \(b = 0\), \(c = 0\): it opens up with vertex \((0, 0)\) and passes through the origin. For \(y = -x^2\), \(a = -1\) flips it downward with the same width. For \(y = x^2 + 3\), \(c = 3\) moves the \(y\)-intercept to \((0, 3)\). For \(y = x^2 - 4x\), \(c = 0\), so one zero is \(x = 0\).</p>
+
+      <h2>Check Your Understanding</h2>
+      <p>Work on a separate page first, then compare your answers below.</p>
+      <ol>
+        <li>Find the vertex and axis of symmetry of \(f(x) = x^2 - 6x + 5\).</li>
+        <li>Solve \(x^2 + x - 6 = 0\) by factoring.</li>
+        <li>Use the quadratic formula to solve \(x^2 - 4x + 4 = 0\).</li>
+      </ol>
+      <p><strong>Worked answers:</strong></p>
+      <ol>
+        <li>With \(a = 1\), \(b = -6\): \(x = -\frac{-6}{2} = 3\) and \(f(3) = 9 - 18 + 5 = -4\). The vertex is \((3, -4)\); the axis is \(x = 3\).</li>
+        <li>Numbers with product \(-6\) and sum \(1\) are \(3\) and \(-2\). So \((x + 3)(x - 2) = 0\), giving \(x = -3\) or \(x = 2\).</li>
+        <li>With \(a = 1\), \(b = -4\), \(c = 4\): the discriminant is \(16 - 16 = 0\), so \(x = \frac{4 \pm 0}{2} = 2\). There is one repeated root, \(x = 2\).</li>
+      </ol>
+      <p><strong>Common Mistakes:</strong></p>
+      <ul>
+        <li>Sign errors in the formula, such as using \(b\) instead of \(-b\) when \(b\) is negative</li>
+        <li>Forgetting the two roots: the \(\pm\) gives both answers unless the discriminant is zero</li>
+        <li>Confusing \(c\) with an \(x\)-intercept: \(c\) gives the \(y\)-intercept \((0, c)\), not where \(y = 0\)</li>
+        <li>Treating \(x^2\) like \(2x\): \(x^2\) means \(x \times x\), not \(2x\)</li>
+      </ul>
+
+      <h2>Bonus: Reading the Discriminant</h2>
+      <div class="theorem-box">
+        <div class="theorem-title">The Part Under the Square Root</div>
+        <p>In the quadratic formula, \(b^2 - 4ac\) is called the discriminant. When it is \(\geq 0\), the zeros are real numbers.</p>
+        <p>If it is positive there are two \(x\)-intercepts; if it is zero the vertex just touches the \(x\)-axis once.</p>
+        <p>If it is negative the graph never crosses the \(x\)-axis.</p>
       </div>
 
       <div class="navigation">

@@ -48,193 +48,250 @@
 
       <h2>3.1 Factors and Multiples of Whole Numbers</h2>
       <p>
-        A factor of a number divides that number evenly. A multiple is the product of a number 
-        and an integer. Understanding factors and multiples is fundamental to number theory.
+        A factor of a number divides it evenly, with no remainder. For example, \(4\) is a factor of \(20\) because \(20 \div 4 = 5\). A multiple is what you get when you multiply a number by a whole number: \(20\) is a multiple of \(4\) because \(4 \times 5 = 20\).
       </p>
-      <p><strong>Why This Matters:</strong> Factors and multiples are the building blocks of 
-      arithmetic. They help us understand divisibility, simplify fractions, and solve many 
-      real-world problems. For example, if you want to arrange chairs in equal rows, you need 
-      to find factors of the total number of chairs.</p>
+      <p><strong>Why This Matters:</strong> Factors tell us how to split things into equal groups. If you have 36 chairs, the factors of 36 give every equal-row arrangement: 1 row of 36, 2 rows of 18, 3 rows of 12, 4 rows of 9, or 6 rows of 6.</p>
       
       <div class="theorem-box">
         <div class="theorem-title">Prime Factorization</div>
-        <p>
-          Every positive integer greater than 1 can be expressed uniquely as a product of prime numbers.
-        </p>
-        <p><strong>Example:</strong> \(60 = 2^2 \times 3 \times 5\)</p>
-        <p><strong>Application:</strong> This is used in cryptography to create secure codes.</p>
+        <p>A <strong>prime</strong> number is a whole number greater than 1 with exactly two factors, 1 and itself: 2, 3, 5, and 7 are primes.</p>
+        <p>A <strong>composite</strong> number is a whole number greater than 1 with more than two factors, such as 4, 6, 9, and 12.</p>
+        <p>The number 1 is neither prime nor composite, because it has only one factor: itself.</p>
+        <p>Every whole number greater than 1 can be written as a product of primes in exactly one way.</p>
+        <p><strong>Example:</strong> \(60 = 2 \times 2 \times 3 \times 5 = 2^{2} \times 3 \times 5\).</p>
+        <p>Divide by the smallest prime that works at each step: \(60 \div 2 = 30\), then \(30 \div 2 = 15\), then \(15 \div 3 = 5\).</p>
+        <p><strong>Application:</strong> Prime factorization makes it easy to find the greatest common factor and the lowest common multiple of two numbers.</p>
       </div>
 
       <div class="example-box">
         <div class="example-title">Example 1: Finding All Factors</div>
         <p>Find all factors of 36.</p>
-        <p>Using prime factorization: \(36 = 2^2 \times 3^2\)</p>
-        <p>Factors: 1, 2, 3, 4, 6, 9, 12, 18, 36</p>
-        <p><strong>Motivation:</strong> This helps in organizing groups, arranging objects, 
-        and solving many practical problems.</p>
+        <p><strong>A simple method:</strong> test divisors in order, 1, 2, 3, and so on, and stop when you reach the square root of the number.</p>
+        <p>Here \(\sqrt{36} = 6\), so test only 1 through 6. Each divisor that divides evenly gives one factor pair.</p>
+        <p>Start with the prime factorization: \(36 = 2^{2} \times 3^{2}\).</p>
+        <p>List the factor pairs: \(1 \times 36\), \(2 \times 18\), \(3 \times 12\), \(4 \times 9\), \(6 \times 6\). (5 does not divide 36 evenly.)</p>
+        <p>We stop at \(6 \times 6 = 36\), because any later pair would repeat a pair already found.</p>
+        <p>Factors: 1, 2, 3, 4, 6, 9, 12, 18, 36. Check by dividing 36 by each one.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Finding the Greatest Common Factor</div>
+        <p>Find the greatest common factor (GCF) of 24 and 36.</p>
+        <p>Write each prime factorization: \(24 = 2^{3} \times 3\) and \(36 = 2^{2} \times 3^{2}\).</p>
+        <p>Take the smallest power of each shared prime: \(2^{2} \times 3 = 12\).</p>
+        <p>The GCF is 12. Check: \(24 = 12 \times 2\) and \(36 = 12 \times 3\), and 2 and 3 share no further factor.</p>
       </div>
 
       <h2>3.2 Factoring Polynomials</h2>
       <p>
-        Polynomials can be factored using techniques similar to factoring numbers. The goal is to 
-        express a polynomial as a product of simpler polynomials.
+        To factor a polynomial means to write it as a product of simpler polynomials. Factoring is reverse expanding: expanding \((x + 3)(x + 4)\) gives \(x^{2} + 7x + 12\), so factoring takes \(x^{2} + 7x + 12\) back to \((x + 3)(x + 4)\).
       </p>
-      <p><strong>Why Factor Polynomials?</strong> Factoring helps us solve equations, simplify 
-      expressions, and understand the behavior of functions. When we factor a quadratic, we can 
-      find its zeros, which tell us where the graph crosses the x-axis.</p>
+      <p><strong>Why Factor Polynomials?</strong> Factoring helps us solve equations and simplify expressions. When a quadratic is factored, its zeros are easy to find, and those zeros tell us where the graph crosses the x-axis.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Common Factoring Patterns</div>
-        <p><strong>Common Factor:</strong> \(ax + ay = a(x + y)\)</p>
-        <p><strong>Difference of Squares:</strong> \(a^2 - b^2 = (a-b)(a+b)\)</p>
-        <p><strong>Trinomial (a=1):</strong> \(x^2 + bx + c = (x + m)(x + n)\) where \(m \times n = c\) and \(m + n = b\)</p>
+        <p><strong>Common Factor:</strong> \(ax + ay = a(x + y)\). Always check for a common factor first.</p>
+        <p><strong>Difference of Squares:</strong> \(a^{2} - b^{2} = (a - b)(a + b)\)</p>
+        <p><strong>Trinomial (\(a = 1\)):</strong> \(x^{2} + bx + c = (x + m)(x + n)\) when \(m \times n = c\) and \(m + n = b\).</p>
+        <p><strong>Check:</strong> Expanding your answer must give back the original expression.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Taking Out a Greatest Common Factor First</div>
+        <p>Factor \(6x + 9\).</p>
+        <p>The coefficients 6 and 9 share a greatest common factor of 3, and there is no common variable.</p>
+        <p>Divide each term by 3: \(6x \div 3 = 2x\) and \(9 \div 3 = 3\).</p>
+        <p>So \(6x + 9 = 3(2x + 3)\).</p>
+        <p>Check by expanding: \(3(2x + 3) = 6x + 9\).</p>
+        <p><strong>First Step:</strong> Always check for a common factor before trying another factoring pattern.</p>
+      </div>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Sign Rules for \(x^{2} + bx + c\)</div>
+        <p>We want numbers \(m\) and \(n\) with \(m n = c\) and \(m + n = b\). The signs of \(c\) and \(b\) tell us which signs to try.</p>
+        <ul>
+          <li>If \(c > 0\), the two signs are the same: both positive when \(b > 0\), and both negative when \(b < 0\).</li>
+          <li>If \(c < 0\), the signs are opposite, and the number with the larger absolute value takes the sign of \(b\).</li>
+        </ul>
+        <p><strong>Example:</strong> For \(x^{2} - x - 12\), \(c < 0\) and \(b < 0\). The opposite-sign pair is \(-4\) and \(3\), so \(x^{2} - x - 12 = (x - 4)(x + 3)\).</p>
       </div>
 
       <div class="example-box">
         <div class="example-title">Example 2: Factoring a Trinomial</div>
-        <p>Factor \(x^2 + 7x + 12\).</p>
-        <p>We need two numbers that multiply to 12 and add to 7: 3 and 4.</p>
-        <p>\(x^2 + 7x + 12 = (x + 3)(x + 4)\)</p>
-        <p><strong>Motivation:</strong> This allows us to solve \(x^2 + 7x + 12 = 0\) by 
-        setting each factor to zero: \(x = -3\) or \(x = -4\).</p>
+        <p>Factor \(x^{2} + 7x + 12\).</p>
+        <p>We need two numbers that multiply to \(12\) and add to \(7\). Try the factor pairs of 12: \(1 + 12 = 13\), \(2 + 6 = 8\), and \(3 + 4 = 7\).</p>
+        <p>So \(x^{2} + 7x + 12 = (x + 3)(x + 4)\).</p>
+        <p>Check by expanding: \((x + 3)(x + 4) = x^{2} + 4x + 3x + 12 = x^{2} + 7x + 12\).</p>
+        <p><strong>Zero-Product Property:</strong> If \(ab = 0\), then \(a = 0\) or \(b = 0\).</p>
+        <p>To solve \(x^{2} + 7x + 12 = 0\), write \((x + 3)(x + 4) = 0\), so \(x + 3 = 0\) or \(x + 4 = 0\). This gives \(x = -3\) or \(x = -4\).</p>
       </div>
 
       <h2>3.3 Factoring Quadratic Expressions</h2>
       <p>
-        Quadratic expressions of the form \(ax^2 + bx + c\) can be factored when we can find 
-        two numbers that multiply to \(ac\) and add to \(b\).
+        A quadratic expression has the form \(ax^{2} + bx + c\). When \(a \neq 1\), find two numbers that multiply to \(ac\) and add to \(b\), split the middle term using those numbers, and then factor by grouping.
       </p>
-      <p><strong>Real-World Application:</strong> Projectile motion follows a parabolic path 
-      described by a quadratic equation. Factoring helps us find when the projectile hits the ground.</p>
+      <p><strong>Why Splitting the Middle Term Works:</strong> If \(m + n = b\), then \(mx + nx = (m + n)x = bx\). Splitting \(bx\) into \(mx + nx\) only rewrites the middle term; it does not change the value of the expression, but it makes grouping possible.</p>
+      <p><strong>Real-World Application:</strong> The height of a thrown ball can be described by a quadratic expression. Factoring helps us find when the height is zero, which tells us when the ball reaches the ground.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">AC Method for Factoring</div>
-        <p>To factor \(ax^2 + bx + c\) where \(a \neq 1\):</p>
+        <p>To factor \(ax^{2} + bx + c\) where \(a \neq 1\):</p>
         <ol>
-          <li>Find two numbers that multiply to \(ac\) and add to \(b\)</li>
-          <li>Split the middle term using these numbers</li>
-          <li>Factor by grouping</li>
+          <li>Multiply \(a \times c\), then find two numbers with product \(ac\) and sum \(b\). Use the sign rules from 3.2.</li>
+          <li>Split the middle term \(bx\) using those two numbers.</li>
+          <li>Factor by grouping, then check by expanding.</li>
         </ol>
       </div>
 
-      <h2>3.4 Math Lab: Factoring with Algebra Tiles</h2>
+      <div class="example-box">
+        <div class="example-title">Example: Factoring by Grouping</div>
+        <p>Factor \(x^{3} + 3x^{2} + 2x + 6\).</p>
+        <p>Group the terms in pairs: \((x^{3} + 3x^{2}) + (2x + 6)\).</p>
+        <p>Factor each pair: \(x^{2}(x + 3) + 2(x + 3)\).</p>
+        <p>Both parts contain \(x + 3\), so the result is \((x + 3)(x^{2} + 2)\).</p>
+        <p>Check: \(x(x^{2} + 2) = x^{3} + 2x\) and \(3(x^{2} + 2) = 3x^{2} + 6\), which add back to the original.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Full AC Method</div>
+        <p>Factor \(2x^{2} + 7x + 3\).</p>
+        <p>Here \(a = 2\), \(b = 7\), and \(c = 3\), so \(ac = 6\). We need numbers that multiply to 6 and add to 7: 6 and 1.</p>
+        <p>Split the middle term: \(2x^{2} + 6x + x + 3\).</p>
+        <p>Group: \((2x^{2} + 6x) + (x + 3) = 2x(x + 3) + 1(x + 3)\).</p>
+        <p>Take the common factor \(x + 3\): \((x + 3)(2x + 1)\).</p>
+        <p>Check by expanding: \((x + 3)(2x + 1) = 2x^{2} + 7x + 3\).</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: AC Method with a Negative Constant</div>
+        <p>Factor \(3x^{2} - 7x - 6\).</p>
+        <p>Here \(a = 3\), \(b = -7\), and \(c = -6\), so \(ac = -18\).</p>
+        <p>We need numbers with product \(-18\) and sum \(-7\). Since the product is negative, the signs are opposite.</p>
+        <p>Try \(-9\) and \(2\): \((-9)(2) = -18\) and \(-9 + 2 = -7\).</p>
+        <p>Split the middle term: \(3x^{2} - 9x + 2x - 6\).</p>
+        <p>Group: \((3x^{2} - 9x) + (2x - 6) = 3x(x - 3) + 2(x - 3)\).</p>
+        <p>Take the common factor \(x - 3\): \((x - 3)(3x + 2)\).</p>
+        <p>Check by expanding: \((x - 3)(3x + 2) = 3x^{2} + 2x - 9x - 6 = 3x^{2} - 7x - 6\).</p>
+      </div>
+
+      <h2>3.4 Visualizing Factoring with an Area Model</h2>
       <p>
-        Algebra tiles provide a visual way to understand factoring. Each tile represents a 
-        different term, and arranging them helps us see the factors.
+        Algebra tiles give a picture of factoring. A large square represents \(x^{2}\), a rectangle represents \(x\), and a small square represents 1. If all the tiles can be arranged into a rectangle, the side lengths of that rectangle are the factors.
       </p>
-      <p><strong>Connection to Geometry:</strong> The area model connects factoring to 
-      finding the area of rectangles. If we can arrange tiles into a rectangle, the dimensions 
-      give us the factors.</p>
+      <p><strong>Concrete Steps:</strong></p>
+      <ol>
+        <li>Place the \(x^{2}\) tile in the upper-left corner. Its sides are \(x\) by \(x\), so it sets the starting width and height.</li>
+        <li>Attach \(x\) tiles along the right side and along the bottom of the \(x^{2}\) tile. These make strips of width \(x\).</li>
+        <li>Fill the remaining corner with unit tiles. That corner has area equal to the constant term.</li>
+        <li>Read the total width and height along the outside edges. These two lengths are the factors.</li>
+      </ol>
+      <p><strong>Connection to Geometry:</strong> The area of a rectangle is length \(\times\) width. For \(x^{2} + 5x + 6\), one \(x^{2}\) tile, five \(x\) tiles, and six unit tiles form a rectangle.</p>
+      <p>The sides are \(x + 2\) and \(x + 3\), which matches the algebra: \((x + 2)(x + 3) = x^{2} + 5x + 6\).</p>
+
+      <div class="example-box">
+        <div class="example-title">Example: Building \(x^{2} + 7x + 12\)</div>
+        <p>We need one \(x^{2}\) tile, seven \(x\) tiles, and twelve unit tiles.</p>
+        <p>Put the \(x^{2}\) tile first. Split the seven \(x\) tiles into three along one side and four along the other, since \(3 + 4 = 7\).</p>
+        <p>The corner is then \(3 \times 4 = 12\) unit tiles, exactly the constant term.</p>
+        <p>The rectangle has sides \(x + 3\) and \(x + 4\), so \(x^{2} + 7x + 12 = (x + 3)(x + 4)\).</p>
+        <p>Check: \((x + 3)(x + 4) = x^{2} + 4x + 3x + 12 = x^{2} + 7x + 12\).</p>
+      </div>
 
       <h2>3.5 Powers and Products in Factoring</h2>
       <p>
-        When factoring expressions with powers, we use the same principles but must be careful 
-        with exponents.
+        Powers are repeated multiplication, so \(x^{3} = x \times x \times x\). When factoring, take out the smallest power of each variable that appears in every term.
       </p>
+      <p><strong>Key Idea:</strong> For powers of the same variable, the GCF is the smallest power appearing in every term. For \(x^{4}\), \(x^{2}\), and \(x^{3}\), the GCF is \(x^{2}\), since \(x^{2}\) divides all three and no higher power does.</p>
       <p><strong>Key Rules:</strong></p>
       <ul>
-        <li>\(a^m \times a^n = a^{m+n}\)</li>
-        <li>\(a^m \div a^n = a^{m-n}\)</li>
-        <li>\((a^m)^n = a^{mn}\)</li>
+        <li>\(a^{m} \times a^{n} = a^{m+n}\), because \(m\) factors and \(n\) factors are combined.</li>
+        <li>\(a^{m} \div a^{n} = a^{m-n}\) for \(m > n\), because common factors cancel.</li>
+        <li>\((a^{m})^{n} = a^{mn}\), because there are \(n\) groups of \(m\) factors.</li>
       </ul>
 
       <div class="example-box">
         <div class="example-title">Example 3: Factoring with Powers</div>
-        <p>Factor \(2x^3 + 4x^2 - 6x\).</p>
-        <p>Common factor: \(2x(x^2 + 2x - 3)\)</p>
-        <p>Factor the quadratic: \(2x(x + 3)(x - 1)\)</p>
-        <p><strong>Motivation:</strong> This helps us understand the behavior of polynomial functions 
-        and find their zeros.</p>
+        <p>Factor \(2x^{3} + 4x^{2} - 6x\).</p>
+        <p>The coefficients 2, 4, and 6 all share 2, and every term contains at least one \(x\). The common factor is \(2x\).</p>
+        <p>Divide each term by \(2x\): \(2x(x^{2} + 2x - 3)\).</p>
+        <p>Factor the quadratic inside: \(2x(x + 3)(x - 1)\).</p>
+        <p>Check by expanding: \(2x(x^{2} + 2x - 3) = 2x^{3} + 4x^{2} - 6x\).</p>
+        <p><strong>Why This Helps:</strong> In \(2x(x + 3)(x - 1) = 0\), the zero-product property gives \(x = 0\), \(x = -3\), or \(x = 1\).</p>
       </div>
 
       <h2>3.6 Factoring with Rational Coefficients</h2>
       <p>
-        When coefficients are fractions, we can multiply by the LCD to make factoring easier, 
-        then divide by the LCD at the end.
+        When coefficients are fractions, factor out a common fraction, or multiply by the lowest common denominator (LCD) to work with whole numbers. For an expression, keep the common fraction outside; for an equation, multiply both sides by the LCD.
       </p>
-      <p><strong>Why This Technique Works:</strong> Multiplying by a constant doesn't change 
-      the roots of the equation, but it makes the arithmetic simpler.</p>
+      <p><strong>Why This Technique Works:</strong> Multiplying both sides of an equation by a nonzero number does not change its solutions, and it makes the arithmetic simpler. Always check by expanding or by substituting back into the original equation.</p>
+
+      <div class="example-box">
+        <div class="example-title">Example: Factoring Fractional Coefficients</div>
+        <p>Factor \(\frac{1}{2}x^{2} + \frac{3}{2}x + 1\).</p>
+        <p>Write \(1\) as \(\frac{2}{2}\) and take out the common factor \(\frac{1}{2}\): \(\frac{1}{2}(x^{2} + 3x + 2)\).</p>
+        <p>The trinomial factors as \((x + 1)(x + 2)\), so the result is \(\frac{1}{2}(x + 1)(x + 2)\).</p>
+        <p>Check: \(\frac{1}{2}(x^{2} + 3x + 2) = \frac{1}{2}x^{2} + \frac{3}{2}x + 1\).</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Clearing Denominators in an Equation</div>
+        <p>Solve \(\frac{1}{2}x^{2} + \frac{3}{2}x + 1 = 0\).</p>
+        <p>Multiply both sides by the LCD, 2: \(x^{2} + 3x + 2 = 0\).</p>
+        <p>Factor: \((x + 1)(x + 2) = 0\).</p>
+        <p>By the zero-product property, \(x + 1 = 0\) or \(x + 2 = 0\).</p>
+        <p>So \(x = -1\) or \(x = -2\). Both values check in the original equation.</p>
+      </div>
 
       <h2>3.7 Factoring Special Cases</h2>
       <p>
-        Some special cases make factoring easier:
+        Some expressions follow patterns that let you factor them quickly. Look for a difference of squares first, then check for a perfect square trinomial.
       </p>
       <ul>
-        <li><strong>Perfect Square Trinomials:</strong> \(a^2 + 2ab + b^2 = (a + b)^2\)</li>
-        <li><strong>Difference of Squares:</strong> \(a^2 - b^2 = (a - b)(a + b)\)</li>
-        <li><strong>Sum of Squares:</strong> Does not factor over real numbers</li>
+        <li><strong>Perfect Square Trinomials:</strong> \(a^{2} + 2ab + b^{2} = (a + b)^{2}\). The middle term is twice the product of the two square roots.</li>
+        <li><strong>Difference of Squares:</strong> \(a^{2} - b^{2} = (a - b)(a + b)\). There must be a subtraction sign.</li>
+        <li><strong>Sum of Squares:</strong> \(a^{2} + b^{2}\) cannot be factored into simpler binomials using real numbers, so leave it as it is.</li>
       </ul>
 
       <div class="example-box">
         <div class="example-title">Example 4: Perfect Square Trinomial</div>
-        <p>Factor \(9x^2 + 24x + 16\).</p>
-        <p>Notice: \(9x^2 = (3x)^2\), \(16 = 4^2\), and \(24x = 2(3x)(4)\)</p>
-        <p>\(9x^2 + 24x + 16 = (3x + 4)^2\)</p>
-        <p><strong>Motivation:</strong> This pattern appears in completing the square, a key 
-        technique for solving quadratic equations and finding vertex form.</p>
+        <p>Factor \(9x^{2} + 24x + 16\).</p>
+        <p>Notice \(9x^{2} = (3x)^{2}\), \(16 = 4^{2}\), and \(24x = 2(3x)(4)\).</p>
+        <p>So \(9x^{2} + 24x + 16 = (3x + 4)^{2}\).</p>
+        <p>Check: \((3x + 4)^{2} = 9x^{2} + 24x + 16\).</p>
+        <p><strong>Motivation:</strong> This pattern helps when rewriting a quadratic in vertex form, which reveals the vertex of its graph.</p>
       </div>
 
-      <div class="math-lab" id="factoring-sim">
-        <h3 class="math-lab__title">Polynomial Factoring Calculator</h3>
-        <p class="math-lab__description">
-          Factor quadratic expressions of the form ax² + bx + c.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Coefficient a:</span>
-            <input type="number" id="fa-input" class="math-lab__input" value="1" step="any">
-          </label>
-          <label>
-            <span>Coefficient b:</span>
-            <input type="number" id="fb-input" class="math-lab__input" value="5" step="any">
-          </label>
-          <label>
-            <span>Coefficient c:</span>
-            <input type="number" id="fc-input" class="math-lab__input" value="6" step="any">
-          </label>
-          <button id="fcalculate-btn" class="math-lab__button">Factor</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter coefficients to factor the quadratic expression.</p>
-        </div>
+      <div class="example-box">
+        <div class="example-title">Example 5: Difference of Squares</div>
+        <p>Factor \(x^{2} - 9\).</p>
+        <p>Write each term as a square: \(x^{2} = (x)^{2}\) and \(9 = 3^{2}\).</p>
+        <p>There is a subtraction sign, so use \(a^{2} - b^{2} = (a - b)(a + b)\) with \(a = x\) and \(b = 3\).</p>
+        <p>Therefore \(x^{2} - 9 = (x - 3)(x + 3)\).</p>
+        <p>Check: \((x - 3)(x + 3) = x^{2} + 3x - 3x - 9 = x^{2} - 9\).</p>
+        <p><strong>Remember:</strong> A sum of squares such as \(x^{2} + 9\) does not factor into real binomials. The subtraction sign is essential.</p>
       </div>
 
-      <div class="math-lab" id="prime-factor-sim">
-        <h3 class="math-lab__title">Prime Factorization Visualizer</h3>
-        <p class="math-lab__description">
-          Find the prime factorization of any number and see all its factors.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Number:</span>
-            <input type="number" id="pfnum-input" class="math-lab__input" value="36" min="2" step="1">
-          </label>
-          <button id="pfcalculate-btn" class="math-lab__button">Factorize</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a number to see its prime factorization and all factors.</p>
-          <div id="pf-results" style="margin-top: 1rem;"></div>
-        </div>
+      <h2>3.8 Check Your Understanding</h2>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Try These</div>
+        <ol>
+          <li>Factor \(x^{2} + 9x + 20\).</li>
+          <li>Factor \(4x^{2} - 25\).</li>
+          <li>Solve \(x^{2} - 7x + 12 = 0\).</li>
+        </ol>
       </div>
 
-      <div class="math-lab" id="algebra-tiles-sim">
-        <h3 class="math-lab__title">Algebra Tiles Visualizer</h3>
-        <p class="math-lab__description">
-          Visualize factoring using the area model with algebra tiles.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Expression:</span>
-            <input type="text" id="tile-expr-input" class="math-lab__input" value="x^2 + 5x + 6" placeholder="e.g., x^2 + 5x + 6">
-          </label>
-          <button id="tile-calculate-btn" class="math-lab__button">Visualize</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a quadratic expression to see the algebra tiles representation.</p>
-          <canvas id="tile-canvas" width="300" height="200" style="width: 100%; height: 200px; border-radius: 0; margin-top: 1rem;"></canvas>
-          <div id="tile-results" style="margin-top: 1rem;"></div>
-        </div>
+      <div class="example-box">
+        <div class="example-title">Answers with Brief Work</div>
+        <p><strong>1.</strong> Numbers with product \(20\) and sum \(9\) are \(4\) and \(5\), so \(x^{2} + 9x + 20 = (x + 4)(x + 5)\).</p>
+        <p><strong>2.</strong> Since \(4x^{2} = (2x)^{2}\) and \(25 = 5^{2}\), this is a difference of squares: \(4x^{2} - 25 = (2x - 5)(2x + 5)\).</p>
+        <p><strong>3.</strong> Numbers with product \(12\) and sum \(-7\) are \(-3\) and \(-4\). Then \((x - 3)(x - 4) = 0\), so \(x = 3\) or \(x = 4\).</p>
       </div>
+
+      <h2>Bonus: A Difference of Cubes Pattern</h2>
+      <p>A useful pattern is \(a^{3} - b^{3} = (a - b)(a^{2} + ab + b^{2})\). For example, \(x^{3} - 8 = (x - 2)(x^{2} + 2x + 4)\), since \(8 = 2^{3}\).</p>
+      <p>To check, expand: \(x(x^{2} + 2x + 4) = x^{3} + 2x^{2} + 4x\) and \(-2(x^{2} + 2x + 4) = -2x^{2} - 4x - 8\). The middle terms cancel to give \(x^{3} - 8\).</p>
 
       <div class="navigation">
         <a href="mathematics-10.html">← Back to Course</a>

@@ -48,211 +48,297 @@
 
       <h2>5.1 Relations and Functions</h2>
       <p>
-        A relation is a set of ordered pairs. A function is a special type of relation where 
-        each input has exactly one output.
+        A relation is any set of ordered pairs \((x, y)\). The first number \(x\) is the
+        input, and the second number \(y\) is the output. A function is a relation where each
+        input has exactly one output.
       </p>
-      <p><strong>Why This Distinction Matters:</strong> Functions model real-world situations 
-      where one quantity depends on another. For example, the temperature at a given time is 
-      a function - at any specific time, there's only one temperature. But the relation between 
-      people and their birthdays is not a function - multiple people can share a birthday.</p>
-      
+      <p><strong>Key words:</strong> An <strong>ordered pair</strong> \((x,y)\) lists an input
+      first and its output second. The <strong>input</strong> is the value you choose, often
+      \(x\). The <strong>output</strong> is the value that results, often \(y\).</p>
+      <p><strong>Relation:</strong> any set of ordered pairs. For example,
+      \(\{(1,2),(2,3),(1,4)\}\) is a relation because it simply lists pairings.</p>
+      <p><strong>Function:</strong> a relation in which each input has exactly one output.
+      A <strong>mapping</strong> draws arrows from inputs to outputs; a function has only one
+      arrow leaving each input, though two inputs may point to the same output.</p>
+      <p><strong>Why This Distinction Matters:</strong> Functions model situations where one
+      quantity depends on another. The temperature at a given time is a function: at one
+      moment there is only one temperature. The relation between people and birthdays is not
+      a function, because several people can share a birthday.</p>
+      <p><strong>One output, not one input:</strong> Two different inputs may share the same
+      output, so \((1, 4)\) and \((2, 4)\) can both belong to a function. What is not allowed
+      is one input paired with two different outputs.</p>
+
       <div class="theorem-box">
         <div class="theorem-title">Function Definition</div>
-        <p>A relation is a function if and only if each element in the domain corresponds 
-        to exactly one element in the range.</p>
-        <p><strong>Vertical Line Test:</strong> A graph represents a function if no vertical 
-        line intersects the graph more than once.</p>
+        <p>A relation is a function when every input is paired with exactly one output.</p>
+        <p><strong>Vertical Line Test:</strong> A graph is a function if no vertical line
+        touches it more than once.</p>
       </div>
+      <p><strong>Why the vertical line test works:</strong> A vertical line is all the points
+      with the same \(x\)-value, so it stands for one input. If the line crosses the graph
+      twice, that input has two outputs and the graph is not a function. If every vertical
+      line crosses at most once, each input has at most one output.</p>
+      <p><strong>Yes example:</strong> The graph of \(y=2x+1\) is a straight line. Any
+      vertical line \(x=k\) crosses it exactly once, so it passes the test and is a
+      function.</p>
+      <p><strong>No example:</strong> A circle such as \(x^2+y^2=25\) fails. The vertical
+      line \(x=0\) meets it at \((0,5)\) and \((0,-5)\), so one input gives two outputs and
+      the graph is not a function.</p>
+      <p><strong>Another yes example:</strong> A parabola \(y=x^2\) passes: each vertical
+      line touches it at most once. A horizontal line may touch it twice, and that is fine.</p>
 
       <div class="example-box">
         <div class="example-title">Example 1: Identifying Functions</div>
-        <p>Determine if the relation \(\{(1,2), (2,3), (3,4), (1,5)\}\) is a function.</p>
-        <p>Since input 1 corresponds to both 2 and 5, this is not a function.</p>
-        <p><strong>Motivation:</strong> This helps us understand which relationships can be 
-        modeled mathematically as functions.</p>
+        <p>Is \(\{(1,2), (2,3), (3,4), (1,5)\}\) a function?</p>
+        <p>Input \(1\) is paired with both \(2\) and \(5\), so this relation is not a function.</p>
+        <p><strong>Check:</strong> List the inputs: \(1, 2, 3, 1\). The repeated \(1\) is the
+        giveaway.</p>
       </div>
 
       <h2>5.2 Domain and Range of a Relation</h2>
       <p>
-        The domain is the set of all possible inputs. The range is the set of all possible outputs.
+        The domain is the set of all inputs, and the range is the set of all outputs. From
+        ordered pairs, the domain is the set of first coordinates and the range is the set of
+        second coordinates. List each value only once, even if it repeats.
       </p>
-      <p><strong>Real-World Connection:</strong> In a function modeling the height of a 
-      ball over time, the domain might be restricted to non-negative time values, and the range 
-      would be from the ground to the maximum height.</p>
+      <table>
+        <tr>
+          <th>Set</th>
+          <th>What it collects</th>
+          <th>From ordered pairs</th>
+        </tr>
+        <tr>
+          <td>Domain</td>
+          <td>All possible inputs</td>
+          <td>First coordinates, listed once each</td>
+        </tr>
+        <tr>
+          <td>Range</td>
+          <td>All resulting outputs</td>
+          <td>Second coordinates, listed once each</td>
+        </tr>
+      </table>
+      <p><strong>Real-World Connection:</strong> For the height of a ball over time, the
+      domain might start at time \(0\) and end when the ball lands. The range runs from the
+      ground up to the maximum height.</p>
+      <p><strong>From a table or mapping diagram:</strong> Read down the input column for the
+      domain and down the output column for the range. In a mapping diagram, the domain is
+      the left group of values and the range is the right group; arrows show which input
+      goes with which output. Two arrows may land on the same output.</p>
+      <p><strong>From a graph:</strong> Look at how far the graph stretches left to right for
+      the domain, and how far it stretches bottom to top for the range. Imagine squashing
+      the graph onto each axis: the shadow on the \(x\)-axis is the domain, and the shadow
+      on the \(y\)-axis is the range.</p>
+      <p><strong>Graph example:</strong> A curve runs from \(x=-3\) to \(x=4\) and from
+      \(y=-2\) up to \(y=5\). Its domain is \([-3,4]\) and its range is \([-2,5]\).</p>
+      <p><strong>Repeated domain values:</strong> If \((2,3)\) appears twice, list \(2\) only
+      once in the domain and \(3\) only once in the range. If \((2,3)\) and \((2,4)\) both
+      appear, the input \(2\) has two outputs, so the relation is not a function.</p>
+      <p><strong>Interval notation basics:</strong> \([a,b]\) includes \(a\) and \(b\);
+      \((a,b)\) leaves them out. The symbols \(\infty\) and \(-\infty\) always take
+      parentheses, never brackets, because they are not endpoints you can reach.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Finding Domain and Range</div>
-        <p><strong>From a table or set of points:</strong> List all x-values (domain) and 
-        y-values (range)</p>
-        <p><strong>From a graph:</strong> Project onto x-axis (domain) and y-axis (range)</p>
-        <p><strong>From an equation:</strong> Consider restrictions (division by zero, square 
-        roots of negative numbers, etc.)</p>
+        <p><strong>Ordered pairs:</strong> Domain = all \(x\)-values; range = all \(y\)-values.</p>
+        <p><strong>Graph:</strong> Read left-to-right extent for the domain and
+        bottom-to-top extent for the range.</p>
+        <p><strong>Equation:</strong> Check for division by zero and square roots of
+        negative numbers.</p>
       </div>
+      <p><strong>Quick example:</strong> For \(\{(1,5), (2,5), (3,7)\}\), the domain is
+      \(\{1, 2, 3\}\) and the range is \(\{5, 7\}\). The output \(5\) is listed once.</p>
 
       <h2>5.3 Representing Relations and Functions</h2>
       <p>
-        Relations and functions can be represented in multiple ways: tables, graphs, mapping 
-        diagrams, and equations.
+        Relations and functions can be shown in several ways: ordered pairs, tables, mapping
+        diagrams, graphs, and equations. All of them describe the same pairing of inputs
+        with outputs.
       </p>
-      <p><strong>Why Multiple Representations?</strong> Different representations reveal 
-      different properties. A table shows specific values, a graph shows trends, and an equation 
-      allows for precise calculations.</p>
+      <p><strong>Why Multiple Representations?</strong> Each view shows something different.
+      A table gives exact values, a graph shows the overall trend, and an equation lets you
+      calculate any value you need.</p>
+      <p><strong>Same relation, four views:</strong> For \(y = 2x + 1\), a table might list
+      \(x = 0, 1, 2\) with \(y = 1, 3, 5\). The ordered pairs are \((0,1), (1,3), (2,5)\).
+      A mapping diagram draws arrows \(0 \to 1\), \(1 \to 3\), and \(2 \to 5\). A graph plots
+      those points on a coordinate grid.</p>
+      <p><strong>Check your answer:</strong> Using \(y = 2x + 1\), what output belongs to
+      \(x = 3\)? Substituting gives \(y = 2(3) + 1 = 7\), so the point \((3, 7)\) belongs
+      on the graph.</p>
+      <p><strong>Function notation as a representation:</strong> \(f(x)\) is a name for the
+      output of the function \(f\) when the input is \(x\). It does not mean \(f\) times \(x\).
+      Read \(f(x)\) as "f of x".</p>
+      <p><strong>Worked evaluation:</strong> Let \(f(x)=3x-5\). Find \(f(-2)\).</p>
+      <p>Replace \(x\) with \(-2\): \(f(-2)=3(-2)-5=-6-5=-11\).</p>
+      <p><strong>Check:</strong> The point \((-2,-11)\) belongs to the graph of
+      \(y=3x-5\), and \(3(-2)-5=-11\).</p>
 
       <h2>5.4 Interpreting Graphs of Relations and Functions</h2>
       <p>
-        Graphs provide visual insight into the behavior of functions. We can identify:
+        A graph shows the whole story of a relation at a glance. From it we can identify:
       </p>
       <ul>
-        <li>Domain and range from the extent of the graph</li>
-        <li>Intercepts where the graph crosses axes</li>
-        <li>Increasing/decreasing intervals</li>
-        <li>Maximum and minimum values</li>
-        <li>Rate of change from steepness</li>
+        <li><strong>Domain and range:</strong> how far the graph extends left to right and
+        bottom to top</li>
+        <li><strong>Intercepts:</strong> where the graph crosses the \(x\)-axis or \(y\)-axis</li>
+        <li><strong>Increasing or decreasing:</strong> whether the graph rises or falls as
+        you move to the right</li>
+        <li><strong>Maximum and minimum:</strong> the highest and lowest points reached</li>
+        <li><strong>Rate of change:</strong> a steeper graph means the output changes faster
+        for each step in the input</li>
       </ul>
 
       <div class="example-box">
         <div class="example-title">Example 2: Analyzing a Graph</div>
-        <p>For a graph of a ball's height over time, we can see when it was thrown, when it 
-        hits the ground, and its maximum height.</p>
-        <p><strong>Motivation:</strong> This is used in physics to analyze motion, in economics 
-        to understand profit trends, and in biology to model population growth.</p>
+        <p>A graph of a ball's height versus time shows the starting height at \(t = 0\),
+        the highest point, and the time when the height returns to \(0\).</p>
+        <p><strong>Check:</strong> At the peak, the graph stops rising and starts falling,
+        so that point is the maximum height.</p>
       </div>
 
       <h2>5.5 Function Notation</h2>
       <p>
-        Function notation \(f(x)\) represents the output of function \(f\) when the input is \(x\).
+        The notation \(f(x)\) names the output of the function \(f\) for the input \(x\). Read
+        it as "\(f\) of \(x\)". It is another way to write \(y\), but it also tells you
+        which function you are using.
       </p>
-      <p><strong>Why Use Function Notation?</strong> It's more precise than \(y =\) notation. 
-      We can have multiple functions (f, g, h) and easily work with compositions. It also 
-      emphasizes that a function is a process that transforms inputs to outputs.</p>
+      <p><strong>Not multiplication:</strong> \(f(x)\) does not mean \(f\times x\). The
+      parentheses hold the input; they do not signal multiplication.</p>
+      <p><strong>Why Use Function Notation?</strong> It reminds us that a function is a
+      process: put an input in, get one output out. We can label different functions \(f\),
+      \(g\), or \(h\) and know which rule to apply.</p>
+      <p><strong>A process in three steps:</strong> Let \(f(x) = 2x + 3\). Find \(f(4)\).</p>
+      <p>Step 1: Replace \(x\) with \(4\): \(f(4) = 2(4) + 3\).</p>
+      <p>Step 2: Multiply: \(f(4) = 8 + 3\).</p>
+      <p>Step 3: Add: \(f(4) = 11\). The input \(4\) produces the output \(11\).</p>
+      <p><strong>Check your answer:</strong> The point \((4, 11)\) should satisfy \(y = 2x + 3\),
+      and indeed \(2(4) + 3 = 11\).</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Function Notation Examples</div>
-        <p>If \(f(x) = 2x + 3\), then \(f(5) = 13\) and \(f(-1) = 1\)</p>
-        <p>If \(g(x) = x^2 - 4\), then \(g(3) = 5\) and \(g(-3) = 5\)</p>
-        <p><strong>Note:</strong> Different inputs can give the same output - this is fine for 
-        functions, but not for inverses.</p>
+        <p>If \(f(x) = 2x + 3\), then \(f(5) = 13\) and \(f(-1) = 1\).</p>
+        <p>If \(g(x) = x^2 - 4\), then \(g(3) = 5\) and \(g(-3) = 5\).</p>
+        <p><strong>Note:</strong> Different inputs may give the same output; the relation is
+        still a function.</p>
       </div>
 
       <h2>5.6 Domain and Range of a Function</h2>
       <p>
-        For functions defined by equations, we must consider mathematical restrictions:
+        When a function is given by an equation, the domain includes every input that
+        produces a real number. Most Grade 10 restrictions come from two rules:
       </p>
       <ul>
-        <li>Denominator cannot be zero</li>
-        <li>Expression under a square root must be non-negative</li>
-        <li>Logarithm arguments must be positive</li>
+        <li><strong>Denominators:</strong> division by zero is undefined, so set the
+        denominator \(\neq 0\) and solve.</li>
+        <li><strong>Square roots:</strong> the number under a square root must be
+        \(\geq 0\), because the square of a real number is never negative.</li>
       </ul>
+      <p><strong>Average rate of change:</strong> For a function, this compares two points
+      and measures how much the output changes per one unit of input. It is
+      \(\frac{\text{change in output}}{\text{change in input}}=\frac{y_2-y_1}{x_2-x_1}\).</p>
+      <p><strong>Worked example:</strong> From \((1,3)\) to \((4,9)\), the average rate of
+      change is \(\frac{9-3}{4-1}=\frac{6}{3}=2\). On average, \(y\) rises \(2\) units for
+      each \(1\) unit increase in \(x\).</p>
+      <p><strong>Useful notation:</strong> \([a, b]\) includes both endpoints, \((a, b)\)
+      excludes them, and \(\infty\) means the values keep going without end.</p>
 
       <div class="example-box">
         <div class="example-title">Example 3: Finding Domain</div>
         <p>Find the domain of \(f(x) = \frac{1}{x-2} + \sqrt{x+3}\).</p>
-        <p>Need: \(x-2 \neq 0\) and \(x+3 \geq 0\)</p>
-        <p>So: \(x \neq 2\) and \(x \geq -3\)</p>
-        <p>Domain: \([-3, 2) \cup (2, \infty)\)</p>
-        <p><strong>Motivation:</strong> This ensures our function gives real, meaningful outputs.</p>
+        <p>Denominator: \(x - 2 \neq 0\), so \(x \neq 2\).</p>
+        <p>Square root: \(x + 3 \geq 0\), so \(x \geq -3\).</p>
+        <p>Domain: \([-3, 2) \cup (2, \infty)\).</p>
+        <p><strong>Check:</strong> \(x = -3\) works because \(\sqrt{0} = 0\), but \(x = 2\)
+        is excluded because it makes the denominator \(0\).</p>
       </div>
 
       <h2>5.7 Domain and Range of a Graph</h2>
       <p>
-        From a graph, we can read the domain and range by looking at the extent of the graph.
+        To read a graph's domain, find the smallest and largest \(x\)-values that appear.
+        To read its range, find the smallest and largest \(y\)-values. Arrows at the ends
+        of a curve mean the graph continues, so that end uses \(\infty\) or \(-\infty\).
       </p>
-      <p><strong>Application:</strong> In data analysis, we use graphs to understand the 
-      practical limits of our data. A graph of temperature over a day shows the actual range 
-      of temperatures recorded.</p>
+      <p><strong>Filled or open dots:</strong> A filled dot means the endpoint is included,
+      written with a square bracket in interval notation. An open dot means the endpoint is
+      left out, written with a parenthesis.</p>
+      <p><strong>Example:</strong> A curve starts at \((-2, -1)\) with a filled dot, ends at
+      \((4, 5)\) with a filled dot, and never goes higher than \(y = 5\) or lower than
+      \(y = -1\). Its domain is \([-2, 4]\) and its range is \([-1, 5]\).</p>
+      <p><strong>Check your answer:</strong> Does \(x = 5\) belong to the domain? No, the
+      graph stops at \(x = 4\).</p>
+      <p><strong>Common Mistakes and Considerations:</strong></p>
+      <ul>
+        <li>Mixing up input and output: the domain is the set of \(x\)-values, not the
+        \(y\)-values.</li>
+        <li>Repeating a domain value in a list: each input is written only once.</li>
+        <li>Thinking two inputs cannot share an output: \((1,4)\) and \((2,4)\) are fine
+        in a function.</li>
+        <li>Using brackets where a value is excluded: \((2,5)\) leaves out \(2\) and \(5\),
+        while \([2,5]\) includes them.</li>
+        <li>Writing \([\infty,4]\): infinity always uses a parenthesis, so \((-\infty,4]\)
+        is correct.</li>
+      </ul>
 
       <h2>5.8 Applying the Distance Formula</h2>
       <p>
-        The distance between two points \((x_1, y_1)\) and \((x_2, y_2)\) is:
+        On a coordinate grid, the distance between \((x_1, y_1)\) and \((x_2, y_2)\) is:
       </p>
-      <p>\(d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}\)</p>
-      <p><strong>Connection to Pythagorean Theorem:</strong> This formula comes from the 
-      Pythagorean theorem. The horizontal and vertical differences form the legs of a right 
-      triangle, and the distance is the hypotenuse.</p>
+      \[d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}\]
+      <p><strong>Connection to the Pythagorean theorem:</strong> Draw a right triangle with
+        the horizontal difference \(x_2 - x_1\) as one leg and the vertical difference
+        \(y_2 - y_1\) as the other. The distance between the points is the hypotenuse, so
+        \(d^2 = (\text{horizontal leg})^2 + (\text{vertical leg})^2\).</p>
+      <p><strong>Derivation:</strong> Place the two points on a grid and draw a right
+      triangle. The horizontal leg has length \(|x_2-x_1|\) and the vertical leg has length
+      \(|y_2-y_1|\). The distance \(d\) is the hypotenuse.</p>
+      \[d^2=(x_2-x_1)^2+(y_2-y_1)^2\]
+      <p>Taking the nonnegative square root gives the distance formula.</p>
 
       <div class="example-box">
-        <div class="example-title">Example 4: Distance Between Cities</div>
-        <p>Find the distance between Vancouver (49.3°N, 123.1°W) and Seattle (47.6°N, 122.3°W).</p>
-        <p>Using the distance formula (scaled appropriately): approximately 115 km</p>
-        <p><strong>Motivation:</strong> This is used in navigation, geography, and computer 
-        graphics for calculating distances.</p>
+        <div class="example-title">Example 4: Distance on a Coordinate Grid</div>
+        <p>Find the distance between \(A(1, 2)\) and \(B(4, 6)\).</p>
+        <p>Horizontal change: \(4 - 1 = 3\). Vertical change: \(6 - 2 = 4\).</p>
+        <p>\(d = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5\).</p>
+        <p><strong>Pythagorean check:</strong> \(3^2 + 4^2 = 9 + 16 = 25 = 5^2\).</p>
       </div>
 
-      <div class="math-lab" id="function-evaluator">
-        <h3 class="math-lab__title">Function Evaluator</h3>
-        <p class="math-lab__description">
-          Enter a function and evaluate it at different x-values.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Function f(x) =</span>
-            <input type="text" id="func-expr" class="math-lab__input" value="2*x + 3" placeholder="e.g., 2*x + 3 or x^2 - 4">
-          </label>
-          <label>
-            <span>x-value:</span>
-            <input type="number" id="func-x" class="math-lab__input" value="5" step="any">
-          </label>
-          <button id="func-calculate-btn" class="math-lab__button">Evaluate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a function and x-value to see the result.</p>
-          <div id="func-results" style="margin-top: 1rem;"></div>
-        </div>
+      <div class="example-box">
+        <div class="example-title">Example 5: Distance with Negative Coordinates</div>
+        <p>Find the distance between \(A(-2,1)\) and \(B(4,9)\).</p>
+        <p>Horizontal change: \(4-(-2)=6\). Vertical change: \(9-1=8\).</p>
+        <p>\(d=\sqrt{6^2+8^2}=\sqrt{36+64}=\sqrt{100}=10\).</p>
+        <p><strong>Check:</strong> \(6^2+8^2=36+64=100=10^2\), so the distance is
+        \(10\) units.</p>
       </div>
 
-      <div class="math-lab" id="domain-range-sim">
-        <h3 class="math-lab__title">Domain and Range Analyzer</h3>
-        <p class="math-lab__description">
-          Analyze the domain and range of a function.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Function:</span>
-            <input type="text" id="dr-func" class="math-lab__input" value="1/(x-2) + sqrt(x+3)" placeholder="e.g., 1/(x-2) + sqrt(x+3)">
-          </label>
-          <button id="dr-calculate-btn" class="math-lab__button">Analyze</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a function to see its domain and range restrictions.</p>
-          <div id="dr-results" style="margin-top: 1rem;"></div>
-        </div>
+      <h2>5.9 Check Your Understanding</h2>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Try These</div>
+        <ol>
+          <li>Is \(\{(1,2),(2,3),(1,4)\}\) a function? Explain.</li>
+          <li>Find the domain and range of \(\{(0,5),(2,5),(3,7)\}\).</li>
+          <li>If \(f(x)=2x-1\), find \(f(3)\).</li>
+        </ol>
       </div>
 
-      <div class="math-lab" id="vertical-line-test">
-        <h3 class="math-lab__title">Vertical Line Test Visualizer</h3>
-        <p class="math-lab__description">
-          Test if a relation is a function using the vertical line test. Works for 2D (y = f(x)) and 3D (z = f(x,y)) functions.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Relation Type:</span>
-            <select id="vlt-type" class="math-lab__input">
-              <option value="2d">2D Function (y = f(x))</option>
-              <option value="3d">3D Function (z = f(x,y))</option>
-            </select>
-          </label>
-          <label>
-            <span>Relation:</span>
-            <input type="text" id="vlt-relation" class="math-lab__input" value="x^2" placeholder="e.g., x^2, sqrt(x), or x*y">
-          </label>
-          <label>
-            <span>X range (for 2D):</span>
-            <input type="number" id="vlt-xmin" class="math-lab__input" value="-5" step="any"> to
-            <input type="number" id="vlt-xmax" class="math-lab__input" value="5" step="any">
-          </label>
-          <label>
-            <span>Y range (for 3D):</span>
-            <input type="number" id="vlt-ymin" class="math-lab__input" value="-5" step="any"> to
-            <input type="number" id="vlt-ymax" class="math-lab__input" value="5" step="any">
-          </label>
-          <button id="vlt-calculate-btn" class="math-lab__button">Test</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a relation to see if it passes the vertical line test.</p>
-          <canvas id="vlt-canvas" width="400" height="300" style="width: 100%; height: 300px; border-radius: 0; margin-top: 1rem; background: var(--off-white);"></canvas>
-          <div id="vlt-results" style="margin-top: 1rem;"></div>
-        </div>
+      <div class="example-box">
+        <div class="example-title">Answers with Brief Work</div>
+        <p><strong>1.</strong> No. Input \(1\) has two outputs, \(2\) and \(4\), so the
+        relation fails the definition of a function.</p>
+        <p><strong>2.</strong> Domain \(\{0,2,3\}\); range \(\{5,7\}\). The output \(5\)
+        is listed once.</p>
+        <p><strong>3.</strong> \(f(3)=2(3)-1=6-1=5\).</p>
       </div>
+
+      <h2>Bonus: Same Output, Different Inputs</h2>
+      <p>A function never gives one input two outputs, but two different inputs may share an
+      output. For \(g(x) = x^2\), both \(g(3) = 9\) and \(g(-3) = 9\), so two arrows in the
+      mapping diagram land on \(9\) and the relation is still a function.</p>
+      <p>A vertical line still meets the graph of \(y = x^2\) only once for each input, even
+      though a horizontal line might meet it twice. Check yourself: does
+      \(\{(1,4), (2,4), (3,5)\}\) pass the vertical line test? Yes, because no input
+      repeats.</p>
 
       <div class="navigation">
         <a href="mathematics-10.html">← Back to Course</a>

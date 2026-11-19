@@ -48,220 +48,333 @@
 
       <h2>2.1 The Tangent Ratio</h2>
       <p>
-        In a right triangle, the tangent ratio relates the opposite side to the adjacent side. 
-        The tangent function is one of the three primary trigonometric ratios.
+        Trigonometry connects angles to side lengths. We start with a <strong>right
+        triangle</strong>, a triangle with one \(90^\circ\) angle. The two sides that meet at
+        that angle are the <strong>legs</strong>. The side across from the \(90^\circ\) angle
+        is the <strong>hypotenuse</strong>, and it is always the longest side.
       </p>
-      <p><strong>Why Trigonometry Matters:</strong> Trigonometry is the study of relationships 
-      between angles and sides in triangles. It's used in navigation, engineering, physics, 
-      computer graphics, and many other fields. The ancient Greeks used it to measure the Earth's 
-      circumference and distances to stars.</p>
-      
+      <p>
+        Side names depend on the angle you choose. An <strong>acute angle</strong> is an angle
+        between \(0^\circ\) and \(90^\circ\). For an acute angle \(\theta\), the
+        <strong>opposite</strong> side is the leg across from \(\theta\), and the
+        <strong>adjacent</strong> side is the leg beside \(\theta\) that is not the hypotenuse.
+        Choose a different angle and the opposite and adjacent labels switch.
+      </p>
+      <p>
+        Set your calculator to <strong>degree mode</strong> before using the trig keys, since
+        the angles here are measured in degrees. A quick check is that \(\tan 45^\circ=1\);
+        if your calculator shows something else, change its angle mode.
+      </p>
+      <p>
+        The ratios work because of <strong>similar triangles</strong>: if two right triangles
+        share the same acute angle \(\theta\), they have the same shape, so
+        \(\frac{\text{opposite}}{\text{adjacent}}\) has the same value in both, no matter how
+        large the triangles are. That fixed value is called \(\tan \theta\).
+      </p>
+      <p><strong>Why Trigonometry Matters:</strong> Surveyors, architects, pilots, and game
+      designers use these ratios to find heights and distances that cannot be measured directly.</p>
+
       <div class="theorem-box">
         <div class="theorem-title">Tangent Ratio Definition</div>
-        <p>
-          For angle \(\theta\) in a right triangle:
-        </p>
-        <p>\(\tan \theta = \frac{\text{opposite}}{\text{adjacent}}\)</p>
-        <p><strong>Memory tip:</strong> "TOA" from SOH-CAH-TOA - Tangent is Opposite over Adjacent</p>
+        <p>For an acute angle \(\theta\) in a right triangle:</p>
+        <p>\(\tan \theta=\frac{\text{opposite}}{\text{adjacent}}\)</p>
+        <p><strong>Memory tip:</strong> "TOA" in SOH-CAH-TOA means Tangent = Opposite over Adjacent.</p>
       </div>
 
       <div class="example-box">
         <div class="example-title">Example 1: Finding Height of a Tree</div>
-        <p>A surveyor stands 20 meters from a tree and measures the angle to the top as 35°. 
-        How tall is the tree?</p>
-        <p>Using \(\tan 35° = \frac{\text{height}}{20}\), we get height = \(20 \times \tan 35° \approx 14\) meters</p>
-        <p><strong>Motivation:</strong> This technique is used by surveyors, foresters, and arborists 
-        to measure heights of trees, buildings, and mountains without climbing them.</p>
+        <p>A surveyor stands \(20\text{ m}\) from a tree and measures an angle of elevation of
+        \(35^\circ\) to the top. How tall is the tree?</p>
+        <ol>
+          <li><strong>Choose the angle.</strong> Use the \(35^\circ\) angle at the surveyor.</li>
+          <li><strong>Label the sides.</strong> The height \(h\) is opposite \(35^\circ\) and the
+          \(20\text{ m}\) baseline is adjacent. The ground and the tree form a right angle.</li>
+          <li><strong>Write the ratio.</strong> Opposite and adjacent call for tangent:
+          \(\tan\theta=\frac{\text{opposite}}{\text{adjacent}}\), so
+          \(\tan 35^\circ=\frac{h}{20}\).</li>
+          <li><strong>Substitute.</strong> In degree mode, \(\tan 35^\circ\approx 0.700\), so
+          \(0.700\approx\frac{h}{20}\).</li>
+          <li><strong>Solve.</strong> Multiply both sides by \(20\):
+          \(h=20\times \tan 35^\circ\approx 14\text{ m}\).</li>
+          <li><strong>Check reasonableness.</strong> Because \(\tan 35^\circ\) is less than
+          \(1\), the tree should be shorter than the \(20\text{ m}\) baseline; \(14\text{ m}\) is.</li>
+        </ol>
+        <p><strong>Motivation:</strong> This lets foresters and arborists measure trees without climbing them.</p>
       </div>
 
       <h2>2.2 Using the Tangent Ratio to Calculate Lengths</h2>
       <p>
-        To find a missing length using tangent, follow these steps:
+        Use this routine whenever a problem gives you an angle and one side of a right triangle.
+        The words <strong>opposite</strong> and <strong>adjacent</strong> always refer to the angle
+        you are using, not to the triangle as a whole. The hypotenuse is always the longest side,
+        across from the \(90^\circ\) angle.
       </p>
       <ol>
-        <li>Draw and label the right triangle, identifying the given angle and known side</li>
-        <li>Identify which side you need to find (opposite or adjacent)</li>
-        <li>Use the tangent ratio to set up an equation: \(\tan \theta = \frac{\text{known}}{\text{unknown}}\)</li>
-        <li>Solve for the unknown length</li>
+        <li>Draw the triangle and mark the given angle \(\theta\)</li>
+        <li>Label the hypotenuse, then label the opposite and adjacent legs relative to \(\theta\)</li>
+        <li>Pick the ratio that uses the side you know and the side you want: \(\tan \theta=\frac{\text{opp}}{\text{adj}}\)</li>
+        <li>Substitute the numbers, solve for the unknown, and include the units</li>
       </ol>
-      <p><strong>Real-World Applications:</strong> Trigonometry is used in construction to ensure 
-      structures are square, in navigation to find distances, and in sports to calculate trajectories.</p>
-
-      <h2>2.3 Math Lab: Measuring an Inaccessible Height</h2>
+      <p><strong>Example check:</strong> If the adjacent leg is \(12\text{ m}\) and \(\theta=25^\circ\),
+      then \(\tan 25^\circ=\frac{x}{12}\), so \(x=12\times \tan 25^\circ\approx 5.6\text{ m}\).</p>
       <p>
-        Trigonometry allows us to measure heights and distances that are difficult to measure directly. 
-        The key is to create a right triangle where one dimension is accessible.
+        If the opposite leg is known instead, the unknown adjacent leg ends up in the
+        denominator. From \(\tan\theta=\frac{\text{opp}}{\text{adj}}\), multiply by the
+        adjacent leg and then divide: \(\text{adj}=\frac{\text{opp}}{\tan\theta}\).
+      </p>
+
+      <div class="example-box">
+        <div class="example-title">Worked Example: Finding the Run of a Ramp</div>
+        <p>A ramp rises \(2\text{ m}\) at an angle of \(15^\circ\) to the ground. How far does
+        the ramp run along the ground?</p>
+        <ol>
+          <li><strong>Choose the angle.</strong> Use the \(15^\circ\) angle where the ramp
+          meets the ground.</li>
+          <li><strong>Label the sides.</strong> The \(2\text{ m}\) rise is opposite the
+          \(15^\circ\) angle and the horizontal run \(r\) is adjacent.</li>
+          <li><strong>Write the ratio.</strong> \(\tan 15^\circ=\frac{2}{r}\).</li>
+          <li><strong>Solve.</strong> Multiply by \(r\), then divide by \(\tan 15^\circ\):
+          \(r=\frac{2}{\tan 15^\circ}\approx 7.5\text{ m}\).</li>
+          <li><strong>Check reasonableness.</strong> A \(15^\circ\) ramp is shallow, so the run
+          should be much longer than the \(2\text{ m}\) rise; \(7.5\text{ m}\) makes sense.</li>
+        </ol>
+        <p><strong>Key idea:</strong> When the wanted side is adjacent, divide the known
+        opposite side by the tangent of the angle.</p>
+      </div>
+
+      <p><strong>Real-World Applications:</strong> Trigonometry is used in construction to check
+      that structures are square, in navigation to find distances, and in sports to study trajectories.</p>
+
+      <h2>2.3 Angles of Elevation and Depression</h2>
+      <p>
+        When you look <strong>up</strong> from a horizontal line, the angle you turn through is the
+        <strong>angle of elevation</strong>. When you look <strong>down</strong>, it is the
+        <strong>angle of depression</strong>. Both are measured from a horizontal line, not from
+        the vertical or from the sloping ground.
+      </p>
+      <p>
+        To measure an inaccessible height, make a right triangle with one side that you can
+        actually measure. The angle is measured from eye level, so any rise you calculate also
+        starts at eye level.
       </p>
       <p><strong>Procedure:</strong></p>
       <ol>
-        <li>Measure a distance from the object (baseline)</li>
-        <li>Measure the angle of elevation to the top of the object</li>
-        <li>Use the tangent ratio to calculate the height</li>
+        <li>Measure a horizontal distance from the object (the baseline)</li>
+        <li>Measure the angle of elevation from eye level to the top of the object</li>
+        <li>Calculate the rise with \(\text{rise}=d\tan \theta\), where \(d\) is the baseline</li>
+        <li>Add your eye height if the height you want is measured from the ground</li>
       </ol>
-      <p><strong>Accuracy Considerations:</strong> The angle measurement is the biggest source of error. 
-      A small error in angle can lead to large errors in calculated height. Using a longer baseline 
-      improves accuracy.</p>
+
+      <div class="example-box">
+        <div class="example-title">Worked Example: Height of a Flagpole</div>
+        <p>An observer stands \(12\text{ m}\) from a flagpole and measures an angle of
+        elevation of \(40^\circ\) to the top. The observer's eye is \(1.6\text{ m}\) above the
+        ground. How tall is the flagpole?</p>
+        <ol>
+          <li><strong>Choose the angle and label sides.</strong> Relative to \(40^\circ\), the
+          rise from eye level to the top is opposite and the \(12\text{ m}\) baseline is adjacent.</li>
+          <li><strong>Write the ratio.</strong> \(\tan 40^\circ=\frac{\text{rise}}{12}\).</li>
+          <li><strong>Solve for the rise.</strong>
+          \(\text{rise}=12\tan 40^\circ\approx 10.1\text{ m}\).</li>
+          <li><strong>Add the eye height.</strong>
+          \(\text{height}\approx 10.1+1.6=11.7\text{ m}\).</li>
+          <li><strong>Check reasonableness.</strong> Since \(\tan 40^\circ\) is less than \(1\),
+          the rise is less than the \(12\text{ m}\) baseline, and the total is close to, but
+          a little less than, \(12\text{ m}\).</li>
+        </ol>
+        <p><strong>Why add eye height?</strong> The \(10.1\text{ m}\) rise starts at the eye,
+        not at the ground. The pole extends from the ground to the top, so we add the
+        \(1.6\text{ m}\) between the ground and the eye.</p>
+      </div>
+
+      <p>
+        An <strong>angle of depression</strong> uses the same idea. Looking down from a height,
+        the angle is measured from a horizontal line at the eye. The vertical drop from eye
+        level and the horizontal distance form the same kind of right triangle, so the drop is
+        \(d\tan\theta\) with that same angle. If the drop ends at ground or water level and
+        you want the height of the place you are standing, subtract your eye height from that
+        drop.
+      </p>
+      <p><strong>Accuracy Considerations:</strong> The angle measurement is the biggest source of
+      error. A small error in the angle can lead to a large error in the calculated height, so
+      measure carefully and use a longer baseline when you can.</p>
 
       <h2>2.4 The Sine and Cosine Ratios</h2>
       <p>
-        The sine ratio relates the opposite side to the hypotenuse. The cosine ratio relates 
-        the adjacent side to the hypotenuse.
+        Tangent is not enough when the hypotenuse is involved. The same similar-triangle idea
+        gives two more fixed ratios for an angle \(\theta\): sine compares the opposite leg with
+        the hypotenuse, and cosine compares the adjacent leg with the hypotenuse. Because all
+        right triangles with the same \(\theta\) are similar, these ratios do not change with the
+        size of the triangle.
       </p>
-      <p><strong>Connection to Real World:</strong> These ratios are essential for understanding 
-      waves, sound, light, and alternating current. The sine function describes the vertical 
-      displacement of a point on a spinning wheel.</p>
+      <p>
+        <strong>SOH-CAH-TOA applies only to right triangles.</strong> It also depends on which
+        angle you pick: opposite and adjacent are labels for that angle, so changing the angle
+        changes the labels.
+      </p>
+      <p><strong>Connection to Real World:</strong> Sine and cosine also describe waves and
+      rotating motion, such as the vertical position of a point on a spinning wheel.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">SOH-CAH-TOA</div>
-        <p>
-          \(\sin \theta = \frac{\text{Opposite}}{\text{Hypotenuse}}\)<br>
-          \(\cos \theta = \frac{\text{Adjacent}}{\text{Hypotenuse}}\)<br>
-          \(\tan \theta = \frac{\text{Opposite}}{\text{Adjacent}}\)
-        </p>
-        <p><strong>Memory tip:</strong> SOH (sine is opposite over hypotenuse), CAH (cosine is 
-        adjacent over hypotenuse), TOA (tangent is opposite over adjacent)</p>
+        <p>In a right triangle, for the acute angle \(\theta\):</p>
+        <p>\(\sin \theta=\frac{\text{Opposite}}{\text{Hypotenuse}}\)</p>
+        <p>\(\cos \theta=\frac{\text{Adjacent}}{\text{Hypotenuse}}\)</p>
+        <p>\(\tan \theta=\frac{\text{Opposite}}{\text{Adjacent}}\)</p>
+        <p><strong>Memory tip:</strong> SOH, CAH, TOA gives the order of the words in each fraction.</p>
+        <p><strong>Remember:</strong> These ratios need a \(90^\circ\) angle, and opposite and
+        adjacent are always named after the chosen angle.</p>
       </div>
 
       <h2>2.5 Using the Sine and Cosine Ratios to Calculate Lengths</h2>
       <p>
-        To find a missing length using sine or cosine:
+        Use the same four-step routine as before. The new decision is choosing between sine and
+        cosine: look at the leg you know or want and ask whether it is opposite or adjacent to the
+        given angle. The hypotenuse is the side across from the \(90^\circ\) angle.
       </p>
       <ol>
-        <li>Draw and label the right triangle</li>
-        <li>Identify the angle and the known side</li>
-        <li>Choose the appropriate ratio (sine or cosine) based on which sides are involved</li>
-        <li>Set up the equation and solve for the unknown</li>
+        <li>Draw the right triangle and label the hypotenuse, opposite, and adjacent sides relative to the given angle</li>
+        <li>Choose the ratio that links the known side and the unknown side</li>
+        <li>Substitute the angle and the known length into the ratio</li>
+        <li>Solve for the unknown and round to a sensible precision</li>
       </ol>
 
       <div class="example-box">
         <div class="example-title">Example 2: Finding the Hypotenuse</div>
-        <p>A right triangle has an angle of 40° and the adjacent side is 8 cm. Find the hypotenuse.</p>
-        <p>Using \(\cos 40° = \frac{8}{\text{hypotenuse}}\), we get hypotenuse = \(\frac{8}{\cos 40°} \approx 10.9\) cm</p>
-        <p><strong>Motivation:</strong> This is used in construction to find the length of rafters, 
-        and in navigation to find the direct distance between two points.</p>
+        <p>A right triangle has an angle of \(40^\circ\) and an adjacent leg of \(8\text{ cm}\). Find the hypotenuse.</p>
+        <p>The adjacent leg and the hypotenuse point to cosine: \(\cos 40^\circ=\frac{8}{h}\).</p>
+        <p>\(h=\frac{8}{\cos 40^\circ}\approx 10.4\text{ cm}\)</p>
+        <p><strong>Check reasonableness:</strong> The hypotenuse must be the longest side,
+        and \(10.4\text{ cm}\) is greater than \(8\text{ cm}\).</p>
+        <p><strong>Motivation:</strong> This finds rafter lengths in construction and direct distances in navigation.</p>
+      </div>
+
+      <div class="example-box">
+        <div class="example-title">Worked Example: Finding an Opposite Leg</div>
+        <p>A right triangle has a hypotenuse of \(10\text{ cm}\) and an angle of \(30^\circ\).
+        Find the leg opposite the \(30^\circ\) angle.</p>
+        <ol>
+          <li><strong>Choose the angle and label sides.</strong> The known side is the
+          hypotenuse and the wanted side is opposite \(30^\circ\).</li>
+          <li><strong>Write the ratio.</strong> Opposite and hypotenuse call for sine:
+          \(\sin 30^\circ=\frac{x}{10}\).</li>
+          <li><strong>Solve.</strong> Multiply by \(10\):
+          \(x=10\sin 30^\circ=5\text{ cm}\).</li>
+          <li><strong>Check reasonableness.</strong> The opposite leg must be shorter than the
+          hypotenuse, and \(5\text{ cm}\) is half of \(10\text{ cm}\).</li>
+        </ol>
+        <p><strong>Key idea:</strong> When the wanted side is on top of the fraction, multiply
+        the known side by the ratio.</p>
       </div>
 
       <h2>2.6 Applying the Trigonometric Ratios</h2>
       <p>
-        Trigonometry is used to measure inaccessible heights such as buildings, trees, and mountains. 
-        It's also used in navigation, surveying, and engineering.
+        In an application, first decide which angle and which sides the problem gives you. Then
+        use SOH-CAH-TOA to turn the geometry into one short equation. Angles of elevation and
+        depression are measured from horizontal lines, so a right triangle is usually hiding in
+        the diagram.
       </p>
+      <p><strong>Known / Wanted / Ratio Decision Guide:</strong></p>
+      <div class="theorem-box">
+        <div class="theorem-title">Known / Wanted / Ratio</div>
+        <p><strong>Known angle and adjacent; want opposite</strong> \(\to\) tangent, then
+        multiply: \(\tan\theta=\frac{\text{opp}}{\text{adj}}\).</p>
+        <p><strong>Known angle and opposite; want adjacent</strong> \(\to\) tangent, then
+        divide: \(\text{adj}=\frac{\text{opp}}{\tan\theta}\).</p>
+        <p><strong>Known angle and hypotenuse; want opposite</strong> \(\to\) sine:
+        \(\sin\theta=\frac{\text{opp}}{\text{hyp}}\).</p>
+        <p><strong>Known angle and hypotenuse; want adjacent</strong> \(\to\) cosine:
+        \(\cos\theta=\frac{\text{adj}}{\text{hyp}}\).</p>
+        <p><strong>Known angle and leg; want hypotenuse</strong> \(\to\) sine if the leg is
+        opposite, cosine if it is adjacent.</p>
+      </div>
+
       <p><strong>Common Applications:</strong></p>
       <ul>
-        <li>Height of buildings or trees (using angle of elevation)</li>
-        <li>Distance across rivers or lakes (using triangulation)</li>
-        <li>Angles of elevation and depression in architecture</li>
-        <li>Navigation and bearings in aviation and maritime</li>
-        <li>Calculating forces in physics (horizontal and vertical components)</li>
+        <li>Height of a building or tree from a measured baseline (angle of elevation)</li>
+        <li>Distance across a river using a baseline and an angle from each end (triangulation)</li>
+        <li>Drop from a cliff or aircraft (angle of depression)</li>
+        <li>Navigation using bearings measured clockwise from north</li>
+        <li>Splitting a force into horizontal and vertical components in physics</li>
+      </ul>
+
+      <p><strong>Common Mistakes:</strong></p>
+      <ul>
+        <li>Using SOH-CAH-TOA in a triangle with no \(90^\circ\) angle</li>
+        <li>Calling a side opposite or adjacent before choosing which angle to use</li>
+        <li>Treating the hypotenuse as the adjacent leg (the hypotenuse is never adjacent)</li>
+        <li>Forgetting degree mode before using a trig key on the calculator</li>
+        <li>Dividing by the wrong side when the adjacent leg is unknown: from
+        \(\tan\theta=\frac{\text{opp}}{\text{adj}}\), \(\text{adj}=\frac{\text{opp}}{\tan\theta}\)</li>
+        <li>Forgetting to account for eye height when the height is measured from the ground</li>
       </ul>
 
       <h2>2.7 Solving Problems Involving More than One Right Triangle</h2>
       <p>
-        Some problems require working with multiple right triangles. Break the problem into 
-        smaller triangles and apply trigonometric ratios to each one.
+        When a diagram has two right triangles, solve them one at a time instead of trying to
+        combine the angles. If both triangles share the same horizontal baseline and the same
+        observation point, compute each height separately and then subtract. The difference
+        between the two angles is not itself an angle in either triangle, so do not use it in a
+        ratio.
       </p>
-      <p><strong>Example:</strong> A person observes two buildings. The angle to the top of the first 
-      building is 30°, and the angle to the top of the second building (behind the first) is 45°. 
-      Use the difference in angles to find the height of the second building.</p>
-      
+      <p><strong>Example:</strong> An observer looks at the top of a shorter building at an angle
+      of elevation of \(30^\circ\) and at the top of a taller building behind it at \(45^\circ\).
+      Use the same baseline for both calculations, find each height, and then subtract to get the
+      height difference.</p>
+
       <div class="example-box">
-        <div class="example-title">Example 3: Two Building Problem</div>
-        <p>From 50 m away, the angle to the top of building A is 30° and to building B (taller) 
-        is 45°. What is the height difference?</p>
-        <p>Height of A: \(50 \times \tan 30° \approx 28.9\) m</p>
-        <p>Height of B: \(50 \times \tan 45° = 50\) m</p>
-        <p>Difference: \(50 - 28.9 = 21.1\) m</p>
-        <p><strong>Motivation:</strong> This technique is used in surveying to find relative heights 
-        of structures.</p>
+        <div class="example-title">Example 3: Two-Building Problem</div>
+        <p>From \(50\text{ m}\) away, the angle of elevation to building A is \(30^\circ\) and to
+        building B is \(45^\circ\). Both angles use the same baseline.</p>
+        <ol>
+          <li><strong>Set up triangle A.</strong> The \(50\text{ m}\) baseline is adjacent and
+          the height \(h_A\) is opposite \(30^\circ\), so \(\tan 30^\circ=\frac{h_A}{50}\).</li>
+          <li><strong>Solve for \(h_A\).</strong>
+          \(h_A=50\tan 30^\circ\approx 28.9\text{ m}\).</li>
+          <li><strong>Set up triangle B.</strong> With the same baseline and \(45^\circ\),
+          \(\tan 45^\circ=\frac{h_B}{50}\).</li>
+          <li><strong>Solve for \(h_B\).</strong>
+          \(h_B=50\tan 45^\circ=50\text{ m}\).</li>
+          <li><strong>Subtract the heights.</strong>
+          \(50-28.9=21.1\text{ m}\).</li>
+          <li><strong>Check reasonableness.</strong> A \(45^\circ\) sightline gives a height
+          equal to the baseline, and \(30^\circ\) gives a smaller height, so B should be taller
+          by less than \(50\text{ m}\); \(21.1\text{ m}\) fits.</li>
+        </ol>
+        <p><strong>Note:</strong> Never use \(45^\circ-30^\circ=15^\circ\) in a ratio; that
+        difference is not an angle in either right triangle.</p>
+        <p><strong>Motivation:</strong> Surveyors use this to compare heights without reaching either roof.</p>
       </div>
 
-      <div class="math-lab" id="trig-sim">
-        <h3 class="math-lab__title">Trigonometry Graph Visualizer</h3>
-        <p class="math-lab__description">
-          Visualize sine, cosine, and tangent functions on an interactive graph.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Function:</span>
-            <select id="tfunc-select" class="math-lab__input">
-              <option value="sin">Sine (sin)</option>
-              <option value="cos">Cosine (cos)</option>
-              <option value="tan">Tangent (tan)</option>
-            </select>
-          </label>
-          <label>
-            <span>Amplitude (A):</span>
-            <input type="number" id="tamp-input" class="math-lab__input" value="1" step="any">
-          </label>
-          <label>
-            <span>Frequency (B):</span>
-            <input type="number" id="tfreq-input" class="math-lab__input" value="1" step="any">
-          </label>
-          <label>
-            <span>Phase Shift (C):</span>
-            <input type="number" id="tphase-input" class="math-lab__input" value="0" step="any">
-          </label>
-          <label>
-            <span>Vertical Shift (D):</span>
-            <input type="number" id="tshift-input" class="math-lab__input" value="0" step="any">
-          </label>
-          <button id="tcalculate-btn" class="math-lab__button">Update Graph</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Adjust the parameters to see how the trigonometric function changes.</p>
-          <canvas id="trig-canvas" width="400" height="250" style="width: 100%; height: 250px; border-radius: 0; margin-top: 1rem; background: var(--off-white);"></canvas>
-          <div id="trig-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
+      <h2>2.8 Check Your Understanding</h2>
+      <p>Work on a separate page first, then compare your answers below.</p>
+      <ol>
+        <li>An acute angle of \(20^\circ\) has an opposite leg of \(5\text{ m}\). Find the
+        adjacent leg.</li>
+        <li>A right triangle has a hypotenuse of \(10\text{ cm}\) and an angle of \(30^\circ\).
+        Find the opposite leg.</li>
+        <li>A person with eye height \(1.5\text{ m}\) stands \(8\text{ m}\) from a tree and
+        measures an angle of elevation of \(50^\circ\) to the top. Find the tree's height.</li>
+      </ol>
+      <p><strong>Answers:</strong></p>
+      <ol>
+        <li>\(\text{adjacent}=\frac{5}{\tan 20^\circ}\approx 13.7\text{ m}\)</li>
+        <li>\(\text{opposite}=10\sin 30^\circ=5\text{ cm}\)</li>
+        <li>\(\text{height}=8\tan 50^\circ+1.5\approx 9.5+1.5\approx 11.0\text{ m}\)</li>
+      </ol>
 
-      <div class="math-lab" id="triangle-sim">
-        <h3 class="math-lab__title">Right Triangle Trigonometry Simulator</h3>
-        <p class="math-lab__description">
-          Enter an angle and one side to calculate the other sides and see the triangle.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Angle (degrees):</span>
-            <input type="number" id="angle-input" class="math-lab__input" value="30" min="1" max="89" step="any">
-          </label>
-          <label>
-            <span>Known Side:</span>
-            <select id="known-side-select" class="math-lab__input">
-              <option value="opposite">Opposite</option>
-              <option value="adjacent">Adjacent</option>
-              <option value="hypotenuse">Hypotenuse</option>
-            </select>
-          </label>
-          <label>
-            <span>Side Length:</span>
-            <input type="number" id="side-input" class="math-lab__input" value="10" min="0" step="any">
-          </label>
-          <button id="triangle-calculate-btn" class="math-lab__button">Calculate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter values to see the triangle and calculate missing sides.</p>
-          <canvas id="triangle-canvas" width="300" height="250" style="width: 100%; height: 250px; border-radius: 0; margin-top: 1rem;"></canvas>
-          <div id="triangle-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
-
-      <div class="math-lab" id="sohcahtoa-sim">
-        <h3 class="math-lab__title">SOH-CAH-TOA Calculator</h3>
-        <p class="math-lab__description">
-          Calculate sine, cosine, and tangent values for any angle, and solve for missing sides.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Angle (degrees):</span>
-            <input type="number" id="soh-angle-input" class="math-lab__input" value="45" min="0" max="360" step="any">
-          </label>
-          <button id="soh-calculate-btn" class="math-lab__button">Calculate Ratios</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter an angle to see all three trigonometric ratios.</p>
-          <div id="soh-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
+      <h2>Bonus: Why Elevation and Depression Angles Match</h2>
+      <p>
+        Imagine two people at different heights looking at each other. The horizontal line
+        through each person's eye is parallel to the other, and the line of sight crosses both
+        like a transversal. The angle one person looks down (depression) equals the angle the
+        other looks up (elevation) because they are alternate interior angles.
+      </p>
+      <p>
+        That is why a surveyor can measure an angle of depression from a hilltop and still use
+        \(\tan \theta=\frac{\text{opposite}}{\text{adjacent}}\) with the same angle in the
+        triangle below.
+      </p>
 
       <div class="navigation">
         <a href="mathematics-10.html">← Back to Course</a>

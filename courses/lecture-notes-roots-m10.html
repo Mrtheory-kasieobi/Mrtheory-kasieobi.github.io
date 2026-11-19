@@ -48,221 +48,250 @@
 
       <h2>4.1 The Real Number System</h2>
       <p>
-        The real number system includes rational and irrational numbers. Rational numbers can be 
-        expressed as fractions, while irrational numbers cannot.
+        Every number you use in this course belongs to the real number system. We classify
+        numbers by how they can be written: rational numbers can be written as a fraction of
+        integers, while irrational numbers cannot.
       </p>
-      <p><strong>Why This Classification Matters:</strong> Understanding the different types of 
-      numbers helps us know what operations are valid and what answers to expect. For example, 
-      the square root of a non-perfect square is irrational, which affects how we express answers.</p>
-      
+      <p>
+        The sets are <strong>nested</strong>: natural numbers sit inside whole numbers, which
+        sit inside integers, which sit inside rational numbers. Rational and irrational numbers
+        together make up the real numbers.
+      </p>
+      <p><strong>Why This Classification Matters:</strong> Knowing the type of number tells us
+      what kind of answer to expect. \(\sqrt{9} = 3\) is rational, but \(\sqrt{2}\) is
+      irrational, so its decimal never ends or repeats and we usually leave it as \(\sqrt{2}\).</p>
       <div class="theorem-box">
         <div class="theorem-title">Number Classification</div>
-        <p><strong>Natural Numbers:</strong> 1, 2, 3, 4, ... (counting numbers)</p>
-        <p><strong>Whole Numbers:</strong> 0, 1, 2, 3, ... (natural numbers plus zero)</p>
-        <p><strong>Rational Numbers:</strong> Can be written as \(\frac{a}{b}\) where \(b \neq 0\)</p>
-        <p><strong>Irrational Numbers:</strong> Cannot be written as fractions; decimal never ends or repeats</p>
-        <p><strong>Real Numbers:</strong> All rational and irrational numbers</p>
+        <p><strong>Natural Numbers:</strong> \(1, 2, 3, 4, \ldots\) — the counting numbers.</p>
+        <p><strong>Whole Numbers:</strong> \(0, 1, 2, 3, \ldots\) — natural numbers plus zero.</p>
+        <p><strong>Integers:</strong> \(\ldots, -2, -1, 0, 1, 2, \ldots\) — whole numbers and their negatives.</p>
+        <p><strong>Rational Numbers:</strong> Can be written as \(\frac{a}{b}\) with integers \(a\) and \(b\), where \(b \neq 0\), such as \(\frac{3}{4}\), \(-2\), and \(0.5\).</p>
+        <p><strong>Irrational Numbers:</strong> Cannot be written as fractions; their decimals never end or repeat, such as \(\sqrt{2}\) and \(\pi\).</p>
+        <p><strong>Real Numbers:</strong> Every rational and irrational number together.</p>
       </div>
+
+      <div class="example-box">
+        <div class="example-title">Example: Classifying Numbers</div>
+        <p>Classify \(\sqrt{16}\), \(\frac{-6}{3}\), \(\sqrt{5}\), and \(0.75\).</p>
+        <p>\(\sqrt{16} = 4\): natural number, whole number, integer, and rational number.</p>
+        <p>\(\frac{-6}{3} = -2\): integer and rational number.</p>
+        <p>\(\sqrt{5}\) is irrational because 5 is not a perfect square.</p>
+        <p>\(0.75 = \frac{3}{4}\) is rational because the decimal terminates.</p>
+      </div>
+
+      <p><strong>Classifying more examples:</strong></p>
+      <ul>
+        <li>\(0.333\ldots=\frac{1}{3}\) is rational because the decimal repeats</li>
+        <li>\(\sqrt{7}\) is irrational because 7 is not a perfect square</li>
+        <li>\(-5\) is an integer and a rational number</li>
+        <li>\(0\) is a whole number, an integer, and a rational number</li>
+        <li>\(\pi\) is irrational because its decimal never ends or repeats</li>
+      </ul>
 
       <h2>4.2 Simplifying Powers</h2>
       <p>
-        Powers represent repeated multiplication. The rules for simplifying powers are essential 
-        for working with exponential expressions.
+        A power such as \(2^{4}\) means repeated multiplication: \(2^{4} = 2 \times 2 \times 2 \times 2 = 16\). The base is 2, and the exponent 4 tells us how many factors of 2 to multiply.
       </p>
-      <p><strong>Connection to Real World:</strong> Powers appear in compound interest, 
-      population growth, radioactive decay, and computer memory. Understanding them is crucial 
-      for financial literacy and scientific applications.</p>
+      <p><strong>Connection to Real World:</strong> Powers describe repeated growth, such as
+      doubling an amount of money over several time periods, or counting possible outcomes when
+      several independent choices are made in a row.</p>
+      <p>
+        A <strong>perfect square</strong> is a number such as \(49\) that equals an integer
+        multiplied by itself: \(7^{2}=49\). A <strong>perfect cube</strong> equals an integer
+        multiplied by itself three times: \((-3)^{3}=-27\). Roots undo powers, so recognising
+        these numbers makes roots quick to evaluate.
+      </p>
 
       <div class="theorem-box">
-        <div class="theorem-title">Laws of Exponents</div>
-        <p><strong>Product Rule:</strong> \(a^m \times a^n = a^{m+n}\)</p>
-        <p><strong>Quotient Rule:</strong> \(\frac{a^m}{a^n} = a^{m-n}\)</p>
-        <p><strong>Power Rule:</strong> \((a^m)^n = a^{mn}\)</p>
-        <p><strong>Negative Exponent:</strong> \(a^{-n} = \frac{1}{a^n}\)</p>
-        <p><strong>Zero Exponent:</strong> \(a^0 = 1\) (for \(a \neq 0\))</p>
+        <div class="theorem-title">Perfect Squares, Cubes, and Principal Roots</div>
+        <p><strong>Perfect squares:</strong> \(1,4,9,16,25,36,49,64,81,100\)</p>
+        <p><strong>Perfect cubes:</strong> \(1,8,27,64,125\) and \(-1,-8,-27,-64,-125\)</p>
+        <p><strong>Principal square root:</strong> \(\sqrt{a}\) is the non-negative number
+        whose square is \(a\), so \(\sqrt{49}=7\), not \(\pm 7\).</p>
+        <p><strong>Cube root:</strong> \(\sqrt[3]{-27}=-3\) because \((-3)^{3}=-27\). Unlike
+        square roots, cube roots may be negative.</p>
+      </div>
+
+      <div class="theorem-box">
+        <div class="theorem-title">Laws of Exponents from Repeated Multiplication</div>
+        <p><strong>Product Rule:</strong> \(a^{3} \times a^{2} = (a \times a \times a)(a \times a) = a^{5}\), so \(a^{m} \times a^{n} = a^{m+n}\).</p>
+        <p><strong>Quotient Rule:</strong> \(\frac{a^{5}}{a^{2}} = \frac{a \times a \times a \times a \times a}{a \times a} = a^{3}\), so \(\frac{a^{m}}{a^{n}} = a^{m-n}\).</p>
+        <p><strong>Power Rule:</strong> \((a^{2})^{3} = (a \times a)(a \times a)(a \times a) = a^{6}\), so \((a^{m})^{n} = a^{mn}\).</p>
+        <p>These rules work because we are counting factors of the same base, so we never combine different bases this way.</p>
       </div>
 
       <div class="example-box">
         <div class="example-title">Example 1: Simplifying Powers</div>
-        <p>Simplify: \(\frac{(x^3 y^{-2})^4}{x^5 y^2}\)</p>
-        <p>\(= \frac{x^{12} y^{-8}}{x^5 y^2} = x^{12-5} y^{-8-2} = x^7 y^{-10} = \frac{x^7}{y^{10}}\)</p>
-        <p><strong>Motivation:</strong> This skill is essential for simplifying algebraic expressions 
-        in calculus and physics.</p>
+        <p>Simplify: \(\frac{(x^{3} y^{-2})^{4}}{x^{5} y^{2}}\).</p>
+        <p>Apply the power rule first: \((x^{3})^{4} = x^{12}\) and \((y^{-2})^{4} = y^{-8}\).</p>
+        <p>Subtract exponents of like bases: \(x^{12} \div x^{5} = x^{7}\) and \(y^{-8} \div y^{2} = y^{-10}\).</p>
+        <p>Write with positive exponents: \(x^{7} y^{-10} = \frac{x^{7}}{y^{10}}\).</p>
+        <p><strong>Check:</strong> Substitute \(x = 2\) and \(y = 1\). The original gives \(8^{4} \div 32 = 128\), and the answer gives \(2^{7} = 128\).</p>
       </div>
 
       <h2>4.3 Exponent Laws with Numeric Bases</h2>
       <p>
-        When working with numbers, we can use calculators to verify our exponent laws. This helps 
-        build intuition for the rules.
+        Patterns with numbers make the exponent laws easy to see. Each time the exponent drops by 1, we divide by the base. Here are the powers of 2:
       </p>
-      <p><strong>Real-World Example:</strong> The Richter scale for earthquakes uses powers. 
-      An earthquake of magnitude 6 is 10 times more powerful than one of magnitude 5.</p>
-
-      <h2>4.4 Math Lab: Exploring Powers</h2>
+      <p>\[2^{4} = 16,\quad 2^{3} = 8,\quad 2^{2} = 4,\quad 2^{1} = 2.\]</p>
+      <p>Continuing the pattern gives \(2^{0} = 2 \div 2 = 1\) and \(2^{-1} = 1 \div 2 = \frac{1}{2}\). In general, \(a^{0} = 1\) and \(a^{-n} = \frac{1}{a^{n}}\) for \(a \neq 0\).</p>
+      <p><strong>Check With Numbers:</strong> \(3^{2} \times 3^{3} = 9 \times 27 = 243\) and \(3^{5} = 243\). Also, \(2^{5} \div 2^{2} = 32 \div 4 = 8 = 2^{3}\).</p>
+      <p><strong>Everyday Connection:</strong> Each step in a base-ten place-value chart multiplies by
+      \(10\): \(0.001, 0.01, 0.1, 1\).</p>
+      <p><strong>Step-by-step patterns:</strong></p>
+      <ol>
+        <li>To multiply powers of the same base, write the factors and count them:
+        \(2^{3}\times 2^{2}=(2\times 2\times 2)(2\times 2)=2^{5}\). Exponents add.</li>
+        <li>To raise a power to a power, count the groups of factors:
+        \((2^{3})^{2}=2^{3}\times 2^{3}=2^{6}\). Exponents multiply.</li>
+        <li>To divide, cancel matching top and bottom factors:
+        \(2^{5}\div 2^{2}=2^{3}\). Exponents subtract.</li>
+      </ol>
       <p>
-        In this lab, you'll explore patterns in powers and verify the exponent laws using 
-        numerical examples.
+        <strong>Same base required:</strong> these rules work only when the bases are identical.
+        \(2^{3}\times 3^{2}\) cannot be combined by adding exponents: \(8\times 9=72\), which
+        is not \(6^{5}\). Rewrite bases when you can: \(4\times 2^{3}=2^{2}\times 2^{3}=32\).
       </p>
-      <p><strong>Key Insight:</strong> The exponent laws work because of the fundamental 
-      definition of multiplication. When we multiply \(a^m \times a^n\), we're adding \(m\) 
-      factors of \(a\) to \(n\) factors of \(a\), giving \(m+n\) total factors.</p>
+
+      <h2>4.4 Checking Exponent Laws with Patterns</h2>
+      <p>
+        Test the exponent laws with numerical examples. Try several bases and exponents, and check that both sides of each rule give the same value.
+      </p>
+      <p><strong>Key Insight:</strong> The exponent laws work because a power counts repeated factors. Multiplying \(a^{m} \times a^{n}\) combines \(m\) factors and \(n\) factors for \(m + n\) factors in total, while dividing cancels common factors.</p>
+      <p><strong>Four concrete checks:</strong></p>
+      <ul>
+        <li>Product rule: \(2^{3}\cdot 2^{2}=8\times 4=32=2^{5}\)</li>
+        <li>Power rule: \((3^{2})^{3}=9^{3}=729=3^{6}\)</li>
+        <li>Zero exponent: \(5^{0}=1\)</li>
+        <li>Negative exponent: \(4^{-1}=\frac{1}{4}\)</li>
+      </ul>
+      <p>
+        Each check matches the rule exactly. Trying a few more examples with a calculator is a
+        good way to catch mistakes before using the laws with variables.
+      </p>
 
       <h2>4.5 Negative Exponents and Reciprocals</h2>
       <p>
-        A negative exponent means we take the reciprocal of the base. This extends the exponent 
-        laws to all integers.
+        A negative exponent tells us to take a reciprocal; it does not make the answer negative. For example, \(2^{-3} = \frac{1}{2^{3}} = \frac{1}{8}\), while \(-2^{3} = -8\).
       </p>
-      <p><strong>Why This Makes Sense:</strong> If \(a^3 \times a^{-3} = a^0 = 1\), then 
-      \(a^{-3}\) must equal \(\frac{1}{a^3}\). This maintains consistency in the exponent laws.</p>
+      <p><strong>Why This Makes Sense:</strong> The product rule should still work: \(a^{3} \times a^{-3} = a^{3 + (-3)} = a^{0} = 1\). This forces \(a^{-3} = \frac{1}{a^{3}}\), because a number times its reciprocal is 1.</p>
+      <p>
+        Negative exponents also describe small numbers in scientific notation: since
+        \(10^{-4}=\frac{1}{10^{4}}\), we can write \(0.00042=4.2\times 10^{-4}\). We return to
+        this notation in Section 4.8.
+      </p>
 
       <div class="example-box">
         <div class="example-title">Example 2: Working with Negative Exponents</div>
-        <p>Simplify: \(\frac{3x^{-2}y^3}{2x^4y^{-1}}\)</p>
-        <p>\(= \frac{3y^3y^1}{2x^4x^2} = \frac{3y^4}{2x^6}\)</p>
-        <p><strong>Motivation:</strong> Negative exponents appear in scientific notation and 
-        in formulas for things like electrical resistance and gravitational force.</p>
+        <p>Simplify: \(\frac{3x^{-2}y^{3}}{2x^{4}y^{-1}}\).</p>
+        <p>Move factors with negative exponents across the fraction bar: \(x^{-2} = \frac{1}{x^{2}}\) and \(y^{-1} = \frac{1}{y}\).</p>
+        <p>Group like bases: \(\frac{3y^{3} \times y}{2x^{4} \times x^{2}}\).</p>
+        <p>Combine the factors: \(\frac{3y^{4}}{2x^{6}}\).</p>
+        <p><strong>Check:</strong> With \(x = 1\) and \(y = 2\), the original is \(24 \div 1 = 24\); the answer is \(\frac{3 \times 16}{2} = 24\).</p>
       </div>
 
       <h2>4.6 Evaluating Powers with Rational Bases</h2>
       <p>
-        When the base is a fraction, we apply the exponent to both numerator and denominator.
+        To raise a fraction to a power, raise the numerator and the denominator to that power separately: \(\left(\frac{a}{b}\right)^{n} = \frac{a^{n}}{b^{n}}\). This is just repeated multiplication of the fraction.
       </p>
-      <p><strong>Application:</strong> In probability, we often work with fractions raised to 
-      powers. For example, the probability of getting 3 heads in a row is \((\frac{1}{2})^3 = \frac{1}{8}\).</p>
+      <div class="example-box">
+        <div class="example-title">Example: Powers of Fractions</div>
+        <p>Evaluate \(\left(\frac{2}{3}\right)^{3}\).</p>
+        <p>\(\left(\frac{2}{3}\right)^{3} = \frac{2}{3} \times \frac{2}{3} \times \frac{2}{3} = \frac{8}{27}\).</p>
+        <p>Check: \(2^{3} = 8\) and \(3^{3} = 27\), so the result is \(\frac{8}{27}\).</p>
+      </div>
+      <p><strong>Application:</strong> If the chance of heads on one toss is \(\frac{1}{2}\), then the chance of three heads in a row is \(\left(\frac{1}{2}\right)^{3} = \frac{1}{8}\).</p>
+
+      <div class="example-box">
+        <div class="example-title">Example: Applying Root and Exponent Rules Together</div>
+        <p>Simplify \(\frac{(\sqrt{16})^{3}\times 2^{-2}}{2^{1}}\).</p>
+        <p>Step 1: Evaluate the root: \(\sqrt{16}=4\), and \(4^{3}=64=2^{6}\).</p>
+        <p>Step 2: Apply the product rule: \(2^{6}\times 2^{-2}=2^{6+(-2)}=2^{4}=16\).</p>
+        <p>Step 3: Apply the quotient rule: \(2^{4}\div 2^{1}=2^{4-1}=2^{3}=8\).</p>
+        <p><strong>Check:</strong> Directly, \((64\times \frac{1}{4})\div 2=16\div 2=8\).</p>
+      </div>
 
       <h2>4.7 Combining Laws of Exponents</h2>
       <p>
-        Complex expressions may require multiple exponent laws. Work systematically from the 
-        innermost expressions outward.
+        Complicated expressions may need several exponent laws. Simplify the innermost brackets first, combine like bases by adding or subtracting exponents, and finish by writing answers with positive exponents.
       </p>
 
       <div class="example-box">
         <div class="example-title">Example 3: Complex Power Simplification</div>
-        <p>Simplify: \(\left(\frac{a^{-2}b^3}{a^4b^{-1}}\right)^{-2}\)</p>
-        <p>Step 1: Simplify inside parentheses: \(a^{-6}b^4\)</p>
-        <p>Step 2: Apply outer exponent: \(a^{12}b^{-8} = \frac{a^{12}}{b^8}\)</p>
-        <p><strong>Motivation:</strong> This type of manipulation is essential in calculus 
-        for differentiating and integrating exponential functions.</p>
+        <p>Simplify: \(\left(\frac{a^{-2}b^{3}}{a^{4}b^{-1}}\right)^{-2}\).</p>
+        <p>Step 1: Simplify inside the brackets: \(a^{-2-4} = a^{-6}\) and \(b^{3-(-1)} = b^{4}\), giving \(a^{-6}b^{4}\).</p>
+        <p>Step 2: Apply the outer exponent: \((a^{-6})^{-2} = a^{12}\) and \((b^{4})^{-2} = b^{-8}\).</p>
+        <p>Step 3: Write with a positive exponent: \(a^{12}b^{-8} = \frac{a^{12}}{b^{8}}\).</p>
+        <p><strong>Check:</strong> With \(a = 1\) and \(b = 2\), the original is \(16^{-2} = \frac{1}{256}\), and the answer is \(\frac{1}{2^{8}} = \frac{1}{256}\).</p>
+        <p><strong>Motivation:</strong> These steps are useful whenever a formula contains several powers of the same quantities, such as geometry formulas for area and volume.</p>
       </div>
+
+      <p><strong>Common Mistakes and Considerations:</strong></p>
+      <ul>
+        <li>\(a^{m}\times a^{n}=a^{m+n}\), not \(a^{mn}\): add exponents when multiplying</li>
+        <li>\((a^{m})^{n}=a^{mn}\), not \(a^{m+n}\): multiply exponents for a power of a power</li>
+        <li>\(a^{0}=1\) for \(a\neq 0\); it is not 0 and \(0^{0}\) is not used here</li>
+        <li>\(a^{-n}=\frac{1}{a^{n}}\); a negative exponent does not make the answer negative</li>
+        <li>Rules such as \(a^{m}\times a^{n}=a^{m+n}\) need the same base, so \(2^{3}\times 3^{2}\)
+        cannot be combined this way</li>
+        <li>\(\sqrt{49}=7\) is the principal root only; \(\sqrt[3]{-27}=-3\) is allowed because
+        cubes can be negative</li>
+      </ul>
 
       <h2>4.8 Scientific Notation</h2>
       <p>
-        Scientific notation expresses very large or very small numbers as a product of a number 
-        between 1 and 10 and a power of 10.
+        Scientific notation writes a number as \(a \times 10^{n}\), where \(1 \leq a < 10\) and \(n\) is an integer. It keeps very large and very small numbers short and makes their size easy to compare.
       </p>
-      <p><strong>Why Scientific Notation?</strong> It makes calculations with extreme values 
-      manageable and clearly shows the order of magnitude. The distance to the sun is about 
-      \(1.5 \times 10^8\) km, and the size of an atom is about \(1 \times 10^{-10}\) m.</p>
+      <p><strong>Examples:</strong> \(1\,500\,000 = 1.5 \times 10^{6}\) and \(0.0004 = 4 \times 10^{-4}\). The distance to the Sun is about \(1.5 \times 10^{8}\) km.</p>
 
       <div class="theorem-box">
         <div class="theorem-title">Scientific Notation Operations</div>
-        <p>To multiply: \((a \times 10^m) \times (b \times 10^n) = (ab) \times 10^{m+n}\)</p>
-        <p>To divide: \(\frac{a \times 10^m}{b \times 10^n} = \frac{a}{b} \times 10^{m-n}\)</p>
+        <p>To multiply: \((a \times 10^{m}) \times (b \times 10^{n}) = (ab) \times 10^{m+n}\).</p>
+        <p>To divide: \(\frac{a \times 10^{m}}{b \times 10^{n}} = \frac{a}{b} \times 10^{m-n}\).</p>
+        <p>If the front number becomes 10 or more, move the decimal and add 1 to the exponent.</p>
       </div>
 
-      <div class="math-lab" id="scientific-sim">
-        <h3 class="math-lab__title">Scientific Notation Calculator</h3>
-        <p class="math-lab__description">
-          Convert numbers to and from scientific notation.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Number:</span>
-            <input type="number" id="snum-input" class="math-lab__input" value="1500000" step="any">
-          </label>
-          <button id="scalculate-btn" class="math-lab__button">Convert</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a number to see its scientific notation form.</p>
-        </div>
+      <div class="example-box">
+        <div class="example-title">Example: Multiplying and Dividing in Scientific Notation</div>
+        <p>Multiply \((3 \times 10^{5}) \times (2 \times 10^{3})\).</p>
+        <p>Multiply the front numbers and add the exponents: \(3 \times 2 = 6\) and \(10^{5} \times 10^{3} = 10^{8}\). The product is \(6 \times 10^{8}\).</p>
+        <p>Now divide \((6 \times 10^{8}) \div (2 \times 10^{3})\).</p>
+        <p>Divide the front numbers and subtract the exponents: \(6 \div 2 = 3\) and \(10^{8} \div 10^{3} = 10^{5}\). The quotient is \(3 \times 10^{5}\).</p>
+        <p>Check in ordinary form: \(600\,000\,000 \div 2\,000 = 300\,000 = 3 \times 10^{5}\).</p>
       </div>
 
-      <div class="math-lab" id="exponent-sim">
-        <h3 class="math-lab__title">Exponent Laws Simulator</h3>
-        <p class="math-lab__description">
-          Explore and verify the laws of exponents with interactive calculations.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Base (a):</span>
-            <input type="number" id="exp-base" class="math-lab__input" value="2" step="any">
-          </label>
-          <label>
-            <span>Exponent 1 (m):</span>
-            <input type="number" id="exp-m" class="math-lab__input" value="3" step="any">
-          </label>
-          <label>
-            <span>Exponent 2 (n):</span>
-            <input type="number" id="exp-n" class="math-lab__input" value="4" step="any">
-          </label>
-          <label>
-            <span>Operation:</span>
-            <select id="exp-op" class="math-lab__input">
-              <option value="product">Product (a^m × a^n)</option>
-              <option value="quotient">Quotient (a^m ÷ a^n)</option>
-              <option value="power">Power ((a^m)^n)</option>
-            </select>
-          </label>
-          <button id="exp-calculate-btn" class="math-lab__button">Calculate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter values to see the exponent law in action.</p>
-          <div id="exp-results" style="margin-top: 1rem;"></div>
-        </div>
+      <p><strong>Worked conversions:</strong></p>
+      <ol>
+        <li>Move the decimal point in \(0.00042\) four places to the right to get \(4.2\), so
+        \(0.00042=4.2\times 10^{-4}\).</li>
+        <li>Move the decimal point in \(7\,800\,000\) six places to the left to get \(7.8\), so
+        \(7\,800\,000=7.8\times 10^{6}\).</li>
+      </ol>
+      <p>
+        <strong>Quick division:</strong> \(7.8\times 10^{6}\) divided by \(4.2\times 10^{-4}\)
+        gives \(\frac{7.8}{4.2}\times 10^{6-(-4)}\approx 1.86\times 10^{10}\).
+      </p>
+
+      <h2>4.9 Check Your Understanding</h2>
+      <p>Work on a separate page first, then compare your answers below.</p>
+      <ol>
+        <li>Evaluate \(\sqrt{49}\) and \(\sqrt[3]{-27}\).</li>
+        <li>Simplify \(2^{3}\cdot 2^{2}\), then write \(0.00042\) in scientific notation.</li>
+        <li>Simplify \(\frac{x^{5}y^{-2}}{x^{2}y^{3}}\) using positive exponents only.</li>
+      </ol>
+      <div class="example-box">
+        <div class="example-title">Answers with Brief Work</div>
+        <p><strong>1.</strong> \(\sqrt{49}=7\) (the principal, non-negative root) and
+        \(\sqrt[3]{-27}=-3\).</p>
+        <p><strong>2.</strong> \(2^{3}\cdot 2^{2}=2^{5}=32\), and
+        \(0.00042=4.2\times 10^{-4}\).</p>
+        <p><strong>3.</strong> Subtract exponents of like bases: \(x^{5-2}=x^{3}\) and
+        \(y^{-2-3}=y^{-5}\), so the result is \(\frac{x^{3}}{y^{5}}\).</p>
       </div>
 
-      <div class="math-lab" id="radical-sim">
-        <h3 class="math-lab__title">Radical and Exponent Converter</h3>
-        <p class="math-lab__description">
-          Convert between radical form and exponent form, and simplify expressions.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>Value:</span>
-            <input type="number" id="rad-value" class="math-lab__input" value="8" min="0" step="any">
-          </label>
-          <label>
-            <span>Root (n):</span>
-            <input type="number" id="rad-n" class="math-lab__input" value="3" min="2" step="1">
-          </label>
-          <button id="rad-calculate-btn" class="math-lab__button">Calculate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter a value and root to see radical and exponent forms.</p>
-          <div id="rad-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
-
-      <div class="math-lab" id="scientific-calc-sim">
-        <h3 class="math-lab__title">Scientific Notation Operations</h3>
-        <p class="math-lab__description">
-          Perform calculations with numbers in scientific notation.
-        </p>
-        <div class="math-lab__controls">
-          <label>
-            <span>First Number (a × 10^m):</span>
-            <input type="number" id="sci-a1" class="math-lab__input" value="3" step="any"> × 10^
-            <input type="number" id="sci-m1" class="math-lab__input" value="5" step="1">
-          </label>
-          <label>
-            <span>Second Number (b × 10^n):</span>
-            <input type="number" id="sci-a2" class="math-lab__input" value="2" step="any"> × 10^
-            <input type="number" id="sci-m2" class="math-lab__input" value="3" step="1">
-          </label>
-          <label>
-            <span>Operation:</span>
-            <select id="sci-op" class="math-lab__input">
-              <option value="multiply">Multiply</option>
-              <option value="divide">Divide</option>
-            </select>
-          </label>
-          <button id="sci-calculate-btn" class="math-lab__button">Calculate</button>
-        </div>
-        <div class="math-lab__output">
-          <p>Enter two numbers in scientific notation to perform operations.</p>
-          <div id="sci-results" style="margin-top: 1rem;"></div>
-        </div>
-      </div>
+      <h2>Bonus: Radicals as Powers</h2>
+      <p>A root can be written as a fractional exponent: \(\sqrt{a} = a^{\frac{1}{2}}\) and, more generally, \(\sqrt[n]{a} = a^{\frac{1}{n}}\). This makes sense because \(\sqrt{a} \times \sqrt{a} = a\), just as \(a^{\frac{1}{2}} \times a^{\frac{1}{2}} = a^{1} = a\) by the product rule.</p>
+      <p>For example, \(\sqrt[3]{8} = 8^{\frac{1}{3}} = 2\) because \(2^{3} = 8\). The exponent rules then work on roots too: \((\sqrt{9})^{2} = (9^{\frac{1}{2}})^{2} = 9\).</p>
 
       <div class="navigation">
         <a href="mathematics-10.html">← Back to Course</a>
