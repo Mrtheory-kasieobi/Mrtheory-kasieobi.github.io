@@ -787,6 +787,12 @@ body > footer .site-footer {
     vertical-align: middle;
 }
 
+.status-badge--complete {
+    border-color: var(--success-border);
+    background: var(--success-bg);
+    color: var(--success);
+}
+
 .status-badge--near-complete,
 .status-badge--in-progress {
     border-color: var(--warning-border);
@@ -4587,6 +4593,12 @@ article,
     font-weight: 500;
     letter-spacing: 0.065em;
     text-transform: uppercase;
+}
+
+.status-badge--complete {
+    border-color: var(--success-border);
+    background: var(--success-bg);
+    color: var(--success);
 }
 
 .status-badge--near-complete,
