@@ -43,7 +43,7 @@
 
     <div class="practice-intro">
       <p>This test contains <strong>20 questions</strong>: <strong>Part A</strong> (10 multiple choice, 1 mark each) and <strong>Part B</strong> (10 written response, 2 marks each).</p>
-      <p>Total: <strong>30 marks</strong>. Select your answers, fill in the written responses, then press <strong>Submit Test</strong> to see your grade automatically.</p>
+      <p>Total: <strong>30 marks</strong>. Select your answers, fill in the written responses, then press <strong>Submit Test</strong> to see your grade, the correct answers, and full worked solutions. Equivalent methods are accepted by the grader.</p>
     </div>
 
     <div class="test-results" id="test-results" hidden>
@@ -75,14 +75,14 @@
         <div class="mc-question__num">2.</div>
         <p class="mc-question__text">Find \(\frac{d}{dx}[x^3 \cdot \ln x]\)</p>
         <ul class="mc-options">
-          <li><label class="mc-option"><input type="radio" name="ct2q2" value="A"> \(3x^2 \ln x + x^2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="ct2q2" value="A"> \(3x^2 \ln x + 1\)</label></li>
           <li><label class="mc-option"><input type="radio" name="ct2q2" value="B"> \(3x^2 \ln x + x^3\)</label></li>
           <li><label class="mc-option"><input type="radio" name="ct2q2" value="C"> \(x^3(3\ln x + 1)\)</label></li>
           <li><label class="mc-option"><input type="radio" name="ct2q2" value="D"> \(x^2(3\ln x + 1)\)</label></li>
         </ul>
       </div>
 
-      <div class="mc-question" data-correct="A">
+      <div class="mc-question" data-correct="B">
         <div class="mc-question__num">3.</div>
         <p class="mc-question__text">Find the critical points of \(f(x) = x^3 - 6x^2 + 9x\)</p>
         <ul class="mc-options">
@@ -137,7 +137,7 @@
         </ul>
       </div>
 
-      <div class="mc-question" data-correct="D">
+      <div class="mc-question" data-correct="B">
         <div class="mc-question__num">8.</div>
         <p class="mc-question__text">Evaluate \(\int_0^{\pi/2} \cos x \, dx\)</p>
         <ul class="mc-options">
@@ -173,61 +173,61 @@
       <span class="part-label">Part B: Written Response (2 marks each)</span>
       <p class="mc-question__text" style="color:var(--muted);">Show all of your work in the box provided.</p>
 
-      <div class="written-question" data-points="2" data-answers="x^2/2+3x">
+      <div class="written-question" data-points="2" data-answers="x^2/2+3x+C~x^2/2+3x">
         <div class="written-question__num">11.</div>
         <p class="written-question__text">Evaluate \(\int (x + 3) \, dx\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="4x-6x^3/3+2x^2">
+      <div class="written-question" data-points="2" data-answers="y=x-1~y-0=x-1~x-1">
         <div class="written-question__num">12.</div>
         <p class="written-question__text">Find the equation of the tangent line to \(y = 2x^2 - 3x + 1\) at \(x = 1\).</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="ln(x^2+1)">
+      <div class="written-question" data-points="2" data-answers="ln(x^2+1)+C~ln(1+x^2)+C~ln(x^2+1)">
         <div class="written-question__num">13.</div>
         <p class="written-question__text">Evaluate \(\int \frac{2x}{x^2+1} \, dx\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="x^2/2-sin2x/2">
+      <div class="written-question" data-points="2" data-answers="pi/2-1~π/2-1">
         <div class="written-question__num">14.</div>
         <p class="written-question__text">Evaluate \(\int_0^{\pi/2} x \cos x \, dx\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="sqrt(x^2+1))">
+      <div class="written-question" data-points="2" data-answers="x/sqrt(x^2+1)~x/sqrt(1+x^2)~x(x^2+1)^(-1/2)">
         <div class="written-question__num">15.</div>
         <p class="written-question__text">Find \(\frac{d}{dx}[\sqrt{x^2 + 1}]\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="x^2/2-4x/3+x^4/4">
+      <div class="written-question" data-points="2" data-answers="1/6">
         <div class="written-question__num">16.</div>
         <p class="written-question__text">Find the area between \(y = x\) and \(y = x^2\) on \([0, 1]\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="1-x^4/4">
+      <div class="written-question" data-points="2" data-answers="3/4">
         <div class="written-question__num">17.</div>
         <p class="written-question__text">Evaluate \(\int_0^1 (1-x^3) \, dx\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="2x-x^3/3">
+      <div class="written-question" data-points="2" data-answers="4/3">
         <div class="written-question__num">18.</div>
         <p class="written-question__text">A particle moves along a line with velocity \(v(t) = 2 - t^2\). Find the displacement from \(t = 0\) to \(t = 2\).</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="4/3pi">
+      <div class="written-question" data-points="2" data-answers="8pi~8π~25.1327">
         <div class="written-question__num">19.</div>
         <p class="written-question__text">Find the volume of the solid obtained by rotating the region bounded by \(y = \sqrt{x}\), \(y = 0\), and \(x = 4\) about the x-axis.</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
       </div>
 
-      <div class="written-question" data-points="2" data-answers="x^2/2+cosx">
+      <div class="written-question" data-points="2" data-answers="x^2/2-cosx+C~x^2/2-cos(x)~x^2/2-cosx">
         <div class="written-question__num">20.</div>
         <p class="written-question__text">Evaluate \(\int (x + \sin x) \, dx\)</p>
         <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
@@ -236,8 +236,36 @@
       <button type="button" class="submit-btn" id="submit-btn">Submit Test</button>
     </section>
 
+    <section class="practice-intro" id="solution-bank" hidden>
+      <h3>Worked Solutions</h3>
+      <p>Each solution gives one route and, where useful, an alternative. If your work used a different valid method, you should still receive credit; the grader accepts common equivalent forms.</p>
+      <ol>
+        <li><strong>1.</strong> This is the derivative of \(e^x\) at \(0\): \(\lim_{x\to0}\frac{e^x-1}{x}=1\). <em>Alternative:</em> use \(e^x=1+x+\frac{x^2}{2}+\cdots\), so the quotient tends to \(1\).</li>
+        <li><strong>2.</strong> Product rule: \((x^3\ln x)'=3x^2\ln x+x^3\cdot\frac1x=3x^2\ln x+x^2=x^2(3\ln x+1)\).</li>
+        <li><strong>3.</strong> \(f'(x)=3x^2-12x+9=3(x-1)(x-3)\), so the critical points are \(x=1,3\). <em>Alternative:</em> solve \(x^2-4x+3=0\) by factoring.</li>
+        <li><strong>4.</strong> Since \(\frac{d}{dx}\arcsin x=\frac{1}{\sqrt{1-x^2}}\), the integral is \(\arcsin x+C\). <em>Alternative:</em> \(-\arccos x+C\) differs only by a constant.</li>
+        <li><strong>5.</strong> Washers: \(V=\pi\int_0^1(x^2)^2\,dx=\pi\left[\frac{x^5}{5}\right]_0^1=\frac{\pi}{5}\).</li>
+        <li><strong>6.</strong> \(\frac{d}{dx}\tan^{-1}x=\frac{1}{1+x^2}\). <em>Alternative:</em> if \(y=\tan^{-1}x\), then \(\tan y=x\), so \(\sec^2y\,y'=1\) and \(y'=\cos^2y=\frac{1}{1+\tan^2y}=\frac{1}{1+x^2}\).</li>
+        <li><strong>7.</strong> The logarithm requires \(x^2-4>0\), i.e. \(|x|>2\), so the domain is \((-\infty,-2)\cup(2,\infty)\).</li>
+        <li><strong>8.</strong> \(\int_0^{\pi/2}\cos x\,dx=[\sin x]_0^{\pi/2}=1-0=1\).</li>
+        <li><strong>9.</strong> \(y-5=3(x-2)\), hence \(y=3x-1\).</li>
+        <li><strong>10.</strong> Average value \(=\int_0^1 e^x\,dx=[e^x]_0^1=e-1\).</li>
+        <li><strong>11.</strong> \(\int(x+3)\,dx=\frac{x^2}{2}+3x+C\). Differentiate to verify.</li>
+        <li><strong>12.</strong> At \(x=1\), \(y=0\) and \(y'=4x-3=1\). Thus \(y-0=1(x-1)\), i.e. \(y=x-1\).</li>
+        <li><strong>13.</strong> Let \(u=x^2+1\), \(du=2x\,dx\). Then \(\int\frac{2x}{x^2+1}\,dx=\ln(x^2+1)+C\) since \(x^2+1>0\).</li>
+        <li><strong>14.</strong> Integrate by parts with \(u=x\), \(dv=\cos x\,dx\): \(\int_0^{\pi/2}x\cos x\,dx=[x\sin x+\cos x]_0^{\pi/2}=\frac{\pi}{2}-1\).</li>
+        <li><strong>15.</strong> Rewrite as \((x^2+1)^{1/2}\) and use the chain rule: \(\frac12(x^2+1)^{-1/2}(2x)=\frac{x}{\sqrt{x^2+1}}\).</li>
+        <li><strong>16.</strong> On \([0,1]\), \(x\ge x^2\), so \(A=\int_0^1(x-x^2)\,dx=\frac12-\frac13=\frac16\). <em>Alternative (horizontal slices):</em> \(\int_0^1(\sqrt y-y)\,dy=\frac16\).</li>
+        <li><strong>17.</strong> \(\int_0^1(1-x^3)\,dx=\left[x-\frac{x^4}{4}\right]_0^1=1-\frac14=\frac34\).</li>
+        <li><strong>18.</strong> Displacement \(=\int_0^2(2-t^2)\,dt=\left[2t-\frac{t^3}{3}\right]_0^2=4-\frac83=\frac43\).</li>
+        <li><strong>19.</strong> Washers: \(V=\pi\int_0^4(\sqrt x)^2\,dx=\pi\int_0^4x\,dx=\pi\left[\frac{x^2}{2}\right]_0^4=8\pi\). <em>Alternative (shells):</em> \(2\pi\int_0^2 y(4-y^2)\,dy=8\pi\).</li>
+        <li><strong>20.</strong> \(\int(x+\sin x)\,dx=\frac{x^2}{2}-\cos x+C\). The derivative of \(-\cos x\) is \(\sin x\).</li>
+      </ol>
+    </section>
+
     <div class="navigation no-print">
       <a href="practice-test-1-calc1.html">← Practice Test 1</a>
+      <a href="midterm-exam-calc1.html">Midterm Exam →</a>
       <a href="calculus-1.html">Back to Course →</a>
     </div>
   </main>
@@ -253,6 +281,21 @@
       var MC_TOTAL = 10;
       var WRITTEN_TOTAL = 20;
       var GRAND_TOTAL = MC_TOTAL + WRITTEN_TOTAL;
+      var solutionItems = [];
+
+      function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function solutionHtml(number) {
+        var li = solutionItems[number - 1];
+        if (!li) { return ''; }
+        var clone = li.cloneNode(true);
+        var lead = clone.querySelector('strong');
+        var label = lead ? lead.textContent.trim() : '';
+        if (lead) { lead.remove(); }
+        return '<strong>Solution' + (label ? ' ' + label : '.') + '</strong> ' + clone.innerHTML;
+      }
 
       function normalize(s) {
         return String(s)
@@ -261,19 +304,68 @@
           .replace(/√/g, 'sqrt')
           .replace(/\\sqrt/g, 'sqrt')
           .replace(/−/g, '-')
+          .replace(/\|/g, '').replace(/[()]/g, '').replace(/[=,]/g, '')
           .replace(/²/g, '^2').replace(/³/g, '^3').replace(/⁴/g, '^4').replace(/⁵/g, '^5')
           .replace(/⁰/g, '^0').replace(/¹/g, '^1').replace(/⁶/g, '^6').replace(/⁷/g, '^7').replace(/⁸/g, '^8').replace(/⁹/g, '^9')
           .replace(/\s+/g, '');
       }
 
+      function addReveal(q, html) {
+        var ca = document.createElement('div');
+        ca.className = 'correct-answer';
+        ca.innerHTML = html;
+        q.appendChild(ca);
+        return ca;
+      }
+
+      function gradeWritten(q, reveals, number) {
+        var points = parseInt(q.getAttribute('data-points') || '2', 10);
+        var groups = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
+        var ta = q.querySelector('.written-answer');
+        var normVal = normalize(ta ? ta.value : '');
+        var matchedGroups = 0;
+        groups.forEach(function (group) {
+          var alternatives = group.split('~').filter(Boolean);
+          var ok = alternatives.some(function (a) {
+            return normVal.indexOf(normalize(a)) !== -1;
+          });
+          if (ok) { matchedGroups++; }
+        });
+        var earned = groups.length ? Math.round(points * matchedGroups / groups.length) : 0;
+        var fb = document.createElement('div');
+        fb.className = 'question-feedback';
+        if (matchedGroups === groups.length) {
+          q.classList.add('is-correct');
+          fb.classList.add('correct');
+          fb.textContent = 'Correct! (+' + earned + ')';
+        } else if (matchedGroups === 0) {
+          q.classList.add('is-incorrect');
+          fb.classList.add('incorrect');
+          fb.textContent = 'Review needed.';
+        } else {
+          q.classList.add('is-partial');
+          fb.classList.add('partial');
+          fb.textContent = 'Partial (' + earned + '/' + points + ').';
+        }
+        q.appendChild(fb);
+        var primary = groups.length ? groups[0].split('~')[0] : '';
+        var sol = solutionHtml(number);
+        reveals.push(addReveal(q, '<strong>Expected form:</strong> ' + escapeHtml(primary) +
+          (sol ? '<br>' + sol : '')));
+        return earned;
+      }
+
       function grade() {
         document.querySelectorAll('.question-feedback').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.correct-answer').forEach(function (el) { el.remove(); });
         document.querySelectorAll('.mc-question, .written-question').forEach(function (q) {
           q.classList.remove('is-correct', 'is-incorrect', 'is-partial', 'is-unanswered');
         });
+        var reveals = [];
+        solutionItems = document.querySelectorAll('#solution-bank li');
 
         var mcMarks = 0;
-        document.querySelectorAll('.mc-question').forEach(function (q) {
+        document.querySelectorAll('.mc-question').forEach(function (q, index) {
           var correct = q.getAttribute('data-correct');
           var checked = q.querySelector('input[type="radio"]:checked');
           var fb = document.createElement('div');
@@ -293,36 +385,24 @@
             fb.textContent = 'Incorrect.';
           }
           q.appendChild(fb);
+          var correctText = '';
+          q.querySelectorAll('.mc-option').forEach(function (label) {
+            var input = label.querySelector('input[type="radio"]');
+            if (input && input.value === correct) { correctText = label.textContent.trim(); }
+          });
+          var sol = solutionHtml(index + 1);
+          reveals.push(addReveal(q, '<strong>Correct answer:</strong> ' + escapeHtml(correctText) +
+            (sol ? '<br>' + sol : '')));
         });
 
         var writtenMarks = 0;
-        document.querySelectorAll('.written-question').forEach(function (q) {
-          var points = parseInt(q.getAttribute('data-points') || '2', 10);
-          var answers = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
-          var ta = q.querySelector('.written-answer');
-          var normVal = normalize(ta ? ta.value : '');
-          var matched = 0;
-          answers.forEach(function (a) {
-            if (normVal.indexOf(normalize(a)) !== -1) { matched++; }
-          });
-          var earned = answers.length ? Math.round(points * matched / answers.length) : 0;
-          writtenMarks += earned;
-          var fb = document.createElement('div');
-          fb.className = 'question-feedback';
-          if (matched === answers.length) {
-            q.classList.add('is-correct');
-            fb.classList.add('correct');
-            fb.textContent = 'Correct! (+' + earned + ')';
-          } else if (matched === 0) {
-            q.classList.add('is-incorrect');
-            fb.classList.add('incorrect');
-            fb.textContent = 'Review needed.';
-          } else {
-            q.classList.add('is-partial');
-            fb.classList.add('partial');
-            fb.textContent = 'Partial (' + earned + '/' + points + ').';
-          }
-          q.appendChild(fb);
+        document.querySelectorAll('.written-question:not(.bonus-question)').forEach(function (q, index) {
+          writtenMarks += gradeWritten(q, reveals, MC_TOTAL + index + 1);
+        });
+
+        var bonusMarks = 0;
+        document.querySelectorAll('.bonus-question').forEach(function (q, index) {
+          bonusMarks += gradeWritten(q, reveals, MC_TOTAL + WRITTEN_TOTAL + index + 1);
         });
 
         var total = mcMarks + writtenMarks;
@@ -330,9 +410,17 @@
         document.getElementById('score-mc').textContent = mcMarks;
         document.getElementById('score-written').textContent = writtenMarks;
         document.getElementById('score-percent').textContent = Math.round(total / GRAND_TOTAL * 100);
+        var bonusScore = document.getElementById('score-bonus');
+        if (bonusScore) { bonusScore.textContent = bonusMarks; }
+
+        var bank = document.getElementById('solution-bank');
+        if (bank) { bank.hidden = false; reveals.push(bank); }
         results.hidden = false;
         results.scrollIntoView({ behavior: 'smooth' });
-        submitBtn.textContent = 'Regrade Test';
+        submitBtn.textContent = document.querySelector('.bonus-question') ? 'Regrade Exam' : 'Regrade Test';
+        if (window.MathJax && MathJax.typesetPromise && reveals.length) {
+          MathJax.typesetPromise(reveals);
+        }
       }
 
       if (submitBtn) { submitBtn.addEventListener('click', grade); }

@@ -45,75 +45,379 @@
     </div>
 
     <div class="lecture-content">
+      <p><strong>Big picture.</strong> Differentiation asks for the instantaneous rate of change of a known function. Integration reverses that question: given a rate of change, we reconstruct the total change, and given a curve, we measure the area beneath it. The definite integral is defined as a limit of sums of thin rectangles; the Fundamental Theorem of Calculus then gives an enormously efficient way to evaluate those limits using antiderivatives. Substitution is the chain rule read backwards and lets us handle a wide class of integrands.</p>
+
+      <div class="formula-box">
+        <strong>Road map and prerequisites.</strong>
+        <ul>
+          <li>Prerequisites: limits, continuity, derivatives including the chain rule, and summation notation.</li>
+          <li>Partitions and sample points lead to Riemann sums and the definition of \(\displaystyle\int_a^b f(x)\,dx\).</li>
+          <li>Basic properties: zero width, reversed orientation, additivity, linearity, and monotonicity.</li>
+          <li>Antiderivatives and a table of standard integration formulas.</li>
+          <li>The Fundamental Theorem of Calculus: differentiation of an integral, and evaluation by antiderivatives.</li>
+          <li>Applications: displacement versus distance travelled, and average value.</li>
+          <li>Substitution for indefinite and definite integrals.</li>
+        </ul>
+      </div>
 
       <h2>1. Areas and Distances</h2>
 
+      <h3>1.1 Intuition: approximating area by rectangles</h3>
+      <p>Suppose \(f(x)\ge0\) on \([a,b]\). We cannot directly compute the area under a curved graph, but we can slice \([a,b]\) into thin vertical strips and approximate each strip by a rectangle whose height is the value of \(f\) at one chosen point in the strip. Adding the rectangle areas gives an approximation that improves as the strips get thinner.</p>
+
+      <h3>1.2 Partitions and sample points</h3>
       <div class="definition-box">
-        <strong>Area Problem:</strong>
-        The area under a curve \(y = f(x)\) from \(x = a\) to \(x = b\) can be approximated by summing areas of rectangles.
+        <strong>Partitions.</strong> A partition \(P\) of \([a,b]\) is a finite set of points
+        \[
+        a=x_0 \lt x_1 \lt x_2 \lt \cdots \lt x_n=b.
+        \]
+        It creates \(n\) subintervals \([x_{i-1},x_i]\), each of width \(\Delta x_i=x_i-x_{i-1}\). In each subinterval choose a <em>sample point</em> \(x_i^* \in [x_{i-1},x_i]\). Common choices are left endpoints \(x_i^*=x_{i-1}\), right endpoints \(x_i^*=x_i\), or midpoints \(x_i^*=\dfrac{x_{i-1}+x_i}{2}\). With equal widths \(\Delta x=\dfrac{b-a}{n}\), the right-endpoint sample is \(x_i^*=a+i\Delta x\).
+      </div>
+      <p>The Riemann sum associated with these choices is:</p>
+      \[
+      \sum_{i=1}^{n} f(x_i^*)\,\Delta x_i.
+      \]
+      <p>If the subintervals are equal, this simplifies to \(\displaystyle\sum_{i=1}^{n}f(x_i^*)\Delta x\).</p>
+
+      <h3>1.3 Area versus signed area</h3>
+      <div class="important-note">
+        <strong>When does a Riemann sum measure actual area?</strong> If \(f\ge0\) on \([a,b]\), every term \(f(x_i^*)\Delta x_i\) is a nonnegative rectangle area, and the limit gives the ordinary geometric area between the curve and the \(x\)-axis. If \(f\) takes negative values, the corresponding rectangles contribute negatively, so the limit gives <em>signed area</em>: area above the axis minus area below it. The actual (unsigned) area is obtained by integrating \(|f|\) instead. For example, \(\displaystyle\int_{-1}^{1}x\,dx=0\) by symmetry, while \(\displaystyle\int_{-1}^{1}|x|\,dx=1\).
       </div>
 
-      <div class="formula-box">
-        <strong>Riemann Sum:</strong>
-        \(A \approx \sum_{i=1}^{n} f(x_i^*) \Delta x\) where \(\Delta x = \frac{b-a}{n}\)
+      <h3>1.4 A concrete computation</h3>
+      <div class="example-box">
+        <strong>Example 1.1.</strong> Use right-endpoint Riemann sums to compute \(\displaystyle\int_0^1 x^2\,dx\).
+        <p><strong>Step 1: Set up.</strong> Divide \([0,1]\) into \(n\) equal pieces, so \(\Delta x=\dfrac1n\) and \(x_i^*=\dfrac{i}{n}\). Then:</p>
+        \[
+        \sum_{i=1}^{n} f(x_i^*)\Delta x=\sum_{i=1}^{n}\left(\frac{i}{n}\right)^2\frac{1}{n}=\frac{1}{n^3}\sum_{i=1}^{n} i^2.
+        \]
+        <p><strong>Step 2: Use the sum formula.</strong> Since \(\displaystyle\sum_{i=1}^{n}i^2=\dfrac{n(n+1)(2n+1)}{6}\),</p>
+        \[
+        \frac{1}{n^3}\cdot\frac{n(n+1)(2n+1)}{6}=\frac{(n+1)(2n+1)}{6n^2}.
+        \]
+        <p><strong>Step 3: Take the limit.</strong></p>
+        \[
+        \int_0^1 x^2\,dx=\lim_{n\to\infty}\frac{2n^2+3n+1}{6n^2}=\frac{2}{6}=\frac13.
+        \]
+        <p>The same value is obtained from left endpoints or midpoints, illustrating independence of the sample-point choice.</p>
       </div>
 
       <h2>2. The Definite Integral</h2>
 
+      <h3>2.1 Definition</h3>
       <div class="definition-box">
-        <strong>Definition: Definite Integral</strong>
-        \(\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x\)
+        <strong>Definite integral.</strong> Let \(f\) be <em>bounded</em> on \([a,b]\). If the limit
+        \[
+        \lim_{\max \Delta x_i\to0}\sum_{i=1}^{n} f(x_i^*)\,\Delta x_i
+        \]
+        exists, is finite, and has the same value for every sequence of partitions and every choice of sample points \(x_i^*\), then \(f\) is called <em>Riemann integrable</em> on \([a,b]\), and that common limit is the definite integral
+        \[
+        \int_a^b f(x)\,dx.
+        \]
+        The symbol \(\displaystyle\int\) is a stretched "S" for summation; \(a\) and \(b\) are the limits of integration, and \(dx\) records the variable and the infinitesimal width.
+      </div>
+      <p>Boundedness is necessary: an unbounded function cannot have finite Riemann sums with arbitrarily small rectangles. Existence is not automatic, and if the limit fails to exist we say the integral does not exist. The requirement that the limit be independent of the sample points guarantees that the integral is a property of the function and interval alone, not of our arbitrary rectangle convention. When \([a,b]\) is divided into \(n\) equal subintervals, the definition is often written more simply as \(\displaystyle\int_a^b f(x)\,dx=\lim_{n\to\infty}\sum_{i=1}^n f(x_i^*)\Delta x\), provided this limit is independent of \(x_i^*\).</p>
+
+      <h3>2.2 Orientation conventions</h3>
+      <div class="definition-box">
+        <strong>Orientation.</strong> We adopt the conventions
+        \[
+        \int_a^a f(x)\,dx=0, \qquad \int_b^a f(x)\,dx=-\int_a^b f(x)\,dx.
+        \]
+        The first says an interval of zero width has zero accumulated change. The second is a <em>definition</em> chosen so that the additivity law below remains valid even when the limits appear in the "wrong" order. It corresponds to traversing the interval backwards, with each \(\Delta x_i\) counted negatively.
+      </div>
+
+      <h3>2.3 Fundamental properties</h3>
+      <div class="theorem-box">
+        <strong>Properties of definite integrals.</strong> Assume all the integrals below exist and let \(c\) be any constant.
+        <ul>
+          <li><strong>Linearity:</strong> \(\displaystyle\int_a^b \bigl(f(x)+g(x)\bigr)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx\).</li>
+          <li><strong>Constant multiple:</strong> \(\displaystyle\int_a^b c\,f(x)\,dx=c\int_a^b f(x)\,dx\).</li>
+          <li><strong>Additivity:</strong> \(\displaystyle\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx\), valid for any ordering of \(a\), \(b\), and \(c\) thanks to the orientation convention.</li>
+          <li><strong>Monotonicity:</strong> if \(f(x)\ge g(x)\) for all \(x \in [a,b]\) with \(a \lt b\), then \(\displaystyle\int_a^b f(x)\,dx\ge\int_a^b g(x)\,dx\).</li>
+          <li><strong>Bounds:</strong> if \(a \lt b\) and \(m\le f(x)\le M\) on \([a,b]\), then \(m(b-a)\le\displaystyle\int_a^b f(x)\,dx\le M(b-a)\).</li>
+          <li><strong>Triangle inequality:</strong> for \(a \lt b\), \(\left|\displaystyle\int_a^b f(x)\,dx\right|\le\displaystyle\int_a^b|f(x)|\,dx\).</li>
+        </ul>
+      </div>
+      <div class="proof-box">
+        <strong>Why monotonicity holds.</strong> For any sample points, \(f(x_i^*)\ge g(x_i^*)\) and \(\Delta x_i\gt0\), so each rectangle satisfies \(f(x_i^*)\Delta x_i\ge g(x_i^*)\Delta x_i\). Summing preserves the inequality, and passing to the limit gives \(\int_a^b f\ge\int_a^b g\). The bounds follow by taking \(g(x)=m\) and \(f(x)=M\) and using \(\int_a^b c\,dx=c(b-a)\).
+      </div>
+      <div class="example-box">
+        <strong>Example 2.1.</strong> Estimate \(\displaystyle\int_0^1 x^2\,dx\) without evaluating it.
+        <p>For \(0\le x\le1\) we have \(0\le x^2\le1\). Monotonicity gives \(0\le\displaystyle\int_0^1x^2\,dx\le1\). Sharper bounds such as \(x^2\le x\) give \(\displaystyle\int_0^1x^2\,dx\le\frac12\), and the exact value found earlier, \(\frac13\), lies within all these bounds.</p>
+      </div>
+
+      <h2>3. Antiderivatives and Indefinite Integrals</h2>
+
+      <h3>3.1 Definition and the constant of integration</h3>
+      <div class="definition-box">
+        <strong>Antiderivative.</strong> A function \(F\) is an antiderivative of \(f\) on an interval if \(F'(x)=f(x)\) for all \(x\) in that interval. The family of all antiderivatives is the <em>indefinite integral</em>
+        \[
+        \int f(x)\,dx=F(x)+C,
+        \]
+        where \(C\) is an arbitrary constant. Any two antiderivatives differ by a constant, a consequence of the Mean Value Theorem.
+      </div>
+
+      <h3>3.2 Table of standard antiderivatives</h3>
+      <p>Each entry is verified by differentiating the right-hand column. In the power rule the exponent \(n=-1\) must be excluded, because the derivative of \(\ln|x|\) rather than a power gives \(1/x\).</p>
+        <table>
+          <tr><td><strong>Integrand \(f(x)\)</strong></td><td><strong>Antiderivative \(F(x)\)</strong></td></tr>
+          <tr><td>\(x^n\), \(n\ne-1\)</td><td>\(\dfrac{x^{n+1}}{n+1}+C\)</td></tr>
+          <tr><td>\(1\), that is \(x^0\)</td><td>\(x+C\)</td></tr>
+          <tr><td>\(\dfrac{1}{x}\)</td><td>\(\ln|x|+C\)</td></tr>
+          <tr><td>\(e^x\)</td><td>\(e^x+C\)</td></tr>
+          <tr><td>\(a^x\), \(a\gt0\), \(a\ne1\)</td><td>\(\dfrac{a^x}{\ln a}+C\)</td></tr>
+          <tr><td>\(\sin x\)</td><td>\(-\cos x+C\)</td></tr>
+          <tr><td>\(\cos x\)</td><td>\(\sin x+C\)</td></tr>
+          <tr><td>\(\sec^2 x\)</td><td>\(\tan x+C\)</td></tr>
+          <tr><td>\(\csc^2 x\)</td><td>\(-\cot x+C\)</td></tr>
+          <tr><td>\(\sec x\tan x\)</td><td>\(\sec x+C\)</td></tr>
+          <tr><td>\(\csc x\cot x\)</td><td>\(-\csc x+C\)</td></tr>
+          <tr><td>\(\dfrac{1}{1+x^2}\)</td><td>\(\arctan x+C\)</td></tr>
+          <tr><td>\(\dfrac{1}{\sqrt{1-x^2}}\)</td><td>\(\arcsin x+C\)</td></tr>
+        </table>
+
+      <h3>3.3 The Net Change Theorem</h3>
+      <div class="formula-box">
+        <strong>Net Change Theorem.</strong> If \(F'\) is continuous on \([a,b]\), then
+        \[
+        \int_a^b F'(x)\,dx=F(b)-F(a).
+        \]
+        The integral of a rate of change over an interval is the net change in the quantity over that interval.
+      </div>
+      <p>This is the definite-integral version of the evaluation theorem proved below, and it is the bridge to applications in physics and economics.</p>
+
+      <h2>4. The Fundamental Theorem of Calculus</h2>
+
+      <h3>4.1 Part 1: differentiating an integral</h3>
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part 1.</strong> Let \(f\) be continuous on \([a,b]\) and define
+        \[
+        A(x)=\int_a^x f(t)\,dt, \qquad x \in [a,b].
+        \]
+        Then \(A\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(A'(x)=f(x)\) for every \(x \in (a,b)\). At the endpoints the one-sided derivatives satisfy \(A'_+(a)=f(a)\) and \(A'_-(b)=f(b)\).
+      </div>
+      <div class="proof-box">
+        <strong>Derivation.</strong> Fix \(x \in (a,b)\) and a small nonzero \(h\) with \(x+h \in (a,b)\). Using additivity,
+        \[
+        A(x+h)-A(x)=\int_a^{x+h}f(t)\,dt-\int_a^x f(t)\,dt=\int_x^{x+h}f(t)\,dt.
+        \]
+        For \(h\gt0\), the function \(f\) attains a minimum \(m_h\) and maximum \(M_h\) on \([x,x+h]\), so
+        \[
+        m_h\,h\le\int_x^{x+h}f(t)\,dt\le M_h\,h,
+        \]
+        and dividing by \(h\) traps the difference quotient between \(m_h\) and \(M_h\). Equivalently, by the Mean Value Theorem for integrals there is \(c_h\) between \(x\) and \(x+h\) with \(\int_x^{x+h}f(t)\,dt=f(c_h)h\). Hence
+        \[
+        \frac{A(x+h)-A(x)}{h}=f(c_h).
+        \]
+        For \(h\lt0\) the same formula holds after reversing the limits, with \(c_h\) lying between \(x+h\) and \(x\). As \(h\to0\), the point \(c_h\to x\), and continuity of \(f\) gives \(f(c_h)\to f(x)\). Therefore \(A'(x)=\displaystyle\lim_{h\to0}\frac{A(x+h)-A(x)}{h}=f(x)\). Continuity of \(A\) itself follows from the bound \(|A(x+h)-A(x)|\le M|h|\), where \(M\) is a bound for \(|f|\) on \([a,b]\). ∎
+      </div>
+
+      <h3>4.2 Part 2: evaluating definite integrals</h3>
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part 2.</strong> Let \(f\) be continuous on \([a,b]\), and let \(F\) be any antiderivative of \(f\) on \([a,b]\). Then
+        \[
+        \int_a^b f(x)\,dx=F(b)-F(a).
+        \]
+      </div>
+      <div class="proof-box">
+        <strong>Derivation.</strong> Let \(A(x)=\displaystyle\int_a^x f(t)\,dt\). By Part 1, \(A'(x)=f(x)=F'(x)\) for \(x \in (a,b)\). Hence \((A-F)'=0\), so \(A(x)-F(x)\) is constant on \([a,b]\). Evaluating at \(x=a\) gives \(A(a)-F(a)=0-F(a)=-F(a)\). Thus \(A(x)=F(x)-F(a)\) for every \(x\), and setting \(x=b\) yields \(\int_a^b f(x)\,dx=A(b)=F(b)-F(a)\). ∎
+      </div>
+      <div class="formula-box">
+        <strong>The connection.</strong> Differentiation and integration are inverse processes in the sense that \(\dfrac{d}{dx}\displaystyle\int_a^x f(t)\,dt=f(x)\) and \(\displaystyle\int_a^b F'(x)\,dx=F(b)-F(a)\). Part 1 builds a function from a rate; Part 2 evaluates accumulated change using any antiderivative.
+      </div>
+
+      <h3>4.3 Worked examples</h3>
+      <div class="example-box">
+        <strong>Example 4.1.</strong> Evaluate \(\displaystyle\int_0^{\pi/2}\sin x\,dx\).
+        <p>An antiderivative of \(\sin x\) is \(-\cos x\), so:</p>
+        \[
+        \int_0^{\pi/2}\sin x\,dx=\left[-\cos x\right]_0^{\pi/2}=-\cos\frac{\pi}{2}-(-\cos0)=0+1=1.
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 4.2 (variable upper limit).</strong> Find \(\dfrac{d}{dx}\displaystyle\int_0^x (1+t^3)\,dt\).
+        <p>Here \(f(t)=1+t^3\) is continuous everywhere and \(g(x)=x\), so Part 1 gives \(1+x^3\) directly. For comparison, evaluating first gives \(\left[t+\dfrac{t^4}{4}\right]_0^x=x+\dfrac{x^4}{4}\), whose derivative is indeed \(1+x^3\).</p>
+      </div>
+      <div class="example-box">
+        <strong>Example 4.3 (variable lower limit).</strong> Find \(\dfrac{d}{dx}\displaystyle\int_x^{2}\sqrt{1+t^2}\,dt\).
+        <p>Rewrite using orientation: \(\displaystyle\int_x^2\sqrt{1+t^2}\,dt=-\int_2^x\sqrt{1+t^2}\,dt\). Part 1 then gives \(-\sqrt{1+x^2}\).</p>
+      </div>
+
+      <h2>5. Displacement, Distance, and Average Value</h2>
+
+      <h3>5.1 Displacement versus total distance</h3>
+      <div class="definition-box">
+        <strong>Motion from velocity.</strong> If \(v(t)\) is a continuous velocity function on \([t_1,t_2]\), then
+        \[
+        \text{displacement}=\int_{t_1}^{t_2}v(t)\,dt, \qquad
+        \text{total distance}=\int_{t_1}^{t_2}|v(t)|\,dt.
+        \]
+        Displacement is signed net change in position; distance counts all motion positively. They coincide exactly when \(v(t)\ge0\) throughout the interval.
+      </div>
+      <div class="example-box">
+        <strong>Example 5.1.</strong> A particle has velocity \(v(t)=3t^2-4t+1\). Find displacement and total distance on \([0,3]\).
+        <p><strong>Displacement:</strong></p>
+        \[
+        \int_0^3 (3t^2-4t+1)\,dt=\left[t^3-2t^2+t\right]_0^3=27-18+3=12.
+        \]
+        <p><strong>Sign of \(v\):</strong> \(v(t)=(3t-1)(t-1)\), so \(v\ge0\) on \([0,1/3]\), \(v\le0\) on \([1/3,1]\), and \(v\ge0\) on \([1,3]\).</p>
+        <p><strong>Piecewise integrals:</strong></p>
+        \[
+        \int_0^{1/3}v\,dt=\frac{4}{27}, \qquad \int_{1/3}^{1}v\,dt=-\frac{4}{27}, \qquad \int_1^3 v\,dt=12.
+        \]
+        <p><strong>Distance:</strong> \(\dfrac{4}{27}+\dfrac{4}{27}+12=\dfrac{332}{27}\). The particle ends \(12\) units to the right of where it started but actually travels about \(12.30\) units.</p>
+      </div>
+
+      <h3>5.2 Average value</h3>
+      <div class="definition-box">
+        <strong>Average value.</strong> The average value of a continuous function \(f\) on \([a,b]\) is
+        \[
+        f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx.
+        \]
+        This is the constant height of a rectangle with base \(b-a\) whose area equals the signed area under \(f\). If \(f\) is continuous, the Mean Value Theorem for Integrals guarantees some \(c \in [a,b]\) with \(f(c)=f_{\text{avg}}\).
+      </div>
+      <div class="example-box">
+        <strong>Example 5.2.</strong> Find the average value of \(f(x)=\sin x\) on \([0,\pi]\).
+        <p>\(f_{\text{avg}}=\dfrac{1}{\pi}\displaystyle\int_0^\pi\sin x\,dx=\dfrac{1}{\pi}\left[-\cos x\right]_0^\pi=\dfrac{1}{\pi}(1+1)=\dfrac{2}{\pi}\). This lies between the minimum \(0\) and maximum \(1\) attained by \(\sin x\) on the interval, as it must.</p>
+      </div>
+
+      <h2>6. The Substitution Rule</h2>
+
+      <h3>6.1 Hypothesis and statement</h3>
+      <div class="theorem-box">
+        <strong>Substitution Rule.</strong> Let \(u=g(x)\) be differentiable on an interval \(I\), and suppose \(f\) is continuous on the range of \(g\), so that \(f\) has an antiderivative there. Then
+        \[
+        \int f(g(x))\,g'(x)\,dx=\int f(u)\,du.
+        \]
+        For definite integrals, if \(g'\) is continuous on \([a,b]\) and \(f\) is continuous on the range of \(g\), then
+        \[
+        \int_a^b f(g(x))\,g'(x)\,dx=\int_{g(a)}^{g(b)} f(u)\,du.
+        \]
+        Substitution is exactly the chain rule \(\dfrac{d}{dx}F(g(x))=F'(g(x))g'(x)\) read backwards.
+      </div>
+      <p>In practice: set \(u=g(x)\), compute \(du=g'(x)\,dx\), rewrite the whole integral in terms of \(u\), integrate, and substitute back. For definite integrals you may either change the limits to \(u=g(a)\) and \(u=g(b)\) or return to \(x\) before evaluating.</p>
+
+      <h3>6.2 Worked examples</h3>
+      <div class="example-box">
+        <strong>Example 6.1.</strong> Evaluate \(\displaystyle\int x\cos(x^2)\,dx\).
+        <p>Let \(u=x^2\), so \(du=2x\,dx\) and \(x\,dx=\dfrac{du}{2}\). Then:</p>
+        \[
+        \int x\cos(x^2)\,dx=\frac12\int\cos u\,du=\frac12\sin u+C=\frac12\sin(x^2)+C.
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 6.2.</strong> Evaluate \(\displaystyle\int 2x\sqrt{x^2+1}\,dx\).
+        <p>Set \(u=x^2+1\), \(du=2x\,dx\). Then:</p>
+        \[
+        \int 2x\sqrt{x^2+1}\,dx=\int u^{1/2}\,du=\frac{2}{3}u^{3/2}+C=\frac{2}{3}(x^2+1)^{3/2}+C.
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 6.3 (definite limits).</strong> Evaluate \(\displaystyle\int_0^1 xe^{x^2}\,dx\).
+        <p>With \(u=x^2\) and \(du=2x\,dx\), the limits become \(u=0\) when \(x=0\) and \(u=1\) when \(x=1\). Hence:</p>
+        \[
+        \int_0^1 xe^{x^2}\,dx=\frac12\int_0^1 e^u\,du=\frac12\left[e^u\right]_0^1=\frac{e-1}{2}.
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 6.4 (reversed limits).</strong> Evaluate \(\displaystyle\int_0^{\pi/2}\sin x\cos^2 x\,dx\).
+        <p>Let \(u=\cos x\), so \(du=-\sin x\,dx\). When \(x=0\), \(u=1\); when \(x=\pi/2\), \(u=0\). Therefore:</p>
+        \[
+        \int_0^{\pi/2}\sin x\cos^2 x\,dx=-\int_1^0 u^2\,du=\int_0^1 u^2\,du=\left[\frac{u^3}{3}\right]_0^1=\frac13.
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 6.5 (a linear denominator).</strong> Evaluate \(\displaystyle\int\frac{2x+1}{x^2+x+3}\,dx\).
+        <p>Take \(u=x^2+x+3\), so \(du=(2x+1)\,dx\). Then:</p>
+        \[
+        \int\frac{2x+1}{x^2+x+3}\,dx=\int\frac{1}{u}\,du=\ln|u|+C=\ln(x^2+x+3)+C.
+        \]
+        <p>The absolute value may be dropped here because \(x^2+x+3\) is always positive.</p>
       </div>
 
       <div class="important-note">
-        <strong>Properties of Integrals:</strong>
+        <strong>Common mistakes in integration.</strong>
         <ul>
-          <li>\(\int_a^a f(x) \, dx = 0\)</li>
-          <li>\(\int_a^b [f(x) + g(x)] \, dx = \int_a^b f(x) \, dx + \int_a^b g(x) \, dx\)</li>
-          <li>\(\int_a^b c \cdot f(x) \, dx = c \int_a^b f(x) \, dx\)</li>
+          <li>Forgetting the \(+C\) in an indefinite integral.</li>
+          <li>Applying the power rule with \(n=-1\); \(\displaystyle\int\frac1x\,dx=\ln|x|+C\), not \(x^0/0\).</li>
+          <li>Treating the definite integral as automatically a geometric area; it is signed area unless \(f\ge0\).</li>
+          <li>Omitting the \(dx\) when substituting, or failing to convert every factor to \(u\).</li>
+          <li>Forgetting to change definite limits when switching to \(u\), or keeping the old limits after the switch.</li>
+          <li>Ignoring the reversed orientation: \(\displaystyle\int_b^a f=-\int_a^b f\) and \(\displaystyle\int_a^a f=0\).</li>
+          <li>Stating that a Riemann sum limit exists without checking integrability; boundedness and sample-point independence are part of the definition.</li>
         </ul>
       </div>
 
-      <h2>3. The Fundamental Theorem of Calculus</h2>
-
-      <div class="theorem-box">
-        <strong>Part 1:</strong>
-        If \(f\) is continuous on \([a,b]\), then \(\frac{d}{dx} \int_a^x f(t) \, dt = f(x)\)
-      </div>
-
-      <div class="theorem-box">
-        <strong>Part 2:</strong>
-        \(\int_a^b f(x) \, dx = F(b) - F(a)\) where \(F\) is any antiderivative of \(f\)
-      </div>
-
-      <h2>4. Indefinite Integrals and the Net Change Theorem</h2>
-
-      <div class="definition-box">
-        <strong>Indefinite Integral:</strong>
-        \(\int f(x) \, dx = F(x) + C\) where \(F'(x) = f(x)\)
-      </div>
-
-      <div class="formula-box">
-        <strong>Net Change Theorem:</strong>
-        \(\int_a^b f'(x) \, dx = f(b) - f(a)\)
-      </div>
-
-      <h2>5. The Substitution Rule</h2>
-
-      <div class="theorem-box">
-        <strong>Substitution Rule:</strong>
-        \(\int f(g(x))g'(x) \, dx = \int f(u) \, du\) where \(u = g(x)\)
-      </div>
-
+      <h2>7. Quick Check</h2>
       <div class="example-box">
-        <strong>Example:</strong>
-        \(\int x \cos(x^2) \, dx = \frac{1}{2} \int \cos(u) \, du = \frac{1}{2} \sin(u) + C = \frac{1}{2} \sin(x^2) + C\)
+        <strong>Check yourself; answers follow.</strong>
+        <ol>
+          <li>What does \(\displaystyle\int_a^b f(x)\,dx\) measure when \(f\ge0\)? When \(f\) changes sign?</li>
+          <li>Write \(\displaystyle\int_3^1 f(x)\,dx\) in terms of \(\displaystyle\int_1^3 f(x)\,dx\).</li>
+          <li>Compute \(\displaystyle\frac{d}{dx}\int_0^x(1+t^2)\,dt\).</li>
+          <li>Find \(\displaystyle\int 3x^2\,dx\).</li>
+          <li>State the hypothesis on \(g\) needed for the substitution rule.</li>
+        </ol>
+        <p><strong>Answers.</strong> (1) Actual area when \(f\ge0\); signed area (above minus below) when \(f\) changes sign. (2) It equals \(-\displaystyle\int_1^3 f(x)\,dx\). (3) \(1+x^2\). (4) \(x^3+C\). (5) \(g\) must be differentiable on the interval of interest, and \(f\) continuous on the range of \(g\).</p>
       </div>
 
-      <div class="navigation">
-        <a href="calculus-1.html">← Back to Course</a>
+      <h2>8. Summary</h2>
+      <div class="formula-box">
+        <ul>
+          <li>Riemann sums approximate area or signed area by rectangles built from partitions and sample points.</li>
+          <li>The definite integral is the common limit of those sums when \(f\) is bounded and the limit exists independently of the sample points.</li>
+          <li>Key conventions: \(\int_a^a f=0\), \(\int_b^a f=-\int_a^b f\), and additivity across intermediate points.</li>
+          <li>Antiderivatives are known up to an additive constant; the FTC evaluates integrals and differentiates accumulated-area functions.</li>
+          <li>Displacement is \(\int v\), distance is \(\int|v|\), and average value is \(\frac{1}{b-a}\int f\).</li>
+          <li>Substitution reverses the chain rule and must account for \(du\) and the limits.</li>
+        </ul>
+      </div>
+
+      <h2>Bonus: A Criterion for Riemann Integrability</h2>
+      <p>The definition involving arbitrary sample points is powerful but awkward to verify directly. A useful characterization is the following.</p>
+      <div class="theorem-box">
+        <strong>Integrability criterion.</strong> A bounded function \(f\) on \([a,b]\) is Riemann integrable if and only if its set of discontinuities has measure zero (it can be covered by a countable collection of intervals of arbitrarily small total length). In particular, every continuous function on \([a,b]\) is integrable, and every monotone function on \([a,b]\) is integrable even if it has jump discontinuities.
+      </div>
+      <p>Equivalently, form upper sums using the supremum of \(f\) on each subinterval and lower sums using the infimum. If, as the partition is refined, the infimum of the upper sums equals the supremum of the lower sums, that common value is the integral. A bounded function with infinitely many well-spread jumps, such as the Dirichlet function that equals \(1\) on rationals and \(0\) on irrationals, is not integrable because every subinterval contains both values, so upper sums and lower sums never meet.</p>
+      <div class="example-box">
+        <strong>Bonus Example.</strong> A step function on \([0,2]\) that is \(1\) for \(x\le1\) and \(3\) for \(x\gt1\) is discontinuous only at \(x=1\), so it is integrable. Its integral is \(1\cdot1+3\cdot1=4\), which a two-piece Riemann sum confirms.
+      </div>
+
+      <h2>9. Practice Problems</h2>
+      <ol>
+        <li>Find \(\displaystyle\int x^5\,dx\).</li>
+        <li>Find \(\displaystyle\int\left(3x^2-\frac{2}{x}+e^x\right)dx\).</li>
+        <li>Evaluate \(\displaystyle\int_0^2(x^3+1)\,dx\).</li>
+        <li>Compute the right-endpoint Riemann sum for \(\displaystyle\int_0^1 x\,dx\) with \(n=4\), then state the exact limit.</li>
+        <li>Find \(\displaystyle\frac{d}{dx}\int_0^x(1+t^3)\,dt\).</li>
+        <li>For \(x\gt0\), find \(\displaystyle\frac{d}{dx}\int_1^{x^2}\sqrt{t}\,dt\).</li>
+        <li>Given \(v(t)=2t-4\) on \([0,3]\), find displacement and total distance.</li>
+        <li>Find the average value of \(f(x)=x^2\) on \([0,3]\).</li>
+        <li>Evaluate \(\displaystyle\int\frac{2x}{x^2+4}\,dx\).</li>
+        <li>Evaluate \(\displaystyle\int_0^{\pi/4}\tan x\sec^2 x\,dx\).</li>
+      </ol>
+      <div class="example-box">
+        <strong>Answer key.</strong>
+        <ol>
+          <li>\(\dfrac{x^6}{6}+C\).</li>
+          <li>\(x^3-2\ln|x|+e^x+C\).</li>
+          <li>\(\left[\dfrac{x^4}{4}+x\right]_0^2=4+2=6\).</li>
+          <li>With \(\Delta x=\frac14\) and points \(\frac14,\frac12,\frac34,1\), the sum is \(\frac14\left(\frac14+\frac12+\frac34+1\right)=\frac58\); the limit is \(\frac12\).</li>
+          <li>\(1+x^3\).</li>
+          <li>\(\sqrt{x^2}\cdot2x=2x^2\) for \(x\gt0\).</li>
+          <li>Displacement \(\left[t^2-4t\right]_0^3=-3\); distance \(\int_0^2(4-2t)\,dt+\int_2^3(2t-4)\,dt=4+1=5\).</li>
+          <li>\(\dfrac13\displaystyle\int_0^3x^2\,dx=\dfrac13\cdot9=3\).</li>
+          <li>With \(u=x^2+4\), the integral is \(\ln(x^2+4)+C\).</li>
+          <li>With \(u=\tan x\), limits \(0\) to \(1\): \(\displaystyle\int_0^1u\,du=\frac12\).</li>
+        </ol>
       </div>
     </div>
+
+    <nav class="navigation" aria-label="Course navigation">
+      <a href="lecture-notes-mean-value-calc1.html">← Mean Value Theorem</a>
+      <a href="lecture-notes-ftc-calc1.html">FTC →</a>
+    </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>

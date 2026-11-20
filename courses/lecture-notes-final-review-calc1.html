@@ -40,151 +40,360 @@
   <main>
     <div class="lecture-header">
       <h1>Final Review</h1>
-      <div class="subtitle">Calculus I - Week 14</div>
+      <div class="subtitle">Calculus I - Comprehensive Final Review</div>
     </div>
 
     <div class="lecture-content">
-      <h2>Complete Course Summary</h2>
-      
+      <h2>Complete Course Review</h2>
+
+      <p><strong>Big picture.</strong> Calculus I is one extended argument about change and accumulation. The limit underlies continuity, the derivative, and the integral. Differentiation rules let us compute rates of change and solve applied problems; the Fundamental Theorem of Calculus connects derivatives to integrals by showing that integration is reversed differentiation. On the final, success depends on three habits: recalling definitions precisely, checking hypotheses before invoking a theorem, and setting up applications carefully before computing.</p>
+
+      <div class="formula-box">
+        <strong>Exam roadmap - what to prioritize:</strong>
+        <ol>
+          <li><strong>Limits:</strong> know the definition, one-sided limits, indeterminate forms, and the special limits including \(\lim_{x\to 0}\frac{\sin x}{x}=1\).</li>
+          <li><strong>Derivatives:</strong> power, product, quotient, and chain rules; implicit and logarithmic differentiation.</li>
+          <li><strong>Theorem hypotheses:</strong> EVT, IVT, Rolle, MVT, and both parts of the FTC; state them correctly.</li>
+          <li><strong>Applications of derivatives:</strong> related rates, optimization, and curve sketching with sign charts.</li>
+          <li><strong>Integration:</strong> antiderivatives, \(u\)-substitution, integration by parts, and FTC I with variable limits.</li>
+          <li><strong>Applications of integrals:</strong> area, volumes by disk and washer and shell, and work; identify the geometry first.</li>
+          <li><strong>Communication:</strong> show setup, justify which formula applies, and give units with a final answer.</li>
+        </ol>
+      </div>
+
+      <h3>1. Course Summary Table</h3>
+
       <table>
         <thead>
           <tr>
             <th>Topic</th>
-            <th>Key Concepts</th>
+            <th>Key Ideas</th>
             <th>Key Formulas</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>Limits</strong></td>
-            <td>Limit laws, continuity, L'Hôpital's Rule</td>
-            <td>\(\lim_{x \to a} \frac{\sin x}{x} = 1\), \(\lim_{x \to 0} \frac{1-\cos x}{x} = 0\)</td>
+            <td><strong>Limits and continuity</strong></td>
+            <td>Limit laws, one-sided limits, indeterminate forms, IVT</td>
+            <td>\(\lim_{x\to 0}\frac{\sin x}{x}=1\), \(\lim_{x\to 0}\frac{1-\cos x}{x}=0\)</td>
           </tr>
           <tr>
             <td><strong>Derivatives</strong></td>
-            <td>Differentiation rules, chain rule, implicit diff.</td>
-            <td>\(\frac{d}{dx}[uv] = u'v + uv'\), \((f \circ g)' = f' \cdot g'\)</td>
+            <td>Difference quotient, product and quotient rules, chain rule, implicit differentiation</td>
+            <td>\((f\circ g)'(x)=f'(g(x))\,g'(x)\), \(\frac{d}{dx}[uv]=u'v+uv'\)</td>
           </tr>
           <tr>
-            <td><strong>Applications of Derivatives</strong></td>
-            <td>Optimization, related rates, curve sketching</td>
-            <td>Fermat's Theorem, First/Second Derivative Tests</td>
+            <td><strong>Applications of derivatives</strong></td>
+            <td>Related rates, optimization, curve sketching, MVT</td>
+            <td>\(f'(c)=\frac{f(b)-f(a)}{b-a}\) under the MVT hypotheses</td>
           </tr>
           <tr>
             <td><strong>Integration</strong></td>
-            <td>Antiderivatives, substitution, parts, partial fractions</td>
-            <td>\(\int f(g(x))g'(x) \, dx\), \(\int u \, dv = uv - \int v \, du\)</td>
+            <td>Antiderivatives, substitution, integration by parts</td>
+            <td>\(\int f(g(x))g'(x)\,dx=\int f(u)\,du=F(g(x))+C\), \(\int u\,dv=uv-\int v\,du\)</td>
           </tr>
           <tr>
             <td><strong>FTC</strong></td>
-            <td>Fundamental Theorem, definite integrals</td>
-            <td>\(\int_a^b f(x) \, dx = F(b) - F(a)\)</td>
+            <td>Evaluation of definite integrals, accumulation functions</td>
+            <td>\(\int_a^b f(x)\,dx=F(b)-F(a)\) when \(f\) is continuous</td>
           </tr>
           <tr>
-            <td><strong>Applications of Integration</strong></td>
-            <td>Area, volume, work</td>
-            <td>Disk, washer, shell methods</td>
+            <td><strong>Applications of integration</strong></td>
+            <td>Area between curves, volumes of revolution, work</td>
+            <td>Disk, washer, and shell formulas with the axis stated</td>
           </tr>
         </tbody>
       </table>
 
-      <h3>1. Derivative Formulas (Memorize)</h3>
+      <h3>2. Limits and Continuity</h3>
+
+      <div class="definition-box">
+        <strong>Definitions.</strong> The limit \(\lim_{x\to a}f(x)=L\) means \(f(x)\) can be made arbitrarily close to \(L\) by taking \(x\) close to \(a\) but not equal to \(a\). Continuity at \(a\) requires that \(f(a)\) exists, \(\lim_{x\to a}f(x)\) exists, and the two are equal. The derivative is itself a limit:
+        \[f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}.\]
+      </div>
+
       <div class="formula-box">
-        <table>
-          <tr>
-            <td>\(\frac{d}{dx}[x^n] = nx^{n-1}\)</td>
-            <td>\(\frac{d}{dx}[\sin x] = \cos x\)</td>
-            <td>\(\frac{d}{dx}[\cos x] = -\sin x\)</td>
-          </tr>
-          <tr>
-            <td>\(\frac{d}{dx}[e^x] = e^x\)</td>
-            <td>\(\frac{d}{dx}[\ln x] = \frac{1}{x}\)</td>
-            <td>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</td>
-          </tr>
-          <tr>
-            <td>\(\frac{d}{dx}[\sin^{-1}x] = \frac{1}{\sqrt{1-x^2}}\)</td>
-            <td>\(\frac{d}{dx}[\tan^{-1}x] = \frac{1}{1+x^2}\)</td>
-            <td>\(\frac{d}{dx}[a^x] = a^x \ln a\)</td>
-          </tr>
-        </table>
-      </div>
-
-      <h3>2. Integration Formulas (Memorize)</h3>
-      <div class="formula-box">
-        <table>
-          <tr>
-            <td>\(\int x^n \, dx = \frac{x^{n+1}}{n+1} + C\)</td>
-            <td>\(\int \frac{1}{x} \, dx = \ln|x| + C\)</td>
-            <td>\(\int e^x \, dx = e^x + C\)</td>
-          </tr>
-          <tr>
-            <td>\(\int \sin x \, dx = -\cos x + C\)</td>
-            <td>\(\int \cos x \, dx = \sin x + C\)</td>
-            <td>\(\int \sec^2 x \, dx = \tan x + C\)</td>
-          </tr>
-          <tr>
-            <td>\(\int \frac{1}{\sqrt{1-x^2}} \, dx = \sin^{-1}x + C\)</td>
-            <td>\(\int \frac{1}{1+x^2} \, dx = \tan^{-1}x + C\)</td>
-            <td>\(\int a^x \, dx = \frac{a^x}{\ln a} + C\)</td>
-          </tr>
-        </table>
-      </div>
-
-      <h3>3. Problem-Solving Strategy</h3>
-      <div class="important-note">
-        <strong>General Approach for Word Problems:</strong>
-        <ol>
-          <li><strong>Draw a diagram</strong> and label all quantities</li>
-          <li><strong>Identify variables</strong> and determine which are changing</li>
-          <li><strong>Write an equation</strong> relating the variables</li>
-          <li><strong>Differentiate</strong> with respect to time (for related rates)</li>
-          <li><strong>Substitute known values</strong> and solve for the unknown</li>
-        </ol>
-        <strong>Check units</strong> and verify your answer makes sense.
-      </div>
-
-      <h3>4. Practice Problems</h3>
-      <div class="example-box">
-        <strong>Problem 1:</strong> A ladder 10 ft long leans against a wall. If the bottom slides away at 2 ft/s, how fast is the top sliding down when the bottom is 6 ft from the wall?
-        <p>Solution: \(x^2 + y^2 = 100\). Differentiate: \(2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0\)</p>
-        <p>When \(x = 6\), \(y = 8\). \(\frac{dy}{dt} = -\frac{x}{y}\frac{dx}{dt} = -\frac{6}{8}(2) = -\frac{3}{2}\) ft/s</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Problem 2:</strong> Find the area between \(y = x^3\) and \(y = x\).
-        <p>Intersections: \(x^3 = x \Rightarrow x = -1, 0, 1\)</p>
-        <p>Area = \(\int_{-1}^0 (x - x^3) \, dx + \int_0^1 (x^3 - x) \, dx\)</p>
-        <p>= \(\left[\frac{x^2}{2} - \frac{x^4}{4}\right]_{-1}^0 + \left[\frac{x^4}{4} - \frac{x^2}{2}\right]_0^1\)</p>
-        <p>= \(-\frac{1}{4} + \frac{1}{4} = \frac{1}{2}\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Problem 3:</strong> Evaluate \(\int_0^{\pi/4} \frac{\tan x}{\cos^2 x} \, dx\).
-        <p>Rewrite: \(\int_0^{\pi/4} \tan x \sec^2 x \, dx\)</p>
-        <p>Let \(u = \tan x\), \(du = \sec^2 x \, dx\)</p>
-        <p>When \(x = 0\), \(u = 0\); when \(x = \pi/4\), \(u = 1\)</p>
-        <p>Result: \(\int_0^1 u \, du = \frac{1}{2}\)</p>
-      </div>
-
-      <h3>5. Final Exam Tips</h3>
-      <div class="important-note">
-        <strong>Exam Strategy:</strong>
+        <strong>Special limits and indeterminate forms:</strong>
         <ul>
-          <li><strong>Time management:</strong> Spend ~2-3 min per problem on multiple choice, ~10-15 min per free response</li>
-          <li><strong>Show all work:</strong> Partial credit is given for correct setup even if arithmetic is wrong</li>
-          <li><strong>Check your work:</strong> Differentiate antiderivatives to verify; check that related rates make sense</li>
-          <li><strong>Use calculator wisely:</strong> Only for checking, not for solving</li>
-          <li><strong>Read carefully:</strong> Pay attention to what is asked for</li>
+          <li>\(\lim_{x\to 0}\frac{\sin x}{x}=1\) and \(\lim_{x\to 0}\frac{1-\cos x}{x}=0\).</li>
+          <li>\(\lim_{x\to\infty}\frac{\sin x}{x}=0\), because \(\sin x\) stays bounded.</li>
+          <li>\(\lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x=e\) and \(\lim_{x\to 0}(1+x)^{1/x}=e\).</li>
+          <li>Forms \(0/0\), \(\infty/\infty\), \(\infty-\infty\), \(0\cdot\infty\), \(1^{\infty}\) require more work: factor, rationalize, combine fractions, or use a known limit.</li>
         </ul>
       </div>
 
-      <h3>6. Key Theorems to Know</h3>
+      <div class="example-box">
+        <strong>Model example 2.1.</strong> Evaluate \(\lim_{x\to 0}\frac{\sin(5x)}{\sin(3x)}\).
+        <p>Rewrite as \(\frac{\sin(5x)}{5x}\cdot\frac{3x}{\sin(3x)}\cdot\frac{5}{3}\). The first two factors approach \(1\), so the limit is \(\frac{5}{3}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 2.2 (one-sided limits).</strong> Let \(f(x)=x+1\) for \(x\le 0\) and \(f(x)=x^2\) for \(x \gt 0\). Decide whether \(\lim_{x\to 0}f(x)\) exists.
+        <p>The left-hand limit is \(\lim_{x\to 0^-}(x+1)=1\), while the right-hand limit is \(\lim_{x\to 0^+}x^2=0\). Because these differ, the two-sided limit does not exist. Note that \(f(0)=1\), which agrees with the left limit only; a function value cannot repair a jump between one-sided limits.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 2.3 (squeeze).</strong> Evaluate \(\lim_{x\to 0}x\sin\!\left(\frac{1}{x}\right)\).
+        <p>Since \(-1\le\sin(1/x)\le 1\), we have \(-|x|\le x\sin(1/x)\le |x|\). Both bounds approach \(0\), so the Squeeze Theorem gives limit \(0\).</p>
+      </div>
+
+      <h3>3. Derivative Formulas (Memorize)</h3>
+
+      <div class="formula-box">
+        <table>
+          <tr><td>\(\frac{d}{dx}[x^n]=nx^{n-1}\)</td><td>\(\frac{d}{dx}[\sin x]=\cos x\)</td><td>\(\frac{d}{dx}[\cos x]=-\sin x\)</td></tr>
+          <tr><td>\(\frac{d}{dx}[e^x]=e^x\)</td><td>\(\frac{d}{dx}[\ln x]=\frac{1}{x}\)</td><td>\(\frac{d}{dx}[\tan x]=\sec^2 x\)</td></tr>
+          <tr><td>\(\frac{d}{dx}[\arcsin x]=\frac{1}{\sqrt{1-x^2}}\)</td><td>\(\frac{d}{dx}[\arctan x]=\frac{1}{1+x^2}\)</td><td>\(\frac{d}{dx}[a^x]=a^x\ln a\)</td></tr>
+        </table>
+        <p>For \(a^x\) assume \(a \gt 0\) and \(a\ne 1\).</p>
+      </div>
+
+      <div class="definition-box">
+        <strong>Combination rules.</strong> For differentiable \(u\) and \(v\):
+        \[\frac{d}{dx}[u v]=u'v+uv'.\]
+        \[\frac{d}{dx}\left[\frac{u}{v}\right]=\frac{u'v-uv'}{v^2},\quad v\ne 0.\]
+        \[\frac{d}{dx}[f(g(x))]=f'(g(x))\,g'(x).\]
+        The last formula is the chain rule: the derivative of a composition is the derivative of the outside function evaluated at the inside function, multiplied by the derivative of the inside function.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 3.1.</strong> Differentiate \(y=\ln\!\left(\frac{x^2+1}{x-1}\right)\).
+        <p>Expand first: \(y=\ln(x^2+1)-\ln(x-1)\). Then \(y'=\frac{2x}{x^2+1}-\frac{1}{x-1}\), valid for \(x \gt 1\).</p>
+      </div>
+
+      <h3>4. Integration Formulas (Memorize)</h3>
+
+      <div class="formula-box">
+        <table>
+          <tr><td>\(\int x^n\,dx=\frac{x^{n+1}}{n+1}+C,\ n\ne -1\)</td><td>\(\int \frac{1}{x}\,dx=\ln|x|+C\)</td><td>\(\int e^x\,dx=e^x+C\)</td></tr>
+          <tr><td>\(\int \sin x\,dx=-\cos x+C\)</td><td>\(\int \cos x\,dx=\sin x+C\)</td><td>\(\int \sec^2 x\,dx=\tan x+C\)</td></tr>
+          <tr><td>\(\int \frac{1}{\sqrt{1-x^2}}\,dx=\arcsin x+C\)</td><td>\(\int \frac{1}{1+x^2}\,dx=\arctan x+C\)</td><td>\(\int a^x\,dx=\frac{a^x}{\ln a}+C\)</td></tr>
+        </table>
+        <p>The power rule excludes \(n=-1\) because it would divide by zero; that case is the logarithm. For \(a^x\), take \(a \gt 0\) and \(a\ne 1\). Include the differential \(dx\) and the constant \(C\) on indefinite integrals.</p>
+      </div>
+
+      <h3>5. Key Theorems and Their Hypotheses</h3>
+
       <div class="theorem-box">
-        <strong>Extreme Value Theorem:</strong> Continuous function on closed interval has max and min.<br>
-        <strong>Fermat's Theorem:</strong> Local extrema occur at critical points.<br>
-        <strong>Mean Value Theorem:</strong> \(\exists c\) with \(f'(c) = \frac{f(b)-f(a)}{b-a}\).<br>
-        <strong>Intermediate Value Theorem:</strong> Continuous function takes all values between \(f(a)\) and \(f(b)\).<br>
-        <strong>Fundamental Theorem of Calculus:</strong> \(\int_a^b f = F(b) - F(a)\) where \(F' = f\).
+        <strong>Intermediate Value Theorem.</strong> If \(f\) is continuous on \([a,b]\) and \(N\) lies between \(f(a)\) and \(f(b)\), then some \(c\in[a,b]\) satisfies \(f(c)=N\).
+      </div>
+
+      <div class="theorem-box">
+        <strong>Extreme Value Theorem.</strong> If \(f\) is continuous on the closed, bounded interval \([a,b]\), then \(f\) attains an absolute maximum and an absolute minimum at some points of \([a,b]\).
+      </div>
+
+      <div class="theorem-box">
+        <strong>Fermat's Theorem.</strong> If \(f\) has a local maximum or minimum at \(c\) and \(f'(c)\) exists, then \(f'(c)=0\). Extrema can also occur where \(f'\) does not exist, so check both kinds of critical points.
+      </div>
+
+      <div class="theorem-box">
+        <strong>Rolle's Theorem.</strong> Let \(a \lt b\). If \(f\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(f(a)=f(b)\), then there is a \(c\in(a,b)\) with \(f'(c)=0\).
+      </div>
+
+      <div class="theorem-box">
+        <strong>Mean Value Theorem.</strong> Let \(a \lt b\). If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then there is a \(c\in(a,b)\) with
+        \[f'(c)=\frac{f(b)-f(a)}{b-a}.\]
+        All hypotheses must be verified: continuity on the closed interval, differentiability on the open interval, and \(a \lt b\).
+      </div>
+
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part II.</strong> If \(f\) is continuous on \([a,b]\) and \(F'=f\) on \([a,b]\), then
+        \[\int_a^b f(x)\,dx=F(b)-F(a).\]
+        The differential \(dx\) identifies the integration variable, and continuity of \(f\) is a genuine hypothesis.
+      </div>
+
+      <h3>6. FTC Part I and Variable Limits</h3>
+
+      <div class="theorem-box">
+        <strong>FTC Part I.</strong> If \(f\) is continuous on an interval containing \(a\), then \(g(x)=\int_a^x f(t)\,dt\) satisfies \(g'(x)=f(x)\). With variable limits and continuous \(f\), the chain rule gives
+        \[\frac{d}{dx}\int_{v(x)}^{u(x)}f(t)\,dt=f(u(x))\,u'(x)-f(v(x))\,v'(x).\]
+        Notice that the integrand is evaluated at the limits, and each limit contributes its own derivative.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 6.1.</strong> Find \(\frac{d}{dx}\int_{x}^{x^2}\sqrt{1+t^2}\,dt\).
+        <p>Here \(u(x)=x^2\) and \(v(x)=x\). The derivative is \(\sqrt{1+(x^2)^2}\cdot 2x-\sqrt{1+x^2}\cdot 1=2x\sqrt{1+x^4}-\sqrt{1+x^2}\).</p>
+      </div>
+
+      <h3>7. Applications of Derivatives</h3>
+
+      <div class="important-note">
+        <strong>Word-problem routine:</strong> draw and label a diagram; decide which quantities change with time; write one equation valid at all times; differentiate with respect to time; substitute known values only afterward; state units and whether a rate is signed or a speed. For optimization, reduce to one variable, respect the domain including endpoints, test all critical points, and justify the maximum or minimum.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 7.1 (related rates).</strong> A 10 ft ladder leans against a wall and its bottom slides away at \(2\) ft/s. How fast is the top sliding down when the bottom is \(6\) ft from the wall?
+        <p>Let \(x\) be the bottom's distance from the wall and \(y\) the top's height, so \(x^2+y^2=100\). Differentiating gives \(2x\frac{dx}{dt}+2y\frac{dy}{dt}=0\). At \(x=6\), \(y=8\), hence \(24+16\frac{dy}{dt}=0\) and \(\frac{dy}{dt}=-\frac{3}{2}\) ft/s.</p>
+        <p>The negative sign indicates that \(y\) is decreasing. The top slides down at <em>speed</em> \(\frac{3}{2}\) ft/s, even though its signed rate of change is \(-\frac{3}{2}\) ft/s. Report the sign when the question asks for \(\frac{dy}{dt}\), and report a positive speed when it asks "how fast."</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 7.2 (optimization).</strong> A rectangle has perimeter \(24\) m. Find its largest possible area.
+        <p>Let the sides be \(x\) and \(y\). The constraint \(2x+2y=24\) gives \(y=12-x\), so \(A(x)=x(12-x)=12x-x^2\) on \(0\le x\le 12\). Then \(A'(x)=12-2x\) gives \(x=6\). Since \(A(0)=A(12)=0\) and \(A(6)=36\), the maximum area is \(36\) m\(^2\), achieved by a \(6\) m by \(6\) m square.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 7.3 (curve sketching).</strong> Sketch the main features of \(f(x)=x^3-3x\).
+        <p>Intercepts: \(x(x^2-3)=0\) gives \(x=0,\pm\sqrt{3}\), and \(f\) is odd. Since \(f'(x)=3(x-1)(x+1)\), the function increases on \((-\infty,-1)\), decreases on \((-1,1)\), and increases on \((1,\infty)\). Thus \(f(-1)=2\) is a local maximum and \(f(1)=-2\) a local minimum.</p>
+        <p>Also \(f''(x)=6x\), so the graph is concave down for \(x \lt 0\) and concave up for \(x \gt 0\), with inflection point \((0,0)\). These sign charts are enough to produce a reliable sketch.</p>
+      </div>
+
+      <h3>8. Integration Techniques</h3>
+
+      <div class="definition-box">
+        <strong>Substitution.</strong> Choose \(u=g(x)\) so that \(du=g'(x)\,dx\) appears in the integrand. Then
+        \[\int f(g(x))g'(x)\,dx=\int f(u)\,du=F(g(x))+C.\]
+        For a definite integral, replace the limits by \(g(a)\) and \(g(b)\) when changing variables.
+      </div>
+
+      <div class="definition-box">
+        <strong>Integration by parts.</strong> From the product rule,
+        \[\int u\,dv=uv-\int v\,du.\]
+        Choose \(u\) to be a factor that simplifies when differentiated (logarithms and inverse trig functions are good choices) and \(dv\) a factor you can integrate.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 8.1.</strong> Evaluate \(\int_0^{\pi/4}\frac{\tan x}{\cos^2 x}\,dx\).
+        <p>Since \(\frac{1}{\cos^2 x}=\sec^2 x\), the integral is \(\int_0^{\pi/4}\tan x\sec^2 x\,dx\). Let \(u=\tan x\), so \(du=\sec^2 x\,dx\); the new limits are \(u=0\) and \(u=1\). Thus \(\int_0^1 u\,du=\left[\frac{u^2}{2}\right]_0^1=\frac{1}{2}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 8.2.</strong> Evaluate \(\int x e^x\,dx\).
+        <p>Choose \(u=x\) and \(dv=e^x\,dx\). Then \(du=dx\) and \(v=e^x\), so \(\int x e^x\,dx=xe^x-\int e^x\,dx=xe^x-e^x+C=e^x(x-1)+C\).</p>
+      </div>
+
+      <h3>9. Applications of Integration</h3>
+
+      <div class="definition-box">
+        <strong>Area between curves.</strong> If \(f\) and \(g\) are continuous and \(f(x)\ge g(x)\) on \([a,b]\), the area is \(\int_a^b\big(f(x)-g(x)\big)\,dx\). Plot or test points to learn which curve is on top, and split the interval where the order changes.
+      </div>
+
+      <div class="definition-box">
+        <strong>Volumes.</strong> State the axis of rotation and require nonnegative radii.
+        <ul>
+          <li>Disk about the \(x\)-axis: \(V=\pi\int_a^b\big[f(x)\big]^2\,dx\) for the region under \(y=f(x)\).</li>
+          <li>Washer about the \(x\)-axis: \(V=\pi\int_a^b\left(\big[f(x)\big]^2-\big[g(x)\big]^2\right)\,dx\) for \(f(x)\ge g(x)\ge 0\).</li>
+          <li>Shell about the \(y\)-axis: \(V=2\pi\int_a^b x\,f(x)\,dx\) for the region under \(y=f(x)\) with \(0\le a \lt b\).</li>
+        </ul>
+        <strong>Work.</strong> A variable force \(F(x)\) acting from \(x=a\) to \(x=b\) does work \(W=\int_a^b F(x)\,dx\); for a spring, \(F(x)=kx\).
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 9.1 (area between \(y=x\) and \(y=x^3\)).</strong> Find the area enclosed by the two curves.
+        <p>Intersections: \(x^3=x\) gives \(x(x^2-1)=0\), so \(x=-1,0,1\). On \([-1,0]\), test \(x=-\frac{1}{2}\): \(x^3=-\frac{1}{8} \gt -\frac{1}{2}=x\), so the top curve is \(y=x^3\). On \([0,1]\), test \(x=\frac{1}{2}\): \(x=\frac{1}{2} \gt \frac{1}{8}=x^3\), so the top curve is \(y=x\).</p>
+        <p>Therefore the area is the sum of one integral on each subinterval.</p>
+        \[\int_{-1}^0(x^3-x)\,dx+\int_0^1(x-x^3)\,dx=\left[\frac{x^4}{4}-\frac{x^2}{2}\right]_{-1}^0+\left[\frac{x^2}{2}-\frac{x^4}{4}\right]_0^1.\]
+        <p>The first bracket evaluates to \(0-\left(\frac{1}{4}-\frac{1}{2}\right)=\frac{1}{4}\), and the second to \(\frac{1}{2}-\frac{1}{4}=\frac{1}{4}\). Hence the total area is \(\frac{1}{4}+\frac{1}{4}=\frac{1}{2}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 9.2 (washer).</strong> Rotate the region between \(y=x\) and \(y=x^2\) on \([0,1]\) about the \(x\)-axis. Find the volume.
+        <p>On \([0,1]\), \(x\ge x^2\ge 0\), so the outer radius is \(x\) and the inner radius is \(x^2\): \(V=\pi\int_0^1\left(x^2-x^4\right)dx=\pi\left[\frac{x^3}{3}-\frac{x^5}{5}\right]_0^1=\pi\left(\frac{1}{3}-\frac{1}{5}\right)=\frac{2\pi}{15}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 9.3 (shell).</strong> Rotate the region under \(y=x^2\) from \(x=0\) to \(x=1\) about the \(y\)-axis. Find the volume.
+        <p>A cylindrical shell at position \(x\) has radius \(x\), height \(x^2\), and thickness \(dx\), so \(V=2\pi\int_0^1 x\cdot x^2\,dx=2\pi\int_0^1 x^3\,dx=2\pi\left[\frac{x^4}{4}\right]_0^1=\frac{\pi}{2}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 9.4 (work).</strong> A spring has constant \(20\) lb/ft. Find the work required to stretch it \(3\) ft from its natural length.
+        <p>Hooke's law gives \(F(x)=20x\), so \(W=\int_0^3 20x\,dx=\left[10x^2\right]_0^3=90\) ft-lb.</p>
+      </div>
+
+      <h3>10. Common Mistakes to Avoid</h3>
+
+      <div class="important-note">
+        <ul>
+          <li>\(\lim_{x\to a}\frac{\sin x}{x}=1\) only when \(a=0\); as \(x\to\infty\) the limit is \(0\).</li>
+          <li>The chain rule is \((f\circ g)'(x)=f'(g(x))\,g'(x)\), not \(f'(x)g'(x)\) or \(f'(g(x))\) alone.</li>
+          <li>The power rule for integrals requires \(n\ne -1\); the case \(n=-1\) gives \(\ln|x|+C\).</li>
+          <li>Write \(\int \frac{1}{x}\,dx=\ln|x|+C\); the absolute value is necessary on negative \(x\).</li>
+          <li>Substitution is an equality: \(\int f(g(x))g'(x)\,dx=\int f(u)\,du=F(g(x))+C\). Do not drop \(g'(x)\) or forget to change definite-integral limits.</li>
+          <li>The MVT needs \(a \lt b\), continuity on \([a,b]\), and differentiability on \((a,b)\); verify all three.</li>
+          <li>FTC II needs \(f\) continuous on \([a,b]\), and FTC I needs \(f\) continuous at the evaluation point.</li>
+          <li>Differentiating a variable upper limit contributes an extra factor from the chain rule.</li>
+          <li>For area, test which curve is on top on each subinterval; the curves \(y=x\) and \(y=x^3\) swap order at \(0\).</li>
+          <li>State the axis of revolution and use outer radius minus inner radius for washers, never the sum.</li>
+          <li>In related rates, a negative \(\frac{dy}{dt}\) means decreasing; the speed is its absolute value.</li>
+        </ul>
+      </div>
+
+      <h3>11. Study and Partial-Credit Advice</h3>
+
+      <div class="important-note">
+        <ul>
+          <li><strong>Show the setup:</strong> write the defining equation, the substitution, or the integral before doing arithmetic. A correct setup usually earns substantial partial credit even if the final number is off.</li>
+          <li><strong>Name the theorem and check its hypotheses:</strong> saying "by the MVT, since \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\)" demonstrates more understanding than quoting a formula.</li>
+          <li><strong>Verify answers independently:</strong> differentiate an antiderivative, check units, and test whether a rate's sign matches the physical situation.</li>
+          <li><strong>Follow your course's calculator policy:</strong> when calculators are permitted, use them to check arithmetic or approximate roots, not to replace an analytic setup that the question asks you to show.</li>
+          <li><strong>Read the question:</strong> distinguish "rate of change" from "speed," "area" from "net signed integral," and "local" from "absolute" extrema.</li>
+          <li><strong>Budget time:</strong> attempt every problem, write down the relevant formula even if stuck, and return to hard questions after securing the straightforward ones.</li>
+        </ul>
+      </div>
+
+      <h3>12. Mixed Practice Problems</h3>
+
+      <div class="example-box">
+        <ol>
+          <li>Evaluate \(\lim_{x\to 0}\frac{1-\cos x}{x^2}\).</li>
+          <li>Differentiate \(y=\frac{\sin x}{x}\).</li>
+          <li>Find \(y'\) if \(x^2+xy-y^2=4\).</li>
+          <li>Find \(\frac{d}{dx}\int_{x}^{x^2}\sqrt{1+t^2}\,dt\).</li>
+          <li>Evaluate \(\int_0^{\pi/4}\tan x\sec^2 x\,dx\).</li>
+          <li>Evaluate \(\int \frac{x}{x^2+1}\,dx\).</li>
+          <li>Evaluate \(\int_0^1 x e^{x^2}\,dx\).</li>
+          <li>Find the area between \(y=x^2\) and \(y=x+2\).</li>
+          <li>Rotate the region under \(y=x^2\) from \(x=0\) to \(x=2\) about the \(x\)-axis. Find the volume.</li>
+          <li>A sphere's radius increases at \(1\) cm/s. Find \(\frac{dV}{dt}\) when \(r=2\) cm.</li>
+          <li>A rectangle has perimeter \(24\) m. Find its maximum area.</li>
+          <li>Evaluate \(\int_1^e\frac{1}{x}\,dx\).</li>
+          <li>Evaluate \(\int \frac{1}{1+x^2}\,dx\).</li>
+          <li>Verify the MVT for \(f(x)=x^3\) on \([-1,2]\) and find all valid \(c\).</li>
+          <li>Evaluate \(\lim_{x\to\infty}\frac{e^x}{x^2}\).</li>
+        </ol>
+      </div>
+
+      <h3>Answer Key</h3>
+
+      <div class="definition-box">
+        <ol>
+          <li>\(\frac{1}{2}\), using \(1-\cos x=2\sin^2(x/2)\) and \(\frac{\sin(x/2)}{x/2}\to 1\).</li>
+          <li>\(y'=\frac{x\cos x-\sin x}{x^2}\), for \(x\ne 0\).</li>
+          <li>\(y'=-\frac{2x+y}{x-2y}\), provided \(x-2y\ne 0\).</li>
+          <li>\(2x\sqrt{1+x^4}-\sqrt{1+x^2}\).</li>
+          <li>\(\frac{1}{2}\), with \(u=\tan x\).</li>
+          <li>\(\frac{1}{2}\ln(x^2+1)+C\).</li>
+          <li>\(\frac{1}{2}(e-1)\).</li>
+          <li>\(\frac{9}{2}\), from \(\int_{-1}^2(x+2-x^2)\,dx\).</li>
+          <li>\(\frac{32\pi}{5}\), from \(\pi\int_0^2 x^4\,dx\).</li>
+          <li>\(16\pi\) cm\(^3\)/s, since \(\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}=4\pi(4)(1)\).</li>
+          <li>\(36\) m\(^2\), for a \(6\) m by \(6\) m square.</li>
+          <li>\(1\).</li>
+          <li>\(\arctan x+C\).</li>
+          <li>Hypotheses hold; the secant slope is \(3\) and \(f'(c)=3c^2=3\) gives \(c=1\), which lies in \((-1,2)\). The root \(c=-1\) is an endpoint and is excluded.</li>
+          <li>\(\infty\), because exponential growth dominates any power of \(x\).</li>
+        </ol>
+      </div>
+
+      <h3>13. Bonus: An Integration-Strategy Decision Tree</h3>
+
+      <div class="important-note">
+        <strong>Work through these questions in order.</strong>
+        <ol>
+          <li><strong>Is it a definite integral?</strong> If so, note the limits and whether the integrand is continuous on the interval; handle discontinuities as improper integrals.</li>
+          <li><strong>Is it a basic form?</strong> Check the memorized table first, including \(\int x^n\,dx\) with \(n\ne -1\) and \(\int \frac{1}{x}\,dx=\ln|x|+C\).</li>
+          <li><strong>Can algebra simplify it?</strong> Expand products, split fractions, complete the square, or use a trig identity such as \(\sec^2 x=1+\tan^2 x\).</li>
+          <li><strong>Is there an inside function whose derivative is present?</strong> Try \(u\)-substitution: set \(u=g(x)\), compute \(du=g'(x)\,dx\), and rewrite the entire integral, including the limits if definite.</li>
+          <li><strong>Is it a product of two different families?</strong> Try integration by parts, \(\int u\,dv=uv-\int v\,du\), choosing \(u\) by the rule that logarithms and inverse trig functions come first, then polynomials, then trig and exponentials.</li>
+          <li><strong>Does it involve powers of trig functions?</strong> Save one factor for \(du\): use \(\sin^2 x+\cos^2 x=1\) for odd powers, and half-angle identities for even powers.</li>
+          <li><strong>Still stuck?</strong> Differentiate your candidate answer to see what integrand it produces, then adjust constants. On an exam, write the correct approach even if the antiderivative is incomplete.</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Bonus model example.</strong> Decide a strategy for \(\int \frac{x}{\sqrt{x^2+9}}\,dx\).
+        <p>The inner expression \(x^2+9\) has derivative \(2x\), which appears up to a constant, so substitution is the right choice. Let \(u=x^2+9\), \(du=2x\,dx\); then \(\int \frac{x}{\sqrt{x^2+9}}\,dx=\frac{1}{2}\int u^{-1/2}\,du=\sqrt{u}+C=\sqrt{x^2+9}+C\). Differentiation confirms \(\frac{d}{dx}\sqrt{x^2+9}=\frac{x}{\sqrt{x^2+9}}\).</p>
       </div>
     </div>
 

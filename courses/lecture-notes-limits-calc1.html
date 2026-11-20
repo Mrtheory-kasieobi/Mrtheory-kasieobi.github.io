@@ -40,328 +40,552 @@
   <main>
     <div class="lecture-header">
       <h1>Limits and Continuity</h1>
-      <div class="subtitle">Calculus I - Chapter 2.1-2.5 (Detailed Notes)</div>
+      <div class="subtitle">Calculus I - Limits, Continuity, Asymptotes, and the Intermediate Value Theorem (Detailed Notes)</div>
     </div>
 
     <div class="lecture-content">
-      <h2>1. The Intuitive Idea of a Limit</h2>
-      
-      <h3>1.1 What is a Limit?</h3>
-      <p>We say "the limit of \(f(x)\) as \(x\) approaches \(a\) equals \(L\)" when we can make \(f(x)\) arbitrarily close to \(L\) by taking \(x\) sufficiently close to \(a\) (but not equal to \(a\)).</p>
-      
-      <div class="important-note">
-        <strong>Key Intuition:</strong>
-        Think of watching a movie frame by frame as we approach a specific point. The limit is what the function values are "heading toward" as we get closer and closer to the input.
-        
-        <strong>Important:</strong> The value \(f(a)\) itself may or may not equal the limit!
-      </div>
+      <h2>Big picture</h2>
+      <p>A limit describes where function values head as the input approaches a point, regardless of what happens at that point itself. This single idea makes precise the notions of "approaching," "continuous," "tangent," and "instantaneous rate of change." Everything that follows in calculus rests on it, so we build it in three layers: intuition, one-sided limits, and the exact epsilon-delta definition.</p>
 
-      <div class="example-box">
-        <strong>Example 1.1 - Graphical Understanding:</strong>
-        Consider \(f(x) = \frac{x^2 - 1}{x - 1}\)
-        
-        <p>For \(x \neq 1\): \(f(x) = \frac{(x-1)(x+1)}{x-1} = x + 1\)</p>
-        
-        <p>Graphically: A line with a hole at \((1, 2)\)</p>
-        
-        <p>The limit as \(x \to 1\) is 2 (we approach the hole)</p>
-        <p>But \(f(1)\) is undefined (the hole is there!)</p>
-      </div>
-
-      <h2>2. One-Sided Limits</h2>
-
-      <h3>2.1 Left-Hand and Right-Hand Limits</h3>
-      <div class="definition-box">
-        <strong>Left-Hand Limit:</strong>
-        \(\lim_{x \to a^-} f(x) = L\) means: as \(x\) approaches \(a\) from values less than \(a\), \(f(x)\) approaches \(L\).
-        
-        <strong>Right-Hand Limit:</strong>
-        \(\lim_{x \to a^+} f(x) = L\) means: as \(x\) approaches \(a\) from values greater than \(a\), \(f(x)\) approaches \(L\).
-      </div>
-
-      <div class="important-note">
-        <strong>Two-Sided Limit Exists:</strong>
-        \(\lim_{x \to a} f(x) = L\) if and only if:
-        <ul>
-          <li>\(\lim_{x \to a^-} f(x) = L\) and</li>
-          <li>\(\lim_{x \to a^+} f(x) = L\)</li>
-        </ul>
-        Both one-sided limits must exist and be equal!
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.1 - One-Sided Limits:</strong>
-        For \(f(x) = |x|\) at \(x = 0\):
-        
-        <p>Left-hand limit: As \(x \to 0^-\), \(|x| = -x\), so \(\lim_{x \to 0^-} |x| = 0\)</p>
-        
-        <p>Right-hand limit: As \(x \to 0^+\), \(|x| = x\), so \(\lim_{x \to 0^+} |x| = 0\)</p>
-        
-        <p>Since both equal 0: \(\lim_{x \to 0} |x| = 0\)</p>
-      </div>
-
-      <h2>3. The Precise Definition of a Limit (Epsilon-Delta)</h2>
-
-      <h3>3.1 Formal Definition</h3>
-      <div class="definition-box">
-        <strong>Epsilon-Delta Definition:</strong>
-        \(\lim_{x \to a} f(x) = L\) means:
-        
-        For every \(\varepsilon > 0\) (no matter how small), there exists a \(\delta > 0\) such that:
-        
-        if \(0 < |x - a| < \delta\), then \(|f(x) - L| < \varepsilon\)
-      </div>
-
-      <div class="important-note">
-        <strong>Understanding the Definition:</strong>
-        <ul>
-          <li>\(\varepsilon\) (epsilon): How close we want \(f(x)\) to be to \(L\)</li>
-          <li>\(\delta\) (delta): How close \(x\) must be to \(a\)</li>
-          <li>The definition says: we can always find a \(\delta\) that works!</li>
-        </ul>
-        Think of it as a game: You pick \(\varepsilon\), I must find \(\delta\). If I can always win, the limit exists!
-      </div>
-
-      <h3>3.2 Proof Example</h3>
-      <div class="proof-box">
-        <strong>Proof that \(\lim_{x \to 2} (3x - 1) = 5\)</strong>
-        
-        <strong>We need to show:</strong> For every \(\varepsilon > 0\), there exists \(\delta > 0\) such that if \(0 < |x - 2| < \delta\), then \(|(3x-1) - 5| < \varepsilon\).
-        
-        <strong>Work backwards:</strong>
-        <p>We want: \(|(3x-1) - 5| < \varepsilon\)</p>
-        <p>Simplify: \(|3x - 6| < \varepsilon\)</p>
-        <p>Factor: \(|3(x - 2)| < \varepsilon\)</p>
-        <p>Simplify: \(3|x - 2| < \varepsilon\)</p>
-        <p>Therefore: \(|x - 2| < \frac{\varepsilon}{3}\)</p>
-        
-        <strong>Choose \(\delta = \frac{\varepsilon}{3}\)</strong>
-        
-        <strong>Now verify:</strong>
-        <p>Assume \(0 < |x - 2| < \delta = \frac{\varepsilon}{3}\)</p>
-        <p>Then \(|x - 2| < \frac{\varepsilon}{3}\)</p>
-        <p>Multiply by 3: \(3|x - 2| < \varepsilon\)</p>
-        <p>Factor: \(|3(x - 2)| < \varepsilon\)</p>
-        <p>Simplify: \(|3x - 6| < \varepsilon\)</p>
-        <p>Rewrite: \(|(3x - 1) - 5| < \varepsilon\)</p>
-        <p>Therefore: \(|(3x-1) - 5| < \varepsilon\) ✓</p>
-        
-        Since we found such a \(\delta\) for any \(\varepsilon\), the limit is proven. ∎
-      </div>
-
-      <h2>4. Limit Laws</h2>
-
-      <h3>4.1 Basic Limit Laws</h3>
-      <div class="theorem-box">
-        <strong>Limit Laws (assuming all limits exist):</strong>
-        <ul>
-          <li><strong>Sum Law:</strong> \(\lim_{x \to a} [f(x) + g(x)] = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)\)</li>
-          <li><strong>Difference Law:</strong> \(\lim_{x \to a} [f(x) - g(x)] = \lim_{x \to a} f(x) - \lim_{x \to a} g(x)\)</li>
-          <li><strong>Product Law:</strong> \(\lim_{x \to a} [f(x) \cdot g(x)] = \lim_{x \to a} f(x) \cdot \lim_{x \to a} g(x)\)</li>
-          <li><strong>Quotient Law:</strong> \(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}\) (if denominator ≠ 0)</li>
-          <li><strong>Power Law:</strong> \(\lim_{x \to a} [f(x)]^n = [\lim_{x \to a} f(x)]^n\)</li>
-        </ul>
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof of Sum Law (Sketch):</strong>
-        
-        Let \(\lim_{x \to a} f(x) = L\) and \(\lim_{x \to a} g(x) = M\)
-        
-        We want to show: \(\lim_{x \to a} [f(x) + g(x)] = L + M\)
-        
-        By definition, for any \(\varepsilon > 0\):
-        <ul>
-          <li>There exists \(\delta_1 > 0\) such that if \(0 < |x-a| < \delta_1\), then \(|f(x) - L| < \frac{\varepsilon}{2}\)</li>
-          <li>There exists \(\delta_2 > 0\) such that if \(0 < |x-a| < \delta_2\), then \(|g(x) - M| < \frac{\varepsilon}{2}\)</li>
-        </ul>
-        
-        Let \(\delta = \min(\delta_1, \delta_2)\)
-        
-        Then if \(0 < |x-a| < \delta\):
-        <p>\(|[f(x) + g(x)] - [L + M]| = |[f(x) - L] + [g(x) - M]| \leq |f(x) - L| + |g(x) - M| < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon\)</p>
-        
-        Therefore, \(\lim_{x \to a} [f(x) + g(x)] = L + M\) ∎
-      </div>
-
-      <h3>4.2 Special Limits</h3>
-      <div class="definition-box">
-        <strong>Important Limits to Know:</strong>
-        <ul>
-          <li>\(\lim_{x \to a} c = c\) (constant function)</li>
-          <li>\(\lim_{x \to a} x = a\) (identity function)</li>
-          <li>\(\lim_{x \to 0} \frac{\sin x}{x} = 1\) (squeeze theorem proof required)</li>
-          <li>\(\lim_{x \to 0} \frac{1 - \cos x}{x} = 0\) (can be derived from above)</li>
-          <li>\(\lim_{x \to \infty} \frac{1}{x} = 0\)</li>
-        </ul>
-      </div>
-
-      <h2>5. Evaluating Limits</h2>
-
-      <h3>5.1 Direct Substitution</h3>
-      <div class="important-note">
-        <strong>When Direct Substitution Works:</strong>
-        If \(f\) is a polynomial, rational function, or "nice" function and \(a\) is in the domain, then:
-        \(\lim_{x \to a} f(x) = f(a)\)
-        
-        <strong>Why this works:</strong> Most functions we work with are continuous, meaning the limit equals the function value.
-      </div>
-
-      <h3>5.2 Indeterminate Forms</h3>
-      <div class="definition-box">
-        <strong>Indeterminate Forms:</strong>
-        When direct substitution gives:
-        <ul>
-          <li>\(\frac{0}{0}\)</li>
-          <li>\(\frac{\infty}{\infty}\)</li>
-          <li>\(\infty - \infty\)</li>
-          <li>\(0 \cdot \infty\)</li>
-          <li>\(\frac{0}{0}\)</li>
-          <li>\(1^{\infty}\)</li>
-          <li>\(0^0\)</li>
-          <li>\(\infty^0\)</li>
-        </ul>
-        These require further algebraic manipulation!
-      </div>
-
-      <h3>5.3 Techniques for Evaluating Limits</h3>
-      
-      <div class="example-box">
-        <strong>Example 5.1 - Factoring (0/0 form):</strong>
-        \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\)
-        
-        <p>Direct substitution: \(\frac{4-4}{2-2} = \frac{0}{0}\) - indeterminate!</p>
-        
-        <p>Factor numerator: \(\frac{(x-2)(x+2)}{x-2}\)</p>
-        
-        <p>Cancel (valid for \(x \neq 2\)): \(x + 2\)</p>
-        
-        <p>Now take limit: \(\lim_{x \to 2} (x + 2) = 4\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 5.2 - Rationalizing (0/0 form with radicals):</strong>
-        \(\lim_{x \to 0} \frac{\sqrt{x+4} - 2}{x}\)
-        
-        <p>Multiply by conjugate: \(\frac{\sqrt{x+4} - 2}{x} \cdot \frac{\sqrt{x+4} + 2}{\sqrt{x+4} + 2}\)</p>
-        
-        <p>Simplify numerator: \(= \frac{(x+4) - 4}{x(\sqrt{x+4} + 2)} = \frac{x}{x(\sqrt{x+4} + 2)}\)</p>
-        
-        <p>Cancel: \(= \frac{1}{\sqrt{x+4} + 2}\)</p>
-        
-        <p>Take limit: \(\frac{1}{\sqrt{4} + 2} = \frac{1}{4}\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 5.3 - Special Trigonometric Limit:</strong>
-        \(\lim_{x \to 0} \frac{\sin(3x)}{x}\)
-        
-        <p>We know \(\lim_{u \to 0} \frac{\sin u}{u} = 1\)</p>
-        
-        <p>Rewrite: \(\frac{\sin(3x)}{x} = 3 \cdot \frac{\sin(3x)}{3x}\)</p>
-        
-        <p>Let \(u = 3x\). As \(x \to 0\), \(u \to 0\)</p>
-        
-        <p>Therefore: \(\lim_{x \to 0} \frac{\sin(3x)}{x} = 3 \cdot \lim_{u \to 0} \frac{\sin u}{u} = 3 \cdot 1 = 3\)</p>
-      </div>
-
-      <h2>6. Continuity</h2>
-
-      <h3>6.1 Definition of Continuity</h3>
-      <div class="definition-box">
-        <strong>Definition:</strong>
-        A function \(f\) is continuous at \(a\) if and only if:
+      <div class="formula-box">
+        <strong>Road map and prerequisites</strong>
+        <p>Prerequisites: functions, domains, inequalities, and graph reading from the previous note. We will cover:</p>
         <ol>
-          <li>\(f(a)\) is defined</li>
-          <li>\(\lim_{x \to a} f(x)\) exists</li>
-          <li>\(\lim_{x \to a} f(x) = f(a)\)</li>
+          <li>Intuitive limits and one-sided limits (with the interior-point condition)</li>
+          <li>The epsilon-delta definition, including a nonlinear example</li>
+          <li>Limit laws, with precise hypotheses</li>
+          <li>The squeeze theorem and the fundamental trigonometric limits</li>
+          <li>Techniques for indeterminate forms; limits at infinity and asymptotes</li>
+          <li>Continuity, its composition theorem, the Intermediate Value Theorem, and the Extreme Value Theorem</li>
+          <li>Bonus: the sequential characterization of limits</li>
         </ol>
       </div>
 
-      <div class="important-note">
-        <strong>Intuitive Meaning:</strong>
-        You can draw the graph without lifting your pencil! There are no holes, jumps, or vertical asymptotes.
-      </div>
+      <h2>1. The intuitive idea of a limit</h2>
 
-      <h3>6.2 Types of Discontinuities</h3>
-      <div class="theorem-box">
-        <strong>Types of Discontinuities at \(x = a\):</strong>
-        <ul>
-          <li><strong>Removable discontinuity:</strong> Limit exists but ≠ function value or function is undefined</li>
-          <li><strong>Jump discontinuity:</strong> Left and right limits exist but are different</li>
-          <li><strong>Infinite discontinuity:</strong> Function approaches ±∞ from at least one side</li>
-          <li><strong>Oscillating discontinuity:</strong> Function oscillates infinitely (e.g., \(\sin(1/x)\) at \(x = 0\))</li>
-        </ul>
+      <h3>1.1 Approaching a point</h3>
+      <p>We write "the limit of \(f(x)\) as \(x\) approaches \(a\) equals \(L\)" when we can force \(f(x)\) as close to \(L\) as we please by taking \(x\) sufficiently close to \(a\), with \(x \ne a\). The value \(f(a)\) is irrelevant; the input never actually equals \(a\) in the limiting process.</p>
+
+      <div class="definition-box">
+        <strong>Working definition (informal).</strong>
+        \(\lim_{x \to a} f(x) = L\) means the values of \(f(x)\) tend toward \(L\) as \(x\) tends toward \(a\) from either side, without \(x\) ever needing to equal \(a\).
       </div>
 
       <div class="example-box">
-        <strong>Example 6.1 - Removable Discontinuity:</strong>
-        \(f(x) = \frac{x^2 - 1}{x - 1}\)
-        
-        <p>At \(x = 1\): \(f(1)\) is undefined (0/0)</p>
-        
-        <p>But \(\lim_{x \to 1} f(x) = \lim_{x \to 1} (x+1) = 2\) exists</p>
-        
-        <p>We can "remove" the discontinuity by defining \(f(1) = 2\)</p>
+        <strong>Example 1.1 - A hole in the graph.</strong>
+        Let \(f(x) = \frac{x^2 - 1}{x - 1}\).
+        <ol>
+          <li>For \(x \ne 1\), factor: \(f(x) = \frac{(x - 1)(x + 1)}{x - 1} = x + 1\).</li>
+          <li>As \(x\) approaches \(1\), the values of \(x + 1\) approach \(2\), so \(\lim_{x \to 1} f(x) = 2\).</li>
+          <li>But \(f(1)\) is undefined, because the original denominator is zero. The limit exists even though the function has a hole at \((1, 2)\).</li>
+        </ol>
       </div>
 
-      <h3>6.3 Continuity on an Interval</h3>
+      <h2>2. One-sided limits</h2>
+
+      <h3>2.1 Intuition and definitions</h3>
+      <p>Sometimes we care about the approach from just one side. This is essential at endpoints and at jump discontinuities.</p>
+
       <div class="definition-box">
-        <strong>Continuity on an Interval:**</strong>
-        <ul>
-          <li>On \((a, b)\): \(f\) is continuous at every point in \((a, b)\)</li>
-          <li>On \([a, b)\): \(f\) is continuous on \((a, b)\) and continuous at \(a\) from the right</li>
-          <li>On \((a, b]\): \(f\) is continuous on \((a, b)\) and continuous at \(b\) from the left</li>
-          <li>On \([a, b]\): \(f\) is continuous on \((a, b)\), at \(a\) from the right, and at \(b\) from the left</li>
-        </ul>
+        <strong>Definitions.</strong>
+        \[\lim_{x \to a^-} f(x) = L\]
+        means \(f(x)\) tends to \(L\) as \(x\) approaches \(a\) through values with \(x \lt a\).
+        \[\lim_{x \to a^+} f(x) = L\]
+        means \(f(x)\) tends to \(L\) as \(x\) approaches \(a\) through values with \(x \gt a\).
       </div>
 
-      <h3>6.4 Important Theorems about Continuous Functions</h3>
-      <div class="theorem-box">
-        <strong>Intermediate Value Theorem (IVT):</strong>
-        If \(f\) is continuous on \([a, b]\) and \(N\) is any number between \(f(a)\) and \(f(b)\), then there exists at least one \(c \in (a, b)\) such that \(f(c) = N\).
+      <div class="definition-box">
+        <strong>Theorem (two-sided limit and one-sided limits).</strong>
+        If \(a\) is an interior point of the domain of \(f\) (that is, \(f\) is defined on an open interval containing \(a\), possibly except at \(a\) itself), then
+        \[\lim_{x \to a} f(x) = L \quad \text{if and only if} \quad \lim_{x \to a^-} f(x) = L \text{ and } \lim_{x \to a^+} f(x) = L.\]
+        Both one-sided limits must exist and be equal. The interior-point hypothesis matters: at an endpoint of the domain only the appropriate one-sided limit can be formed, so the two-sided statement is not meaningful there.
       </div>
 
       <div class="proof-box">
-        <strong>Proof of IVT (Sketch):</strong>
-        
-        Let \(f\) be continuous on \([a, b]\) and suppose \(f(a) < N < f(b)\).
-        
-        Define \(S = \{x \in [a, b] : f(x) < N\}\)
-        
-        Let \(c = \sup S\) (the least upper bound of S)
-        
-        By continuity:
-        <ul>
-          <li>If \(f(c) < N\), then by continuity, \(f(x) < N\) for \(x\) near \(c\), contradicting \(c = \sup S\)</li>
-          <li>If \(f(c) > N\), then by continuity, \(f(x) > N\) for \(x\) near \(c\), contradicting definition of sup</li>
-          <li>Therefore \(f(c) = N\)</li>
-        </ul>
-        ∎
+        <strong>Why the theorem holds.</strong>
+        If the two-sided limit is \(L\), then restricting \(x\) to values with \(x \lt a\) or with \(x \gt a\) cannot destroy convergence, so both one-sided limits equal \(L\). Conversely, given \(\varepsilon \gt 0\), the left-hand limit supplies a \(\delta_1 \gt 0\) controlling \(a - \delta_1 \lt x \lt a\), and the right-hand limit supplies a \(\delta_2 \gt 0\) controlling \(a \lt x \lt a + \delta_2\). Taking \(\delta = \min(\delta_1, \delta_2)\) controls every \(x\) with \(0 \lt |x - a| \lt \delta\), which is exactly the two-sided definition.
       </div>
 
       <div class="example-box">
-        <strong>Example 6.2 - Using IVT:</strong>
-        Show that \(x^3 - 3x + 1 = 0\) has a solution in \((0, 2)\).
-        
-        <p>Let \(f(x) = x^3 - 3x + 1\). This is a polynomial, so it's continuous everywhere.</p>
-        
-        <p>Evaluate: \(f(0) = 1 > 0\) and \(f(2) = 8 - 6 + 1 = 3 > 0\)</p>
-        
-        <p>Wait - both are positive! Let's try \(f(1) = 1 - 3 + 1 = -1 < 0\)</p>
-        
-        <p>Now: \(f(0) = 1 > 0\) and \(f(1) = -1 < 0\)</p>
-        
-        <p>By IVT, there exists \(c \in (0, 1)\) such that \(f(c) = 0\)</p>
-        
-        <p>So there's at least one root in \((0, 1)\), which is in \((0, 2)\). ✓</p>
+        <strong>Example 2.1 - One-sided limits of \(|x|\).</strong>
+        \[
+        |x| =
+        \begin{cases}
+        -x \quad\text{if } x \lt 0,\\
+        x \quad\text{if } x \ge 0.
+        \end{cases}
+        \]
+        <ol>
+          <li>For \(x \to 0^-\) we have \(x \lt 0\), so \(|x| = -x\) and \(\lim_{x \to 0^-} |x| = 0\).</li>
+          <li>For \(x \to 0^+\) we have \(x \gt 0\), so \(|x| = x\) and \(\lim_{x \to 0^+} |x| = 0\).</li>
+          <li>Both one-sided limits equal \(0\), so \(\lim_{x \to 0} |x| = 0\).</li>
+        </ol>
       </div>
 
+      <div class="example-box">
+        <strong>Example 2.2 - A jump.</strong>
+        Let \(g(x) = \frac{|x|}{x}\) for \(x \ne 0\).
+        <ol>
+          <li>For \(x \gt 0\), \(|x| = x\), so \(g(x) = 1\) and \(\lim_{x \to 0^+} g(x) = 1\).</li>
+          <li>For \(x \lt 0\), \(|x| = -x\), so \(g(x) = -1\) and \(\lim_{x \to 0^-} g(x) = -1\).</li>
+          <li>The one-sided limits differ, so \(\lim_{x \to 0} g(x)\) does not exist.</li>
+        </ol>
+      </div>
+
+      <h2>3. The precise definition of a limit</h2>
+
+      <h3>3.1 The epsilon-delta definition</h3>
+      <div class="definition-box">
+        <strong>Definition.</strong>
+        We say \(\lim_{x \to a} f(x) = L\) if for every \(\varepsilon \gt 0\) there exists a \(\delta \gt 0\) such that
+        \[0 \lt |x - a| \lt \delta \quad \text{implies} \quad |f(x) - L| \lt \varepsilon.\]
+        Here \(\varepsilon\) measures how close we demand \(f(x)\) be to \(L\), and \(\delta\) measures how close \(x\) must be to \(a\). The strict inequality \(0 \lt |x - a|\) excludes \(x = a\), as it must.
+      </div>
+
+      <h3>3.2 A linear example</h3>
+      <div class="proof-box">
+        <strong>Claim: \(\lim_{x \to 2} (3x - 1) = 5\).</strong>
+        <p>Given \(\varepsilon \gt 0\), choose \(\delta = \frac{\varepsilon}{3} \gt 0\). If \(0 \lt |x - 2| \lt \delta\), then</p>
+        \[|(3x - 1) - 5| = |3x - 6| = 3|x - 2| \lt 3\delta = 3 \cdot \frac{\varepsilon}{3} = \varepsilon.\]
+        <p>This is exactly the required implication, so the limit is \(5\).</p>
+      </div>
+
+      <h3>3.3 A nonlinear example</h3>
+      <div class="proof-box">
+        <strong>Claim: \(\lim_{x \to 2} x^2 = 4\).</strong>
+        <p><strong>Scratch work.</strong> We want \(|x^2 - 4| = |x - 2|\,|x + 2| \lt \varepsilon\). The factor \(|x + 2|\) is troublesome, so we first bound it. Require \(\delta \le 1\). Then \(|x - 2| \lt 1\) gives \(1 \lt x \lt 3\), hence \(|x + 2| \lt 5\). Therefore \(|x^2 - 4| \lt 5|x - 2|\), and it suffices to have \(|x - 2| \lt \frac{\varepsilon}{5}\).</p>
+        <p><strong>Formal proof.</strong> Given \(\varepsilon \gt 0\), set \(\delta = \min\left(1, \frac{\varepsilon}{5}\right) \gt 0\). If \(0 \lt |x - 2| \lt \delta\), then \(|x - 2| \lt 1\), so \(|x + 2| \lt 5\), and also \(|x - 2| \lt \frac{\varepsilon}{5}\). Hence</p>
+        \[|x^2 - 4| = |x - 2|\,|x + 2| \lt \frac{\varepsilon}{5} \cdot 5 = \varepsilon.\]
+        <p>Thus \(\lim_{x \to 2} x^2 = 4\). The trick of first imposing \(\delta \le 1\) to control the extra factor is standard for nonlinear limits.</p>
+      </div>
+
+      <h3>3.4 One-sided epsilon-delta definitions</h3>
+      <div class="definition-box">
+        <strong>Definitions.</strong>
+        <ul>
+          <li>\(\lim_{x \to a^-} f(x) = L\) if for every \(\varepsilon \gt 0\) there is \(\delta \gt 0\) with \(a - \delta \lt x \lt a \implies |f(x) - L| \lt \varepsilon\).</li>
+          <li>\(\lim_{x \to a^+} f(x) = L\) if for every \(\varepsilon \gt 0\) there is \(\delta \gt 0\) with \(a \lt x \lt a + \delta \implies |f(x) - L| \lt \varepsilon\).</li>
+        </ul>
+      </div>
+
+      <div class="proof-box">
+        <strong>Example: a right-hand limit at a square root.</strong>
+        Claim: \(\lim_{x \to 0^+} \sqrt{x} = 0\). Given \(\varepsilon \gt 0\), choose \(\delta = \varepsilon^2\). If \(0 \lt x \lt \delta = \varepsilon^2\), then \(|\sqrt{x} - 0| = \sqrt{x} \lt \sqrt{\varepsilon^2} = \varepsilon\). Only the right-hand approach is possible because \(\sqrt{x}\) is defined only for \(x \ge 0\).
+      </div>
+
+      <h2>4. Limit laws</h2>
+
+      <h3>4.1 Statements with precise hypotheses</h3>
+      <div class="theorem-box">
+        <strong>Theorem (limit laws).</strong>
+        Suppose \(\lim_{x \to a} f(x) = L\) and \(\lim_{x \to a} g(x) = M\), with \(c\) a constant. Then:
+        <ul>
+          <li><strong>Constant:</strong> \(\lim_{x \to a} c = c\).</li>
+          <li><strong>Identity:</strong> \(\lim_{x \to a} x = a\).</li>
+          <li><strong>Sum/difference:</strong> \(\lim_{x \to a} \bigl(f(x) \pm g(x)\bigr) = L \pm M\).</li>
+          <li><strong>Product:</strong> \(\lim_{x \to a} \bigl(f(x)\,g(x)\bigr) = L M\).</li>
+          <li><strong>Quotient:</strong> \(\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{L}{M}\), <em>provided</em> \(M = \lim_{x \to a} g(x) \ne 0\).</li>
+          <li><strong>Integer power:</strong> \(\lim_{x \to a} [f(x)]^n = L^n\) for every positive integer \(n\).</li>
+          <li><strong>Integer root:</strong> \(\lim_{x \to a} \sqrt[n]{f(x)} = \sqrt[n]{L}\) for a positive integer \(n\), assuming \(L \gt 0\) when \(n\) is even (and \(f(x) \ge 0\) near \(a\) in that case).</li>
+        </ul>
+        <p>The condition \(M \ne 0\) in the quotient law is essential: dividing by a quantity tending to zero is not covered by this law. The root law needs \(L \gt 0\) for even roots because \(\sqrt{L}\) is not real when \(L \lt 0\). For a general real exponent \(p\), the formula \(\lim [f(x)]^p = L^p\) additionally requires \(L \gt 0\) (so the power is defined by \(L^p = e^{p \ln L}\)); that case is justified later with logarithms.</p>
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of the sum law.</strong>
+        Let \(\varepsilon \gt 0\). From \(\lim f = L\), choose \(\delta_1 \gt 0\) so that \(0 \lt |x - a| \lt \delta_1\) implies \(|f(x) - L| \lt \frac{\varepsilon}{2}\). From \(\lim g = M\), choose \(\delta_2 \gt 0\) so that \(0 \lt |x - a| \lt \delta_2\) implies \(|g(x) - M| \lt \frac{\varepsilon}{2}\). Put \(\delta = \min(\delta_1, \delta_2)\). Then for \(0 \lt |x - a| \lt \delta\),
+        \[|(f(x) + g(x)) - (L + M)| = |(f(x) - L) + (g(x) - M)| \le |f(x) - L| + |g(x) - M| \lt \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon.\]
+        Hence \(\lim_{x \to a} (f(x) + g(x)) = L + M\). The other laws have similar epsilon-delta proofs (the product law first bounds one factor near \(a\)).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.1 - Using the laws directly.</strong>
+        Evaluate \(\lim_{x \to 3} \frac{x^2 + 1}{x - 1}\).
+        <ol>
+          <li>The numerator limit: \(\lim (x^2 + 1) = 3^2 + 1 = 10\).</li>
+          <li>The denominator limit: \(\lim (x - 1) = 3 - 1 = 2\), which is nonzero, so the quotient law applies.</li>
+          <li>Therefore \(\lim_{x \to 3} \frac{x^2 + 1}{x - 1} = \frac{10}{2} = 5\).</li>
+        </ol>
+      </div>
+
+      <h3>4.2 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 1.</strong>
+        <ol>
+          <li>When may the quotient law not be used? <em>When the denominator's limit is zero.</em></li>
+          <li>What extra assumption is needed for \(\lim \sqrt{f(x)} = \sqrt{\lim f(x)}\) with a square root? <em>The limit \(L\) must be positive and \(f(x)\) non-negative near the point.</em></li>
+          <li>Compute \(\lim_{x \to 1} (2x^3 - x + 4)\). <em>\(2 - 1 + 4 = 5\).</em></li>
+        </ol>
+      </div>
+
+      <h2>5. The squeeze theorem and trigonometric limits</h2>
+
+      <h3>5.1 Intuition and statement</h3>
+      <p>If a function is trapped between two functions that both approach the same limit, it must approach that limit too. This is the squeeze (or sandwich) theorem, and it is the tool that proves the fundamental trigonometric limits.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem (squeeze theorem).</strong>
+        Suppose \(g(x) \le f(x) \le h(x)\) for all \(x\) near \(a\), with \(x \ne a\), and suppose
+        \[\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = L.\]
+        Then \(\lim_{x \to a} f(x) = L\). The same result holds for one-sided limits with the obvious changes.
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof.</strong>
+        Let \(\varepsilon \gt 0\). Since \(g \to L\), there is \(\delta_1 \gt 0\) with \(0 \lt |x - a| \lt \delta_1 \implies |g(x) - L| \lt \varepsilon\), i.e. \(L - \varepsilon \lt g(x)\). Since \(h \to L\), there is \(\delta_2 \gt 0\) with \(0 \lt |x - a| \lt \delta_2 \implies h(x) \lt L + \varepsilon\). Let \(\delta = \min(\delta_1, \delta_2)\), small enough also that the trapping inequalities hold. Then for \(0 \lt |x - a| \lt \delta\),
+        \[L - \varepsilon \lt g(x) \le f(x) \le h(x) \lt L + \varepsilon,\]
+        so \(|f(x) - L| \lt \varepsilon\). Hence \(f \to L\).
+      </div>
+
+      <h3>5.2 The fundamental trigonometric limits</h3>
+      <div class="important-note">
+        <strong>Radian measure is essential.</strong>
+        All these limits assume angles are measured in radians. The geometric inequality below uses the sector area \(\frac{1}{2}x\), which is valid only in radians; in degrees the limits would carry an extra factor of \(\frac{\pi}{180}\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof that \(\displaystyle \lim_{x \to 0} \frac{\sin x}{x} = 1\).</strong>
+        For \(0 \lt x \lt \frac{\pi}{2}\), compare areas in the unit circle: the triangle with vertices at the center and two points on the circle has area \(\frac{1}{2}\sin x\), the circular sector has area \(\frac{1}{2}x\), and the larger tangent triangle has area \(\frac{1}{2}\tan x\). Thus
+        \[\tfrac{1}{2}\sin x \le \tfrac{1}{2}x \le \tfrac{1}{2}\tan x.\]
+        Multiplying by \(2\) and dividing by \(\sin x \gt 0\) gives \(1 \le \frac{x}{\sin x} \le \frac{1}{\cos x}\), hence
+        \[\cos x \le \frac{\sin x}{x} \le 1.\]
+        As \(x \to 0^+\), \(\cos x \to 1\) and the constant upper bound is \(1\), so the squeeze theorem gives \(\lim_{x \to 0^+} \frac{\sin x}{x} = 1\). Since \(\frac{\sin(-x)}{-x} = \frac{-\sin x}{-x} = \frac{\sin x}{x}\), the function is even, so the left-hand limit is also \(1\). Therefore the two-sided limit is \(1\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation of \(\displaystyle \lim_{x \to 0} \frac{1 - \cos x}{x} = 0\).</strong>
+        Multiply by the conjugate:
+        \[\frac{1 - \cos x}{x} \cdot \frac{1 + \cos x}{1 + \cos x} = \frac{1 - \cos^2 x}{x(1 + \cos x)} = \frac{\sin^2 x}{x(1 + \cos x)} = \frac{\sin x}{x} \cdot \frac{\sin x}{1 + \cos x}.\]
+        The first factor tends to \(1\); the second tends to \(\frac{0}{1 + 1} = 0\) by the quotient law (the denominator tends to \(2 \ne 0\)). Hence the product tends to \(1 \cdot 0 = 0\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 5.1 - A scaled sine limit.</strong>
+        Evaluate \(\lim_{x \to 0} \frac{\sin(3x)}{x}\).
+        <ol>
+          <li>Multiply and divide by \(3\): \(\frac{\sin(3x)}{x} = 3 \cdot \frac{\sin(3x)}{3x}\).</li>
+          <li>Let \(u = 3x\). As \(x \to 0\), \(u \to 0\), so \(\lim_{x \to 0} \frac{\sin(3x)}{3x} = \lim_{u \to 0} \frac{\sin u}{u} = 1\).</li>
+          <li>Therefore the limit is \(3 \cdot 1 = 3\). Both angles are in radians.</li>
+        </ol>
+      </div>
+
+      <h2>6. Evaluating limits: indeterminate forms</h2>
+
+      <h3>6.1 Direct substitution after the limit laws</h3>
+      <p>Because the limit laws hold for polynomials and rational functions (with nonzero denominator at the point), we may evaluate their limits by substitution. This is not an appeal to the undefined word "nice"; it is a consequence of the constant, identity, sum, product, and quotient laws proved above. If \(a\) is in the natural domain of a polynomial or rational function, then \(\lim_{x \to a} f(x) = f(a)\). Continuity, defined later, will give the same conclusion for a much wider class.</p>
+
+      <h3>6.2 What indeterminate means</h3>
+      <div class="definition-box">
+        <strong>Indeterminate forms.</strong>
+        Substituting the limiting behavior of numerator and denominator sometimes yields a pattern that does not determine the answer. The basic forms are \(\frac{0}{0}\), \(\frac{\infty}{\infty}\), \(\infty - \infty\), \(0 \cdot \infty\), \(\frac{0}{\infty}\) is not indeterminate (it is \(0\)), while the exponential forms \(1^{\infty}\), \(0^0\), and \(\infty^0\) are indeterminate.
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes: not every indeterminate form is algebraic.</strong>
+        The forms \(\frac{0}{0}\) and \(\frac{\infty}{\infty}\) often yield to factoring, rationalizing, or dividing by the highest power. But exponential forms such as \(1^{\infty}\) generally require logarithms or L'Hôpital's rule, which are developed later. Do not assume "indeterminate" always means "factor and cancel." Also note that writing \(\frac{0}{0}\) is shorthand for a limiting pattern; it is not a number, and we never treat it as one.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 6.1 - Factoring.</strong>
+        Evaluate \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\).
+        <ol>
+          <li>Substitution gives \(\frac{4 - 4}{2 - 2} = \frac{0}{0}\), indeterminate.</li>
+          <li>Factor: \(x^2 - 4 = (x - 2)(x + 2)\).</li>
+          <li>For \(x \ne 2\), cancel: \(\frac{(x - 2)(x + 2)}{x - 2} = x + 2\).</li>
+          <li>Now \(\lim_{x \to 2} (x + 2) = 4\). Cancellation is legitimate because the limit ignores \(x = 2\).</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 6.2 - Rationalizing.</strong>
+        Evaluate \(\lim_{x \to 0} \frac{\sqrt{x + 4} - 2}{x}\).
+        <ol>
+          <li>Substitution gives \(\frac{0}{0}\). Multiply by the conjugate:
+          \[\frac{\sqrt{x + 4} - 2}{x} \cdot \frac{\sqrt{x + 4} + 2}{\sqrt{x + 4} + 2} = \frac{(x + 4) - 4}{x(\sqrt{x + 4} + 2)}.\]</li>
+          <li>Simplify: \(\frac{x}{x(\sqrt{x + 4} + 2)} = \frac{1}{\sqrt{x + 4} + 2}\) for \(x \ne 0\).</li>
+          <li>Take the limit: \(\frac{1}{\sqrt{4} + 2} = \frac{1}{4}\).</li>
+        </ol>
+      </div>
+
+      <h3>6.3 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 2.</strong>
+        <ol>
+          <li>Evaluate \(\lim_{x \to 1} \frac{x^2 - 1}{x - 1}\). <em>Factor to \(x + 1\), so the limit is \(2\).</em></li>
+          <li>Evaluate \(\lim_{x \to 0} \frac{\sin(5x)}{x}\). <em>\(5\).</em></li>
+          <li>Is \(\frac{0}{\infty}\) indeterminate? <em>No; it tends to \(0\).</em></li>
+        </ol>
+      </div>
+
+      <h2>7. Limits at infinity, infinite limits, and asymptotes</h2>
+
+      <h3>7.1 Definitions</h3>
+      <div class="definition-box">
+        <strong>Definitions.</strong>
+        \[\lim_{x \to \infty} f(x) = L\]
+        means that for every \(\varepsilon \gt 0\) there is \(N \gt 0\) with \(x \gt N \implies |f(x) - L| \lt \varepsilon\). Similarly \(\lim_{x \to -\infty} f(x) = L\) uses \(x \lt -N\).
+        \[\lim_{x \to a} f(x) = \infty\]
+        means that for every \(M \gt 0\) there is \(\delta \gt 0\) with \(0 \lt |x - a| \lt \delta \implies f(x) \gt M\). One-sided versions use \(a \lt x \lt a + \delta\) or \(a - \delta \lt x \lt a\).
+      </div>
+
+      <div class="definition-box">
+        <strong>Asymptotes.</strong>
+        If \(\lim_{x \to \infty} f(x) = L\) or \(\lim_{x \to -\infty} f(x) = L\), the line \(y = L\) is a <strong>horizontal asymptote</strong>. If one of the one-sided limits as \(x \to a\) is \(\pm \infty\), the vertical line \(x = a\) is a <strong>vertical asymptote</strong>.
+      </div>
+
+      <h3>7.2 Rational functions at infinity</h3>
+      <div class="proof-box">
+        <strong>Method and justification.</strong>
+        For \(R(x) = \frac{a_m x^m + \cdots + a_0}{b_n x^n + \cdots + b_0}\) with \(a_m, b_n \ne 0\), divide numerator and denominator by \(x^n\), where \(n\) is the denominator's degree. Since \(\lim_{x \to \infty} \frac{1}{x^k} = 0\) for \(k \gt 0\), every lower-order term vanishes. If \(m \lt n\) the limit is \(0\); if \(m = n\) the limit is \(\frac{a_m}{b_n}\); if \(m \gt n\) the quotient grows without bound in magnitude, so the limit is \(\pm \infty\), with the sign determined by leading coefficients and the direction of approach.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 7.1 - A horizontal asymptote.</strong>
+        Evaluate \(\lim_{x \to \infty} \frac{3x^2 + 1}{2x^2 - x + 5}\).
+        <ol>
+          <li>Divide by \(x^2\): \(\frac{3 + \frac{1}{x^2}}{2 - \frac{1}{x} + \frac{5}{x^2}}\).</li>
+          <li>As \(x \to \infty\), the reciprocal powers tend to \(0\).</li>
+          <li>The limit is \(\frac{3}{2}\), so \(y = \frac{3}{2}\) is a horizontal asymptote.</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 7.2 - A vertical asymptote.</strong>
+        For \(f(x) = \frac{1}{(x - 2)^2}\), examine \(x \to 2\).
+        <ol>
+          <li>For \(x \ne 2\), \((x - 2)^2 \gt 0\), and it can be made arbitrarily small.</li>
+          <li>Given \(M \gt 0\), choose \(\delta = \frac{1}{\sqrt{M}}\). Then \(0 \lt |x - 2| \lt \delta\) gives \((x - 2)^2 \lt \delta^2 = \frac{1}{M}\), so \(f(x) \gt M\).</li>
+          <li>Thus \(\lim_{x \to 2} f(x) = \infty\) from both sides, and \(x = 2\) is a vertical asymptote.</li>
+        </ol>
+      </div>
+
+      <h2>8. Continuity</h2>
+
+      <h3>8.1 Definition and intuition</h3>
+      <p>Continuity means there is no break in the graph: the limit exists and matches the function's value. This is the precise version of "you can draw it without lifting your pencil."</p>
+
+      <div class="definition-box">
+        <strong>Definition.</strong>
+        A function \(f\) is continuous at \(a\) if
+        <ol>
+          <li>\(f(a)\) is defined,</li>
+          <li>\(\lim_{x \to a} f(x)\) exists, and</li>
+          <li>\(\lim_{x \to a} f(x) = f(a)\).</li>
+        </ol>
+        At a left endpoint we use the right-hand limit; at a right endpoint we use the left-hand limit.
+      </div>
+
+      <div class="definition-box">
+        <strong>Continuity on an interval.</strong>
+        \(f\) is continuous on \((a, b)\) if it is continuous at every point there. It is continuous on \([a, b]\) if it is continuous on \((a, b)\), right-continuous at \(a\), and left-continuous at \(b\). Mixed intervals are handled analogously.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 8.1 - A removable discontinuity.</strong>
+        Let \(f(x) = \frac{x^2 - 1}{x - 1}\) for \(x \ne 1\).
+        <ol>
+          <li>\(f(1)\) is undefined, so \(f\) is not continuous at \(1\).</li>
+          <li>But \(\lim_{x \to 1} f(x) = \lim_{x \to 1} (x + 1) = 2\) exists.</li>
+          <li>Defining \(f(1) = 2\) removes the break; this is a removable discontinuity.</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 8.2 - A piecewise jump.</strong>
+        Let \(g\) be the piecewise function
+        \[
+        g(x) =
+        \begin{cases}
+        x + 1 \quad\text{if } x \lt 0,\\
+        x^2 \quad\text{if } x \ge 0.
+        \end{cases}
+        \]
+        <ol>
+          <li>Left limit: \(\lim_{x \to 0^-} g(x) = 0 + 1 = 1\).</li>
+          <li>Right limit: \(\lim_{x \to 0^+} g(x) = 0^2 = 0\).</li>
+          <li>They differ, so the two-sided limit does not exist and \(g\) has a jump at \(0\), even though \(g(0) = 0\).</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 8.3 - A piecewise function that is continuous.</strong>
+        Let \(h\) be the piecewise function
+        \[
+        h(x) =
+        \begin{cases}
+        2x \quad\text{if } x \lt 1,\\
+        x + 1 \quad\text{if } x \ge 1.
+        \end{cases}
+        \]
+        <ol>
+          <li>Left limit: \(\lim_{x \to 1^-} h(x) = 2\). Right limit: \(\lim_{x \to 1^+} h(x) = 2\).</li>
+          <li>So the limit exists and equals \(2\); also \(h(1) = 1 + 1 = 2\).</li>
+          <li>All three conditions hold, so \(h\) is continuous at \(1\).</li>
+        </ol>
+      </div>
+
+      <h3>8.2 Types of discontinuities</h3>
+      <div class="theorem-box">
+        <strong>Classification at \(x = a\).</strong>
+        <ul>
+          <li><strong>Removable:</strong> the limit exists but differs from \(f(a)\), or \(f(a)\) is undefined.</li>
+          <li><strong>Jump:</strong> the one-sided limits exist but are unequal.</li>
+          <li><strong>Infinite:</strong> one of the one-sided limits is \(\pm \infty\), as with \(\frac{1}{x - a}\) or \(\frac{1}{(x - a)^2}\) at \(a\).</li>
+          <li><strong>Oscillating:</strong> values fail to settle, as with \(\sin\left(\frac{1}{x}\right)\) at \(0\).</li>
+        </ul>
+      </div>
+
+      <h3>8.3 Building continuous functions</h3>
+      <div class="theorem-box">
+        <strong>Theorem (algebra of continuity).</strong>
+        If \(f\) and \(g\) are continuous at \(a\), then so are \(f + g\), \(f - g\), \(fg\), and \(\frac{f}{g}\) provided \(g(a) \ne 0\). In particular, polynomials are continuous everywhere, and rational functions are continuous wherever their denominators are nonzero.
+      </div>
+
+      <div class="theorem-box">
+        <strong>Theorem (continuity of compositions).</strong>
+        If \(g\) is continuous at \(a\) and \(f\) is continuous at \(g(a)\), then the composition \(f \circ g\) is continuous at \(a\); that is,
+        \[\lim_{x \to a} f(g(x)) = f\!\left(\lim_{x \to a} g(x)\right) = f(g(a)).\]
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof of the composition theorem.</strong>
+        Let \(\varepsilon \gt 0\). Continuity of \(f\) at \(g(a)\) gives \(\eta \gt 0\) such that \(|y - g(a)| \lt \eta \implies |f(y) - f(g(a))| \lt \varepsilon\). Continuity of \(g\) at \(a\) gives \(\delta \gt 0\) such that \(|x - a| \lt \delta \implies |g(x) - g(a)| \lt \eta\). Combining, \(|x - a| \lt \delta\) implies \(|f(g(x)) - f(g(a))| \lt \varepsilon\), which is continuity of \(f \circ g\) at \(a\).
+      </div>
+
+      <h3>8.4 The Intermediate Value Theorem</h3>
+      <div class="theorem-box">
+        <strong>Theorem (Intermediate Value Theorem, IVT).</strong>
+        If \(f\) is continuous on \([a, b]\) and \(N\) is any number with \(\min(f(a), f(b)) \le N \le \max(f(a), f(b))\), then there exists \(c \in [a, b]\) with \(f(c) = N\). If moreover \(N\) lies strictly between \(f(a)\) and \(f(b)\), then \(c\) may be chosen in the open interval \((a, b)\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof sketch for the case \(f(a) \lt N \lt f(b)\).</strong>
+        Let \(S = \{x \in [a, b] \mid f(x) \le N\}\). Then \(a \in S\), since \(f(a) \lt N\), so \(S\) is nonempty; and \(S\) is bounded above by \(b\). Let \(c = \sup S\), so \(a \le c \le b\). Because \(f(b) \gt N\), continuity at \(b\) gives a neighborhood on which \(f \gt N\); hence \(b \notin S\) and, more strongly, \(c \lt b\). Now we rule out the two alternatives.
+        <ul>
+          <li>If \(f(c) \lt N\), continuity at \(c\) gives \(f \lt N\) on an interval to the right of \(c\); since \(c \lt b\), we can pick \(x \gt c\) with \(x \in S\), contradicting that \(c\) is an upper bound.</li>
+          <li>If \(f(c) \gt N\), continuity gives \(f \gt N\) on \((c - \eta, c + \eta)\), so no point of \(S\) lies there; then \(c - \eta\) is a smaller upper bound for \(S\), contradicting that \(c\) is the least upper bound.</li>
+        </ul>
+        Therefore \(f(c) = N\). Since \(f(a) \lt N = f(c)\) we have \(c \ne a\), and we already showed \(c \lt b\), so \(c \in (a, b)\). The case \(f(b) \lt N \lt f(a)\) is symmetric.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 8.4 - Locating a root with the IVT.</strong>
+        Show that \(f(x) = x^3 - 3x + 1\) has a zero in \((0, 1)\).
+        <ol>
+          <li>\(f\) is a polynomial, hence continuous on \([0, 1]\).</li>
+          <li>Evaluate the endpoints: \(f(0) = 1 \gt 0\) and \(f(1) = 1 - 3 + 1 = -1 \lt 0\).</li>
+          <li>Take \(N = 0\), which lies strictly between \(f(0)\) and \(f(1)\).</li>
+          <li>By the IVT there is \(c \in (0, 1)\) with \(f(c) = 0\). So a root exists in \((0, 1)\); the theorem guarantees existence, not uniqueness or the value of \(c\).</li>
+        </ol>
+      </div>
+
+      <h3>8.5 The Extreme Value Theorem</h3>
+      <div class="theorem-box">
+        <strong>Theorem (Extreme Value Theorem, EVT).</strong>
+        If \(f\) is continuous on the closed, bounded interval \([a, b]\), then \(f\) attains an absolute maximum and an absolute minimum on \([a, b]\). That is, there exist \(c, d \in [a, b]\) with \(f(c) \le f(x) \le f(d)\) for all \(x \in [a, b]\).
+      </div>
+      <div class="important-note">
+        <strong>Why the hypotheses matter.</strong>
+        On an open interval a continuous function need not attain its extremes: \(f(x) = \frac{1}{x}\) on \((0, 1)\) is unbounded above. Continuity alone is not enough either: a function with a vertical asymptote on \([a, b]\) may be unbounded. Both closedness and continuity are required.
+      </div>
+
+      <h3>8.6 Common mistakes</h3>
+      <div class="important-note">
+        <ul>
+          <li>Confusing \(\lim_{x \to a} f(x)\) with \(f(a)\); the limit can exist when \(f(a)\) is undefined or different.</li>
+          <li>Applying the quotient law when the denominator's limit is zero; this always requires separate analysis.</li>
+          <li>Forgetting that the two-sided limit criterion needs both one-sided limits and an interior point of the domain.</li>
+          <li>Using trigonometric limits with angles in degrees.</li>
+          <li>Claiming the IVT gives a point in \((a, b)\) when \(N\) equals an endpoint value; in that inclusive case only \(c \in [a, b]\) is guaranteed.</li>
+        </ul>
+      </div>
+
+      <h2>Bonus: the sequential characterization of limits</h2>
+      <p>There is an equivalent way to phrase limits using sequences. It is often the cleanest tool for proving that a limit does <em>not</em> exist.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        Let \(f\) be defined on an open interval containing \(a\), except possibly at \(a\). Then \(\lim_{x \to a} f(x) = L\) if and only if for every sequence \((x_n)\) with \(x_n \ne a\) and \(x_n \to a\), we have \(f(x_n) \to L\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof.</strong>
+        Suppose first that \(\lim_{x \to a} f(x) = L\), and let \(x_n \to a\) with \(x_n \ne a\). Given \(\varepsilon \gt 0\), choose \(\delta \gt 0\) from the epsilon-delta definition. Since \(x_n \to a\), there is \(N\) with \(n \gt N \implies |x_n - a| \lt \delta\); combined with \(x_n \ne a\) this gives \(|f(x_n) - L| \lt \varepsilon\). Hence \(f(x_n) \to L\).
+        <p>Conversely, suppose the sequential condition holds but the limit is not \(L\). Then there is \(\varepsilon_0 \gt 0\) such that for every \(\delta \gt 0\) some \(x\) with \(0 \lt |x - a| \lt \delta\) satisfies \(|f(x) - L| \ge \varepsilon_0\). Choosing \(\delta = \frac{1}{n}\) for each positive integer \(n\) produces points \(x_n\) with \(0 \lt |x_n - a| \lt \frac{1}{n}\) and \(|f(x_n) - L| \ge \varepsilon_0\). Then \(x_n \to a\) and \(x_n \ne a\), but \(f(x_n)\) cannot converge to \(L\), contradicting the hypothesis. Hence the limit must be \(L\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example Bonus.1 - Showing a limit fails.</strong>
+        For \(\sin\left(\frac{1}{x}\right)\) at \(0\), choose \(x_n = \frac{1}{\frac{\pi}{2} + 2\pi n}\), so \(x_n \to 0\) but \(\sin\left(\frac{1}{x_n}\right) = 1\) for all \(n\). Choose \(y_n = \frac{1}{\frac{3\pi}{2} + 2\pi n}\), so \(y_n \to 0\) but \(\sin\left(\frac{1}{y_n}\right) = -1\). Two sequences approaching \(0\) give different limiting values, so \(\lim_{x \to 0} \sin\left(\frac{1}{x}\right)\) does not exist.
+      </div>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>Limits describe approach, not the value at the point; one-sided limits must agree at interior points.</li>
+        <li>The epsilon-delta definition makes "arbitrarily close" exact; nonlinear cases use a bound like \(\delta = \min(1, \varepsilon/5)\).</li>
+        <li>Limit laws require the denominator's limit to be nonzero; root and real-power laws require positivity conditions.</li>
+        <li>The squeeze theorem proves \(\frac{\sin x}{x} \to 1\) in radians and \(\frac{1 - \cos x}{x} \to 0\).</li>
+        <li>Continuity means limit equals value; compositions of continuous functions are continuous.</li>
+        <li>The IVT guarantees intermediate values on \([a, b]\), and the EVT guarantees extrema on closed bounded intervals.</li>
+      </ul>
+
+      <h2>Practice Problems</h2>
+      <ol>
+        <li>Using epsilon-delta, prove \(\lim_{x \to 4} (2x + 1) = 9\).</li>
+        <li>Using epsilon-delta, prove \(\lim_{x \to 3} x^2 = 9\) with \(\delta = \min(1, \varepsilon/7)\).</li>
+        <li>Evaluate \(\lim_{x \to 2} \frac{x^2 - 4}{x - 2}\).</li>
+        <li>Evaluate \(\lim_{x \to 0} \frac{\sqrt{x + 9} - 3}{x}\).</li>
+        <li>Evaluate \(\lim_{x \to 0} \frac{\sin(4x)}{x}\).</li>
+        <li>Evaluate \(\lim_{x \to \infty} \frac{5x^3 - 2x}{x^3 + x^2 + 1}\).</li>
+        <li>Find \(\lim_{x \to 0^-} \frac{|x|}{x}\) and \(\lim_{x \to 0^+} \frac{|x|}{x}\). Does the two-sided limit exist?</li>
+        <li>Let \(f\) be the piecewise function
+        \[
+        f(x) =
+        \begin{cases}
+        x^2 \quad\text{if } x \le 2,\\
+        mx + 1 \quad\text{if } x \gt 2.
+        \end{cases}
+        \]
+        Find \(m\) so that \(f\) is continuous at \(2\).</li>
+        <li>Show that \(x^4 + x - 3 = 0\) has a solution in \((1, 2)\).</li>
+        <li>State the hypothesis on \(\lim_{x \to a} g(x)\) needed for \(\lim \frac{f}{g} = \frac{\lim f}{\lim g}\), and explain why it is needed.</li>
+        <li>Use the sequential criterion to show \(\lim_{x \to 0} \cos\left(\frac{1}{x}\right)\) does not exist.</li>
+        <li>Find the vertical and horizontal asymptotes of \(f(x) = \frac{x + 1}{x - 2}\), justifying each with a limit.</li>
+      </ol>
+
+      <h2>Practice Problems - Worked Answer Key</h2>
+      <div class="example-box">
+        <strong>Answers 1-4.</strong>
+        <ol>
+          <li>Given \(\varepsilon \gt 0\), take \(\delta = \varepsilon/2\). Then \(0 \lt |x - 4| \lt \delta\) gives \(|(2x + 1) - 9| = 2|x - 4| \lt 2\delta = \varepsilon\).</li>
+          <li>First require \(\delta \le 1\), so \(|x - 3| \lt 1\) gives \(2 \lt x \lt 4\) and \(|x + 3| \lt 7\). Take \(\delta = \min(1, \varepsilon/7)\). Then \(|x^2 - 9| = |x - 3|\,|x + 3| \lt (\varepsilon/7)\cdot 7 = \varepsilon\).</li>
+          <li>Factor: \(\frac{(x - 2)(x + 2)}{x - 2} = x + 2\) for \(x \ne 2\), so the limit is \(4\).</li>
+          <li>Multiply by \(\frac{\sqrt{x + 9} + 3}{\sqrt{x + 9} + 3}\) to get \(\frac{x}{x(\sqrt{x + 9} + 3)} = \frac{1}{\sqrt{x + 9} + 3}\), which tends to \(\frac{1}{6}\).</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <strong>Answers 5-8.</strong>
+        <ol>
+          <li>Write \(4 \cdot \frac{\sin(4x)}{4x} \to 4 \cdot 1 = 4\).</li>
+          <li>Divide by \(x^3\): \(\frac{5 - \frac{2}{x^2}}{1 + \frac{1}{x} + \frac{1}{x^3}} \to 5\).</li>
+          <li>Left limit is \(-1\), right limit is \(1\); they differ, so the two-sided limit does not exist.</li>
+          <li>Continuity at \(2\) requires \(\lim_{x \to 2^-} x^2 = 4\) to equal \(\lim_{x \to 2^+} (mx + 1) = 2m + 1\) and \(f(2) = 4\). So \(2m + 1 = 4\), giving \(m = \frac{3}{2}\).</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <strong>Answers 9-12.</strong>
+        <ol>
+          <li>Let \(p(x) = x^4 + x - 3\), continuous on \([1, 2]\). Then \(p(1) = -1 \lt 0\) and \(p(2) = 16 + 2 - 3 = 15 \gt 0\); with \(N = 0\) strictly between them, the IVT gives \(c \in (1, 2)\) with \(p(c) = 0\).</li>
+          <li>We need \(\lim_{x \to a} g(x) \ne 0\), otherwise the denominator could shrink to zero and the quotient need not have a finite limit.</li>
+          <li>Take \(x_n = \frac{1}{2\pi n}\), so \(x_n \to 0\) and \(\cos(1/x_n) \to 1\); take \(y_n = \frac{1}{(2n+1)\pi}\), so \(y_n \to 0\) and \(\cos(1/y_n) \to -1\). Different subsequential limits mean the limit does not exist.</li>
+          <li>Vertical asymptote \(x = 2\) because \(\lim_{x \to 2^-} \frac{x+1}{x-2} = -\infty\) and \(\lim_{x \to 2^+} \frac{x+1}{x-2} = \infty\). Horizontal asymptote \(y = 1\) because \(\lim_{x \to \pm\infty} \frac{x+1}{x-2} = 1\) after dividing by \(x\).</li>
+        </ol>
+      </div>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">
       <a href="lecture-notes-functions-calc1.html">← Functions</a>
-      <a href="lecture-notes-differentiation-calc1.html">Differentiation →</a>
+      <a href="lecture-notes-differentiation-calc1.html">Derivatives →</a>
     </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

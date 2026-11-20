@@ -44,135 +44,310 @@
     </div>
 
     <div class="lecture-content">
-      <h2>1. Related Rates</h2>
-      
-      <h3>1.1 The Related Rates Method</h3>
-      <div class="definition-box">
-        <strong>Related Rates:</strong>
-        A technique for finding the rate of change of one quantity in terms of the rate of change of another related quantity using implicit differentiation.
+      <p><strong>Big picture.</strong> The derivative measures how one quantity responds to changes in another. In related rates, several quantities change with time and we use implicit differentiation to convert a geometric equation into an equation among rates. In optimization, we use the derivative to locate candidates for largest and smallest values, then justify which candidate actually wins. Both applications rely on the same chain rule developed in the previous lecture.</p>
+
+      <div class="formula-box">
+        <p><strong>Road map and prerequisites.</strong></p>
+        <ul>
+          <li>Prerequisites: chain rule, implicit differentiation, continuity, and the derivative rules from earlier lectures.</li>
+          <li>Related rates: relate variables with an equation, differentiate with respect to time \(t\), then substitute numerical values.</li>
+          <li>Key warning: never substitute a constant value before differentiating.</li>
+          <li>Optimization: Extreme Value Theorem, critical numbers, Fermat's Theorem, Closed Interval Method, and the Second Derivative Test.</li>
+        </ul>
       </div>
 
+      <h2>1. Related Rates</h2>
+
+      <h3>1.1 The five-step setup strategy</h3>
+      <p>Related-rate problems are solved by a reliable routine. Words come first: decide what changes, name it, and only then write symbols.</p>
+
       <div class="important-note">
-        <strong>General Strategy:</strong>
+        <strong>Strategy.</strong>
         <ol>
-          <li>Identify the given rate(s) and the rate to find</li>
-          <li>Write an equation relating the variables</li>
-          <li>Differentiate both sides with respect to time \(t\)</li>
-          <li>Substitute known values and solve for the unknown rate</li>
+          <li><strong>Diagram:</strong> draw the physical situation and label the changing quantities.</li>
+          <li><strong>Variables:</strong> introduce functions of time such as \(x(t)\), \(y(t)\), \(r(t)\), and \(\theta(t)\).</li>
+          <li><strong>Equation:</strong> relate the variables using geometry (Pythagoras, similarity, area formulas) or trigonometry.</li>
+          <li><strong>Differentiate:</strong> differentiate both sides with respect to \(t\). Every changing variable contributes a chain-rule factor such as \(\frac{dx}{dt}\).</li>
+          <li><strong>Substitute at the end:</strong> insert numerical values only after differentiating, solve for the unknown rate, and interpret the sign and units.</li>
         </ol>
       </div>
 
-      <h3>1.2 Fundamental Theorem of Related Rates</h3>
+      <h3>1.2 The related-rates principle</h3>
+      <p>This principle is simply the chain rule applied to an implicit relation; it is sometimes called the "Fundamental Theorem of Related Rates," but it is nothing more mysterious than implicit differentiation.</p>
+
       <div class="theorem-box">
-        <strong>Theorem 1.1:</strong>
-        If quantities \(x\) and \(y\) are both functions of time \(t\) and are related by an equation \(F(x, y) = 0\), then at any time \(t_0\) where \(\frac{dx}{dt}\) and \(\frac{dy}{dt}\) exist:
-        $$\frac{dy}{dt} = -\frac{\partial F/\partial x}{\partial F/\partial y} \cdot \frac{dx}{dt}$$
-        provided \(\frac{\partial F}{\partial y} \neq 0\).
+        <strong>Theorem 1.1 (The Related-Rates Principle).</strong>
+        <p>Let \(F\) be continuously differentiable (\(C^{1}\)) on a region containing a curve \(F(x,y) = 0\). Suppose \(x(t)\) and \(y(t)\) are differentiable functions with \(F(x(t),y(t)) = 0\) for \(t\) near \(t_{0}\). If \(\frac{dx}{dt}\) and \(\frac{dy}{dt}\) exist at \(t_{0}\) and \(F_y(x(t_{0}),y(t_{0})) \ne 0\), then</p>
+        \[\frac{dy}{dt} = -\frac{F_x(x(t_{0}),y(t_{0}))}{F_y(x(t_{0}),y(t_{0}))}\,\frac{dx}{dt}.\]
+        <p>Here \(F_x\) differentiates \(F\) with respect to \(x\) holding \(y\) fixed, and \(F_y\) differentiates with respect to \(y\) holding \(x\) fixed. The \(C^{1}\) hypothesis guarantees that these partial derivatives exist and are continuous, so the chain rule applies.</p>
       </div>
 
       <div class="proof-box">
-        <strong>Proof:</strong>
-        Given \(F(x, y) = 0\) where both \(x\) and \(y\) depend on \(t\).
-        
-        Differentiating implicitly with respect to \(t\):
-        $$\frac{d}{dt}[F(x, y)] = \frac{\partial F}{\partial x}\frac{dx}{dt} + \frac{\partial F}{\partial y}\frac{dy}{dt} = 0$$
-        
-        Solving for \(\frac{dy}{dt}\):
-        $$\frac{dy}{dt} = -\frac{\partial F/\partial x}{\partial F/\partial y} \cdot \frac{dx}{dt}$$
-        ∎
+        <strong>Proof.</strong>
+        <p>Define \(g(t) = F(x(t),y(t))\). Since \(F(x(t),y(t)) = 0\) for all \(t\) near \(t_{0}\), \(g\) is the constant zero function, so \(g'(t_{0}) = 0\). The multivariable chain rule gives</p>
+        \[g'(t_{0}) = F_x(x(t_{0}),y(t_{0}))\,\frac{dx}{dt} + F_y(x(t_{0}),y(t_{0}))\,\frac{dy}{dt} = 0.\]
+        <p>Solving for \(\frac{dy}{dt}\) (legal because \(F_y \ne 0\)) yields the stated formula. ∎</p>
+      </div>
+
+      <h3>1.3 Critical warning: do not substitute constants early</h3>
+      <div class="important-note">
+        <strong>Do not substitute a constant before differentiating.</strong>
+        <p>A quantity whose value is fixed at the instant of interest is still a function of time <em>while differentiating</em>. Substituting its numerical value too early turns it into a constant, its derivative becomes \(0\), and information is destroyed.</p>
+        <p><strong>Counterexample (sliding ladder).</strong> Let \(x^{2}+y^{2} = 100\) with \(\frac{dx}{dt} = 2\), and ask for \(\frac{dy}{dt}\) at \(x = 6\), \(y = 8\). Correct: \(2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0\), giving \(24 + 16\frac{dy}{dt} = 0\) and \(\frac{dy}{dt} = -\frac{3}{2}\). If we first substitute \(x = 6\), we get \(36 + y^{2} = 100\); differentiating this treats \(36\) as a constant and produces \(2y\frac{dy}{dt} = 0\), hence the false answer \(\frac{dy}{dt} = 0\). The term \(2x\frac{dx}{dt}\) vanished because \(x\) was frozen prematurely.</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.1:</strong> A spherical balloon is being inflated at a rate of 10 cm³/s. How fast is the radius increasing when the diameter is 50 cm?
-        <p>Given: \(\frac{dV}{dt} = 10\) cm³/s. Find: \(\frac{dr}{dt}\) when \(r = 25\) cm.</p>
-        <p>Volume of sphere: \(V = \frac{4}{3}\pi r^3\)</p>
-        <p>Differentiate: \(\frac{dV}{dt} = 4\pi r^2 \frac{dr}{dt}\)</p>
-        <p>Substitute: \(10 = 4\pi (25)^2 \frac{dr}{dt}\)</p>
-        <p>Result: \(\frac{dr}{dt} = \frac{10}{2500\pi} = \frac{1}{250\pi}\) cm/s</p>
+        <strong>Example 1.1 &mdash; Inflating balloon.</strong>
+        <p>A spherical balloon is inflated at \(10\) cm\(^{3}\)/s. How fast is the radius increasing when the diameter is \(50\) cm?</p>
+        <p><strong>Step 1 (variables):</strong> \(V(t) = \frac{4}{3}\pi r(t)^{3}\); given \(\frac{dV}{dt} = 10\); find \(\frac{dr}{dt}\) when \(r = 25\) cm.</p>
+        <p><strong>Step 2 (differentiate):</strong> \(\frac{dV}{dt} = 4\pi r^{2}\frac{dr}{dt}\).</p>
+        <p><strong>Step 3 (substitute at the end):</strong> \(10 = 4\pi(25)^{2}\frac{dr}{dt} = 2500\pi\frac{dr}{dt}\).</p>
+        <p><strong>Step 4 (answer and interpretation):</strong> \(\frac{dr}{dt} = \frac{1}{250\pi}\) cm/s. The positive sign means the radius is growing; it grows more slowly as \(r\) increases because the same volume is spread over a larger surface.</p>
       </div>
 
-      <h2>2. Optimization</h2>
+      <div class="example-box">
+        <strong>Example 1.2 &mdash; Shadow length by similar triangles.</strong>
+        <p>A 15 ft lamppost stands beside a 6 ft tall person walking away from it at \(4\) ft/s. Let \(x\) be the person's distance from the post and \(s\) the length of the shadow. Find \(\frac{ds}{dt}\) and how fast the tip of the shadow moves.</p>
+        <p><strong>Step 1 (diagram and similarity):</strong> the large triangle (post to shadow tip) and the small triangle (person to shadow tip) are similar, so \(\frac{15}{x+s} = \frac{6}{s}\).</p>
+        <p><strong>Step 2 (simplify before differentiating):</strong> \(15s = 6(x+s)\), hence \(9s = 6x\) and \(s = \frac{2}{3}x\).</p>
+        <p><strong>Step 3 (differentiate with respect to \(t\)):</strong> \(\frac{ds}{dt} = \frac{2}{3}\frac{dx}{dt} = \frac{2}{3}(4) = \frac{8}{3}\) ft/s.</p>
+        <p><strong>Step 4 (tip of the shadow):</strong> the tip is at distance \(x+s\) from the post, so \(\frac{d}{dt}(x+s) = 4 + \frac{8}{3} = \frac{20}{3}\) ft/s.</p>
+        <p><strong>Interpretation:</strong> the shadow tip moves faster than the person because it combines the person's motion with the lengthening of the shadow.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.3 &mdash; Draining a conical tank.</strong>
+        <p>A cone-shaped tank has radius \(4\) cm and height \(10\) cm. Water drains out at \(2\) cm\(^{3}\)/s. How fast is the water level falling when the water is \(6\) cm deep?</p>
+        <p><strong>Step 1 (variables):</strong> let \(r(t)\) and \(h(t)\) be the water's radius and depth, \(V(t) = \frac{1}{3}\pi r^{2}h\). Given \(\frac{dV}{dt} = -2\); find \(\frac{dh}{dt}\) at \(h = 6\).</p>
+        <p><strong>Step 2 (similar triangles):</strong> the water cone is similar to the tank, so \(\frac{r}{h} = \frac{4}{10} = \frac{2}{5}\), giving \(r = \frac{2}{5}h\).</p>
+        <p><strong>Step 3 (single variable):</strong> \(V = \frac{1}{3}\pi\left(\frac{2}{5}h\right)^{2}h = \frac{4\pi}{75}h^{3}\).</p>
+        <p><strong>Step 4 (differentiate):</strong> \(\frac{dV}{dt} = \frac{12\pi}{75}h^{2}\frac{dh}{dt} = \frac{4\pi}{25}h^{2}\frac{dh}{dt}\).</p>
+        <p><strong>Step 5 (substitute and solve):</strong> \(-2 = \frac{4\pi}{25}(36)\frac{dh}{dt} = \frac{144\pi}{25}\frac{dh}{dt}\), so \(\frac{dh}{dt} = -\frac{50}{144\pi} = -\frac{25}{72\pi}\) cm/s.</p>
+        <p><strong>Interpretation:</strong> the negative sign confirms the level is falling; the magnitude grows as \(h\) shrinks because less volume corresponds to a given drop in a narrow lower cone.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.4 &mdash; An angular rate.</strong>
+        <p>A camera is \(50\) ft from a straight road. A car travels along the road at \(30\) ft/s. The camera tracks the car, making angle \(\theta\) with the perpendicular to the road. Find \(\frac{d\theta}{dt}\) when the car is \(50\) ft from the point on the road nearest the camera.</p>
+        <p><strong>Step 1 (variable):</strong> let \(x(t)\) be the car's distance along the road from the nearest point, so \(\frac{dx}{dt} = 30\).</p>
+        <p><strong>Step 2 (trig relation):</strong> \(\tan\theta = \frac{x}{50}\).</p>
+        <p><strong>Step 3 (differentiate in radians):</strong> \(\sec^{2}\theta\,\frac{d\theta}{dt} = \frac{1}{50}\frac{dx}{dt} = \frac{30}{50} = \frac{3}{5}\).</p>
+        <p><strong>Step 4 (substitute):</strong> when \(x = 50\), \(\tan\theta = 1\) and \(\sec^{2}\theta = 1+\tan^{2}\theta = 2\). Thus \(\frac{d\theta}{dt} = \frac{3/5}{2} = \frac{3}{10}\) rad/s.</p>
+        <p><strong>Interpretation:</strong> the camera rotates faster when the car is near the closest point and more slowly as the car recedes.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>How to read the sign of a rate.</strong>
+        <p>A rate of change carries direction as well as magnitude. If \(x(t)\) measures a distance from a wall and \(\frac{dx}{dt} \gt 0\), the object moves away; if \(\frac{dx}{dt} \lt 0\), it moves toward the wall. If \(y(t)\) measures a height and \(\frac{dy}{dt} \lt 0\), we say the height is decreasing, or that the object is "sliding down" at the rate \(\left|\frac{dy}{dt}\right|\). Always report the signed rate first and then translate it into ordinary language; never drop a minus sign merely because a speed is usually quoted as positive.</p>
+        <p>For example, the ladder in the warning above has \(\frac{dy}{dt} = -\frac{3}{2}\) ft/s. The signed answer is \(-\frac{3}{2}\), and the verbal answer is "the top slides down at \(\frac{3}{2}\) ft/s."</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in related rates.</strong>
+        <ul>
+          <li>Substituting given numbers before differentiating, which removes the needed rate factor.</li>
+          <li>Forgetting a chain-rule factor such as \(\frac{dx}{dt}\) or \(\frac{d\theta}{dt}\).</li>
+          <li>Using degrees for \(\theta\); all trig derivatives require radians.</li>
+          <li>Misinterpreting a negative sign: it indicates decrease, not an impossible negative length.</li>
+          <li>Leaving a rate in terms of an unlabeled variable or omitting units.</li>
+        </ul>
+      </div>
+
+      <div class="definition-box">
+        <strong>Quick check 1.</strong>
+        <p>A circle's radius increases at \(3\) cm/s. Find \(\frac{dA}{dt}\) when \(r = 5\) cm.</p>
+        <p><strong>Answer:</strong> \(A = \pi r^{2}\), so \(\frac{dA}{dt} = 2\pi r\frac{dr}{dt} = 30\pi\) cm\(^{2}\)/s.</p>
+      </div>
+
+      <p><strong>Section 1 summary.</strong> Draw a diagram, name the changing variables, write an equation, differentiate with respect to time (retaining every rate factor), substitute last, and interpret signs and units. The underlying theorem is just the chain rule for \(F(x(t),y(t)) = 0\).</p>
+
+      <h2>2. Optimization: The Theoretical Tools</h2>
 
       <h3>2.1 The Extreme Value Theorem</h3>
       <div class="theorem-box">
-        <strong>Theorem 2.1 (Extreme Value Theorem):</strong>
-        If \(f\) is continuous on a closed interval \([a, b]\), then \(f\) attains both an absolute maximum and an absolute minimum on \([a, b]\).
+        <strong>Theorem 2.1 (Extreme Value Theorem).</strong>
+        <p>If \(f\) is continuous on a closed, bounded interval \([a,b]\), then \(f\) attains both an absolute maximum and an absolute minimum at some points of \([a,b]\).</p>
       </div>
 
       <div class="proof-box">
-        <strong>Proof (Sketch):</strong>
-        This is a fundamental result in real analysis. The proof relies on the completeness of the real numbers:
-        
-        1. Since \(f\) is continuous on \([a,b]\), the image \(f([a,b])\) is bounded (by the Bolzano-Weierstrass theorem).
-        2. Let \(M = \sup f([a,b])\). There exists a sequence \(\{x_n\}\) in \([a,b]\) with \(f(x_n) \to M\).
-        3. By Bolzano-Weierstrass, \(\{x_n\}\) has a convergent subsequence \(\{x_{n_k}\}\) with limit \(c \in [a,b]\).
-        4. By continuity, \(f(c) = \lim f(x_{n_k}) = M\).
-        
-        Hence the maximum is attained. A similar argument shows the minimum is attained. ∎
+        <strong>Justification (compactness).</strong>
+        <p>The interval \([a,b]\) is closed and bounded, hence compact by the Heine&ndash;Borel theorem. The continuous image of a compact set is compact, so \(f([a,b])\) is a compact subset of \(\mathbb{R}\); by Heine&ndash;Borel it is closed and bounded. Let \(M = \sup f([a,b])\). Choose a sequence \(x_n\) in \([a,b]\) with \(f(x_n) \to M\). Because \([a,b]\) is compact, the sequence has a convergent subsequence \(x_{n_k} \to c\) with \(c \in [a,b]\). Continuity gives \(f(c) = \lim f(x_{n_k}) = M\), so the maximum is attained. Applying the same argument to a sequence approaching \(m = \inf f([a,b])\) proves the minimum is attained. ∎</p>
       </div>
 
-      <h3>2.2 Critical Points and Fermat's Theorem</h3>
+      <div class="important-note">
+        <strong>Why hypotheses matter.</strong>
+        <p>Both closedness and continuity are needed. On the open interval \((0,1)\), the continuous function \(f(x) = \frac{1}{x}\) has no maximum; on \([0,1]\), the function with \(f(0)=0\) and \(f(x)=\frac{1}{x}\) for \(x \gt 0\) is unbounded. The theorem guarantees existence but does not tell us where the extrema are.</p>
+      </div>
+
+      <h3>2.2 Critical numbers and Fermat's Theorem</h3>
       <div class="definition-box">
-        <strong>Definition 2.1 (Critical Point):</strong>
-        A number \(c\) in the domain of \(f\) is a critical number of \(f\) if either \(f'(c) = 0\) or \(f'(c)\) does not exist.
+        <strong>Definition 2.1 (Critical number).</strong>
+        <p>A number \(c\) in the domain of \(f\) is a critical number if \(f'(c) = 0\) or \(f'(c)\) does not exist. Endpoints of a closed interval are checked separately, not listed as interior critical numbers.</p>
       </div>
 
       <div class="theorem-box">
-        <strong>Theorem 2.2 (Fermat's Theorem):</strong>
-        If \(f\) has a local maximum or minimum at \(c\) and \(f'(c)\) exists, then \(f'(c) = 0\).
+        <strong>Theorem 2.2 (Fermat's Theorem).</strong>
+        <p>If \(f\) has a local maximum or local minimum at \(c\) and \(f'(c)\) exists, then \(f'(c) = 0\).</p>
       </div>
 
       <div class="proof-box">
-        <strong>Proof:</strong>
-        Suppose \(f\) has a local maximum at \(c\). Then for small \(h > 0\):
-        - \(f(c+h) \leq f(c)\) implies \(\frac{f(c+h)-f(c)}{h} \leq 0\)
-        - \(f(c-h) \leq f(c)\) implies \(\frac{f(c-h)-f(c)}{-h} \leq 0\)
-        
-        Taking limits: \(f'(c) = \lim_{h \to 0^+} \frac{f(c+h)-f(c)}{h} \leq 0\) and \(f'(c) = \lim_{h \to 0^+} \frac{f(c-h)-f(c)}{h} \geq 0\)
-        
-        Therefore \(f'(c) = 0\). ∎
+        <strong>Proof (local maximum; the minimum case is analogous).</strong>
+        <p>Assume \(f\) has a local maximum at \(c\). For sufficiently small \(h \gt 0\), \(f(c+h) \le f(c)\) and \(f(c-h) \le f(c)\). From the right-hand points,</p>
+        \[\frac{f(c+h)-f(c)}{h} \le 0.\]
+        <p>From the left-hand points, \(f(c-h)-f(c) \le 0\); dividing by \(-h \lt 0\) reverses the inequality:</p>
+        \[\frac{f(c-h)-f(c)}{-h} \ge 0.\]
+        <p>Taking limits as \(h \to 0^{+}\), the right-hand derivative is \(\lim_{h \to 0^{+}}\frac{f(c+h)-f(c)}{h} \le 0\), while the left-hand derivative is \(\lim_{h \to 0^{+}}\frac{f(c-h)-f(c)}{-h} \ge 0\). Since \(f'(c)\) exists, the one-sided derivatives are equal to \(f'(c)\). Hence \(f'(c) \le 0\) and \(f'(c) \ge 0\), so \(f'(c) = 0\). ∎</p>
       </div>
 
       <h3>2.3 The Closed Interval Method</h3>
       <div class="definition-box">
-        <strong>Closed Interval Method:</strong>
-        To find the absolute maximum and minimum of \(f\) on \([a,b]\):
+        <strong>Method.</strong>
         <ol>
-          <li>Find all critical numbers of \(f\) in \((a,b)\)</li>
-          <li>Evaluate \(f\) at each critical number and at the endpoints</li>
-          <li>The largest value is the absolute maximum; the smallest is the absolute minimum</li>
+          <li>Verify continuity on \([a,b]\) so the Extreme Value Theorem applies.</li>
+          <li>Find all critical numbers of \(f\) in the open interval \((a,b)\).</li>
+          <li>Evaluate \(f\) at each critical number and at both endpoints \(a\) and \(b\).</li>
+          <li>The largest value listed is the absolute maximum; the smallest is the absolute minimum.</li>
         </ol>
       </div>
 
-      <div class="example-box">
-        <strong>Example 2.1:</strong> Find the dimensions of the rectangle with perimeter 20 that has maximum area.
-        <p>Let length = \(x\), width = \(y\). Constraint: \(2x + 2y = 20 \Rightarrow y = 10 - x\).</p>
-        <p>Area: \(A = xy = x(10-x) = 10x - x^2\)</p>
-        <p>Find critical point: \(A' = 10 - 2x = 0 \Rightarrow x = 5\)</p>
-        <p>Then \(y = 10 - 5 = 5\).</p>
-        <p>Maximum area: 25 square units (a square).</p>
+      <h3>2.4 The Second Derivative Test (justification template)</h3>
+      <div class="theorem-box">
+        <strong>Theorem 2.3 (Second Derivative Test).</strong>
+        <p>Suppose \(f'(c) = 0\) and \(f''(c)\) exists. If \(f''(c) \gt 0\), then \(f\) has a local minimum at \(c\); if \(f''(c) \lt 0\), then \(f\) has a local maximum at \(c\); if \(f''(c) = 0\), the test is inconclusive.</p>
+      </div>
+
+      <div class="proof-box">
+        <strong>Justification for \(f''(c) \gt 0\) (local minimum).</strong>
+        <p>Since \(f''(c) = \lim_{h \to 0}\frac{f'(c+h)-f'(c)}{h} \gt 0\) and \(f'(c) = 0\), for sufficiently small \(h \gt 0\) we have \(\frac{f'(c+h)}{h} \gt 0\), hence \(f'(c+h) \gt 0\). For small \(h \lt 0\), dividing the same positive quotient by a negative \(h\) gives \(f'(c+h) \lt 0\). Thus \(f'\) changes from negative to positive at \(c\), so \(f\) decreases then increases: \(c\) is a local minimum. The case \(f''(c) \lt 0\) is analogous with signs reversed. ∎</p>
+      </div>
+
+      <div class="definition-box">
+        <strong>Why the test is inconclusive when \(f''(c) = 0\).</strong>
+        <p>Compare \(x^{4}\), \(x^{3}\), and \(-x^{4}\) at \(c = 0\): each has \(f'(0) = 0\) and \(f''(0) = 0\), yet they have a minimum, neither extremum, and a maximum respectively. When the test gives \(0\), use the Closed Interval Method or a sign chart for \(f'\).</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 2.2:</strong> Find the point on the parabola \(y = x^2\) closest to the point \((0, 1)\).
-        <p>Distance squared: \(D = x^2 + (x^2 - 1)^2\)</p>
-        <p>Minimize: \(D' = 2x + 4x(x^2 - 1) = 2x(1 + 2x^2 - 2) = 2x(2x^2 - 1) = 0\)</p>
-        <p>Critical points: \(x = 0\) or \(x = \pm\frac{1}{\sqrt{2}}\)</p>
-        <p>Minimum at \(x = \pm\frac{1}{\sqrt{2}}\), giving \(y = \frac{1}{2}\).</p>
+        <strong>Example 2.1 &mdash; A worked justification template.</strong>
+        <p>Classify the critical points of \(f(x) = x^{3}-3x\) using the Second Derivative Test, and check the result with a sign chart.</p>
+        <p><strong>Step 1 (find candidates):</strong> \(f'(x) = 3x^{2}-3 = 3(x-1)(x+1)\). Setting \(f'(x) = 0\) gives \(x = -1\) and \(x = 1\); \(f'\) exists everywhere, so these are all the critical numbers.</p>
+        <p><strong>Step 2 (second derivative):</strong> \(f''(x) = 6x\).</p>
+        <p><strong>Step 3 (evaluate the test):</strong> \(f''(-1) = -6 \lt 0\), so \(x = -1\) is a local maximum; \(f''(1) = 6 \gt 0\), so \(x = 1\) is a local minimum.</p>
+        <p><strong>Step 4 (cross-check):</strong> the sign chart of \(f'\) is positive on \((-\infty,-1)\), negative on \((-1,1)\), and positive on \((1,\infty)\), confirming maximum then minimum. The values are \(f(-1) = 2\) and \(f(1) = -2\).</p>
+        <p><strong>Interpretation:</strong> the test classifies each stationary point quickly, but a sign chart or endpoint comparison is still required for absolute extrema on a closed interval.</p>
       </div>
 
-      <h3>2.4 Optimization with Constraints (Lagrange Multipliers Intro)</h3>
-      <div class="example-box">
-        <strong>Example 2.3:</strong> Find the dimensions of the largest right circular cylinder that can be inscribed in a sphere of radius \(R\).
-        <p>Let cylinder have radius \(r\) and height \(h\). Constraint: \(r^2 + (h/2)^2 = R^2\).</p>
-        <p>Volume: \(V = \pi r^2 h\). Express \(h = 2\sqrt{R^2 - r^2}\).</p>
-        <p>Then \(V = 2\pi r^2\sqrt{R^2 - r^2}\).</p>
-        <p>Differentiate and set \(V' = 0\) to find optimal \(r = R\sqrt{\frac{2}{3}}\), \(h = \frac{2R}{\sqrt{3}}\).</p>
+      <div class="important-note">
+        <strong>Common mistakes in optimization setup.</strong>
+        <ul>
+          <li>Forgetting to check endpoints on a closed interval.</li>
+          <li>Treating a critical number as automatically an extremum; Fermat's Theorem is only a necessary condition.</li>
+          <li>Ignoring domain restrictions that come from geometry, such as positive lengths.</li>
+          <li>Using the Second Derivative Test when \(f''(c) = 0\) instead of switching methods.</li>
+        </ul>
       </div>
+
+      <p><strong>Section 2 summary.</strong> Continuity on a compact interval guarantees extrema exist. Fermat's Theorem says interior extrema occur where \(f' = 0\) or fails to exist; the Closed Interval Method compares all such candidates with endpoints, and the Second Derivative Test classifies stationary points when \(f'' \ne 0\).</p>
+
+      <h2>3. Worked Optimization Examples</h2>
+
+      <div class="example-box">
+        <strong>Example 3.1 &mdash; Rectangle of maximum area.</strong>
+        <p>Find the dimensions of the rectangle with perimeter \(20\) that has maximum area.</p>
+        <p><strong>Step 1 (variables and domain):</strong> let the sides be \(x\) and \(y\). From \(2x+2y = 20\), \(y = 10-x\). Because both lengths are positive, the domain is \(0 \lt x \lt 10\) (endpoints excluded).</p>
+        <p><strong>Step 2 (objective):</strong> \(A(x) = x(10-x) = 10x - x^{2}\) on \((0,10)\).</p>
+        <p><strong>Step 3 (critical point):</strong> \(A'(x) = 10 - 2x = 0\) gives \(x = 5\), which lies in \((0,10)\); \(A''(x) = -2 \lt 0\), so this is a local maximum.</p>
+        <p><strong>Step 4 (endpoint check):</strong> the endpoints are not in the domain, but \(\lim_{x \to 0^{+}}A(x) = 0\) and \(\lim_{x \to 10^{-}}A(x) = 0\), while \(A(5) = 25 \gt 0\). Hence the local maximum is the absolute maximum on the domain.</p>
+        <p><strong>Step 5 (interpret):</strong> \(y = 10-5 = 5\), so the optimal rectangle is a \(5 \times 5\) square with area \(25\) square units.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.2 &mdash; Closest point on a parabola.</strong>
+        <p>Find the point on \(y = x^{2}\) closest to \((0,1)\).</p>
+        <p><strong>Step 1 (distance squared):</strong> a point on the parabola is \((x,x^{2})\), so the squared distance to \((0,1)\) is \(D(x) = x^{2}+(x^{2}-1)^{2} = x^{4}-x^{2}+1\).</p>
+        <p><strong>Step 2 (why distance squared):</strong> \(\sqrt{u}\) is an increasing function for \(u \ge 0\), so minimizing \(D\) also minimizes \(\sqrt{D}\); working with \(D\) avoids square roots.</p>
+        <p><strong>Step 3 (critical points):</strong> \(D'(x) = 4x^{3}-2x = 2x(2x^{2}-1) = 0\), so \(x = 0\) or \(x = \pm\frac{1}{\sqrt{2}}\).</p>
+        <p><strong>Step 4 (analyze \(x = 0\)):</strong> \(D(0) = 1\). Also \(D''(x) = 12x^{2}-2\), so \(D''(0) = -2 \lt 0\): \(x = 0\) is a local <em>maximum</em> of \(D\), corresponding to the point \((0,0)\) at distance \(1\). It must be included in the analysis but is not the minimum.</p>
+        <p><strong>Step 5 (global check):</strong> \(D\!\left(\pm\frac{1}{\sqrt{2}}\right) = \frac{1}{4}-\frac{1}{2}+1 = \frac{3}{4} \lt 1\), and \(D(x) \to \infty\) as \(|x| \to \infty\), so these are absolute minima.</p>
+        <p><strong>Step 6 (interpret):</strong> the closest points are \(\left(\frac{1}{\sqrt{2}},\frac{1}{2}\right)\) and \(\left(-\frac{1}{\sqrt{2}},\frac{1}{2}\right)\), each at distance \(\frac{\sqrt{3}}{2}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.3 &mdash; Cylinder inscribed in a sphere.</strong>
+        <p>Find the dimensions of the largest right circular cylinder inscribed in a sphere of radius \(R\).</p>
+        <p><strong>Step 1 (constraint):</strong> if the cylinder has radius \(r\) and height \(h\), a cross-section through the axis gives \(r^{2}+\left(\frac{h}{2}\right)^{2} = R^{2}\), so \(h = 2\sqrt{R^{2}-r^{2}}\) with \(0 \le r \le R\).</p>
+        <p><strong>Step 2 (objective):</strong> \(V = \pi r^{2}h = 2\pi r^{2}\sqrt{R^{2}-r^{2}}\).</p>
+        <p><strong>Step 3 (differentiate fully):</strong></p>
+        \[V'(r) = 2\pi\left(2r\sqrt{R^{2}-r^{2}} + r^{2}\cdot \frac{-r}{\sqrt{R^{2}-r^{2}}}\right)\]
+        \[= 2\pi\cdot \frac{2r(R^{2}-r^{2})-r^{3}}{\sqrt{R^{2}-r^{2}}} = \frac{2\pi r(2R^{2}-3r^{2})}{\sqrt{R^{2}-r^{2}}}.\]
+        <p><strong>Step 4 (critical points):</strong> \(V'(r) = 0\) when \(r = 0\) or \(r^{2} = \frac{2R^{2}}{3}\), i.e. \(r = R\sqrt{\frac{2}{3}}\).</p>
+        <p><strong>Step 5 (endpoint checks):</strong> at \(r = 0\), \(V = 0\); at \(r = R\), the height is \(0\) so \(V = 0\). The interior critical point gives a positive volume, hence the absolute maximum.</p>
+        <p><strong>Step 6 (height and interpretation):</strong> \(h = 2\sqrt{R^{2}-\frac{2R^{2}}{3}} = 2\sqrt{\frac{R^{2}}{3}} = \frac{2R}{\sqrt{3}}\). Thus \(r = R\sqrt{\frac{2}{3}}\) and \(h = \frac{2R}{\sqrt{3}}\) maximize the volume.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in worked optimization.</strong>
+        <ul>
+          <li>Writing the rectangle domain as \(0 \le x \le 10\); lengths must be strictly positive, so \(0 \lt x \lt 10\).</li>
+          <li>Discarding \(x = 0\) in Example 3.2 without evaluating it; it is a legitimate critical point and a local maximum of the squared distance.</li>
+          <li>Omitting endpoint checks in Example 3.3, which are needed to justify an absolute maximum.</li>
+          <li>Minimizing distance instead of distance squared without noting that the square root is increasing.</li>
+        </ul>
+      </div>
+
+      <div class="definition-box">
+        <strong>Quick check 3.</strong>
+        <p>Find the maximum of \(f(x) = x^{3}-3x\) on \([-2,2]\).</p>
+        <p><strong>Answer:</strong> \(f'(x) = 3x^{2}-3 = 0\) at \(x = \pm 1\); \(f(-2) = -2\), \(f(-1) = 2\), \(f(1) = -2\), \(f(2) = 2\). Absolute maximum \(2\) at \(x = -1\) and \(x = 2\); absolute minimum \(-2\) at \(x = -2\) and \(x = 1\).</p>
+      </div>
+
+      <p><strong>Section 3 summary.</strong> Translate the word problem into one objective function of one variable with an explicit domain, find its critical points, compare them with endpoint behavior, and interpret the winning value in the original quantities.</p>
+
+      <h2>4. Bonus: An Optional Calc III Perspective</h2>
+      <div class="example-box">
+        <strong>Bonus &mdash; Lagrange multipliers (optional, not used above).</strong>
+        <p>In multivariable calculus, one can optimize \(f(x,y)\) subject to a constraint \(g(x,y) = 0\) by solving \(\nabla f = \lambda \nabla g\) together with the constraint. For Example 3.3 one could optimize \(V(r,h) = \pi r^{2}h\) subject to \(r^{2}+\frac{h^{2}}{4} = R^{2}\). In this lecture we did <em>not</em> use Lagrange multipliers; we eliminated \(h\) with the constraint and applied ordinary single-variable calculus. The Lagrange method is mentioned only as a preview of a tool developed later, and it would produce the same values \(r = R\sqrt{\frac{2}{3}}\), \(h = \frac{2R}{\sqrt{3}}\).</p>
+      </div>
+
+      <h2>5. Practice Problems</h2>
+      <ol>
+        <li>A sphere's volume increases at \(10\) cm\(^{3}\)/s. Find \(\frac{dr}{dt}\) when \(r = 25\) cm.</li>
+        <li>A 10 ft ladder slides with \(\frac{dx}{dt} = 2\) ft/s. Find \(\frac{dy}{dt}\) when \(x = 6\) ft.</li>
+        <li>A 15 ft lamppost and a 6 ft person: the person walks away at \(4\) ft/s. Find the shadow's rate of change and the tip's speed.</li>
+        <li>A cone of radius \(4\) cm and height \(10\) cm drains at \(2\) cm\(^{3}\)/s. Find \(\frac{dh}{dt}\) when \(h = 6\) cm.</li>
+        <li>A camera \(50\) ft from a road tracks a car moving \(30\) ft/s. Find \(\frac{d\theta}{dt}\) when \(x = 50\) ft.</li>
+        <li>Find the rectangle of perimeter \(40\) with maximum area, stating the domain of the variable.</li>
+        <li>Find the point on \(y = x^{2}\) closest to \((0,2)\) and give the minimum distance.</li>
+        <li>For a sphere of radius \(3\), find the dimensions of the largest inscribed cylinder.</li>
+        <li>State and prove Fermat's Theorem for a local minimum.</li>
+        <li>Find the absolute extrema of \(f(x) = x^{3}-3x\) on \([-2,2]\).</li>
+        <li>Use the Second Derivative Test on \(f(x) = x^{4}-4x\) and justify the classification.</li>
+        <li>A cone of radius \(6\) cm and height \(12\) cm drains at \(3\) cm\(^{3}\)/s. Find \(\frac{dh}{dt}\) when \(h = 4\) cm.</li>
+      </ol>
+
+      <div class="definition-box">
+        <strong>Answer key.</strong>
+        <ol>
+          <li>\(\frac{1}{250\pi}\) cm/s.</li>
+          <li>\(\frac{dy}{dt} = -\frac{3}{2}\) ft/s (top slides down at \(\frac{3}{2}\) ft/s).</li>
+          <li>\(\frac{ds}{dt} = \frac{8}{3}\) ft/s; tip speed \(\frac{20}{3}\) ft/s.</li>
+          <li>\(\frac{dh}{dt} = -\frac{25}{72\pi}\) cm/s.</li>
+          <li>\(\frac{3}{10}\) rad/s.</li>
+          <li>Square \(10 \times 10\), area \(100\); domain \(0 \lt x \lt 20\) for one side.</li>
+          <li>Points \(\left(\pm\sqrt{\frac{3}{2}},\frac{3}{2}\right)\), minimum distance \(\frac{\sqrt{7}}{2}\).</li>
+          <li>\(r = \sqrt{6}\), \(h = 2\sqrt{3}\), maximum volume \(12\sqrt{3}\pi\).</li>
+          <li>If \(f\) has a local minimum at \(c\) and \(f'(c)\) exists, then for small \(h \gt 0\), \(\frac{f(c+h)-f(c)}{h} \ge 0\) and \(\frac{f(c-h)-f(c)}{-h} \le 0\); the equal one-sided derivatives force \(f'(c) = 0\).</li>
+          <li>Absolute maximum \(2\) at \(x = -1, 2\); absolute minimum \(-2\) at \(x = -2, 1\).</li>
+          <li>\(f'(x) = 4x^{3}-4 = 0\) at \(x = 1\); \(f''(x) = 12x^{2}\), so \(f''(1) = 12 \gt 0\) and \(x = 1\) is a local minimum with value \(-3\).</li>
+          <li>\(\frac{dh}{dt} = -\frac{3}{4\pi}\) cm/s.</li>
+        </ol>
+      </div>
+
+      <h2>6. Overall Summary</h2>
+      <p>Related rates convert a geometric relation into an equation among time derivatives: draw, name variables, relate, differentiate, substitute last, and interpret. The justification is the chain rule for \(F(x(t),y(t)) = 0\) under a \(C^{1}\) hypothesis. Optimization rests on the Extreme Value Theorem (via compactness), Fermat's Theorem (with correct one-sided inequalities), the Closed Interval Method, and, when \(f''(c) \ne 0\), the Second Derivative Test. Worked examples show why domains and endpoint checks matter for rectangles, closest points, and inscribed cylinders; Lagrange multipliers are only an optional preview.</p>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">
-      <span class="course-note-card__button course-note-card__button--disabled" aria-disabled="true">← Trig Derivatives</span>
+      <a href="lecture-notes-trig-functions-calc1.html">← Trig Derivatives</a>
       <a href="lecture-notes-mean-value-calc1.html">Mean Value Theorem →</a>
     </nav>
   </main>

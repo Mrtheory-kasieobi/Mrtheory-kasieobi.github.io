@@ -40,318 +40,571 @@
   <main>
     <div class="lecture-header">
       <h1>Functions and Their Representations</h1>
-      <div class="subtitle">Calculus I - Chapter 1.1-1.5 (Detailed Notes)</div>
+      <div class="subtitle">Calculus I - Functions, Domains, Transformations, Composition, and Inverses (Detailed Notes)</div>
     </div>
 
     <div class="lecture-content">
-      <h2>1. Functions: The Foundation of Calculus</h2>
-      
-      <h3>1.1 What is a Function?</h3>
+      <h2>Big picture</h2>
+      <p>A function is a rule that turns each allowed input into exactly one output. Calculus is the study of how such outputs change, so before we can speak of limits or derivatives we must be completely clear about what a function is, which inputs it accepts, and which outputs it can produce. In this note we build that language carefully, meet the standard families of functions, and learn how to combine them and reverse them.</p>
+
+      <div class="formula-box">
+        <strong>Road map and prerequisites</strong>
+        <p>We assume only familiarity with real numbers, inequalities, and basic algebra. The topics, in order, are:</p>
+        <ol>
+          <li>Definition of a function; domain, codomain, and range</li>
+          <li>Ways to represent a function; the vertical line test</li>
+          <li>Finding domains and ranges from formulas and from context</li>
+          <li>Building-block functions: polynomial, rational, trigonometric, exponential, logarithmic, piecewise, and absolute value</li>
+          <li>Even/odd symmetry and transformations of graphs</li>
+          <li>Arithmetic combinations and composition</li>
+          <li>One-to-one functions and inverse functions</li>
+          <li>Bonus: surjectivity and bijectivity</li>
+        </ol>
+      </div>
+
+      <h2>1. What is a function?</h2>
+
+      <h3>1.1 Intuition: a rule with a unique answer</h3>
+      <p>Think of a function as a machine. You feed it an input, and it produces one output. The crucial requirement is <strong>uniqueness</strong>: the same input must always give the same output. Different inputs are allowed to give the same output; that is harmless.</p>
+
       <div class="definition-box">
-        <strong>Formal Definition:</strong>
-        A function \(f\) is a rule that assigns to each element \(x\) in a set \(D\) (called the domain) exactly one element \(f(x)\) in a set \(R\) (called the range or codomain).
+        <strong>Definition (function, domain, codomain, range).</strong>
+        A function \(f\) from a set \(A\) to a set \(B\), written \(f: A \to B\), is a rule that assigns to <em>every</em> element \(x \in A\) <em>exactly one</em> element \(f(x) \in B\).
+        <ul>
+          <li>The set \(A\) is the <strong>domain</strong>: the collection of allowed inputs.</li>
+          <li>The set \(B\) is the <strong>codomain</strong>: the collection of outputs we <em>permit</em> the rule to land in.</li>
+          <li>The <strong>range</strong> (or image) is \(\operatorname{range}(f) = \{f(x) \mid x \in A\}\), the set of outputs that actually occur. Always \(\operatorname{range}(f) \subseteq B\).</li>
+        </ul>
+        <p>The domain and codomain are part of the data of the function; the range is a consequence of the rule.</p>
       </div>
 
       <div class="important-note">
-        <strong>Key Point - The "Exactly One" Rule:</strong>
-        For every input \(x\) in the domain, there must be exactly one output. This means:
+        <strong>Common mistakes: codomain is not range.</strong>
+        For \(f: \mathbb{R} \to \mathbb{R}\) given by \(f(x) = x^2\), the codomain is all of \(\mathbb{R}\), but the range is only \([0, \infty)\). No input produces a negative output. Saying "the range is \(\mathbb{R}\)" would be wrong; \(\mathbb{R}\) is merely the codomain. The two words describe different things and must not be used interchangeably.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.1 - A valid function.</strong>
+        Let \(f: \mathbb{R} \to \mathbb{R}\) with \(f(x) = x^2\).
+        <ol>
+          <li>For input \(x = 3\) we get \(f(3) = 3^2 = 9\).</li>
+          <li>For input \(x = -3\) we get \(f(-3) = (-3)^2 = 9\).</li>
+          <li>Two different inputs give the same output. This is allowed, so \(f\) is a function.</li>
+          <li>The range is \([0, \infty)\), a proper subset of the codomain \(\mathbb{R}\).</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.2 - Not a function on all of \(\mathbb{R}\).</strong>
+        Consider the relation \(y^2 = x\) with \(x\) as input and \(y\) as output.
+        <ol>
+          <li>Take the input \(x = 4\). Then \(y^2 = 4\), so \(y = 2\) or \(y = -2\).</li>
+          <li>One input produces two different outputs, so this relation does not define a function of \(x\) on \(\mathbb{R}\).</li>
+          <li>Fix: if we instead define \(g: [0, \infty) \to [0, \infty)\) by \(g(x) = \sqrt{x}\) (the non-negative square root), each input has exactly one output and \(g\) <em>is</em> a function.</li>
+        </ol>
+      </div>
+
+      <h3>1.2 Function notation and equality</h3>
+      <div class="definition-box">
+        <strong>Notation.</strong>
+        The statement \(f: A \to B\) is read "\(f\) is a function from \(A\) to \(B\)." The expression \(f(x)\) denotes the value of \(f\) at \(x\), and \(y = f(x)\) says that \(y\) depends on \(x\). Here \(x\) is the <strong>independent variable</strong> and \(y\) the <strong>dependent variable</strong>.
+      </div>
+
+      <div class="definition-box">
+        <strong>Definition (equality of functions).</strong>
+        Two functions \(f: A \to B\) and \(g: C \to D\) are equal if and only if
+        <ol>
+          <li>they have the same domain, \(A = C\);</li>
+          <li>they have the same codomain, \(B = D\); and</li>
+          <li>\(f(x) = g(x)\) for every \(x \in A\).</li>
+        </ol>
+        <p>All three conditions matter. Equality is not just "same formula."</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.3 - Same formula, different functions.</strong>
+        <ol>
+          <li>Let \(f: \mathbb{R} \to \mathbb{R}\) with \(f(x) = x^2\) and \(g: [0, \infty) \to \mathbb{R}\) with \(g(x) = x^2\). They have the same rule but different domains, so \(f \ne g\).</li>
+          <li>Let \(h: \mathbb{R} \to [0, \infty)\) with \(h(x) = x^2\). Then \(h\) agrees with \(f\) on all inputs and on the formula, but \(h\) and \(f\) have different codomains, so \(f \ne h\).</li>
+          <li>Let \(k: \mathbb{R} \to \mathbb{R}\) with \(k(x) = \sqrt{x^2}\). Since \(\sqrt{x^2} = |x|\), we have \(k(-2) = 2\) while \(f(-2) = 4\); the values differ, so \(k \ne f\).</li>
+        </ol>
+      </div>
+
+      <h3>1.3 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 1.</strong>
+        <ol>
+          <li>If \(f: \mathbb{R} \to \mathbb{R}\) and \(f(2) = 5\), can \(f(2)\) also equal \(6\)? <em>No.</em></li>
+          <li>For \(f: \mathbb{Z} \to \mathbb{Z}\), \(f(n) = n^2\), is \(2\) in the range? <em>No; squares of integers are \(0, 1, 4, 9, \ldots\).</em></li>
+          <li>Are \(f(x) = \frac{x^2 - 1}{x - 1}\) with domain \(\mathbb{R} \setminus \{1\}\) and \(g(x) = x + 1\) with domain \(\mathbb{R}\) equal functions? <em>No; their domains differ.</em></li>
+        </ol>
+      </div>
+
+      <h2>2. Ways to represent a function</h2>
+
+      <h3>2.1 Intuition</h3>
+      <p>The same function can be described in several ways. Each representation highlights different features, and in calculus we move fluently among them.</p>
+
+      <h3>2.2 Four standard representations</h3>
+      <div class="definition-box">
+        <strong>The four representations.</strong>
         <ul>
-          <li>If \(x\) is in the domain, then \(f(x)\) must be defined</li>
-          <li>One input cannot give two different outputs</li>
-          <li>Multiple inputs can give the same output</li>
+          <li><strong>Verbal:</strong> a description in words, e.g. "the area of a circle as a function of its radius."</li>
+          <li><strong>Algebraic:</strong> a formula, e.g. \(A(r) = \pi r^2\).</li>
+          <li><strong>Graphical:</strong> the set of points \((x, f(x))\) in the coordinate plane.</li>
+          <li><strong>Numerical:</strong> a table of input-output pairs or a list of data.</li>
+        </ul>
+      </div>
+
+      <div class="definition-box">
+        <strong>Definition (graph of a function).</strong>
+        The graph of \(y = f(x)\) is \(\{(x, f(x)) \mid x \in \operatorname{domain}(f)\}\). By the uniqueness property, a vertical line \(x = a\) meets this graph in at most one point.
+      </div>
+
+      <div class="important-note">
+        <strong>The vertical line test.</strong>
+        A curve in the \(xy\)-plane is the graph of a function of \(x\) if and only if every vertical line intersects it at most once.
+        <ul>
+          <li>If some vertical line \(x = a\) meets the curve at two distinct points \((a, y_1)\) and \((a, y_2)\) with \(y_1 \ne y_2\), then the input \(a\) would have two outputs, which violates the definition.</li>
+          <li>Conversely, if no vertical line meets the curve more than once, then each input \(a\) determines at most one output, so the curve defines a function on the set of \(x\)-values it covers.</li>
         </ul>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.1 - Valid Function:</strong>
-        \(f(x) = x^2\)
-        <p>For input \(x = 3\), output is \(f(3) = 9\).</p>
-        <p>For input \(x = -3\), output is \(f(-3) = 9\).</p>
-        <p>Multiple inputs can give the same output - this is allowed!</p>
+        <strong>Example 2.1 - A numerical representation.</strong>
+        The table below lists inputs and outputs.
+        <table>
+          <thead>
+            <tr><th>Input \(x\)</th><th>Output \(f(x)\)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>\(0\)</td><td>\(1\)</td></tr>
+            <tr><td>\(1\)</td><td>\(3\)</td></tr>
+            <tr><td>\(2\)</td><td>\(5\)</td></tr>
+          </tbody>
+        </table>
+        <p>Each input appears once with one output, so the table represents a function with domain \(\{0, 1, 2\}\) and range \(\{1, 3, 5\}\). The pattern suggests \(f(x) = 2x + 1\), but a finite table alone never proves a formula.</p>
+      </div>
+
+      <h3>2.3 Domain from context</h3>
+      <p>Sometimes the domain is dictated by the situation rather than by algebra. For \(A(r) = \pi r^2\) describing area as a function of radius, a negative radius is meaningless, so the physical domain is \([0, \infty)\) even though the formula accepts all real numbers. Always ask what inputs make sense in the story.</p>
+
+      <h2>3. Finding domains and ranges</h2>
+
+      <h3>3.1 Intuition and method</h3>
+      <p>When a function is given by a formula with no stated domain, we take the <strong>natural domain</strong>: the largest set of real inputs for which the formula yields a real output. The range is then found by studying what outputs are attainable.</p>
+
+      <div class="definition-box">
+        <strong>Method: finding a natural domain.</strong>
+        <ol>
+          <li>Spot restrictions: denominators must be nonzero; even roots require non-negative radicands; logarithms require positive arguments.</li>
+          <li>Solve the resulting inequalities or equations to find the forbidden or allowed inputs.</li>
+          <li>Intersect all allowed sets; express the answer as a union of intervals.</li>
+        </ol>
+        <p>This is a procedure, not a theorem, so we place it in a definition box rather than claiming a proof.</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.2 - not a Function:</strong>
-        \(y^2 = x\) solved for \(y\)
-        <p>For \(x = 4\): \(y^2 = 4\) gives \(y = 2\) or \(y = -2\)</p>
-        <p>One input gives two outputs - this violates the definition!</p>
+        <strong>Example 3.1 - A single restriction.</strong>
+        Find the domain of \(f(x) = \frac{1}{x - 2}\).
+        <ol>
+          <li>Restriction: the denominator cannot be zero.</li>
+          <li>Solve \(x - 2 = 0\), giving \(x = 2\).</li>
+          <li>Exclude that point: the domain is \(\mathbb{R} \setminus \{2\} = (-\infty, 2) \cup (2, \infty)\).</li>
+        </ol>
       </div>
 
-      <h3>1.2 Function Notation and Terminology</h3>
+      <div class="example-box">
+        <strong>Example 3.2 - Several restrictions.</strong>
+        Find the domain of \(f(x) = \sqrt{x - 3} + \frac{1}{x - 5}\).
+        <ol>
+          <li>The square root requires \(x - 3 \ge 0\), so \(x \ge 3\).</li>
+          <li>The denominator requires \(x - 5 \ne 0\), so \(x \ne 5\).</li>
+          <li>Intersect: \(x \ge 3\) and \(x \ne 5\), giving \([3, 5) \cup (5, \infty)\).</li>
+        </ol>
+      </div>
+
+      <h3>3.2 Range and preimages</h3>
       <div class="definition-box">
-        <strong>Function Notation:</strong>
+        <strong>Definition (image and preimage).</strong>
+        For \(f: A \to B\) and \(S \subseteq A\), the <strong>image</strong> of \(S\) is \(f(S) = \{f(x) \mid x \in S\}\); the range is \(f(A)\). For \(T \subseteq B\), the <strong>preimage</strong> of \(T\) is \(f^{-1}(T) = \{x \in A \mid f(x) \in T\}\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.3 - Finding a range and a preimage.</strong>
+        Let \(f: \mathbb{R} \to \mathbb{R}\) with \(f(x) = x^2\).
+        <ol>
+          <li>Since \(x^2 \ge 0\) for all real \(x\), no negative number is an output.</li>
+          <li>For any \(y \ge 0\), choosing \(x = \sqrt{y}\) gives \(f(x) = y\). Hence the range is \([0, \infty)\).</li>
+          <li>The preimage of \(\{4\}\) is \(f^{-1}(\{4\}) = \{-2, 2\}\), because both inputs square to \(4\).</li>
+          <li>The preimage of \((-1, 0)\) is empty, since no square is negative.</li>
+        </ol>
+      </div>
+
+      <h3>3.3 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 2.</strong>
+        <ol>
+          <li>Domain of \(\frac{1}{x + 1}\)? <em>\(\mathbb{R} \setminus \{-1\}\).</em></li>
+          <li>Domain of \(\sqrt{2 - x}\)? <em>\((-\infty, 2]\).</em></li>
+          <li>Range of \(f(x) = x^2 + 1\) on \(\mathbb{R}\)? <em>\([1, \infty)\).</em></li>
+        </ol>
+      </div>
+
+      <h2>4. Building-block functions</h2>
+
+      <h3>4.1 Linear and polynomial functions</h3>
+      <div class="definition-box">
+        <strong>Linear functions.</strong>
+        A linear function has the form \(f(x) = mx + b\) with constants \(m, b \in \mathbb{R}\). Its graph is a straight line with slope \(m\) and \(y\)-intercept \(b\), and its natural domain is \(\mathbb{R}\).
+      </div>
+
+      <div class="definition-box">
+        <strong>Polynomial functions.</strong>
+        A polynomial has the form \(P(x) = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0\), where \(n\) is a non-negative integer and \(a_n \ne 0\). The number \(n\) is the <strong>degree</strong> and \(a_n\) the <strong>leading coefficient</strong>. The natural domain of every polynomial is \(\mathbb{R}\).
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes: degree zero and the zero polynomial.</strong>
+        A degree-\(0\) polynomial is a nonzero constant \(P(x) = c\) with \(c \ne 0\); if \(c = 0\) the leading coefficient would be zero and the degree would not be \(0\). The special function \(P(x) = 0\) for all \(x\) is the <strong>zero polynomial</strong>, and it is assigned no degree (or sometimes degree \(-\infty\)), because there is no nonzero leading term. Saying "the zero polynomial has degree \(0\)" is incorrect.
+      </div>
+
+      <h3>4.2 Rational functions</h3>
+      <div class="definition-box">
+        <strong>Rational functions.</strong>
+        A rational function is \(R(x) = \frac{P(x)}{Q(x)}\), where \(P\) and \(Q\) are polynomials and \(Q\) is <em>not</em> the zero polynomial. Its natural domain is \(\{x \in \mathbb{R} \mid Q(x) \ne 0\}\), i.e. all reals except the zeros of \(Q\). Note that \(P\) may be the zero polynomial; that simply gives \(R(x) = 0\) wherever \(Q(x) \ne 0\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.1 - Domain and cancellation.</strong>
+        Let \(R(x) = \frac{x^2 - 1}{x - 1}\).
+        <ol>
+          <li>The denominator is zero at \(x = 1\), so the domain is \(\mathbb{R} \setminus \{1\}\).</li>
+          <li>Factor: \(x^2 - 1 = (x - 1)(x + 1)\), so for \(x \ne 1\), \(R(x) = \frac{(x - 1)(x + 1)}{x - 1} = x + 1\).</li>
+          <li>The cancellation is valid only where \(x - 1 \ne 0\); the point \(x = 1\) remains excluded from the domain. The simplified formula must carry the note "\(x \ne 1\)."</li>
+        </ol>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes: never cancel what does not factor.</strong>
+        For \(\frac{x^2 - 1}{x - 2}\), nothing cancels: \(x - 2\) is not a factor of \(x^2 - 1 = (x - 1)(x + 1)\). The domain is \(\mathbb{R} \setminus \{2\}\), and the expression cannot be simplified to a polynomial. Only cancel a factor that appears in both numerator and denominator.
+      </div>
+
+      <h3>4.3 Trigonometric functions</h3>
+      <div class="definition-box">
+        <strong>Trigonometric functions (unit circle).</strong>
+        If an angle \(x\) (in radians) locates a point on the unit circle, then \(\sin x\) is its \(y\)-coordinate and \(\cos x\) its \(x\)-coordinate. Then \(\tan x = \frac{\sin x}{\cos x}\), \(\sec x = \frac{1}{\cos x}\), \(\csc x = \frac{1}{\sin x}\), and \(\cot x = \frac{\cos x}{\sin x}\).
         <ul>
-          <li>\(f: D \to R\) means "f is a function from domain D to codomain R"</li>
-          <li>\(f(x)\) is read as "f of x" or "the value of f at x"</li>
-          <li>\(y = f(x)\) means "y is a function of x"</li>
+          <li>Domain of \(\sin x\) and \(\cos x\): all of \(\mathbb{R}\); range: \([-1, 1]\).</li>
+          <li>Domain of \(\tan x\) and \(\sec x\): all \(x \in \mathbb{R}\) with \(x \ne \frac{\pi}{2} + n\pi\) for \(n \in \mathbb{Z}\), because exactly there \(\cos x = 0\).</li>
+          <li>Domain of \(\csc x\) and \(\cot x\): all \(x \in \mathbb{R}\) with \(x \ne n\pi\) for \(n \in \mathbb{Z}\), because exactly there \(\sin x = 0\).</li>
+        </ul>
+      </div>
+
+      <h3>4.4 Exponential and logarithmic functions</h3>
+      <div class="definition-box">
+        <strong>Exponential and logarithmic functions.</strong>
+        For a base \(a \gt 0\) with \(a \ne 1\), the exponential function \(f(x) = a^x\) has domain \(\mathbb{R}\) and range \((0, \infty)\). Its inverse is the logarithm \(g(x) = \log_a x\), whose domain is \((0, \infty)\) and range is \(\mathbb{R}\). The natural choices are \(e^x\) (with \(e \approx 2.71828\)) and \(\ln x = \log_e x\).
+      </div>
+
+      <h3>4.5 Piecewise and absolute value functions</h3>
+      <div class="definition-box">
+        <strong>Piecewise functions.</strong>
+        A piecewise function uses different formulas on different parts of its domain. For example
+        \[
+        f(x) =
+        \begin{cases}
+        x^2 \quad\text{if } x \lt 0,\\
+        2x + 1 \quad\text{if } x \ge 0.
+        \end{cases}
+        \]
+        To evaluate \(f\), first decide which condition the input satisfies, then apply that formula.
+      </div>
+
+      <div class="definition-box">
+        <strong>The absolute value function.</strong>
+        \[
+        |x| =
+        \begin{cases}
+        x \quad\text{if } x \ge 0,\\
+        -x \quad\text{if } x \lt 0.
+        \end{cases}
+        \]
+        It measures distance from \(0\), so \(|x| \ge 0\), its domain is \(\mathbb{R}\), and its range is \([0, \infty)\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.2 - Evaluating a piecewise function.</strong>
+        For the \(f\) above, find \(f(-3)\), \(f(0)\), and \(f(2)\).
+        <ol>
+          <li>\(-3 \lt 0\), so use \(x^2\): \(f(-3) = (-3)^2 = 9\).</li>
+          <li>\(0 \ge 0\), so use \(2x + 1\): \(f(0) = 2(0) + 1 = 1\).</li>
+          <li>\(2 \ge 0\), so use \(2x + 1\): \(f(2) = 2(2) + 1 = 5\).</li>
+        </ol>
+      </div>
+
+      <h3>4.6 Even and odd functions</h3>
+      <div class="definition-box">
+        <strong>Definitions.</strong>
+        Let \(f\) have a domain symmetric about \(0\).
+        <ul>
+          <li>\(f\) is <strong>even</strong> if \(f(-x) = f(x)\) for all \(x\) in the domain; its graph is symmetric about the \(y\)-axis.</li>
+          <li>\(f\) is <strong>odd</strong> if \(f(-x) = -f(x)\) for all \(x\) in the domain; its graph has rotational symmetry about the origin.</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.3 - Classifying functions.</strong>
+        <ol>
+          <li>\(f(x) = x^2\): \(f(-x) = (-x)^2 = x^2 = f(x)\), so \(f\) is even.</li>
+          <li>\(g(x) = x^3\): \(g(-x) = (-x)^3 = -x^3 = -g(x)\), so \(g\) is odd.</li>
+          <li>\(h(x) = x^2 + x\): \(h(-x) = x^2 - x\), which is neither \(h(x)\) nor \(-h(x)\), so \(h\) is neither even nor odd.</li>
+        </ol>
+      </div>
+
+      <h2>5. Transformations of graphs</h2>
+
+      <h3>5.1 Intuition</h3>
+      <p>Starting from a basic graph \(y = f(x)\), simple algebraic changes shift, stretch, or reflect it. Understanding these moves lets us sketch many functions quickly.</p>
+
+      <div class="definition-box">
+        <strong>Transformations of \(y = f(x)\).</strong>
+        For constants \(a \ne 0\), \(h\), and \(k\):
+        <ul>
+          <li>\(y = f(x) + k\) shifts the graph up by \(k\) (down if \(k \lt 0\)).</li>
+          <li>\(y = f(x - h)\) shifts the graph right by \(h\) (left if \(h \lt 0\)).</li>
+          <li>\(y = a f(x)\) stretches vertically by \(|a|\); if \(a \lt 0\) it also reflects across the \(x\)-axis.</li>
+          <li>\(y = f(-x)\) reflects across the \(y\)-axis.</li>
+          <li>\(y = |f(x)|\) reflects the portion below the \(x\)-axis upward.</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 5.1 - Reading a transformation.</strong>
+        Describe \(g(x) = -2(x - 3)^2 + 4\) as a transformation of \(y = x^2\).
+        <ol>
+          <li>\(x - 3\) shifts right \(3\) units.</li>
+          <li>Multiplying by \(2\) stretches vertically by \(2\).</li>
+          <li>The minus sign reflects across the \(x\)-axis.</li>
+          <li>Adding \(4\) shifts up \(4\) units. The vertex moves from \((0,0)\) to \((3,4)\), and the parabola opens downward.</li>
+        </ol>
+      </div>
+
+      <h3>5.2 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 3.</strong>
+        <ol>
+          <li>Is \(f(x) = |x|\) even, odd, or neither? <em>Even, since \(|-x| = |x|\).</em></li>
+          <li>What transformation takes \(y = \sqrt{x}\) to \(y = \sqrt{x + 2} - 1\)? <em>Left \(2\), down \(1\).</em></li>
+          <li>Is \(\frac{x + 1}{x + 1}\) equal to the constant function \(1\) on \(\mathbb{R}\)? <em>No; it equals \(1\) only on \(\mathbb{R} \setminus \{-1\}\).</em></li>
+        </ol>
+      </div>
+
+      <h2>6. Combining functions</h2>
+
+      <h3>6.1 Arithmetic combinations</h3>
+      <div class="definition-box">
+        <strong>Arithmetic of functions.</strong>
+        For functions \(f\) and \(g\), define, on the intersection of their domains,
+        \[
+        (f + g)(x) = f(x) + g(x), \qquad (f - g)(x) = f(x) - g(x),
+        \]
+        \[
+        (fg)(x) = f(x)\, g(x), \qquad \left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)} \text{ where } g(x) \ne 0.
+        \]
+        For the quotient, the domain is \(\{x \mid x \in \operatorname{domain}(f) \cap \operatorname{domain}(g) \text{ and } g(x) \ne 0\}\).
+      </div>
+
+      <h3>6.2 Composition and order</h3>
+      <div class="definition-box">
+        <strong>Composition.</strong>
+        The composition of \(g\) followed by \(f\) is \((f \circ g)(x) = f(g(x))\). Its domain is \(\{x \in \operatorname{domain}(g) \mid g(x) \in \operatorname{domain}(f)\}\). The output of the inner function \(g\) becomes the input of the outer function \(f\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Justifying the domain of a composition.</strong>
+        To compute \(f(g(x))\) two things must happen in sequence: first \(g(x)\) must be defined, which requires \(x \in \operatorname{domain}(g)\); then \(f\) must accept that value, which requires \(g(x) \in \operatorname{domain}(f)\). Because both conditions must hold, the domain is their intersection as stated. This is a direct consequence of the definition of a function, not an additional theorem.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 6.1 - Domain of a composition.</strong>
+        Let \(f(x) = \sqrt{x}\) and \(g(x) = x - 4\). Find the domain of \(f \circ g\).
+        <ol>
+          <li>Domain of \(g\) is \(\mathbb{R}\).</li>
+          <li>For \(f\) to accept \(g(x)\), we need \(g(x) \ge 0\).</li>
+          <li>So \(x - 4 \ge 0\), giving \(x \ge 4\).</li>
+          <li>The domain of \(f \circ g\) is \([4, \infty)\).</li>
+        </ol>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 6.2 - Order matters.</strong>
+        Let \(f(x) = x + 1\) and \(g(x) = x^2\). Compare the two compositions.
+        <ol>
+          <li>\((f \circ g)(x) = f(x^2) = x^2 + 1\).</li>
+          <li>\((g \circ f)(x) = g(x + 1) = (x + 1)^2 = x^2 + 2x + 1\).</li>
+          <li>These differ whenever \(x \ne 0\), so \(f \circ g \ne g \circ f\) in general. Composition is not commutative.</li>
+        </ol>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes: composition order.</strong>
+        The notation \((f \circ g)(x) = f(g(x))\) means \(g\) acts first. Reading left to right as "\(f\) first" is a frequent error. When in doubt, replace the inner function with a placeholder: \(f(g(x)) = f(\Box)\) and then substitute.
+      </div>
+
+      <h2>7. Inverse functions</h2>
+
+      <h3>7.1 Intuition and the one-to-one condition</h3>
+      <p>An inverse function reverses the action of \(f\). But reversal is only possible when distinct inputs produce distinct outputs; otherwise there is no unique way to go backwards.</p>
+
+      <div class="definition-box">
+        <strong>Definitions.</strong>
+        A function \(f\) with domain \(A\) is <strong>injective</strong> (or one-to-one) if \(f(x_1) = f(x_2)\) implies \(x_1 = x_2\) for all \(x_1, x_2 \in A\). Equivalently, distinct inputs give distinct outputs.
+      </div>
+
+      <div class="definition-box">
+        <strong>Definition (inverse function).</strong>
+        If \(f: A \to B\) is injective, its <strong>inverse</strong> is the function \(f^{-1}: \operatorname{range}(f) \to A\) defined by \(f^{-1}(y) = x\) exactly when \(f(x) = y\). It satisfies
+        \[
+        f\bigl(f^{-1}(y)\bigr) = y \quad \text{for all } y \in \operatorname{range}(f), \qquad
+        f^{-1}\bigl(f(x)\bigr) = x \quad \text{for all } x \in A.
+        \]
+        If \(f\) is not injective, no inverse function exists.
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes: two meanings of the superscript \(-1\).</strong>
+        The symbol \(f^{-1}(x)\) denotes the inverse function of \(f\). It is <em>not</em> the reciprocal \((f(x))^{-1} = \frac{1}{f(x)}\). For example, if \(f(x) = 2x + 3\), then \(f^{-1}(x) = \frac{x - 3}{2}\), whereas \(\frac{1}{f(x)} = \frac{1}{2x + 3}\). These are entirely different functions.
+      </div>
+
+      <div class="important-note">
+        <strong>The horizontal line test.</strong>
+        A function has an inverse exactly when every horizontal line meets its graph at most once. Two points \((x_1, y)\) and \((x_2, y)\) on a horizontal line share an output; if \(x_1 \ne x_2\), the function is not injective and cannot be reversed.
+      </div>
+
+      <h3>7.2 Restricting the domain</h3>
+      <div class="example-box">
+        <strong>Example 7.1 - Making \(x^2\) invertible.</strong>
+        The function \(f: \mathbb{R} \to \mathbb{R}\), \(f(x) = x^2\) is not injective because \(f(2) = f(-2) = 4\).
+        <ol>
+          <li>Restrict the domain to \([0, \infty)\): define \(F: [0, \infty) \to [0, \infty)\) by \(F(x) = x^2\).</li>
+          <li>On this domain \(F\) is injective: \(x_1^2 = x_2^2\) with both non-negative forces \(x_1 = x_2\).</li>
+          <li>Solve \(y = x^2\) for \(x \ge 0\): \(x = \sqrt{y}\). Hence \(F^{-1}(y) = \sqrt{y}\), with domain \([0, \infty)\).</li>
+          <li>Check: \(F(F^{-1}(y)) = (\sqrt{y})^2 = y\) and \(F^{-1}(F(x)) = \sqrt{x^2} = x\) for \(x \ge 0\).</li>
+        </ol>
+      </div>
+
+      <h3>7.3 Finding an inverse algebraically</h3>
+      <div class="proof-box">
+        <strong>Algorithm and justification.</strong>
+        To find \(f^{-1}\): write \(y = f(x)\); solve for \(x\) in terms of \(y\); then interchange the roles of the variables. This is justified because \(y = f(x)\) is equivalent to \(x = f^{-1}(y)\); solving for \(x\) produces exactly the inverse rule. Finally verify both compositions to guard against algebra errors.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 7.2 - Inverse of a linear function.</strong>
+        Find the inverse of \(f(x) = 2x + 3\).
+        <ol>
+          <li>Write \(y = 2x + 3\).</li>
+          <li>Solve for \(x\): \(y - 3 = 2x\), so \(x = \frac{y - 3}{2}\).</li>
+          <li>Interchange variables: \(f^{-1}(x) = \frac{x - 3}{2}\).</li>
+          <li>Verify: \(f(f^{-1}(x)) = 2\cdot\frac{x - 3}{2} + 3 = (x - 3) + 3 = x\).</li>
+          <li>Verify: \(f^{-1}(f(x)) = \frac{(2x + 3) - 3}{2} = \frac{2x}{2} = x\).</li>
+        </ol>
+      </div>
+
+      <h3>7.4 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 4.</strong>
+        <ol>
+          <li>Is \(f(x) = x^3\) injective on \(\mathbb{R}\)? <em>Yes; cubing is strictly increasing, so distinct inputs give distinct outputs.</em></li>
+          <li>Find \(f^{-1}(x)\) for \(f(x) = 4x - 7\). <em>\(f^{-1}(x) = \frac{x + 7}{4}\).</em></li>
+          <li>Does \(f(x) = |x|\) have an inverse on \(\mathbb{R}\)? <em>No; it is not injective. Restrict to \([0, \infty)\) to get \(f^{-1}(x) = x\).</em></li>
+        </ol>
+      </div>
+
+      <h2>Bonus: surjectivity and bijectivity</h2>
+      <p>Injectivity is one of two related properties. Together they describe when a function sets up a perfect correspondence between two sets.</p>
+
+      <div class="definition-box">
+        <strong>Definitions.</strong>
+        For \(f: A \to B\):
+        <ul>
+          <li>\(f\) is <strong>injective</strong> if distinct inputs have distinct outputs.</li>
+          <li>\(f\) is <strong>surjective</strong> (onto \(B\)) if \(\operatorname{range}(f) = B\), i.e. every element of \(B\) is hit by some input.</li>
+          <li>\(f\) is <strong>bijective</strong> if it is both injective and surjective.</li>
         </ul>
       </div>
 
       <div class="proof-box">
-        <strong>Understanding Function Equality:</strong>
-        Two functions \(f\) and \(g\) are equal if and only if:
-        <ol>
-          <li>They have the same domain</li>
-          <li>For every \(x\) in the domain, \(f(x) = g(x)\)</li>
-        </ol>
-        <em>Proof: This follows directly from the definition of a function as a rule.</em>
+        <strong>Claim: \(f: A \to B\) has an inverse \(B \to A\) if and only if it is bijective.</strong>
+        <p>Forward direction: suppose an inverse \(g: B \to A\) exists with \(g(f(x)) = x\) for all \(x \in A\) and \(f(g(y)) = y\) for all \(y \in B\). If \(f(x_1) = f(x_2)\), apply \(g\) to get \(x_1 = g(f(x_1)) = g(f(x_2)) = x_2\), so \(f\) is injective. For any \(y \in B\), the element \(g(y)\) satisfies \(f(g(y)) = y\), so \(y\) is in the range and \(f\) is surjective.</p>
+        <p>Reverse direction: if \(f\) is bijective, surjectivity guarantees that for each \(y \in B\) there is some \(x\) with \(f(x) = y\), and injectivity guarantees that this \(x\) is unique. Defining \(g(y) = x\) therefore gives a well-defined function \(g: B \to A\), and the two composition identities follow immediately.</p>
       </div>
 
-      <h2>2. Four Ways to Represent a Function</h2>
-
-      <h3>2.1 Verbal Description</h3>
-      <p>Describe the relationship using words. This is the most intuitive way but can be ambiguous.</p>
       <div class="example-box">
-        <strong>Example 2.1:</strong>
-        "The area of a circle as a function of its radius"
-        <p>This means: for each radius \(r\), there is exactly one area \(A\).</p>
-      </div>
-
-      <h3>2.2 Algebraic/Formula Representation</h3>
-      <div class="definition-box">
-        <strong>Algebraic Form:</strong>
-        \(f(x) = \text{expression involving } x\)
-        <p>Examples: \(f(x) = x^2\), \(g(x) = \sin x\), \(h(x) = \frac{1}{x}\)</p>
-      </div>
-
-      <div class="proof-box">
-        <strong>How to Find the Domain from a Formula:</strong>
-        Given a function formula, the domain is the largest set of real numbers for which the formula produces a real number output.
-        
-        <strong>Step-by-step method:</strong>
+        <strong>Example Bonus.1 - Classifying maps.</strong>
         <ol>
-          <li>Identify restrictions (division by zero, square roots of negatives, logarithms of non-positives)</li>
-          <li>Find the values of \(x\) that cause these restrictions</li>
-          <li>The domain is all real numbers except those values</li>
+          <li>\(f: \mathbb{R} \to \mathbb{R}\), \(f(x) = x^2\): neither injective nor surjective (its range is \([0, \infty)\)).</li>
+          <li>\(g: \mathbb{R} \to [0, \infty)\), \(g(x) = x^2\): surjective but not injective.</li>
+          <li>\(h: [0, \infty) \to \mathbb{R}\), \(h(x) = x^2\): injective but not surjective.</li>
+          <li>\(k: [0, \infty) \to [0, \infty)\), \(k(x) = x^2\): bijective, hence invertible with inverse \(\sqrt{x}\).</li>
         </ol>
       </div>
 
+      <h2>Summary</h2>
+      <ul>
+        <li>A function assigns exactly one output to each input in its domain; codomain and range are different sets.</li>
+        <li>Functions are equal only when domain, codomain, and rule all match.</li>
+        <li>The vertical line test detects graphs of functions; domains come from formulas or context.</li>
+        <li>Know the domains and ranges of the basic families, plus piecewise and absolute value definitions.</li>
+        <li>Composition order matters: \(f \circ g\) means \(g\) first.</li>
+        <li>Only injective functions have inverses; restricting the domain can create one, and bijectivity is exactly the condition for a two-sided inverse.</li>
+      </ul>
+
+      <h2>Practice Problems</h2>
+      <ol>
+        <li>Let \(f: \mathbb{R} \to \mathbb{R}\) with \(f(x) = 3x - 5\). Find \(f(-2)\) and the range of \(f\).</li>
+        <li>Find the natural domain of \(g(x) = \frac{\sqrt{x + 1}}{x - 3}\).</li>
+        <li>Find the natural domain of \(h(x) = \ln(4 - x^2)\).</li>
+        <li>Determine whether \(y^2 = x + 1\) defines \(y\) as a function of \(x\) on \(\mathbb{R}\). Explain.</li>
+        <li>For \(f(x) = \frac{x^2 - 4}{x - 2}\), state the domain and simplify with the correct restriction.</li>
+        <li>Classify \(p(x) = x^4 + x^2\) and \(q(x) = x^3 - x\) as even, odd, or neither.</li>
+        <li>Let \(f(x) = \sqrt{x}\) and \(g(x) = 1 - x\). Find \((f \circ g)(x)\) and its domain.</li>
+        <li>With \(f(x) = x + 2\) and \(g(x) = x^2\), compute \((f \circ g)(3)\) and \((g \circ f)(3)\).</li>
+        <li>Find the inverse of \(r(x) = \frac{2x + 1}{x - 3}\) for \(x \ne 3\), and state its domain.</li>
+        <li>The function \(s(x) = (x - 2)^2\) is not injective on \(\mathbb{R}\). Restrict its domain so that it becomes invertible and give the inverse.</li>
+        <li>Describe \(t(x) = -\frac{1}{2}|x + 1| + 3\) as transformations of \(y = |x|\).</li>
+        <li>For \(f: \mathbb{Z} \to \mathbb{Z}\), \(f(n) = 2n\), decide whether \(f\) is injective and whether it is surjective.</li>
+      </ol>
+
+      <h2>Practice Problems - Worked Answer Key</h2>
       <div class="example-box">
-        <strong>Example 2.2 - Finding Domain:</strong>
-        \(f(x) = \frac{1}{x-2}\)
-        <p>Restriction: denominator cannot be zero</p>
-        <p>\(x - 2 = 0\) when \(x = 2\)</p>
-        <p>Domain: \( (-\infty, 2) \cup (2, \infty) \) or \( \mathbb{R} \setminus \{2\} \)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.3 - Multiple Restrictions:</strong>
-        \(f(x) = \sqrt{x-3} + \frac{1}{x-5}\)
-        <p>Restriction 1: \(x - 3 \geq 0 \Rightarrow x \geq 3\)</p>
-        <p>Restriction 2: \(x - 5 \neq 0 \Rightarrow x \neq 5\)</p>
-        <p>Domain: \([3, 5) \cup (5, \infty)\)</p>
-      </div>
-
-      <h3>2.3 Graphical Representation</h3>
-      <div class="definition-box">
-        <strong>Graph of a Function:</strong>
-        The graph of \(y = f(x)\) is the set of all points \((x, y)\) in the plane such that \(y = f(x)\).
-      </div>
-
-      <div class="important-note">
-        <strong>The Vertical Line Test:</strong>
-        A curve in the \(xy\)-plane is the graph of a function if and only if every vertical line intersects the curve at most once.
-        
-        <strong>Why this works:</strong>
-        - If a vertical line intersects at two points, say \((a, y_1)\) and \((a, y_2)\) with \(y_1 \neq y_2\), then the "function" assigns two different outputs to the same input \(a\). This violates the definition!
-      </div>
-
-      <h3>2.4 Numerical/Table Representation</h3>
-      <p>Using a table of input-output pairs. This is useful when we don't have a formula but have data.</p>
-      <table style="width: 100%; border-collapse: collapse; margin: 1rem 0;">
-        <tr style="background: var(--accent); color: white;">
-          <th style="padding: 0.5rem; border: 1px solid var(--border);">x (input)</th>
-          <th style="padding: 0.5rem; border: 1px solid var(--border);">f(x) (output)</th>
-        </tr>
-        <tr style="background: var(--off-white);">
-          <td style="padding: 0.5rem; border: 1px solid var(--border);">0</td>
-          <td style="padding: 0.5rem; border: 1px solid var(--border);">1</td>
-        </tr>
-        <tr style="background: var(--off-white);">
-          <td style="padding: 0.5rem; border: 1px solid var(--border);">1</td>
-          <td style="padding: 0.5rem; border: 1px solid var(--border);">3</td>
-        </tr>
-        <tr style="background: var(--off-white);">
-          <td style="padding: 0.5rem; border: 1px solid var(--border);">2</td>
-          <td style="padding: 0.5rem; border: 1px solid var(--border);">5</td>
-        </tr>
-      </table>
-      <p>This table represents a function because each input has exactly one output.</p>
-
-      <h2>3. Essential Functions (The Building Blocks)</h2>
-
-      <h3>3.1 Linear Functions</h3>
-      <div class="definition-box">
-        <strong>Linear Function:</strong>
-        \(f(x) = mx + b\) where \(m\) and \(b\) are constants
-        <p>Graph: a straight line with slope \(m\) and y-intercept \(b\)</p>
-        <p>Domain: all real numbers (unless there's a hidden restriction)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 3.1:</strong>
-        \(f(x) = 2x - 3\)
-        <p>Slope: \(m = 2\) (line rises 2 units for each 1 unit right)</p>
-        <p>y-intercept: \((0, -3)\)</p>
-        <p>Domain: \(\mathbb{R}\)</p>
-      </div>
-
-      <h3>3.2 Polynomial Functions</h3>
-      <div class="definition-box">
-        <strong>Polynomial Function:</strong>
-        \(P(x) = a_n x^n + a_{n-1}x^{n-1} + \cdots + a_2 x^2 + a_1 x + a_0\)
-        <p>where \(n\) is a non-negative integer and \(a_n \neq 0\)</p>
-        <p>The highest power \(n\) is called the degree</p>
-      </div>
-
-      <div class="important-note">
-        <strong>Special Polynomial Names:</strong>
-        <ul>
-          <li>Degree 0: Constant function \(f(x) = c\)</li>
-          <li>Degree 1: Linear function \(f(x) = mx + b\)</li>
-          <li>Degree 2: Quadratic function \(f(x) = ax^2 + bx + c\)</li>
-          <li>Degree 3: Cubic function \(f(x) = ax^3 + bx^2 + cx + d\)</li>
-        </ul>
-      </div>
-
-      <h3>3.3 Rational Functions</h3>
-      <div class="definition-box">
-        <strong>Rational Function:</strong>
-        \(f(x) = \frac{P(x)}{Q(x)}\) where \(P\) and \(Q\) are polynomials and \(Q(x) \neq 0\)
-        <p>Domain: all real numbers except zeros of \(Q(x)\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 3.2:</strong>
-        \(f(x) = \frac{x^2 - 1}{x - 2}\)
-        <p>Domain restriction: \(x \neq 2\)</p>
-        <p>Can simplify: \(f(x) = \frac{(x-1)(x+1)}{x-2}\)</p>
-        <p>Domain: \(\mathbb{R} \setminus \{2\}\)</p>
-      </div>
-
-      <h3>3.4 Trigonometric Functions</h3>
-      <div class="definition-box">
-        <strong>Trigonometric Functions (from the unit circle):</strong>
-        <ul>
-          <li>\(\sin x\): y-coordinate of point on unit circle at angle \(x\)</li>
-          <li>\(\cos x\): x-coordinate of point on unit circle at angle \(x\)</li>
-          <li>\(\tan x = \frac{\sin x}{\cos x}\)</li>
-        </ul>
-        <p>Domain of \(\sin x\) and \(\cos x\): all real numbers</p>
-        <p>Domain of \(\tan x\): all real numbers except \(x \neq \frac{\pi}{2} + n\pi\) for integer \(n\)</p>
-      </div>
-
-      <h3>3.5 Exponential and Logarithmic Functions</h3>
-      <div class="definition-box">
-        <strong>Exponential Function:</strong>
-        \(f(x) = a^x\) where \(a > 0, a \neq 1\)
-        <p>Natural exponential: \(f(x) = e^x\) where \(e \approx 2.71828...\)</p>
-        <p>Domain: all real numbers</p>
-        <p>Range: \((0, \infty)\)</p>
-      </div>
-
-      <div class="definition-box">
-        <strong>Logarithmic Function:</strong>
-        \(f(x) = \log_a x\) where \(a > 0, a \neq 1\)
-        <p>This is the inverse of \(a^x\)</p>
-        <p>Domain: \((0, \infty)\)</p>
-        <p>Range: all real numbers</p>
-      </div>
-
-      <h2>4. Combining Functions</h2>
-
-      <h3>4.1 Arithmetic Combinations</h3>
-      <div class="definition-box">
-        <strong>Given functions \(f\) and \(g\) with overlapping domains:</strong>
-        <ul>
-          <li>\((f + g)(x) = f(x) + g(x)\)</li>
-          <li>\((f - g)(x) = f(x) - g(x)\)</li>
-          <li>\((fg)(x) = f(x) \cdot g(x)\)</li>
-          <li>\(\left(\frac{f}{g}\right)(x) = \frac{f(x)}{g(x)}\) (where \(g(x) \neq 0\))</li>
-        </ul>
-      </div>
-
-      <h3>4.2 Composition of Functions</h3>
-      <div class="definition-box">
-        <strong>Composition:</strong>
-        \((f \circ g)(x) = f(g(x))\)
-        <p>Read as "f composed with g" or "f of g of x"</p>
-        <p>The output of \(g\) becomes the input of \(f\)</p>
-      </div>
-
-      <div class="proof-box">
-        <strong>Domain of Composition:</strong>
-        The domain of \(f \circ g\) is:
-        \(\{x \in \text{domain of } g \mid g(x) \in \text{domain of } f\}\)
-        
-        <strong>Step-by-step reasoning:</strong>
+        <strong>Answers 1-4.</strong>
         <ol>
-          <li>Start with the domain of \(g\) (we can only input values that \(g\) accepts)</li>
-          <li>Apply \(g\) to get \(g(x)\)</li>
-          <li>Check if \(g(x)\) is in the domain of \(f\)</li>
-          <li>Only keep values where both conditions are satisfied</li>
+          <li>\(f(-2) = 3(-2) - 5 = -11\). Since \(3x - 5\) can equal any real number, the range is \(\mathbb{R}\).</li>
+          <li>The root needs \(x + 1 \ge 0\), so \(x \ge -1\); the denominator needs \(x \ne 3\). Domain: \([-1, 3) \cup (3, \infty)\).</li>
+          <li>The logarithm needs \(4 - x^2 \gt 0\), i.e. \(x^2 \lt 4\), so \(-2 \lt x \lt 2\). Domain: \((-2, 2)\).</li>
+          <li>No. For \(x = 3\), \(y^2 = 4\) gives \(y = \pm 2\), two outputs for one input.</li>
         </ol>
       </div>
-
       <div class="example-box">
-        <strong>Example 4.1 - Finding Domain of Composition:</strong>
-        Let \(f(x) = \sqrt{x}\) and \(g(x) = x - 4\)
-        <p>Find the domain of \(f \circ g\):</p>
-        <p>Step 1: Domain of \(g\) is \(\mathbb{R}\)</p>
-        <p>Step 2: \(g(x) = x - 4\)</p>
-        <p>Step 3: Need \(g(x)\) in domain of \(f\), i.e., \(g(x) \geq 0\)</p>
-        <p>Step 4: \(x - 4 \geq 0 \Rightarrow x \geq 4\)</p>
-        <p>Domain of \(f \circ g\): \([4, \infty)\)</p>
-      </div>
-
-      <h2>5. Inverse Functions</h2>
-
-      <h3>5.1 What is an Inverse Function?</h3>
-      <div class="definition-box">
-        <strong>Inverse Function:</strong>
-        If \(f\) is a function, its inverse \(f^{-1}\) satisfies:
-        \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)
-        
-        <strong>Important:</strong> \(f^{-1}\) does not mean \(\frac{1}{f(x)}\)!
-      </div>
-
-      <div class="important-note">
-        <strong>Horizontal Line Test:</strong>
-        A function \(f\) has an inverse if and only if every horizontal line intersects the graph of \(f\) at most once.
-        
-        <strong>Why:</strong>
-        - If a horizontal line crosses at two points, those points have the same output but different inputs
-        - This means \(f\) is not one-to-one
-        - Without being one-to-one, we can't uniquely reverse the process
-      </div>
-
-      <h3>5.2 Finding Inverse Functions</h3>
-      <div class="theorem-box">
-        <strong>Algorithm for Finding \(f^{-1}\):**</strong>
+        <strong>Answers 5-8.</strong>
         <ol>
-          <li>Write \(y = f(x)\)</li>
-          <li>Swap \(x\) and \(y\): \(x = f(y)\)</li>
-          <li>Solve for \(y\): \(y = f^{-1}(x)\)</li>
-          <li>Verify: Check that \(f(f^{-1}(x)) = x\) and \(f^{-1}(f(x)) = x\)</li>
+          <li>Domain \(\mathbb{R} \setminus \{2\}\). For \(x \ne 2\), \(\frac{(x - 2)(x + 2)}{x - 2} = x + 2\), with \(x \ne 2\) still excluded.</li>
+          <li>\(p(-x) = (-x)^4 + (-x)^2 = x^4 + x^2 = p(x)\), so \(p\) is even. \(q(-x) = (-x)^3 - (-x) = -x^3 + x = -q(x)\), so \(q\) is odd.</li>
+          <li>\((f \circ g)(x) = \sqrt{1 - x}\). We need \(1 - x \ge 0\), so the domain is \((-\infty, 1]\).</li>
+          <li>\((f \circ g)(3) = f(9) = 11\). \((g \circ f)(3) = g(5) = 25\). They differ, illustrating that order matters.</li>
         </ol>
       </div>
-
       <div class="example-box">
-        <strong>Example 5.1 - Finding the Inverse:</strong>
-        Find the inverse of \(f(x) = 2x + 3\)
-        
-        <p><strong>Step 1:** Write \(y = 2x + 3\)</strong></p>
-        <p><strong>Step 2:** Swap: \(x = 2y + 3\)</strong></p>
-        <p><strong>Step 3:** Solve for y:</strong></p>
-        <p>\(x - 3 = 2y\)</p>
-        <p>\(y = \frac{x - 3}{2}\)</p>
-        <p>So \(f^{-1}(x) = \frac{x - 3}{2}\)</p>
-        
-        <p><strong>Step 4:** Verify:</strong></p>
-        <p>\(f(f^{-1}(x)) = f\left(\frac{x-3}{2}\right) = 2 \cdot \frac{x-3}{2} + 3 = (x-3) + 3 = x\) ✓</p>
-        <p>\(f^{-1}(f(x)) = f^{-1}(2x+3) = \frac{(2x+3)-3}{2} = \frac{2x}{2} = x\) ✓</p>
+        <strong>Answers 9-12.</strong>
+        <ol>
+          <li>Set \(y = \frac{2x + 1}{x - 3}\). Then \(y(x - 3) = 2x + 1\), so \(yx - 3y = 2x + 1\), hence \(x(y - 2) = 3y + 1\) and \(x = \frac{3y + 1}{y - 2}\). Thus \(r^{-1}(x) = \frac{3x + 1}{x - 2}\), with domain \(\mathbb{R} \setminus \{2\}\).</li>
+          <li>Restrict to \([2, \infty)\). Then \(s(x) = (x - 2)^2\) is injective and its inverse is \(s^{-1}(x) = 2 + \sqrt{x}\) with domain \([0, \infty)\).</li>
+          <li>Shift left \(1\), compress vertically by \(\frac{1}{2}\), reflect across the \(x\)-axis, then shift up \(3\). The vertex is at \((-1, 3)\) and it opens downward.</li>
+          <li>Injective: \(2m = 2n\) implies \(m = n\). Not surjective onto \(\mathbb{Z}\): no integer input gives the output \(1\), since \(2n\) is always even.</li>
+        </ol>
       </div>
-
     </div>
 
     <nav class="navigation" aria-label="Course navigation">

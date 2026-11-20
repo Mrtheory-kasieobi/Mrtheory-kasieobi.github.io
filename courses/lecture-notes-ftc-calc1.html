@@ -44,149 +44,323 @@
     </div>
 
     <div class="lecture-content">
-      <h2>1. Definite Integrals</h2>
-      
-      <h3>1.1 Definition via Riemann Sums</h3>
-      <div class="definition-box">
-        <strong>Definite Integral:</strong>
-        The definite integral of \(f\) over \([a,b]\) is:
-        $$\int_a^b f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*) \Delta x$$
-        where \(\Delta x = \frac{b-a}{n}\) and \(x_i^*\) is any point in the \(i\)-th subinterval.
-      </div>
-
-      <h3>1.2 Properties of Definite Integrals</h3>
-      <div class="theorem-box">
-        <strong>Theorem 1.1 (Properties):</strong>
-        For any function \(f\) and constants \(c\):
-        <ol>
-          <li>\(\int_a^b [f(x) + g(x)] \, dx = \int_a^b f(x) \, dx + \int_a^b g(x) \, dx\)</li>
-          <li>\(\int_a^b c \cdot f(x) \, dx = c \int_a^b f(x) \, dx\)</li>
-          <li>\(\int_a^b f(x) \, dx = -\int_b^a f(x) \, dx\)</li>
-          <li>\(\int_a^a f(x) \, dx = 0\)</li>
-          <li>\(\int_a^b f(x) \, dx = \int_a^c f(x) \, dx + \int_c^b f(x) \, dx\)</li>
-        </ol>
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof of Property 3:</strong>
-        By definition, if \(x_i^*\) partitions \([a,b]\), then for \([b,a]\) we have \(a_i^*\) partitioning \([b,a]\).
-        
-        The Riemann sum for \(\int_b^a f(x) \, dx\) is \(\sum f(a_i^*) \cdot \frac{a-b}{n}\).
-        
-        As \(n \to \infty\), this approaches \(-\int_a^b f(x) \, dx\). ∎
-      </div>
-
-      <h3>1.3 Inequalities for Integrals</h3>
-      <div class="theorem-box">
-        <strong>Theorem 1.2:</strong>
-        If \(m \leq f(x) \leq M\) for all \(x \in [a,b]\), then:
-        $$m(b-a) \leq \int_a^b f(x) \, dx \leq M(b-a)$$
-      </div>
-
-      <div class="example-box">
-        <strong>Example 1.1:</strong> Estimate \(\int_0^1 x^2 \, dx\) using the inequalities.
-        <p>On \([0,1]\): \(0 \leq x^2 \leq 1\)</p>
-        <p>Therefore: \(0 \leq \int_0^1 x^2 \, dx \leq 1\)</p>
-        <p>Actually: \(\int_0^1 x^2 \, dx = \frac{1}{3}\)</p>
-      </div>
-
-      <h2>2. The Fundamental Theorem of Calculus</h2>
-
-      <h3>2.1 Part 1: Derivative of an Integral</h3>
-      <div class="theorem-box">
-        <strong>Fundamental Theorem of Calculus, Part 1:</strong>
-        If \(f\) is continuous on \([a,b]\), define \(F(x) = \int_a^x f(t) \, dt\). Then \(F\) is differentiable on \((a,b)\) and \(F'(x) = f(x)\).
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof:</strong>
-        Let \(h > 0\) (the case \(h < 0\) is similar). We need to show:
-        $$\lim_{h \to 0} \frac{F(x+h) - F(x)}{h} = f(x)$$
-        
-        Compute:
-        $$\frac{F(x+h) - F(x)}{h} = \frac{1}{h}\left[\int_a^{x+h} f(t) \, dt - \int_a^x f(t) \, dt\right]$$
-        
-        $$= \frac{1}{h} \int_x^{x+h} f(t) \, dt$$
-        
-        By the Mean Value Theorem for integrals, there exists \(c_h \in [x, x+h]\) such that:
-        $$\int_x^{x+h} f(t) \, dt = f(c_h) \cdot h$$
-        
-        Therefore:
-        $$\frac{F(x+h) - F(x)}{h} = f(c_h)$$
-        
-        As \(h \to 0\), \(c_h \to x\), and by continuity of \(f\):
-        $$\lim_{h \to 0} f(c_h) = f(x)$$
-        
-        Hence \(F'(x) = f(x)\). ∎
-      </div>
-
-      <h3>2.2 Part 2: Evaluation of Definite Integrals</h3>
-      <div class="theorem-box">
-        <strong>Fundamental Theorem of Calculus, Part 2:</strong>
-        If \(f\) is continuous on \([a,b]\) and \(F\) is any antiderivative of \(f\), then:
-        $$\int_a^b f(x) \, dx = F(b) - F(a)$$
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof:</strong>
-        Let \(G(x) = \int_a^x f(t) \, dt\). By FTC Part 1, \(G'(x) = f(x)\).
-        
-        Also, since \(F\) is an antiderivative of \(f\), we have \(F'(x) = f(x)\).
-        
-        Therefore, \(G'(x) = F'(x)\) for all \(x \in [a,b]\), so \(G(x) - F(x)\) is constant.
-        
-        Let this constant be \(C\). Then \(G(x) = F(x) + C\).
-        
-        Evaluating at \(x = a\):
-        $$G(a) = \int_a^a f(t) \, dt = 0 = F(a) + C$$
-        
-        So \(C = -F(a)\) and \(G(x) = F(x) - F(a)\).
-        
-        Therefore:
-        $$\int_a^b f(x) \, dx = G(b) = F(b) - F(a)$$
-        ∎
-      </div>
+      <p><strong>Big picture.</strong> The definite integral is defined as a limit of Riemann sums, a purely arithmetic construction that has nothing obvious to do with derivatives. The Fundamental Theorem of Calculus (FTC) reveals a remarkable connection: forming an accumulated-area function \(A(x)=\displaystyle\int_a^x f(t)\,dt\) produces a new function whose derivative is the original integrand \(f(x)\). Differentiation and integration are therefore inverse operations up to an additive constant. This lets us evaluate integrals with antiderivatives instead of limits of sums, and it lets us differentiate integrals whose limits move.</p>
 
       <div class="formula-box">
-        FTC connects differentiation and integration as inverse operations.
+        <strong>Road map and prerequisites.</strong>
+        <ul>
+          <li>Prerequisites: partitions, Riemann sums, continuity, the chain rule, and the Mean Value Theorem for integrals.</li>
+          <li>Definition of the definite integral, including integrability and the phrase "provided the limit exists".</li>
+          <li>Orientation and additivity conventions, and the distinction between signed area and total area.</li>
+          <li>FTC Part 1: \(A'(x)=f(x)\) on \((a,b)\), with one-sided derivatives at the endpoints.</li>
+          <li>Chain-rule and two-variable-limit versions of Part 1.</li>
+          <li>FTC Part 2: evaluation by \(F(b)-F(a)\), and the additive-constant caveat.</li>
+          <li>Average value, geometric interpretation, and the limits of the theorem's hypotheses.</li>
+        </ul>
       </div>
 
-      <div class="example-box">
-        <strong>Example 2.1:</strong> Evaluate \(\int_0^{\pi/2} \sin x \, dx\).
-        <p>Antiderivative: \(F(x) = -\cos x\)</p>
-        <p>Result: \(F(\pi/2) - F(0) = -\cos(\pi/2) - (-\cos(0)) = 0 + 1 = 1\)</p>
-      </div>
+      <h2>1. Definite Integrals</h2>
 
-      <div class="example-box">
-        <strong>Example 2.2:</strong> Evaluate \(\int_1^e \frac{\ln x}{x} \, dx\).
-        <p>Let \(u = \ln x\), then \(du = \frac{1}{x} dx\)</p>
-        <p>When \(x = 1\): \(u = 0\). When \(x = e\): \(u = 1\).</p>
-        <p>Result: \(\int_0^1 u \, du = \frac{u^2}{2}\Big|_0^1 = \frac{1}{2}\)</p>
-      </div>
-
-      <h2>3. Average Value of a Function</h2>
-
+      <h3>1.1 Definition via Riemann sums</h3>
       <div class="definition-box">
-        <strong>Formula 3.1 (Average Value):</strong>
-        The average value of \(f\) over \([a,b]\) is:
-        $$f_{\text{avg}} = \frac{1}{b-a} \int_a^b f(x) \, dx$$
+        <strong>Definite integral.</strong> Let \(f\) be a bounded function on \([a,b]\). For a partition
+        \[
+        a=x_0 \lt x_1 \lt \cdots \lt x_n=b
+        \]
+        with widths \(\Delta x_i=x_i-x_{i-1}\) and sample points \(x_i^* \in [x_{i-1},x_i]\), form the Riemann sum \(\displaystyle\sum_{i=1}^{n}f(x_i^*)\Delta x_i\). If the limit
+        \[
+        \int_a^b f(x)\,dx=\lim_{\max\Delta x_i\to0}\sum_{i=1}^{n}f(x_i^*)\Delta x_i
+        \]
+        exists as a finite number, is the same for every choice of sample points, and is independent of the sequence of partitions, then \(f\) is called <em>integrable</em> on \([a,b]\); otherwise the integral does not exist. The phrase "provided the limit exists" is essential and is not automatically satisfied by every bounded function.
+      </div>
+      <p>Boundedness rules out functions whose values blow up inside the interval, so that each rectangle has a finite height. For continuous functions the limit always exists, and its value does not depend on whether we choose left endpoints, right endpoints, or midpoints.</p>
+
+      <h3>1.2 Orientation conventions, not a theorem about sums</h3>
+      <div class="definition-box">
+        <strong>Conventions.</strong> We define
+        \[
+        \int_a^a f(x)\,dx=0, \qquad \int_b^a f(x)\,dx=-\int_a^b f(x)\,dx.
+        \]
+        These are <em>definitions</em>, not conclusions derived from a Riemann sum: a partition of \([a,b]\) has \(b-a\gt0\) widths, while a partition of \([b,a]\) would reverse the traversal. It is much cleaner to declare the reversed integral to be the negative of the forward one and then check that all the familiar laws remain consistent. In particular, the second convention makes additivity valid for any ordering of the three points.
+      </div>
+      <div class="important-note">
+        <strong>A common faulty argument.</strong> One sometimes sees a "proof" that \(\int_b^a f=-\int_a^b f\) using Riemann sums with \(\Delta x=(a-b)/n\). That reasoning silently assumes the definition for reversed intervals, because the standard definition is stated only for \(a \lt b\). The honest approach is to adopt the reversed orientation as a convention, then verify that \(\int_a^c f+\int_c^b f=\int_a^b f\) holds in all orderings.
       </div>
 
+      <h3>1.3 Properties</h3>
       <div class="theorem-box">
-        <strong>Mean Value Theorem for Integrals:</strong>
-        If \(f\) is continuous on \([a,b]\), then there exists \(c \in [a,b]\) such that:
-        $$f(c) = \frac{1}{b-a} \int_a^b f(x) \, dx$$
+        <strong>Algebraic properties.</strong> For integrable \(f\) and \(g\) and constant \(c\):
+        <ul>
+          <li>\(\displaystyle\int_a^b\bigl(f(x)+g(x)\bigr)\,dx=\int_a^b f(x)\,dx+\int_a^b g(x)\,dx\).</li>
+          <li>\(\displaystyle\int_a^b c\,f(x)\,dx=c\int_a^b f(x)\,dx\).</li>
+          <li>\(\displaystyle\int_a^b f(x)\,dx=\int_a^c f(x)\,dx+\int_c^b f(x)\,dx\) for any \(c\).</li>
+          <li>If \(f(x)\ge g(x)\) on \([a,b]\) with \(a \lt b\), then \(\displaystyle\int_a^b f\ge\int_a^b g\).</li>
+          <li>If \(m\le f(x)\le M\) on \([a,b]\), then \(m(b-a)\le\displaystyle\int_a^b f(x)\,dx\le M(b-a)\).</li>
+        </ul>
+      </div>
+      <div class="example-box">
+        <strong>Example 1.1.</strong> Estimate \(\displaystyle\int_0^1x^2\,dx\).
+        <p>Since \(0\le x^2\le1\) on \([0,1]\), the bounds give \(0\le\displaystyle\int_0^1x^2\,dx\le1\). Using \(x^2\le x\) improves this to \(\displaystyle\int_0^1x^2\,dx\le\frac12\). The exact value is \(\frac13\), consistent with both estimates.</p>
       </div>
 
+      <h3>1.4 Signed area versus total area</h3>
+      <div class="definition-box">
+        <strong>Area interpretation.</strong> The integral \(\displaystyle\int_a^b f(x)\,dx\) equals ordinary geometric area only when \(f\ge0\) on \([a,b]\). In general it is <em>signed area</em>: the area of regions above the \(x\)-axis minus the area of regions below it. The total (unsigned) area between the curve and the axis is
+        \[
+        \text{total area}=\int_a^b |f(x)|\,dx.
+        \]
+      </div>
       <div class="example-box">
-        <strong>Example 3.1:</strong> Find the average value of \(f(x) = x^2\) on \([0, 2]\).
-        <p>\(f_{\text{avg}} = \frac{1}{2} \int_0^2 x^2 \, dx = \frac{1}{2} \cdot \frac{8}{3} = \frac{4}{3}\)</p>
+        <strong>Example 1.2.</strong> Compare \(\displaystyle\int_{-2}^{1}x\,dx\) with the total area for \(f(x)=x\) on \([-2,1]\).
+        <p><strong>Signed:</strong> \(\left[\dfrac{x^2}{2}\right]_{-2}^{1}=\dfrac12-2=-\dfrac32\).</p>
+        <p><strong>Pieces:</strong> on \([-2,0]\) the graph lies below the axis, with area \(\displaystyle\int_{-2}^{0}(-x)\,dx=2\); on \([0,1]\) the area is \(\displaystyle\int_0^1x\,dx=\dfrac12\).</p>
+        <p><strong>Total area:</strong> \(2+\dfrac12=\dfrac52\), which is \(\displaystyle\int_{-2}^{1}|x|\,dx\). The signed answer is negative because more area lies below the axis than above it.</p>
+      </div>
+
+      <h2>2. FTC Part 1: Differentiating an Integral</h2>
+
+      <h3>2.1 Statement with full hypotheses</h3>
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part 1.</strong> Suppose \(f\) is continuous on \([a,b]\) and define
+        \[
+        A(x)=\int_a^x f(t)\,dt, \qquad x \in [a,b].
+        \]
+        Then \(A\) is continuous on \([a,b]\), differentiable on the open interval \((a,b)\), and \(A'(x)=f(x)\) for every \(x \in (a,b)\). At the endpoints only one-sided derivatives are available: \(A'_+(a)=f(a)\) and \(A'_-(b)=f(b)\). The theorem says nothing about a two-sided derivative at \(a\) or \(b\), because \(A\) is not defined beyond those points by this formula.
+      </div>
+
+      <h3>2.2 Derivation</h3>
+      <div class="proof-box">
+        <strong>Proof.</strong> Fix \(x \in (a,b)\) and let \(h\) be small and nonzero with \(x+h \in (a,b)\). By additivity and the orientation convention,
+        \[
+        \frac{A(x+h)-A(x)}{h}=\frac{1}{h}\left[\int_a^{x+h}f(t)\,dt-\int_a^x f(t)\,dt\right]=\frac{1}{h}\int_x^{x+h}f(t)\,dt.
+        \]
+        Suppose first \(h\gt0\). The continuous function \(f\) attains a minimum \(m_h\) and maximum \(M_h\) on \([x,x+h]\), and monotonicity gives \(m_h h\le\int_x^{x+h}f(t)\,dt\le M_h h\). Dividing by the positive number \(h\),
+        \[
+        m_h\le\frac{A(x+h)-A(x)}{h}\le M_h.
+        \]
+        Equivalently, the Mean Value Theorem for integrals supplies \(c_h \in [x,x+h]\) with \(\int_x^{x+h}f(t)\,dt=f(c_h)h\), so the quotient equals \(f(c_h)\).
+        Now suppose \(h\lt0\). Then \(\int_x^{x+h}f=-\int_{x+h}^{x}f\), and since \(-h=|h|\gt0\),
+        \[
+        \frac{1}{h}\int_x^{x+h}f(t)\,dt=\frac{1}{|h|}\int_{x+h}^{x}f(t)\,dt=f(c_h)
+        \]
+        for some \(c_h \in [x+h,x]\). In both cases \(c_h\) lies between \(x\) and \(x+h\), so \(c_h\to x\) as \(h\to0\). Continuity of \(f\) gives
+        \[
+        A'(x)=\lim_{h\to0}\frac{A(x+h)-A(x)}{h}=\lim_{h\to0}f(c_h)=f(x).
+        \]
+        Continuity of \(A\) follows from \(|A(x+h)-A(x)|\le M|h|\) with \(M\) a bound on \(|f|\). ∎
+      </div>
+
+      <h3>2.3 Chain-rule form</h3>
+      <div class="theorem-box">
+        <strong>Chain rule for accumulating integrals.</strong> If \(f\) is continuous on an interval containing the range of a differentiable function \(g\), then
+        \[
+        \frac{d}{dx}\int_a^{g(x)}f(t)\,dt=f(g(x))\,g'(x).
+        \]
+        This is the ordinary chain rule applied to \(A(g(x))\), where \(A(u)=\displaystyle\int_a^u f(t)\,dt\).
+      </div>
+      <div class="example-box">
+        <strong>Example 2.1.</strong> Find \(\dfrac{d}{dx}\displaystyle\int_0^{x^2+1}\sqrt{t}\,dt\).
+        <p>Here \(g(x)=x^2+1\) and \(f(t)=\sqrt t\), which is continuous for \(t\ge0\). Thus:</p>
+        \[
+        \frac{d}{dx}\int_0^{x^2+1}\sqrt{t}\,dt=\sqrt{x^2+1}\cdot(2x)=2x\sqrt{x^2+1}.
+        \]
+      </div>
+
+      <h3>2.4 Two moving limits</h3>
+      <div class="theorem-box">
+        <strong>Two-variable-limit form.</strong> If \(f\) is continuous on an interval containing the ranges of differentiable functions \(u\) and \(v\), then
+        \[
+        \frac{d}{dx}\int_{u(x)}^{v(x)}f(t)\,dt=f(v(x))\,v'(x)-f(u(x))\,u'(x).
+        \]
+        This follows by splitting at any convenient constant \(a\): \(\int_{u(x)}^{v(x)}f=\int_{a}^{v(x)}f-\int_{a}^{u(x)}f\).
+      </div>
+      <div class="example-box">
+        <strong>Example 2.2.</strong> Find \(\dfrac{d}{dx}\displaystyle\int_{x^2}^{x^3}\sin t\,dt\).
+        <p>Apply the formula with \(u(x)=x^2\), \(v(x)=x^3\), and \(f(t)=\sin t\):</p>
+        \[
+        \frac{d}{dx}\int_{x^2}^{x^3}\sin t\,dt=\sin(x^3)\cdot3x^2-\sin(x^2)\cdot2x=3x^2\sin(x^3)-2x\sin(x^2).
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 2.3.</strong> Find \(\dfrac{d}{dx}\displaystyle\int_{2x}^{5}(t^2+1)\,dt\).
+        <p>Write the integral as \(-\displaystyle\int_5^{2x}(t^2+1)\,dt\). Then the chain-rule form gives:</p>
+        \[
+        -\bigl((2x)^2+1\bigr)\cdot2=-2(4x^2+1).
+        \]
+      </div>
+      <div class="example-box">
+        <strong>Example 2.4 (checking by direct evaluation).</strong> Verify Example 2.2 by evaluating first:
+        \[
+        \int_{x^2}^{x^3}\sin t\,dt=\left[-\cos t\right]_{x^2}^{x^3}=\cos(x^2)-\cos(x^3).
+        \]
+        Differentiating gives \(3x^2\sin(x^3)-2x\sin(x^2)\), agreeing with the formula.
+      </div>
+
+      <h2>3. FTC Part 2: Evaluating Definite Integrals</h2>
+
+      <h3>3.1 Statement and proof</h3>
+      <div class="theorem-box">
+        <strong>Fundamental Theorem of Calculus, Part 2.</strong> If \(f\) is continuous on \([a,b]\) and \(F\) is any function satisfying \(F'(x)=f(x)\) on \([a,b]\), then
+        \[
+        \int_a^b f(x)\,dx=F(b)-F(a).
+        \]
+        Continuity of \(f\) on the whole closed interval is required so that the integral exists and so that Part 1 applies.
+      </div>
+      <div class="proof-box">
+        <strong>Proof.</strong> Let \(A(x)=\displaystyle\int_a^x f(t)\,dt\). By Part 1, \(A'(x)=f(x)=F'(x)\) for \(x \in (a,b)\). Hence \((A-F)'(x)=0\) on \((a,b)\), and by the constant function theorem \(A(x)-F(x)=K\) for some constant \(K\). At \(x=a\),
+        \[
+        K=A(a)-F(a)=0-F(a)=-F(a).
+        \]
+        Therefore \(A(x)=F(x)-F(a)\), and evaluating at \(x=b\) gives \(\int_a^b f(x)\,dx=A(b)=F(b)-F(a)\). ∎
+      </div>
+
+      <h3>3.2 Only up to an additive constant</h3>
+      <div class="important-note">
+        <strong>Precise meaning of "inverse operations".</strong> Starting with \(f\), forming \(\displaystyle\int f(x)\,dx\) yields a whole family \(F(x)+C\), and differentiating any member returns \(f\). Starting with \(F\), computing \(\displaystyle\int_a^x F'(t)\,dt\) returns \(F(x)-F(a)\), not \(F(x)\) itself. The operations undo each other only up to an additive constant, which is fixed by choosing the base point \(a\). This is why the evaluation formula contains the difference \(F(b)-F(a)\): the arbitrary constant cancels.
+      </div>
+      <div class="example-box">
+        <strong>Example 3.1.</strong> Evaluate \(\displaystyle\int_0^{\pi/2}\sin x\,dx\).
+        <p>Using \(F(x)=-\cos x\),</p>
+        \[
+        \int_0^{\pi/2}\sin x\,dx=\left[-\cos x\right]_0^{\pi/2}=-\cos\frac{\pi}{2}+\cos0=0+1=1.
+        \]
+        <p>Using instead \(F(x)=-\cos x+7\) gives \((-\cos(\pi/2)+7)-(-\cos0+7)=7-6=1\): the constant cancels.</p>
+      </div>
+      <div class="example-box">
+        <strong>Example 3.2 (variable limits via Part 2).</strong> Evaluate \(\displaystyle\frac{d}{dx}\int_0^{x^3}(t^2+1)\,dt\) two ways.
+        <p>By the chain-rule form: \((x^6+1)\cdot3x^2\). By direct evaluation first:</p>
+        \[
+        \int_0^{x^3}(t^2+1)\,dt=\left[\frac{t^3}{3}+t\right]_0^{x^3}=\frac{x^9}{3}+x^3,
+        \]
+        <p>whose derivative is \(3x^8+3x^2=3x^2(x^6+1)\), the same result.</p>
+      </div>
+
+      <h3>3.3 When the hypotheses fail</h3>
+      <div class="example-box">
+        <strong>Example 3.3 (a jump discontinuity).</strong> Let
+        \[
+        f(t)=\begin{cases}-1 \text{ if } t\le0 \\ 1 \text{ if } t\gt0\end{cases}
+        \qquad A(x)=\int_{-1}^{x}f(t)\,dt.
+        \]
+        For \(x\le0\), \(A(x)=-(x+1)\); for \(x\gt0\), \(A(x)=-1+x\). Then the left derivative of \(A\) at \(0\) is \(-1\) and the right derivative is \(1\), so \(A'(0)\) does not exist, even though \(f(0)=-1\). FTC Part 1 promises differentiability only when \(f\) is continuous, and \(f\) jumps at \(0\).
+      </div>
+      <div class="example-box">
+        <strong>Example 3.4 (an unbounded integrand).</strong> The function \(f(t)=1/t^2\) is unbounded on any interval containing \(0\), so \(\displaystyle\int_{-1}^{1}\frac{1}{t^2}\,dt\) does not exist as a Riemann integral and no accumulation function \(A(x)=\int_0^x f(t)\,dt\) is defined by the Definition in Section 1. FTC Part 1 cannot even be stated here; this is an improper integral requiring a separate theory.
+      </div>
+
+      <h2>4. Average Value</h2>
+
+      <h3>4.1 Formula and geometric intuition</h3>
+      <div class="definition-box">
+        <strong>Average value.</strong> For continuous \(f\) on \([a,b]\),
+        \[
+        f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx.
+        \]
+        Geometrically, if \(f\ge0\), this is the height of the rectangle with base \([a,b]\) whose area equals the area under the curve: the "humps" above the line \(y=f_{\text{avg}}\) exactly fill the gaps below it. If \(f\) changes sign, the same formula gives the signed average height, since the integral is signed area.
+      </div>
+      <div class="theorem-box">
+        <strong>Mean Value Theorem for Integrals.</strong> If \(f\) is continuous on \([a,b]\), there is a number \(c \in [a,b]\) with
+        \[
+        f(c)=f_{\text{avg}}=\frac{1}{b-a}\int_a^b f(x)\,dx.
+        \]
+        It follows from \(m(b-a)\le\int_a^b f\le M(b-a)\), which places \(f_{\text{avg}}\) between the minimum \(m\) and maximum \(M\) of \(f\); the Intermediate Value Theorem then supplies \(c\).
+      </div>
+      <div class="example-box">
+        <strong>Example 4.1.</strong> Find the average value of \(f(x)=\cos x\) on \([0,\pi/2]\) and the point \(c\) where it occurs.
+        <p>\(f_{\text{avg}}=\dfrac{2}{\pi}\displaystyle\int_0^{\pi/2}\cos x\,dx=\dfrac{2}{\pi}\left[\sin x\right]_0^{\pi/2}=\dfrac{2}{\pi}\). Solving \(\cos c=2/\pi\) gives \(c=\arccos(2/\pi)\in[0,\pi/2]\).</p>
+      </div>
+      <div class="example-box">
+        <strong>Example 4.2.</strong> The average value of \(f(x)=x^2\) on \([0,2]\) is
+        \[
+        \frac12\int_0^2 x^2\,dx=\frac12\cdot\frac83=\frac43,
+        \]
+        which lies between \(0\) and \(4\), the minimum and maximum of \(x^2\) on that interval.
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with the FTC.</strong>
+        <ul>
+          <li>Using FTC Part 1 at an endpoint as a two-sided derivative; only one-sided derivatives exist at \(a\) and \(b\).</li>
+          <li>Forgetting the chain rule when the upper limit is \(g(x)\) rather than \(x\).</li>
+          <li>Sign errors when the lower limit is variable, especially forgetting the minus sign.</li>
+          <li>Applying the theorem when \(f\) is discontinuous at a point inside the interval; differentiability of \(A\) can fail there.</li>
+          <li>Assuming \(\int_a^b f\) is the geometric area when \(f\) takes negative values; use \(\int_a^b|f|\) for total area.</li>
+          <li>Treating \(\int_b^a f=-\int_a^b f\) as a proved Riemann-sum fact rather than a convention.</li>
+          <li>Dropping the arbitrary constant in an indefinite integral, or forgetting that evaluation uses a difference.</li>
+        </ul>
+      </div>
+
+      <h2>5. Quick Check</h2>
+      <div class="example-box">
+        <strong>Check yourself; answers follow.</strong>
+        <ol>
+          <li>State where \(A(x)=\int_a^x f(t)\,dt\) is guaranteed differentiable and what \(A'(x)\) equals.</li>
+          <li>Compute \(\dfrac{d}{dx}\displaystyle\int_0^x(t^2+1)\,dt\).</li>
+          <li>Compute \(\dfrac{d}{dx}\displaystyle\int_{x}^{3}\cos t\,dt\).</li>
+          <li>Explain why \(\displaystyle\int_{-1}^{1}x\,dx=0\) but the total area is not \(0\).</li>
+          <li>If \(A(x)=\int_2^x f(t)\,dt\), \(A(5)=7\), and \(A(3)=2\), find \(\int_3^5 f(t)\,dt\).</li>
+        </ol>
+        <p><strong>Answers.</strong> (1) On the open interval \((a,b)\), with \(A'(x)=f(x)\); at endpoints only one-sided derivatives exist. (2) \(x^2+1\). (3) \(-\cos x\). (4) The integral is signed area, and the negative contribution on \([-1,0]\) cancels the positive one on \([0,1]\); total area is \(\int_{-1}^{1}|x|\,dx=1\). (5) \(A(5)-A(3)=5\).</p>
+      </div>
+
+      <h2>6. Summary</h2>
+      <div class="formula-box">
+        <ul>
+          <li>The definite integral is a limit of Riemann sums, provided the limit exists and is sample-point independent.</li>
+          <li>Reversed orientation and zero-width intervals are conventions: \(\int_b^a f=-\int_a^b f\) and \(\int_a^a f=0\).</li>
+          <li>FTC Part 1: \(\frac{d}{dx}\int_a^x f(t)\,dt=f(x)\) for \(x\in(a,b)\), with chain-rule and two-limit variants.</li>
+          <li>FTC Part 2: \(\int_a^b f(x)\,dx=F(b)-F(a)\) when \(f\) is continuous on \([a,b]\).</li>
+          <li>Differentiation and integration undo each other only up to an additive constant.</li>
+          <li>Average value \(f_{\text{avg}}=\frac{1}{b-a}\int_a^b f\) is the equal-area rectangle height.</li>
+        </ul>
+      </div>
+
+      <h2>Bonus: The Integral as an Accumulation Function</h2>
+      <p>The most useful way to read \(A(x)=\displaystyle\int_a^x f(t)\,dt\) is as a <em>running total</em>. If \(f\) is a rate of water flow, \(A(x)\) is the volume that has passed by time \(x\). If \(f\) is a marginal cost, \(A(x)\) is the total cost accumulated beyond the base level.</p>
+      <div class="theorem-box">
+        <strong>Accumulation principle.</strong> For continuous \(f\), the function \(A\) is the unique solution of the initial value problem
+        \[
+        A'(x)=f(x), \qquad A(a)=0.
+        \]
+        Any antiderivative \(F\) satisfies \(A(x)=F(x)-F(a)\), so the choice of base point \(a\) determines the additive constant.
+      </div>
+      <div class="example-box">
+        <strong>Bonus Example.</strong> Let \(f(t)=\cos t\) and \(a=0\). Then \(A(x)=\displaystyle\int_0^x\cos t\,dt=\sin x\), which satisfies \(A'(x)=\cos x\) and \(A(0)=0\). Changing the base point to \(a=\pi/2\) gives \(\tilde A(x)=\displaystyle\int_{\pi/2}^{x}\cos t\,dt=\sin x-1\), differing from \(A\) by exactly the constant \(-1\).
+      </div>
+
+      <h2>7. Practice Problems</h2>
+      <ol>
+        <li>State the two conditions in the definition of \(\int_a^b f\) that must hold before we may write the equality.</li>
+        <li>Compute \(\displaystyle\int_{-1}^{1}x\,dx\) and \(\displaystyle\int_{-1}^{1}|x|\,dx\).</li>
+        <li>Find \(\displaystyle\frac{d}{dx}\int_1^x(t^2+1)\,dt\).</li>
+        <li>Find \(\displaystyle\frac{d}{dx}\int_0^{x^2}e^t\,dt\).</li>
+        <li>Find \(\displaystyle\frac{d}{dx}\int_x^{2x}\cos t\,dt\).</li>
+        <li>Evaluate \(\displaystyle\int_0^2(3x^2-2x)\,dx\).</li>
+        <li>Find the average value of \(\cos x\) on \([0,\pi/2]\).</li>
+        <li>Evaluate \(\displaystyle\int_0^\pi|\cos x|\,dx\).</li>
+        <li>Explain why the FTC Part 1 does not apply to \(A(x)=\displaystyle\int_0^x\frac{1}{t-1}\,dt\) on \([-1,2]\).</li>
+        <li>If \(A(x)=\displaystyle\int_2^x f(t)\,dt\) with \(A(5)=7\) and \(A(3)=2\), find \(\int_3^5 f(t)\,dt\).</li>
+      </ol>
+      <div class="example-box">
+        <strong>Answer key.</strong>
+        <ol>
+          <li>The function must be bounded on \([a,b]\), and the limit of the Riemann sums must exist as a finite number independent of the sample points and partitions.</li>
+          <li>The first integral is \(0\) by oddness; the second is \(1\).</li>
+          <li>\(x^2+1\).</li>
+          <li>\(e^{x^2}\cdot2x=2xe^{x^2}\).</li>
+          <li>\(\cos(2x)\cdot2-\cos x\cdot1=2\cos(2x)-\cos x\).</li>
+          <li>\(\left[x^3-x^2\right]_0^2=8-4=4\).</li>
+          <li>\(\dfrac{2}{\pi}\), attained where \(\cos c=2/\pi\).</li>
+          <li>\(\displaystyle\int_0^{\pi/2}\cos x\,dx+\int_{\pi/2}^{\pi}(-\cos x)\,dx=1+1=2\).</li>
+          <li>The integrand is unbounded at \(t=1\), which lies inside the interval, so it is not integrable there and the accumulation function is not defined by the Riemann integral.</li>
+          <li>\(A(5)-A(3)=7-2=5\).</li>
+        </ol>
       </div>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">
       <a href="lecture-notes-integration-calc1.html">← Integration</a>
-      <a href="lecture-notes-applications-integration-calc1.html">Applications →</a>
+      <a href="lecture-notes-integration-techniques-calc1.html">Integration Techniques →</a>
     </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

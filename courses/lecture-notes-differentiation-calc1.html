@@ -40,295 +40,500 @@
   <main>
     <div class="lecture-header">
       <h1>Derivatives: Definition and Rules</h1>
-      <div class="subtitle">Calculus I - Chapter 3.1-3.4 (Detailed Notes)</div>
+      <div class="subtitle">Calculus I - Derivatives, Rules, Applications, and Linear Approximation (Detailed Notes)</div>
     </div>
 
     <div class="lecture-content">
-      <h2>1. The Definition of the Derivative</h2>
-      
-      <h3>1.1 What is a Derivative?</h3>
+      <h2>Big picture</h2>
+      <p>The derivative measures an instantaneous rate of change. It is born from a limit of ordinary secant slopes: as the two points on a curve merge, the secant line becomes the tangent line, and its slope becomes the derivative. From one definition we derive a small collection of rules that let us differentiate almost every function we meet, and we learn to interpret the results geometrically and physically.</p>
+
+      <div class="formula-box">
+        <strong>Road map and prerequisites</strong>
+        <p>Prerequisites: limits, limit laws, continuity, and the trigonometric limits \(\frac{\sin x}{x} \to 1\) and \(\frac{1 - \cos x}{x} \to 0\) from the previous note. We will cover:</p>
+        <ol>
+          <li>The limit definition; secant versus tangent lines</li>
+          <li>Differentiability versus continuity; corners, cusps, and vertical tangents</li>
+          <li>Constant, power, constant multiple, and sum/difference rules</li>
+          <li>Product and quotient rules, proved without the chain rule</li>
+          <li>Derivatives of sine, cosine, \(e^x\), and \(\ln x\), with derivations</li>
+          <li>Notation, higher derivatives, tangent and normal lines, motion</li>
+          <li>One-sided derivatives at endpoints and common mistakes</li>
+          <li>Bonus: the derivative as best linear approximation</li>
+        </ol>
+      </div>
+
+      <h2>1. The definition of the derivative</h2>
+
+      <h3>1.1 From secant slopes to tangent slopes</h3>
+      <p>For two distinct points \((x_1, y_1)\) and \((x_2, y_2)\) with \(x_1 \ne x_2\), the slope of the line through them is \(\frac{y_2 - y_1}{x_2 - x_1}\). On the graph of \(y = f(x)\), take the fixed point \((a, f(a))\) and a nearby point \((a + h, f(a + h))\) with \(h \ne 0\). The slope of this secant line is</p>
+      \[
+      m_{\text{sec}} = \frac{f(a + h) - f(a)}{(a + h) - a} = \frac{f(a + h) - f(a)}{h}.
+      \]
+      <p>The condition \(h \ne 0\) is essential: the two points must be distinct for the slope formula to make sense, and the quotient is undefined at \(h = 0\). Letting \(h \to 0\) moves the second point toward the first, and the secant slopes tend to the tangent slope.</p>
+
       <div class="definition-box">
-        <strong>Derivative at a Point:</strong>
-        The derivative of \(f\) at \(a\), denoted \(f'(a)\), is:
-        $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
-        
-        provided this limit exists.
-        
-        <strong>Alternative Form:</strong>
-        $$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
+        <strong>Definition (derivative at a point).</strong>
+        The derivative of \(f\) at \(a\), denoted \(f'(a)\), is
+        \[f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h},\]
+        provided this limit exists as a finite number. Equivalently,
+        \[f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}.\]
+        If the limit exists, \(f\) is <strong>differentiable</strong> at \(a\); the number \(f'(a)\) is the slope of the tangent line at \((a, f(a))\).
       </div>
 
       <div class="important-note">
-        <strong>Geometric Interpretation:</strong>
-        The derivative \(f'(a)\) is the slope of the tangent line to the curve \(y = f(x)\) at the point \((a, f(a))\).
-        
-        <strong>Physical Interpretation:</strong>
-        If \(s(t)\) is position, then \(s'(t)\) is velocity. If \(v(t)\) is velocity, then \(v'(t)\) is acceleration.
+        <strong>Interpretations.</strong>
+        Geometrically, \(f'(a)\) is the slope of the tangent line. Physically, if \(s(t)\) is position at time \(t\), then \(s'(t)\) is velocity and \(v'(t) = s''(t)\) is acceleration. In general the derivative is an instantaneous rate of change of the output with respect to the input.
       </div>
 
-      <h3>1.2 Why the Limit Definition?</h3>
-      <div class="proof-box">
-        <strong>Deriving the Definition from the Slope Formula:</strong>
-        
-        The slope of a line through two points \((x_1, y_1)\) and \((x_2, y_2)\) is:
-        $$m = \frac{y_2 - y_1}{x_2 - x_1}$$
-        
-        For a curve \(y = f(x)\) and two points on the curve:
-        - Point 1: \((a, f(a))\)
-        - Point 2: \((a+h, f(a+h))\) for some small \(h\)
-        
-        The slope of the secant line is:
-        $$m_{secant} = \frac{f(a+h) - f(a)}{(a+h) - a} = \frac{f(a+h) - f(a)}{h}$$
-        
-        As \(h \to 0\), the secant line approaches the tangent line, so:
-        $$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
-        ∎
+      <h3>1.2 First examples from the definition</h3>
+      <div class="example-box">
+        <strong>Example 1.1 - Differentiating \(x^2\).</strong>
+        Let \(f(x) = x^2\). Compute \(f'(a)\).
+        <ol>
+          <li>Set up: \(f'(a) = \lim_{h \to 0} \frac{(a + h)^2 - a^2}{h}\).</li>
+          <li>Expand: \((a + h)^2 = a^2 + 2ah + h^2\), so the numerator becomes \(2ah + h^2\).</li>
+          <li>Factor and cancel for \(h \ne 0\): \(\frac{h(2a + h)}{h} = 2a + h\).</li>
+          <li>Take the limit: \(f'(a) = \lim_{h \to 0}(2a + h) = 2a\).</li>
+          <li>Since \(a\) was arbitrary, \(f'(x) = 2x\) for all real \(x\).</li>
+        </ol>
       </div>
 
-      <h3>1.3 Differentiability vs Continuity</h3>
+      <div class="example-box">
+        <strong>Example 1.2 - Tangent line from the definition.</strong>
+        For \(f(x) = x^2\), find the tangent line at \(x = 3\).
+        <ol>
+          <li>The point is \((3, f(3)) = (3, 9)\).</li>
+          <li>From Example 1.1, \(f'(3) = 2 \cdot 3 = 6\).</li>
+          <li>Point-slope form: \(y - 9 = 6(x - 3)\), i.e. \(y = 6x - 9\).</li>
+        </ol>
+      </div>
+
+      <h2>2. Differentiability and continuity</h2>
+
+      <h3>2.1 Differentiability implies continuity</h3>
       <div class="theorem-box">
-        <strong>Theorem: Differentiability Implies Continuity</strong>
-        
+        <strong>Theorem.</strong>
         If \(f\) is differentiable at \(a\), then \(f\) is continuous at \(a\).
       </div>
 
       <div class="proof-box">
-        <strong>Proof:</strong>
-        
-        Assume \(f\) is differentiable at \(a\), so \(f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}\) exists.
-        
-        We need to show: \(\lim_{x \to a} f(x) = f(a)\)
-        
-        Let \(x = a + h\). As \(x \to a\), \(h \to 0\).
-        
-        We can write:
-        $$f(a+h) - f(a) = \frac{f(a+h) - f(a)}{h} \cdot h$$
-        
-        Taking limits:
-        $$\lim_{h \to 0} [f(a+h) - f(a)] = \lim_{h \to 0} \left[\frac{f(a+h) - f(a)}{h} \cdot h\right]$$
-        
-        By the product rule for limits:
-        $$= \lim_{h \to 0} \frac{f(a+h) - f(a)}{h} \cdot \lim_{h \to 0} h = f'(a) \cdot 0 = 0$$
-        
-        So \(\lim_{h \to 0} f(a+h) = f(a)\), which means \(\lim_{x \to a} f(x) = f(a)\). ∎
-        
-        <strong>Important Note:</strong> The converse is false! A function can be continuous but not differentiable.
+        <strong>Proof.</strong>
+        For \(h \ne 0\), write
+        \[f(a + h) - f(a) = \frac{f(a + h) - f(a)}{h} \cdot h.\]
+        Take limits as \(h \to 0\). The difference quotient tends to \(f'(a)\), and \(h\) tends to \(0\), so the product law for limits gives
+        \[\lim_{h \to 0}\bigl(f(a + h) - f(a)\bigr) = f'(a) \cdot 0 = 0.\]
+        Hence \(\lim_{h \to 0} f(a + h) = f(a)\), which is continuity at \(a\). Note that the identity was used only for \(h \ne 0\), exactly where the difference quotient is defined.
+      </div>
+
+      <div class="important-note">
+        <strong>The converse is false.</strong>
+        Continuity does not guarantee differentiability. A continuous graph can have a sharp corner, a cusp, or a vertical tangent. The next examples make this concrete.
+      </div>
+
+      <h3>2.2 Continuous but not differentiable</h3>
+      <div class="example-box">
+        <strong>Example 2.1 - Corner: \(|x|\) at \(0\).</strong>
+        <ol>
+          <li>\(|x|\) is continuous at \(0\) because \(\lim_{x \to 0} |x| = 0 = |0|\).</li>
+          <li>Right-hand derivative: \(\lim_{h \to 0^+} \frac{|h| - 0}{h} = \lim_{h \to 0^+} \frac{h}{h} = 1\).</li>
+          <li>Left-hand derivative: \(\lim_{h \to 0^-} \frac{|h| - 0}{h} = \lim_{h \to 0^-} \frac{-h}{h} = -1\).</li>
+          <li>The one-sided derivatives differ, so \(f'(0)\) does not exist. The graph has a corner at the origin.</li>
+        </ol>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.1 - Proof that \(f(x) = x^2\) is differentiable:</strong>
-        
-        $$f'(a) = \lim_{h \to 0} \frac{(a+h)^2 - a^2}{h}$$
-        
-        Expand: \(= \lim_{h \to 0} \frac{a^2 + 2ah + h^2 - a^2}{h}\)
-        
-        Simplify: \(= \lim_{h \to 0} \frac{2ah + h^2}{h}\)
-        
-        Factor: \(= \lim_{h \to 0} \frac{h(2a + h)}{h}\)
-        
-        Cancel: \(= \lim_{h \to 0} (2a + h)\)
-        
-        Evaluate: \(= 2a\)
-        
-        Therefore, \(f'(x) = 2x\) exists for all real \(x\). ∎
-      </div>
-
-      <h2>2. Basic Differentiation Rules</h2>
-
-      <h3>2.1 Constant Rule</h3>
-      <div class="theorem-box">
-        <strong>Constant Rule:</strong>
-        If \(f(x) = c\) (a constant), then \(f'(x) = 0\).
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof:</strong>
-        $$f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = \lim_{h \to 0} \frac{c - c}{h} = \lim_{h \to 0} \frac{0}{h} = 0$$ ∎
-      </div>
-
-      <h3>2.2 Power Rule</h3>
-      <div class="theorem-box">
-        <strong>Power Rule:</strong>
-        If \(f(x) = x^n\) where \(n\) is any real number, then \(f'(x) = nx^{n-1}\).
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof for positive integer \(n\) (using binomial theorem):</strong>
-        
-        $$f'(x) = \lim_{h \to 0} \frac{(x+h)^n - x^n}{h}$$
-        
-        By the binomial theorem: \((x+h)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} h^k\)
-        
-        So: \((x+h)^n - x^n = \sum_{k=1}^{n} \binom{n}{k} x^{n-k} h^k\)
-        
-        Therefore:
-        $$\frac{(x+h)^n - x^n}{h} = \sum_{k=1}^{n} \binom{n}{k} x^{n-k} h^{k-1}$$
-        
-        Taking the limit as \(h \to 0\):
-        All terms with \(k > 1\) vanish, leaving only \(k = 1\):
-        $$= \binom{n}{1} x^{n-1} h^0 = nx^{n-1}$$ ∎
+        <strong>Example 2.2 - Cusp: \(x^{2/3}\) at \(0\).</strong>
+        \[
+        \frac{(0 + h)^{2/3} - 0}{h} = \frac{h^{2/3}}{h} = \frac{1}{h^{1/3}}.
+        \]
+        <ol>
+          <li>As \(h \to 0^+\), \(\frac{1}{h^{1/3}} \to +\infty\); as \(h \to 0^-\), it tends to \(-\infty\).</li>
+          <li>The difference quotient is unbounded, so no finite derivative exists.</li>
+          <li>The function is continuous at \(0\) but has a cusp there: the left and right branches become vertical in opposite directions.</li>
+        </ol>
       </div>
 
       <div class="example-box">
-        <strong>Example 2.1 - Using the Power Rule:</strong>
+        <strong>Example 2.3 - Vertical tangent: \(x^{1/3}\) at \(0\).</strong>
+        \[
+        \frac{(0 + h)^{1/3} - 0}{h} = \frac{1}{h^{2/3}} \to +\infty \quad \text{as } h \to 0.
+        \]
+        <p>The secant slopes grow without bound from both sides, so the derivative is not finite and \(f\) is not differentiable at \(0\). Geometrically the tangent line is vertical (\(x = 0\)); a vertical line has undefined slope, so this is not a finite derivative.</p>
+      </div>
+
+      <h2>3. Basic differentiation rules</h2>
+
+      <h3>3.1 Constant rule</h3>
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        If \(f(x) = c\) for all \(x\), then \(f'(x) = 0\).
+      </div>
+      <div class="proof-box">
+        For \(h \ne 0\), \(\frac{f(x + h) - f(x)}{h} = \frac{c - c}{h} = 0\). The limit of the constant \(0\) is \(0\), so \(f'(x) = 0\).
+      </div>
+
+      <h3>3.2 Power rule: the honest statement</h3>
+      <div class="theorem-box">
+        <strong>Theorem (power rule, integer exponents).</strong>
+        If \(n\) is a positive integer, then \(\frac{d}{dx}\bigl[x^n\bigr] = n x^{n-1}\) for every real \(x\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof for positive integers.</strong>
+        By the binomial theorem, \((x + h)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} h^k\), so \((x + h)^n - x^n = \sum_{k=1}^{n} \binom{n}{k} x^{n-k} h^k\). For \(h \ne 0\),
+        \[\frac{(x + h)^n - x^n}{h} = \sum_{k=1}^{n} \binom{n}{k} x^{n-k} h^{k-1}.\]
+        As \(h \to 0\), every term with \(k \gt 1\) contains a positive power of \(h\) and vanishes, leaving only \(k = 1\): \(\binom{n}{1} x^{n-1} = n x^{n-1}\).
+      </div>
+
+      <div class="important-note">
+        <strong>Scope of the proof.</strong>
+        This argument proves the power rule only for positive integers \(n\). Negative integers require the reciprocal rule established in Section 4, rational exponents require a separate argument, and the formula \(\frac{d}{dx}[x^r] = r x^{r-1}\) for an arbitrary real exponent \(r\) is proved later by logarithmic differentiation. For \(r\) real, the formula is valid at least for \(x \gt 0\), where \(x^r = e^{r \ln x}\) is defined. Applying the binomial proof to non-integer exponents would be invalid, since the binomial theorem used here is a finite sum for integers only.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1 - Using the power rule where it is justified.</strong>
         <ul>
-          <li>\(\frac{d}{dx}[x^3] = 3x^2\)</li>
-          <li>\(\frac{d}{dx}[x^5] = 5x^4\)</li>
-          <li>\(\frac{d}{dx}[x^{-2}] = -2x^{-3}\)</li>
-          <li>\(\frac{d}{dx}[\sqrt{x}] = \frac{d}{dx}[x^{1/2}] = \frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}\)</li>
+          <li>\(\frac{d}{dx}[x^3] = 3x^2\).</li>
+          <li>\(\frac{d}{dx}[x^5] = 5x^4\).</li>
+          <li>The integer rule gives \(\frac{d}{dx}[x^{-2}] = -2x^{-3}\) for \(x \ne 0\) once the reciprocal rule is available (Section 4).</li>
+          <li>\(\frac{d}{dx}[\sqrt{x}] = \frac{d}{dx}\bigl[x^{1/2}\bigr] = \frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}\) for \(x \gt 0\); this will be justified with the general power rule later, and directly from the definition here:</li>
         </ul>
+        \[
+        \frac{d}{dx}\sqrt{x} = \lim_{h \to 0}\frac{\sqrt{x + h} - \sqrt{x}}{h}
+        = \lim_{h \to 0}\frac{1}{\sqrt{x + h} + \sqrt{x}} = \frac{1}{2\sqrt{x}} \quad (x \gt 0).
+        \]
       </div>
 
-      <h3>2.3 Constant Multiple Rule</h3>
+      <h3>3.3 Constant multiple and sum/difference rules</h3>
       <div class="theorem-box">
-        <strong>Constant Multiple Rule:</strong>
-        If \(c\) is a constant and \(f\) is differentiable, then:
-        $$\frac{d}{dx}[cf(x)] = c \cdot f'(x)$$
+        <strong>Theorems.</strong>
+        If \(f\) and \(g\) are differentiable at \(x\) and \(c\) is a constant, then
+        \[\frac{d}{dx}[c f(x)] = c f'(x), \qquad \frac{d}{dx}[f(x) \pm g(x)] = f'(x) \pm g'(x).\]
       </div>
 
       <div class="proof-box">
-        <strong>Proof:</strong>
-        $$\frac{d}{dx}[cf(x)] = \lim_{h \to 0} \frac{cf(x+h) - cf(x)}{h} = c \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} = c \cdot f'(x)$$ ∎
+        <strong>Proofs.</strong>
+        For the constant multiple rule,
+        \[\frac{c f(x + h) - c f(x)}{h} = c \cdot \frac{f(x + h) - f(x)}{h} \to c f'(x).\]
+        For the sum rule,
+        \[\frac{[f(x + h) + g(x + h)] - [f(x) + g(x)]}{h} = \frac{f(x + h) - f(x)}{h} + \frac{g(x + h) - g(x)}{h} \to f'(x) + g'(x).\]
+        The difference rule is identical with a minus sign.
       </div>
 
-      <h3>2.4 Sum and Difference Rules</h3>
+      <h3>3.4 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 1.</strong>
+        <ol>
+          <li>Why must \(h\) be nonzero in \(\frac{f(a + h) - f(a)}{h}\)? <em>Otherwise we divide by zero and the two points coincide.</em></li>
+          <li>Find \(\frac{d}{dx}[4x^3 - 2x + 7]\). <em>\(12x^2 - 2\).</em></li>
+          <li>Does continuity at a point imply differentiability there? <em>No; \(|x|\) at \(0\) is the standard counterexample.</em></li>
+        </ol>
+      </div>
+
+      <h2>4. Product and quotient rules</h2>
+
+      <h3>4.1 Product rule</h3>
       <div class="theorem-box">
-        <strong>Sum Rule:</strong>
-        $$\frac{d}{dx}[f(x) + g(x)] = f'(x) + g'(x)$$
-        
-        <strong>Difference Rule:</strong>
-        $$\frac{d}{dx}[f(x) - g(x)] = f'(x) - g'(x)$$
+        <strong>Theorem.</strong>
+        If \(f\) and \(g\) are differentiable at \(x\), then
+        \[\frac{d}{dx}\bigl[f(x) g(x)\bigr] = f'(x) g(x) + f(x) g'(x).\]
       </div>
 
       <div class="proof-box">
-        <strong>Proof of Sum Rule:</strong>
-        $$\frac{d}{dx}[f(x) + g(x)] = \lim_{h \to 0} \frac{[f(x+h) + g(x+h)] - [f(x) + g(x)]}{h}$$
-        
-        $$= \lim_{h \to 0} \frac{[f(x+h) - f(x)] + [g(x+h) - g(x)]}{h}$$
-        
-        $$= \lim_{h \to 0} \left[\frac{f(x+h) - f(x)}{h} + \frac{g(x+h) - g(x)}{h}\right]$$
-        
-        By the sum law for limits:
-        $$= \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} + \lim_{h \to 0} \frac{g(x+h) - g(x)}{h} = f'(x) + g'(x)$$ ∎
-      </div>
-
-      <h2>3. Product and Quotient Rules</h2>
-
-      <h3>3.1 Product Rule</h3>
-      <div class="theorem-box">
-        <strong>Product Rule:</strong>
-        $$\frac{d}{dx}[f(x) \cdot g(x)] = f'(x)g(x) + f(x)g'(x)$$
-        <p>Or in Leibniz notation: \((uv)' = u'v + uv'\)</p>
-      </div>
-
-      <div class="proof-box">
-        <strong>Proof of the Product Rule:</strong>
-        
-        We want to find the derivative of \(f(x)g(x)\).
-        
-        $$[f(x)g(x)]' = \lim_{h \to 0} \frac{f(x+h)g(x+h) - f(x)g(x)}{h}$$
-        
-        The key trick: Add and subtract \(f(x+h)g(x)\) in the numerator:
-        
-        $$= \lim_{h \to 0} \frac{f(x+h)g(x+h) - f(x+h)g(x) + f(x+h)g(x) - f(x)g(x)}{h}$$
-        
-        Factor by grouping:
-        $$= \lim_{h \to 0} \left[ f(x+h)\frac{g(x+h) - g(x)}{h} + g(x)\frac{f(x+h) - f(x)}{h} \right]$$
-        
-        Take the limit:
-        $$= f(x)g'(x) + g(x)f'(x) = f'(x)g(x) + f(x)g'(x)$$ ∎
+        <strong>Proof.</strong>
+        Add and subtract \(f(x + h) g(x)\) in the numerator:
+        \[f(x + h)g(x + h) - f(x)g(x) = f(x + h)\bigl[g(x + h) - g(x)\bigr] + g(x)\bigl[f(x + h) - f(x)\bigr].\]
+        Dividing by \(h \ne 0\) and taking limits, differentiability of \(f\) implies continuity of \(f\), so \(f(x + h) \to f(x)\). Hence
+        \[\frac{d}{dx}[f g] = f(x) g'(x) + g(x) f'(x) = f'(x) g(x) + f(x) g'(x).\]
       </div>
 
       <div class="example-box">
-        <strong>Example 3.1 - Using the Product Rule:</strong>
-        Find \(\frac{d}{dx}[x^2 \sin x]\)
-        
-        Let \(f(x) = x^2\) and \(g(x) = \sin x\)
-        Then \(f'(x) = 2x\) and \(g'(x) = \cos x\)
-        
-        By the product rule:
-        $$\frac{d}{dx}[x^2 \sin x] = 2x \cdot \sin x + x^2 \cdot \cos x = 2x\sin x + x^2\cos x$$
+        <strong>Example 4.1 - Product rule.</strong>
+        Differentiate \(x^2 \sin x\).
+        <ol>
+          <li>Choose \(f(x) = x^2\), \(g(x) = \sin x\), so \(f'(x) = 2x\) and \(g'(x) = \cos x\).</li>
+          <li>Apply the rule: \(2x \cdot \sin x + x^2 \cdot \cos x\).</li>
+          <li>Result: \(\frac{d}{dx}[x^2 \sin x] = 2x\sin x + x^2\cos x\).</li>
+        </ol>
       </div>
 
-      <h3>3.2 Quotient Rule</h3>
+      <h3>4.2 Reciprocal derivative from the definition</h3>
       <div class="theorem-box">
-        <strong>Quotient Rule:</strong>
-        $$\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$$
-        <p><strong>Memory aid:</strong> "Low d-high minus high d-low, over low squared"</p>
-        <p>where "low" = denominator, "high" = numerator</p>
+        <strong>Theorem (reciprocal rule).</strong>
+        If \(g\) is differentiable at \(x\) and \(g(x) \ne 0\), then \(\frac{d}{dx}\left[\frac{1}{g(x)}\right] = -\frac{g'(x)}{[g(x)]^2}\).
       </div>
 
       <div class="proof-box">
-        <strong>Proof of the Quotient Rule:</strong>
-        
-        Write \(\frac{f}{g} = f \cdot g^{-1}\). We'll use the product rule and chain rule.
-        
-        Let \(h(x) = g(x)^{-1}\). Then \(h'(x) = -g(x)^{-2} \cdot g'(x)\) by the chain rule.
-        
-        Now: \(\frac{d}{dx}[f \cdot g^{-1}] = f' \cdot g^{-1} + f \cdot (g^{-1})'\)
-        
-        $$= f' \cdot \frac{1}{g} + f \cdot \left(-\frac{1}{g^2} \cdot g'\right)$$
-        
-        $$= \frac{f'}{g} - \frac{f \cdot g'}{g^2} = \frac{f'g - fg'}{g^2}$$ ∎
+        <strong>Proof.</strong>
+        Since \(g(x) \ne 0\) and \(g\) is continuous at \(x\), we have \(g(x + h) \ne 0\) for all sufficiently small \(h\). For such \(h \ne 0\),
+        \[\frac{\frac{1}{g(x + h)} - \frac{1}{g(x)}}{h} = \frac{g(x) - g(x + h)}{h\, g(x + h) g(x)} = -\frac{g(x + h) - g(x)}{h} \cdot \frac{1}{g(x + h) g(x)}.\]
+        As \(h \to 0\), the first factor tends to \(g'(x)\) and the second to \(\frac{1}{[g(x)]^2}\). Hence the derivative is \(-\frac{g'(x)}{[g(x)]^2}\).
+      </div>
+
+      <h3>4.3 Quotient rule (proved without the chain rule)</h3>
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        If \(f\) and \(g\) are differentiable at \(x\) and \(g(x) \ne 0\), then
+        \[\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x) g(x) - f(x) g'(x)}{[g(x)]^2}.\]
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof using the product and reciprocal rules.</strong>
+        Write \(\frac{f}{g} = f \cdot \frac{1}{g}\). By the product rule and the reciprocal rule,
+        \[\frac{d}{dx}\left[f \cdot \frac{1}{g}\right] = f' \cdot \frac{1}{g} + f \cdot \left(-\frac{g'}{g^2}\right) = \frac{f' g}{g^2} - \frac{f g'}{g^2} = \frac{f' g - f g'}{g^2}.\]
+        This uses only results proved above; the chain rule is not needed. The condition \(g(x) \ne 0\) is required both for the quotient to be defined and for the reciprocal rule to apply.
       </div>
 
       <div class="example-box">
-        <strong>Example 3.2 - Using the Quotient Rule:</strong>
-        Find \(\frac{d}{dx}\left[\frac{x^2}{\sin x}\right]\)
-        
-        Using quotient rule with \(f(x) = x^2\), \(g(x) = \sin x\):
-        $$= \frac{2x \cdot \sin x - x^2 \cdot \cos x}{\sin^2 x} = \frac{2x\sin x - x^2\cos x}{\sin^2 x}$$
+        <strong>Example 4.2 - Quotient rule.</strong>
+        Differentiate \(\frac{x^2}{\sin x}\) where \(\sin x \ne 0\).
+        <ol>
+          <li>Let \(f(x) = x^2\), \(g(x) = \sin x\), so \(f' = 2x\), \(g' = \cos x\).</li>
+          <li>Apply the rule: \(\frac{2x \cdot \sin x - x^2 \cdot \cos x}{\sin^2 x}\).</li>
+          <li>The result is valid only at points with \(\sin x \ne 0\).</li>
+        </ol>
       </div>
 
-      <h2>4. Notation for Derivatives</h2>
-
-      <div class="definition-box">
-        <strong>Common Notations for the Derivative:</strong>
-        <ul>
-          <li>\(f'(x)\) - Lagrange notation</li>
-          <li>\(\frac{dy}{dx}\) - Leibniz notation</li>
-          <li>\(\frac{d}{dx}f(x)\) - Operator notation</li>
-          <li>\(Df(x)\) - Euler notation</li>
-          <li>\(y'\) - Newton notation (for time derivatives)</li>
-        </ul>
+      <h3>4.4 Quick check</h3>
+      <div class="example-box">
+        <strong>Quick check 2.</strong>
+        <ol>
+          <li>Differentiate \(x \cos x\). <em>\(\cos x - x \sin x\).</em></li>
+          <li>Differentiate \(\frac{1}{x^3}\) for \(x \ne 0\) using the reciprocal rule. <em>\(-\frac{3x^2}{x^6} = -3x^{-4}\).</em></li>
+          <li>State the domain condition for the quotient rule. <em>\(g(x) \ne 0\).</em></li>
+        </ol>
       </div>
 
-      <h2>5. Summary of Basic Rules</h2>
+      <h2>5. Derivatives of the basic transcendental functions</h2>
 
-      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+      <h3>5.1 Sine and cosine</h3>
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        \(\frac{d}{dx}[\sin x] = \cos x\) and \(\frac{d}{dx}[\cos x] = -\sin x\), for angles in radians.
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation using the limits from the previous note.</strong>
+        For \(h \ne 0\),
+        \[\frac{\sin(x + h) - \sin x}{h} = \frac{\sin x \cos h + \cos x \sin h - \sin x}{h} = \sin x \cdot \frac{\cos h - 1}{h} + \cos x \cdot \frac{\sin h}{h}.\]
+        Using \(\lim_{h \to 0}\frac{\cos h - 1}{h} = 0\) and \(\lim_{h \to 0}\frac{\sin h}{h} = 1\), this tends to \(\cos x\). Similarly,
+        \[\frac{\cos(x + h) - \cos x}{h} = \cos x \cdot \frac{\cos h - 1}{h} - \sin x \cdot \frac{\sin h}{h} \to -\sin x.\]
+        Both fundamental limits were proved earlier with the squeeze theorem, so these derivations are complete.
+      </div>
+
+      <h3>5.2 The natural exponential</h3>
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        \(\frac{d}{dx}\bigl[e^x\bigr] = e^x\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        \[
+        \frac{e^{x + h} - e^x}{h} = e^x \cdot \frac{e^h - 1}{h}.
+        \]
+        The number \(e\) is characterized by \(\lim_{h \to 0}\frac{e^h - 1}{h} = 1\) (equivalently, \(\lim_{u \to 0}(1 + u)^{1/u} = e\)); this defining limit is established when \(e\) is introduced. Therefore the derivative is \(e^x \cdot 1 = e^x\). For a general base \(a \gt 0\), writing \(a^x = e^{x \ln a}\) gives \(\frac{d}{dx}[a^x] = (\ln a)\, a^x\), once the chain rule is available.
+      </div>
+
+      <h3>5.3 The natural logarithm</h3>
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        For \(x \gt 0\), \(\frac{d}{dx}[\ln x] = \frac{1}{x}\). More generally, for \(x \ne 0\), \(\frac{d}{dx}[\ln|x|] = \frac{1}{x}\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        For \(x \gt 0\) and small \(h\),
+        \[\frac{\ln(x + h) - \ln x}{h} = \frac{1}{h}\ln\left(\frac{x + h}{x}\right) = \frac{1}{h}\ln\left(1 + \frac{h}{x}\right) = \frac{1}{x}\cdot \frac{\ln(1 + u)}{u},\]
+        where \(u = \frac{h}{x} \to 0\). Since \(\lim_{u \to 0}\frac{\ln(1 + u)}{u} = 1\) (the inverse of the defining limit for \(e\)), the derivative is \(\frac{1}{x}\). For \(x \lt 0\), \(\ln|x| = \ln(-x)\), and the same computation (or the chain rule, later) gives \(\frac{1}{x}\). Thus \(\frac{d}{dx}[\ln|x|] = \frac{1}{x}\) for all \(x \ne 0\), which is the correct extension of the logarithm's derivative.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 5.1 - Combining rules.</strong>
+        Differentiate \(y = x^3 e^x - \ln|x|\).
+        <ol>
+          <li>For \(x^3 e^x\), use the product rule: \(3x^2 e^x + x^3 e^x\).</li>
+          <li>For \(\ln|x|\), the derivative is \(\frac{1}{x}\) when \(x \ne 0\).</li>
+          <li>Therefore \(y' = 3x^2 e^x + x^3 e^x - \frac{1}{x}\), valid for \(x \ne 0\).</li>
+        </ol>
+      </div>
+
+      <h3>5.4 Summary table</h3>
+      <table>
         <thead>
-          <tr style="background: var(--accent); color: white;">
-            <th style="padding: 0.75rem; text-align: left;">Function</th>
-            <th style="padding: 0.75rem; text-align: left;">Derivative</th>
-          </tr>
+          <tr><th>Function</th><th>Derivative</th><th>Notes</th></tr>
         </thead>
         <tbody>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(c\) (constant)</td>
-            <td style="padding: 0.5rem;">\(0\)</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(x^n\)</td>
-            <td style="padding: 0.5rem;">\(nx^{n-1}\)</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(\sin x\)</td>
-            <td style="padding: 0.5rem;">\(\cos x\)</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(\cos x\)</td>
-            <td style="padding: 0.5rem;">\(-\sin x\)</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(e^x\)</td>
-            <td style="padding: 0.5rem;">\(e^x\)</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(\ln x\)</td>
-            <td style="padding: 0.5rem;">\(\frac{1}{x}\)</td>
-          </tr>
+          <tr><td>\(c\)</td><td>\(0\)</td><td>constant rule</td></tr>
+          <tr><td>\(x^n\), positive integer \(n\)</td><td>\(n x^{n-1}\)</td><td>proved by binomial theorem</td></tr>
+          <tr><td>\(x^r\), real \(r\)</td><td>\(r x^{r-1}\)</td><td>for \(x \gt 0\); full proof later</td></tr>
+          <tr><td>\(\sin x\)</td><td>\(\cos x\)</td><td>radians</td></tr>
+          <tr><td>\(\cos x\)</td><td>\(-\sin x\)</td><td>radians</td></tr>
+          <tr><td>\(e^x\)</td><td>\(e^x\)</td><td>from defining limit of \(e\)</td></tr>
+          <tr><td>\(\ln x\)</td><td>\(\frac{1}{x}\)</td><td>\(x \gt 0\)</td></tr>
+          <tr><td>\(\ln|x|\)</td><td>\(\frac{1}{x}\)</td><td>\(x \ne 0\)</td></tr>
         </tbody>
       </table>
+
+      <h2>6. Notation</h2>
+      <div class="definition-box">
+        <strong>Common notations for the derivative.</strong>
+        <ul>
+          <li>\(f'(x)\) and \(y'\) are <strong>Lagrange notation</strong>; \(y'\) denotes the derivative of \(y\) with respect to the understood independent variable.</li>
+          <li>\(\frac{dy}{dx}\) and \(\frac{d}{dx}f(x)\) are <strong>Leibniz notation</strong>, which records the variable of differentiation.</li>
+          <li>\(D f(x)\) is <strong>Euler notation</strong> using the operator \(D\).</li>
+          <li>\(\dot y\) is <strong>Newton notation</strong>, reserved for derivatives with respect to time, e.g. \(\dot s = \frac{ds}{dt}\).</li>
+        </ul>
+        <p>In particular, \(y'\) is <em>not</em> Newton notation; the dot is Newton's mark. Mixing them up is a common error.</p>
+      </div>
+
+      <h2>7. Higher derivatives and applications</h2>
+
+      <h3>7.1 Higher-order derivatives</h3>
+      <div class="definition-box">
+        <strong>Definition.</strong>
+        If \(f'\) is itself differentiable, its derivative is the second derivative \(f''\). Continuing gives the \(n\)th derivative, written \(f^{(n)}\) or \(\frac{d^n f}{dx^n}\). By convention \(f^{(0)} = f\). The parentheses in \(f^{(n)}\) distinguish an \(n\)th derivative from a power \(f^n\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 7.1 - Higher derivatives of a polynomial.</strong>
+        Let \(f(x) = x^4 - 3x^2 + 2x\).
+        <ol>
+          <li>\(f'(x) = 4x^3 - 6x + 2\).</li>
+          <li>\(f''(x) = 12x^2 - 6\).</li>
+          <li>\(f^{(3)}(x) = 24x\).</li>
+          <li>\(f^{(4)}(x) = 24\), and \(f^{(5)}(x) = 0\).</li>
+        </ol>
+      </div>
+
+      <h3>7.2 Tangent and normal lines</h3>
+      <div class="example-box">
+        <strong>Example 7.2 - Tangent and normal.</strong>
+        For \(f(x) = x^3 - 2x + 1\) at \(x = 1\):
+        <ol>
+          <li>Point: \(f(1) = 1 - 2 + 1 = 0\), so the point is \((1, 0)\).</li>
+          <li>Slope: \(f'(x) = 3x^2 - 2\), so \(f'(1) = 1\).</li>
+          <li>Tangent line: \(y - 0 = 1(x - 1)\), i.e. \(y = x - 1\).</li>
+          <li>The normal line is perpendicular to the tangent, with slope \(-1/f'(1) = -1\), so \(y = -x + 1\). This requires \(f'(1) \ne 0\); if the tangent were horizontal the normal would be vertical.</li>
+        </ol>
+      </div>
+
+      <h3>7.3 Position, velocity, and acceleration</h3>
+      <div class="example-box">
+        <strong>Example 7.3 - Motion along a line.</strong>
+        A particle has position \(s(t) = t^3 - 6t^2 + 9t\) for \(t \ge 0\).
+        <ol>
+          <li>Velocity: \(v(t) = s'(t) = 3t^2 - 12t + 9\).</li>
+          <li>Acceleration: \(a(t) = v'(t) = s''(t) = 6t - 12\).</li>
+          <li>At \(t = 1\): \(v(1) = 3 - 12 + 9 = 0\), so the particle is momentarily at rest.</li>
+          <li>Also \(a(1) = 6 - 12 = -6\), so its velocity is decreasing; it is about to move in the negative direction.</li>
+        </ol>
+      </div>
+
+      <h2>8. One-sided derivatives at endpoints</h2>
+      <div class="definition-box">
+        <strong>Definitions.</strong>
+        If the domain contains a right neighborhood of \(a\), the <strong>right derivative</strong> is \(f'_+(a) = \lim_{h \to 0^+} \frac{f(a + h) - f(a)}{h}\). If it contains a left neighborhood of \(b\), the <strong>left derivative</strong> is \(f'_-(b) = \lim_{h \to 0^-} \frac{f(b + h) - f(b)}{h}\). Full differentiability at an interior point requires both one-sided derivatives to exist and agree.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 8.1 - Endpoint of \(\sqrt{x}\).</strong>
+        At \(a = 0\), only the right derivative is available:
+        \[f'_+(0) = \lim_{h \to 0^+}\frac{\sqrt{h} - 0}{h} = \lim_{h \to 0^+}\frac{1}{\sqrt{h}} = +\infty.\]
+        <p>No finite right derivative exists, so \(\sqrt{x}\) is not differentiable at the endpoint \(0\); the graph has a vertical tangent there. For \(x \gt 0\) the usual formula \(\frac{1}{2\sqrt{x}}\) applies.</p>
+      </div>
+
+      <h3>8.1 Common mistakes</h3>
+      <div class="important-note">
+        <ul>
+          <li>Substituting \(h = 0\) into \(\frac{f(a + h) - f(a)}{h}\); the quotient is defined only for \(h \ne 0\), and the limit is taken after simplifying.</li>
+          <li>Confusing \(f'(a)\), a number, with \(f'(x)\), a function of \(x\).</li>
+          <li>Assuming the power rule's binomial proof covers negative or fractional exponents; it does not.</li>
+          <li>Reversing the quotient rule's numerator: it is \(f'g - f g'\), not \(f g' - f'g\).</li>
+          <li>Writing \(y'\) as Newton notation; Newton notation is \(\dot y\), used for time.</li>
+          <li>Believing the product rule gives \(f'g'\); the correct form is \(f'g + fg'\).</li>
+          <li>Forgetting that differentiability implies continuity but not conversely, as \(|x|\) at \(0\) shows.</li>
+        </ul>
+      </div>
+
+      <h2>Bonus: the derivative as best linear approximation</h2>
+      <p>Differentiability can be rephrased in a way that explains why the tangent line is useful for approximation.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem.</strong>
+        A function \(f\) is differentiable at \(a\) with \(f'(a) = L\) if and only if there is a function \(\varepsilon(h)\) with \(\varepsilon(h) \to 0\) as \(h \to 0\) such that
+        \[f(a + h) = f(a) + L h + h\,\varepsilon(h).\]
+        Equivalently, \(f(a + h) = f(a) + L h + o(h)\), where \(o(h)\) denotes a quantity whose ratio to \(h\) tends to \(0\).
+      </div>
+
+      <div class="proof-box">
+        <strong>Proof.</strong>
+        If \(f\) is differentiable, define for \(h \ne 0\)
+        \[\varepsilon(h) = \frac{f(a + h) - f(a)}{h} - L.\]
+        Then \(\varepsilon(h) \to 0\) by definition of the derivative, and rearranging gives \(f(a + h) = f(a) + L h + h\varepsilon(h)\). Conversely, if such an \(\varepsilon\) exists, dividing by \(h \ne 0\) gives \(\frac{f(a + h) - f(a)}{h} = L + \varepsilon(h) \to L\), so \(f'(a) = L\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example Bonus.1 - Linear approximation.</strong>
+        Approximate \(\sqrt{4.1}\). Take \(f(x) = \sqrt{x}\), \(a = 4\), \(h = 0.1\). Since \(f(4) = 2\) and \(f'(4) = \frac{1}{2\sqrt{4}} = \frac{1}{4}\),
+        \[\sqrt{4.1} \approx f(4) + f'(4)(0.1) = 2 + \frac{1}{4}(0.1) = 2.025.\]
+        The error is of order \(h^2\), much smaller than the step \(h = 0.1\), because the remainder is \(o(h)\); indeed \((2.025)^2 \approx 4.1006\).
+      </div>
+
+      <h2>Summary</h2>
+      <ul>
+        <li>The derivative is the limit of difference quotients with \(h \ne 0\), giving the tangent slope and instantaneous rate of change.</li>
+        <li>Differentiability implies continuity, but corners, cusps, and vertical tangents show the converse fails.</li>
+        <li>Constant, integer-power, constant multiple, and sum/difference rules follow from limits; other exponents need later justification.</li>
+        <li>Product, reciprocal, and quotient rules are proved from the definition and each other, without the chain rule.</li>
+        <li>\((\sin x)' = \cos x\), \((\cos x)' = -\sin x\), \((e^x)' = e^x\), and \((\ln|x|)' = \frac{1}{x}\) (with domains as stated).</li>
+        <li>Higher derivatives, tangent and normal lines, and motion are direct applications; one-sided derivatives handle endpoints.</li>
+      </ul>
+
+      <h2>Practice Problems</h2>
+      <ol>
+        <li>Using the definition, find \(f'(x)\) for \(f(x) = 3x^2 + 1\).</li>
+        <li>Using the definition, show that \(f(x) = |x|\) is not differentiable at \(0\).</li>
+        <li>Find \(\frac{d}{dx}\bigl[5x^4 - 2x^2 + 9\bigr]\).</li>
+        <li>Differentiate \(g(x) = x^3 \cos x\).</li>
+        <li>Differentiate \(h(x) = \frac{2x + 1}{x^2 + 3}\).</li>
+        <li>Differentiate \(p(x) = e^x \sin x - \ln|x|\) for \(x \ne 0\).</li>
+        <li>For \(f(x) = x^3 - x\), find the tangent and normal lines at \(x = 2\).</li>
+        <li>Let \(s(t) = t^3 - 3t^2\). Find velocity and acceleration, and the times when velocity is zero.</li>
+        <li>Compute \(f''\) and \(f^{(3)}\) for \(f(x) = \frac{1}{x}\) with \(x \ne 0\).</li>
+        <li>Find the right derivative of \(f(x) = \sqrt{x + 1}\) at \(x = -1\), if it exists as a finite number.</li>
+        <li>Use linear approximation with \(f(x) = \sqrt{x}\) at \(a = 9\) to estimate \(\sqrt{9.2}\).</li>
+        <li>Explain why the power rule proof via the binomial theorem does not establish \(\frac{d}{dx}[x^{\pi}] = \pi x^{\pi - 1}\).</li>
+      </ol>
+
+      <h2>Practice Problems - Worked Answer Key</h2>
+      <div class="example-box">
+        <strong>Answers 1-4.</strong>
+        <ol>
+          <li>\(f'(x) = \lim_{h \to 0}\frac{3(x + h)^2 + 1 - (3x^2 + 1)}{h} = \lim_{h \to 0}\frac{6xh + 3h^2}{h} = \lim_{h \to 0}(6x + 3h) = 6x\).</li>
+          <li>Right derivative: \(\lim_{h \to 0^+}\frac{|h|}{h} = 1\); left derivative: \(\lim_{h \to 0^-}\frac{|h|}{h} = -1\). They differ, so \(f'(0)\) does not exist, though \(f\) is continuous at \(0\).</li>
+          <li>\(20x^3 - 4x\).</li>
+          <li>Product rule: \(3x^2\cos x + x^3(-\sin x) = 3x^2\cos x - x^3\sin x\).</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <strong>Answers 5-8.</strong>
+        <ol>
+          <li>Quotient rule: \(\frac{2(x^2 + 3) - (2x + 1)(2x)}{(x^2 + 3)^2} = \frac{2x^2 + 6 - 4x^2 - 2x}{(x^2 + 3)^2} = \frac{-2x^2 - 2x + 6}{(x^2 + 3)^2}\).</li>
+          <li>\(p'(x) = e^x\sin x + e^x\cos x - \frac{1}{x} = e^x(\sin x + \cos x) - \frac{1}{x}\), for \(x \ne 0\).</li>
+          <li>Point \((2, 6)\); \(f'(x) = 3x^2 - 1\), so \(f'(2) = 11\). Tangent: \(y - 6 = 11(x - 2)\), i.e. \(y = 11x - 16\). Normal slope \(-\frac{1}{11}\): \(y = -\frac{1}{11}(x - 2) + 6\).</li>
+          <li>\(v(t) = 3t^2 - 6t\), \(a(t) = 6t - 6\). Setting \(v(t) = 3t(t - 2) = 0\) gives \(t = 0\) and \(t = 2\).</li>
+        </ol>
+      </div>
+      <div class="example-box">
+        <strong>Answers 9-12.</strong>
+        <ol>
+          <li>Write \(f(x) = x^{-1}\). Then \(f'(x) = -x^{-2}\), \(f''(x) = 2x^{-3}\), and \(f^{(3)}(x) = -6x^{-4}\), for \(x \ne 0\).</li>
+          <li>\(f'_+(-1) = \lim_{h \to 0^+}\frac{\sqrt{(-1 + h) + 1} - 0}{h} = \lim_{h \to 0^+}\frac{\sqrt{h}}{h} = \lim_{h \to 0^+}\frac{1}{\sqrt{h}} = +\infty\), so no finite derivative exists at the endpoint.</li>
+          <li>With \(a = 9\), \(f(9) = 3\) and \(f'(9) = \frac{1}{2\sqrt{9}} = \frac{1}{6}\). Then \(\sqrt{9.2} \approx 3 + \frac{1}{6}(0.2) = 3 + 0.0333\ldots \approx 3.0333\), close to the true value about \(3.03315\).</li>
+          <li>The binomial theorem used in the proof is a finite sum valid only for positive integer exponents. A non-integer exponent such as \(\pi\) requires the generalized power rule proved later via logarithmic differentiation, valid for \(x \gt 0\).</li>
+        </ol>
+      </div>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">

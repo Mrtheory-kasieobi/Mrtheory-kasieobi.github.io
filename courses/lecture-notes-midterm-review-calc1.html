@@ -40,143 +40,426 @@
   <main>
     <div class="lecture-header">
       <h1>Midterm Review</h1>
-      <div class="subtitle">Calculus I - Week 13</div>
+      <div class="subtitle">Calculus I - Comprehensive Midterm Review</div>
     </div>
 
     <div class="lecture-content">
-      <h2>Comprehensive Review Sheet</h2>
-      
-      <h3>1. Limits and Continuity</h3>
-      <div class="definition-box">
-        <strong>Key Formulas:</strong>
-        <ul>
-          <li>Limit Laws: \(\lim[f(x) \pm g(x)] = \lim f(x) \pm \lim g(x)\)</li>
-          <li>\(\lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim f(x)}{\lim g(x)}\) if \(\lim g(x) \neq 0\)</li>
-          <li>\(\lim_{x \to 0} \frac{\sin x}{x} = 1\)</li>
-          <li>\(\lim_{x \to 0} \frac{1-\cos x}{x} = 0\)</li>
-          <li>\(\lim_{x \to \infty} \frac{\sin x}{x} = 0\)</li>
-          <li>\(\lim_{x \to \infty} (1 + \frac{1}{x})^x = e\)</li>
-        </ul>
-      </div>
+      <h2>Comprehensive Midterm Review Sheet</h2>
 
-      <div class="example-box">
-        <strong>Example 1.1:</strong> Evaluate \(\lim_{x \to 0} \frac{e^x - 1}{x}\).
-        <p>Using L'Hôpital's Rule (or definition of derivative): \(\lim_{x \to 0} \frac{e^x}{1} = 1\)</p>
-      </div>
+      <p><strong>Big picture.</strong> Every topic on this exam is built from one idea: the <em>limit</em>. Continuity is defined using a limit, the derivative is a limit of difference quotients, and the definite integral is a limit of Riemann sums. The exam tests two things: whether you know the precise definitions and hypotheses, and whether you can apply the standard rules accurately. Concentrate on setting problems up correctly before doing algebra, and check that a theorem's conditions hold before using it.</p>
 
-      <h3>2. Derivatives</h3>
-      <div class="definition-box">
-        <strong>Basic Derivatives:</strong>
-        <ul>
-          <li>\(\frac{d}{dx}[x^n] = nx^{n-1}\)</li>
-          <li>\(\frac{d}{dx}[\sin x] = \cos x\)</li>
-          <li>\(\frac{d}{dx}[\cos x] = -\sin x\)</li>
-          <li>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</li>
-          <li>\(\frac{d}{dx}[e^x] = e^x\)</li>
-          <li>\(\frac{d}{dx}[\ln x] = \frac{1}{x}\)</li>
-          <li>\(\frac{d}{dx}[\sin^{-1}x] = \frac{1}{\sqrt{1-x^2}}\)</li>
-          <li>\(\frac{d}{dx}[\tan^{-1}x] = \frac{1}{1+x^2}\)</li>
-        </ul>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.1:</strong> Find the derivative of \(f(x) = x^3 \sin(x^2)\).
-        <p>Using product and chain rules: \(f'(x) = 3x^2 \sin(x^2) + x^3 \cos(x^2) \cdot 2x\)</p>
-        <p>= \(3x^2 \sin(x^2) + 2x^4 \cos(x^2)\)</p>
-      </div>
-
-      <h3>3. Chain Rule</h3>
-      <div class="definition-box">
-        <strong>Formula 3.1:</strong>
-        If \(y = f(g(x))\), then \(\frac{dy}{dx} = f'(g(x)) \cdot g'(x)\)
-      </div>
-
-      <div class="example-box">
-        <strong>Example 3.1:</strong> Differentiate \(\frac{d}{dx}[\ln(\sin(x^2))]\).
-        <p>= \(\frac{1}{\sin(x^2)} \cdot \cos(x^2) \cdot 2x = \frac{2x \cos(x^2)}{\sin(x^2)} = 2x \cot(x^2)\)</p>
-      </div>
-
-      <h3>4. Implicit Differentiation</h3>
-      <div class="definition-box">
-        <strong>Formula 4.1:</strong>
-        For \(F(x, y) = 0\): \(\frac{dy}{dx} = -\frac{\partial F/\partial x}{\partial F/\partial y}\)
-      </div>
-
-      <div class="example-box">
-        <strong>Example 4.1:</strong> Find \(\frac{dy}{dx}\) for \(x^2 + y^2 = 25\).
-        <p>Differentiate: \(2x + 2y\frac{dy}{dx} = 0\)</p>
-        <p>Result: \(\frac{dy}{dx} = -\frac{x}{y}\)</p>
-      </div>
-
-      <h3>5. Mean Value Theorem</h3>
-      <div class="theorem-box">
-        <strong>MVT Statement:</strong>
-        If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then \(\exists c \in (a,b)\) such that:
-        $$f'(c) = \frac{f(b) - f(a)}{b - a}$$
-      </div>
-
-      <h3>6. Curve Sketching Checklist</h3>
-      <div class="important-note">
-        <strong>Curve Sketching Procedure:</strong>
+      <div class="formula-box">
+        <strong>Exam roadmap - what to prioritize:</strong>
         <ol>
-          <li><strong>Domain:</strong> Where is \(f(x)\) defined?</li>
-          <li><strong>Intercepts:</strong> \(f(0)\) and solve \(f(x) = 0\)</li>
-          <li><strong>Symmetry:</strong> \(f(-x) = f(x)\) (even), \(f(-x) = -f(x)\) (odd)</li>
-          <li><strong>Asymptotes:</strong> Vertical and horizontal/slant</li>
-          <li><strong>First Derivative:</strong> Find critical points, increasing/decreasing</li>
-          <li><strong>Second Derivative:</strong> Concavity, inflection points</li>
-          <li><strong>Sketch:</strong> Combine all information</li>
+          <li><strong>Definitions:</strong> limit, one-sided limit, continuity, derivative. Be able to state and use them.</li>
+          <li><strong>Limit laws:</strong> each individual limit must exist; the denominator's limit must be nonzero.</li>
+          <li><strong>Indeterminate forms:</strong> \(0/0\), \(\infty/\infty\), \(\infty-\infty\), \(0\cdot\infty\), \(1^{\infty}\); simplify first.</li>
+          <li><strong>Derivative rules:</strong> power, product, quotient, and especially the chain rule.</li>
+          <li><strong>Implicit and logarithmic differentiation:</strong> differentiate both sides, then solve for \(y'\).</li>
+          <li><strong>Applications:</strong> related rates, optimization, curve sketching, and the Mean Value Theorem.</li>
+          <li><strong>Integrals:</strong> basic antiderivatives, \(u\)-substitution, and both parts of the FTC.</li>
+          <li><strong>Hypotheses:</strong> continuity and differentiability conditions are common on proofs and true/false questions.</li>
         </ol>
       </div>
 
-      <h3>7. Integration Formulas</h3>
+      <h3>1. Limits and Continuity</h3>
+
       <div class="definition-box">
-        <strong>Basic Integrals:</strong>
-        <ul>
-          <li>\(\int x^n \, dx = \frac{x^{n+1}}{n+1} + C\) (for \(n \neq -1\))</li>
-          <li>\(\int \frac{1}{x} \, dx = \ln|x| + C\)</li>
-          <li>\(\int e^x \, dx = e^x + C\)</li>
-          <li>\(\int a^x \, dx = \frac{a^x}{\ln a} + C\)</li>
-          <li>\(\int \sin x \, dx = -\cos x + C\)</li>
-          <li>\(\int \cos x \, dx = \sin x + C\)</li>
-          <li>\(\int \sec^2 x \, dx = \tan x + C\)</li>
-          <li>\(\int \frac{1}{\sqrt{1-x^2}} \, dx = \sin^{-1}x + C\)</li>
-        </ul>
+        <strong>Meaning of a limit.</strong> We write \(\lim_{x\to a} f(x)=L\) and say "\(f(x)\) approaches \(L\) as \(x\) approaches \(a\)" when the values of \(f(x)\) can be made arbitrarily close to \(L\) by taking \(x\) sufficiently close to \(a\), with \(x\ne a\). The value \(f(a)\) is irrelevant: the limit describes behavior <em>near</em> \(a\), not at \(a\).
       </div>
 
-      <h3>8. Fundamental Theorem of Calculus</h3>
+      <div class="definition-box">
+        <strong>One-sided limits.</strong> \(\lim_{x\to a^-} f(x)=L\) uses only \(x \lt a\), and \(\lim_{x\to a^+} f(x)=R\) uses only \(x \gt a\). The two-sided limit exists exactly when both one-sided limits exist and agree:
+        \[\lim_{x\to a} f(x)=L\quad\text{if and only if}\quad \lim_{x\to a^-} f(x)=\lim_{x\to a^+} f(x)=L.\]
+      </div>
+
+      <div class="definition-box">
+        <strong>Continuity at a point.</strong> The function \(f\) is continuous at \(a\) when all three conditions hold:
+        <ol>
+          <li>\(f(a)\) is defined;</li>
+          <li>\(\lim_{x\to a} f(x)\) exists; and</li>
+          <li>\(\lim_{x\to a} f(x)=f(a)\).</li>
+        </ol>
+        Intuitively the graph has no hole, jump, or vertical asymptote at \(x=a\). A function is continuous on an interval when it is continuous at every point of that interval, using one-sided limits at endpoints.
+      </div>
+
       <div class="theorem-box">
-        <strong>FTC Part 2:</strong>
-        $$\int_a^b f(x) \, dx = F(b) - F(a)$$
-        where \(F'(x) = f(x)\).
+        <strong>Limit laws.</strong> Assume \(\lim_{x\to a} f(x)=L\) and \(\lim_{x\to a} g(x)=M\) both exist, and let \(k\) be a constant. Then
+        \[\lim_{x\to a}\big(f(x)\pm g(x)\big)=L\pm M.\]
+        \[\lim_{x\to a}\big(k\,f(x)\big)=kL.\]
+        \[\lim_{x\to a}\big(f(x)g(x)\big)=LM.\]
+        \[\lim_{x\to a}\frac{f(x)}{g(x)}=\frac{L}{M},\quad\text{provided } M\ne 0.\]
+        These laws are <em>conditional</em>: if either individual limit fails to exist, you cannot apply them, and the quotient law also needs a nonzero denominator limit.
       </div>
 
-      <h3>9. Applications of Integration</h3>
       <div class="definition-box">
-        <strong>Area Between Curves:</strong> \(\int_a^b |f(x) - g(x)| \, dx\)</p>
-        <strong>Volume (Disk):</strong> \(\pi \int_a^b [f(x)]^2 \, dx\)</p>
-        <strong>Volume (Washer):</strong> \(\pi \int_a^b ([f(x)]^2 - [g(x)]^2) \, dx\)</p>
-        <strong>Volume (Shell):</strong> \(2\pi \int_a^b x \cdot f(x) \, dx\)</p>
-        <strong>Work:</strong> \(W = \int_a^b F(x) \, dx\)</p>
+        <strong>Indeterminate forms.</strong> Direct substitution giving \(0/0\), \(\infty/\infty\), \(\infty-\infty\), \(0\cdot\infty\), \(0^0\), \(\infty^0\), or \(1^{\infty}\) is <em>indeterminate</em>: substitution alone does not determine the limit. Try factoring and canceling, rationalizing, finding a common denominator, or a known special limit. By contrast, \(k/0\) with \(k\ne 0\) suggests an infinite limit or vertical asymptote rather than indeterminacy.
       </div>
 
-      <h3>10. Common Mistakes to Avoid</h3>
+      <div class="theorem-box">
+        <strong>Squeeze (Sandwich) Theorem.</strong> If \(g(x)\le f(x)\le h(x)\) for all \(x\) near \(a\), except possibly at \(a\) itself, and if \(\lim_{x\to a} g(x)=\lim_{x\to a} h(x)=L\), then \(\lim_{x\to a} f(x)=L\).
+      </div>
+
+      <div class="formula-box">
+        <strong>Special limits worth memorizing:</strong>
+        \[\lim_{x\to 0}\frac{\sin x}{x}=1,\qquad \lim_{x\to 0}\frac{1-\cos x}{x}=0,\qquad \lim_{x\to\infty}\frac{\sin x}{x}=0.\]
+        \[\lim_{x\to\infty}\left(1+\frac{1}{x}\right)^x=e,\qquad \lim_{x\to 0}(1+x)^{1/x}=e.\]
+        <p><em>Caution:</em> \(\lim_{x\to 0}\left(1+\frac{1}{x}\right)^x\) is <strong>not</strong> \(e\). For \(x\to 0^+\), write the expression as \(e^{x\ln(1+1/x)}\); since \(x\ln(1+1/x)\to 0\), the right-hand value is \(1\). For \(x\to 0^-\), the base \(1+1/x\) is negative, so the real-valued power is undefined near \(0\). The correct \(e\)-limits are the two displayed above, with the limit taken as \(x\to\infty\) or \(x\to 0\) in the proper place.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 1.1 (factoring).</strong> Evaluate \(\lim_{x\to 3}\frac{x^2-9}{x-3}\).
+        <p>Direct substitution gives \(0/0\). Factor: \(\frac{x^2-9}{x-3}=\frac{(x-3)(x+3)}{x-3}=x+3\) for \(x\ne 3\). Limits ignore the single point \(x=3\), so \(\lim_{x\to 3}\frac{x^2-9}{x-3}=\lim_{x\to 3}(x+3)=6\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 1.2 (one-sided limits).</strong> Let \(f(x)=x^2\) for \(x\le 1\) and \(f(x)=2x\) for \(x \gt 1\). Does \(\lim_{x\to 1}f(x)\) exist? Is \(f\) continuous at \(1\)?
+        <p>Left limit: \(\lim_{x\to 1^-}f(x)=\lim_{x\to 1^-}x^2=1\). Right limit: \(\lim_{x\to 1^+}f(x)=\lim_{x\to 1^+}2x=2\). The one-sided limits differ, so the two-sided limit does not exist. Since existence of the limit is required for continuity, \(f\) is not continuous at \(1\), even though \(f(1)=1\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 1.3 (squeeze).</strong> Evaluate \(\lim_{x\to 0}x^2\sin\!\left(\frac{1}{x}\right)\).
+        <p>We know \(-1\le\sin(1/x)\le 1\), so \(-x^2\le x^2\sin(1/x)\le x^2\). Both outer functions approach \(0\) as \(x\to 0\), so the Squeeze Theorem gives limit \(0\). Defining \(f(0)=0\) would make this function continuous at \(0\).</p>
+      </div>
+
+      <h3>2. The Derivative</h3>
+
+      <div class="definition-box">
+        <strong>Definition.</strong> The derivative of \(f\) at \(a\) is
+        \[f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h},\]
+        provided the limit exists. It is the slope of the tangent line at \(x=a\) and the instantaneous rate of change of \(f\) with respect to \(x\). If the limit exists, \(f\) is differentiable at \(a\). Differentiability implies continuity at \(a\), but continuity does not imply differentiability, as a sharp corner shows.
+      </div>
+
+      <div class="formula-box">
+        <strong>Basic derivative formulas:</strong>
+        <table>
+          <tr><td>\(\frac{d}{dx}[x^n]=nx^{n-1}\)</td><td>\(\frac{d}{dx}[\sin x]=\cos x\)</td><td>\(\frac{d}{dx}[\cos x]=-\sin x\)</td></tr>
+          <tr><td>\(\frac{d}{dx}[\tan x]=\sec^2 x\)</td><td>\(\frac{d}{dx}[e^x]=e^x\)</td><td>\(\frac{d}{dx}[\ln x]=\frac{1}{x}\)</td></tr>
+          <tr><td>\(\frac{d}{dx}[a^x]=a^x\ln a\)</td><td>\(\frac{d}{dx}[\arcsin x]=\frac{1}{\sqrt{1-x^2}}\)</td><td>\(\frac{d}{dx}[\arctan x]=\frac{1}{1+x^2}\)</td></tr>
+        </table>
+        <p>Here \(n\) is any real number, and for \(a^x\) we assume \(a \gt 0\) and \(a\ne 1\).</p>
+      </div>
+
+      <div class="definition-box">
+        <strong>Combination rules.</strong> If \(u=u(x)\) and \(v=v(x)\) are differentiable, then
+        \[\frac{d}{dx}[uv]=u'v+uv',\qquad \frac{d}{dx}\left[\frac{u}{v}\right]=\frac{u'v-uv'}{v^2},\quad v\ne 0.\]
+        <strong>Chain rule.</strong> If \(y=f(g(x))\), with \(g\) differentiable at \(x\) and \(f\) differentiable at \(g(x)\), then
+        \[(f\circ g)'(x)=f'(g(x))\,g'(x).\]
+        In words: differentiate the outside function while leaving the inside unchanged, then multiply by the derivative of the inside. Nested compositions require applying the rule repeatedly.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 2.1 (product and chain).</strong> Differentiate \(f(x)=x^3\sin(x^2)\).
+        <p>By the product rule, \(f'(x)=3x^2\sin(x^2)+x^3\cdot\frac{d}{dx}[\sin(x^2)]\). The chain rule gives \(\frac{d}{dx}[\sin(x^2)]=\cos(x^2)\cdot 2x=2x\cos(x^2)\). Therefore \(f'(x)=3x^2\sin(x^2)+2x^4\cos(x^2)\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 2.2 (quotient).</strong> Differentiate \(g(x)=\dfrac{x^2+1}{x-3}\).
+        <p>With \(u=x^2+1\) and \(v=x-3\): \(g'(x)=\dfrac{(2x)(x-3)-(x^2+1)(1)}{(x-3)^2}=\dfrac{2x^2-6x-x^2-1}{(x-3)^2}=\dfrac{x^2-6x-1}{(x-3)^2}\), valid for \(x\ne 3\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 2.3 (several chain-rule layers).</strong> Differentiate \(h(x)=\ln(\sin(x^2))\).
+        <p>Work from the outside in: \(\frac{d}{dx}\ln(\sin(x^2))=\frac{1}{\sin(x^2)}\cdot\cos(x^2)\cdot 2x=\frac{2x\cos(x^2)}{\sin(x^2)}=2x\cot(x^2)\), wherever \(\sin(x^2) \gt 0\).</p>
+      </div>
+
+      <h3>3. Implicit Differentiation</h3>
+
+      <div class="definition-box">
+        <strong>Calc I method.</strong> When \(y\) is defined implicitly by an equation involving \(x\) and \(y\), do not solve for \(y\) first. Instead:
+        <ol>
+          <li>Differentiate <strong>both sides</strong> with respect to \(x\), treating \(y\) as a function of \(x\). Each time you differentiate an expression in \(y\), the chain rule supplies an extra factor of \(y'=\frac{dy}{dx}\).</li>
+          <li>Collect all terms containing \(y'\) on one side of the equation.</li>
+          <li>Factor out \(y'\) and solve for \(y'\).</li>
+        </ol>
+        <p><em>Later-course language, optional:</em> if \(F(x,y)=0\) and \(F_y\ne 0\), then \(y'=-\frac{F_x}{F_y}\), where \(F_x\) and \(F_y\) are partial derivatives. Partial derivatives are not needed here; the three-step method above is sufficient.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 3.1.</strong> Find \(y'\) for \(x^2+y^2=25\).
+        <p>Differentiate both sides: \(2x+2yy'=0\), so \(2yy'=-2x\) and \(y'=-\frac{x}{y}\) where \(y\ne 0\). At \((3,4)\) the slope is \(-\frac{3}{4}\), and the tangent line is \(y-4=-\frac{3}{4}(x-3)\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 3.2.</strong> Find \(y'\) for \(x^3+xy+y^2=7\).
+        <p>Differentiate both sides, using the product rule on \(xy\): \(3x^2+\big(y+xy'\big)+2yy'=0\). Group the \(y'\) terms: \(xy'+2yy'=-3x^2-y\). Factor: \(y'(x+2y)=-(3x^2+y)\). Hence \(y'=-\dfrac{3x^2+y}{x+2y}\), provided \(x+2y\ne 0\).</p>
+      </div>
+
+      <h3>4. Logarithmic Differentiation</h3>
+
+      <div class="definition-box">
+        <strong>When to use it.</strong> For functions such as \(x^{g(x)}\) or long products and quotients, take \(\ln\) of both sides, use logarithm properties to expand, differentiate implicitly, and finally multiply by the original function:
+        \[\frac{f'(x)}{f(x)}=\frac{d}{dx}\big[\ln f(x)\big],\quad\text{so}\quad f'(x)=f(x)\cdot\frac{d}{dx}\big[\ln f(x)\big].\]
+        This requires \(f(x) \gt 0\) on the interval so that \(\ln f(x)\) is defined.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 4.1.</strong> Differentiate \(f(x)=x^x\) for \(x \gt 0\).
+        <p>Let \(y=x^x\). Then \(\ln y=x\ln x\). Differentiating both sides gives \(\frac{y'}{y}=\ln x+x\cdot\frac{1}{x}=\ln x+1\). Multiplying by \(y\) gives \(y'=x^x(\ln x+1)\).</p>
+      </div>
+
+      <h3>5. Related Rates</h3>
+
       <div class="important-note">
-        <strong>Warning Points:</strong>
+        <strong>Setup routine:</strong> draw a picture and name the changing quantities; write one equation that relates them at every time; differentiate both sides with respect to time \(t\) using the chain rule; substitute numerical values only <em>after</em> differentiating; state the answer with units, and distinguish a signed rate from a speed.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 5.1 (ladder).</strong> A 10 ft ladder leans against a wall. The bottom slides away at \(2\) ft/s. How fast is the top sliding down when the bottom is \(6\) ft from the wall?
+        <p>Let \(x(t)\) be the bottom's distance from the wall and \(y(t)\) the top's height. Pythagorean theorem: \(x^2+y^2=100\). Differentiate: \(2x\frac{dx}{dt}+2y\frac{dy}{dt}=0\). When \(x=6\), \(y=\sqrt{100-36}=8\). Substitute \(\frac{dx}{dt}=2\): \(24+16\frac{dy}{dt}=0\), so \(\frac{dy}{dt}=-\frac{3}{2}\) ft/s.</p>
+        <p>The negative sign says \(y\) is decreasing: the top slides down at speed \(\frac{3}{2}\) ft/s. The signed rate is \(-\frac{3}{2}\) ft/s, while the speed is \(\left|\frac{dy}{dt}\right|=\frac{3}{2}\) ft/s.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 5.2 (expanding circle).</strong> A circle's radius grows at \(3\) cm/s. How fast is its area growing when \(r=5\) cm?
+        <p>Since \(A=\pi r^2\), \(\frac{dA}{dt}=2\pi r\frac{dr}{dt}=2\pi(5)(3)=30\pi\) cm\(^2\)/s.</p>
+      </div>
+
+      <h3>6. Optimization</h3>
+
+      <div class="important-note">
+        <strong>Method:</strong> write the quantity to be optimized as a function of one variable, using any constraint to eliminate the others. Find the domain and include endpoints when the interval is closed. Locate interior critical points where \(f'=0\) or \(f'\) does not exist. Evaluate \(f\) at every critical point and endpoint; the largest value is the absolute maximum and the smallest is the absolute minimum. Justify the conclusion in words.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 6.1 (maximum area).</strong> A farmer has \(80\) ft of fencing for a rectangular pen. Find the dimensions giving the largest area.
+        <p>Let the sides be \(x\) and \(y\). The constraint \(2x+2y=80\) gives \(y=40-x\), so \(A(x)=x(40-x)=40x-x^2\) on \(0\le x\le 40\). Then \(A'(x)=40-2x\), so the critical point is \(x=20\). Compare \(A(0)=0\), \(A(40)=0\), and \(A(20)=400\). The maximum area is \(400\) ft\(^2\), attained by a \(20\) ft by \(20\) ft square.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 6.2 (closest point).</strong> Find the point on \(y=x^2\) closest to \((0,3)\).
+        <p>A point on the curve is \((x,x^2)\), so the squared distance is \(D(x)=x^2+(x^2-3)^2\). Minimizing \(D\) also minimizes distance. \(D'(x)=2x+4x(x^2-3)=2x(2x^2-5)\), giving \(x=0\) or \(x^2=\frac{5}{2}\). Now \(D(0)=9\), while at \(x^2=\frac{5}{2}\) we get \(D=\frac{5}{2}+\left(-\frac{1}{2}\right)^2=\frac{11}{4}\). Since \(\frac{11}{4} \lt 9\), the closest points are \(\left(\pm\sqrt{\frac{5}{2}},\frac{5}{2}\right)\).</p>
+      </div>
+
+      <h3>7. Mean Value Theorem</h3>
+
+      <div class="theorem-box">
+        <strong>Mean Value Theorem.</strong> Let \(a \lt b\). If \(f\) is continuous on the closed interval \([a,b]\) and differentiable on the open interval \((a,b)\), then there is a number \(c\) in \((a,b)\) with
+        \[f'(c)=\frac{f(b)-f(a)}{b-a}.\]
+        Geometrically, some tangent line is parallel to the secant line through \((a,f(a))\) and \((b,f(b))\). Both hypotheses matter: the absolute value function is continuous on \([-1,1]\) but not differentiable at \(0\), and its secant slope \(0\) is never attained by a derivative.
+      </div>
+
+      <div class="definition-box">
+        <strong>Rolle's Theorem (special case).</strong> Under the same hypotheses, if in addition \(f(a)=f(b)\), then some \(c\in(a,b)\) satisfies \(f'(c)=0\). This is the MVT with a secant slope of \(0\).
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 7.1.</strong> Verify the MVT for \(f(x)=x^2\) on \([1,3]\) and find \(c\).
+        <p>Polynomials are continuous on \([1,3]\) and differentiable on \((1,3)\). The secant slope is \(\frac{f(3)-f(1)}{3-1}=\frac{9-1}{2}=4\). Since \(f'(x)=2x\), we need \(2c=4\), so \(c=2\), which lies in \((1,3)\).</p>
+      </div>
+
+      <h3>8. Curve Sketching Checklist</h3>
+
+      <div class="important-note">
+        <ol>
+          <li><strong>Domain:</strong> where is \(f\) defined? Note excluded points.</li>
+          <li><strong>Intercepts:</strong> solve \(f(x)=0\) for \(x\)-intercepts, and compute \(f(0)\) for the \(y\)-intercept.</li>
+          <li><strong>Symmetry:</strong> \(f(-x)=f(x)\) is even symmetry about the \(y\)-axis; \(f(-x)=-f(x)\) is odd symmetry about the origin.</li>
+          <li><strong>Asymptotes:</strong> vertical where \(f\to\pm\infty\) at finite \(x\); horizontal from \(\lim_{x\to\pm\infty}f(x)\); slant when the numerator's degree exceeds the denominator's by one.</li>
+          <li><strong>First derivative:</strong> find critical points where \(f'=0\) or \(f'\) is undefined, then use a sign chart for increasing and decreasing.</li>
+          <li><strong>Second derivative:</strong> use a sign chart for concavity; inflection points occur where concavity changes.</li>
+          <li><strong>Sketch:</strong> combine the information, plotting intercepts and asymptotes first.</li>
+        </ol>
+        <p><strong>First Derivative Test:</strong> if \(f'\) changes from positive to negative at \(c\), then \(f(c)\) is a local maximum; from negative to positive, a local minimum; with no sign change, no local extremum.</p>
+        <p><strong>Second Derivative Test:</strong> if \(f'(c)=0\) and \(f''(c) \gt 0\), there is a local minimum; if \(f''(c) \lt 0\), a local maximum; if \(f''(c)=0\), the test is inconclusive.</p>
+      </div>
+
+      <h3>9. Antiderivatives and Basic Integrals</h3>
+
+      <div class="definition-box">
+        <strong>Antiderivative.</strong> \(F\) is an antiderivative of \(f\) on an interval when \(F'(x)=f(x)\) there. The general antiderivative is \(F(x)+C\) for an arbitrary constant \(C\). Include \(+C\) on every indefinite integral, and never omit the differential \(dx\).
+      </div>
+
+      <div class="formula-box">
+        <strong>Basic integrals:</strong>
         <ul>
-          <li>Dont forget the chain rule when differentiating composite functions</li>
-          <li>Always check for continuity before applying MVT</li>
-          <li>Don't mix up integration formulas - \(\int \frac{1}{x} = \ln|x| + C\), not \(\ln x\)</li>
-          <li>Remember absolute value in \(\int \frac{1}{x} \, dx\)</li>
-          <li>Don't forget \(dx\) in integration</li>
-          <li>Check your work by differentiating antiderivatives</li>
-          <li>For curve sketching, verify all conditions before stating conclusions</li>
+          <li>\(\int x^n\,dx=\dfrac{x^{n+1}}{n+1}+C\), for \(n\ne -1\)</li>
+          <li>\(\int \dfrac{1}{x}\,dx=\ln|x|+C\)</li>
+          <li>\(\int e^x\,dx=e^x+C\)</li>
+          <li>\(\int a^x\,dx=\dfrac{a^x}{\ln a}+C\), for \(a \gt 0\) and \(a\ne 1\)</li>
+          <li>\(\int \sin x\,dx=-\cos x+C\)</li>
+          <li>\(\int \cos x\,dx=\sin x+C\)</li>
+          <li>\(\int \sec^2 x\,dx=\tan x+C\)</li>
+          <li>\(\int \dfrac{1}{\sqrt{1-x^2}}\,dx=\arcsin x+C\)</li>
+          <li>\(\int \dfrac{1}{1+x^2}\,dx=\arctan x+C\)</li>
         </ul>
+        <p>The absolute value in \(\ln|x|\) matters because \(1/x\) is defined for negative \(x\), while \(\ln x\) is not. Verify any antiderivative by differentiating it.</p>
+      </div>
+
+      <div class="definition-box">
+        <strong><em>u</em>-substitution.</strong> If \(u=g(x)\) and \(du=g'(x)\,dx\), then
+        \[\int f(g(x))\,g'(x)\,dx=\int f(u)\,du=F(u)+C=F(g(x))+C,\]
+        where \(F'=f\). For definite integrals, change the limits: \(\int_a^b f(g(x))g'(x)\,dx=\int_{g(a)}^{g(b)}f(u)\,du\). Look for an inner function whose derivative also appears, up to a constant factor.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 9.1.</strong> Evaluate \(\int 2x\cos(x^2)\,dx\).
+        <p>Let \(u=x^2\), so \(du=2x\,dx\). Then \(\int 2x\cos(x^2)\,dx=\int\cos u\,du=\sin u+C=\sin(x^2)+C\). Check: \(\frac{d}{dx}\sin(x^2)=2x\cos(x^2)\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 9.2.</strong> Evaluate \(\int_0^1 x\sqrt{x^2+1}\,dx\).
+        <p>Let \(u=x^2+1\), so \(du=2x\,dx\) and \(x\,dx=\frac{1}{2}du\). New limits: \(x=0\) gives \(u=1\); \(x=1\) gives \(u=2\). Then \(\int_0^1 x\sqrt{x^2+1}\,dx=\frac{1}{2}\int_1^2 u^{1/2}\,du=\frac{1}{2}\cdot\frac{2}{3}\left[u^{3/2}\right]_1^2=\frac{1}{3}\left(2^{3/2}-1\right)\).</p>
+      </div>
+
+      <h3>10. The Fundamental Theorem of Calculus</h3>
+
+      <div class="theorem-box">
+        <strong>FTC Part II (evaluation).</strong> If \(f\) is continuous on \([a,b]\) and \(F\) is any antiderivative of \(f\) on \([a,b]\), then
+        \[\int_a^b f(x)\,dx=F(b)-F(a).\]
+        Continuity of \(f\) on the interval is required; an interior discontinuity must be handled with improper integrals.
+      </div>
+
+      <div class="theorem-box">
+        <strong>FTC Part I (derivative of an accumulation function).</strong> If \(f\) is continuous on an interval containing \(a\) and \(g(x)=\int_a^x f(t)\,dt\), then \(g'(x)=f(x)\) on that interval. Combining FTC I with the chain rule gives
+        \[\frac{d}{dx}\int_a^{u(x)}f(t)\,dt=f(u(x))\,u'(x)\]
+        for a constant lower limit, and
+        \[\frac{d}{dx}\int_{v(x)}^{u(x)}f(t)\,dt=f(u(x))\,u'(x)-f(v(x))\,v'(x)\]
+        when both limits vary.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 10.1 (FTC II).</strong> Evaluate \(\int_0^{\pi/2}\cos x\,dx\).
+        <p>An antiderivative is \(\sin x\), so \(\int_0^{\pi/2}\cos x\,dx=\left[\sin x\right]_0^{\pi/2}=\sin(\pi/2)-\sin 0=1\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 10.2 (variable limit).</strong> Find \(\frac{d}{dx}\int_2^{x^3}\sqrt{t^2+1}\,dt\).
+        <p>With \(u(x)=x^3\), FTC I and the chain rule give \(\sqrt{(x^3)^2+1}\cdot 3x^2=3x^2\sqrt{x^6+1}\).</p>
+      </div>
+
+      <h3>11. Applications of Integration</h3>
+
+      <div class="definition-box">
+        <strong>Area between curves.</strong> If \(f\) and \(g\) are continuous on \([a,b]\) and \(f(x)\ge g(x)\) throughout, the area between the graphs is \(\int_a^b \big(f(x)-g(x)\big)\,dx\). Find intersections first to get the interval and determine which curve is on top; split the integral if the top curve changes.
+      </div>
+
+      <div class="definition-box">
+        <strong>Volumes of solids of revolution.</strong> Assume the region and axis are such that every slice is a genuine disk or washer with nonnegative radius, and the boundary functions are continuous.
+        <ul>
+          <li><strong>Disk method about the \(x\)-axis:</strong> \(V=\pi\int_a^b \big[f(x)\big]^2\,dx\), for the region between \(y=0\) and \(y=f(x)\).</li>
+          <li><strong>Washer method about the \(x\)-axis:</strong> \(V=\pi\int_a^b \left(\big[f(x)\big]^2-\big[g(x)\big]^2\right)\,dx\), for \(f(x)\ge g(x)\ge 0\).</li>
+          <li><strong>Shell method about the \(y\)-axis:</strong> \(V=2\pi\int_a^b x\,f(x)\,dx\), for the region under \(y=f(x)\) with \(0\le a \lt b\) and \(f(x)\ge 0\).</li>
+        </ul>
+        <p>For any other axis, adjust the radius, which is the distance from the slice to that axis, and always state the axis explicitly.</p>
+      </div>
+
+      <div class="definition-box">
+        <strong>Work.</strong> If a force \(F(x)\) acts along the \(x\)-direction over \(a\le x\le b\), the work done is \(W=\int_a^b F(x)\,dx\). For a Hooke's-law spring, \(F(x)=kx\) where \(x\) is displacement from equilibrium and \(k\) is the spring constant.
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 11.1 (area).</strong> Find the area between \(y=x\) and \(y=x^2\).
+        <p>Intersections come from \(x^2=x\), so \(x=0,1\). On \([0,1]\), \(x\ge x^2\), giving \(\int_0^1(x-x^2)\,dx=\left[\frac{x^2}{2}-\frac{x^3}{3}\right]_0^1=\frac{1}{2}-\frac{1}{3}=\frac{1}{6}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Model example 11.2 (disk).</strong> Rotate the region under \(y=\sqrt{x}\) from \(x=0\) to \(x=4\) about the \(x\)-axis. Find the volume.
+        <p>Each slice is a disk of radius \(\sqrt{x}\), so \(V=\pi\int_0^4\big(\sqrt{x}\big)^2\,dx=\pi\int_0^4 x\,dx=\pi\left[\frac{x^2}{2}\right]_0^4=8\pi\).</p>
+      </div>
+
+      <h3>12. Common Mistakes to Avoid</h3>
+
+      <div class="important-note">
+        <strong>Limits and continuity:</strong>
+        <ul>
+          <li>Do not use limit laws unless both individual limits exist; the quotient law also needs a nonzero denominator limit.</li>
+          <li>\(0/0\) is indeterminate, not \(0\) and not \(1\). Simplify first, and check one-sided limits when absolute values or piecewise formulas appear.</li>
+          <li>Do not confuse \(\lim_{x\to\infty}(1+1/x)^x=e\) with the incorrect expression having \(x\to 0\) and \(1+1/x\).</li>
+          <li>Continuity at \(a\) needs three things: \(f(a)\) defined, the limit exists, and the two agree.</li>
+        </ul>
+        <strong>Derivatives:</strong>
+        <ul>
+          <li>Don't forget the chain rule: \(\frac{d}{dx}\sin(x^2)=\cos(x^2)\cdot 2x\), not just \(\cos(x^2)\).</li>
+          <li>The quotient rule numerator is \(u'v-uv'\) in that order; reversing the sign is a frequent error.</li>
+          <li>In implicit differentiation every derivative of \(y\) picks up \(y'\); for example \(\frac{d}{dx}[y^3]=3y^2 y'\).</li>
+          <li>Differentiability implies continuity, but not conversely: a corner can be continuous and not differentiable.</li>
+          <li>In related rates, substitute numbers only after differentiating, and distinguish signed rate from speed.</li>
+        </ul>
+        <strong>Integrals and applications:</strong>
+        <ul>
+          <li>Write \(\int \frac{1}{x}\,dx=\ln|x|+C\), not \(\ln x+C\); the absolute value matters for negative \(x\).</li>
+          <li>Don't drop the \(dx\) or the constant \(C\) on an indefinite integral, and check answers by differentiating.</li>
+          <li>The power rule \(\int x^n\,dx=\frac{x^{n+1}}{n+1}+C\) fails at \(n=-1\), which instead gives \(\ln|x|+C\).</li>
+          <li>For \(\int a^x\,dx=\frac{a^x}{\ln a}+C\) you need \(a \gt 0\) and \(a\ne 1\).</li>
+          <li>FTC II requires \(f\) continuous on \([a,b]\); watch for interior discontinuities.</li>
+          <li>For area between curves, identify the top curve on each subinterval instead of assuming one curve stays on top.</li>
+          <li>State the axis of rotation and confirm radii are nonnegative when using disks, washers, or shells.</li>
+        </ul>
+      </div>
+
+      <h3>13. Bonus: Epsilon-Delta Recap and a L'Hôpital Preview</h3>
+
+      <div class="definition-box">
+        <strong>Epsilon-delta definition of a limit.</strong> The statement \(\lim_{x\to a}f(x)=L\) means: for every \(\varepsilon \gt 0\) there is a \(\delta \gt 0\) such that whenever \(0 \lt |x-a| \lt \delta\) and \(x\) is in the domain of \(f\), we have \(|f(x)-L| \lt \varepsilon\). The condition \(0 \lt |x-a|\) excludes \(x=a\), which is why the limit ignores \(f(a)\). Continuity at \(a\) adds the requirement \(f(a)=L\).
+      </div>
+
+      <div class="example-box">
+        <strong>Bonus model example.</strong> Prove \(\lim_{x\to 2}(3x-1)=5\) using \(\varepsilon\) and \(\delta\).
+        <p>Given \(\varepsilon \gt 0\), we want \(|(3x-1)-5|=|3x-6|=3|x-2| \lt \varepsilon\), which follows from \(|x-2| \lt \varepsilon/3\). Choose \(\delta=\varepsilon/3\). Then \(0 \lt |x-2| \lt \delta\) implies \(3|x-2| \lt 3\delta=\varepsilon\), so the limit is \(5\).</p>
+      </div>
+
+      <div class="definition-box">
+        <strong>L'Hôpital's Rule (preview).</strong> If \(\lim_{x\to a}\frac{f(x)}{g(x)}\) has form \(0/0\) or \(\infty/\infty\), with \(f\) and \(g\) differentiable near \(a\) and \(g'(x)\ne 0\) near \(a\), then \(\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}\), provided the latter limit exists. Use it only on genuine indeterminate quotients. For \(\lim_{x\to 0}\frac{e^x-1}{x}\), it gives \(\lim_{x\to 0}\frac{e^x}{1}=1\). This rule is often covered after the midterm, so factoring and known limits are your main tools here.
+      </div>
+
+      <h3>14. Mixed Practice Problems</h3>
+
+      <div class="example-box">
+        <ol>
+          <li>Evaluate \(\lim_{x\to 2}\frac{x^2-4}{x-2}\).</li>
+          <li>Evaluate \(\lim_{x\to 0}\frac{\sin(3x)}{x}\).</li>
+          <li>Evaluate \(\lim_{x\to\infty}\frac{3x^2+1}{x^2-x}\).</li>
+          <li>Evaluate \(\lim_{x\to 1}\frac{x^3-1}{x^2-1}\).</li>
+          <li>Find \(f'(x)\) for \(f(x)=\dfrac{x-1}{x+2}\).</li>
+          <li>Differentiate \(y=x^2e^x\).</li>
+          <li>Differentiate \(y=\sqrt{3x+1}\).</li>
+          <li>Find \(y'\) if \(xy+y^3=6\).</li>
+          <li>Find \(y'\) if \(y=x^{\sin x}\) for \(x \gt 0\).</li>
+          <li>Do the hypotheses of the MVT hold for \(f(x)=x^{2/3}\) on \([-1,1]\)? Explain.</li>
+          <li>Find and classify all local extrema of \(f(x)=x^3-3x\).</li>
+          <li>Find two positive numbers with sum \(20\) whose product is largest.</li>
+          <li>Evaluate \(\int\left(3x^2-\frac{2}{x}+1\right)dx\).</li>
+          <li>Evaluate \(\int_1^4\frac{1}{\sqrt{x}}\,dx\).</li>
+          <li>Evaluate \(\int 5^x\,dx\).</li>
+          <li>Evaluate \(\int x(x^2+4)^5\,dx\).</li>
+          <li>Find \(\frac{d}{dx}\int_1^{x^2}\cos(t^2)\,dt\).</li>
+          <li>Evaluate \(\int_0^2(2x+1)\,dx\).</li>
+          <li>Find the area between \(y=x^2\) and \(y=4\).</li>
+          <li>A sphere's radius increases at \(2\) cm/s. Find \(\frac{dV}{dt}\) when \(r=3\) cm.</li>
+        </ol>
+      </div>
+
+      <h3>Answer Key</h3>
+
+      <div class="definition-box">
+        <ol>
+          <li>\(4\), by canceling \(x-2\).</li>
+          <li>\(3\), since \(\frac{\sin(3x)}{x}=3\cdot\frac{\sin(3x)}{3x}\to 3\).</li>
+          <li>\(3\), the ratio of leading coefficients.</li>
+          <li>\(\frac{3}{2}\), after cancelling \(x-1\) to get \(\frac{x^2+x+1}{x+1}\).</li>
+          <li>\(f'(x)=\frac{3}{(x+2)^2}\), for \(x\ne -2\).</li>
+          <li>\(y'=e^x(x^2+2x)\).</li>
+          <li>\(y'=\frac{3}{2\sqrt{3x+1}}\).</li>
+          <li>\(y'=-\dfrac{y}{x+3y^2}\), provided \(x+3y^2\ne 0\).</li>
+          <li>\(y'=x^{\sin x}\left(\cos x\ln x+\frac{\sin x}{x}\right)\).</li>
+          <li>No: \(f\) is continuous on \([-1,1]\) but \(f'(x)=\frac{2}{3}x^{-1/3}\) is undefined at \(0\), so MVT does not apply.</li>
+          <li>Local maximum \(2\) at \(x=-1\); local minimum \(-2\) at \(x=1\).</li>
+          <li>The numbers are \(10\) and \(10\), with maximum product \(100\).</li>
+          <li>\(x^3-2\ln|x|+x+C\).</li>
+          <li>\(2\), since \(\left[2\sqrt{x}\right]_1^4=4-2\).</li>
+          <li>\(\frac{5^x}{\ln 5}+C\).</li>
+          <li>\(\frac{1}{12}(x^2+4)^6+C\).</li>
+          <li>\(2x\cos(x^4)\).</li>
+          <li>\(6\).</li>
+          <li>\(\frac{32}{3}\), from \(\int_{-2}^2(4-x^2)\,dx\).</li>
+          <li>\(72\pi\) cm\(^3\)/s, since \(\frac{dV}{dt}=4\pi r^2\frac{dr}{dt}=4\pi(9)(2)\).</li>
+        </ol>
       </div>
     </div>
 
 <nav class="navigation" aria-label="Course navigation">
-      <a href="lecture-notes-integration-techniques-calc1.html">← Integration Techniques</a>
+      <a href="lecture-notes-applications-integration-calc1.html">← Applications of Integration</a>
       <a href="lecture-notes-final-review-calc1.html">Final Review →</a>
     </nav>
   </main>

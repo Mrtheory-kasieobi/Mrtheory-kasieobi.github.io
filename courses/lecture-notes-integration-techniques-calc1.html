@@ -44,224 +44,506 @@
     </div>
 
     <div class="lecture-content">
+      <p><strong>Big picture.</strong> Differentiation is a manufacturing process: the product, chain, and quotient rules take simple building blocks and systematically produce more complicated functions. Integration is the reverse problem, and there is no single universal algorithm. Instead, each technique is a differentiation rule read backwards. Substitution undoes the Chain Rule, integration by parts undoes the Product Rule, partial fractions reverses the addition of rational expressions, and trigonometric substitution exploits Pythagorean identities to remove radicals. The practical skill is pattern recognition: look at the integrand, name its structure, and choose the tool that matches.</p>
+
+      <div class="formula-box">
+        <strong>Road map and prerequisites.</strong>
+        <ul>
+          <li><strong>From differentiation:</strong> the Chain Rule, the Product Rule, and the derivatives of \(\ln x\), \(\arctan x\), \(\arcsin x\), \(e^x\), and the trigonometric functions.</li>
+          <li><strong>From the FTC:</strong> every indefinite integral is an antiderivative family, so a proposed answer is correct exactly when its derivative matches the integrand; a constant \(C\) belongs at the end.</li>
+          <li><strong>Algebra you will need:</strong> factoring polynomials, completing the square, long division of polynomials, and solving linear systems for unknown coefficients.</li>
+          <li><strong>Order of attack:</strong> simplify first; look for a derivative-inside (substitution); then try parts for products; then partial fractions for rational functions; then trigonometric substitution for radicals.</li>
+          <li><strong>Always finish by checking:</strong> differentiate your answer. This catches sign errors faster than any other habit.</li>
+        </ul>
+      </div>
+
       <h2>1. Integration by Substitution</h2>
-      
-      <h3>1.1 The Substitution Rule</h3>
-      <div class="definition-box">
-        <strong>Theorem 1.1 (Substitution Rule):</strong>
-        If \(u = g(x)\) is a differentiable function and \(f\) is continuous on the range of \(g\), then:
-        $$\int f(g(x))g'(x) \, dx = \int f(u) \, du$$
+
+      <h3>1.1 Intuition: the Chain Rule backwards</h3>
+      <p>Suppose \(F\) is an antiderivative of \(f\). The Chain Rule says that the derivative of the composite function \(F(g(x))\) is \(f(g(x))g'(x)\). Therefore, whenever an integrand contains a composite function <em>and</em> the derivative of the inner function sitting next to it, we can guess the antiderivative by peeling off the chain rule. The extra factor \(g'(x)\) is not an accident; it is the fingerprint of the composition.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 1.1 (Substitution Rule, indefinite form).</strong>
+        Let \(g\) be differentiable, let \(I\) be an interval containing the range of \(g\), and let \(f\) be continuous on \(I\). If \(F' = f\) on \(I\), then
+        \[ \int f(g(x))g'(x) \, dx = F(g(x)) + C. \]
+        In differential notation, setting \(u = g(x)\) and \(du = g'(x)\,dx\) gives
+        \[ \int f(g(x))g'(x) \, dx = \int f(u) \, du. \]
       </div>
 
       <div class="proof-box">
-        <strong>Proof:</strong>
-        Let \(F\) be an antiderivative of \(f\), so \(F'(u) = f(u)\).
-        
-        Define \(G(x) = F(g(x))\).
-        
-        By the Chain Rule:
-        $$G'(x) = F'(g(x)) \cdot g'(x) = f(g(x)) \cdot g'(x)$$
-        
-        Therefore:
-        $$\int f(g(x))g'(x) \, dx = G(x) + C = F(g(x)) + C$$
-        
-        Substituting \(u = g(x)\):
-        $$\int f(g(x))g'(x) \, dx = F(u) + C = \int f(u) \, du$$
-        ∎
+        <strong>Proof.</strong>
+        Define \(G(x) = F(g(x))\). Since \(g\) is differentiable and \(F\) is differentiable on \(I\), the Chain Rule applies:
+        \[ G'(x) = F'(g(x))\,g'(x) = f(g(x))\,g'(x). \]
+        Hence \(G\) is an antiderivative of \(f(g(x))g'(x)\), so by the definition of the indefinite integral,
+        \[ \int f(g(x))g'(x) \, dx = G(x) + C = F(g(x)) + C. \]
+        Finally, \(\int f(u)\,du = F(u) + C = F(g(x)) + C\), which is the same family. \( \blacksquare \)
+      </div>
+
+      <h3>1.2 Recognition: the derivative up to a constant</h3>
+      <p>In practice the inner derivative rarely appears with coefficient exactly \(1\). What matters is that the leftover factor is a <em>constant multiple</em>. If \(u = g(x)\) and \(du = g'(x)\,dx\), then a factor \(k\,g'(x)\) contributes \(k\int f(u)\,du\), while a leftover factor \(\frac{1}{k}g'(x)\) contributes \(\frac{1}{k}\int f(u)\,du\). In every case, multiply by whatever constant is actually present. This is the "derivative up to a constant" test.</p>
+
+      <div class="example-box">
+        <strong>Example 1.1 (exact match).</strong> Evaluate \(\int 2x\cos(x^2)\,dx\).
+        <p>Choose \(u = x^2\). Then \(du = 2x\,dx\), which is exactly the factor beside \(\cos(x^2)\).</p>
+        \[ \int 2x\cos(x^2)\,dx = \int \cos(u)\,du. \]
+        \[ \int \cos(u)\,du = \sin(u) + C = \sin(x^2) + C. \]
+        <p>Check: \(\frac{d}{dx}\sin(x^2) = \cos(x^2)\cdot 2x\).</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.1:</strong> Evaluate \(\int 2x \cos(x^2) \, dx\).
-        <p>Let \(u = x^2\), so \(du = 2x \, dx\)</p>
-        <p>Result: \(\int \cos(u) \, du = \sin(u) + C = \sin(x^2) + C\)</p>
+        <strong>Example 1.2 (derivative up to a constant).</strong> Evaluate \(\int \frac{x}{x^2+4}\,dx\).
+        <p>Choose \(u = x^2+4\), so \(du = 2x\,dx\) and \(x\,dx = \frac{du}{2}\). The numerator is half the derivative of the denominator.</p>
+        \[ \int \frac{x}{x^2+4}\,dx = \int \frac{1}{u}\cdot \frac{du}{2} = \frac12\int \frac{du}{u}. \]
+        \[ \frac12\int \frac{du}{u} = \frac12\ln|u| + C = \frac12\ln(x^2+4) + C. \]
+        <p>Here the absolute value may be dropped because \(x^2+4 \gt 0\) for every real \(x\).</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.2:</strong> Evaluate \(\int \frac{1}{x \ln x} \, dx\).
-        <p>Let \(u = \ln x\), so \(du = \frac{1}{x} \, dx\)</p>
-        <p>Result: \(\int \frac{1}{u} \, du = \ln|u| + C = \ln|\ln x| + C\)</p>
+        <strong>Example 1.3 (a quotient inside a logarithm).</strong> Evaluate \(\int \frac{dx}{x\ln x}\) on \(x \gt 1\).
+        <p>Choose \(u = \ln x\), so \(du = \frac{dx}{x}\). The integrand is \(\frac{1}{\ln x}\cdot \frac{1}{x}\), a perfect match.</p>
+        \[ \int \frac{dx}{x\ln x} = \int \frac{du}{u} = \ln|u| + C = \ln|\ln x| + C. \]
+        <p>On \(x \gt 1\) we have \(\ln x \gt 0\), so the result may also be written \(\ln(\ln x) + C\).</p>
       </div>
 
-      <h3>1.2 Definite Integrals with Substitution</h3>
-      <div class="definition-box">
-        <strong>Formula 1.1:</strong>
-        For definite integrals: \(\int_a^b f(g(x))g'(x) \, dx = \int_{g(a)}^{g(b)} f(u) \, du\)
-        <br><br>
-        <strong>Alternative:</strong> Evaluate the indefinite integral first, then substitute back before applying the limits.
+      <h3>1.3 When a substitution fails</h3>
+      <p>A substitution is useful only if the entire integrand, including \(dx\), can be rewritten in terms of \(u\) and \(du\). If a leftover \(x\) cannot be eliminated, the substitution has failed and a different method is needed.</p>
+
+      <div class="example-box">
+        <strong>Example 1.4 (failed substitution).</strong> Consider \(\int \sqrt{x^2+1}\,dx\).
+        <p>Try \(u = x^2+1\), so \(du = 2x\,dx\). The integrand contains no factor of \(x\), so after the change of variables we would still have an \(x\) hiding inside the square root: \(\sqrt{x^2+1}\,dx = \sqrt{u}\,\frac{du}{2x}\), and \(x = \pm\sqrt{u-1}\). The substitution does not simplify the problem. This integral is handled later by trigonometric substitution.</p>
+        <p>Similarly, \(\int e^{x^2}\,dx\) is not solved by \(u = x^2\), because \(du = 2x\,dx\) and no factor \(x\) is present. In fact this antiderivative is not an elementary function.</p>
+      </div>
+
+      <h3>1.4 Definite integrals and substitution</h3>
+      <p>For a definite integral we may either change the limits along with the variable, or revert to \(x\) before substituting the endpoints. Changing limits is usually cleaner.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 1.2 (Substitution for definite integrals).</strong>
+        If \(g'\) is continuous on \([a,b]\) and \(f\) is continuous on the range of \(g\), then
+        \[ \int_a^b f(g(x))g'(x)\,dx = \int_{g(a)}^{g(b)} f(u)\,du. \]
       </div>
 
       <div class="example-box">
-        <strong>Example 1.3:</strong> Evaluate \(\int_0^1 x \sqrt{x^2 + 1} \, dx\).
-        <p>Let \(u = x^2 + 1\), so \(du = 2x \, dx\) and \(x \, dx = \frac{du}{2}\)</p>
-        <p>Change limits: when \(x = 0\), \(u = 1\); when \(x = 1\), \(u = 2\)</p>
-        <p>Result: \(\int_1^2 \frac{\sqrt{u}}{2} \, du = \frac{1}{2} \cdot \frac{2}{3} u^{3/2}\Big|_1^2 = \frac{1}{3}(2\sqrt{2} - 1)\)</p>
+        <strong>Example 1.5 (changing the limits).</strong> Evaluate \(\int_0^1 x\sqrt{x^2+1}\,dx\).
+        <p>Let \(u = x^2+1\), so \(du = 2x\,dx\) and \(x\,dx = \frac{du}{2}\). When \(x=0\), \(u=1\); when \(x=1\), \(u=2\).</p>
+        \[ \int_0^1 x\sqrt{x^2+1}\,dx = \int_1^2 \frac{\sqrt{u}}{2}\,du = \frac12\left[\frac23 u^{3/2}\right]_1^2. \]
+        \[ = \frac13\left(2^{3/2}-1\right) = \frac13\left(2\sqrt2-1\right). \]
       </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in substitution.</strong>
+        <ul>
+          <li>Forgetting the factor from \(du\). If \(du = 2x\,dx\), then \(x\,dx = \frac12 du\), not \(2\,du\).</li>
+          <li>Dropping the differential. Writing \(u = x^2\) without computing \(du\) turns a method into a guess.</li>
+          <li>For indefinite integrals, forgetting to substitute back from \(u\) to \(x\) before giving the final answer (and then adding \(+C\)).</li>
+          <li>For definite integrals, mixing old and new limits. Never leave an \(x\)-limit on a \(u\)-integral.</li>
+          <li>Assuming any inner function works. If the derivative is not present up to a constant factor, try another method.</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Quick check 1 (answers below).</strong>
+        <ol>
+          <li>Evaluate \(\int 6x(x^2-3)^4\,dx\).</li>
+          <li>Evaluate \(\int \frac{\ln x}{x}\,dx\).</li>
+          <li>Evaluate \(\int_{-1}^{1} x(x^2+1)^3\,dx\).</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) \(\frac{3}{5}(x^2-3)^5+C\), using \(u=x^2-3\) and \(6x\,dx=3\,du\); (2) \(\frac{(\ln x)^2}{2}+C\); (3) \(0\), because \(u=x^2+1\) gives equal endpoints \(u=2\), or because the integrand is odd.</p>
+      </div>
+
+      <p><strong>Summary of Section 1.</strong> Substitution converts a composite integrand \(f(g(x))g'(x)\) into the simpler \(\int f(u)\,du\). Its validity is exactly the Chain Rule. The recognition cue is an inner function whose derivative appears up to a constant factor; definite integrals require the limits to be transformed too.</p>
 
       <h2>2. Integration by Parts</h2>
 
-      <h3>2.1 The Integration by Parts Formula</h3>
-      <div class="definition-box">
-        <strong>Formula 2.1:</strong>
-        $$\int u \, dv = uv - \int v \, du$$
+      <h3>2.1 Intuition and the formula</h3>
+      <p>Where substitution handles composites, integration by parts handles <em>products</em>. The Product Rule says \((uv)' = u'v + uv'\). Integrating both sides lets us trade one product integral for another, hopefully simpler, one. The goal is to choose \(u\) so that \(du\) is simpler than \(u\), and \(dv\) so that \(v\) is no harder than the original factor.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 2.1 (Integration by Parts).</strong>
+        If \(u\) and \(v\) are differentiable, then
+        \[ \int u\,dv = uv - \int v\,du. \]
+        For a definite integral,
+        \[ \int_a^b u\,dv = \big[uv\big]_a^b - \int_a^b v\,du. \]
       </div>
 
       <div class="proof-box">
-        <strong>Proof:</strong>
+        <strong>Proof.</strong>
         Start with the Product Rule:
-        $$\frac{d}{dx}[u(x)v(x)] = u(x)v'(x) + u'(x)v(x)$$
-        
-        Integrate both sides:
-        $$u(x)v(x) = \int u(x)v'(x) \, dx + \int u'(x)v(x) \, dx$$
-        
-        Rearranging:
-        $$\int u(x)v'(x) \, dx = u(x)v(x) - \int u'(x)v(x) \, dx$$
-        
-        With \(v' = \frac{dv}{dx}\) and \(u' = \frac{du}{dx}\):
-        $$\int u \, dv = uv - \int v \, du$$
-        ∎
+        \[ \frac{d}{dx}\big[u(x)v(x)\big] = u'(x)v(x) + u(x)v'(x). \]
+        Integrate both sides with respect to \(x\):
+        \[ u(x)v(x) = \int u'(x)v(x)\,dx + \int u(x)v'(x)\,dx. \]
+        Rearranging gives
+        \[ \int u(x)v'(x)\,dx = u(x)v(x) - \int v(x)u'(x)\,dx. \]
+        Since \(dv = v'(x)\,dx\) and \(du = u'(x)\,dx\), this is \(\int u\,dv = uv - \int v\,du\). \( \blacksquare \)
       </div>
 
-      <h3>2.2 Choosing u and dv (LIATE Rule)</h3>
+      <h3>2.2 Choosing \(u\): LIATE as a heuristic</h3>
       <div class="important-note">
-        <strong>LIATE Strategy for choosing u:</strong>
+        <strong>LIATE is a heuristic, not a theorem.</strong>
+        It is a memory aid for choosing \(u\), not a guarantee of success. It lists function types in an order that often makes \(du\) simpler:
         <ol>
-          <li><strong>L</strong>ogarithms: \(\ln x\)</li>
-          <li><strong>I</strong>nd inverse trig: \(\sin^{-1}x, \tan^{-1}x\)</li>
-          <li><strong>A</strong>lgebraic: \(x^n\)</li>
-          <li><strong>T</strong>rigonometric: \(\sin x, \cos x\)</li>
-          <li><strong>E</strong>xponential: \(e^x\)</li>
+          <li><strong>L</strong>ogarithmic: \(\ln x\), \(\log_a x\)</li>
+          <li><strong>I</strong>nverse trigonometric: \(\arcsin x\), \(\arctan x\)</li>
+          <li><strong>A</strong>lgebraic: \(x^n\), polynomials</li>
+          <li><strong>T</strong>rigonometric: \(\sin x\), \(\cos x\)</li>
+          <li><strong>E</strong>xponential: \(e^x\), \(a^x\)</li>
         </ol>
-        Choose \(u\) from the first applicable category.
+        Pick \(u\) from the earliest applicable category. But always check the two real requirements: \(dv\) must be something you can actually integrate, and \(\int v\,du\) must be simpler than the integral you started with. If LIATE produces a worse integral, override it.
       </div>
 
       <div class="example-box">
-        <strong>Example 2.1:</strong> Evaluate \(\int x e^x \, dx\).
-        <p>Choose: \(u = x\) (algebraic), \(dv = e^x \, dx\)</p>
-        <p>Then: \(du = dx\), \(v = e^x\)</p>
-        <p>Result: \(xe^x - \int e^x \, dx = xe^x - e^x + C = e^x(x-1) + C\)</p>
+        <strong>Example 2.1 (algebraic times exponential).</strong> Evaluate \(\int xe^x\,dx\).
+        <p>Choose \(u=x\) (algebraic) and \(dv=e^x\,dx\). Then \(du=dx\) and \(v=e^x\).</p>
+        \[ \int xe^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C = e^x(x-1) + C. \]
+        <p>Check: \(\frac{d}{dx}\big[e^x(x-1)\big] = e^x(x-1) + e^x = xe^x\).</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 2.2:</strong> Evaluate \(\int \ln x \, dx\).
-        <p>Write as \(\int 1 \cdot \ln x \, dx\)</p>
-        <p>Choose: \(u = \ln x\), \(dv = dx\)</p>
-        <p>Then: \(du = \frac{1}{x}dx\), \(v = x\)</p>
-        <p>Result: \(x\ln x - \int x \cdot \frac{1}{x} \, dx = x\ln x - x + C\)</p>
+        <strong>Example 2.2 (a logarithm alone).</strong> Evaluate \(\int \ln x\,dx\) for \(x \gt 0\).
+        <p>Write the integrand as a product: \(\int 1\cdot\ln x\,dx\). Take \(u=\ln x\), \(dv=dx\), so \(du=\frac{dx}{x}\) and \(v=x\).</p>
+        \[ \int \ln x\,dx = x\ln x - \int x\cdot\frac{dx}{x} = x\ln x - \int 1\,dx. \]
+        \[ = x\ln x - x + C. \]
       </div>
 
       <div class="example-box">
-        <strong>Example 2.3 (Repeated Parts):</strong> Evaluate \(\int x^2 e^x \, dx\).
-        <p>First: \(u = x^2\), \(dv = e^x \, dx\) → \(du = 2x \, dx\), \(v = e^x\)</p>
-        <p>= \(x^2 e^x - \int 2x e^x \, dx\)</p>
-        <p>For \(\int 2x e^x \, dx\): \(u = 2x\), \(dv = e^x \, dx\) → \(du = 2 \, dx\), \(v = e^x\)</p>
-        <p>= \(2x e^x - 2\int e^x \, dx = 2x e^x - 2e^x\)</p>
-        <p>Final result: \(x^2 e^x - 2x e^x + 2e^x + C = e^x(x^2 - 2x + 2) + C\)</p>
+        <strong>Example 2.3 (repeated integration by parts).</strong> Evaluate \(\int x^2e^x\,dx\).
+        <p>First round: \(u=x^2\), \(dv=e^x\,dx\), so \(du=2x\,dx\) and \(v=e^x\).</p>
+        \[ \int x^2e^x\,dx = x^2e^x - \int 2xe^x\,dx. \]
+        <p>Second round on \(\int 2xe^x\,dx\): take \(u=2x\), \(dv=e^x\,dx\), so \(du=2\,dx\) and \(v=e^x\).</p>
+        \[ \int 2xe^x\,dx = 2xe^x - \int 2e^x\,dx = 2xe^x - 2e^x. \]
+        <p>Substitute back:</p>
+        \[ \int x^2e^x\,dx = x^2e^x - 2xe^x + 2e^x + C = e^x(x^2-2x+2) + C. \]
       </div>
 
-      <h2>3. Integration by Parts for Definite Integrals</h2>
+      <h3>2.3 The looping case</h3>
+      <p>Some integrals return to themselves after two applications of parts. This is not a failure: collect the unknown integral on one side and solve for it. This happens for products of \(e^{ax}\) with \(\sin bx\) or \(\cos bx\).</p>
+
+      <div class="example-box">
+        <strong>Example 2.4 (the looping integral).</strong> Evaluate \(I=\int e^x\sin x\,dx\).
+        <p>First application: \(u=\sin x\), \(dv=e^x\,dx\), so \(du=\cos x\,dx\) and \(v=e^x\).</p>
+        \[ I = e^x\sin x - \int e^x\cos x\,dx. \]
+        <p>Let \(J=\int e^x\cos x\,dx\). Apply parts again with \(u=\cos x\), \(dv=e^x\,dx\), so \(du=-\sin x\,dx\) and \(v=e^x\).</p>
+        \[ J = e^x\cos x + \int e^x\sin x\,dx = e^x\cos x + I. \]
+        <p>Insert this expression for \(J\) into the first equation:</p>
+        \[ I = e^x\sin x - \big(e^x\cos x + I\big) = e^x\sin x - e^x\cos x - I. \]
+        \[ 2I = e^x\sin x - e^x\cos x. \]
+        \[ I = \frac{e^x(\sin x - \cos x)}{2} + C. \]
+        <p>Check by differentiation: the derivative of \(\frac{e^x(\sin x-\cos x)}{2}\) is \(\frac{e^x(\sin x-\cos x)+e^x(\cos x+\sin x)}{2}=e^x\sin x\).</p>
+      </div>
+
+      <h3>2.4 Tabular integration (a bookkeeping shortcut)</h3>
+      <p>When \(u\) is a polynomial and \(dv\) can be integrated repeatedly, the repeated applications of parts can be recorded in two columns. Differentiate the polynomial until it reaches \(0\); integrate the other factor the same number of times; then combine entries with alternating signs.</p>
+
+      <div class="example-box">
+        <strong>Example 2.5 (tabular integration).</strong> Evaluate \(\int x^3\cos x\,dx\).
+        <p>Differentiate \(x^3\): \(x^3,\;3x^2,\;6x,\;6,\;0\). Integrate \(\cos x\): \(\sin x,\;-\cos x,\;-\sin x,\;\cos x\). Multiply diagonally with alternating signs:</p>
+        \[ \int x^3\cos x\,dx = x^3\sin x + 3x^2\cos x - 6x\sin x - 6\cos x + C. \]
+        <p>Differentiating the right-hand side collapses the extra terms and leaves \(x^3\cos x\), confirming the result. Tabular integration is just repeated parts in compact notation; it applies only when the polynomial derivative terminates and the other factor keeps being integrable.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in integration by parts.</strong>
+        <ul>
+          <li>Treating \(u\cdot dv\) as an integrand to substitute; \(dv\) must already include the differential.</li>
+          <li>Forgetting a sign when \(v\) is negative, as with \(dv=\sin x\,dx\).</li>
+          <li>Applying LIATE blindly. Check that \(dv\) is integrable and that the new integral is simpler.</li>
+          <li>In the looping case, forgetting the \(+C\) or forgetting that the two occurrences of \(I\) are the same family.</li>
+          <li>Losing a minus sign when replacing \(du=-\sin x\,dx\).</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Quick check 2 (answers below).</strong>
+        <ol>
+          <li>Evaluate \(\int x e^{2x}\,dx\).</li>
+          <li>Evaluate \(\int \ln(x^2+1)\,dx\). Hint: start with \(u=\ln(x^2+1)\), \(dv=dx\).</li>
+          <li>Evaluate \(\int_0^1 x e^{-x}\,dx\).</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) \(\frac{e^{2x}(2x-1)}{4}+C\); (2) \(x\ln(x^2+1)-2x+2\arctan x+C\); (3) \(1-\frac{2}{e}\).</p>
+      </div>
+
+      <p><strong>Summary of Section 2.</strong> Integration by parts is the Product Rule in reverse: \(\int u\,dv = uv-\int v\,du\). It is effective when differentiating \(u\) simplifies the integrand and integrating \(dv\) is easy. LIATE is only a heuristic; the real test is whether the new integral is easier. Polynomial-times-exponential or polynomial-times-trigonometric products yield to repeated parts or tabular bookkeeping, while exponential-times-sine or cosine integrals loop and must be solved algebraically.</p>
+
+      <h2>3. Partial Fractions</h2>
+
+      <h3>3.1 Proper rational functions</h3>
+      <p>A rational function is a quotient \(\frac{P(x)}{Q(x)}\) of polynomials. Partial fractions reverses the familiar process of adding fractions: it splits one complicated rational function into a sum of simple pieces whose integrals are logarithms and inverse tangents. The method requires a <em>proper</em> rational function.</p>
+
+      <div class="theorem-box">
+        <strong>Definition 3.1 (Proper rational function).</strong>
+        The rational function \(\frac{P(x)}{Q(x)}\), with \(Q\) not identically zero, is proper when \(\deg P \lt \deg Q\). Every rational function can be written as
+        \[ \frac{P(x)}{Q(x)} = S(x) + \frac{R(x)}{Q(x)}, \]
+        where \(S\) is the polynomial quotient and \(\deg R \lt \deg Q\) is the remainder. Therefore, if \(\deg P \ge \deg Q\), perform polynomial long division <em>first</em>, integrate the polynomial \(S\), and apply partial fractions only to the proper remainder \(\frac{R}{Q}\).
+      </div>
+
+      <div class="theorem-box">
+        <strong>Theorem 3.2 (Partial fraction decomposition).</strong>
+        Let \(P\) and \(Q\) be polynomials with \(\deg P \lt \deg Q\), and suppose \(Q\) factors completely over the reals as a product of powers of distinct linear factors \((x-a_i)^{m_i}\) and irreducible quadratic factors \((x^2+b_jx+c_j)^{n_j}\), where each quadratic satisfies \(b_j^2-4c_j \lt 0\). Then \(\frac{P}{Q}\) is a sum of terms
+        \[ \frac{A_k}{(x-a_i)^k} \qquad\text{and}\qquad \frac{A_kx+B_k}{(x^2+b_jx+c_j)^k}, \]
+        with \(1\le k\le m_i\) for each linear factor and \(1\le k\le n_j\) for each quadratic factor. The coefficients are uniquely determined.
+      </div>
+
+      <h3>3.2 Distinct linear factors</h3>
+      <div class="theorem-box">
+        <strong>Theorem 3.3 (Distinct linear factors).</strong>
+        Let \(Q(x)=(x-a_1)(x-a_2)\cdots(x-a_n)\) with the \(a_i\) distinct, and let \(\deg P \lt n=\deg Q\). Then
+        \[ \frac{P(x)}{Q(x)} = \frac{A_1}{x-a_1} + \frac{A_2}{x-a_2} + \cdots + \frac{A_n}{x-a_n}, \]
+        and the covering-up trick gives \(A_i=\frac{P(a_i)}{Q'(a_i)}\).
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.1 (two distinct linear factors).</strong> Evaluate \(\int \frac{dx}{x^2-1}\).
+        <p>The function is proper since \(\deg 1=0 \lt 2=\deg(x^2-1)\). Factor the denominator: \(x^2-1=(x-1)(x+1)\).</p>
+        \[ \frac{1}{(x-1)(x+1)} = \frac{A}{x-1} + \frac{B}{x+1}. \]
+        <p>Clear denominators by multiplying by \((x-1)(x+1)\):</p>
+        \[ 1 = A(x+1) + B(x-1). \]
+        <p>Set \(x=1\): \(1=2A\), so \(A=\frac12\). Set \(x=-1\): \(1=-2B\), so \(B=-\frac12\).</p>
+        \[ \int \frac{dx}{x^2-1} = \int\left(\frac{1}{2(x-1)} - \frac{1}{2(x+1)}\right)dx. \]
+        \[ = \frac12\ln|x-1| - \frac12\ln|x+1| + C = \frac12\ln\left|\frac{x-1}{x+1}\right| + C. \]
+      </div>
+
+      <h3>3.3 Repeated linear factors</h3>
+      <div class="theorem-box">
+        <strong>Theorem 3.4 (Repeated linear factors).</strong>
+        Let \(Q(x)=(x-a)^n R(x)\) with \(R(a)\ne 0\), and let \(P\) satisfy \(\deg P \lt \deg Q\). Then
+        \[ \frac{P(x)}{Q(x)} = \frac{A_1}{x-a} + \frac{A_2}{(x-a)^2} + \cdots + \frac{A_n}{(x-a)^n} + \frac{P_1(x)}{R(x)}, \]
+        for a unique polynomial \(P_1\) with \(\deg P_1 \lt \deg R\). In the special case \(Q(x)=(x-a)^n\), the hypothesis becomes \(\deg P \lt n\) and the extra term \(P_1/R\) disappears:
+        \[ \frac{P(x)}{(x-a)^n} = \frac{A_1}{x-a} + \frac{A_2}{(x-a)^2} + \cdots + \frac{A_n}{(x-a)^n}. \]
+        Every power from \(1\) through \(n\) must appear, even when some coefficients turn out to be zero.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.2 (pure repeated root).</strong> Evaluate \(\int \frac{x}{(x-1)^2}\,dx\).
+        <p>Here \(n=2\) and \(\deg P=1 \lt 2\), so the theorem applies with two terms.</p>
+        \[ \frac{x}{(x-1)^2} = \frac{A}{x-1} + \frac{B}{(x-1)^2}. \]
+        <p>Multiply by \((x-1)^2\):</p>
+        \[ x = A(x-1) + B = Ax + (B-A). \]
+        <p>Match coefficients: \(A=1\) and \(B-A=0\), so \(B=1\). Equivalently, set \(x=1\) to get \(B=1\) immediately.</p>
+        \[ \int \frac{x}{(x-1)^2}\,dx = \int\left(\frac{1}{x-1} + \frac{1}{(x-1)^2}\right)dx. \]
+        \[ = \ln|x-1| - \frac{1}{x-1} + C. \]
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.3 (repeated root plus another factor).</strong> Evaluate \(\int \frac{x+1}{(x-1)^2(x+2)}\,dx\).
+        <p>The denominator has degree \(4\), the numerator degree \(1\), so the fraction is proper. Include both powers of \((x-1)\):</p>
+        \[ \frac{x+1}{(x-1)^2(x+2)} = \frac{A}{x-1} + \frac{B}{(x-1)^2} + \frac{C}{x+2}. \]
+        <p>Multiply through by \((x-1)^2(x+2)\):</p>
+        \[ x+1 = A(x-1)(x+2) + B(x+2) + C(x-1)^2. \]
+        <p>Set \(x=1\): \(2=3B\), so \(B=\frac23\). Set \(x=-2\): \(-1=9C\), so \(C=-\frac19\). Comparing \(x^2\) coefficients gives \(0=A+C\), hence \(A=\frac19\). A check at \(x=0\): \(1=-\frac29+\frac43-\frac19=1\).</p>
+        \[ \int \frac{x+1}{(x-1)^2(x+2)}\,dx = \frac19\ln|x-1| - \frac{2}{3(x-1)} - \frac19\ln|x+2| + C. \]
+      </div>
+
+      <h3>3.4 Irreducible quadratic factors</h3>
+      <p>A quadratic \(x^2+bx+c\) is irreducible over the reals exactly when \(b^2-4c \lt 0\); it never vanishes and cannot be factored into real linear terms. Each such factor contributes terms of the form \(\frac{Ax+B}{(x^2+bx+c)^k}\). The following procedure integrates them.</p>
+
       <div class="definition-box">
-        <strong>Formula 3.1:</strong>
-        $$\int_a^b u \, dv = [uv]_a^b - \int_a^b v \, du$$
+        <strong>Procedure for \(\frac{Ax+B}{x^2+bx+c}\), with \(b^2-4c \lt 0\).</strong>
+        <ol>
+          <li>Set \(\alpha^2 = c-\frac{b^2}{4} \gt 0\) and complete the square: \(x^2+bx+c=\left(x+\frac b2\right)^2+\alpha^2\).</li>
+          <li>Split the numerator to match the derivative \(2x+b\) of the denominator:
+            \[ Ax+B = \frac A2(2x+b) + \left(B-\frac{Ab}{2}\right). \]
+          </li>
+          <li>The first part integrates with \(u=x^2+bx+c\): \(\int \frac{\frac A2(2x+b)}{x^2+bx+c}\,dx = \frac A2\ln(x^2+bx+c)\).</li>
+          <li>The second part is a constant times \(\int \frac{dx}{(x+\frac b2)^2+\alpha^2}\), which uses the basic arctangent integral below.</li>
+        </ol>
+        <p>Higher powers \(k \gt 1\) are handled by completing the square and then using a trigonometric substitution or a reduction formula.</p>
+      </div>
+
+      <div class="theorem-box">
+        <strong>Theorem 3.5 (Basic arctangent integral).</strong>
+        For \(a \gt 0\),
+        \[ \int \frac{dx}{x^2+a^2} = \frac1a\arctan\left(\frac xa\right) + C. \]
+        <strong>Proof.</strong> With \(x=a\tan\theta\) and \(-\frac\pi2 \lt \theta \lt \frac\pi2\), we have \(dx=a\sec^2\theta\,d\theta\) and \(x^2+a^2=a^2\sec^2\theta\). Hence
+        \[ \int \frac{dx}{x^2+a^2} = \int \frac{a\sec^2\theta}{a^2\sec^2\theta}\,d\theta = \frac1a\theta + C. \]
+        Since \(\tan\theta = \frac xa\), we have \(\theta=\arctan\left(\frac xa\right)\), which proves the formula. \( \blacksquare \) For instance, \(\int \frac{dx}{x^2+4}=\frac12\arctan\left(\frac x2\right)+C\).
       </div>
 
       <div class="example-box">
-        <strong>Example 3.1:</strong> Evaluate \(\int_0^{\pi/2} x \sin x \, dx\).
-        <p>Choose: \(u = x\), \(dv = \sin x \, dx\) → \(du = dx\), \(v = -\cos x\)</p>
-        <p>Result: \([ -x \cos x ]_0^{\pi/2} - \int_0^{\pi/2} (-\cos x) \, dx\)</p>
-        <p>= \([ -x \cos x ]_0^{\pi/2} + \int_0^{\pi/2} \cos x \, dx\)</p>
-        <p>= \(0 - 0 + [\sin x]_0^{\pi/2} = 1\)</p>
+        <strong>Example 3.4 (general \(Ax+B\) numerator).</strong> Evaluate \(\int \frac{2x+1}{x^2+2x+5}\,dx\).
+        <p>First check irreducibility: \(b^2-4c = 4-20 = -16 \lt 0\). Complete the square: \(x^2+2x+5=(x+1)^2+4\). The derivative of the denominator is \(2x+2\), so split the numerator as \(2x+1=(2x+2)-1\):</p>
+        \[ \int \frac{2x+1}{x^2+2x+5}\,dx = \int \frac{2x+2}{x^2+2x+5}\,dx - \int \frac{dx}{(x+1)^2+4}. \]
+        <p>The first integral is \(\ln(x^2+2x+5)\). For the second, use \(w=x+1\) and Theorem 3.5 with \(a=2\):</p>
+        \[ \int \frac{dx}{(x+1)^2+4} = \frac12\arctan\left(\frac{x+1}{2}\right). \]
+        \[ \int \frac{2x+1}{x^2+2x+5}\,dx = \ln(x^2+2x+5) - \frac12\arctan\left(\frac{x+1}{2}\right) + C. \]
       </div>
 
-      <h2>4. Partial Fractions</h2>
-
-      <h3>4.1 Decomposition for Linear Factors</h3>
-      <div class="definition-box">
-        <strong>Theorem 4.1:</strong>
-        If \(Q(x)\) has distinct linear factors: \(Q(x) = (x-a_1)(x-a_2)\cdots(x-a_n)\)</p>
-        $$
-        \frac{P(x)}{Q(x)} = \frac{A_1}{x-a_1} + \frac{A_2}{x-a_2} + \cdots + \frac{A_n}{x-a_n}
-        $$
-        where \(A_i = \frac{P(a_i)}{Q'(a_i)}\).
-      </div>
-
-      <div class="example-box">
-        <strong>Example 4.1:</strong> Evaluate \(\int \frac{1}{x^2 - 1} \, dx\).
-        <p>Factor: \(x^2 - 1 = (x-1)(x+1)\)</p>
-        <p>Decompose: \(\frac{1}{(x-1)(x+1)} = \frac{A}{x-1} + \frac{B}{x+1}\)</p>
-        <p>Clear denominators: \(1 = A(x+1) + B(x-1)\)</p>
-        <p>At \(x = 1\): \(1 = 2A\) → \(A = \frac{1}{2}\)</p>
-        <p>At \(x = -1\): \(1 = -2B\) → \(B = -\frac{1}{2}\)</p>
-        <p>Result: \(\int \frac{1}{2(x-1)} - \frac{1}{2(x+1)} \, dx = \frac{1}{2}\ln|x-1| - \frac{1}{2}\ln|x+1| + C\)</p>
-        <p>= \(\frac{1}{2}\ln\left|\frac{x-1}{x+1}\right| + C\)</p>
-      </div>
-
-      <h3>4.2 Repeated Linear Factors</h3>
-      <div class="definition-box">
-        <strong>Theorem 4.2:</strong>
-        For factor \((x-a)^n\):
-        $$\frac{P(x)}{(x-a)^n} = \frac{A_1}{x-a} + \frac{A_2}{(x-a)^2} + \cdots + \frac{A_n}{(x-a)^n}$$
+      <div class="important-note">
+        <strong>Common mistakes in partial fractions.</strong>
+        <ul>
+          <li>Applying the decomposition when \(\deg P \ge \deg Q\). Divide first; the polynomial part cannot appear in a partial fraction sum.</li>
+          <li>Omitting a power in a repeated factor. For \((x-a)^3\), all of \((x-a)\), \((x-a)^2\), and \((x-a)^3\) are needed.</li>
+          <li>Using \(\frac{A}{x^2+bx+c}\) instead of \(\frac{Ax+B}{x^2+bx+c}\) for a quadratic factor.</li>
+          <li>Forgetting absolute values in logarithmic answers such as \(\ln|x-1|\).</li>
+          <li>Dropping the factor \(\frac1a\) in \(\int \frac{dx}{x^2+a^2}=\frac1a\arctan\left(\frac xa\right)+C\).</li>
+        </ul>
       </div>
 
       <div class="example-box">
-        <strong>Example 4.2:</strong> Evaluate \(\int \frac{x}{(x-1)^2} \, dx\).
-        <p>Decompose: \(\frac{x}{(x-1)^2} = \frac{A}{x-1} + \frac{B}{(x-1)^2}\)</p>
-        <p>Clear: \(x = A(x-1) + B\)</p>
-        <p>At \(x = 1\): \(1 = B\)</p>
-        <p>Coefficient of \(x\): \(1 = A\)</p>
-        <p>Result: \(\int \frac{1}{x-1} + \frac{1}{(x-1)^2} \, dx = \ln|x-1| - \frac{1}{x-1} + C\)</p>
+        <strong>Quick check 3 (answers below).</strong>
+        <ol>
+          <li>What should be done first with \(\int \frac{x^3}{x^2-1}\,dx\)?</li>
+          <li>Decompose \(\frac{5x+4}{(x+2)(x-1)}\).</li>
+          <li>Evaluate \(\int \frac{dx}{x^2+6x+10}\).</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) Long division first, giving \(x+\frac{x}{x^2-1}\); (2) \(\frac{2}{x+2}+\frac{3}{x-1}\); (3) \(\arctan(x+3)+C\), since \(x^2+6x+10=(x+3)^2+1\).</p>
       </div>
 
-      <h3>4.3 Irreducible Quadratic Factors</h3>
-      <div class="definition-box">
-        <strong>Theorem 4.3:</strong>
-        For irreducible quadratic \(x^2 + bx + c\):
-        $$\frac{Ax + B}{x^2 + bx + c}$$
-        Complete the square and use substitution.
-      </div>
+      <p><strong>Summary of Section 3.</strong> Partial fractions require \(\deg P \lt \deg Q\); otherwise divide first. Distinct linear factors give \(\frac{A}{x-a}\), repeated linear factors give one term for every power through \(n\), and irreducible quadratics (\(b^2-4c \lt 0\)) give terms \(\frac{Ax+B}{(x^2+bx+c)^k}\). Complete the square and use \(\int \frac{dx}{x^2+a^2}=\frac1a\arctan\left(\frac xa\right)+C\).</p>
 
-      <div class="example-box">
-        <strong>Example 4.3:</strong> Evaluate \(\int \frac{1}{x^2 + 4} \, dx\).
-        <p>Complete square: \(x^2 + 4 = x^2 + 2^2\)</p>
-        <p>Let \(x = 2\tan\theta\), \(dx = 2\sec^2\theta \, d\theta\)</p>
-        <p>Result: \(\int \frac{2\sec^2\theta}{4\sec^2\theta} \, d\theta = \frac{1}{2}\theta + C = \frac{1}{2}\tan^{-1}\left(\frac{x}{2}\right) + C\)</p>
-      </div>
+      <h2>4. Trigonometric Substitution</h2>
 
-      <h2>5. Summary Table of Integration Techniques</h2>
-      <table style="width: 100%; border-collapse: collapse; margin: 1.5rem 0;">
+      <h3>4.1 The idea</h3>
+      <p>Algebraic substitution cannot remove certain radicals, because the needed derivative factor is missing. Trigonometric substitution instead replaces \(x\) by a trigonometric function of a new angle \(\theta\), turning an expression such as \(x^2+a^2\) into a single squared trigonometric function via a Pythagorean identity. After integrating, a right triangle converts \(\theta\) back into \(x\).</p>
+
+      <table>
         <thead>
-          <tr style="background: var(--accent); color: white;">
-            <th style="padding: 0.75rem; text-align: left;">Integrand Form</th>
-            <th style="padding: 0.75rem; text-align: left;">Technique</th>
-          </tr>
+          <tr> <th>Radical in the integrand</th> <th>Substitution</th> <th>Identity used</th> <th>Simplified radical</th> </tr>
         </thead>
         <tbody>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(f(g(x))g'(x)\)</td>
-            <td style="padding: 0.5rem;">Substitution</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(u \cdot dv\)</td>
-            <td style="padding: 0.5rem;">Integration by Parts</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(\frac{P(x)}{Q(x)}\) with \(\deg P < \deg Q\)</td>
-            <td style="padding: 0.5rem;">Partial Fractions</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(x^n \cdot f(x)\)</td>
-            <td style="padding: 0.5rem;">Integration by Parts (LIATE)</td>
-          </tr>
-          <tr style="background: var(--off-white);">
-            <td style="padding: 0.5rem;">\(\frac{1}{x^2 + a^2}\)</td>
-            <td style="padding: 0.5rem;">Trigonometric Substitution</td>
-          </tr>
+          <tr> <td>\(\sqrt{a^2-x^2}\)</td> <td>\(x=a\sin\theta\)</td> <td>\(1-\sin^2\theta=\cos^2\theta\)</td> <td>\(a\cos\theta\)</td> </tr>
+          <tr> <td>\(\sqrt{x^2+a^2}\)</td> <td>\(x=a\tan\theta\)</td> <td>\(1+\tan^2\theta=\sec^2\theta\)</td> <td>\(a\sec\theta\)</td> </tr>
+          <tr> <td>\(\sqrt{x^2-a^2}\)</td> <td>\(x=a\sec\theta\)</td> <td>\(\sec^2\theta-1=\tan^2\theta\)</td> <td>\(a\tan\theta\)</td> </tr>
         </tbody>
       </table>
+
+      <h3>4.2 Deriving the \(x=a\tan\theta\) substitution</h3>
+      <p>Let \(a \gt 0\) and set \(x=a\tan\theta\) with \(-\frac\pi2 \lt \theta \lt \frac\pi2\). On this interval \(\sec\theta \gt 0\), which is essential when taking square roots. Then</p>
+      \[ dx = a\sec^2\theta\,d\theta, \]
+      \[ x^2+a^2 = a^2\tan^2\theta+a^2 = a^2(\tan^2\theta+1) = a^2\sec^2\theta, \]
+      \[ \sqrt{x^2+a^2} = a\sec\theta. \]
+      <p>The restriction on \(\theta\) guarantees that \(\tan\theta\) is one-to-one, so the substitution can be reversed, and that \(\sqrt{\sec^2\theta}=\sec\theta\) rather than \(-\sec\theta\).</p>
+
+      <div class="example-box">
+        <strong>Example 4.1 (a radical power).</strong> Evaluate \(\int \frac{dx}{(x^2+9)^{3/2}}\).
+        <p>Take \(a=3\), \(x=3\tan\theta\), \(dx=3\sec^2\theta\,d\theta\), and \((x^2+9)^{3/2}=(9\sec^2\theta)^{3/2}=27\sec^3\theta\).</p>
+        \[ \int \frac{dx}{(x^2+9)^{3/2}} = \int \frac{3\sec^2\theta}{27\sec^3\theta}\,d\theta = \frac19\int \cos\theta\,d\theta = \frac19\sin\theta+C. \]
+        <p><strong>Right-triangle back-substitution:</strong> from \(\tan\theta=\frac x3\), draw a right triangle with opposite leg \(x\), adjacent leg \(3\), and hypotenuse \(\sqrt{x^2+9}\). Therefore \(\sin\theta=\frac{x}{\sqrt{x^2+9}}\).</p>
+        \[ \int \frac{dx}{(x^2+9)^{3/2}} = \frac{x}{9\sqrt{x^2+9}} + C. \]
+      </div>
+
+      <h3>4.3 Sine and secant substitutions</h3>
+      <div class="example-box">
+        <strong>Example 4.2 (sine substitution).</strong> Evaluate \(\int \sqrt{4-x^2}\,dx\).
+        <p>Set \(x=2\sin\theta\) with \(-\frac\pi2\le\theta\le\frac\pi2\). Then \(dx=2\cos\theta\,d\theta\) and \(\sqrt{4-x^2}=\sqrt{4-4\sin^2\theta}=2\cos\theta\), since \(\cos\theta\ge0\) on this interval.</p>
+        \[ \int \sqrt{4-x^2}\,dx = \int (2\cos\theta)(2\cos\theta)\,d\theta = 4\int \cos^2\theta\,d\theta. \]
+        <p>Use the half-angle identity \(\cos^2\theta=\frac{1+\cos 2\theta}{2}\):</p>
+        \[ = 4\left(\frac{\theta}{2}+\frac{\sin 2\theta}{4}\right)+C = 2\theta + 2\sin\theta\cos\theta+C. \]
+        <p>From the triangle, \(\sin\theta=\frac x2\) and \(\cos\theta=\frac{\sqrt{4-x^2}}{2}\), while \(\theta=\arcsin\left(\frac x2\right)\). Thus</p>
+        \[ \int \sqrt{4-x^2}\,dx = 2\arcsin\left(\frac x2\right) + \frac{x\sqrt{4-x^2}}{2} + C. \]
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.3 (secant substitution).</strong> Evaluate \(\int \frac{dx}{\sqrt{x^2-25}}\) for \(x \gt 5\).
+        <p>Set \(x=5\sec\theta\) with \(0 \lt \theta \lt \frac\pi2\). Then \(dx=5\sec\theta\tan\theta\,d\theta\) and \(\sqrt{x^2-25}=5\tan\theta\).</p>
+        \[ \int \frac{dx}{\sqrt{x^2-25}} = \int \frac{5\sec\theta\tan\theta}{5\tan\theta}\,d\theta = \int \sec\theta\,d\theta. \]
+        \[ \int \sec\theta\,d\theta = \ln|\sec\theta+\tan\theta|+C. \]
+        <p>The triangle has hypotenuse \(x\), adjacent leg \(5\), and opposite leg \(\sqrt{x^2-25}\), so \(\sec\theta=\frac x5\) and \(\tan\theta=\frac{\sqrt{x^2-25}}{5}\).</p>
+        \[ = \ln\left|\frac{x+\sqrt{x^2-25}}{5}\right|+C = \ln\left|x+\sqrt{x^2-25}\right|+C, \]
+        <p>where the constant \(-\ln 5\) was absorbed into \(C\). The same formula holds for \(x \lt -5\) with the appropriate sign convention.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in trigonometric substitution.</strong>
+        <ul>
+          <li>Forgetting to substitute \(dx\); the factor \(a\sec^2\theta\), \(a\cos\theta\), or \(a\sec\theta\tan\theta\) is essential.</li>
+          <li>Ignoring the sign restriction on \(\theta\). For \(x=a\tan\theta\), the choice \(-\frac\pi2 \lt \theta \lt \frac\pi2\) ensures \(\sec\theta \gt 0\).</li>
+          <li>Forgetting to convert the final answer back from \(\theta\) to \(x\); a right triangle makes this mechanical.</li>
+          <li>Using \(x=a\tan\theta\) for \(\sqrt{a^2-x^2}\). Match the identity to the sign in the radical.</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Quick check 4 (answers below).</strong>
+        <ol>
+          <li>What substitution removes \(\sqrt{16-x^2}\)?</li>
+          <li>Evaluate \(\int \frac{dx}{(x^2+1)^{3/2}}\) using \(x=\tan\theta\).</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) \(x=4\sin\theta\); (2) \(\frac{x}{\sqrt{x^2+1}}+C\), from \(\int\cos\theta\,d\theta=\sin\theta+C\) and \(\sin\theta=\frac{x}{\sqrt{x^2+1}}\).</p>
+      </div>
+
+      <p><strong>Summary of Section 4.</strong> Trigonometric substitution turns square roots of quadratic expressions into single trigonometric functions. Use \(x=a\sin\theta\) for \(\sqrt{a^2-x^2}\), \(x=a\tan\theta\) for \(\sqrt{x^2+a^2}\), and \(x=a\sec\theta\) for \(\sqrt{x^2-a^2}\). Always state the angle range, substitute \(dx\), simplify with a Pythagorean identity, and return to \(x\) using a right triangle.</p>
+
+      <h2>5. Bonus: Reduction Formulas</h2>
+
+      <div class="formula-box">
+        <strong>Bonus: recurrence relations from integration by parts.</strong>
+        A reduction formula expresses an integral with a power \(n\) in terms of the same integral with a smaller power. Repeating it eventually reaches an elementary base case. These formulas are optional extensions of the parts technique.
+      </div>
+
+      <div class="example-box">
+        <strong>Derivation 1: \(I_n=\int x^n e^x\,dx\).</strong>
+        <p>Take \(u=x^n\), \(dv=e^x\,dx\), so \(du=nx^{n-1}\,dx\) and \(v=e^x\). Then</p>
+        \[ I_n = x^n e^x - n\int x^{n-1}e^x\,dx = x^n e^x - nI_{n-1}. \]
+        <p>With \(I_0=\int e^x\,dx=e^x+C\), repeated use gives \(\int x^2e^x\,dx = e^x(x^2-2x+2)+C\), matching Example 2.3.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Derivation 2: \(S_n=\int \sin^n x\,dx\), for \(n\ge2\).</strong>
+        <p>Write \(\sin^n x=\sin^{n-1}x\cdot\sin x\), take \(u=\sin^{n-1}x\) and \(dv=\sin x\,dx\), so \(du=(n-1)\sin^{n-2}x\cos x\,dx\) and \(v=-\cos x\):</p>
+        \[ S_n = -\sin^{n-1}x\cos x + (n-1)\int \sin^{n-2}x\cos^2x\,dx. \]
+        <p>Replace \(\cos^2x=1-\sin^2x\):</p>
+        \[ S_n = -\sin^{n-1}x\cos x + (n-1)S_{n-2} - (n-1)S_n. \]
+        \[ nS_n = -\sin^{n-1}x\cos x + (n-1)S_{n-2}. \]
+        \[ S_n = -\frac{\sin^{n-1}x\cos x}{n} + \frac{n-1}{n}S_{n-2}. \]
+        <p>For example, \(S_2=-\frac{\sin x\cos x}{2}+\frac{x}{2}+C\).</p>
+      </div>
+
+      <h2>6. Summary Table</h2>
+
+      <table>
+        <thead>
+          <tr> <th>Integrand structure</th> <th>Recommended technique</th> <th>Key condition or cue</th> </tr>
+        </thead>
+        <tbody>
+          <tr> <td>\(f(g(x))g'(x)\)</td> <td>Substitution</td> <td>The inner derivative appears up to a constant factor.</td> </tr>
+          <tr> <td>\(f(x)\,dx\) with \(f\) a product</td> <td>Integration by parts</td> <td>Choose \(u\) whose derivative simplifies; \(dv\) must be integrable. LIATE is only a heuristic.</td> </tr>
+          <tr> <td>\(x^n f(x)\) where \(f\) can be integrated repeatedly</td> <td>Repeated parts or tabular integration</td> <td>The polynomial derivative reaches \(0\); this fails if \(f\) is not repeatedly integrable.</td> </tr>
+          <tr> <td>\(e^{ax}\sin bx\) or \(e^{ax}\cos bx\)</td> <td>Integration by parts twice</td> <td>The integral loops; solve for it algebraically.</td> </tr>
+          <tr> <td>\(\frac{P(x)}{Q(x)}\) with \(\deg P \lt \deg Q\)</td> <td>Partial fractions</td> <td>If \(\deg P \ge \deg Q\), do polynomial long division first.</td> </tr>
+          <tr> <td>\(\frac{Ax+B}{(x^2+bx+c)^k}\) with \(b^2-4c \lt 0\)</td> <td>Complete the square and arctangent</td> <td>Use \(\int \frac{dx}{x^2+a^2}=\frac1a\arctan\left(\frac xa\right)+C\).</td> </tr>
+          <tr> <td>\(\sqrt{a^2-x^2}\), \(\sqrt{x^2+a^2}\), \(\sqrt{x^2-a^2}\)</td> <td>Trigonometric substitution</td> <td>Use \(x=a\sin\theta\), \(x=a\tan\theta\), \(x=a\sec\theta\), respectively.</td> </tr>
+        </tbody>
+      </table>
+
+      <h2>7. Practice Problems</h2>
+
+      <ol>
+        <li>Evaluate \(\int 3x^2(x^3+1)^5\,dx\).</li>
+        <li>Evaluate \(\int \frac{x}{x^2+4}\,dx\).</li>
+        <li>Evaluate \(\int_0^{\pi/2}\sin x\cos^2x\,dx\).</li>
+        <li>Evaluate \(\int xe^{2x}\,dx\).</li>
+        <li>Evaluate \(\int \arctan x\,dx\).</li>
+        <li>Evaluate \(\int x^2\sin x\,dx\).</li>
+        <li>Evaluate \(\int e^x\cos x\,dx\).</li>
+        <li>Evaluate \(\int \frac{2x+3}{(x-1)(x+2)}\,dx\).</li>
+        <li>Evaluate \(\int \frac{3x-1}{(x-2)^2}\,dx\).</li>
+        <li>Evaluate \(\int \frac{2x+1}{x^2+2x+5}\,dx\).</li>
+        <li>Evaluate \(\int \frac{dx}{x^2+2x+5}\).</li>
+        <li>Evaluate \(\int \frac{dx}{(x^2-4)^{3/2}}\) for \(x \gt 2\), using \(x=2\sec\theta\).</li>
+      </ol>
+
+      <div class="formula-box">
+        <strong>Answer key with essential steps.</strong>
+        <ol>
+          <li>Let \(u=x^3+1\), \(du=3x^2\,dx\): \(\frac{(x^3+1)^6}{6}+C\).</li>
+          <li>Let \(u=x^2+4\): \(\frac12\ln(x^2+4)+C\).</li>
+          <li>Let \(u=\cos x\): \(\int_1^0 -u^2\,du=\frac13\).</li>
+          <li>Parts with \(u=x\), \(dv=e^{2x}\,dx\): \(\frac{e^{2x}(2x-1)}{4}+C\).</li>
+          <li>Parts with \(u=\arctan x\), \(dv=dx\): \(x\arctan x-\frac12\ln(1+x^2)+C\).</li>
+          <li>Two rounds of parts: \(-x^2\cos x+2x\sin x+2\cos x+C\).</li>
+          <li>Looping parts: \(\frac{e^x(\sin x+\cos x)}{2}+C\).</li>
+          <li>Covering up gives \(\frac{5}{3(x-1)}+\frac{1}{3(x+2)}\), so \(\frac53\ln|x-1|+\frac13\ln|x+2|+C\).</li>
+          <li>Write \(3x-1=3(x-2)+5\): \(3\ln|x-2|-\frac{5}{x-2}+C\).</li>
+          <li>Split \(2x+1=(2x+2)-1\): \(\ln(x^2+2x+5)-\frac12\arctan\left(\frac{x+1}{2}\right)+C\).</li>
+          <li>Complete the square: \((x+1)^2+4\), so \(\frac12\arctan\left(\frac{x+1}{2}\right)+C\).</li>
+          <li>With \(x=2\sec\theta\), the integral becomes \(\frac14\int\frac{\cos\theta}{\sin^2\theta}\,d\theta=-\frac{1}{4\sin\theta}+C\), and \(\sin\theta=\frac{\sqrt{x^2-4}}{x}\), giving \(-\frac{x}{4\sqrt{x^2-4}}+C\).</li>
+        </ol>
+      </div>
     </div>
 
 <nav class="navigation" aria-label="Course navigation">
       <a href="lecture-notes-ftc-calc1.html">← FTC</a>
-      <a href="lecture-notes-midterm-review-calc1.html">Midterm Review →</a>
+      <a href="lecture-notes-applications-integration-calc1.html">Applications →</a>
     </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculus I Final Exam - limits, derivatives, integrals, and applications.">
+  <title>Calculus I Final Exam | Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="site-topbar">
+<header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <p class="site-title">Calculus I</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About me</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html">Teaching</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+  <main>
+    <div class="practice-header">
+      <h1>Calculus I Final Exam</h1>
+      <div class="subtitle">Calculus I &middot; 30 marks + 5 bonus</div>
+    </div>
+
+    <div class="practice-intro">
+      <p>This exam contains <strong>20 questions</strong>: <strong>Part A</strong> (10 multiple choice, 1 mark each) and <strong>Part B</strong> (10 written response, 2 marks each), followed by <strong>Part C</strong> (one bonus problem worth 5 marks).</p>
+      <p>Total: <strong>30 graded marks</strong> plus a <strong>5-mark bonus</strong> that is reported separately and does not change your percentage. Suggested time: 110 minutes. The problems range across the whole course, with an emphasis on ideas that connect derivatives and integrals. After submitting, you will see the correct choices, expected answer forms, and full worked solutions with alternative methods.</p>
+    </div>
+
+    <div class="test-results" id="test-results" hidden>
+      <h3>Exam Results</h3>
+      <p class="test-results__score">Your score: <span id="score-total">0</span> / 30</p>
+      <p>Multiple Choice: <span id="score-mc">0</span> / 10</p>
+      <p>Written Response: <span id="score-written">0</span> / 20</p>
+      <p class="test-results__percent">Percentage: <span id="score-percent">0</span>%</p>
+      <p>Bonus problem: <span id="score-bonus">0</span> / 5 (not included in the total)</p>
+    </div>
+
+    <section class="test-section">
+      <h2 class="test-title">Final Exam - Calculus I</h2>
+
+      <span class="part-label">Part A: Multiple Choice (1 mark each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Choose the best answer for each question. Each question has exactly one correct choice.</p>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">1.</div>
+        <p class="mc-question__text">Evaluate \(\displaystyle\lim_{n \to \infty}\sum_{i=1}^{n}\frac{i^3}{n^4}\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq1" value="A"> \(\frac14\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq1" value="B"> \(\frac13\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq1" value="C"> \(\frac12\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq1" value="D"> \(1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq1" value="E"> \(\infty\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">2.</div>
+        <p class="mc-question__text">Let \(\displaystyle g(x)=\int_{x^2}^{x^3}\sqrt{1+t^2}\,dt\). Find \(g'(x)\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq2" value="A"> \(3x^2\sqrt{1+x^6}-2x\sqrt{1+x^4}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq2" value="B"> \(2x\sqrt{1+x^4}-3x^2\sqrt{1+x^6}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq2" value="C"> \(3x^2\sqrt{1+x^4}-2x\sqrt{1+x^6}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq2" value="D"> \(\sqrt{1+x^6}-\sqrt{1+x^4}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq2" value="E"> \(3x^2\sqrt{1+x^6}+2x\sqrt{1+x^4}\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">3.</div>
+        <p class="mc-question__text">Evaluate \(\displaystyle\int \frac{x}{\sqrt{1-x^4}}\,dx\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq3" value="A"> \(\arcsin(x^2)+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq3" value="B"> \(\frac12\arcsin(x^2)+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq3" value="C"> \(\frac12\arcsin x+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq3" value="D"> \(-\frac12\sqrt{1-x^4}+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq3" value="E"> \(\frac12\arcsin(2x^2)+C\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">4.</div>
+        <p class="mc-question__text">Find the average value of \(f(x)=\sin x\) on \([0,\pi]\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq4" value="A"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq4" value="B"> \(\frac1\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq4" value="C"> \(\frac2\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq4" value="D"> \(\frac12\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq4" value="E"> \(2\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">5.</div>
+        <p class="mc-question__text">Find the area of the region enclosed by \(y=x^2\) and \(y=2-x^2\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq5" value="A"> \(\frac43\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq5" value="B"> \(2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq5" value="C"> \(\frac83\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq5" value="D"> \(4\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq5" value="E"> \(\frac{16}{3}\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">6.</div>
+        <p class="mc-question__text">The region under \(y=\frac1x\) from \(x=1\) to \(x=2\) is rotated about the \(y\)-axis. Find the volume.</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq6" value="A"> \(\ln 2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq6" value="B"> \(\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq6" value="C"> \(2\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq6" value="D"> \(2\pi\ln 2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq6" value="E"> \(\frac{\pi}{2}\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">7.</div>
+        <p class="mc-question__text">Find \(\displaystyle\frac{d}{dx}\int_0^{x^2}\cos(t^3)\,dt\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq7" value="A"> \(\cos(x^6)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq7" value="B"> \(2x\cos(x^6)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq7" value="C"> \(2x\cos(x^2)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq7" value="D"> \(x^2\cos(x^3)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq7" value="E"> \(0\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">8.</div>
+        <p class="mc-question__text">A force of \(F(x)=x^2+1\) newtons acts over \(0 \le x \le 2\) metres. Find the work done.</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq8" value="A"> \(\frac83\) J</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq8" value="B"> \(\frac{10}{3}\) J</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq8" value="C"> \(\frac{14}{3}\) J</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq8" value="D"> \(6\) J</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq8" value="E"> \(2\) J</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">9.</div>
+        <p class="mc-question__text">Evaluate \(\displaystyle\int \frac{dx}{x^2+4}\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq9" value="A"> \(\arctan(x/2)+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq9" value="B"> \(\frac12\arctan(x/2)+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq9" value="C"> \(\frac14\arctan(x/4)+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq9" value="D"> \(\arctan(x/4)+C\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq9" value="E"> \(\ln(x^2+4)+C\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">10.</div>
+        <p class="mc-question__text">If \(\int_0^2 f(x)\,dx=5\) and \(\int_0^3 f(x)\,dx=2\), find \(\int_2^3 f(x)\,dx\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="feq10" value="A"> \(-3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq10" value="B"> \(3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq10" value="C"> \(7\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq10" value="D"> \(2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="feq10" value="E"> \(5\)</label></li>
+        </ul>
+      </div>
+
+      <span class="part-label">Part B: Written Response (2 marks each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Show all of your work in the box provided. Exact answers are required.</p>
+
+      <div class="written-question" data-points="2" data-answers="1/2">
+        <div class="written-question__num">11.</div>
+        <p class="written-question__text">Evaluate \(\displaystyle\lim_{x \to 0}\frac{\tan x-\sin x}{x^3}\). Use only the standard trigonometric limits.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="2/pi">
+        <div class="written-question__num">12.</div>
+        <p class="written-question__text">Identify the definite integral represented by the limit, then evaluate it: \(\displaystyle\lim_{n \to \infty}\sum_{i=1}^{n}\frac{1}{n}\sin\!\left(\frac{i\pi}{n}\right)\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="2xe^(x^4)+sin(x)e^(cos(x)^2)~2xe^(x^4)+sin(x)e^(cos^2x)~2xe^(x^4)+sinxe^(cos^2x)">
+        <div class="written-question__num">13.</div>
+        <p class="written-question__text">Let \(\displaystyle y=\int_{\cos x}^{x^2} e^{t^2}\,dt\). Find \(\frac{dy}{dx}\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="x^2ln(x)/2-x^2/4~(x^2/2)lnx-x^2/4~1/2x^2lnx-1/4x^2~x^2(2lnx-1)/4~x^2lnx/2-x^2/4">
+        <div class="written-question__num">14.</div>
+        <p class="written-question__text">Evaluate \(\displaystyle\int x\ln x\,dx\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="1/2ln((x-1)/(x+1))~1/2ln(x-1)-1/2ln(x+1)~ln((x-1)/(x+1))/2">
+        <div class="written-question__num">15.</div>
+        <p class="written-question__text">Evaluate \(\displaystyle\int \frac{dx}{x^2-1}\) using partial fractions.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="1/3">
+        <div class="written-question__num">16.</div>
+        <p class="written-question__text">Evaluate \(\displaystyle\int_0^{\pi/2}\sin x\cos^2 x\,dx\) using a substitution with changed limits.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="2pi/15~2*pi/15">
+        <div class="written-question__num">17.</div>
+        <p class="written-question__text">The region between \(y=x\) and \(y=x^2\) for \(0 \le x \le 1\) is rotated about the \(x\)-axis. Find the volume.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="1/3">
+        <div class="written-question__num">18.</div>
+        <p class="written-question__text">Find the area of the region in the first quadrant bounded by \(y=x^2\) and \(x=y^2\). Use horizontal slices.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="4">
+        <div class="written-question__num">19.</div>
+        <p class="written-question__text">A particle has velocity \(v(t)=t^2-4t+3\) m/s. Find the total distance travelled during \(0 \le t \le 4\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="2/sqrt3~2sqrt3/3">
+        <div class="written-question__num">20.</div>
+        <p class="written-question__text">Find the number \(c \in [0,2]\) whose function value equals the average value of \(f(x)=x^2\) on \([0,2]\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <span class="part-label">Part C: Bonus Problem (5 marks, reported separately)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Challenge problem. It is graded, but its marks are not added to the 30-mark total.</p>
+
+      <div class="written-question bonus-question" data-points="5" data-answers="16/(9pi^2)~16/9pi^2~(4/(3pi))^2~16/(9*pi^2)">
+        <div class="written-question__num">21 (bonus).</div>
+        <p class="written-question__text">Let \(R_a\) be the region bounded by \(y=0\), \(y=\sqrt{x}\), and \(x=a\), where \(a \gt 0\). Find the unique \(a\) for which the area of \(R_a\) is numerically equal to the volume obtained by rotating \(R_a\) about the \(x\)-axis.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your answer..."></textarea>
+      </div>
+
+      <button type="button" class="submit-btn" id="submit-btn">Submit Exam</button>
+    </section>
+
+    <section class="practice-intro" id="solution-bank" hidden>
+      <h3>Worked Solutions</h3>
+      <p>Each solution includes a standard method and an alternative route where one is natural. A different but valid approach earns full credit; the grader accepts common equivalent forms and key intermediate results.</p>
+      <ol>
+        <li><strong>1.</strong> \(\sum_{i=1}^n\frac{i^3}{n^4}=\frac1n\sum_{i=1}^n\left(\frac{i}{n}\right)^3\to\int_0^1x^3\,dx=\frac14\). <em>Alternative:</em> use \(\sum i^3=\left(\frac{n(n+1)}{2}\right)^2\) and take the limit.</li>
+        <li><strong>2.</strong> By the Leibniz rule, \(g'(x)=3x^2\sqrt{1+(x^3)^2}-2x\sqrt{1+(x^2)^2}=3x^2\sqrt{1+x^6}-2x\sqrt{1+x^4}\). <em>Alternative:</em> write \(g=F(x^3)-F(x^2)\) with \(F'(t)=\sqrt{1+t^2}\).</li>
+        <li><strong>3.</strong> Let \(u=x^2\), \(du=2x\,dx\): \(\int\frac{x}{\sqrt{1-x^4}}dx=\frac12\int\frac{du}{\sqrt{1-u^2}}=\frac12\arcsin(x^2)+C\). <em>Alternative:</em> set \(x^2=\sin\theta\).</li>
+        <li><strong>4.</strong> Average value \(=\frac1\pi\int_0^\pi\sin x\,dx=\frac2\pi\). <em>Alternative:</em> the area under one hump of sine from \(0\) to \(\pi\) is \(2\).</li>
+        <li><strong>5.</strong> Intersections satisfy \(x^2=2-x^2\), so \(x=\pm1\). Area \(=\int_{-1}^1(2-2x^2)\,dx=\frac83\). <em>Alternative:</em> by symmetry, \(2\int_0^1(2-2x^2)dx=\frac83\).</li>
+        <li><strong>6.</strong> Shells: \(V=2\pi\int_1^2 x\cdot\frac1x\,dx=2\pi\). <em>Alternative (Pappus):</em> the area is \(\ln2\) and the centroid's \(x\)-coordinate is \(1/\ln2\), so \(V=2\pi(1)=2\pi\).</li>
+        <li><strong>7.</strong> With \(F(u)=\int_0^u\cos(s^3)\,ds\), the derivative is \(F'(x^2)\cdot2x=2x\cos((x^2)^3)=2x\cos(x^6)\).</li>
+        <li><strong>8.</strong> \(W=\int_0^2(x^2+1)\,dx=\left[\frac{x^3}{3}+x\right]_0^2=\frac83+2=\frac{14}{3}\) J.</li>
+        <li><strong>9.</strong> \(\int\frac{dx}{x^2+4}=\frac12\arctan\frac{x}{2}+C\). <em>Alternative:</em> use \(\int\frac{dx}{x^2+a^2}=\frac1a\arctan\frac{x}{a}\) with \(a=2\).</li>
+        <li><strong>10.</strong> \(\int_2^3f=\int_0^3f-\int_0^2f=2-5=-3\). The negative sign is possible because the interval is oriented left to right with a smaller accumulated integral at \(3\).</li>
+        <li><strong>11.</strong> \(\tan x-\sin x=\sin x\left(\frac1{\cos x}-1\right)=\sin x\frac{1-\cos x}{\cos x}\), so the limit is \(1\cdot\frac12\cdot1=\frac12\). <em>Alternative:</em> \(\tan x=x+\frac{x^3}{3}+\cdots\) and \(\sin x=x-\frac{x^3}{6}+\cdots\), difference \(\frac{x^3}{2}\).</li>
+        <li><strong>12.</strong> With \(\Delta x=\pi/n\), the sum is \(\frac1\pi\sum_{i=1}^n\sin(i\pi/n)\Delta x\to\frac1\pi\int_0^\pi\sin x\,dx=\frac2\pi\).</li>
+        <li><strong>13.</strong> \(y'=e^{(x^2)^2}(2x)-e^{\cos^2x}(-\sin x)=2xe^{x^4}+\sin x\,e^{\cos^2x}\). <em>Alternative:</em> let \(F(t)=\int_0^t e^{s^2}ds\) and write \(y=F(x^2)-F(\cos x)\).</li>
+        <li><strong>14.</strong> Integration by parts with \(u=\ln x\), \(dv=x\,dx\): \(\int x\ln x\,dx=\frac{x^2}{2}\ln x-\int\frac{x^2}{2}\cdot\frac1x\,dx=\frac{x^2}{2}\ln x-\frac{x^2}{4}+C\).</li>
+        <li><strong>15.</strong> \(\frac1{x^2-1}=\frac12\left(\frac1{x-1}-\frac1{x+1}\right)\), so the integral is \(\frac12\ln\left|\frac{x-1}{x+1}\right|+C\). <em>Alternative:</em> keep the separated form \(\frac12\ln|x-1|-\frac12\ln|x+1|+C\).</li>
+        <li><strong>16.</strong> Let \(u=\cos x\), \(du=-\sin x\,dx\); the limits \(x=0,\pi/2\) become \(u=1,0\). Thus \(\int_0^{\pi/2}\sin x\cos^2x\,dx=\int_0^1u^2\,du=\frac13\).</li>
+        <li><strong>17.</strong> Washers: \(V=\pi\int_0^1\left(x^2-(x^2)^2\right)dx=\pi\left(\frac13-\frac15\right)=\frac{2\pi}{15}\). <em>Alternative (shells):</em> \(2\pi\int_0^1 y(\sqrt y-y)\,dy=\frac{2\pi}{15}\).</li>
+        <li><strong>18.</strong> Horizontal slices run from \(x=y^2\) to \(x=\sqrt y\), so \(A=\int_0^1(\sqrt y-y^2)\,dy=\frac23-\frac13=\frac13\). <em>Alternative (vertical slices):</em> \(\int_0^1(\sqrt x-x^2)\,dx=\frac13\).</li>
+        <li><strong>19.</strong> Zeros of \(v\) occur at \(t=1,3\). Each of \([0,1],[1,3],[3,4]\) contributes \(4/3\) to distance, so total distance \(=4\). <em>Alternative:</em> integrate \(|t^2-4t+3|\) piecewise.</li>
+        <li><strong>20.</strong> Average value \(=\frac12\int_0^2x^2dx=\frac43\). Solve \(c^2=\frac43\) with \(c\in[0,2]\): \(c=\frac{2}{\sqrt3}=\frac{2\sqrt3}{3}\).</li>
+        <li><strong>21 (bonus).</strong> Area \(A(a)=\int_0^a\sqrt x\,dx=\frac23a^{3/2}\). Volume \(V(a)=\pi\int_0^a(\sqrt x)^2dx=\frac{\pi a^2}{2}\). Setting \(A=V\) and dividing by \(a^{3/2}\gt0\) gives \(\frac23=\frac{\pi}{2}\sqrt a\), hence \(\sqrt a=\frac{4}{3\pi}\) and \(a=\frac{16}{9\pi^2}\). <em>Alternative:</em> divide first by \(a\) and solve \(\frac23\sqrt a=\frac{\pi}{2}a\).</li>
+      </ol>
+    </section>
+
+    <div class="navigation no-print">
+      <a href="midterm-exam-calc1.html">← Midterm Exam</a>
+      <a href="calculus-1.html">Back to Course →</a>
+    </div>
+  </main>
+
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+
+  <script src="../script.js"></script>
+    <script src="../search-enhancer.js"></script>
+  <script>
+    (function () {
+      var submitBtn = document.getElementById('submit-btn');
+      var results = document.getElementById('test-results');
+      var MC_TOTAL = 10;
+      var WRITTEN_TOTAL = 20;
+      var GRAND_TOTAL = MC_TOTAL + WRITTEN_TOTAL;
+      var solutionItems = [];
+
+      function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function solutionHtml(number) {
+        var li = solutionItems[number - 1];
+        if (!li) { return ''; }
+        var clone = li.cloneNode(true);
+        var lead = clone.querySelector('strong');
+        var label = lead ? lead.textContent.trim() : '';
+        if (lead) { lead.remove(); }
+        return '<strong>Solution' + (label ? ' ' + label : '.') + '</strong> ' + clone.innerHTML;
+      }
+
+      function normalize(s) {
+        return String(s)
+          .toLowerCase()
+          .replace(/π/g, 'pi')
+          .replace(/√/g, 'sqrt')
+          .replace(/\\sqrt/g, 'sqrt')
+          .replace(/−/g, '-')
+          .replace(/\|/g, '').replace(/[()]/g, '').replace(/[=,]/g, '')
+          .replace(/²/g, '^2').replace(/³/g, '^3').replace(/⁴/g, '^4').replace(/⁵/g, '^5')
+          .replace(/⁰/g, '^0').replace(/¹/g, '^1').replace(/⁶/g, '^6').replace(/⁷/g, '^7').replace(/⁸/g, '^8').replace(/⁹/g, '^9')
+          .replace(/\s+/g, '');
+      }
+
+      function addReveal(q, html) {
+        var ca = document.createElement('div');
+        ca.className = 'correct-answer';
+        ca.innerHTML = html;
+        q.appendChild(ca);
+        return ca;
+      }
+
+      function gradeWritten(q, reveals, number) {
+        var points = parseInt(q.getAttribute('data-points') || '2', 10);
+        var groups = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
+        var ta = q.querySelector('.written-answer');
+        var normVal = normalize(ta ? ta.value : '');
+        var matchedGroups = 0;
+        groups.forEach(function (group) {
+          var alternatives = group.split('~').filter(Boolean);
+          var ok = alternatives.some(function (a) {
+            return normVal.indexOf(normalize(a)) !== -1;
+          });
+          if (ok) { matchedGroups++; }
+        });
+        var earned = groups.length ? Math.round(points * matchedGroups / groups.length) : 0;
+        var fb = document.createElement('div');
+        fb.className = 'question-feedback';
+        if (matchedGroups === groups.length) {
+          q.classList.add('is-correct');
+          fb.classList.add('correct');
+          fb.textContent = 'Correct! (+' + earned + ')';
+        } else if (matchedGroups === 0) {
+          q.classList.add('is-incorrect');
+          fb.classList.add('incorrect');
+          fb.textContent = 'Review needed.';
+        } else {
+          q.classList.add('is-partial');
+          fb.classList.add('partial');
+          fb.textContent = 'Partial (' + earned + '/' + points + ').';
+        }
+        q.appendChild(fb);
+        var primary = groups.length ? groups[0].split('~')[0] : '';
+        var sol = solutionHtml(number);
+        reveals.push(addReveal(q, '<strong>Expected form:</strong> ' + escapeHtml(primary) +
+          (sol ? '<br>' + sol : '')));
+        return earned;
+      }
+
+      function grade() {
+        document.querySelectorAll('.question-feedback').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.correct-answer').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.mc-question, .written-question').forEach(function (q) {
+          q.classList.remove('is-correct', 'is-incorrect', 'is-partial', 'is-unanswered');
+        });
+        var reveals = [];
+        solutionItems = document.querySelectorAll('#solution-bank li');
+
+        var mcMarks = 0;
+        document.querySelectorAll('.mc-question').forEach(function (q, index) {
+          var correct = q.getAttribute('data-correct');
+          var checked = q.querySelector('input[type="radio"]:checked');
+          var fb = document.createElement('div');
+          fb.className = 'question-feedback';
+          if (!checked) {
+            q.classList.add('is-unanswered');
+            fb.classList.add('unanswered');
+            fb.textContent = 'Not answered.';
+          } else if (checked.value === correct) {
+            mcMarks += 1;
+            q.classList.add('is-correct');
+            fb.classList.add('correct');
+            fb.textContent = 'Correct! (+1)';
+          } else {
+            q.classList.add('is-incorrect');
+            fb.classList.add('incorrect');
+            fb.textContent = 'Incorrect.';
+          }
+          q.appendChild(fb);
+          var correctText = '';
+          q.querySelectorAll('.mc-option').forEach(function (label) {
+            var input = label.querySelector('input[type="radio"]');
+            if (input && input.value === correct) { correctText = label.textContent.trim(); }
+          });
+          var sol = solutionHtml(index + 1);
+          reveals.push(addReveal(q, '<strong>Correct answer:</strong> ' + escapeHtml(correctText) +
+            (sol ? '<br>' + sol : '')));
+        });
+
+        var writtenMarks = 0;
+        document.querySelectorAll('.written-question:not(.bonus-question)').forEach(function (q, index) {
+          writtenMarks += gradeWritten(q, reveals, MC_TOTAL + index + 1);
+        });
+
+        var bonusMarks = 0;
+        document.querySelectorAll('.bonus-question').forEach(function (q, index) {
+          bonusMarks += gradeWritten(q, reveals, MC_TOTAL + WRITTEN_TOTAL + index + 1);
+        });
+
+        var total = mcMarks + writtenMarks;
+        document.getElementById('score-total').textContent = total;
+        document.getElementById('score-mc').textContent = mcMarks;
+        document.getElementById('score-written').textContent = writtenMarks;
+        document.getElementById('score-percent').textContent = Math.round(total / GRAND_TOTAL * 100);
+        var bonusScore = document.getElementById('score-bonus');
+        if (bonusScore) { bonusScore.textContent = bonusMarks; }
+
+        var bank = document.getElementById('solution-bank');
+        if (bank) { bank.hidden = false; reveals.push(bank); }
+        results.hidden = false;
+        results.scrollIntoView({ behavior: 'smooth' });
+        submitBtn.textContent = document.querySelector('.bonus-question') ? 'Regrade Exam' : 'Regrade Test';
+        if (window.MathJax && MathJax.typesetPromise && reveals.length) {
+          MathJax.typesetPromise(reveals);
+        }
+      }
+
+      if (submitBtn) { submitBtn.addEventListener('click', grade); }
+    })();
+  </script>
+</body>
+</html>

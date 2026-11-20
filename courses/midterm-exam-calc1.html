@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculus I Midterm Exam - limits, continuity, derivatives, and applications.">
+  <title>Calculus I Midterm Exam | Calculus I</title>
+  <link rel="stylesheet" href="../style.css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="site-topbar">
+<header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <p class="site-title">Calculus I</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About me</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html">Teaching</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+  <main>
+    <div class="practice-header">
+      <h1>Calculus I Midterm Exam</h1>
+      <div class="subtitle">Calculus I &middot; 30 marks + 5 bonus</div>
+    </div>
+
+    <div class="practice-intro">
+      <p>This exam contains <strong>20 questions</strong>: <strong>Part A</strong> (10 multiple choice, 1 mark each) and <strong>Part B</strong> (10 written response, 2 marks each), followed by <strong>Part C</strong> (one bonus problem worth 5 marks).</p>
+      <p>Total: <strong>30 graded marks</strong> plus a <strong>5-mark bonus</strong> that is reported separately and does not change your percentage. Suggested time: 75 minutes. The problems are deliberately challenging; every one can be solved with the techniques from the first half of Calculus I. After submitting, you will see the correct choices, expected answer forms, and full worked solutions with alternative methods.</p>
+    </div>
+
+    <div class="test-results" id="test-results" hidden>
+      <h3>Exam Results</h3>
+      <p class="test-results__score">Your score: <span id="score-total">0</span> / 30</p>
+      <p>Multiple Choice: <span id="score-mc">0</span> / 10</p>
+      <p>Written Response: <span id="score-written">0</span> / 20</p>
+      <p class="test-results__percent">Percentage: <span id="score-percent">0</span>%</p>
+      <p>Bonus problem: <span id="score-bonus">0</span> / 5 (not included in the total)</p>
+    </div>
+
+    <section class="test-section">
+      <h2 class="test-title">Midterm Exam - Calculus I</h2>
+
+      <span class="part-label">Part A: Multiple Choice (1 mark each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Choose the best answer for each question. Each question has exactly one correct choice.</p>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">1.</div>
+        <p class="mc-question__text">Evaluate \(\displaystyle\lim_{x \to 0} \frac{\sqrt{1+2x}-\sqrt{1-2x}}{\sin 3x}\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq1" value="A"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq1" value="B"> \(\frac13\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq1" value="C"> \(\frac23\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq1" value="D"> \(2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq1" value="E"> The limit does not exist</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">2.</div>
+        <p class="mc-question__text">Evaluate \(\displaystyle\lim_{x \to -\infty}\left(\sqrt{x^2-6x}+x\right)\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq2" value="A"> \(-3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq2" value="B"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq2" value="C"> \(3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq2" value="D"> \(6\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq2" value="E"> \(\infty\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">3.</div>
+        <p class="mc-question__text">Let \(f(x)=x\sin(1/x)\) for \(x \ne 0\) and \(f(0)=0\). Which statement is true?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq3" value="A"> \(f\) is neither continuous nor differentiable at \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq3" value="B"> \(f\) is continuous but not differentiable at \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq3" value="C"> \(f\) is differentiable at \(0\), and \(f'\) is continuous at \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq3" value="D"> \(f\) is differentiable at \(0\) with \(f'(0)=1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq3" value="E"> \(f\) is differentiable at \(0\) with \(f'(0)=0\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">4.</div>
+        <p class="mc-question__text">Evaluate \(\displaystyle\lim_{h \to 0}\frac{\ln(3+h)-\ln 3}{h}\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq4" value="A"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq4" value="B"> \(\frac13\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq4" value="C"> \(1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq4" value="D"> \(3\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq4" value="E"> \(\ln 3\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">5.</div>
+        <p class="mc-question__text">The curve \(x^3+y^3=9xy\) passes through \((2,4)\). Find \(\frac{dy}{dx}\) at that point.</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq5" value="A"> \(-\frac45\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq5" value="B"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq5" value="C"> \(\frac45\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq5" value="D"> \(\frac54\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq5" value="E"> \(2\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">6.</div>
+        <p class="mc-question__text">Let \(y=x^{\sin x}\). Find \(y'\) at \(x=\frac{\pi}{2}\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq6" value="A"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq6" value="B"> \(\frac12\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq6" value="C"> \(1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq6" value="D"> \(\frac{\pi}{2}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq6" value="E"> \(e\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">7.</div>
+        <p class="mc-question__text">A \(13\)-ft ladder leans against a wall. Its foot slides away from the wall at \(2\) ft/s. How fast is the top sliding down when the foot is \(5\) ft from the wall?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq7" value="A"> \(\frac{5}{12}\) ft/s</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq7" value="B"> \(\frac56\) ft/s</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq7" value="C"> \(\frac65\) ft/s</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq7" value="D"> \(\frac{12}{5}\) ft/s</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq7" value="E"> \(2\) ft/s</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">8.</div>
+        <p class="mc-question__text">The Mean Value Theorem applied to \(f(x)=\sin x\) on \([0,\pi]\) guarantees a \(c \in (0,\pi)\) with \(f'(c)=0\). One such \(c\) is</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq8" value="A"> \(0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq8" value="B"> \(\frac{\pi}{4}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq8" value="C"> \(\frac{\pi}{2}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq8" value="D"> \(\pi\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq8" value="E"> no such \(c\) exists</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">9.</div>
+        <p class="mc-question__text">A window is a rectangle of height \(h\) topped by a semicircle of radius \(r\) (so the rectangle has width \(2r\)). Its total perimeter is \(10\) m. Which \(r\) maximizes the area?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq9" value="A"> \(\frac{5}{4+\pi}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq9" value="B"> \(\frac{10}{2+\pi}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq9" value="C"> \(\frac{10}{4+\pi}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq9" value="D"> \(\frac{5}{\pi}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq9" value="E"> \(2\)</label></li>
+        </ul>
+      </div>
+
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">10.</div>
+        <p class="mc-question__text">Let \(f(x)=x^3+x\). Find \(\left(f^{-1}\right)'(2)\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="mtq10" value="A"> \(\frac14\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq10" value="B"> \(\frac13\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq10" value="C"> \(\frac12\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq10" value="D"> \(2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="mtq10" value="E"> \(4\)</label></li>
+        </ul>
+      </div>
+
+      <span class="part-label">Part B: Written Response (2 marks each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Show all of your work in the box provided. Exact answers are required.</p>
+
+      <div class="written-question" data-points="2" data-answers="9/4">
+        <div class="written-question__num">11.</div>
+        <p class="written-question__text">Evaluate \(\displaystyle\lim_{x \to 0}\frac{1-\cos(3x)}{x\sin(2x)}\). Use only the standard trigonometric limits.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="3/2|5/2">
+        <div class="written-question__num">12.</div>
+        <p class="written-question__text">Let \(f(x)=ax^2+b\) for \(x \lt 1\) and \(f(x)=3x+1\) for \(x \ge 1\). Find all \(a,b\) for which \(f\) is differentiable at \(x=1\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="-4/13~y=2-4(x-1)/13~y=2-4/13(x-1)~y=-4x/13+30/13">
+        <div class="written-question__num">13.</div>
+        <p class="written-question__text">The curve \(x^2y+y^3=10\) contains \((1,2)\). Find the equation of its tangent line at that point.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="e^(3x)(9x^2+12x+2)~9x^2e^(3x)+12xe^(3x)+2e^(3x)">
+        <div class="written-question__num">14.</div>
+        <p class="written-question__text">If \(f(x)=x^2e^{3x}\), find \(f''(x)\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="0|2">
+        <div class="written-question__num">15.</div>
+        <p class="written-question__text">Find the \(x\)-coordinates of all inflection points of \(f(x)=x^4-4x^3\). Justify the sign change of \(f''\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="2|128">
+        <div class="written-question__num">16.</div>
+        <p class="written-question__text">A \(12\) cm by \(12\) cm sheet of cardboard has equal squares of side \(x\) cut from its corners, and the flaps are folded up to make an open box. Find the cut size \(x\) that maximizes the volume and state that maximum volume.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="1/(2pi)~1/(2*pi)">
+        <div class="written-question__num">17.</div>
+        <p class="written-question__text">Water is poured into an inverted conical tank at \(2\) cm\(^3\)/s. The tank has height \(10\) cm and top radius \(5\) cm, so the water's radius is half its depth \(h\). How fast is the water level rising when \(h=4\) cm?</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="e-1">
+        <div class="written-question__num">18.</div>
+        <p class="written-question__text">Use the Mean Value Theorem to find the number \(c \in (1,e)\) for \(f(x)=\ln x\) on \([1,e]\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="-1/9">
+        <div class="written-question__num">19.</div>
+        <p class="written-question__text">Use the limit definition of the derivative to find \(f'(2)\) for \(f(x)=\frac{1}{x+1}\).</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <div class="written-question" data-points="2" data-answers="2.005~401/200">
+        <div class="written-question__num">20.</div>
+        <p class="written-question__text">Use a linear approximation based at \(x=8\) to estimate \(\sqrt[3]{8.06}\). Give an exact decimal.</p>
+        <textarea class="written-answer" rows="3" placeholder="Your answer..."></textarea>
+      </div>
+
+      <span class="part-label">Part C: Bonus Problem (5 marks, reported separately)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Challenge problem. It is graded, but its marks are not added to the 30-mark total.</p>
+
+      <div class="written-question bonus-question" data-points="5" data-answers="2f(x)|e^6">
+        <div class="written-question__num">21 (bonus).</div>
+        <p class="written-question__text">Suppose \(f\) is differentiable everywhere, \(f(0)=1\), \(f'(0)=2\), and \(f(x+y)=f(x)f(y)\) for all real \(x,y\).</p>
+        <p class="written-question__text">(a) Use the limit definition of the derivative to prove that \(f'(x)=2f(x)\). (b) If \(f(1)=e^2\), find \(f(3)\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your answer..."></textarea>
+      </div>
+
+      <button type="button" class="submit-btn" id="submit-btn">Submit Exam</button>
+    </section>
+
+    <section class="practice-intro" id="solution-bank" hidden>
+      <h3>Worked Solutions</h3>
+      <p>Each solution includes a standard method and an alternative route where one is natural. A different but valid approach earns full credit; the grader accepts common equivalent forms and key intermediate results.</p>
+      <ol>
+        <li><strong>1.</strong> Rationalize the numerator: \(\frac{\sqrt{1+2x}-\sqrt{1-2x}}{\sin3x}\cdot\frac{\sqrt{1+2x}+\sqrt{1-2x}}{\sqrt{1+2x}+\sqrt{1-2x}}=\frac{4x}{\sin3x(\sqrt{1+2x}+\sqrt{1-2x})}\to\frac{4}{3\cdot2}=\frac23\). <em>Alternative:</em> recognize the numerator's derivative at \(0\) as \(2\) and the denominator's as \(3\), giving \(2/3\).</li>
+        <li><strong>2.</strong> For \(x\to-\infty\), write \(x=-t\), \(t\to\infty\): \(\sqrt{t^2+6t}-t=\frac{6t}{\sqrt{t^2+6t}+t}\to3\). <em>Alternative:</em> rationalize directly and divide numerator and denominator by \(-x\), which is positive.</li>
+        <li><strong>3.</strong> \(|x\sin(1/x)|\le|x|\to0\), so \(f\) is continuous at \(0\). But \(\frac{f(h)-f(0)}{h}=\sin(1/h)\) has no limit, so \(f'(0)\) does not exist. <em>Alternative:</em> take \(h_n=1/(2\pi n)\) and \(k_n=1/((2n+\tfrac12)\pi)\) to get two different difference-quotient limits.</li>
+        <li><strong>4.</strong> This is the derivative of \(\ln x\) at \(x=3\): \(\frac1{3}\). <em>Alternative:</em> \(\ln(3+h)-\ln3=\ln(1+h/3)\sim h/3\).</li>
+        <li><strong>5.</strong> Differentiate implicitly: \(3x^2+3y^2y'=9y+9xy'\), so \(y'=\frac{9y-3x^2}{3y^2-9x}\). At \((2,4)\), \(y'=\frac{36-12}{48-18}=\frac{24}{30}=\frac45\).</li>
+        <li><strong>6.</strong> Logarithmic differentiation: \(\ln y=\sin x\ln x\), so \(y'/y=\cos x\ln x+\frac{\sin x}{x}\). At \(x=\pi/2\), \(y=\pi/2\) and \(y'=(\pi/2)\cdot(2/\pi)=1\). <em>Alternative:</em> write \(y=e^{\sin x\ln x}\) and apply the chain rule.</li>
+        <li><strong>7.</strong> \(x^2+y^2=169\), so \(2x x'+2y y'=0\). When \(x=5\), \(y=12\), hence \(y'=-\frac{x}{y}x'=-\frac5{12}\cdot2=-\frac56\) ft/s; the top moves down at \(5/6\) ft/s. <em>Alternative:</em> differentiate \(y=\sqrt{169-x^2}\) directly.</li>
+        <li><strong>8.</strong> The secant slope is \(\frac{0-0}{\pi}=0\), and \(f'(c)=\cos c=0\) gives \(c=\pi/2\). This is also the conclusion of Rolle's Theorem.</li>
+        <li><strong>9.</strong> Perimeter: \(2h+2r+\pi r=10\), so \(h=\frac{10-(2+\pi)r}{2}\). Area \(A=2rh+\frac{\pi r^2}{2}=10r-(2+\frac{\pi}{2})r^2\). Then \(A'=10-(4+\pi)r=0\), giving \(r=\frac{10}{4+\pi}\). <em>Alternative:</em> differentiate the area after substituting \(h\); this is the same one-variable reduction.</li>
+        <li><strong>10.</strong> Let \(a=f^{-1}(2)\). Then \(a^3+a=2\), so \(a=1\). Since \(f'(x)=3x^2+1\), \((f^{-1})'(2)=\frac{1}{f'(1)}=\frac14\). <em>Alternative:</em> differentiate \(x=y^3+y\) implicitly to get \(dx/dy=3y^2+1=4\).</li>
+        <li><strong>11.</strong> \(1-\cos(3x)=2\sin^2(3x/2)\), so the limit is \(\frac{2(3/2)^2}{2}=\frac94\). <em>Alternative:</em> use \(1-\cos u\sim u^2/2\) and \(\sin v\sim v\) as \(u,v\to0\).</li>
+        <li><strong>12.</strong> Continuity at \(1\): \(a+b=4\). Matching one-sided derivatives: \(2a=3\). Hence \(a=\frac32\), \(b=\frac52\).</li>
+        <li><strong>13.</strong> Differentiate: \(2xy+x^2y'+3y^2y'=0\), so \(y'=-\frac{2xy}{x^2+3y^2}\). At \((1,2)\), \(y'=-\frac4{13}\). Tangent: \(y-2=-\frac4{13}(x-1)\).</li>
+        <li><strong>14.</strong> \(f'=(3x^2+2x)e^{3x}\); differentiating again gives \(f''=(9x^2+12x+2)e^{3x}\). <em>Alternative:</em> use the Leibniz rule for the product \(x^2\cdot e^{3x}\).</li>
+        <li><strong>15.</strong> \(f'=4x^2(x-3)\) and \(f''=12x(x-2)\). The sign of \(f''\) is \(+,-,+\) on \((-\infty,0),(0,2),(2,\infty)\), so both \(x=0\) and \(x=2\) are inflection \(x\)-coordinates.</li>
+        <li><strong>16.</strong> \(V=x(12-2x)^2\), so \(V'=(12-2x)(12-6x)\). The valid critical point is \(x=2\), giving \(V=2\cdot8^2=128\) cm\(^3\).</li>
+        <li><strong>17.</strong> Similar triangles give \(r=h/2\), so \(V=\frac{\pi}{3}(h/2)^2h=\frac{\pi}{12}h^3\). Then \(\frac{dV}{dt}=\frac{\pi}{4}h^2\frac{dh}{dt}\). At \(h=4\), \(\frac{dh}{dt}=\frac{2}{4\pi}=\frac{1}{2\pi}\) cm/s. <em>Alternative:</em> differentiate \(V=\frac{\pi}{3}r^2h\) after substituting \(r=h/2\).</li>
+        <li><strong>18.</strong> The secant slope is \(\frac{\ln e-\ln1}{e-1}=\frac1{e-1}\). Since \(f'(c)=1/c\), \(c=e-1\).</li>
+        <li><strong>19.</strong> \(f'(2)=\lim_{h\to0}\frac{\frac1{3+h}-\frac13}{h}=\lim_{h\to0}\frac{-h}{3h(3+h)}=-\frac19\). <em>Alternative:</em> the derivative formula \(-1/(x+1)^2\) gives \(-1/9\) at \(x=2\).</li>
+        <li><strong>20.</strong> With \(f(x)=x^{1/3}\), \(f(8)=2\) and \(f'(8)=\frac{1}{3\cdot8^{2/3}}=\frac1{12}\). Thus \(\sqrt[3]{8.06}\approx2+\frac{0.06}{12}=2.005\).</li>
+        <li><strong>21 (bonus).</strong> \(f'(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}=f(x)\lim_{h\to0}\frac{f(h)-1}{h}=f(x)f'(0)=2f(x)\). Also \(f(3)=f(1+1+1)=f(1)^3=(e^2)^3=e^6\). <em>Alternative:</em> after proving \(f'=2f\), integration gives \(f(x)=e^{2x}\), and \(f(3)=e^6\).</li>
+      </ol>
+    </section>
+
+    <div class="navigation no-print">
+      <a href="practice-test-2-calc1.html">← Practice Test 2</a>
+      <a href="final-exam-calc1.html">Final Exam →</a>
+    </div>
+  </main>
+
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+
+  <script src="../script.js"></script>
+    <script src="../search-enhancer.js"></script>
+  <script>
+    (function () {
+      var submitBtn = document.getElementById('submit-btn');
+      var results = document.getElementById('test-results');
+      var MC_TOTAL = 10;
+      var WRITTEN_TOTAL = 20;
+      var GRAND_TOTAL = MC_TOTAL + WRITTEN_TOTAL;
+      var solutionItems = [];
+
+      function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function solutionHtml(number) {
+        var li = solutionItems[number - 1];
+        if (!li) { return ''; }
+        var clone = li.cloneNode(true);
+        var lead = clone.querySelector('strong');
+        var label = lead ? lead.textContent.trim() : '';
+        if (lead) { lead.remove(); }
+        return '<strong>Solution' + (label ? ' ' + label : '.') + '</strong> ' + clone.innerHTML;
+      }
+
+      function normalize(s) {
+        return String(s)
+          .toLowerCase()
+          .replace(/π/g, 'pi')
+          .replace(/√/g, 'sqrt')
+          .replace(/\\sqrt/g, 'sqrt')
+          .replace(/−/g, '-')
+          .replace(/\|/g, '').replace(/[()]/g, '').replace(/[=,]/g, '')
+          .replace(/²/g, '^2').replace(/³/g, '^3').replace(/⁴/g, '^4').replace(/⁵/g, '^5')
+          .replace(/⁰/g, '^0').replace(/¹/g, '^1').replace(/⁶/g, '^6').replace(/⁷/g, '^7').replace(/⁸/g, '^8').replace(/⁹/g, '^9')
+          .replace(/\s+/g, '');
+      }
+
+      function addReveal(q, html) {
+        var ca = document.createElement('div');
+        ca.className = 'correct-answer';
+        ca.innerHTML = html;
+        q.appendChild(ca);
+        return ca;
+      }
+
+      function gradeWritten(q, reveals, number) {
+        var points = parseInt(q.getAttribute('data-points') || '2', 10);
+        var groups = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
+        var ta = q.querySelector('.written-answer');
+        var normVal = normalize(ta ? ta.value : '');
+        var matchedGroups = 0;
+        groups.forEach(function (group) {
+          var alternatives = group.split('~').filter(Boolean);
+          var ok = alternatives.some(function (a) {
+            return normVal.indexOf(normalize(a)) !== -1;
+          });
+          if (ok) { matchedGroups++; }
+        });
+        var earned = groups.length ? Math.round(points * matchedGroups / groups.length) : 0;
+        var fb = document.createElement('div');
+        fb.className = 'question-feedback';
+        if (matchedGroups === groups.length) {
+          q.classList.add('is-correct');
+          fb.classList.add('correct');
+          fb.textContent = 'Correct! (+' + earned + ')';
+        } else if (matchedGroups === 0) {
+          q.classList.add('is-incorrect');
+          fb.classList.add('incorrect');
+          fb.textContent = 'Review needed.';
+        } else {
+          q.classList.add('is-partial');
+          fb.classList.add('partial');
+          fb.textContent = 'Partial (' + earned + '/' + points + ').';
+        }
+        q.appendChild(fb);
+        var primary = groups.length ? groups[0].split('~')[0] : '';
+        var sol = solutionHtml(number);
+        reveals.push(addReveal(q, '<strong>Expected form:</strong> ' + escapeHtml(primary) +
+          (sol ? '<br>' + sol : '')));
+        return earned;
+      }
+
+      function grade() {
+        document.querySelectorAll('.question-feedback').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.correct-answer').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.mc-question, .written-question').forEach(function (q) {
+          q.classList.remove('is-correct', 'is-incorrect', 'is-partial', 'is-unanswered');
+        });
+        var reveals = [];
+        solutionItems = document.querySelectorAll('#solution-bank li');
+
+        var mcMarks = 0;
+        document.querySelectorAll('.mc-question').forEach(function (q, index) {
+          var correct = q.getAttribute('data-correct');
+          var checked = q.querySelector('input[type="radio"]:checked');
+          var fb = document.createElement('div');
+          fb.className = 'question-feedback';
+          if (!checked) {
+            q.classList.add('is-unanswered');
+            fb.classList.add('unanswered');
+            fb.textContent = 'Not answered.';
+          } else if (checked.value === correct) {
+            mcMarks += 1;
+            q.classList.add('is-correct');
+            fb.classList.add('correct');
+            fb.textContent = 'Correct! (+1)';
+          } else {
+            q.classList.add('is-incorrect');
+            fb.classList.add('incorrect');
+            fb.textContent = 'Incorrect.';
+          }
+          q.appendChild(fb);
+          var correctText = '';
+          q.querySelectorAll('.mc-option').forEach(function (label) {
+            var input = label.querySelector('input[type="radio"]');
+            if (input && input.value === correct) { correctText = label.textContent.trim(); }
+          });
+          var sol = solutionHtml(index + 1);
+          reveals.push(addReveal(q, '<strong>Correct answer:</strong> ' + escapeHtml(correctText) +
+            (sol ? '<br>' + sol : '')));
+        });
+
+        var writtenMarks = 0;
+        document.querySelectorAll('.written-question:not(.bonus-question)').forEach(function (q, index) {
+          writtenMarks += gradeWritten(q, reveals, MC_TOTAL + index + 1);
+        });
+
+        var bonusMarks = 0;
+        document.querySelectorAll('.bonus-question').forEach(function (q, index) {
+          bonusMarks += gradeWritten(q, reveals, MC_TOTAL + WRITTEN_TOTAL + index + 1);
+        });
+
+        var total = mcMarks + writtenMarks;
+        document.getElementById('score-total').textContent = total;
+        document.getElementById('score-mc').textContent = mcMarks;
+        document.getElementById('score-written').textContent = writtenMarks;
+        document.getElementById('score-percent').textContent = Math.round(total / GRAND_TOTAL * 100);
+        var bonusScore = document.getElementById('score-bonus');
+        if (bonusScore) { bonusScore.textContent = bonusMarks; }
+
+        var bank = document.getElementById('solution-bank');
+        if (bank) { bank.hidden = false; reveals.push(bank); }
+        results.hidden = false;
+        results.scrollIntoView({ behavior: 'smooth' });
+        submitBtn.textContent = document.querySelector('.bonus-question') ? 'Regrade Exam' : 'Regrade Test';
+        if (window.MathJax && MathJax.typesetPromise && reveals.length) {
+          MathJax.typesetPromise(reveals);
+        }
+      }
+
+      if (submitBtn) { submitBtn.addEventListener('click', grade); }
+    })();
+  </script>
+</body>
+</html>

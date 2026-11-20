@@ -44,142 +44,351 @@
     </div>
 
     <div class="lecture-content">
-      <h2>1. Fundamental Trigonometric Derivatives</h2>
-      
-      <h3>1.1 Basic Formulas</h3>
-      <div class="definition-box">
-        <strong>Theorem 1.1:</strong>
-        The derivatives of the six trigonometric functions are:
+      <p><strong>Big picture.</strong> Trigonometric functions model periodic phenomena, and their derivatives follow from two geometric limit facts. Everything in this lecture is built from the single limit \(\lim_{h \to 0}\frac{\sin h}{h} = 1\), together with the chain, product, and quotient rules. We derive each formula, record its domain, and then apply the calculus to slopes, inverse functions, and angular rates.</p>
+
+      <div class="formula-box">
+        <p><strong>Road map and prerequisites.</strong></p>
         <ul>
-          <li>\(\frac{d}{dx}[\sin x] = \cos x\)</li>
-          <li>\(\frac{d}{dx}[\cos x] = -\sin x\)</li>
-          <li>\(\frac{d}{dx}[\tan x] = \sec^2 x\)</li>
-          <li>\(\frac{d}{dx}[\cot x] = -\csc^2 x\)</li>
-          <li>\(\frac{d}{dx}[\sec x] = \sec x \tan x\)</li>
-          <li>\(\frac{d}{dx}[\csc x] = -\csc x \cot x\)</li>
+          <li>Prerequisites: radian measure, the limit definition of the derivative, addition formulas, and the chain/product/quotient rules.</li>
+          <li>Two fundamental limits (radians only): \(\frac{\sin h}{h} \to 1\) and \(\frac{\cos h - 1}{h} \to 0\).</li>
+          <li>Derivatives of \(\sin x\) and \(\cos x\) from the definition; the other four by the quotient rule.</li>
+          <li>Inverse trig derivatives via implicit differentiation, with branch and \(|x|\) restrictions.</li>
         </ul>
       </div>
 
-      <h3>1.2 Proof of \(\frac{d}{dx}[\sin x] = \cos x\)</h3>
-      <div class="proof-box">
-        <strong>Proof using the Limit Definition:</strong>
-        We compute:
-        $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin(x+h) - \sin x}{h}$$
-        
-        Using the sine addition formula: \(\sin(x+h) = \sin x \cos h + \cos x \sin h\)
-        
-        $$\frac{d}{dx}[\sin x] = \lim_{h \to 0} \frac{\sin x \cos h + \cos x \sin h - \sin x}{h}$$
-        
-        $$= \lim_{h \to 0} \left[\sin x \cdot \frac{\cos h - 1}{h} + \cos x \cdot \frac{\sin h}{h}\right]$$
-        
-        Using the standard limits \(\lim_{h \to 0} \frac{\sin h}{h} = 1\) and \(\lim_{h \to 0} \frac{\cos h - 1}{h} = 0\):
-        
-        $$= \sin x \cdot 0 + \cos x \cdot 1 = \cos x$$
-        ∎
+      <h2>1. Radians and the Two Fundamental Limits</h2>
+
+      <h3>1.1 Why the angle must be in radians</h3>
+      <p>In a circle of radius \(r\), an angle of \(\theta\) <em>radians</em> subtends arc length \(s = r\theta\). On the unit circle this means the arc length equals the angle itself, which is exactly what makes the sector area \(\frac{1}{2}\theta\). This geometric coincidence is the source of the clean limit \(\frac{\sin h}{h} \to 1\). If \(h\) were measured in degrees, the same physical angle would be \(\frac{\pi h}{180}\) radians, and the limit of \(\frac{\sin h}{h}\) would be \(\frac{\pi}{180}\), not \(1\). Therefore:</p>
+
+      <div class="important-note">
+        <strong>Both limits require radians.</strong>
+        <p>The statements \(\lim_{h \to 0}\frac{\sin h}{h} = 1\) and \(\lim_{h \to 0}\frac{\cos h - 1}{h} = 0\) are true only when \(h\) is measured in radians. All differentiation formulas below also assume radian measure; with degrees, an extra factor \(\frac{\pi}{180}\) would appear.</p>
       </div>
 
-      <h3>1.3 Proof of \(\frac{d}{dx}[\cos x] = -\sin x\)</h3>
+      <h3>1.2 Geometric squeeze proof of \(\frac{\sin h}{h} \to 1\)</h3>
       <div class="proof-box">
-        <strong>Proof using the Limit Definition:</strong>
-        $$\frac{d}{dx}[\cos x] = \lim_{h \to 0} \frac{\cos(x+h) - \cos x}{h}$$
-        
-        Using the cosine addition formula: \(\cos(x+h) = \cos x \cos h - \sin x \sin h\)
-        
-        $$= \lim_{h \to 0} \frac{\cos x \cos h - \sin x \sin h - \cos x}{h}$$
-        
-        $$= \lim_{h \to 0} \left[\cos x \cdot \frac{\cos h - 1}{h} - \sin x \cdot \frac{\sin h}{h}\right]$$
-        
-        $$= \cos x \cdot 0 - \sin x \cdot 1 = -\sin x$$
-        ∎
+        <strong>Proof (unit circle, \(0 \lt h \lt \frac{\pi}{2}\)).</strong>
+        <p>On the unit circle, compare three areas determined by a central angle \(h\): the inscribed triangle has area \(\frac{1}{2}\sin h\), the circular sector has area \(\frac{1}{2}h\) (this uses radians), and the circumscribed tangent triangle has area \(\frac{1}{2}\tan h\). From the picture these areas are ordered, so</p>
+        \[\frac{1}{2}\sin h \lt \frac{1}{2}h \lt \frac{1}{2}\tan h.\]
+        <p>Multiplying by \(2\) and dividing by \(\sin h \gt 0\) gives</p>
+        \[1 \lt \frac{h}{\sin h} \lt \frac{1}{\cos h}.\]
+        <p>Taking reciprocals reverses the inequalities:</p>
+        \[\cos h \lt \frac{\sin h}{h} \lt 1.\]
+        <p>As \(h \to 0^{+}\), \(\cos h \to 1\), so the squeeze theorem yields \(\lim_{h \to 0^{+}}\frac{\sin h}{h} = 1\). For \(h \lt 0\), write \(t = -h \gt 0\) and use \(\sin(-t) = -\sin t\), so \(\frac{\sin h}{h} = \frac{\sin t}{t}\); the quotient is an even function. Hence the two-sided limit is \(1\). ∎</p>
       </div>
 
-      <h3>1.4 Proof of \(\frac{d}{dx}[\tan x] = \sec^2 x\)</h3>
+      <h3>1.3 Deriving the cosine limit</h3>
       <div class="proof-box">
-        <strong>Proof using Quotient Rule:</strong>
-        Since \(\tan x = \frac{\sin x}{\cos x}\), we apply the quotient rule:
-        
-        $$\frac{d}{dx}\left[\frac{\sin x}{\cos x}\right] = \frac{\cos x \cdot \cos x - \sin x \cdot (-\sin x)}{\cos^2 x}$$
-        
-        $$= \frac{\cos^2 x + \sin^2 x}{\cos^2 x} = \frac{1}{\cos^2 x} = \sec^2 x$$
-        ∎
+        <strong>Proof.</strong>
+        <p>Use the half-angle identity \(\cos h - 1 = -2\sin^{2}\!\left(\frac{h}{2}\right)\). Then, for \(h \ne 0\),</p>
+        \[\frac{\cos h - 1}{h} = \frac{-2\sin^{2}\!\left(\frac{h}{2}\right)}{h} = -\sin\!\left(\frac{h}{2}\right)\cdot \frac{\sin\!\left(\frac{h}{2}\right)}{\frac{h}{2}}.\]
+        <p>As \(h \to 0\), the first factor tends to \(0\) and the second tends to \(1\) by the sine limit (again in radians). Therefore \(\lim_{h \to 0}\frac{\cos h - 1}{h} = 0\). ∎</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.1 &mdash; Using the limits directly.</strong>
+        <p>Evaluate \(\lim_{x \to 0}\frac{\sin(3x)}{x}\) and \(\lim_{x \to 0}\frac{1-\cos x}{x^{2}}\).</p>
+        <p><strong>Step 1:</strong> for the first limit, multiply and divide by \(3\): \(\frac{\sin(3x)}{x} = 3\cdot \frac{\sin(3x)}{3x} \to 3\cdot 1 = 3\).</p>
+        <p><strong>Step 2:</strong> for the second, use \(1-\cos x = 2\sin^{2}\!\left(\frac{x}{2}\right)\):</p>
+        \[\frac{1-\cos x}{x^{2}} = \frac{2\sin^{2}\!\left(\frac{x}{2}\right)}{x^{2}} = \frac{1}{2}\left(\frac{\sin\!\left(\frac{x}{2}\right)}{\frac{x}{2}}\right)^{2} \to \frac{1}{2}.\]
+        <p><strong>Interpretation:</strong> near \(0\), \(\sin(3x) \approx 3x\) and \(1-\cos x \approx \frac{x^{2}}{2}\), useful approximations for later work.</p>
+      </div>
+
+      <p><strong>Section 1 summary.</strong> Radians make arc length equal the angle on the unit circle, which yields \(\frac{\sin h}{h} \to 1\) by a squeeze argument; the cosine limit follows from the half-angle identity.</p>
+
+      <h2>2. Derivatives of Sine and Cosine</h2>
+
+      <h3>2.1 The derivative of \(\sin x\)</h3>
+      <div class="proof-box">
+        <strong>Proof from the definition.</strong>
+        <p>Using \(\sin(x+h) = \sin x\cos h + \cos x\sin h\),</p>
+        \[\frac{d}{dx}\sin x = \lim_{h \to 0}\frac{\sin(x+h)-\sin x}{h} = \lim_{h \to 0}\frac{\sin x\cos h + \cos x\sin h - \sin x}{h}.\]
+        <p>Group the terms:</p>
+        \[= \lim_{h \to 0}\left[\sin x\cdot \frac{\cos h - 1}{h} + \cos x\cdot \frac{\sin h}{h}\right] = \sin x\cdot 0 + \cos x\cdot 1 = \cos x.\]
+        <p>The two fundamental limits were used, so radians are essential. ∎</p>
+      </div>
+
+      <h3>2.2 The derivative of \(\cos x\)</h3>
+      <div class="proof-box">
+        <strong>Proof from the definition.</strong>
+        <p>Using \(\cos(x+h) = \cos x\cos h - \sin x\sin h\),</p>
+        \[\frac{d}{dx}\cos x = \lim_{h \to 0}\frac{\cos x\cos h - \sin x\sin h - \cos x}{h}\]
+        \[= \lim_{h \to 0}\left[\cos x\cdot \frac{\cos h - 1}{h} - \sin x\cdot \frac{\sin h}{h}\right] = \cos x\cdot 0 - \sin x\cdot 1 = -\sin x.\]
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1 &mdash; Chain rule with sine.</strong>
+        <p>Find \(\frac{d}{dx}\sin(x^{2})\).</p>
+        <p><strong>Step 1:</strong> outside \(\sin u\), inside \(u = x^{2}\).</p>
+        <p><strong>Step 2:</strong> outer derivative \(\cos u = \cos(x^{2})\); inner derivative \(2x\).</p>
+        <p><strong>Step 3:</strong> \(\frac{d}{dx}\sin(x^{2}) = 2x\cos(x^{2})\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2 &mdash; Product rule with cosine.</strong>
+        <p>Find \(\frac{d}{dx}\left[x^{2}\cos x\right]\).</p>
+        <p><strong>Step 1:</strong> \(u = x^{2}\), \(v = \cos x\), with \(u' = 2x\), \(v' = -\sin x\).</p>
+        <p><strong>Step 2:</strong> \(u'v + uv' = 2x\cos x + x^{2}(-\sin x) = 2x\cos x - x^{2}\sin x\).</p>
+      </div>
+
+      <p><strong>Section 2 summary.</strong> The definition plus the two limits gives \((\sin x)' = \cos x\) and \((\cos x)' = -\sin x\); composition and multiplication extend these to more complicated expressions.</p>
+
+      <h2>3. The Remaining Four Derivatives (Quotient Rule)</h2>
+
+      <h3>3.1 Tangent</h3>
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        <p>Write \(\tan x = \frac{\sin x}{\cos x}\), defined only where \(\cos x \ne 0\), that is \(x \ne \frac{\pi}{2} + k\pi\) for integers \(k\). The quotient rule gives</p>
+        \[\frac{d}{dx}\tan x = \frac{\cos x\cdot \cos x - \sin x\cdot (-\sin x)}{\cos^{2}x} = \frac{\cos^{2}x + \sin^{2}x}{\cos^{2}x} = \frac{1}{\cos^{2}x} = \sec^{2}x.\]
+        <p>Note \(\sec^{2}x \gt 0\) wherever \(\tan x\) is defined, so tangent is increasing on each branch. ∎</p>
+      </div>
+
+      <h3>3.2 Cotangent</h3>
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        <p>Write \(\cot x = \frac{\cos x}{\sin x}\), defined where \(\sin x \ne 0\), that is \(x \ne k\pi\). Then</p>
+        \[\frac{d}{dx}\cot x = \frac{(-\sin x)\sin x - \cos x\cdot \cos x}{\sin^{2}x} = -\frac{\sin^{2}x+\cos^{2}x}{\sin^{2}x} = -\csc^{2}x.\]
+        <p>Since \(-\csc^{2}x \lt 0\), cotangent is decreasing on each branch. ∎</p>
+      </div>
+
+      <h3>3.3 Secant</h3>
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        <p>Write \(\sec x = \frac{1}{\cos x}\), defined where \(x \ne \frac{\pi}{2} + k\pi\). Differentiating the quotient \(1/\cos x\),</p>
+        \[\frac{d}{dx}\sec x = \frac{0\cdot \cos x - 1\cdot (-\sin x)}{\cos^{2}x} = \frac{\sin x}{\cos^{2}x} = \frac{1}{\cos x}\cdot \frac{\sin x}{\cos x} = \sec x\tan x.\]
+      </div>
+
+      <h3>3.4 Cosecant</h3>
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        <p>Write \(\csc x = \frac{1}{\sin x}\), defined where \(x \ne k\pi\). Then</p>
+        \[\frac{d}{dx}\csc x = \frac{0\cdot \sin x - 1\cdot \cos x}{\sin^{2}x} = -\frac{\cos x}{\sin^{2}x} = -\csc x\cot x.\]
       </div>
 
       <div class="formula-box">
-        \(\frac{d}{dx}[\sin x] = \cos x\)<br>
-        \(\frac{d}{dx}[\cos x] = -\sin x\)<br>
-        \(\frac{d}{dx}[\tan x] = \sec^2 x\)<br>
-        \(\frac{d}{dx}[\cot x] = -\csc^2 x\)<br>
-        \(\frac{d}{dx}[\sec x] = \sec x \tan x\)<br>
-        \(\frac{d}{dx}[\csc x] = -\csc x \cot x\)
-      </div>
-
-      <h2>2. Differentiation Techniques with Trig Functions</h2>
-
-      <h3>2.1 Combined Differentiation Rules</h3>
-      <div class="example-box">
-        <strong>Example 2.1:</strong> Find \(\frac{d}{dx}[x^2 \sin x]\)
-        <p>Using the product rule: \(\frac{d}{dx}[uv] = u'v + uv'\)</p>
-        <p>Let \(u = x^2\) and \(v = \sin x\). Then \(u' = 2x\) and \(v' = \cos x\).</p>
-        <p>Result: \(\frac{d}{dx}[x^2 \sin x] = 2x \sin x + x^2 \cos x\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.2:</strong> Find \(\frac{d}{dx}[\sin^2(x)]\)
-        <p>Using the chain rule with \(f(u) = u^2\) and \(u = \sin x\):</p>
-        <p>\(\frac{d}{dx}[\sin^2 x] = 2\sin x \cdot \cos x = \sin(2x)\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.3:</strong> Find \(\frac{d}{dx}[\frac{\cos x}{x}]\)
-        <p>Using the quotient rule:</p>
-        <p>\(\frac{d}{dx}\left[\frac{\cos x}{x}\right] = \frac{x(-\sin x) - \cos x \cdot 1}{x^2} = \frac{-x\sin x - \cos x}{x^2}\)</p>
-      </div>
-
-      <h3>2.2 Trigonometric Equations</h3>
-      <div class="example-box">
-        <strong>Example 2.4:</strong> Find critical points of \(f(x) = \sin x + \cos x\) on \([0, 2\pi]\)
-        <p>Set \(f'(x) = 0\): \(\cos x - \sin x = 0\)</p>
-        <p>So \(\cos x = \sin x\), which gives \(\tan x = 1\).</p>
-        <p>Critical points: \(x = \frac{\pi}{4}, \frac{5\pi}{4}\)</p>
-      </div>
-
-      <h2>3. Inverse Trigonometric Functions</h2>
-
-      <h3>3.1 Derivatives of Inverse Trig Functions</h3>
-      <div class="theorem-box">
-        <strong>Theorem 3.1:</strong>
+        <p><strong>The six trigonometric derivatives (radians).</strong></p>
         <ul>
-          <li>\(\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}}\) for \(|x| < 1\)</li>
-          <li>\(\frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}}\) for \(|x| < 1\)</li>
-          <li>\(\frac{d}{dx}[\arctan x] = \frac{1}{1+x^2}\)</li>
-          <li>\(\frac{d}{dx}[\operatorname{arccot} x] = -\frac{1}{1+x^2}\)</li>
-          <li>\(\frac{d}{dx}[\operatorname{arcsec} x] = \frac{1}{|x|\sqrt{x^2-1}}\) for \(|x| > 1\)</li>
-          <li>\(\frac{d}{dx}[\operatorname{arccsc} x] = -\frac{1}{|x|\sqrt{x^2-1}}\) for \(|x| > 1\)</li>
+          <li>\(\frac{d}{dx}\sin x = \cos x\), all \(x\).</li>
+          <li>\(\frac{d}{dx}\cos x = -\sin x\), all \(x\).</li>
+          <li>\(\frac{d}{dx}\tan x = \sec^{2}x\), \(x \ne \frac{\pi}{2}+k\pi\).</li>
+          <li>\(\frac{d}{dx}\cot x = -\csc^{2}x\), \(x \ne k\pi\).</li>
+          <li>\(\frac{d}{dx}\sec x = \sec x\tan x\), \(x \ne \frac{\pi}{2}+k\pi\).</li>
+          <li>\(\frac{d}{dx}\csc x = -\csc x\cot x\), \(x \ne k\pi\).</li>
+        </ul>
+      </div>
+
+      <h3>3.5 Domain and sign table</h3>
+      <table>
+        <tr><th>Function</th><th>Domain</th><th>Derivative</th><th>Sign of derivative</th></tr>
+        <tr><td>\(\sin x\)</td><td>all real \(x\)</td><td>\(\cos x\)</td><td>positive where \(\cos x \gt 0\), negative where \(\cos x \lt 0\)</td></tr>
+        <tr><td>\(\cos x\)</td><td>all real \(x\)</td><td>\(-\sin x\)</td><td>positive where \(\sin x \lt 0\), negative where \(\sin x \gt 0\)</td></tr>
+        <tr><td>\(\tan x\)</td><td>\(x \ne \frac{\pi}{2}+k\pi\)</td><td>\(\sec^{2}x\)</td><td>always positive</td></tr>
+        <tr><td>\(\cot x\)</td><td>\(x \ne k\pi\)</td><td>\(-\csc^{2}x\)</td><td>always negative</td></tr>
+        <tr><td>\(\sec x\)</td><td>\(x \ne \frac{\pi}{2}+k\pi\)</td><td>\(\sec x\tan x\)</td><td>sign of \(\tan x/\cos x\), varies by interval</td></tr>
+        <tr><td>\(\csc x\)</td><td>\(x \ne k\pi\)</td><td>\(-\csc x\cot x\)</td><td>reverses sign of \(\cot x/\sin x\)</td></tr>
+      </table>
+
+      <div class="important-note">
+        <strong>Domain reminders.</strong>
+        <ul>
+          <li>Tangent and secant are undefined at odd multiples of \(\frac{\pi}{2}\); cotangent and cosecant are undefined at multiples of \(\pi\).</li>
+          <li>Derivatives can never be evaluated at points outside the original function's domain.</li>
+          <li>In quotient examples such as \(\frac{\cos x}{x}\), the additional restriction \(x \ne 0\) must be stated.</li>
+        </ul>
+      </div>
+
+      <p><strong>Section 3 summary.</strong> All six derivatives follow from the sine and cosine limits plus the quotient rule, and each carries a domain restriction inherited from a denominator.</p>
+
+      <h2>4. Techniques, Patterns, and Higher Derivatives</h2>
+
+      <div class="example-box">
+        <strong>Example 4.1 &mdash; Product rule with a trig composition.</strong>
+        <p>Find \(\frac{d}{dx}\left[x^{2}\sin(x^{3})\right]\).</p>
+        <p><strong>Step 1:</strong> \(u = x^{2}\), \(v = \sin(x^{3})\), so \(u' = 2x\) and, by the chain rule, \(v' = 3x^{2}\cos(x^{3})\).</p>
+        <p><strong>Step 2:</strong> \(u'v + uv' = 2x\sin(x^{3}) + 3x^{4}\cos(x^{3})\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.2 &mdash; Quotient rule with domain \(x \ne 0\).</strong>
+        <p>Find \(\frac{d}{dx}\left[\frac{\cos x}{x}\right]\) and state its domain.</p>
+        <p><strong>Step 1 (domain):</strong> \(x \ne 0\).</p>
+        <p><strong>Step 2 (quotient):</strong> \(\frac{d}{dx}\left[\frac{\cos x}{x}\right] = \frac{x(-\sin x) - \cos x\cdot 1}{x^{2}} = \frac{-x\sin x - \cos x}{x^{2}}\).</p>
+        <p><strong>Step 3 (interpret):</strong> the derivative is valid for every \(x \ne 0\); at \(x = 0\) the original function is undefined.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.3 &mdash; Chain rule with secant.</strong>
+        <p>Find \(\frac{d}{dx}\sec(x^{2}+1)\).</p>
+        <p><strong>Step 1:</strong> outside \(\sec u\), inside \(u = x^{2}+1\), with \(u' = 2x\).</p>
+        <p><strong>Step 2:</strong> \(\frac{d}{dx}\sec(x^{2}+1) = \sec(x^{2}+1)\tan(x^{2}+1)\cdot 2x\).</p>
+      </div>
+
+      <h3>4.1 Higher derivatives</h3>
+      <p>The derivatives of sine and cosine repeat in a cycle of length four:</p>
+      \[\frac{d}{dx}\sin x = \cos x, \quad \frac{d^{2}}{dx^{2}}\sin x = -\sin x, \quad \frac{d^{3}}{dx^{3}}\sin x = -\cos x, \quad \frac{d^{4}}{dx^{4}}\sin x = \sin x.\]
+      <p>The same four-step cycle holds for \(\cos x\), starting with \(-\sin x\). This periodicity is another expression of the fact that sine and cosine model circular motion.</p>
+
+      <div class="important-note">
+        <strong>Common mistakes.</strong>
+        <ul>
+          <li>\(\sin^{2}x\) means \((\sin x)^{2}\), with derivative \(2\sin x\cos x\); it is different from \(\sin(x^{2})\), whose derivative is \(2x\cos(x^{2})\).</li>
+          <li>The derivative of \(\tan x\) is \(\sec^{2}x\), not \(\tan^{2}x\); use the identity \(\sec^{2}x = 1+\tan^{2}x\) when converting.</li>
+          <li>Losing the minus signs in \((\cos x)' = -\sin x\), \((\cot x)' = -\csc^{2}x\), and \((\csc x)' = -\csc x\cot x\).</li>
+          <li>Differentiating trig functions in degrees, which would insert an extra factor \(\frac{\pi}{180}\).</li>
+        </ul>
+      </div>
+
+      <div class="definition-box">
+        <strong>Quick check 4.</strong>
+        <p>Differentiate (a) \(\sin^{2}x\), (b) \(\sin(x^{2})\), (c) \(\frac{\tan x}{x}\) for \(x \ne 0\).</p>
+        <p><strong>Answers:</strong> (a) \(2\sin x\cos x\); (b) \(2x\cos(x^{2})\); (c) \(\frac{x\sec^{2}x - \tan x}{x^{2}}\).</p>
+      </div>
+
+      <p><strong>Section 4 summary.</strong> Combine the six basic derivatives with the product, quotient, and chain rules, always respecting domains. Sine and cosine have a four-step cycle of higher derivatives.</p>
+
+      <h2>5. Inverse Trigonometric Functions</h2>
+
+      <h3>5.1 Strategy and branches</h3>
+      <p>Inverse trig functions exist only after restricting the original function to a one-to-one branch. Implicit differentiation (or the inverse-function theorem) then produces the derivative. The chosen branch determines the sign of a square root and hence the sign of the answer.</p>
+
+      <div class="proof-box">
+        <strong>Derivation for \(\arcsin x\).</strong>
+        <p>Let \(y = \arcsin x\), so \(x = \sin y\) with \(-\frac{\pi}{2} \le y \le \frac{\pi}{2}\). Differentiating implicitly, \(1 = \cos y\,y'\), so \(y' = \frac{1}{\cos y}\). On this branch \(\cos y \ge 0\), and \(\cos y = \sqrt{1-\sin^{2}y} = \sqrt{1-x^{2}}\). Hence, for \(-1 \lt x \lt 1\),</p>
+        \[\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^{2}}}.\]
+        <p>The endpoints \(x = \pm 1\) are excluded because the denominator vanishes there (vertical tangents). ∎</p>
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation for \(\arctan x\).</strong>
+        <p>Let \(y = \arctan x\), so \(x = \tan y\) with \(-\frac{\pi}{2} \lt y \lt \frac{\pi}{2}\). Then \(1 = \sec^{2}y\,y'\), so \(y' = \cos^{2}y\). Since \(\sec^{2}y = 1+\tan^{2}y = 1+x^{2}\), we obtain</p>
+        \[\frac{d}{dx}\arctan x = \frac{1}{1+x^{2}} \quad \text{for all real } x.\]
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation for \(\operatorname{arcsec} x\) (the \(|x|\) condition).</strong>
+        <p>Let \(y = \operatorname{arcsec} x\), so \(\sec y = x\) with \(y \in [0,\pi]\) and \(y \ne \frac{\pi}{2}\). Differentiating, \(\sec y\tan y\,y' = 1\), so \(y' = \frac{1}{x\tan y}\). Since \(\tan^{2}y = \sec^{2}y - 1 = x^{2}-1\), we have \(|\tan y| = \sqrt{x^{2}-1}\). For \(x \gt 1\) the angle lies in \([0,\frac{\pi}{2})\) and \(\tan y \gt 0\); for \(x \lt -1\) it lies in \((\frac{\pi}{2},\pi]\) and \(\tan y \lt 0\). In both cases \(x\tan y \gt 0\) and equals \(|x|\sqrt{x^{2}-1}\). Therefore</p>
+        \[\frac{d}{dx}\operatorname{arcsec} x = \frac{1}{|x|\sqrt{x^{2}-1}} \quad \text{for } |x| \gt 1.\]
+        <p>The absolute value is essential: without it the derivative would be negative on the branch \(x \lt -1\), contradicting the fact that arcsec is increasing on both pieces. ∎</p>
+      </div>
+
+      <div class="theorem-box">
+        <strong>Derivatives of the inverse trig functions.</strong>
+        <ul>
+          <li>\(\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^{2}}}\), branch \([-\frac{\pi}{2},\frac{\pi}{2}]\), \(|x| \lt 1\).</li>
+          <li>\(\frac{d}{dx}\arccos x = -\frac{1}{\sqrt{1-x^{2}}}\), branch \([0,\pi]\), \(|x| \lt 1\).</li>
+          <li>\(\frac{d}{dx}\arctan x = \frac{1}{1+x^{2}}\), branch \((-\frac{\pi}{2},\frac{\pi}{2})\), all \(x\).</li>
+          <li>\(\frac{d}{dx}\operatorname{arccot} x = -\frac{1}{1+x^{2}}\), branch \((0,\pi)\), all \(x\).</li>
+          <li>\(\frac{d}{dx}\operatorname{arcsec} x = \frac{1}{|x|\sqrt{x^{2}-1}}\), branch \([0,\pi]\) with \(y \ne \frac{\pi}{2}\), \(|x| \gt 1\).</li>
+          <li>\(\frac{d}{dx}\operatorname{arccsc} x = -\frac{1}{|x|\sqrt{x^{2}-1}}\), branch \([-\frac{\pi}{2},\frac{\pi}{2}]\) with \(y \ne 0\), \(|x| \gt 1\).</li>
         </ul>
       </div>
 
       <div class="example-box">
-        <strong>Example 3.1:</strong> Find \(\frac{d}{dx}[\arctan(x^2)]\)
-        <p>Using the chain rule with \(\frac{d}{du}[\arctan u] = \frac{1}{1+u^2}\):</p>
-        <p>\(\frac{d}{dx}[\arctan(x^2)] = \frac{1}{1+(x^2)^2} \cdot 2x = \frac{2x}{1+x^4}\)</p>
+        <strong>Example 5.1 &mdash; Chain rule with arctangent.</strong>
+        <p>Find \(\frac{d}{dx}\arctan(x^{2})\).</p>
+        <p><strong>Step 1:</strong> \(\frac{d}{du}\arctan u = \frac{1}{1+u^{2}}\), inside \(u = x^{2}\), \(u' = 2x\).</p>
+        <p><strong>Step 2:</strong> \(\frac{d}{dx}\arctan(x^{2}) = \frac{1}{1+(x^{2})^{2}}\cdot 2x = \frac{2x}{1+x^{4}}\).</p>
       </div>
 
-      <h2>4. Applications</h2>
-
-      <h3>4.1 Related Trigonometric Rates</h3>
       <div class="example-box">
-        <strong>Example 4.1:</strong> A ladder 10 ft long rests against a wall. If the bottom slides away from the wall at 2 ft/s, how fast is the top sliding down when the bottom is 6 ft from the wall?
-        <p>Let \(x\) = distance from wall to bottom, \(y\) = height of top. Then \(x^2 + y^2 = 100\).</p>
-        <p>Differentiating: \(2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0\)</p>
-        <p>When \(x = 6\), \(y = 8\). Given \(\frac{dx}{dt} = 2\):</p>
-        <p>\(2(6)(2) + 2(8)\frac{dy}{dt} = 0 \Rightarrow \frac{dy}{dt} = -\frac{24}{16} = -\frac{3}{2}\)</p>
-        <p>The top slides down at 1.5 ft/s.</p>
+        <strong>Example 5.2 &mdash; Chain rule with arcsine.</strong>
+        <p>Find \(\frac{d}{dx}\arcsin(2x)\) and give its domain of validity.</p>
+        <p><strong>Step 1:</strong> require \(|2x| \lt 1\), i.e. \(|x| \lt \frac{1}{2}\).</p>
+        <p><strong>Step 2:</strong> \(\frac{d}{dx}\arcsin(2x) = \frac{1}{\sqrt{1-(2x)^{2}}}\cdot 2 = \frac{2}{\sqrt{1-4x^{2}}}\).</p>
       </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with inverse trig.</strong>
+        <ul>
+          <li>Omitting the absolute value in \(\operatorname{arcsec}\) or \(\operatorname{arccsc}\), which is wrong on the negative branch.</li>
+          <li>Forgetting the strict restrictions \(|x| \lt 1\) for arcsin/arccos and \(|x| \gt 1\) for arcsec/arccsc.</li>
+          <li>Ignoring the branch, which determines whether a square root is taken as positive or negative.</li>
+        </ul>
+      </div>
+
+      <p><strong>Section 5 summary.</strong> Implicit differentiation gives the inverse trig derivatives; branch choices explain the signs and the \(|x|\) conditions.</p>
+
+      <h2>6. Critical Points of \(\sin x + \cos x\) on \([0,2\pi]\)</h2>
+
+      <div class="example-box">
+        <strong>Example 6.1 &mdash; Find and classify all candidates.</strong>
+        <p>Let \(f(x) = \sin x + \cos x\) on the closed interval \([0,2\pi]\). Find stationary points, check the endpoints, and classify them.</p>
+        <p><strong>Step 1 (derivative):</strong> \(f'(x) = \cos x - \sin x\), which exists for all \(x\), so there are no nondifferentiable critical numbers.</p>
+        <p><strong>Step 2 (solve \(f'=0\) carefully):</strong> \(\cos x - \sin x = 0\) gives \(\sin x = \cos x\). On \([0,2\pi]\) this means \(x = \frac{\pi}{4}\) or \(x = \frac{5\pi}{4}\). If instead we divide by \(\cos x\) to write \(\tan x = 1\), we must <em>check where \(\cos x = 0\)</em> separately: at \(x = \frac{\pi}{2}\), \(f' = 0 - 1 = -1 \ne 0\); at \(x = \frac{3\pi}{2}\), \(f' = 0 - (-1) = 1 \ne 0\). So no solutions are lost, and neither of these is stationary.</p>
+        <p><strong>Step 3 (include endpoints):</strong> the closed-interval candidates are \(x = 0, \frac{\pi}{4}, \frac{5\pi}{4}, 2\pi\).</p>
+        <p><strong>Step 4 (evaluate and classify):</strong> \(f(0) = 1\), \(f\!\left(\frac{\pi}{4}\right) = \sqrt{2}\), \(f\!\left(\frac{5\pi}{4}\right) = -\sqrt{2}\), \(f(2\pi) = 1\).</p>
+        <p><strong>Step 5 (interpret):</strong> \(x = \frac{\pi}{4}\) is the absolute maximum with value \(\sqrt{2}\); \(x = \frac{5\pi}{4}\) is the absolute minimum with value \(-\sqrt{2}\). The endpoints \(x = 0\) and \(x = 2\pi\) give \(1\), which is neither an absolute maximum nor minimum. Equivalently, \(\sin x + \cos x = \sqrt{2}\sin\!\left(x+\frac{\pi}{4}\right)\), confirming amplitude \(\sqrt{2}\).</p>
+      </div>
+
+      <p><strong>Section 6 summary.</strong> When solving \(f'(x) = 0\), verify any values where a division step would be invalid (such as \(\cos x = 0\)), and always evaluate endpoints on a closed interval before classifying.</p>
+
+      <h2>7. An Angular Related-Rates Example</h2>
+
+      <div class="example-box">
+        <strong>Example 7.1 &mdash; The angle of a sliding ladder.</strong>
+        <p>A 10 ft ladder leans against a wall. The bottom slides away at \(\frac{dx}{dt} = 2\) ft/s. At the instant \(x = 6\) ft and \(y = 8\) ft, find how fast the angle \(\theta\) between the ladder and the ground is changing.</p>
+        <p><strong>Step 1 (relate the angle):</strong> by right-triangle trigonometry, \(\tan\theta = \frac{y}{x}\), where \(x\) and \(y\) both depend on time.</p>
+        <p><strong>Step 2 (differentiate with respect to \(t\)):</strong> \(\sec^{2}\theta\,\frac{d\theta}{dt} = \frac{x\frac{dy}{dt} - y\frac{dx}{dt}}{x^{2}}\).</p>
+        <p><strong>Step 3 (find \(\frac{dy}{dt}\)):</strong> from \(x^{2}+y^{2} = 100\), \(2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0\), so \(2(6)(2) + 2(8)\frac{dy}{dt} = 0\) and \(\frac{dy}{dt} = -\frac{3}{2}\) ft/s.</p>
+        <p><strong>Step 4 (evaluate):</strong> \(\tan\theta = \frac{8}{6} = \frac{4}{3}\), so \(\sec^{2}\theta = 1+\tan^{2}\theta = \frac{25}{9}\). The right side is \(\frac{6\left(-\frac{3}{2}\right) - 8(2)}{36} = \frac{-9-16}{36} = -\frac{25}{36}\).</p>
+        <p><strong>Step 5 (solve):</strong> \(\frac{d\theta}{dt} = \frac{-25/36}{25/9} = -\frac{1}{4}\) rad/s. The negative sign means the angle is decreasing; the ladder is flattening at \(\frac{1}{4}\) radian per second.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Interpretation and units.</strong>
+        <p>Angular rates are measured in radians per unit time, never degrees per second, because the differentiation formulas require radians. Differentiate before substituting the numerical values of \(x\) and \(y\).</p>
+      </div>
+
+      <p><strong>Section 7 summary.</strong> For angular rates, write a trig relation such as \(\tan\theta = y/x\), differentiate with respect to time, and use the other known rates to solve for \(\frac{d\theta}{dt}\) in radians per unit time.</p>
+
+      <h2>8. Bonus: Why Radians Are the Natural Measure</h2>
+      <div class="example-box">
+        <strong>Bonus &mdash; The uniqueness of radians.</strong>
+        <p>Let \(h\) denote an angle in some unit, and suppose \(\lim_{h \to 0}\frac{\sin h}{h} = L\). The derivative of \(\sin x\) would then be \(L\cos x\). Setting \(L = 1\) makes the derivative of sine equal cosine exactly, and makes the derivative of cosine equal \(-\sin x\). Radians are precisely the unit for which \(L = 1\), equivalently the unit satisfying arc length \(s = r\theta\) and sector area \(\frac{1}{2}r^{2}\theta\). In degrees, \(L = \frac{\pi}{180}\), and every trig derivative would carry that extra factor. Calculus is therefore simplest, and the formulas above are valid as written, only in radians.</p>
+      </div>
+
+      <h2>9. Practice Problems</h2>
+      <ol>
+        <li>Evaluate \(\lim_{x \to 0}\frac{\sin(5x)}{x}\).</li>
+        <li>Find \(\frac{d}{dx}\cos(x^{3})\).</li>
+        <li>Find \(\frac{d}{dx}\tan(3x)\).</li>
+        <li>Find \(\frac{d}{dx}\sec(x^{2})\) and state where it is defined.</li>
+        <li>Find \(\frac{d}{dx}\left[\frac{\sin x}{x}\right]\) for \(x \ne 0\).</li>
+        <li>Find the fourth derivative of \(\sin x\).</li>
+        <li>Find \(\frac{d}{dx}\arcsin(3x)\) and its interval of validity.</li>
+        <li>Find \(\frac{d}{dx}\operatorname{arcsec}(x)\) for \(|x| \gt 1\), explaining the absolute value.</li>
+        <li>Find all critical numbers of \(f(x) = \sin x + \cos x\) on \([0,2\pi]\) and classify the absolute extrema.</li>
+        <li>A point moves so that \(\tan\theta = y/x\) with \(x = 3\) constant and \(y\) increasing at \(4\) units/s. Find \(\frac{d\theta}{dt}\) when \(y = 3\).</li>
+        <li>Differentiate \(\sin^{2}x\) and \(\sin(x^{2})\) and explain why they differ.</li>
+        <li>Find \(\frac{d}{dx}\left[\frac{\cos x}{x}\right]\), stating the domain.</li>
+      </ol>
+
+      <div class="definition-box">
+        <strong>Answer key.</strong>
+        <ol>
+          <li>\(5\).</li>
+          <li>\(-3x^{2}\sin(x^{3})\).</li>
+          <li>\(3\sec^{2}(3x)\).</li>
+          <li>\(2x\sec(x^{2})\tan(x^{2})\), defined where \(x^{2} \ne \frac{\pi}{2}+k\pi\).</li>
+          <li>\(\frac{x\cos x - \sin x}{x^{2}}\).</li>
+          <li>\(\sin x\).</li>
+          <li>\(\frac{3}{\sqrt{1-9x^{2}}}\), valid for \(|x| \lt \frac{1}{3}\).</li>
+          <li>\(\frac{1}{|x|\sqrt{x^{2}-1}}\); the absolute value keeps the derivative positive on the branch \(x \lt -1\), consistent with the chosen range.</li>
+          <li>Stationary at \(x = \frac{\pi}{4}, \frac{5\pi}{4}\); \(x = \frac{\pi}{2}, \frac{3\pi}{2}\) are not stationary; endpoints \(0, 2\pi\) give \(1\). Absolute max \(\sqrt{2}\) at \(\frac{\pi}{4}\), absolute min \(-\sqrt{2}\) at \(\frac{5\pi}{4}\).</li>
+          <li>\(\sec^{2}\theta\,\frac{d\theta}{dt} = \frac{1}{3}\frac{dy}{dt} = \frac{4}{3}\); at \(y=3\), \(\tan\theta=1\) and \(\sec^{2}\theta=2\), so \(\frac{d\theta}{dt} = \frac{2}{3}\) rad/s.</li>
+          <li>\(2\sin x\cos x\) versus \(2x\cos(x^{2})\); one is a power composition, the other an angle composition.</li>
+          <li>\(\frac{-x\sin x - \cos x}{x^{2}}\), for \(x \ne 0\).</li>
+        </ol>
+      </div>
+
+      <h2>10. Overall Summary</h2>
+      <p>Radian measure gives \(\frac{\sin h}{h} \to 1\) by a squeeze argument and \(\frac{\cos h-1}{h} \to 0\) by the half-angle identity. These yield \((\sin x)' = \cos x\) and \((\cos x)' = -\sin x\); the quotient rule gives the other four derivatives and their domain restrictions. Inverse trig derivatives follow from implicit differentiation, with branch choices producing the \(|x|\) conditions for arcsec and arccsc. Sine and cosine derivatives cycle every four steps, and trig relations such as \(\tan\theta = y/x\) turn geometric situations into angular-rate calculations measured in radians per unit time.</p>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">
       <a href="lecture-notes-chain-rule-calc1.html">← Chain Rule</a>
-      <a href="lecture-notes-integration-calc1.html">Integration →</a>
+      <a href="lecture-notes-related-rates-calc1.html">Related Rates →</a>
     </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

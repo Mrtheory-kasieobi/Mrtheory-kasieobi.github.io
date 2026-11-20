@@ -44,117 +44,343 @@
     </div>
 
     <div class="lecture-content">
-      <h2>1. The Mean Value Theorem</h2>
-      
-      <h3>1.1 Statement and Interpretation</h3>
-      <div class="definition-box">
-        <strong>Mean Value Theorem (MVT):</strong>
-        If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then there exists at least one number \(c\) in \((a,b)\) such that:
-        $$f'(c) = \frac{f(b) - f(a)}{b - a}$$
-      </div>
+      <p><strong>Big picture.</strong> A derivative describes what happens at a single point, but most interesting questions ask about an entire interval: how much did a quantity change, was a function increasing throughout, and what does its graph look like? The Mean Value Theorem connects these local and global viewpoints. It guarantees that under mild smoothness conditions the average rate of change over an interval is actually attained as an instantaneous rate of change at some interior point. Nearly every tool in this note - from monotonicity tests to the shape of a graph - follows from that one idea.</p>
 
-      <p>Geometrically, this means there is at least one point where the tangent line is parallel to the secant line through \((a, f(a))\) and \((b, f(b))\).</p>
-
-      <h3>1.2 Proof of the Mean Value Theorem</h3>
-      <div class="proof-box">
-        <strong>Proof using Rolle's Theorem:</strong>
-        
-        Define \(g(x) = f(x) - \left[f(a) + \frac{f(b)-f(a)}{b-a}(x-a)\right]\)
-        
-        This is the vertical difference between \(f(x)\) and the secant line.
-        
-        Check conditions for Rolle's Theorem:
+      <div class="formula-box">
+        <strong>Road map and prerequisites.</strong>
         <ul>
-          <li>\(g\) is continuous on \([a,b]\) (difference of continuous functions)</li>
-          <li>\(g\) is differentiable on \((a,b)\)</li>
-          <li>\(g(a) = f(a) - f(a) = 0\) and \(g(b) = f(b) - f(b) = 0\)</li>
+          <li>Prerequisites: limits, continuity on a closed interval, differentiability on an open interval, and the Extreme Value Theorem.</li>
+          <li>Fermat's Theorem: an interior local extremum of a differentiable function has zero derivative.</li>
+          <li>Rolle's Theorem: the special case \(f(a)=f(b)\), proved first because the MVT uses it.</li>
+          <li>Mean Value Theorem: \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\) for some \(c \in (a,b)\).</li>
+          <li>Consequences: \(f'\gt0\) gives increasing functions, \(f'=0\) gives constants, and derivative bounds give bounds on change.</li>
+          <li>Curve sketching: first and second derivative tests, concavity, inflection points, and asymptotes.</li>
         </ul>
-        
-        By Rolle's Theorem, there exists \(c \in (a,b)\) with \(g'(c) = 0\).
-        
-        Compute: \(g'(x) = f'(x) - \frac{f(b)-f(a)}{b-a}\)
-        
-        Therefore: \(g'(c) = 0 \Rightarrow f'(c) = \frac{f(b)-f(a)}{b-a}\) ∎
       </div>
 
-      <h3>1.3 Rolle's Theorem</h3>
+      <h2>1. Rolle's Theorem</h2>
+
+      <h3>1.1 Intuition before the theorem</h3>
+      <p>Imagine a smooth, unbroken path that begins and ends at the same height. It cannot rise without eventually turning around at a peak, and it cannot fall without eventually turning around at a valley. At that turning point the path is momentarily flat. Rolle's Theorem makes this precise: equal endpoint values force a horizontal tangent somewhere strictly inside the interval.</p>
+
+      <h3>1.2 Statement and hypotheses</h3>
       <div class="theorem-box">
-        <strong>Rolle's Theorem:</strong>
-        If \(f\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(f(a) = f(b)\), then there exists \(c \in (a,b)\) such that \(f'(c) = 0\).
+        <strong>Rolle's Theorem.</strong> Let \(a \lt b\). Suppose \(f\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(f(a)=f(b)\). Then there is a number \(c \in (a,b)\) with \(f'(c)=0\).
       </div>
+      <p>Read the hypotheses carefully. The interval is closed for continuity so that extreme values are guaranteed, and open for differentiability so that endpoints are not required to have tangents. The point \(c\) lies strictly between \(a\) and \(b\), never at an endpoint.</p>
 
-      <div class="example-box">
-        <strong>Example 1.1:</strong> Verify the MVT for \(f(x) = x^2\) on \([1, 3]\).
-        <p>Check: \(f\) is continuous and differentiable everywhere.</p>
-        <p>MVT condition: \(f'(c) = \frac{f(3)-f(1)}{3-1} = \frac{9-1}{2} = 4\)</p>
-        <p>But \(f'(x) = 2x\), so \(2c = 4 \Rightarrow c = 2 \in (1,3)\) ✓</p>
-      </div>
-
-      <h2>2. Curve Sketching</h2>
-
-      <h3>2.1 First Derivative Test</h3>
-      <div class="definition-box">
-        <strong>First Derivative Test:</strong>
-        Let \(f\) be continuous at \(c\) and differentiable on both sides of \(c\).
+      <h3>1.3 Proof</h3>
+      <div class="proof-box">
+        <strong>Proof.</strong> Because \(f\) is continuous on the closed interval \([a,b]\), the Extreme Value Theorem guarantees that \(f\) attains an absolute maximum \(M\) and an absolute minimum \(m\) on \([a,b]\).
         <ul>
-          <li>If \(f'\) changes from \(+\) to \(-\) at \(c\), then \(f\) has a local maximum at \(c\)</li>
-          <li>If \(f'\) changes from \(-\) to \(+\) at \(c\), then \(f\) has a local minimum at \(c\)</li>
-          <li>If \(f'\) does not change sign at \(c\), then \(f\) has no local extremum at \(c\)</li>
+          <li>If \(M=m\), then \(f(x)=M\) for every \(x \in [a,b]\). A constant function satisfies \(f'(x)=0\) throughout \((a,b)\), so any \(c \in (a,b)\) works.</li>
+          <li>If \(M \gt m\), at least one extreme value is attained at an interior point. Indeed, if both extreme values occurred only at endpoints, then \(f(a)=f(b)\) would force \(M=m\), a contradiction. Let \(c \in (a,b)\) be a point where such an interior extreme occurs. By Fermat's Theorem, \(f'(c)=0\).</li>
+        </ul>
+        In either case there exists \(c \in (a,b)\) with \(f'(c)=0\). ∎
+      </div>
+
+      <h3>1.4 Worked examples</h3>
+      <div class="example-box">
+        <strong>Example 1.1.</strong> Verify the hypotheses and conclusion of Rolle's Theorem for \(f(x)=x^2-4x+3\) on \([1,3]\).
+        <p><strong>Hypotheses.</strong> The function is a polynomial, so it is continuous on \([1,3]\) and differentiable on \((1,3)\). Also \(f(1)=1-4+3=0\) and \(f(3)=9-12+3=0\), hence \(f(1)=f(3)\).</p>
+        <p><strong>Conclusion.</strong> We compute \(f'(x)=2x-4\). Setting \(f'(c)=0\) gives \(2c-4=0\), so \(c=2\), and indeed \(2 \in (1,3)\).</p>
+      </div>
+      <div class="example-box">
+        <strong>Example 1.2 (why differentiability matters).</strong> Let \(f(x)=|x|\) on \([-1,1]\). Then \(f(-1)=f(1)=1\) and \(f\) is continuous, but no point of \((-1,1)\) has a horizontal tangent: the only candidate is the corner at \(0\), where \(f'(0)\) does not exist. This does not contradict Rolle's Theorem, because the differentiability hypothesis fails.
+      </div>
+
+      <h2>2. The Mean Value Theorem</h2>
+
+      <h3>2.1 Intuition</h3>
+      <p>If you travel 120 miles in 2 hours, your average speed is 60 miles per hour. The Mean Value Theorem says that at some instant your speedometer read exactly 60. You cannot achieve an average without at some moment matching it, provided the motion is continuous and smooth. Geometrically, some tangent line inside the interval is parallel to the secant line joining the endpoints.</p>
+
+      <h3>2.2 Statement</h3>
+      <div class="theorem-box">
+        <strong>Mean Value Theorem (MVT).</strong> Let \(a \lt b\). If \(f\) is continuous on \([a,b]\) and differentiable on \((a,b)\), then there exists at least one number \(c \in (a,b)\) such that
+        \[
+        f'(c)=\frac{f(b)-f(a)}{b-a}.
+        \]
+      </div>
+      <p>The right-hand side is the slope of the secant line through \((a,f(a))\) and \((b,f(b))\). If \(f(a)=f(b)\) the secant is horizontal and the MVT reduces to Rolle's Theorem. Both the continuity and differentiability hypotheses are needed, and \(c\) is guaranteed only to exist, not to be unique.</p>
+
+      <h3>2.3 Proof using Rolle's Theorem</h3>
+      <div class="proof-box">
+        <strong>Proof.</strong> Let \(L(x)=f(a)+\dfrac{f(b)-f(a)}{b-a}(x-a)\) be the secant line through the two endpoint values, and define the vertical gap between the graph and this line by
+        \[
+        g(x)=f(x)-L(x)=f(x)-f(a)-\frac{f(b)-f(a)}{b-a}(x-a).
+        \]
+        The function \(g\) is continuous on \([a,b]\) and differentiable on \((a,b)\), being the difference of \(f\) and a linear function. Moreover,
+        \[
+        g(a)=f(a)-f(a)=0, \qquad g(b)=f(b)-\left[f(a)+\frac{f(b)-f(a)}{b-a}(b-a)\right]=f(b)-f(b)=0.
+        \]
+        Rolle's Theorem applied to \(g\) produces a \(c \in (a,b)\) with \(g'(c)=0\). Differentiating,
+        \[
+        g'(x)=f'(x)-\frac{f(b)-f(a)}{b-a},
+        \]
+        so \(g'(c)=0\) is precisely \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\). ∎
+      </div>
+
+      <h3>2.4 Worked examples</h3>
+      <div class="example-box">
+        <strong>Example 2.1.</strong> Verify the MVT for \(f(x)=x^2\) on \([1,3]\).
+        <p><strong>Hypotheses.</strong> Polynomials are continuous and differentiable everywhere.</p>
+        <p><strong>Average slope.</strong> \(\dfrac{f(3)-f(1)}{3-1}=\dfrac{9-1}{2}=4\).</p>
+        <p><strong>Solve for \(c\).</strong> Since \(f'(x)=2x\), the equation \(2c=4\) gives \(c=2\), which belongs to \((1,3)\).</p>
+      </div>
+      <div class="example-box">
+        <strong>Example 2.2 (an inequality from the MVT).</strong> Prove \(|\sin a-\sin b| \le |a-b|\) for all real \(a\) and \(b\).
+        <p>Assume \(a \lt b\); otherwise interchange the roles of \(a\) and \(b\). The function \(f(x)=\sin x\) is continuous on \([a,b]\) and differentiable on \((a,b)\), so the MVT supplies a \(c \in (a,b)\) satisfying:</p>
+        \[
+        \frac{\sin b-\sin a}{b-a}=f'(c)=\cos c.
+        \]
+        <p>Because \(|\cos c| \le 1\),</p>
+        \[
+        |\sin b-\sin a|=|\cos c|\,|b-a| \le |b-a|.
+        \]
+        <p>The case \(a \gt b\) follows by symmetry, and the case \(a=b\) is trivial.</p>
+      </div>
+      <div class="example-box">
+        <strong>Example 2.3 (position and velocity).</strong> A particle has position \(s(t)=t^3-3t\) at time \(t\). On \([1,3]\), its average velocity is
+        \[
+        \frac{s(3)-s(1)}{3-1}=\frac{(27-9)-(1-3)}{2}=\frac{20}{2}=10.
+        \]
+        Since \(s'(t)=3t^2-3\), solving \(3c^2-3=10\) gives \(c=\sqrt{13/3}\), which lies in \((1,3)\). At that instant the instantaneous velocity equals the average velocity over the trip.
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with the MVT.</strong>
+        <ul>
+          <li>The point \(c\) is <em>not</em> necessarily the midpoint of \([a,b]\). For \(f(x)=x^3\) on \([0,2]\), the MVT point solves \(3c^2=4\), giving \(c=2/\sqrt3\), which is not \(1\).</li>
+          <li>The theorem guarantees existence, not uniqueness; several values of \(c\) may work.</li>
+          <li>The hypotheses are essential. The function \(f(x)=|x|\) on \([-1,1]\) has \(f(-1)=f(1)\) but no horizontal tangent, because it is not differentiable at \(0\).</li>
+          <li>Do not confuse the average slope \(\dfrac{f(b)-f(a)}{b-a}\) with \(\dfrac{f'(a)+f'(b)}{2}\); these are generally different numbers.</li>
         </ul>
       </div>
 
-      <h3>2.2 Second Derivative Test</h3>
+      <h2>3. Consequences of the Mean Value Theorem</h2>
+
+      <h3>3.1 A positive derivative gives an increasing function</h3>
+      <div class="theorem-box">
+        <strong>Increasing function test.</strong> Let \(f\) be continuous on \([a,b]\) and differentiable on \((a,b)\). If \(f'(x)\gt0\) for every \(x \in (a,b)\), then \(f\) is increasing on \([a,b]\): whenever \(x_1 \lt x_2\) lie in \([a,b]\), we have \(f(x_1)\lt f(x_2)\).
+      </div>
+      <div class="proof-box">
+        <strong>Proof.</strong> Choose \(x_1 \lt x_2\) in \([a,b]\) and apply the MVT on \([x_1,x_2]\). There is a \(c \in (x_1,x_2)\) with
+        \[
+        f(x_2)-f(x_1)=f'(c)(x_2-x_1).
+        \]
+        Both \(f'(c)\gt0\) and \(x_2-x_1\gt0\), so the product is positive and \(f(x_2)\gt f(x_1)\). ∎
+      </div>
+      <p>Replacing \(\gt\) by \(\ge\) yields the analogous statement for nondecreasing functions, and \(f'(x)\lt0\) on \((a,b)\) yields decreasing functions by the identical argument.</p>
+
+      <h3>3.2 A zero derivative gives a constant function</h3>
+      <div class="theorem-box">
+        <strong>Constant function theorem.</strong> If \(f'(x)=0\) for every \(x\) in an interval \(I\), then \(f\) is constant on \(I\).
+      </div>
+      <div class="proof-box">
+        <strong>Proof.</strong> Take any two points \(x_1 \lt x_2\) in \(I\). On the closed interval \([x_1,x_2]\) the function is continuous and differentiable, so the MVT gives a \(c \in (x_1,x_2)\) with
+        \[
+        f(x_2)-f(x_1)=f'(c)(x_2-x_1)=0\cdot(x_2-x_1)=0.
+        \]
+        Hence \(f(x_1)=f(x_2)\) for every pair of points in \(I\), so \(f\) is constant. ∎
+      </div>
+      <p>This theorem justifies the "\(+C\)" attached to every indefinite integral: any two antiderivatives of the same function have identical derivatives and therefore differ by a constant.</p>
+
+      <h3>3.3 Bounding change by bounding the derivative</h3>
+      <div class="theorem-box">
+        If \(f\) is continuous on \([a,b]\), differentiable on \((a,b)\), and \(|f'(x)|\le M\) for all \(x \in (a,b)\), then \(|f(b)-f(a)|\le M(b-a)\).
+      </div>
+      <div class="proof-box">
+        <strong>Proof.</strong> By the MVT there is \(c \in (a,b)\) with \(f(b)-f(a)=f'(c)(b-a)\). Consequently
+        \[
+        |f(b)-f(a)|=|f'(c)|\,(b-a)\le M(b-a).
+        \]
+        ∎
+      </div>
+      <div class="example-box">
+        <strong>Example 3.1.</strong> Show \(|\arctan u-\arctan v|\le|u-v|\).
+        <p>Because \(\dfrac{d}{dx}\arctan x=\dfrac{1}{1+x^2}\le1\) for every real \(x\), the previous result with \(M=1\) gives the inequality directly.</p>
+      </div>
+
+      <h2>4. Tools for Curve Sketching</h2>
+
+      <h3>4.1 First Derivative Test, carefully qualified</h3>
       <div class="definition-box">
-        <strong>Second Derivative Test:</strong>
-        Suppose \(f''(c)\) exists and \(f'(c) = 0\).
+        <strong>First Derivative Test.</strong> Let \(f\) be continuous at \(c\) and differentiable on an open interval around \(c\), except possibly at \(c\) itself.
         <ul>
-          <li>If \(f''(c) > 0\), then \(f\) has a local minimum at \(c\)</li>
-          <li>If \(f''(c) < 0\), then \(f\) has a local maximum at \(c\)</li>
-          <li>If \(f''(c) = 0\), the test is inconclusive</li>
+          <li>If \(f'\) changes from positive to negative at \(c\), then \(f\) has a local maximum at \(c\).</li>
+          <li>If \(f'\) changes from negative to positive at \(c\), then \(f\) has a local minimum at \(c\).</li>
+          <li>If \(f'\) does not change sign at \(c\), then \(c\) is <em>not a strict local extremum</em>. It may be a flat point on a monotone stretch: for \(f(x)=x^3\) we have \(f'(0)=0\), yet \(f\) increases through the origin.</li>
+        </ul>
+      </div>
+      <p>The qualification matters. On a flat interval a function can have non-strict extrema at many points even though the derivative never changes sign. The test rules out a genuine peak or valley, not a plateau.</p>
+
+      <h3>4.2 Second Derivative Test</h3>
+      <div class="definition-box">
+        <strong>Second Derivative Test.</strong> Suppose \(f''(c)\) exists and \(f'(c)=0\).
+        <ul>
+          <li>If \(f''(c)\gt0\), then \(f\) has a local minimum at \(c\).</li>
+          <li>If \(f''(c)\lt0\), then \(f\) has a local maximum at \(c\).</li>
+          <li>If \(f''(c)=0\) or \(f''(c)\) does not exist, the test is inconclusive; fall back on the First Derivative Test.</li>
+        </ul>
+      </div>
+      <div class="example-box">
+        <strong>Example 4.1.</strong> For \(f(x)=x^4\), both \(f'(0)=0\) and \(f''(0)=0\), yet \(0\) is an absolute minimum. For \(g(x)=-x^4\) the same derivative data accompany a maximum. This is why \(f''(c)=0\) proves nothing by itself.
+      </div>
+
+      <h3>4.3 Concavity and inflection points</h3>
+      <div class="definition-box">
+        <strong>Concavity.</strong> If \(f''(x)\gt0\) on an interval, \(f\) is concave upward there; if \(f''(x)\lt0\), it is concave downward.
+        <strong>Inflection point.</strong> A point \((c,f(c))\) is an inflection point only if \(f\) is continuous at \(c\) and the concavity changes at \(c\).
+      </div>
+      <p>Continuity at \(c\) is part of the definition. The function \(f(x)=1/x\) has \(f''(x)=2/x^3\), which is negative for \(x\lt0\) and positive for \(x\gt0\), but \(x=0\) is not an inflection point: \(f\) is not defined there, so the two branches are separate curves rather than one curve changing concavity.</p>
+
+      <h3>4.4 Full curve-sketching checklist</h3>
+      <div class="formula-box">
+        <strong>Curve sketching checklist.</strong>
+        <ol>
+          <li><strong>Domain.</strong> Find where the formula is defined; mark holes and discontinuities.</li>
+          <li><strong>Symmetry.</strong> Check \(f(-x)=f(x)\) for even symmetry about the \(y\)-axis, or \(f(-x)=-f(x)\) for odd symmetry about the origin.</li>
+          <li><strong>Intercepts.</strong> Solve \(f(x)=0\) for \(x\)-intercepts and compute \(f(0)\) for the \(y\)-intercept.</li>
+          <li><strong>Asymptotes.</strong> Test one-sided limits at finite points for vertical asymptotes, and the limits as \(x\to+\infty\) and \(x\to-\infty\) separately for horizontal ones; divide for possible oblique asymptotes.</li>
+          <li><strong>First derivative.</strong> Locate critical points where \(f'=0\) or \(f'\) is undefined, then make a sign chart to obtain intervals of increase and decrease and all local extrema.</li>
+          <li><strong>Second derivative.</strong> Locate where \(f''=0\) or is undefined, make a concavity sign chart, and identify inflection points after checking continuity.</li>
+          <li><strong>Sketch.</strong> Plot intercepts, extrema, inflection points, and asymptotes, then connect them with a smooth curve consistent with both sign charts.</li>
+        </ol>
+      </div>
+
+      <h3>4.5 Worked example: a complete sketch</h3>
+      <div class="example-box">
+        <strong>Example 4.2.</strong> Sketch \(f(x)=x^3-3x^2+4\).
+        <p><strong>Domain and symmetry.</strong> All real numbers; no even or odd symmetry.</p>
+        <p><strong>Intercepts.</strong> The \(y\)-intercept is \(f(0)=4\). Factoring gives \(x^3-3x^2+4=(x+1)(x-2)^2\), so the \(x\)-intercepts are \(x=-1\) and a double root at \(x=2\).</p>
+        <p><strong>First derivative.</strong> \(f'(x)=3x^2-6x=3x(x-2)\). Critical points: \(x=0\) and \(x=2\). The sign of \(f'\) is positive on \((-\infty,0)\), negative on \((0,2)\), and positive on \((2,\infty)\). Hence \(f\) has a local maximum at \((0,4)\) and a local minimum at \((2,0)\).</p>
+        <p><strong>Second derivative.</strong> \(f''(x)=6x-6=6(x-1)\), negative for \(x\lt1\) and positive for \(x\gt1\). The graph is concave down on \((-\infty,1)\), concave up on \((1,\infty)\), with an inflection point at \((1,2)\).</p>
+        <p><strong>Sketch.</strong> The cubic rises from \(-\infty\), crosses the axis at \(x=-1\), peaks at \((0,4)\), falls through the inflection point \((1,2)\) to touch the axis at the local minimum \((2,0)\), then rises toward \(+\infty\). It crosses at \(x=-1\) but only touches at \(x=2\), consistent with the double root.</p>
+      </div>
+
+      <h2>5. Asymptotes</h2>
+
+      <h3>5.1 Vertical asymptotes</h3>
+      <div class="definition-box">
+        <strong>Vertical asymptote.</strong> The line \(x=a\) is a vertical asymptote of \(f\) if at least one one-sided limit is infinite:
+        \[
+        \lim_{x\to a^-}f(x)=\pm\infty \qquad \text{or} \qquad \lim_{x\to a^+}f(x)=\pm\infty.
+        \]
+        Only one side needs to blow up. For instance, \(f(x)=\tan x\) has \(\lim_{x\to\pi/2^-}\tan x=+\infty\), so \(x=\pi/2\) is a vertical asymptote; the limit from the right is \(-\infty\), but that is not required by the definition.
+      </div>
+      <p>A zero denominator alone does not force an asymptote. For \(f(x)=\dfrac{x^2-1}{x-1}\) we have \(f(x)=x+1\) whenever \(x\ne1\), and \(\lim_{x\to1}f(x)=2\), so \(x=1\) is a removable hole.</p>
+
+      <h3>5.2 Horizontal asymptotes</h3>
+      <div class="definition-box">
+        <strong>Horizontal asymptote.</strong> If \(\lim_{x\to+\infty}f(x)=L\), then \(y=L\) is a horizontal asymptote on the right. If \(\lim_{x\to-\infty}f(x)=M\), then \(y=M\) is a horizontal asymptote on the left. These two limits must be computed separately and may differ. Thus \(f(x)=\arctan x\) has two horizontal asymptotes, \(y=\pi/2\) as \(x\to+\infty\) and \(y=-\pi/2\) as \(x\to-\infty\), while \(f(x)=x^2\) has none.
+      </div>
+
+      <h3>5.3 Oblique (slant) asymptotes</h3>
+      <p>When the degree of the numerator of a rational function exceeds the degree of the denominator by exactly one, division gives \(f(x)=mx+b+\dfrac{r(x)}{q(x)}\) with \(\deg r \lt \deg q\). Since the last term tends to \(0\) as \(x\to\pm\infty\), the line \(y=mx+b\) is an oblique asymptote.</p>
+
+      <h3>5.4 Worked example</h3>
+      <div class="example-box">
+        <strong>Example 5.1.</strong> Find all asymptotes of \(f(x)=\dfrac{2x^2+3}{x-1}\).
+        <p><strong>Vertical.</strong> The denominator vanishes at \(x=1\) while the numerator equals \(5\), so:</p>
+        \[
+        \lim_{x\to1^-}f(x)=-\infty, \qquad \lim_{x\to1^+}f(x)=+\infty.
+        \]
+        <p>Thus \(x=1\) is a vertical asymptote.</p>
+        <p><strong>Horizontal.</strong> The numerator has larger degree, so neither limit at infinity is finite; there is no horizontal asymptote.</p>
+        <p><strong>Oblique.</strong> Long division yields:</p>
+        \[
+        \frac{2x^2+3}{x-1}=2x+2+\frac{5}{x-1},
+        \]
+        <p>because \((2x+2)(x-1)=2x^2-2\) and \(3-(-2)=5\). Since \(\dfrac{5}{x-1}\to0\) as \(x\to\pm\infty\), the oblique asymptote is \(y=2x+2\). The remainder is \(5\), not \(4\).</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in curve sketching.</strong>
+        <ul>
+          <li>A zero derivative at \(c\) need not signal an extremum; \(x^3\) at \(0\) is the counterexample.</li>
+          <li>The condition \(f''(c)=0\) is inconclusive, not proof of an inflection point.</li>
+          <li>An inflection point requires continuity at \(c\); \(1/x\) at \(0\) is not one.</li>
+          <li>The \(c\) from the MVT need not be a midpoint, and there can be several such points.</li>
+          <li>Evaluate limits at \(+\infty\) and \(-\infty\) independently; never assume they agree.</li>
         </ul>
       </div>
 
-      <h3>2.3 Concavity and Inflection Points</h3>
-      <div class="definition-box">
-        <strong>Definition 2.1 (Concavity):</strong>
+      <h2>6. Quick Check</h2>
+      <div class="example-box">
+        <strong>Check yourself; answers follow.</strong>
+        <ol>
+          <li>List all hypotheses of Rolle's Theorem, including the condition on \(a\) and \(b\).</li>
+          <li>Find the \(c\) guaranteed by the MVT for \(f(x)=x^3\) on \([0,2]\).</li>
+          <li>If \(f'(x)\gt0\) everywhere on an interval, must \(f\) be increasing there?</li>
+          <li>Where does \(f(x)=\dfrac{1}{x-2}\) have a vertical asymptote?</li>
+          <li>Does \(f(x)=x^4\) have an inflection point at \(0\)?</li>
+        </ol>
+        <p><strong>Answers.</strong> (1) \(a \lt b\), continuity on \([a,b]\), differentiability on \((a,b)\), and \(f(a)=f(b)\). (2) \(f'(c)=3c^2=\dfrac{8-0}{2}=4\), so \(c=2/\sqrt3\). (3) Yes, by the increasing function theorem proved from the MVT. (4) \(x=2\), since \(f(x)\to-\infty\) from the left and \(+\infty\) from the right. (5) No: \(f''(x)=12x^2\ge0\) and never changes sign.</p>
+      </div>
+
+      <h2>7. Summary</h2>
+      <div class="formula-box">
         <ul>
-          <li>If \(f''(x) > 0\) on an interval, then \(f\) is concave upward on that interval</li>
-          <li>If \(f''(x) < 0\) on an interval, then \(f\) is concave downward on that interval</li>
+          <li>Rolle: equal endpoint values plus continuity and differentiability force a horizontal tangent inside.</li>
+          <li>MVT: \(f'(c)=\dfrac{f(b)-f(a)}{b-a}\) for some \(c \in (a,b)\); the average slope is achieved as a tangent slope.</li>
+          <li>Consequences: a positive derivative implies increasing, a zero derivative implies constant, and a derivative bound bounds total change.</li>
+          <li>First and second derivative tests locate extrema; concavity changes give inflection points only with continuity.</li>
+          <li>Vertical asymptotes come from one-sided infinite limits; horizontal asymptotes require separate limits at \(+\infty\) and \(-\infty\).</li>
         </ul>
-        <strong>Inflection Point:</strong> A point \((c, f(c))\) where \(f\) changes concavity.
       </div>
 
+      <h2>Bonus: Cauchy's Mean Value Theorem</h2>
+      <p>Applying the same idea to two functions at once gives a generalization that leads naturally to l'Hôpital's Rule in Calculus II.</p>
+      <div class="theorem-box">
+        <strong>Cauchy's Mean Value Theorem.</strong> Let \(a \lt b\). If \(f\) and \(g\) are continuous on \([a,b]\), differentiable on \((a,b)\), and \(g'(x)\ne0\) for all \(x \in (a,b)\), then there is a \(c \in (a,b)\) with
+        \[
+        \frac{f'(c)}{g'(c)}=\frac{f(b)-f(a)}{g(b)-g(a)}.
+        \]
+      </div>
+      <div class="proof-box">
+        <strong>Proof sketch.</strong> Define
+        \[
+        h(x)=\bigl(f(b)-f(a)\bigr)g(x)-\bigl(g(b)-g(a)\bigr)f(x).
+        \]
+        Then \(h(a)=h(b)\), so Rolle's Theorem gives \(c \in (a,b)\) with \(h'(c)=0\), which rearranges to the displayed equality. The hypothesis \(g'\ne0\) together with Rolle's Theorem ensures \(g(b)\ne g(a)\), so the denominator is nonzero.
+      </div>
       <div class="example-box">
-        <strong>Example 2.1:</strong> Sketch the curve \(f(x) = x^3 - 3x^2 + 4\).
-        <p><strong>Step 1: Domain and Intercepts</strong> - Domain: all reals. y-intercept: \(f(0) = 4\). x-intercepts: solve \(x^3 - 3x^2 + 4 = 0\) → \((-1, 0), (2, 0)\) (double)</p>
-        <p><strong>Step 2: First Derivative</strong> \(f'(x) = 3x^2 - 6x = 3x(x-2)\)</p>
-        <p>Critical points: \(x = 0, 2\).</p>
-        <p>Sign chart: \(f'\) + on \((-\infty,0)\), - on \((0,2)\), + on \((2,\infty)\)</p>
-        <p>Local max at \(x = 0\): \(f(0) = 4\). Local min at \(x = 2\): \(f(2) = 0\).</p>
-        <p><strong>Step 3: Second Derivative</strong> \(f''(x) = 6x - 6 = 6(x-1)\)</p>
-        <p>Inflection point at \(x = 1\): \(f(1) = 2\).</p>
-        <p>Concave down on \((-\infty, 1)\), concave up on \((1, \infty)\).</p>
+        <strong>Bonus Example.</strong> Take \(f(x)=x^2\) and \(g(x)=x\) on \([1,3]\). Cauchy's theorem gives \(c\) with \(\dfrac{2c}{1}=\dfrac{9-1}{3-1}=4\), hence \(c=2\), recovering the ordinary MVT.
       </div>
 
-      <h2>3. Asymptotes</h2>
-
-      <h3>3.1 Vertical Asymptotes</h3>
-      <p>Vertical asymptotes occur where \(\lim_{x \to a} f(x) = \pm\infty\).</p>
-
-      <h3>3.2 Horizontal Asymptotes</h3>
-      <p>Horizontal asymptotes are horizontal lines \(y = L\) where \(\lim_{x \to \pm\infty} f(x) = L\).</p>
-
+      <h2>8. Practice Problems</h2>
+      <ol>
+        <li>Verify Rolle's Theorem for \(f(x)=x^2-6x+5\) on \([1,5]\) and find \(c\).</li>
+        <li>Find the \(c\) guaranteed by the MVT for \(f(x)=\sqrt{x}\) on \([1,4]\).</li>
+        <li>Use the MVT to prove \(|\cos a-\cos b|\le|a-b|\).</li>
+        <li>Show that \(f(x)=3x+\sin x\) is increasing on all of \(\mathbb{R}\).</li>
+        <li>Prove that any function with \(f'(x)=2\) for all \(x\) has the form \(f(x)=2x+C\).</li>
+        <li>Classify the critical points of \(f(x)=x^3-6x^2+9x+1\).</li>
+        <li>Find the concavity and inflection point of \(f(x)=x^3-6x^2+9x+1\).</li>
+        <li>Find every asymptote of \(f(x)=\dfrac{3x^2-1}{x+2}\).</li>
+        <li>Explain why \(x=1\) is a hole rather than a vertical asymptote for \(f(x)=\dfrac{x^2-1}{x-1}\).</li>
+        <li>Sketch \(f(x)=x^4-4x^2\), labelling intercepts, extrema, and inflection points.</li>
+      </ol>
       <div class="example-box">
-        <strong>Example 3.1:</strong> Find asymptotes of \(f(x) = \frac{2x^2 + 3}{x - 1}\)
-        <p><strong>Vertical:</strong> Denominator zero at \(x = 1\). \(\lim_{x \to 1^+} f(x) = +\infty\), so \(x = 1\) is vertical asymptote.</p>
-        <p><strong>Horizontal:</strong> Degree of numerator (2) > degree of denominator (1). No horizontal asymptote.</p>
-        <p><strong>Oblique:</strong> Polynomial division: \(f(x) = 2x + 2 + \frac{4}{x-1}\). Oblique asymptote \(y = 2x + 2\).</p>
+        <strong>Answer key.</strong>
+        <ol>
+          <li>The function is continuous and differentiable with \(f(1)=f(5)=0\); \(f'(x)=2x-6=0\) gives \(c=3\).</li>
+          <li>\(f'(c)=\dfrac{1}{2\sqrt c}=\dfrac{2-1}{3}=\dfrac13\), so \(\sqrt c=\dfrac32\) and \(c=\dfrac94\), which lies in \((1,4)\).</li>
+          <li>Since \(\dfrac{d}{dx}\cos x=-\sin x\) and \(|-\sin x|\le1\), the MVT gives \(|\cos b-\cos a|=|-\sin c|\,|b-a|\le|b-a|\).</li>
+          <li>\(f'(x)=3+\cos x\ge3-1=2\gt0\), so the increasing function test applies.</li>
+          <li>Let \(g(x)=f(x)-2x\). Then \(g'(x)=0\), so \(g\) is constant by the constant function theorem, giving \(f(x)=2x+C\).</li>
+          <li>\(f'(x)=3x^2-12x+9=3(x-1)(x-3)\): local maximum at \(x=1\) with value \(5\), local minimum at \(x=3\) with value \(1\).</li>
+          <li>\(f''(x)=6x-12=6(x-2)\): concave down for \(x\lt2\), concave up for \(x\gt2\), inflection point at \((2,3)\).</li>
+          <li>Vertical asymptote \(x=-2\); no horizontal asymptote; oblique asymptote \(y=3x-6\) with remainder \(\dfrac{11}{x+2}\).</li>
+          <li>The factor \(x-1\) cancels to give \(x+1\), whose limit at \(1\) is \(2\); there is no infinite one-sided limit.</li>
+          <li>Even function with zeros at \(x=0,\pm2\); \(f'(x)=4x(x^2-2)\) gives minima at \(\pm\sqrt2\) and a local maximum at \(0\); \(f''(x)=12x^2-8\) gives inflection points at \(\pm\sqrt{2/3}\).</li>
+        </ol>
       </div>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">
       <a href="lecture-notes-related-rates-calc1.html">← Related Rates</a>
-      <a href="lecture-notes-ftc-calc1.html">FTC →</a>
+      <a href="lecture-notes-integration-calc1.html">Integration →</a>
     </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

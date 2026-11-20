@@ -44,146 +44,425 @@
     </div>
 
     <div class="lecture-content">
+      <p><strong>Big picture.</strong> The definite integral is a machine for adding up infinitely many tiny contributions. The FTC gives us a way to compute that sum; applications give us the skill of building it. In every problem the steps are the same: choose a thin slice, write the quantity attached to one slice, and integrate over the range of slices. Area uses slices of length; volume uses slices of area; work uses slices of force times distance; center of mass uses slices of mass times position. The slice determines the variable of integration and the formula inside the integral.</p>
+
+      <div class="formula-box">
+        <strong>Road map and prerequisites.</strong>
+        <ul>
+          <li><strong>The defining idea:</strong> a quantity \(Q=\int_a^b q(x)\,dx\) arises when \(q(x)\,\Delta x\) approximates the contribution of one thin piece and the limit of the Riemann sum is taken.</li>
+          <li><strong>FTC:</strong> compute \(\int_a^b q(x)\,dx = F(b)-F(a)\) once an antiderivative \(F\) is found.</li>
+          <li><strong>Geometry:</strong> area of a circle \(\pi r^2\), similar triangles, and the Pythagorean theorem for right-triangle back-substitution.</li>
+          <li><strong>Physics conventions:</strong> weight density is force per volume, work is force times distance in the direction of motion, and Hooke's law is \(F=kx\).</li>
+          <li><strong>Golden rule:</strong> draw the region and the slice first. Label the slice's length, radius, height, or distance before writing any integral.</li>
+        </ul>
+      </div>
+
       <h2>1. Areas Between Curves</h2>
-      
-      <h3>1.1 Area Between Two Curves</h3>
-      <div class="definition-box">
-        <strong>Formula 1.1:</strong>
-        If \(f(x) \geq g(x) \geq 0\) on \([a,b]\), then the area between the curves is:
-        $$\text{Area} = \int_a^b [f(x) - g(x)] \, dx$$
+
+      <h3>1.1 Vertical slices and the area formula</h3>
+      <p>Imagine cutting the region between two graphs into thin vertical strips of width \(\Delta x\). On a strip near \(x\), the top is \(f(x)\) and the bottom is \(g(x)\), so the strip's height is \(f(x)-g(x)\). Its area is approximately \([f(x)-g(x)]\,\Delta x\). Adding the strips and taking the limit produces the definite integral.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 1.1 (Area between two curves, vertical slices).</strong>
+        Let \(f\) and \(g\) be continuous on \([a,b]\) with \(f(x)\ge g(x)\) for all \(x\) in \([a,b]\). Then the area of the region bounded by the graphs of \(f\) and \(g\) and the lines \(x=a\), \(x=b\) is
+        \[ \text{Area} = \int_a^b \big[f(x)-g(x)\big]\,dx. \]
+        <strong>Only the ordering \(f\ge g\) is required.</strong> The curves do not have to be nonnegative; both may lie below the \(x\)-axis, or one above and one below. Because the formula subtracts heights, only the vertical gap matters.
       </div>
 
       <div class="proof-box">
-        <strong>Derivation:</strong>
-        The area under \(f(x)\) is \(\int_a^b f(x) \, dx\).
-        The area under \(g(x)\) is \(\int_a^b g(x) \, dx\).
-        
-        The region between them is the difference:
-        $$\text{Area} = \int_a^b f(x) \, dx - \int_a^b g(x) \, dx = \int_a^b [f(x) - g(x)] \, dx$$
-        ∎
+        <strong>Derivation via Riemann sums.</strong>
+        Partition \([a,b]\) into \(n\) subintervals of width \(\Delta x=\frac{b-a}{n}\) and pick a sample point \(x_i^*\) in each. The \(i\)-th vertical strip is nearly a rectangle of height \(f(x_i^*)-g(x_i^*)\):
+        \[ \Delta A_i \approx \big[f(x_i^*)-g(x_i^*)\big]\,\Delta x. \]
+        Summing all strips gives
+        \[ A \approx \sum_{i=1}^{n}\big[f(x_i^*)-g(x_i^*)\big]\,\Delta x. \]
+        Since \(f-g\) is continuous, the limit as \(n\to\infty\) exists and equals the definite integral:
+        \[ A = \lim_{n\to\infty}\sum_{i=1}^{n}\big[f(x_i^*)-g(x_i^*)\big]\,\Delta x = \int_a^b \big[f(x)-g(x)\big]\,dx. \]
+        Equivalently, \(A=\int_a^b f(x)\,dx-\int_a^b g(x)\,dx\). \( \blacksquare \)
+      </div>
+
+      <h3>1.2 Signed area versus actual area</h3>
+      <p>The single integral \(\int_a^b [f(x)-g(x)]\,dx\) measures <em>signed</em> area: it gives the actual area only when \(f\ge g\) throughout. If the curves exchange positions, the integrand changes sign and the positive and negative pieces partially cancel. To obtain the actual area, find every intersection point, split the interval there, and integrate \(|f(x)-g(x)|\).</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 1.2 (Area when curves cross).</strong>
+        If \(f\) and \(g\) are continuous on \([a,b]\) with intersection abscissas \(a=x_0 \lt x_1 \lt \cdots \lt x_m=b\), then on each subinterval \([x_{i-1},x_i]\) one of the functions is consistently on top. The actual area is
+        \[ A = \int_a^b \big|f(x)-g(x)\big|\,dx = \sum_{i=1}^{m}\int_{x_{i-1}}^{x_i}\big|f(x)-g(x)\big|\,dx. \]
+        Evaluate each piece by putting the larger function first.
       </div>
 
       <div class="example-box">
-        <strong>Example 1.1:</strong> Find the area between \(y = x^2\) and \(y = 2x\) from \(x = 0\) to \(x = 2\).
-        <p>Find intersection: \(x^2 = 2x \Rightarrow x(x-2) = 0 \Rightarrow x = 0, 2\)</p>
-        <p>On \([0,2]\): \(2x \geq x^2\)</p>
-        <p>Area = \(\int_0^2 (2x - x^2) \, dx = [x^2 - \frac{x^3}{3}]_0^2 = 4 - \frac{8}{3} = \frac{4}{3}\)</p>
-      </div>
-
-      <h3>1.2 Horizontal Slices</h3>
-      <div class="definition-box">
-        <strong>Formula 1.2 (Horizontal slices):</strong>
-        If \(f(y) \geq g(y)\) for \(y \in [c,d]\), then:
-        $$\text{Area} = \int_c^d [f(y) - g(y)] \, dy$$
-        where \(x = f(y)\) is the right curve and \(x = g(y)\) is the left curve.
+        <strong>Example 1.1 (one function on top throughout).</strong> Find the area between \(y=x^2\) and \(y=2x\) from \(x=0\) to \(x=2\).
+        <p>Find intersections: \(x^2=2x\) gives \(x(x-2)=0\), so \(x=0\) and \(x=2\), exactly the endpoints. On \((0,2)\), test \(x=1\): \(2x=2 \gt x^2=1\), so \(2x\) is on top.</p>
+        \[ A = \int_0^2 \big(2x-x^2\big)\,dx = \left[x^2-\frac{x^3}{3}\right]_0^2. \]
+        \[ = \left(4-\frac83\right)-0 = \frac43. \]
+        <p>The answer is positive because the upper curve was chosen first.</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.2:</strong> Area bounded by \(y = x^2\) and \(x = y\).
-        <p>Intersection at \((0,0)\) and \((1,1)\)</p>
-        <p>Using horizontal slices: right curve \(x = y\), left curve \(x = \sqrt{y}\)</p>
-        <p>Area = \(\int_0^1 (y - \sqrt{y}) \, dy = \left[\frac{y^2}{2} - \frac{2y^{3/2}}{3}\right]_0^1 = \frac{1}{2} - \frac{2}{3} = -\frac{1}{6}\)</p>
-        <p>Absolute area = \(\frac{1}{6}\)</p>
+        <strong>Example 1.2 (crossing curves and \(\int|f-g|\)).</strong> Find the area bounded by \(y=x^3\) and \(y=x\) on \([-1,1]\).
+        <p>Intersections: \(x^3=x\) gives \(x(x-1)(x+1)=0\), so \(x=-1,0,1\). Split at \(x=0\). On \((-1,0)\), test \(x=-\frac12\): \(x^3=-\frac18 \gt -\frac12=x\), so \(x^3\) is on top. On \((0,1)\), test \(x=\frac12\): \(x=\frac12 \gt \frac18=x^3\).</p>
+        \[ A = \int_{-1}^{0}\big(x^3-x\big)\,dx + \int_0^1\big(x-x^3\big)\,dx. \]
+        <p>Both integrands are even after the sign choice, so \(A=2\int_0^1 (x-x^3)\,dx\):</p>
+        \[ A = 2\left[\frac{x^2}{2}-\frac{x^4}{4}\right]_0^1 = 2\left(\frac12-\frac14\right) = \frac12. \]
+        <p>Warning: integrating \(x^3-x\) over the whole interval would give \(0\) by oddness, which is the signed area, not the actual area.</p>
       </div>
+
+      <h3>1.3 Horizontal slices</h3>
+      <p>Some regions are described more easily by \(x\) as a function of \(y\). A horizontal strip of thickness \(\Delta y\) has length equal to right-hand \(x\) minus left-hand \(x\). The formula is the same idea with the roles of the axes exchanged.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 1.3 (Horizontal slices).</strong>
+        If \(u(y)\) and \(v(y)\) are continuous on \([c,d]\) with \(u(y)\ge v(y)\), then the area of the region between the right curve \(x=u(y)\) and the left curve \(x=v(y)\) is
+        \[ \text{Area} = \int_c^d \big[u(y)-v(y)\big]\,dy. \]
+        Here \(u\) is the right curve and \(v\) is the left curve; \(u\ge v\) refers to \(x\)-coordinates, not to function values plotted vertically.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 1.3 (horizontal slice, corrected orientation).</strong> Find the area bounded by \(y=x^2\) and \(x=y\).
+        <p>Intersections: substitute \(x=y\) into \(y=x^2\) to get \(y=y^2\), so \(y=0\) or \(y=1\); the points are \((0,0)\) and \((1,1)\).</p>
+        <p>Rewrite the parabola as \(x=\sqrt y\) on the upper branch (we need \(x\ge0\) between the intersection points). The line is already \(x=y\). For \(0 \lt y \lt 1\), taking \(y=\frac14\) gives \(\sqrt y=\frac12 \gt \frac14=y\). In general \(\sqrt y \gt y\) on \((0,1)\). Hence the <strong>right</strong> curve is \(x=\sqrt y\) and the <strong>left</strong> curve is \(x=y\).</p>
+        \[ A = \int_0^1 \big(\sqrt y - y\big)\,dy = \left[\frac{2y^{3/2}}{3}-\frac{y^2}{2}\right]_0^1. \]
+        \[ = \frac23-\frac12 = \frac16. \]
+        <p>No absolute value or sign correction is needed: the integrand \(\sqrt y-y\) is positive on \((0,1)\), so the integral is already the actual area.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with area.</strong>
+        <ul>
+          <li>Believing that the lower curve must be nonnegative. The condition is only \(f\ge g\); both curves may be negative.</li>
+          <li>Forgetting to split at intersections. If the curves cross inside the interval, \(\int(f-g)\) is signed area and may even be zero.</li>
+          <li>Confusing \(\sqrt y\) and \(y\) in Example 1.3: for \(0 \lt y \lt 1\), \(\sqrt y \gt y\), so \(\sqrt y\) is the right curve.</li>
+          <li>Writing a negative definite integral and then taking its absolute value. Choose the upper/right function first so the integral is nonnegative from the start.</li>
+          <li>Using horizontal slices without rewriting both curves in the form \(x=\text{(function of }y)\), including the correct branch of a square root.</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Quick check 1 (answers below).</strong>
+        <ol>
+          <li>Find the area between \(y=x^2\) and \(y=x+2\) on \([-1,2]\).</li>
+          <li>Find the area between \(y=\sin x\) and \(y=\cos x\) on \([0,\pi/4]\).</li>
+          <li>Write, but do not evaluate, the horizontal-slice integral for the area between \(x=y^2\) and \(x=2-y\) for \(0\le y\le1\), after deciding which curve is on the right at \(y=\frac12\).</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) \(\int_{-1}^{2}(x+2-x^2)\,dx=\frac92\); (2) \(\int_0^{\pi/4}(\cos x-\sin x)\,dx=\sqrt2-1\); (3) at \(y=\frac12\), \(2-y=\frac32 \gt y^2=\frac14\), so the integral is \(\int_0^1\big[(2-y)-y^2\big]\,dy\).</p>
+      </div>
+
+      <p><strong>Summary of Section 1.</strong> Slice perpendicular to the direction you integrate. Vertical slices give \(\int_a^b(\text{top}-\text{bottom})\,dx\) under the sole hypothesis top \(\ge\) bottom; horizontal slices give \(\int_c^d(\text{right}-\text{left})\,dy\). If the curves cross, split at each intersection and integrate \(|f-g|\) piecewise so every contribution is nonnegative.</p>
 
       <h2>2. Volumes of Revolution</h2>
 
-      <h3>2.1 Disk Method</h3>
-      <div class="definition-box">
-        <strong>Formula 2.1 (Disk Method):</strong>
-        When the region bounded by \(y = f(x)\), the x-axis, and \(x = a\), \(x = b\) is rotated about the x-axis:
-        $$\text{Volume} = \pi \int_a^b [f(x)]^2 \, dx$$
+      <h3>2.1 Disk method</h3>
+      <p>Rotating a thin vertical strip about the \(x\)-axis sweeps out a disk. Its radius is the height of the function above the axis and its thickness is \(\Delta x\), so its volume is \(\pi(\text{radius})^2(\text{thickness})\). Adding disks gives the volume.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 2.1 (Disk method).</strong>
+        Let \(f\) be continuous and nonnegative on \([a,b]\). The volume of the solid obtained by revolving the region under \(y=f(x)\), above the \(x\)-axis, between \(x=a\) and \(x=b\), about the \(x\)-axis is
+        \[ V = \pi\int_a^b \big[f(x)\big]^2\,dx. \]
       </div>
 
       <div class="proof-box">
-        <strong>Proof using Riemann sums:</strong>
-        A thin disk at position \(x\) with thickness \(dx\) has:
-        - Radius: \(r = f(x)\)
-        - Volume: \(dV = \pi r^2 \, dx = \pi [f(x)]^2 \, dx\)
-        
-        Summing all disks: \(V = \sum_{i=1}^{n} \pi [f(x_i^*)]^2 \Delta x\)
-        
-        Taking the limit as \(n \to \infty\):
-        $$V = \pi \int_a^b [f(x)]^2 \, dx$$
-        ∎
+        <strong>Proof by Riemann sums.</strong>
+        Partition \([a,b]\) and choose sample points \(x_i^*\). The \(i\)-th strip, rotated about the \(x\)-axis, forms a disk of radius \(f(x_i^*)\) and thickness \(\Delta x\), hence
+        \[ \Delta V_i \approx \pi\big[f(x_i^*)\big]^2\Delta x. \]
+        Summing and taking the limit,
+        \[ V = \lim_{n\to\infty}\sum_{i=1}^{n}\pi\big[f(x_i^*)\big]^2\Delta x = \pi\int_a^b\big[f(x)\big]^2\,dx. \]
+        The same reasoning about vertical slices applies to any axis: replace the radius by the distance from the slice to the axis. \( \blacksquare \)
       </div>
 
       <div class="example-box">
-        <strong>Example 2.1:</strong> Find the volume of the solid formed by rotating \(y = \sqrt{x}\) about the x-axis from \(x = 0\) to \(x = 4\).
-        <p>V = \(\pi \int_0^4 (\sqrt{x})^2 \, dx = \pi \int_0^4 x \, dx = \pi \left[\frac{x^2}{2}\right]_0^4 = 8\pi\)</p>
+        <strong>Example 2.1 (disk).</strong> Rotate \(y=\sqrt{x}\) on \(0\le x\le4\) about the \(x\)-axis.
+        \[ V = \pi\int_0^4\big(\sqrt x\big)^2\,dx = \pi\int_0^4 x\,dx = \pi\left[\frac{x^2}{2}\right]_0^4 = 8\pi. \]
       </div>
 
-      <h3>2.2 Washer Method</h3>
+      <h3>2.2 Washer method</h3>
+      <p>If the region does not touch the axis of rotation, each rotated strip is a washer: a disk with a concentric hole. The cross-sectional area is \(\pi(R^2-r^2)\), where \(R\) and \(r\) are <em>distances</em> from the axis, not merely function values.</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 2.2 (Washer method about the \(x\)-axis).</strong>
+        Let \(f\) and \(g\) be continuous on \([a,b]\) and suppose they have the same sign there (both nonnegative or both nonpositive, allowing one to be \(0\)). Define the outer and inner radii as distances from the axis:
+        \[ R(x)=\max\big(|f(x)|,|g(x)|\big), \qquad r(x)=\min\big(|f(x)|,|g(x)|\big). \]
+        Then the region does not cross the axis, each cross-section is a washer, and the volume generated by revolving it about the \(x\)-axis is
+        \[ V = \pi\int_a^b \Big[R(x)^2-r(x)^2\Big]\,dx. \]
+        In the common special case \(f(x)\ge g(x)\ge0\), this reduces to \(V=\pi\int_a^b\big[f(x)^2-g(x)^2\big]\,dx\). The absolute values matter when both curves lie below the axis, because a radius is a distance and is never negative. If instead the curves lie on opposite sides of the axis, the region contains the axis and each cross-section is a full disk of radius \(R(x)\), so \(V=\pi\int_a^b R(x)^2\,dx\) with no hole.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2 (washer).</strong> Rotate the region between \(y=x\) and \(y=x^2\) about the \(x\)-axis.
+        <p>Intersections: \(x=x^2\) gives \(x=0,1\). On \([0,1]\), \(x\ge x^2\ge0\), so \(R(x)=x\) and \(r(x)=x^2\).</p>
+        \[ V = \pi\int_0^1\big[x^2-(x^2)^2\big]\,dx = \pi\int_0^1\big(x^2-x^4\big)\,dx. \]
+        \[ = \pi\left[\frac{x^3}{3}-\frac{x^5}{5}\right]_0^1 = \pi\left(\frac13-\frac15\right) = \frac{2\pi}{15}. \]
+      </div>
+
+      <h3>2.3 Shell method</h3>
+      <p>For rotation about a vertical axis, a vertical strip parallel to the axis sweeps out a cylindrical shell. Unrolling the shell gives a rectangle of height equal to the strip height, width equal to the circumference \(2\pi(\text{radius})\), and thickness \(\Delta x\).</p>
+
+      <div class="theorem-box">
+        <strong>Theorem 2.3 (Shell method about \(x=0\)).</strong>
+        Assume \(0\le a \lt b\), \(f\) is continuous and \(f(x)\ge0\) on \([a,b]\), and the region under \(y=f(x)\) is revolved about the line \(x=0\). Then
+        \[ V = 2\pi\int_a^b x\,f(x)\,dx. \]
+        Here \(x\) is the shell radius and \(f(x)\) is the shell height. More generally, for the region between \(f\) and \(g\) with \(f\ge g\ge0\), use \(V=2\pi\int_a^b x\big[f(x)-g(x)\big]\,dx\).
+      </div>
+
+      <div class="theorem-box">
+        <strong>Variants for other axes.</strong>
+        <ul>
+          <li>About the vertical line \(x=c\) with \(c\le a\): the radius is \(x-c\), so \(V=2\pi\int_a^b (x-c)\big[f(x)-g(x)\big]\,dx\). If \(c\ge b\), the radius is \(c-x\). If the axis passes through the region, split the interval at \(x=c\), because radius is a distance.</li>
+          <li>About the horizontal line \(y=c\) using horizontal shells: suppose \(c\le d\), the region lies in \(d\le y\le e\), and the right and left curves are \(x=u(y)\) and \(x=v(y)\) with \(u\ge v\). Then \(V=2\pi\int_d^e (y-c)\big[u(y)-v(y)\big]\,dy\). If \(c\ge e\), replace \(y-c\) by \(c-y\).</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.3 (shells about the \(y\)-axis).</strong> Rotate \(y=x^2\) on \(0\le x\le2\) about \(x=0\).
+        <p>Radius \(=x\), height \(=x^2\), and \(a=0\), \(b=2\) satisfy \(0\le a \lt b\).</p>
+        \[ V = 2\pi\int_0^2 x\cdot x^2\,dx = 2\pi\int_0^2 x^3\,dx = 2\pi\left[\frac{x^4}{4}\right]_0^2 = 8\pi. \]
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.4 (shells about a shifted vertical axis).</strong> Rotate the same region about \(x=-2\).
+        <p>Now the distance from \(x\) to the axis is \(x-(-2)=x+2\), while the height stays \(x^2\).</p>
+        \[ V = 2\pi\int_0^2 (x+2)x^2\,dx = 2\pi\int_0^2\big(x^3+2x^2\big)\,dx. \]
+        \[ = 2\pi\left[\frac{x^4}{4}+\frac{2x^3}{3}\right]_0^2 = 2\pi\left(4+\frac{16}{3}\right) = \frac{56\pi}{3}. \]
+      </div>
+
       <div class="definition-box">
-        <strong>Formula 2.2 (Washer Method):</strong>
-        When the region between \(y = f(x)\) and \(y = g(x)\) (with \(f(x) \geq g(x)\)) is rotated about the x-axis:
-        $$\text{Volume} = \pi \int_a^b \left([f(x)]^2 - [g(x)]^2\right) \, dx$$
+        <strong>Axis-selection decision guide.</strong>
+        <ul>
+          <li>If the slices are perpendicular to the axis of rotation, use disks or washers. A vertical axis suggests horizontal slices; a horizontal axis suggests vertical slices.</li>
+          <li>If the slices are parallel to the axis of rotation, use shells. A vertical axis with curves given as \(y=f(x)\) usually favors shells, because it avoids solving for inverse functions.</li>
+          <li>Ask which description is available: if the functions are given as \(y=f(x)\) and the axis is vertical, shells are often easiest; washers would require \(x\) in terms of \(y\).</li>
+          <li>Compare integrands. Sometimes both methods work, but one produces a much simpler integral; choose the simpler integrand.</li>
+          <li>If part of the region lies on both sides of the axis, washer radii need absolute values and shell intervals may need splitting. Extra splitting is a reason to prefer the other method.</li>
+        </ul>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with volumes.</strong>
+        <ul>
+          <li>Using \(f(x)\) as a radius when the axis is not the \(x\)-axis. Radius is always a distance to the axis.</li>
+          <li>In the washer method, subtracting radii before squaring. The correct integrand is \(R^2-r^2\), not \((R-r)^2\).</li>
+          <li>In the shell method, using \(f(x)\) as the radius and \(x\) as the height. It is the reverse: radius \(x\), height \(f(x)\).</li>
+          <li>Forgetting the factor \(\pi\) for disks and washers or \(2\pi\) for shells.</li>
+          <li>Rotating about \(x=c\) but leaving the radius as \(x\) instead of \(|x-c|\).</li>
+        </ul>
       </div>
 
       <div class="example-box">
-        <strong>Example 2.2:</strong> Region between \(y = x\) and \(y = x^2\) rotated about x-axis.
-        <p>Intersections: \(x = x^2 \Rightarrow x = 0, 1\)</p>
-        <p>V = \(\pi \int_0^1 [x^2 - (x^2)^2] \, dx = \pi \int_0^1 (x^2 - x^4) \, dx\)</p>
-        <p>= \(\pi \left[\frac{x^3}{3} - \frac{x^5}{5}\right]_0^1 = \pi\left(\frac{1}{3} - \frac{1}{5}\right) = \frac{2\pi}{15}\)</p>
+        <strong>Quick check 2 (answers below).</strong>
+        <ol>
+          <li>Rotate \(y=x^2\) on \([0,1]\) about the \(x\)-axis. Which method and what answer?</li>
+          <li>Rotate the region between \(y=x\) and \(y=x^2\), \(0\le x\le1\), about the \(y\)-axis using shells.</li>
+          <li>The region between \(y=x\) and \(y=-x^2\) on \(0\le x\le1\) is revolved about the \(x\)-axis. Is a cross-section a washer or a disk? Find the volume.</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) Disks, \(V=\pi\int_0^1 x^4\,dx=\frac{\pi}{5}\); (2) \(V=2\pi\int_0^1 x(x-x^2)\,dx=\frac{\pi}{6}\); (3) the region crosses the axis (\(y=-x^2\le0\le y=x\)), so each cross-section is a full disk of radius \(R(x)=x\); \(V=\pi\int_0^1 x^2\,dx=\frac{\pi}{3}\).</p>
       </div>
 
-      <h3>2.3 Shell Method</h3>
-      <div class="definition-box">
-        <strong>Formula 2.3 (Shell Method):</strong>
-        Rotating the region bounded by \(y = f(x)\), the x-axis, and \(x = a\), \(x = b\) about the y-axis:
-        $$\text{Volume} = 2\pi \int_a^b x \cdot f(x) \, dx$$
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.3:</strong> Rotate \(y = x^2\) about the y-axis from \(x = 0\) to \(x = 2\).
-        <p>V = \(2\pi \int_0^2 x \cdot x^2 \, dx = 2\pi \int_0^2 x^3 \, dx\)</p>
-        <p>= \(2\pi \left[\frac{x^4}{4}\right]_0^2 = 2\pi \cdot 4 = 8\pi\)</p>
-      </div>
+      <p><strong>Summary of Section 2.</strong> Disks use \(\pi\int r^2\), washers use \(\pi\int(R^2-r^2)\) with radii measured as distances, and shells use \(2\pi\int(\text{radius})(\text{height})\). The choice of method depends on whether slices are perpendicular or parallel to the axis and on whether the given functions are easy to invert.</p>
 
       <h2>3. Work</h2>
 
-      <div class="definition-box">
-        <strong>Definition 3.1 (Work):</strong>
-        Work done by a force \(F(x)\) moving an object from \(x = a\) to \(x = b\) is:
-        $$W = \int_a^b F(x) \, dx$$
-        If \(F\) is constant: \(W = F \cdot d\) (force × distance).
+      <h3>3.1 Variable force and the slice principle</h3>
+      <p>For a constant force \(F\) moving an object a distance \(d\) in the direction of the force, work is \(W=F\,d\). When the force changes with position, slice the path into short intervals of length \(\Delta x\), approximate the force on each by \(F(x_i^*)\), and add.</p>
+
+      <div class="theorem-box">
+        <strong>Definition 3.1 (Work done by a variable force).</strong>
+        If \(F\) is continuous on \([a,b]\), the work done by \(F\) in moving an object from \(x=a\) to \(x=b\) is
+        \[ W = \int_a^b F(x)\,dx. \]
+        <strong>Sign convention.</strong> This computes work done <em>by</em> the force in the direction of motion. If a force opposes the motion, its work is negative; the work an external agent must supply against it is the positive magnitude \(\int|F(x)|\,dx\). In pumping and lifting problems, the weight of a slice acts downward while the pump lifts upward, so we report the positive work supplied by the pump.
+      </div>
+
+      <h3>3.2 Springs: measure displacement from natural length</h3>
+      <div class="theorem-box">
+        <strong>Hooke's Law and spring work.</strong>
+        Let \(x\) denote displacement <em>from the natural (unstretched) length</em>, not the total length of the spring. The restoring force has magnitude \(F(x)=kx\), where \(k \gt 0\) is the spring constant. The work done by an external agent stretching the spring from displacement \(a\) to displacement \(b\), with \(0\le a \lt b\), is
+        \[ W = \int_a^b kx\,dx = \frac{k}{2}\big(b^2-a^2\big). \]
+        Starting from natural length (\(a=0\)), this becomes \(W=\frac12 k d^2\). By the sign convention above, the work done <em>by the spring itself</em> during the stretch is \(-\frac12 k d^2\).
       </div>
 
       <div class="example-box">
-        <strong>Example 3.1:</strong> Hooke's Law: A spring with spring constant \(k = 50\) N/m is stretched 0.2 m. Find work done.
-        <p>F = kx = 50x</p>
-        <p>W = \(\int_0^{0.2} 50x \, dx = 50 \left[\frac{x^2}{2}\right]_0^{0.2} = 25(0.04) = 1\) J</p>
+        <strong>Example 3.1 (spring from natural length).</strong> A spring with \(k=50\) N/m is stretched \(0.2\) m from its natural length. Find the work done.
+        <p>The force grows linearly from \(0\) to \(50(0.2)=10\) N; using the endpoint force alone would overestimate the work.</p>
+        \[ W = \int_0^{0.2} 50x\,dx = 50\left[\frac{x^2}{2}\right]_0^{0.2} = 25(0.04) = 1 \text{ J}. \]
+        <p>The equivalent formula \(\frac12 k d^2=\frac12(50)(0.2)^2=1\) J agrees.</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 3.2:</strong> Pump water from a cylindrical tank of radius 3 ft and height 10 ft. Water weighs 62.5 lb/ft³. Pump to 2 ft above tank.
-        <p>Consider a thin layer at depth \(y\) from top. Distance to pump: \(y + 2\)</p>
-        <p>Volume of layer: \(dV = \pi(3)^2 \, dy = 9\pi \, dy\)</p>
-        <p>Weight: \(dW = 62.5 \cdot 9\pi \, dy = 562.5\pi \, dy\)</p>
-        <p>Work: \(W = \int_0^{10} 562.5\pi (y+2) \, dy\)</p>
-        <p>= \(562.5\pi \left[\frac{(y+2)^2}{2}\right]_0^{10} = 562.5\pi(60 - 2) = 33750\pi\) ft-lb</p>
+        <strong>Example 3.2 (stretching between two displacements).</strong> With \(k=100\) N/m, find the work to stretch a spring from \(0.1\) m to \(0.4\) m beyond its natural length.
+        \[ W = \int_{0.1}^{0.4}100x\,dx = 50\left[x^2\right]_{0.1}^{0.4} = 50(0.16-0.01) = 7.5 \text{ J}. \]
+        <p>Note that this is not \(\frac12 k(0.3)^2=4.5\) J: the displacement variable must always be measured from natural length.</p>
       </div>
 
-      <h2>4. Center of Mass</h2>
+      <h3>3.3 Pumping fluids</h3>
+      <p>For pumping, slice the liquid horizontally. The work to lift one slice is its weight times the distance it must travel. Weight equals weight density times volume. The following example uses US customary units, where water has weight density \(62.5\) lb/ft\(^3\) and work is measured in ft-lb.</p>
 
-      <div class="definition-box">
-        <strong>Formula 4.1 (Center of Mass):</strong>
-        For a region with density \(\rho(x,y)\):
-        $$\bar{x} = \frac{1}{M} \iint_R x \rho(x,y) \, dA, \quad \bar{y} = \frac{1}{M} \iint_R y \rho(x,y) \, dA$$
-        where \(M = \iint_R \rho(x,y) \, dA\) is the total mass.
+      <div class="example-box">
+        <strong>Example 3.3 (corrected pumping example).</strong> A cylindrical tank of radius \(3\) ft and height \(10\) ft is full of water weighing \(62.5\) lb/ft\(^3\). Pump all the water to a point \(2\) ft above the top of the tank.
+        <p>Let \(y\) be the depth in feet below the top of the tank, so \(0\le y\le10\). A horizontal layer of thickness \(dy\) has volume</p>
+        \[ dV = \pi(3)^2\,dy = 9\pi\,dy. \]
+        <p>Its weight is \(62.5\cdot9\pi\,dy=562.5\pi\,dy\), and it must be lifted \(y+2\) feet. Therefore</p>
+        \[ dW = 562.5\pi\,(y+2)\,dy, \]
+        \[ W = \int_0^{10}562.5\pi(y+2)\,dy = 562.5\pi\left[\frac{(y+2)^2}{2}\right]_0^{10}. \]
+        \[ = 562.5\pi\left(\frac{144}{2}-\frac{4}{2}\right) = 562.5\pi(72-2). \]
+        \[ = 562.5\pi\cdot70 = 39375\pi \text{ ft-lb}. \]
+        <p>The limits \(0\) and \(10\) correspond to the top and bottom layers; measuring \(y\) downward makes the lifting distance \(y+2\), which increases with depth as it should.</p>
+      </div>
+
+      <h3>3.4 Hanging cables and ropes</h3>
+      <p>A hanging cable of uniform linear density \(\rho\) (weight per unit length) can be lifted slice by slice. If \(y\) measures distance down from the top support, a piece of length \(dy\) weighs \(\rho\,dy\) and must be lifted \(y\) feet to reach the top.</p>
+
+      <div class="example-box">
+        <strong>Example 3.4 (cable work).</strong> A \(20\)-ft cable weighing \(3\) lb/ft hangs from a winch at the top of a building. Find the work to wind the entire cable onto the winch.
+        <p>Let \(y\) be distance below the winch, \(0\le y\le20\). A slice at \(y\) weighs \(3\,dy\) and travels \(y\) feet.</p>
+        \[ W = \int_0^{20}3y\,dy = 3\left[\frac{y^2}{2}\right]_0^{20} = 3(200) = 600 \text{ ft-lb}. \]
+        <p>Equivalently, with \(x\) measured up from the bottom, the slice travels \(20-x\), giving \(\int_0^{20}3(20-x)\,dx=600\) ft-lb. The entire cable has weight \(60\) lb, and its center of mass is lifted \(10\) ft, which also gives \(600\) ft-lb.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with work.</strong>
+        <ul>
+          <li>Using total length instead of displacement from natural length in spring problems; Hooke's law uses extension.</li>
+          <li>Multiplying by the final spring force \(kd\) instead of integrating the varying force \(kx\).</li>
+          <li>In pumping problems, using a slice's depth as the lifting distance. The distance is depth plus the extra height above the tank.</li>
+          <li>Mixing weight density (lb/ft\(^3\)) with mass density; in US customary units, \(62.5\) lb/ft\(^3\) is already a weight.</li>
+          <li>Forgetting that the work done by a resisting force is negative while the work required to overcome it is positive.</li>
+        </ul>
       </div>
 
       <div class="example-box">
-        <strong>Example 4.1:</strong> Find center of mass of a semicircular lamina of radius \(R\) with constant density.
-        <p>By symmetry, \(\bar{x} = 0\).</p>
-        <p>\(M = \int_{-R}^{R} \int_0^{\sqrt{R^2-x^2}} \rho \, dy \, dx = \rho \cdot \text{Area} = \rho \cdot \frac{\pi R^2}{2}\)</p>
-        <p>\(\bar{y} = \frac{1}{M} \int_{-R}^{R} \int_0^{\sqrt{R^2-x^2}} y \rho \, dy \, dx = \frac{4R}{3\pi}\)</p>
+        <strong>Quick check 3 (answers below).</strong>
+        <ol>
+          <li>A spring with \(k=20\) N/m is stretched \(0.3\) m from natural length. Find the work.</li>
+          <li>A \(30\)-ft chain weighs \(2\) lb/ft and hangs from a roof. Find the work to raise it all to the roof.</li>
+          <li>In Example 3.3, what would change if the water were pumped only to the top of the tank?</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) \(\frac12(20)(0.3)^2=0.9\) J; (2) \(\int_0^{30}2y\,dy=900\) ft-lb; (3) the distance becomes \(y\) instead of \(y+2\), giving \(562.5\pi\int_0^{10}y\,dy=28125\pi\) ft-lb.</p>
+      </div>
+
+      <p><strong>Summary of Section 3.</strong> Work is \(\int F\,dx\) for a variable force. For springs, \(F=kx\) with \(x\) measured from natural length and \(W=\frac12 kd^2\). For pumping and lifting, write (weight of slice) times (distance lifted) and integrate over the depth or length of the object. Always decide whether the question asks for work done by a force or against it.</p>
+
+      <h2>4. Center of Mass in One Dimension</h2>
+
+      <h3>4.1 Mass, moment, and the balancing point</h3>
+      <p>The center of mass of a distribution is its balancing point. For a thin rod lying on the \(x\)-axis with linear density \(\delta(x)\) (mass per unit length) on \(a\le x\le b\), a short piece of length \(\Delta x\) has mass \(\delta(x_i^*)\Delta x\). Its contribution to the total mass is that mass, and its contribution to the moment about the origin is mass times position.</p>
+
+      <div class="theorem-box">
+        <strong>Definition 4.1 (Center of mass of a one-dimensional object).</strong>
+        Let a distribution on \([a,b]\) have density \(\delta(x)\ge0\). Its mass, moment about the origin, and center of mass are
+        \[ M = \int_a^b \delta(x)\,dx, \qquad \mathcal{M} = \int_a^b x\,\delta(x)\,dx, \]
+        \[ \bar x = \frac{\mathcal{M}}{M} = \frac{\int_a^b x\,\delta(x)\,dx}{\int_a^b \delta(x)\,dx}. \]
+        If the density is constant, the factors cancel and \(\bar x\) is the ordinary midpoint when the interval is symmetric.
+      </div>
+
+      <div class="theorem-box">
+        <strong>Strip version for a thin lamina with density depending only on \(x\).</strong>
+        Suppose a flat plate occupies \(a\le x\le b\) between \(y=g(x)\) and \(y=f(x)\) with \(f\ge g\), and its density is \(\delta(x)\). The vertical strip at \(x\) has mass \(\delta(x)\big[f(x)-g(x)\big]\,dx\), so
+        \[ M = \int_a^b \delta(x)\big[f(x)-g(x)\big]\,dx, \]
+        \[ \bar x = \frac{\int_a^b x\,\delta(x)\big[f(x)-g(x)\big]\,dx}{\int_a^b \delta(x)\big[f(x)-g(x)\big]\,dx}. \]
+        The \(y\)-coordinate follows the same principle with horizontal strips: \(\bar y=\frac{\int y\,(\text{strip mass})\,dy}{\int(\text{strip mass})\,dy}\). If the plate is symmetric about a line, the center of mass lies on that line.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.1 (nonuniform rod).</strong> A rod occupies \(0\le x\le4\) with density \(\delta(x)=x+1\) kg/m. Find \(\bar x\).
+        <p>Mass:</p>
+        \[ M=\int_0^4 (x+1)\,dx = \left[\frac{x^2}{2}+x\right]_0^4 = 8+4 = 12 \text{ kg}. \]
+        <p>Moment about the origin:</p>
+        \[ \mathcal{M}=\int_0^4 x(x+1)\,dx = \int_0^4\big(x^2+x\big)\,dx = \left[\frac{x^3}{3}+\frac{x^2}{2}\right]_0^4 = \frac{64}{3}+8 = \frac{88}{3}. \]
+        <p>Center of mass:</p>
+        \[ \bar x = \frac{88/3}{12} = \frac{88}{36} = \frac{22}{9} \approx 2.44 \text{ m}. \]
+        <p>This lies to the right of the midpoint \(2\), as expected, because the rod is denser on the right.</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 4.2 (semicircular lamina, full evaluation).</strong> Find the center of mass of the upper semicircular lamina of radius \(R\) with constant density \(\rho\).
+        <p>The lamina is symmetric about the \(y\)-axis, so \(\bar x=0\). Use horizontal strips: at height \(y\), where \(0\le y\le R\), the circle \(x^2+y^2=R^2\) gives half-width \(\sqrt{R^2-y^2}\), so the strip length is \(2\sqrt{R^2-y^2}\) and its mass is \(2\rho\sqrt{R^2-y^2}\,dy\).</p>
+        <p>Mass (half a disk of radius \(R\)):</p>
+        \[ M = \int_0^R 2\rho\sqrt{R^2-y^2}\,dy = \rho\cdot\frac{\pi R^2}{2}. \]
+        <p>Moment about the \(x\)-axis:</p>
+        \[ \mathcal{M}_x = \int_0^R y\cdot2\rho\sqrt{R^2-y^2}\,dy = \rho\int_0^R 2y\sqrt{R^2-y^2}\,dy. \]
+        <p>Let \(u=R^2-y^2\), so \(du=-2y\,dy\). When \(y=0\), \(u=R^2\); when \(y=R\), \(u=0\):</p>
+        \[ \rho\int_{R^2}^{0} -\sqrt u\,du = \rho\int_0^{R^2} u^{1/2}\,du = \rho\left[\frac23 u^{3/2}\right]_0^{R^2}. \]
+        \[ = \rho\cdot\frac23 R^3 = \frac{2\rho R^3}{3}. \]
+        <p>Divide moment by mass:</p>
+        \[ \bar y = \frac{2\rho R^3/3}{\rho\pi R^2/2} = \frac{2\rho R^3}{3}\cdot\frac{2}{\rho\pi R^2} = \frac{4R}{3\pi}. \]
+        <p>Thus the center of mass is \(\left(0,\frac{4R}{3\pi}\right)\). Numerically \(\frac{4}{3\pi}\approx0.424\), slightly below the midpoint of the radius, which is reasonable because more area lies near the flat base.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes with center of mass.</strong>
+        <ul>
+          <li>Forgetting to divide the moment by the total mass; the moment alone is not a coordinate.</li>
+          <li>Using geometric area in place of mass when the density is not constant.</li>
+          <li>Ignoring symmetry. For a symmetric lamina, one coordinate is known immediately.</li>
+          <li>Using a double integral, which belongs to multivariable calculus, when a single strip integral suffices at the Calc I level.</li>
+          <li>In the semicircle calculation, dropping the factor \(2\) in the strip length \(2\sqrt{R^2-y^2}\) or forgetting to reverse limits after substituting \(u=R^2-y^2\).</li>
+        </ul>
+      </div>
+
+      <div class="example-box">
+        <strong>Quick check 4 (answers below).</strong>
+        <ol>
+          <li>Find \(\bar x\) for a rod on \([0,2]\) with \(\delta(x)=x+1\).</li>
+          <li>Where is the center of mass of a uniform rod on \([-3,3]\)?</li>
+          <li>For a semicircular lamina of radius \(R=6\), state \(\bar y\).</li>
+        </ol>
+        <p><strong>Answers:</strong> (1) \(M=4\), \(\mathcal{M}=\frac{14}{3}\), so \(\bar x=\frac76\); (2) at the origin \((0,0)\) by symmetry; (3) \(\bar y=\frac{4(6)}{3\pi}=\frac8\pi\).</p>
+      </div>
+
+      <p><strong>Summary of Section 4.</strong> Build the mass and moment from identical slices: \(\bar x=\frac{\int x\delta(x)\,dx}{\int\delta(x)\,dx}\). For a lamina with density depending only on \(x\), insert the strip height \(f(x)-g(x)\) in both integrals. Use symmetry whenever available, and evaluate the semicircle result as \(\bar y=\frac{4R}{3\pi}\).</p>
+
+      <h2>5. Bonus: Pappus's Theorem (Optional)</h2>
+
+      <div class="formula-box">
+        <strong>Bonus: an optional shortcut for volumes of revolution.</strong>
+        This classical theorem is stated without proof and is not required for this course. If a plane region of area \(A\) is revolved about an axis in its plane that does not intersect the region, then the volume of the solid is
+        \[ V = A\cdot 2\pi \bar d, \]
+        where \(\bar d\) is the distance from the centroid of the region to the axis of rotation. In words, the volume equals area times the distance traveled by the centroid. Similarly, revolving a plane curve of length \(L\) about a nonintersecting axis produces surface area \(S=L\cdot2\pi\bar d\), where \(\bar d\) is measured from the centroid of the curve.
+      </div>
+
+      <div class="example-box">
+        <strong>Example 5.1 (torus).</strong> Revolve a disk of radius \(R\) whose center is \(b \gt R\) units from the axis about that axis. The disk has area \(\pi R^2\) and its centroid is at its center, so
+        \[ V = \pi R^2\cdot 2\pi b = 2\pi^2 b R^2. \]
+        If the axis is tangent to the disk, then \(b=R\) and \(V=2\pi^2R^3\). This agrees with the washer calculation but requires no integration.
+      </div>
+
+      <h2>6. Practice Problems</h2>
+
+      <ol>
+        <li>Find the area between \(y=x^2\) and \(y=x+2\) on \([-1,2]\).</li>
+        <li>Find the area bounded by \(y=x^3\) and \(y=x\) on \([-1,1]\).</li>
+        <li>Find the area of the region bounded by \(x=y^2\) and \(x=4\) using horizontal slices.</li>
+        <li>Find the volume when \(y=x^2\), \(0\le x\le1\), is revolved about the \(x\)-axis.</li>
+        <li>Find the volume when the region between \(y=x\) and \(y=x^2\), \(0\le x\le1\), is revolved about the \(y\)-axis.</li>
+        <li>Find the volume when the region under \(y=x^2\), \(0\le x\le2\), is revolved about the line \(x=-2\).</li>
+        <li>A spring with \(k=20\) N/m is stretched \(0.3\) m from natural length. Find the work.</li>
+        <li>A spring with \(k=100\) N/m is stretched from \(0.1\) m to \(0.4\) m beyond natural length. Find the work.</li>
+        <li>A \(30\)-ft chain weighing \(2\) lb/ft hangs from a roof. Find the work to raise it all to the roof.</li>
+        <li>A cylindrical tank of radius \(4\) ft and height \(8\) ft is full of water weighing \(62.5\) lb/ft\(^3\). Pump all the water to a point \(3\) ft above the top; find the work.</li>
+        <li>A rod on \(0\le x\le2\) has density \(\delta(x)=x^2+1\) kg/m. Find \(\bar x\).</li>
+        <li>State the center of mass of a uniform upper semicircular lamina of radius \(6\).</li>
+      </ol>
+
+      <div class="formula-box">
+        <strong>Answer key with essential steps.</strong>
+        <ol>
+          <li>Intersections at \(x=-1,2\); \(A=\int_{-1}^{2}(x+2-x^2)\,dx=\frac92\).</li>
+          <li>Split at \(x=0\): \(A=\int_{-1}^{0}(x^3-x)\,dx+\int_0^1(x-x^3)\,dx=\frac12\).</li>
+          <li>Here \(-2\le y\le2\) and \(x=4\) is right of \(x=y^2\): \(A=\int_{-2}^{2}(4-y^2)\,dy=\frac{32}{3}\).</li>
+          <li>Disks: \(V=\pi\int_0^1 x^4\,dx=\frac{\pi}{5}\).</li>
+          <li>Shells: \(V=2\pi\int_0^1 x(x-x^2)\,dx=\frac{\pi}{6}\).</li>
+          <li>Shells with radius \(x+2\): \(V=2\pi\int_0^2 (x+2)x^2\,dx=\frac{56\pi}{3}\).</li>
+          <li>\(W=\frac12 k d^2=\frac12(20)(0.09)=0.9\) J.</li>
+          <li>\(W=\int_{0.1}^{0.4}100x\,dx=50(0.15)=7.5\) J.</li>
+          <li>\(W=\int_0^{30}2y\,dy=900\) ft-lb.</li>
+          <li>A layer at depth \(y\) weighs \(62.5\cdot16\pi\,dy=1000\pi\,dy\) and rises \(y+3\): \(W=1000\pi\int_0^8(y+3)\,dy=56000\pi\) ft-lb.</li>
+          <li>\(M=\int_0^2(x^2+1)\,dx=\frac{14}{3}\), \(\mathcal{M}=\int_0^2(x^3+x)\,dx=6\), so \(\bar x=\frac{9}{7}\).</li>
+          <li>By symmetry \(\bar x=0\), and \(\bar y=\frac{4R}{3\pi}=\frac8\pi\).</li>
+        </ol>
       </div>
     </div>
 
 <nav class="navigation" aria-label="Course navigation">
-      <a href="lecture-notes-ftc-calc1.html">← FTC</a>
-      <a href="lecture-notes-integration-techniques-calc1.html">Integration Techniques →</a>
+      <a href="lecture-notes-integration-techniques-calc1.html">← Integration Techniques</a>
+      <a href="lecture-notes-midterm-review-calc1.html">Midterm Review →</a>
     </nav>
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>

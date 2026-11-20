@@ -44,245 +44,398 @@
     </div>
 
     <div class="lecture-content">
+      <p><strong>Big picture.</strong> The chain rule is the differentiation law for composite functions: it describes how a rate of change passes through layers of functions. Almost every derivative later in the course, from trigonometric compositions to implicit curves to related rates, rests on this single idea. Implicit differentiation is the same rule applied to an <em>equation</em> instead of an explicit formula, which lets us study curves such as circles and the folium of Descartes without first solving for one variable in terms of the other.</p>
+
+      <div class="formula-box">
+        <p><strong>Road map and prerequisites.</strong></p>
+        <ul>
+          <li>Composites: \(y = f(g(x))\), where \(f\) is the <em>outside</em> function and \(g\) is the <em>inside</em> function.</li>
+          <li>Prerequisites: limits, continuity, the limit definition of the derivative, and the product and quotient rules.</li>
+          <li>Chain rule: \(\frac{d}{dx}f(g(x)) = f'(g(x))\,g'(x)\); Leibniz form \(\frac{dy}{dx} = \frac{dy}{du}\frac{du}{dx}\).</li>
+          <li>Consequences: derivatives of \(a^x\), \(\ln|x|\), logarithmic differentiation, inverse trig functions, and implicit curves.</li>
+        </ul>
+      </div>
+
       <h2>1. The Chain Rule</h2>
-      
-      <h3>1.1 Understanding Composite Functions</h3>
+
+      <h3>1.1 Composite functions: the intuition</h3>
+      <p>Before differentiating, we must see the layers. Think of a composite function as a chain of operations performed in order: first do \(g\), then do \(f\). For \(\sin(x^2)\), the input \(x\) is first squared, and the result is then fed into the sine function.</p>
+
       <div class="definition-box">
-        <strong>Composite Function:</strong>
-        If \(g\) is a function and \(f\) is a function, the composition of \(f\) and \(g\) is:
-        $$(f \circ g)(x) = f(g(x))$$
-        <p>Read as "f composed with g" or "f of g of x"</p>
+        <strong>Composite function.</strong>
+        <p>If \(g\) and \(f\) are functions, the composition of \(f\) with \(g\) is</p>
+        \[(f \circ g)(x) = f(g(x)).\]
+        <p>This is read as "f composed with g," or "f of g of x." The function \(g\) is the inside (first) operation, and \(f\) is the outside (last) operation.</p>
       </div>
 
       <div class="important-note">
-        <strong>Decomposing Composite Functions:</strong>
-        To apply the chain rule, identify:
+        <strong>How to decompose a composite.</strong>
         <ul>
-          <li><strong>Outside function:</strong> The "outer" operation</li>
-          <li><strong>Inside function:</strong> The "inner" function that's plugged in</li>
-        </ul>
-        Example: For \(\sin(x^2)\):
-        <ul>
-          <li>Outside: \(\sin(u)\)</li>
-          <li>Inside: \(u = x^2\)</li>
+          <li><strong>Outside function:</strong> the last operation applied, holding the inside expression as one variable \(u\).</li>
+          <li><strong>Inside function:</strong> the expression \(u = g(x)\) that gets substituted into the outside function.</li>
+          <li>For \(\sin(x^2)\): outside \(f(u) = \sin u\), inside \(u = x^2\).</li>
+          <li>For \(e^{\sin(x^2)}\): outside \(f(u) = e^{u}\), middle \(\sin v\), inside \(v = x^2\) &mdash; three layers.</li>
         </ul>
       </div>
 
-      <h3>1.2 Statement and Proof of the Chain Rule</h3>
+      <h3>1.2 Statement of the theorem</h3>
       <div class="theorem-box">
-        <strong>Chain Rule:</strong>
-        If \(g\) is differentiable at \(a\) and \(f\) is differentiable at \(g(a)\), then \(f \circ g\) is differentiable at \(a\) and:
-        $$(f \circ g)'(a) = f'(g(a)) \cdot g'(a)$$
-        Or equivalently: \(\frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x)\)
+        <strong>Theorem 1.1 (The Chain Rule).</strong>
+        <p>Let \(g\) be differentiable at \(a\), and let \(f\) be differentiable at \(b = g(a)\). Then \(f \circ g\) is differentiable at \(a\), and</p>
+        \[(f \circ g)'(a) = f'(g(a))\,g'(a).\]
+        <p>In function notation, \(\frac{d}{dx}\left[f(g(x))\right] = f'(g(x))\,g'(x)\). If \(y = f(u)\) and \(u = g(x)\), the <em>Leibniz form</em> is especially memorable:</p>
+        \[\frac{dy}{dx} = \frac{dy}{du}\,\frac{du}{dx}.\]
+        <p>The hypotheses are not decorative: \(f\) must be differentiable at the specific value \(g(a)\), not merely at some other point.</p>
       </div>
+
+      <h3>1.3 A rigorous proof (error-function, or Carathéodory, formulation)</h3>
+      <p>The tempting proof "multiply and divide by \(g(a+h)-g(a)\)" is incomplete, because that difference can be zero even when \(h \ne 0\). The following argument repairs the gap and is valid in every case.</p>
 
       <div class="proof-box">
-        <strong>Proof of the Chain Rule:</strong>
-        
-        We need to show: \(\lim_{h \to 0} \frac{f(g(a+h)) - f(g(a))}{h} = f'(g(a)) \cdot g'(a)\)
-        
-        <strong>Key idea:</strong> Multiply and divide by \(g(a+h) - g(a)\):
-        
-        $$\frac{f(g(a+h)) - f(g(a))}{h} = \frac{f(g(a+h)) - f(g(a))}{g(a+h) - g(a)} \cdot \frac{g(a+h) - g(a)}{h}$$
-        
-        Provided \(g(a+h) \neq g(a)\), this equals:
-        $$\frac{f(g(a+h)) - f(g(a))}{g(a+h) - g(a)} \cdot \frac{g(a+h) - g(a)}{h}$$
-        
-        <strong>Now take the limit as \(h \to 0\):</strong>
-        
-        <strong>First fraction:</strong> As \(h \to 0\), \(g(a+h) \to g(a)\) (by continuity of \(g\)).
-        <p>So \(\lim_{h \to 0} \frac{f(g(a+h)) - f(g(a))}{g(a+h) - g(a)} = f'(g(a))\)</p>
-        
-        <strong>Second fraction:</strong> \(\lim_{h \to 0} \frac{g(a+h) - g(a)}{h} = g'(a)\)</p>
-        
-        <strong>Therefore:</strong>
-        <p>\((f \circ g)'(a) = f'(g(a)) \cdot g'(a)\)</p>
-        
-        <strong>Technical note:</strong> We need to handle the case where \(g(a+h) = g(a)\) for some small \(h\). This can be done by defining an appropriate "error function" that makes the formula work even when \(g(a+h) = g(a)\). ∎
+        <strong>Proof.</strong>
+        <p>Write \(b = g(a)\). Since \(f\) is differentiable at \(b\), the quotient \(\frac{f(b+k)-f(b)}{k}\) tends to \(f'(b)\) as \(k \to 0\) for \(k \ne 0\). Define the <em>error function</em></p>
+        \[\varepsilon(k) = \frac{f(b+k)-f(b)}{k} - f'(b) \quad (k \ne 0), \qquad \varepsilon(0) = 0.\]
+        <p>Then \(\varepsilon(k) \to 0\) as \(k \to 0\), and, most importantly, the identity</p>
+        \[f(b+k) - f(b) = \left(f'(b) + \varepsilon(k)\right)k\]
+        <p>holds for <em>every</em> \(k\), including \(k = 0\), because both sides then equal \(0\). This is exactly what avoids dividing by \(g(a+h)-g(a)\).</p>
+        <p>Now choose \(k = g(a+h)-g(a)\). Since \(g\) is differentiable at \(a\), it is continuous at \(a\), so \(k \to 0\) as \(h \to 0\). Substituting into the identity and dividing by \(h \ne 0\) gives</p>
+        \[\frac{f(g(a+h)) - f(g(a))}{h} = \left(f'(g(a)) + \varepsilon(k)\right)\frac{g(a+h) - g(a)}{h}.\]
+        <p>Let \(h \to 0\). We have \(\varepsilon(k) \to 0\) and \(\frac{g(a+h)-g(a)}{h} \to g'(a)\), hence</p>
+        \[\lim_{h \to 0}\frac{f(g(a+h)) - f(g(a))}{h} = f'(g(a))\,g'(a).\]
+        <p>If \(g(a+h) = g(a)\) for some \(h\), then \(k = 0\), the error formula gives \(f(g(a+h)) - f(g(a)) = 0\), and the displayed equality still holds. Continuity of \(g\) alone would not have been enough; the error-function formulation handles the locally constant (degenerate) case completely. ∎</p>
       </div>
 
-      <h3>1.3 Applying the Chain Rule</h3>
+      <h3>1.4 The chain rule algorithm</h3>
       <div class="important-note">
-        <strong>Chain Rule Algorithm:</strong>
+        <strong>Algorithm.</strong>
         <ol>
-          <li>Identify the outside and inside functions</li>
-          <li>Differentiate the outside function (treat inside as a single variable)</li>
-          <li>Multiply by the derivative of the inside function</li>
-          <li>Simplify if possible</li>
+          <li>Identify the outside function and the inside function.</li>
+          <li>Differentiate the outside function, treating the inside as a single variable.</li>
+          <li>Multiply by the derivative of the inside function.</li>
+          <li>For more than two layers, repeat from outside inward and multiply all the pieces.</li>
+          <li>Simplify only after all layers have been differentiated.</li>
         </ol>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.1 - Basic Chain Rule:</strong>
-        Find \(\frac{d}{dx}[\sin(x^2)]\)
-        
-        <p><strong>Step 1 - Identify:</strong> Outside: \(\sin(u)\), Inside: \(u = x^2\)</p>
-        <p><strong>Step 2 - Differentiate outside:</strong> \(\frac{d}{du}[\sin u] = \cos u\)</p>
-        <p><strong>Step 3 - Multiply by derivative of inside:</strong> \(\cos(x^2) \cdot \frac{d}{dx}[x^2] = \cos(x^2) \cdot 2x\)</p>
-        <p><strong>Step 4 - Write final answer:</strong> \(\frac{d}{dx}[\sin(x^2)] = 2x\cos(x^2)\)</p>
+        <strong>Example 1.1 &mdash; Basic chain rule.</strong>
+        <p>Find \(\frac{d}{dx}\left[\sin(x^2)\right]\).</p>
+        <p><strong>Step 1 (identify):</strong> outside \(f(u) = \sin u\), inside \(u = x^2\).</p>
+        <p><strong>Step 2 (outside):</strong> \(f'(u) = \cos u\), so the outer derivative is \(\cos(x^2)\).</p>
+        <p><strong>Step 3 (inside):</strong> \(\frac{du}{dx} = 2x\).</p>
+        <p><strong>Step 4 (multiply):</strong> \(\frac{d}{dx}\left[\sin(x^2)\right] = \cos(x^2)\cdot 2x = 2x\cos(x^2)\).</p>
+        <p><strong>Interpretation:</strong> the factor \(2x\) shows the squaring operation stretches the rate by the size of \(x\); at \(x = 0\) the derivative is \(0\).</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.2 - Nested Chain Rule:</strong>
-        Find \(\frac{d}{dx}[e^{\sin(x^2)}]\)
-        
-        <p><strong>Layer 1 (outside to inside):</strong></p>
-        <p>Outermost: \(e^u\) → derivative: \(e^u\)</p>
-        <p>Middle: \(\sin(v)\) → derivative: \(\cos(v)\)</p>
-        <p>Innermost: \(x^2\) → derivative: \(2x\)</p>
-        
-        <p><strong>Chain it together:</strong></p>
-        <p>$$\frac{d}{dx}[e^{\sin(x^2)}] = e^{\sin(x^2)} \cdot \cos(x^2) \cdot 2x = 2xe^{\sin(x^2)}\cos(x^2)$$</p>
+        <strong>Example 1.2 &mdash; Three layered functions.</strong>
+        <p>Find \(\frac{d}{dx}\left[e^{\sin(x^2)}\right]\).</p>
+        <p><strong>Step 1 (layers, outside to inside):</strong> \(e^{u}\), then \(\sin v\), then \(v = x^2\).</p>
+        <p><strong>Step 2 (derivatives):</strong> \(\frac{d}{du}e^{u} = e^{u}\), \(\frac{d}{dv}\sin v = \cos v\), \(\frac{dv}{dx} = 2x\).</p>
+        <p><strong>Step 3 (chain them):</strong></p>
+        \[\frac{d}{dx}\left[e^{\sin(x^2)}\right] = e^{\sin(x^2)}\cdot \cos(x^2)\cdot 2x.\]
+        <p><strong>Step 4 (final):</strong> \(2x\,e^{\sin(x^2)}\cos(x^2)\).</p>
       </div>
 
       <div class="example-box">
-        <strong>Example 1.3 - Chain Rule with Product:</strong>
-        Find \(\frac{d}{dx}[x^2 \sin(x^3)]\)
-        
-        <p>Use product rule: \((uv)' = u'v + uv'\)</p>
-        <p>Let \(u = x^2\), \(v = \sin(x^3)\)</p>
-        <p>\(u' = 2x\)</p>
-        <p>For \(v'\), use chain rule: \(\cos(x^3) \cdot 3x^2\)</p>
-        
-        <p>Result: \(2x \cdot \sin(x^3) + x^2 \cdot 3x^2 \cos(x^3)\)</p>
-        <p>= \(2x\sin(x^3) + 3x^4\cos(x^3)\)</p>
+        <strong>Example 1.3 &mdash; Product rule combined with chain rule.</strong>
+        <p>Find \(\frac{d}{dx}\left[x^2\sin(x^3)\right]\).</p>
+        <p><strong>Step 1 (product structure):</strong> \(u = x^2\), \(v = \sin(x^3)\), so \((uv)' = u'v + uv'\).</p>
+        <p><strong>Step 2 (derivatives):</strong> \(u' = 2x\). For \(v'\), apply the chain rule: \(v' = \cos(x^3)\cdot 3x^2 = 3x^2\cos(x^3)\).</p>
+        <p><strong>Step 3 (assemble):</strong></p>
+        \[\frac{d}{dx}\left[x^2\sin(x^3)\right] = 2x\sin(x^3) + x^2\cdot 3x^2\cos(x^3).\]
+        <p><strong>Step 4 (simplify):</strong> \(2x\sin(x^3) + 3x^4\cos(x^3)\).</p>
       </div>
 
-      <h2>2. Implicit Differentiation</h2>
-
-      <h3>2.1 What is Implicit Differentiation?</h3>
-      <div class="definition-box">
-        <strong>Implicit Function:</strong>
-        An equation of the form \(F(x, y) = 0\) where \(y\) is considered an implicit function of \(x\).
-        
-        <strong>Implicit Differentiation:</strong>
-        A technique for finding \(\frac{dy}{dx}\) when \(y\) is defined implicitly as a function of \(x\).
+      <div class="example-box">
+        <strong>Example 1.4 &mdash; Quotient rule combined with chain rule.</strong>
+        <p>Find \(\frac{d}{dx}\left[\frac{x^2}{\sqrt{x^2+1}}\right]\).</p>
+        <p><strong>Step 1 (quotient):</strong> numerator \(u = x^2\), denominator \(v = (x^2+1)^{1/2}\), with \(v \ne 0\) for all \(x\).</p>
+        <p><strong>Step 2 (chain on the denominator):</strong> \(v' = \frac{1}{2}(x^2+1)^{-1/2}\cdot 2x = \frac{x}{\sqrt{x^2+1}}\).</p>
+        <p><strong>Step 3 (quotient rule):</strong></p>
+        \[\frac{d}{dx}\left[\frac{x^2}{\sqrt{x^2+1}}\right] = \frac{2x\sqrt{x^2+1} - x^2\cdot \frac{x}{\sqrt{x^2+1}}}{x^2+1}.\]
+        <p><strong>Step 4 (simplify):</strong> multiply numerator and denominator by \(\sqrt{x^2+1}\) to obtain \(\frac{2x(x^2+1) - x^3}{(x^2+1)^{3/2}} = \frac{x(x^2+2)}{(x^2+1)^{3/2}}\).</p>
       </div>
 
       <div class="important-note">
-        <strong>When to Use Implicit Differentiation:</strong>
+        <strong>Common mistakes with the chain rule.</strong>
         <ul>
-          <li>The equation cannot be easily solved for \(y\)</li>
-          <li>We want to find \(\frac{dy}{dx}\) without explicit formula for \(y\)</li>
-          <li>The equation relates \(x\) and \(y\) in a complex way</li>
+          <li>Forgetting the inside derivative: \(\frac{d}{dx}\sin(x^2) \ne \cos(x^2)\); the factor \(2x\) is essential.</li>
+          <li>Differentiating the outside at \(x\) instead of at \(g(x)\): it is \(\cos(x^2)\), not \(\cos x\).</li>
+          <li>Stopping after one layer in a three-layer composite such as \(e^{\sin(x^2)}\).</li>
+          <li>Applying the chain rule when the product or quotient rule is the correct outer structure.</li>
         </ul>
       </div>
 
-      <h3>2.2 The Method</h3>
-      <div class="theorem-box">
-        <strong>Implicit Differentiation Formula:</strong>
-        If \(F(x, y) = 0\) defines \(y\) as a function of \(x\), then:
-        $$\frac{dy}{dx} = -\frac{\frac{\partial F}{\partial x}}{\frac{\partial F}{\partial y}} = -\frac{F_x}{F_y}$$
-        provided \(F_y \neq 0\).
-      </div>
-
-      <div class="proof-box">
-        <strong>Derivation of the Formula:</strong>
-        
-        Assume \(y\) is a function of \(x\), so \(y = y(x)\).
-        
-        Differentiate \(F(x, y) = 0\) with respect to \(x\):
-        $$\frac{d}{dx}[F(x, y)] = 0$$
-        
-        Using the chain rule for multivariable functions:
-        $$\frac{\partial F}{\partial x} \cdot \frac{dx}{dx} + \frac{\partial F}{\partial y} \cdot \frac{dy}{dx} = 0$$
-        
-        Since \(\frac{dx}{dx} = 1\):
-        $$F_x + F_y \cdot \frac{dy}{dx} = 0$$
-        
-        Solving for \(\frac{dy}{dx}\):
-        $$\frac{dy}{dx} = -\frac{F_x}{F_y}$$ ∎
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.1 - Circle:</strong>
-        Find \(\frac{dy}{dx}\) for \(x^2 + y^2 = 25\)
-        
-        <p><strong>Step 1 - Differentiate both sides:</strong></p>
-        <p>\(\frac{d}{dx}[x^2 + y^2] = \frac{d}{dx}[25]\)</p>
-        
-        <p><strong>Step 2 - Apply chain rule to \(y^2\):</strong></p>
-        <p>\(2x + 2y \cdot \frac{dy}{dx} = 0\)</p>
-        
-        <p><strong>Step 3 - Solve for \(\frac{dy}{dx}\):</strong></p>
-        <p>\(2y \cdot \frac{dy}{dx} = -2x\)</p>
-        <p>\(\frac{dy}{dx} = -\frac{x}{y}\)</p>
-      </div>
-
-      <div class="example-box">
-        <strong>Example 2.2 - More Complex:</strong>
-        Find \(\frac{dy}{dx}\) for \(x^3 + y^3 = 6xy\) (folium of Descartes)
-        
-        <p><strong>Step 1 - Differentiate:</strong></p>
-        <p>\(3x^2 + 3y^2 \cdot \frac{dy}{dx} = 6y + 6x \cdot \frac{dy}{dx}\)</p>
-        
-        <p><strong>Step 2 - Collect \(\frac{dy}{dx}\) terms:</strong></p>
-        <p>\(3y^2 \cdot \frac{dy}{dx} - 6x \cdot \frac{dy}{dx} = 6y - 3x^2\)</p>
-        
-        <p><strong>Step 3 - Factor and solve:</strong></p>
-        <p>\(\frac{dy}{dx}(3y^2 - 6x) = 6y - 3x^2\)</p>
-        <p>\(\frac{dy}{dx} = \frac{6y - 3x^2}{3y^2 - 6x} = \frac{2y - x^2}{y^2 - 2x}\)</p>
-      </div>
-
-      <h2>3. Related Rates (Introduction)</h2>
-
-      <h3>3.1 The Related Rates Method</h3>
       <div class="definition-box">
-        <strong>Related Rates:</strong>
-        A technique for finding the rate of change of one quantity in terms of the rate of change of another related quantity.
+        <strong>Quick check 1.</strong>
+        <p>Differentiate (a) \(\cos(x^3)\), (b) \(\tan(e^x)\), (c) \((x^2+1)^5\) and state the outside derivative in each case.</p>
+        <p><strong>Answers:</strong> (a) \(-3x^2\sin(x^3)\); (b) \(e^x\sec^2(e^x)\); (c) \(10x(x^2+1)^4\).</p>
+      </div>
+
+      <p><strong>Section 1 summary.</strong> To differentiate a composite, work from the outside inward and multiply the derivative of each layer by the derivative of the next. The rigorous justification is the error-function identity \(f(b+k)-f(b) = (f'(b)+\varepsilon(k))k\), which remains valid when the inside function is locally constant.</p>
+
+      <h2>2. Logarithmic Differentiation and Exponential Bases</h2>
+
+      <h3>2.1 Motivation and results</h3>
+      <p>Some functions are awkward to differentiate directly, especially powers where the variable appears in both the base and the exponent. Taking a logarithm first turns products into sums and exponents into coefficients; this is <em>logarithmic differentiation</em>.</p>
+
+      <div class="formula-box">
+        <p><strong>Key formulas.</strong></p>
+        <ul>
+          <li>\(\frac{d}{dx}\ln x = \frac{1}{x}\) for \(x \gt 0\).</li>
+          <li>\(\frac{d}{dx}\ln|x| = \frac{1}{x}\) for \(x \ne 0\).</li>
+          <li>\(\frac{d}{dx}a^{x} = a^{x}\ln a\) for \(a \gt 0\) and \(a \ne 1\).</li>
+          <li>Logarithmic differentiation: if \(\ln y = L(x)\), then \(\frac{y'}{y} = L'(x)\), so \(y' = y\,L'(x)\).</li>
+        </ul>
+      </div>
+
+      <h3>2.2 Justification of \(\ln|x|\) and \(a^x\)</h3>
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        <p>For \(x \gt 0\), \(\ln|x| = \ln x\), so its derivative is \(\frac{1}{x}\). For \(x \lt 0\), \(\ln|x| = \ln(-x)\), and the chain rule gives \(\frac{1}{-x}\cdot (-1) = \frac{1}{x}\). Hence \(\frac{d}{dx}\ln|x| = \frac{1}{x}\) for every \(x \ne 0\).</p>
+        <p>For \(a \gt 0\), write \(a = e^{\ln a}\), so \(a^{x} = e^{x\ln a}\). Applying the chain rule with inside \(x\ln a\),</p>
+        \[\frac{d}{dx}a^{x} = e^{x\ln a}\cdot \ln a = a^{x}\ln a.\]
+        <p>Equivalently, set \(y = a^{x}\); then \(\ln y = x\ln a\), so \(\frac{y'}{y} = \ln a\) and \(y' = y\ln a = a^{x}\ln a\). ∎</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.1 &mdash; A variable base and exponent.</strong>
+        <p>Find \(\frac{d}{dx}\left[x^{x}\right]\) for \(x \gt 0\).</p>
+        <p><strong>Step 1 (take logs):</strong> \(y = x^{x}\) gives \(\ln y = x\ln x\).</p>
+        <p><strong>Step 2 (differentiate implicitly):</strong> \(\frac{y'}{y} = \ln x + x\cdot \frac{1}{x} = \ln x + 1\).</p>
+        <p><strong>Step 3 (solve):</strong> \(y' = y(\ln x + 1) = x^{x}(\ln x + 1)\).</p>
+        <p><strong>Interpretation:</strong> the derivative changes sign at \(x = e^{-1}\), where \(x^x\) reaches its minimum on \((0, \infty)\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.2 &mdash; Exponential base.</strong>
+        <p>Find \(\frac{d}{dx}\left[3^{x} + x^{3}\right]\).</p>
+        <p><strong>Step 1 (distinguish the two rules):</strong> \(3^{x}\) is exponential (variable exponent), \(x^{3}\) is a power (variable base).</p>
+        <p><strong>Step 2 (differentiate):</strong> \(\frac{d}{dx}3^{x} = 3^{x}\ln 3\), while \(\frac{d}{dx}x^{3} = 3x^{2}\).</p>
+        <p><strong>Step 3 (final):</strong> \(3^{x}\ln 3 + 3x^{2}\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 2.3 &mdash; A quotient simplified by logs.</strong>
+        <p>Find \(\frac{d}{dx}\left[\frac{(x-1)^{2}}{\sqrt{x+2}}\right]\) for \(x \gt 1\).</p>
+        <p><strong>Step 1 (log):</strong> \(\ln y = 2\ln(x-1) - \frac{1}{2}\ln(x+2)\).</p>
+        <p><strong>Step 2 (differentiate):</strong> \(\frac{y'}{y} = \frac{2}{x-1} - \frac{1}{2(x+2)}\).</p>
+        <p><strong>Step 3 (solve):</strong> \(y' = \frac{(x-1)^{2}}{\sqrt{x+2}}\left(\frac{2}{x-1} - \frac{1}{2(x+2)}\right)\).</p>
       </div>
 
       <div class="important-note">
-        <strong>General Strategy:</strong>
+        <strong>Common mistakes.</strong>
+        <ul>
+          <li>Using the power rule on \(a^{x}\): \(\frac{d}{dx}2^{x} \ne x\,2^{x-1}\); the correct derivative is \(2^{x}\ln 2\).</li>
+          <li>Forgetting the restriction \(x \gt 0\) when taking \(\ln y\), which requires \(y \gt 0\).</li>
+          <li>Writing \(\ln|x|' = \frac{1}{|x|}\); the correct derivative on both branches is \(\frac{1}{x}\).</li>
+        </ul>
+      </div>
+
+      <div class="definition-box">
+        <strong>Quick check 2.</strong>
+        <p>Differentiate (a) \(5^{x}\), (b) \(\ln|3x|\), (c) \(x^{\sin x}\) for \(x \gt 0\).</p>
+        <p><strong>Answers:</strong> (a) \(5^{x}\ln 5\); (b) \(\frac{1}{x}\) (since \(\ln|3x| = \ln 3 + \ln|x|\) and \(\ln 3\) is constant); (c) \(x^{\sin x}\left(\cos x \ln x + \frac{\sin x}{x}\right)\).</p>
+      </div>
+
+      <p><strong>Section 2 summary.</strong> Logarithms convert multiplicative structure into additive structure. The identities \(\frac{d}{dx}\ln|x| = \frac{1}{x}\) and \(\frac{d}{dx}a^{x} = a^{x}\ln a\) are direct consequences of the chain rule, and logarithmic differentiation handles functions such as \(x^{x}\).</p>
+
+      <h2>3. Implicit Differentiation</h2>
+
+      <h3>3.1 Differentiate both sides, then collect \(y'\)</h3>
+      <p>So far, formulas have been of the form \(y = f(x)\). Many important curves are instead described by an equation such as \(x^{2}+y^{2} = 25\), where \(y\) is only <em>implicitly</em> a function of \(x\). The Calc I method is direct: assume \(y = y(x)\), differentiate both sides with respect to \(x\), treat every \(y\) by the chain rule, and then collect the terms containing \(y'\).</p>
+
+      <div class="definition-box">
+        <strong>Implicit function and implicit differentiation.</strong>
+        <p>An equation \(F(x,y) = 0\) may define \(y\) implicitly as a function of \(x\) near a point. Implicit differentiation means differentiating both sides with respect to \(x\), remembering that \(y\) is a function of \(x\), and solving the resulting equation for \(\frac{dy}{dx}\).</p>
+      </div>
+
+      <div class="important-note">
+        <strong>When to use it.</strong>
+        <ul>
+          <li>The equation is not easily solved for \(y\), or solving would create multiple branches.</li>
+          <li>We want the slope at a point without an explicit formula for \(y(x)\).</li>
+          <li>The relation between \(x\) and \(y\) is simpler than any explicit solution.</li>
+        </ul>
+      </div>
+
+      <h3>3.2 Worked examples by the collect-\(y'\) method</h3>
+      <div class="example-box">
+        <strong>Example 3.1 &mdash; The circle.</strong>
+        <p>Find \(\frac{dy}{dx}\) for \(x^{2}+y^{2} = 25\), and describe what happens at \(y = 0\).</p>
+        <p><strong>Step 1 (differentiate both sides):</strong> \(\frac{d}{dx}\left[x^{2}+y^{2}\right] = \frac{d}{dx}[25]\).</p>
+        <p><strong>Step 2 (chain rule on \(y^{2}\)):</strong> \(2x + 2y\,y' = 0\).</p>
+        <p><strong>Step 3 (collect and solve):</strong> \(2y\,y' = -2x\), so \(y' = -\frac{x}{y}\) whenever \(y \ne 0\).</p>
+        <p><strong>Step 4 (interpret):</strong> at \((3,4)\) the slope is \(-\frac{3}{4}\). At \(y = 0\), namely \((5,0)\) and \((-5,0)\), the formula has a zero denominator: the circle has <em>vertical tangents</em> there, so \(y\) is not a differentiable function of \(x\) at those points (the upper and lower branches meet with vertical tangent lines).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.2 &mdash; Folium of Descartes.</strong>
+        <p>Find \(\frac{dy}{dx}\) for \(x^{3}+y^{3} = 6xy\), and discuss the origin.</p>
+        <p><strong>Step 1 (differentiate):</strong> \(3x^{2} + 3y^{2}y' = 6y + 6x\,y'\), using the product rule on \(xy\).</p>
+        <p><strong>Step 2 (collect):</strong> \(3y^{2}y' - 6x\,y' = 6y - 3x^{2}\).</p>
+        <p><strong>Step 3 (factor and solve):</strong> \(y'(3y^{2}-6x) = 6y - 3x^{2}\), hence</p>
+        \[y' = \frac{6y-3x^{2}}{3y^{2}-6x} = \frac{2y-x^{2}}{y^{2}-2x}.\]
+        <p><strong>Step 4 (singular point caveat):</strong> at \((0,0)\) both numerator and denominator vanish, giving the indeterminate form \(\frac{0}{0}\). The folium has a <em>node</em> at the origin with two distinct tangents (the coordinate axes), so there is no single slope there and the implicit-function shortcut fails. The formula is only valid where \(y^{2}-2x \ne 0\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Example 3.3 &mdash; An implicit trigonometric curve.</strong>
+        <p>Find \(\frac{dy}{dx}\) for \(\sin x + \cos y = 1\).</p>
+        <p><strong>Step 1 (differentiate):</strong> \(\cos x - \sin y\,y' = 0\).</p>
+        <p><strong>Step 2 (solve):</strong> \(y' = \frac{\cos x}{\sin y}\), valid where \(\sin y \ne 0\).</p>
+        <p><strong>Step 3 (interpret):</strong> where \(\sin y = 0\), the tangent is vertical; where \(\cos x = 0\), the tangent is horizontal.</p>
+      </div>
+
+      <h3>3.3 The partial-derivative shortcut (after the basic method)</h3>
+      <p>Once the collect-\(y'\) method is understood, it can be packaged using partial derivatives. This is a convenience, not a replacement for the basic technique.</p>
+
+      <div class="definition-box">
+        <strong>Partial notation.</strong>
+        <p>For \(F(x,y)\), the symbol \(F_x = \frac{\partial F}{\partial x}\) means differentiate with respect to \(x\) while treating \(y\) as a constant; \(F_y = \frac{\partial F}{\partial y}\) means differentiate with respect to \(y\) while treating \(x\) as a constant.</p>
+      </div>
+
+      <div class="theorem-box">
+        <strong>Theorem 3.1 (Implicit derivative formula).</strong>
+        <p>If \(F(x,y) = 0\) defines \(y\) as a differentiable function of \(x\) near a point and \(F_y \ne 0\) there, then</p>
+        \[y' = \frac{dy}{dx} = -\frac{F_x}{F_y}.\]
+        <p>The condition \(F_y \ne 0\) is essential, and the value obtained depends on which branch \(y(x)\) of the curve is being followed.</p>
+      </div>
+
+      <div class="proof-box">
+        <strong>Derivation.</strong>
+        <p>Assume \(y = y(x)\). Differentiating \(F(x,y(x)) = 0\) with respect to \(x\) using the chain rule for a function of two variables gives</p>
+        \[F_x\frac{dx}{dx} + F_y\frac{dy}{dx} = 0.\]
+        <p>Since \(\frac{dx}{dx} = 1\), this is \(F_x + F_y\,y' = 0\), and solving yields \(y' = -\frac{F_x}{F_y}\) whenever \(F_y \ne 0\). ∎</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Common mistakes in implicit differentiation.</strong>
+        <ul>
+          <li>Forgetting the chain-rule factor \(y'\) when differentiating an expression involving \(y\): \(\frac{d}{dx}y^{2} = 2y\,y'\), not \(2y\).</li>
+          <li>Dividing by \(F_y\) without checking \(F_y \ne 0\); a zero denominator signals a vertical tangent or a singular point.</li>
+          <li>Ignoring branch dependence: the upper and lower semicircles have slopes of opposite sign at the same \(x\).</li>
+          <li>Using the formula at a singular point such as the folium's origin, where both partials vanish.</li>
+        </ul>
+      </div>
+
+      <div class="definition-box">
+        <strong>Quick check 3.</strong>
+        <p>Use either method to find \(y'\). (a) \(x^{2}+xy+y^{2} = 3\) at \((1,1)\); (b) \(x\,y + \ln y = x\) at \((1,1)\).</p>
+        <p><strong>Answers:</strong> (a) \(y' = -\frac{2x+y}{x+2y}\), so \(y'(1,1) = -1\); (b) \(y' = \frac{1-y}{x + \frac{1}{y}}\), so \(y'(1,1) = 0\).</p>
+      </div>
+
+      <p><strong>Section 3 summary.</strong> Differentiate both sides, attach \(y'\) to every derivative of \(y\), collect the \(y'\) terms, and solve. The compact formula \(y' = -F_x/F_y\) is valid only where \(F_y \ne 0\) and gives the slope for a particular local branch.</p>
+
+      <h2>4. Related Rates: A First Look</h2>
+
+      <h3>4.1 The setup strategy</h3>
+      <p>Related rates ask how fast one quantity changes by relating it to another quantity whose rate is known. The chain rule converts a geometric equation into an equation among rates. The full treatment, including optimization, appears in the next lecture; here we establish correct habits.</p>
+
+      <div class="important-note">
+        <strong>Five-step strategy.</strong>
         <ol>
-          <li><strong>Identify variables:</strong> Let \(x, y, r, \theta\), etc. represent the quantities</li>
-          <li><strong>Identify rates:</strong> Note which rates are given (\(\frac{dx}{dt}, \frac{dy}{dt}\)) and which you need to find</li>
-          <li><strong>Write equation relating variables:</strong> Use geometry, physics, or given information</li>
-          <li><strong>Differentiate with respect to time:</strong> Apply chain rule to both sides</li>
-          <li><strong>Substitute and solve:</strong> Plug in known values and solve for unknown rate</li>
+          <li><strong>Diagram:</strong> draw the situation and label all changing quantities.</li>
+          <li><strong>Variables:</strong> name every quantity that changes with time \(t\), such as \(x(t)\) and \(y(t)\).</li>
+          <li><strong>Equation:</strong> relate the variables using geometry, trigonometry, or a given formula.</li>
+          <li><strong>Differentiate:</strong> differentiate both sides with respect to \(t\), using the chain rule on each variable.</li>
+          <li><strong>Substitute only at the end:</strong> insert numerical values after differentiating, then solve for the unknown rate and interpret its sign.</li>
         </ol>
       </div>
 
       <div class="example-box">
-        <strong>Example 3.1 - Classic Related Rates:</strong>
-        A ladder 10 ft long leans against a wall. If the bottom slides away from the wall at 2 ft/s, how fast is the top sliding down when the bottom is 6 ft from the wall?
-        
-        <p><strong>Step 1 - Variables:</strong> \(x\) = distance from wall to bottom, \(y\) = height of top</p>
-        <p><strong>Step 2 - Given rate:</strong> \(\frac{dx}{dt} = 2\) ft/s (bottom sliding away)</p>
-        <p><strong>Step 3 - Relationship:</strong> By Pythagorean theorem: \(x^2 + y^2 = 100\)</p>
-        <p><strong>Step 4 - Differentiate:</strong> \(2x + 2y\frac{dy}{dt} = 0\)</p>
-        <p><strong>Step 5 - Substitute:</strong> When \(x = 6\), \(y = 8\)</p>
-        <p>\(2(6) + 2(8)\frac{dy}{dt} = 0\)</p>
-        <p>\(\frac{dy}{dt} = -\frac{12}{16} = -\frac{3}{4}\)</p>
-        <p><strong>Answer:</strong> The top slides down at \(\frac{3}{4}\) ft/s</p>
+        <strong>Example 4.1 &mdash; The sliding ladder (correctly differentiated).</strong>
+        <p>A 10 ft ladder leans against a wall. The bottom slides away from the wall at \(2\) ft/s. How fast is the top sliding when the bottom is \(6\) ft from the wall?</p>
+        <p><strong>Step 1 (variables):</strong> \(x(t)\) is the distance from the wall to the bottom, \(y(t)\) is the height of the top; both change with \(t\).</p>
+        <p><strong>Step 2 (given):</strong> \(\frac{dx}{dt} = 2\) ft/s; find \(\frac{dy}{dt}\) at the instant \(x = 6\).</p>
+        <p><strong>Step 3 (equation):</strong> by the Pythagorean theorem, \(x^{2}+y^{2} = 100\).</p>
+        <p><strong>Step 4 (differentiate with respect to \(t\)):</strong></p>
+        \[2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0.\]
+        <p><strong>Step 5 (find \(y\) and substitute at the end):</strong> when \(x = 6\), \(36 + y^{2} = 100\), so \(y = 8\). Then</p>
+        \[2(6)(2) + 2(8)\frac{dy}{dt} = 0 \quad \Longrightarrow \quad 24 + 16\frac{dy}{dt} = 0.\]
+        <p><strong>Step 6 (solve and interpret):</strong> \(\frac{dy}{dt} = -\frac{24}{16} = -\frac{3}{2}\) ft/s. The negative sign means \(y\) is decreasing, so the top slides <em>down</em> at \(\frac{3}{2}\) ft/s (not \(\frac{3}{4}\) ft/s; the factor \(\frac{dx}{dt} = 2\) must be retained).</p>
       </div>
 
-      <h3>3.2 Second Derivative Test</h3>
-      <div class="theorem-box">
-        <strong>Second Derivative Test for Extrema:</strong>
-        Suppose \(f'(c) = 0\) and \(f''(c)\) exists.
+      <div class="important-note">
+        <strong>Common mistakes in related rates.</strong>
         <ul>
-          <li>If \(f''(c) > 0\), then \(f\) has a local minimum at \(c\)</li>
-          <li>If \(f''(c) < 0\), then \(f\) has a local maximum at \(c\)</li>
-          <li>If \(f''(c) = 0\), the test is inconclusive</li>
+          <li>Substituting a constant value (such as \(x = 6\)) <em>before</em> differentiating: this makes \(x\) look constant and silently drops the \(\frac{dx}{dt}\) term.</li>
+          <li>Omitting a chain-rule factor such as \(\frac{dx}{dt}\) or \(\frac{dy}{dt}\).</li>
+          <li>Misreading the sign: a negative \(\frac{dy}{dt}\) indicates a decreasing height, which we describe as "sliding down."</li>
+          <li>Mixing units or forgetting to state them in the final answer.</li>
         </ul>
       </div>
 
-      <div class="proof-box">
-        <strong>Proof for the case \(f''(c) > 0\) (local minimum):</strong>
-        
-        Since \(f''(c) = \lim_{h \to 0} \frac{f'(c+h) - f'(c)}{h} > 0\) and \(f'(c) = 0\):
-        
-        For small \(h > 0\): \(\frac{f'(c+h) - 0}{h} > 0 \Rightarrow f'(c+h) > 0\)</p>
-        For small \(h < 0\): \(\frac{f'(c+h) - 0}{h} > 0 \Rightarrow f'(c+h) < 0\)
-        
-        So \(f'\) changes from negative to positive at \(c\), meaning \(f\) has a local minimum there. ∎
+      <div class="definition-box">
+        <strong>Quick check 4.</strong>
+        <p>A circle's radius grows at \(\frac{dr}{dt} = 3\) cm/s. How fast is its area growing when \(r = 5\) cm?</p>
+        <p><strong>Answer:</strong> \(A = \pi r^{2}\), so \(\frac{dA}{dt} = 2\pi r\frac{dr}{dt} = 2\pi(5)(3) = 30\pi\) cm\(^{2}\)/s.</p>
       </div>
 
+      <p><strong>Section 4 summary.</strong> Draw, name variables, relate them, differentiate with respect to time, and substitute last. Every differentiated variable contributes its own rate factor.</p>
+
+      <h2>5. Bonus: Extending the Ideas</h2>
+
+      <div class="example-box">
+        <strong>Bonus A &mdash; Inverse trigonometric derivatives.</strong>
+        <p>Implicit differentiation recovers the derivative of \(\arcsin x\). Let \(y = \arcsin x\), so \(x = \sin y\) with \(-\frac{\pi}{2} \lt y \lt \frac{\pi}{2}\). Differentiating, \(1 = \cos y\,y'\), hence \(y' = \frac{1}{\cos y}\). On this branch \(\cos y \gt 0\), and \(\cos y = \sqrt{1-\sin^{2}y} = \sqrt{1-x^{2}}\), giving</p>
+        \[\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^{2}}}, \qquad -1 \lt x \lt 1.\]
+        <p>Similarly, \(y = \arctan x\) means \(x = \tan y\) with \(-\frac{\pi}{2} \lt y \lt \frac{\pi}{2}\). Differentiating, \(1 = \sec^{2}y\,y'\), so \(y' = \cos^{2}y = \frac{1}{1+\tan^{2}y}\), hence</p>
+        \[\frac{d}{dx}\arctan x = \frac{1}{1+x^{2}}.\]
+        <p>The restrictions come from the chosen branches and from the square root requiring \(1-x^{2} \gt 0\).</p>
+      </div>
+
+      <div class="example-box">
+        <strong>Bonus B &mdash; The Implicit Function Theorem (intuition).</strong>
+        <p>Why is implicit differentiation legitimate? If \(F(x,y)=0\) at a point and \(F_y \ne 0\) there, the Implicit Function Theorem guarantees that, near that point, the equation determines a unique differentiable function \(y(x)\). This is exactly the hypothesis \(F_y \ne 0\) in Theorem 3.1. If instead \(F_y = 0\) but \(F_x \ne 0\), one may solve locally for \(x\) as a function of \(y\), which corresponds to a vertical tangent. If both partials vanish, as at the folium's origin, the point is singular and no such local graph is guaranteed. Thus our differentiation rules automatically signal when a branch is well behaved.</p>
+      </div>
+
+      <div class="important-note">
+        <strong>Preview (developed in later lectures).</strong>
+        <p>Critical points, extrema, and the Second Derivative Test are not used here; they are treated systematically in subsequent lectures on curve sketching and optimization. This note only develops differentiation.</p>
+      </div>
+
+      <h2>6. Practice Problems</h2>
+      <ol>
+        <li>Differentiate \(\sin(x^{3})\).</li>
+        <li>Differentiate \(e^{\cos x}\).</li>
+        <li>Differentiate \(\tan(e^{x})\).</li>
+        <li>Differentiate \(7^{x}\) and \(x^{7}\).</li>
+        <li>Find \(\frac{d}{dx}\ln|x|\), stating where the formula is valid.</li>
+        <li>Use logarithmic differentiation to find \(\frac{d}{dx}x^{x}\) for \(x \gt 0\).</li>
+        <li>Find \(y'\) for \(x^{2}+xy+y^{2}=3\) at the point \((1,1)\).</li>
+        <li>Find \(y'\) for \(x^{2}+y^{2}=25\) at \((3,4)\), and identify where the tangent is vertical.</li>
+        <li>Find \(\frac{d}{dx}\arctan(3x)\).</li>
+        <li>Find \(\frac{d}{dx}\sqrt{x^{2}+1}\).</li>
+        <li>A ladder 13 ft long leans on a wall; the bottom moves away at \(3\) ft/s. Find \(\frac{dy}{dt}\) when \(x = 5\) ft.</li>
+        <li>A circle's radius increases at \(2\) cm/s. Find \(\frac{dA}{dt}\) when \(r = 10\) cm.</li>
+      </ol>
+
+      <div class="definition-box">
+        <strong>Answer key.</strong>
+        <ol>
+          <li>\(3x^{2}\cos(x^{3})\).</li>
+          <li>\(-\sin x\,e^{\cos x}\).</li>
+          <li>\(e^{x}\sec^{2}(e^{x})\).</li>
+          <li>\(7^{x}\ln 7\) and \(7x^{6}\).</li>
+          <li>\(\frac{1}{x}\) for \(x \ne 0\).</li>
+          <li>\(x^{x}(\ln x + 1)\).</li>
+          <li>\(y' = -\frac{2x+y}{x+2y}\); at \((1,1)\), \(y' = -1\).</li>
+          <li>\(y' = -\frac{x}{y}\); at \((3,4)\), \(y' = -\frac{3}{4}\); vertical tangents at \((\pm 5,0)\).</li>
+          <li>\(\frac{3}{1+9x^{2}}\).</li>
+          <li>\(\frac{x}{\sqrt{x^{2}+1}}\).</li>
+          <li>\(x^{2}+y^{2}=169\), \(y = 12\); \(2(5)(3) + 2(12)y' = 0\), so \(y' = -\frac{5}{4}\) ft/s (top slides down at \(\frac{5}{4}\) ft/s).</li>
+          <li>\(40\pi\) cm\(^{2}\)/s.</li>
+        </ol>
+      </div>
+
+      <h2>7. Overall Summary</h2>
+      <p>The chain rule \((f\circ g)' = f'(g)\,g'\) (or \(\frac{dy}{dx} = \frac{dy}{du}\frac{du}{dx}\)) differentiates composites layer by layer and is justified rigorously by the error-function identity, which also covers degenerate cases. Logarithmic differentiation yields \(\frac{d}{dx}a^{x} = a^{x}\ln a\) and \(\frac{d}{dx}\ln|x| = \frac{1}{x}\). Implicit differentiation applies the chain rule to equations: differentiate both sides, collect \(y'\), and use \(y' = -F_x/F_y\) only where \(F_y \ne 0\), watching for vertical tangents and singular points. In related rates, differentiate before substituting so that no rate factor is lost.</p>
     </div>
 
     <nav class="navigation" aria-label="Course navigation">
-      <a href="lecture-notes-differentiation-calc1.html">← Differentiation</a>
+      <a href="lecture-notes-differentiation-calc1.html">← Derivatives</a>
       <a href="lecture-notes-trig-functions-calc1.html">Trig Derivatives →</a>
     </nav>
   </main>
