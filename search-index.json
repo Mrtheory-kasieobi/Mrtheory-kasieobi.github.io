@@ -136,12 +136,12 @@
       "priority": 90
     },
     {
-      "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
+      "title": "A Rank-30 Elliptic Curve",
       "section": "Blog",
       "url": "2026-08-20-rank-30-elliptic-curve.html",
-      "description": "Discussion of the new elliptic curve with rank at least 30, including the mathematical significance, independent points, and verification.",
-      "content": "elliptic curves rank 30 independent points Chudnovsky Cremona height pairing matrix ICARM discriminant elliptic curves over Q Mordell-Weil theorem lower bound exact value GRH BSD conjecture Weil bounds Birch and Swinnerton-Dyer conditional results analytic rank algebraic rank Selmer group Tate-Shafarevich group 2-Selmer group 3-Selmer group full descent elliptic curves databases Miller Newton Stephens Gauss factorization algorithms elliptic curves factorization methods",
-      "keywords": ["elliptic curves", "rank", "independent points", "Mordell-Weil", "descent", "verification"],
+      "description": "Notes on the rank-30 elliptic curve record, the witness points, and the conditional exact-rank result.",
+      "content": "elliptic curves rank 30 independent points ICARM Mordell-Weil theorem lower bound exact value GRH BSD conjecture Birch and Swinnerton-Dyer witness points rational points high-rank curves record",
+      "keywords": ["elliptic curves", "rank", "independent points", "Mordell-Weil", "BSD", "GRH"],
       "priority": 90
     },
     {
@@ -324,16 +324,16 @@
       "displayName": "Elliptic Curves",
       "pages": [
         {
-          "title": "A Rank-31 Elliptic Curve: A New Record in the Search for High-Rank Curves",
+          "title": "A Rank-31 Elliptic Curve",
           "url": "2026-08-23-rank-31-elliptic-curve.html",
           "section": "Blog",
-          "excerpt": "Curve #302, submitted by Ava Howell and Claude, establishes rank at least 31 with 31 independent rational points. BSD+GRH certified to exact rank 31."
+          "excerpt": "Notes on Curve #302, its 31 independent witness points, and the unconditional and conditional rank claims."
         },
         {
-          "title": "A Rank-30 Elliptic Curve Surpasses the Previous Record",
+          "title": "A Rank-30 Elliptic Curve",
           "url": "2026-08-20-rank-30-elliptic-curve.html",
           "section": "Blog",
-          "excerpt": "ICARM Curve #273, submitted by Claude, Levent Alpöge, and Ava Howell on August 20, establishes rank at least 30. BSD+GRH certified to exact rank 30."
+          "excerpt": "Notes on Curve #273, its 30 independent witness points, and the rank-30 record."
         }
       ]
     },

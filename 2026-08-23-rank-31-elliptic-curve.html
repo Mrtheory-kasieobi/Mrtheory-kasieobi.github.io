@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ICARM Curve #302 establishes rank at least 31, a new record. BSD+GRH certified to exact rank 31.">
+  <meta name="description" content="Notes on the rank-31 elliptic curve record: the curve, its 31 witness points, and what the result establishes.">
   <link rel="canonical" href="https://mrtheory-kasieobi.github.io/2026-08-23-rank-31-elliptic-curve.html">
-  <meta property="og:title" content="A Rank-31 Elliptic Curve: A New Record in the Search for High-Rank Curves">
-  <meta property="og:description" content="ICARM Curve #302 establishes rank at least 31 with 31 independent rational points. BSD+GRH certified to exact rank 31.">
+  <meta property="og:title" content="A Rank-31 Elliptic Curve">
+  <meta property="og:description" content="Notes on the rank-31 elliptic curve record: the curve, its 31 witness points, and what the result establishes.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://mrtheory-kasieobi.github.io/2026-08-23-rank-31-elliptic-curve.html">
-  <title>A Rank-31 Elliptic Curve: A New Record in the Search for High-Rank Curves</title>
+  <title>A Rank-31 Elliptic Curve</title>
   <link rel="stylesheet" href="style.css">
   <script>
     window.MathJax = {
@@ -55,7 +55,7 @@
     <main>
         <article class="blog-post">
             <header class="blog-post-header">
-                <h1>A Rank-31 Elliptic Curve: A New Record in the Search for High-Rank Curves</h1>
+                <h1>A Rank-31 Elliptic Curve</h1>
                 <div class="meta">
                     <span>August 23, 2026</span>
                     <span>~8 min read</span>
@@ -64,48 +64,46 @@
             </header>
             
             <div class="blog-content">
-                <p>The <a href="https://elliptic-rank.icarm.cloud/curve/302">ICARM Elliptic Curve Rank Leaderboard</a> now lists Curve #302 with a certified rank lower bound of at least 31, establishing a new record for the largest currently known Mordell-Weil rank lower bound for an elliptic curve over $\mathbb{Q}$. This supersedes the rank-30 record established just three days earlier by ICARM Curve #273.</p>
+                <p>The <a href="https://elliptic-rank.icarm.cloud/curve/302">ICARM leaderboard</a> lists Curve #302 with a certified lower bound of $\operatorname{rank} E(\mathbb{Q}) \ge 31$. The curve was submitted on August 23, 2026, three days after the rank-30 record.</p>
 
-                <p>The known rank lower bound has increased from 28 (in 2006) to 29 (in 2024), to 30 (August 20, 2026), and now to 31 (August 23, 2026)-an exceptionally rapid progression in high-rank elliptic curve research.</p>
+                <p>The recent progression is rank at least 28 in 2006, 29 in 2024, 30 on August 20, 2026, and 31 on August 23, 2026.</p>
 
-                <h2>What Does the Rank of an Elliptic Curve Mean?</h2>
+                <h2>Background: rank</h2>
 
-                <p>An elliptic curve over $\mathbb{Q}$ can be written in general Weierstrass form:</p>
-                $$y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6$$
+                <p>An elliptic curve over $\mathbb{Q}$ can be written in Weierstrass form</p>
+                $$y^2 + a_1xy + a_3y = x^3 + a_2x^2 + a_4x + a_6,$$
+                <p>with nonzero discriminant. The rational points $E(\mathbb{Q})$ form an abelian group under the chord-and-tangent law. By the Mordell–Weil theorem,</p>
+                $$E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r,$$
+                <p>where $E(\mathbb{Q})_{\mathrm{tors}}$ is finite and $r \ge 0$ is the Mordell–Weil rank.</p>
 
-                <p>The set of rational points $E(\mathbb{Q})$ naturally forms an abelian group under the chord-and-tangent construction. The Mordell–Weil theorem gives the canonical decomposition:</p>
-                $$E(\mathbb{Q}) \cong E(\mathbb{Q})_{\mathrm{tors}} \oplus \mathbb{Z}^r$$
+                <h2>Curve #302</h2>
 
-                <p>The integer $r$ is the Mordell-Weil rank. It measures the number of independent generators of the free part of the rational points on the curve.</p>
-
-                <h2>The New Curve: ICARM #302</h2>
-
-                <p><strong>Curve #302</strong> has trivial torsion subgroup and the Weierstrass equation:</p>
+                <p>The record curve is <strong>ICARM Curve #302</strong>. Its equation is</p>
                 <p>$$y^2 + xy + y = x^3 + x^2 - Ax + B$$</p>
-                <p>with coefficients:</p>
+                <p>with coefficients</p>
                 <p><span class="coefficient">A = 1284727764113567728281797636015784768866707681415849262157224232063</span></p>
                 <p><span class="coefficient">B = 560368321454261339256859338901915312332769858684945406858043869199456710681989058863306170127006181</span></p>
 
-                <h3>Curve #302 at a Glance</h3>
+                <h3>Summary</h3>
 
                 <table>
                     <tr><th>Property</th><th>Value</th></tr>
-                    <tr><td>Curve identifier</td><td>#302</td></tr>
+                    <tr><td>Curve</td><td>#302</td></tr>
                     <tr><td>Rank lower bound</td><td>$\geq 31$</td></tr>
-                    <tr><td>Torsion subgroup</td><td>trivial</td></tr>
+                    <tr><td>Torsion</td><td>trivial</td></tr>
                     <tr><td>Naive height</td><td>468.2771</td></tr>
                     <tr><td>Faltings height</td><td>36.7425</td></tr>
                     <tr><td>Witness points</td><td>31 independent points</td></tr>
                     <tr><td>Submitted by</td><td>Ava Howell</td></tr>
-                    <tr><td>Submission date</td><td>August 23, 2026</td></tr>
+                    <tr><td>Submitted</td><td>August 23, 2026</td></tr>
                     <tr><td>Certification</td><td>BSD + GRH certified to rank 31</td></tr>
                 </table>
 
-                <h2>Thirty-One Independent Rational Points</h2>
+                <h2>The 31 witness points</h2>
 
-                <p>ICARM provides 31 witness points $P_1, P_2, \ldots, P_{31}$ as part of the certification that the curve has rank at least 31. The points are used as witnesses for the rank lower bound: exhibiting 31 independent rational points proves that the Mordell-Weil rank is at least 31.</p>
+                <p>The lower bound is established by exhibiting 31 rational points $P_1,\ldots,P_{31}\in E(\mathbb{Q})$ whose images in $E(\mathbb{Q})/E(\mathbb{Q})_{\mathrm{tors}}$ are $\mathbb{Z}$-linearly independent. Since the torsion subgroup is trivial, this is equivalent to saying that no nontrivial integer relation $\sum_{i=1}^{31} n_iP_i=\mathcal{O}$ holds. ICARM lists these witness points and provides a computational independence certificate.</p>
 
-                <p>The independence of these points has been verified computationally. The first five witness points are:</p>
+                <p>The first five witness points are:</p>
 
                 <ul>
                     <li>$P_1 = (-343746913367434053557936715792581, -31005994945795167281668477280091616990476695982462)$</li>
@@ -115,44 +113,37 @@
                     <li>$P_5 = (621111741565922967463663441261795, 1421683191996488160880565213880200774834445145522)$</li>
                 </ul>
 
-                <p>All 31 points are listed in full on the ICARM page, along with their computation as independent points on the curve.</p>
+                <p>The full list of 31 points is available on the ICARM page.</p>
 
-                <h2>What Exactly Has Been Established?</h2>
+                <h2>What has been established</h2>
 
-                <p>It is important to distinguish two statements:</p>
                 <ul>
-                    <li><strong>Unconditionally:</strong> The exhibited 31 independent rational points establish that $\operatorname{rank} E(\mathbb{Q}) \geq 31$.</li>
-                    <li><strong>Conditionally (under BSD + GRH):</strong> ICARM marks the curve as "BSD + GRH certified to rank 31," meaning that under the Birch and Swinnerton-Dyer conjecture and the Generalized Riemann Hypothesis, the exact rank is 31.</li>
+                    <li><strong>Unconditionally:</strong> the 31 exhibited rational points are independent, so $\operatorname{rank} E(\mathbb{Q}) \geq 31$.</li>
+                    <li><strong>Conditionally, under BSD and GRH:</strong> ICARM certifies the rank as exactly 31.</li>
                 </ul>
 
-                <p>The lower-bound result is unconditional. The exact-rank conclusion depends on the BSD conjecture and GRH.</p>
+                <p>The lower bound does not depend on BSD or GRH. The exact-rank statement does.</p>
 
-                <h2>From Rank 28 to Rank 31</h2>
+                <h2>Record progression</h2>
 
-                <p>The progression of high-rank elliptic curve records:</p>
                 <ul>
-                    <li><strong>2006:</strong> Noam Elkies established rank $\geq 28$ with curve 2.a8</li>
-                    <li><strong>2024:</strong> Noam Elkies and Zev Klagsbrun pushed to rank $\geq 29$</li>
-                    <li><strong>August 20, 2026:</strong> ICARM Curve #273 achieved rank $\geq 30$</li>
-                    <li><strong>August 23, 2026:</strong> ICARM Curve #302 established rank $\geq 31$</li>
+                    <li><strong>2006:</strong> Noam Elkies finds rank $\geq 28$</li>
+                    <li><strong>2024:</strong> Elkies and Zev Klagsbrun reach rank $\geq 29$</li>
+                    <li><strong>August 20, 2026:</strong> Curve #273 reaches rank $\geq 30$</li>
+                    <li><strong>August 23, 2026:</strong> Curve #302 reaches rank $\geq 31$</li>
                 </ul>
 
-                <p>Curve #273 and Curve #302 are distinct curves with different equations and different sets of witness points.</p>
+                <p>Curve #273 and Curve #302 are different curves, with different equations and different witness points.</p>
 
-                <h2>Why Is Rank 31 Significant?</h2>
+                <h2>Why this matters</h2>
 
-                <p>Elliptic curve ranks are difficult to make large. Finding 31 independent rational points on a single curve requires:</p>
-                <ul>
-                    <li>A curve with enormous coefficients (this curve has coefficients with ~40 digits)</li>
-                    <li>Verifying independence of points with enormous coordinates</li>
-                    <li>Certifying within ICARM's computational framework</li>
-                </ul>
+                <p>High-rank examples are difficult to find because the curve coefficients, point coordinates, and independence checks become large. The computation must produce both the points and a certificate of their independence.</p>
 
-                <p>The open question in number theory is whether there exists an absolute bound $B$ such that every elliptic curve $E/\mathbb{Q}$ satisfies $\operatorname{rank} E(\mathbb{Q}) \leq B$. Finding rank-31 curves does not answer this question-it merely raises the known lower bound.</p>
+                <p>The main open question remains unchanged: are ranks of elliptic curves over $\mathbb{Q}$ bounded? Curve #302 raises the known lower bound to 31.</p>
 
-                <h2>The Unusual Role of Claude</h2>
+                <h2>Attribution</h2>
 
-                <p>The ICARM record attributes the discovery to "Claude, Levent Alpöge, and Ava Howell." This provides an interesting example of AI-assisted or AI-involved computational mathematics. Detailed conclusions about the precise division of computational work between the AI system and human researchers should await a primary account of the discovery process. The rapid succession of rank records-from 28 in 2006 to 31 in August 2026-represents an unusual acceleration in this computational problem.</p>
+                <p>ICARM lists Curve #302 as submitted by Ava Howell and credits the find in its commentary to Claude, Levent Alpöge, and Ava Howell. The rank-30 curve, Curve #273, is credited on ICARM to Claude, with Levent Alpöge and Ava Howell. A detailed primary account would be needed to describe the exact division of work.</p>
 
 
                 <p><a href="2026-08-20-rank-30-elliptic-curve.html">← Previous: The Rank-30 Record</a></p>
