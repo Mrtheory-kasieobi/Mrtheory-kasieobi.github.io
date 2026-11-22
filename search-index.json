@@ -154,6 +154,15 @@
       "priority": 90
     },
     {
+      "title": "The Monster Group and Monstrous Moonshine",
+      "section": "Blog",
+      "url": "2026-11-22-monster-group-monstrous-moonshine.html",
+      "description": "An introduction to the Monster group, the Griess algebra, representation theory, and the modular connections behind Monstrous Moonshine.",
+      "content": "Monster group monstrous moonshine finite simple groups sporadic groups classification normal subgroups quotient groups composition series Jordan-Hölder Griess algebra nonassociative algebra automorphism group irreducible representations representation dimension 196883 modular j-function modular group upper half-plane Fourier expansion Hauptmodul genus zero McKay-Thompson series graded representation Moonshine module vertex operator algebra generalized Kac-Moody algebra Borcherds Conway Norton Frenkel Lepowsky Meurman 196884 21493760 group theory",
+      "keywords": ["Monster group", "monstrous moonshine", "modular j-function", "Griess algebra", "finite simple groups", "vertex operator algebra", "group theory"],
+      "priority": 90
+    },
+    {
       "title": "Transcendence Theory",
       "section": "Research",
       "url": "research.html#interests",
@@ -346,6 +355,18 @@
           "url": "2026-11-15-transfinite-numbers.html",
           "section": "Blog",
           "excerpt": "An introduction to transfinite numbers, from ordinal and cardinal arithmetic to Cantor's theorem and the aleph hierarchy."
+        }
+      ]
+    },
+    {
+      "name": "group-theory",
+      "displayName": "Group Theory",
+      "pages": [
+        {
+          "title": "The Monster Group and Monstrous Moonshine",
+          "url": "2026-11-22-monster-group-monstrous-moonshine.html",
+          "section": "Blog",
+          "excerpt": "An introduction to the Monster group, the Griess algebra, representation theory, and the modular connections behind Monstrous Moonshine."
         }
       ]
     },
