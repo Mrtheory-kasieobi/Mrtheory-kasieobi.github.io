@@ -16,12 +16,8 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout
@@ -30,16 +26,30 @@ jobs:
       - name: Prepare production artifact
         run: |
           mkdir -p deploy-artifact
-          rsync -av --exclude='.git/' --exclude='website-copy/' ./ deploy-artifact/
+          rsync -av \
+            --exclude='.git/' \
+            --exclude='website-copy/' \
+            --exclude='deploy-artifact/' \
+            ./ deploy-artifact/
 
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload website
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
+          name: github-pages
           path: './deploy-artifact'
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
