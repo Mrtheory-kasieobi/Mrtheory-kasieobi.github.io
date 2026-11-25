@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /editor.html
 Disallow: /website-copy/
 
 Sitemap: https://mrtheory-kasieobi.github.io/sitemap.xml

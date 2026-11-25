@@ -323,6 +323,11 @@ nav .dropdown-menu a:focus-visible {
     background: rgba(255, 255, 255, 0.1);
 }
 
+.search-bar:focus-within {
+    outline: 2px solid rgba(255, 255, 255, 0.55);
+    outline-offset: 2px;
+}
+
 .search-bar__icon {
     flex: none;
     color: #b9cdea;
@@ -5242,11 +5247,6 @@ main a:focus-visible {
    quiet enough not to compete with body copy but remain visible as texture. */
 
 .math-background {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    display: flex;
-    justify-content: space-between;
     width: 100%;
     height: 100%;
     padding: 0;

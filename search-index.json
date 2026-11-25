@@ -22,9 +22,9 @@
       "title": "Notes",
       "section": "Notes",
       "url": "notes.html",
-      "description": "Collection of mathematical notes covering olympiad mathematics, undergraduate mathematics (algebra, analysis, number theory), and graduate notes (transcendental number theory, commutative algebra, algebraic geometry).",
-      "content": "mathematical notes olympiad undergraduate graduate commutative algebra algebraic geometry number theory transcendence theory algebraic number theory algebraic independence Krull domains integral closure localization Noetherian rings primary decomposition unique factorization domain maximal ideals minimal primes Krull dimension Artin rings field extensions Galois theory Dedekind domains class groups ramification theory elliptic curves",
-      "keywords": ["notes", "mathematics", "commutative algebra", "algebraic geometry", "number theory", "transcendence"],
+      "description": "Collection of mathematical notes on ideas, results, proofs, examples, and connections across different areas of mathematics.",
+      "content": "mathematical notes proofs examples techniques theorems concepts mathematical archive ideas results connections different areas of mathematics",
+      "keywords": ["notes", "mathematics", "proofs", "examples", "techniques", "theorems"],
       "priority": 100
     },
     {
@@ -35,15 +35,6 @@
       "content": "Mathematics 10 Precalculus 11 Precalculus 12 Calculus I Calculus II Calculus III Linear Algebra Introduction to Proofs Number Theory Real Analysis Algebra I Algebra II limits derivatives integrals series sequences multivariable calculus vectors matrices linear transformations eigenvalues eigenvectors proof techniques divisibility primes congruences quadratic reciprocity Gaussian integers real analysis continuity differentiability Fundamental Theorem of Algebra",
       "keywords": ["teaching", "courses", "calculus", "precalculus", "algebra", "analysis", "proofs", "number theory"],
       "priority": 100
-    },
-    {
-      "title": "Transcendental Number Theory Overview",
-      "section": "Notes",
-      "url": "notes.html",
-      "description": "Graduate notes on transcendental number theory covering algebraic vs transcendental numbers, Gelfond–Schneider theorem, Lindemann–Weierstrass theorem, algebraic independence, Diophantine approximation, and modern open problems.",
-      "content": "transcendental number theory algebraic transcendental numbers Gelfond-Schneider theorem Lindemann-Weierstrass theorem algebraic independence Diophantine approximation zero estimates transcendence theory",
-      "keywords": ["transcendental number theory", "Gelfond-Schneider", "Lindemann-Weierstrass", "algebraic independence", "transcendence", "graduate notes"],
-      "priority": 92
     },
     {
       "title": "The Mystery of \\(e^{\\pi\\sqrt{163}}\\)",
@@ -103,16 +94,16 @@
       "title": "Research",
       "section": "Research",
       "url": "research.html",
-      "description": "Research portfolio in commutative algebra, algebraic number theory, arithmetic geometry, transcendence theory, algebraic geometry, Iwasawa theory, and noncommutative ring theory.",
+      "description": "Research portfolio in commutative algebra, algebraic number theory, arithmetic geometry, algebraic geometry, Iwasawa theory, and noncommutative ring theory.",
       "content": "commutative algebra ideals modules rings integral closure Noetherian rings local rings spectrum maximal ideals prime ideals Krull dimension Krull domains Dedekind domains class groups ramification theory Number Field rings of integers ideal class groups units Minkowski bound Minkowski theorem Minkowski bound finiteness of class group unit theorem Dirichlet unit theorem S-unit group regulator class number formula Dedekind zeta function analytic continuation Euler product Tauberian theorems Prime Ideal Factorization principal ideal theorem inertia degree ramified split inert unramified splitting behavior residue field extension completion algebraic integer p-adic valuation valuation ring discrete valuation ring p-adic numbers p-adic analysis Newton polygon Eisenstein polynomials irreducible polynomials reduction modulo p Hensel lemma Henselian rings Hensel ideal etale algebras separable extensions unramified extensions formally unramified morphisms ramified morphisms residue field extension",
-      "keywords": ["research", "commutative algebra", "algebraic number theory", "elliptic curves", "transcendence", "algebraic geometry"],
+      "keywords": ["research", "commutative algebra", "algebraic number theory", "elliptic curves", "algebraic geometry"],
       "priority": 100
     },
     {
       "title": "Commutative Algebra",
       "section": "Research",
       "url": "research.html#interests",
-      "description": "I am interested in the study of ideals, modules, rings, and their structural properties, particularly dimension, factorization, localization, Krull domains, Dedekind domains, primary decomposition, and the Going-Up theorem.",
+      "description": "I am interested in the structural theory of commutative rings and modules, particularly ideals, localization, integral extensions, dimension theory, and factorization, with connections to Algebraic Number Theory.",
       "content": "commutative algebra ideals modules rings prime ideals maximal ideals minimal primes integral closure Noetherian rings local rings spectrum localization Krull dimension Krull domains Dedekind domains primary decomposition irredundant primary decomposition irredundant primary decomposition Laskin theorem irreducible decomposition minimal primes embedded primes radical ideals unmixed rings Gorenstein rings Cohen-Macaulay rings depth global dimension projective dimension free resolutions flat modules faithfully flat descent Serre criterion regular local rings canonical module dualizing module finitely generated modules finite length modules Artin rings discrete valuation rings principal ideal domains unique factorization domains integrally closed domains normal domains localizations localization at prime ideal completion ring Hensels lemma Henselian rings etale algebras separable algebras separable extensions separable polynomials polynomial rings polynomial rings modulo ideals polynomial rings quotient rings Hilbert basis theorem Hilberts Nullstellensatz maximal ideals Zariski topology spectrum radical ideal variety ideal correspondence coordinate ring function ring affine variety algebraic sets finite-dimensional algebras",
       "keywords": ["commutative algebra", "Krull", "ideals", "modules", "rings", "dimension", "localization", "local rings"],
       "priority": 98
@@ -121,7 +112,7 @@
       "title": "Algebraic Number Theory",
       "section": "Research",
       "url": "research.html#interests",
-      "description": "I am currently exploring Algebraic Number Theory and its approach to understanding arithmetic through algebraic structures. My interests include number fields, ideals, valuations, factorization, and the behavior of primes.",
+      "description": "My primary mathematical interest is Algebraic Number Theory, particularly the structural and arithmetic properties of number fields and their extensions.",
       "content": "algebraic number theory number field ring of integers algebraic integers monic irreducible polynomial discriminant basis integral basis orders maximal orders fractional ideals principal ideals Dedekind domains class group ideal class group Minkowski bound Minkowskis theorem Minkowski bound finiteness of class group unit theorem Dirichlet unit theorem S-unit group regulator class number formula Dedekind zeta function analytic continuation functional equation Euler product Tauberian theorems",
       "keywords": ["algebraic number theory", "number fields", "class group", "ramification", "units", "discriminant"],
       "priority": 98
@@ -130,7 +121,7 @@
       "title": "Iwasawa Theory",
       "section": "Research",
       "url": "research.html#interests-secondary",
-      "description": "I am exploring Iwasawa Theory and its approach to studying arithmetic objects in infinite towers of number fields using p-adic methods.",
+      "description": "I am interested in Iwasawa Theory and its study of arithmetic phenomena across infinite extensions of number fields, particularly cyclotomic extensions and their associated Galois groups.",
       "content": "Iwasawa theory p-adic L-functions class groups Iwasawa algebras cyclotomic fields Z_p extensions infinite towers of number fields zeta functions ideal class groups",
       "keywords": ["Iwasawa theory", "p-adic L-functions", "class groups", "cyclotomic fields", "Iwasawa algebras"],
       "priority": 90
@@ -163,19 +154,10 @@
       "priority": 90
     },
     {
-      "title": "Transcendence Theory",
-      "section": "Research",
-      "url": "research.html#interests",
-      "description": "I am currently exploring Transcendence Theory, with a particular interest in the arithmetic properties of transcendental numbers and their connections to Algebraic Number Theory.",
-      "content": "transcendence theory transcendental numbers algebraic independence Gelfond-Schneider theorem Lindemann-Weierstrass theorem transcendence measure Mahler method Diophantine approximation Roth theorem Thue-Siegel-Roth theorem Baker method linear forms in logarithms exponential Diophantine equations Schanuel conjecture transcendence Schanuel conjecture complex numbers exponential algebraic numbers log algebraic numbers algebraic independence Gelfond-Schneider Gelfond-Schneider theorem Gelfond-Schneider transcendence Gelfond-Schneider theorem complex exponential transcendental numbers algebraic independence Schanuel conjecture Lindemann-Weierstrass theorem",
-      "keywords": ["transcendence theory", "Gelfond-Schneider", "Lindemann-Weierstrass", "algebraic independence", "transcendental numbers"],
-      "priority": 92
-    },
-    {
       "title": "Algebraic Geometry",
       "section": "Research",
-      "url": "research.html#interests",
-      "description": "Algebraic varieties, schemes, sheaf cohomology, divisors, Riemann-Roch theorem, and connections to commutative algebra and number theory.",
+      "url": "research.html#interests-secondary",
+      "description": "I am interested in Algebraic Geometry, particularly the algebraic and geometric structures underlying varieties and schemes, and their connections to Commutative Algebra and Arithmetic Geometry.",
       "content": "algebraic geometry varieties schemes sheaf cohomology Zariski topology local rings affine varieties projective varieties projective space homogeneous coordinates Grassmannians Proj construction Spec construction schemes affine schemes local rings maximal ideals prime ideals nilradical radical ideal sheaves quasi-coherent sheaves coherent sheaves structure sheaf ringed space locally ringed space affine scheme structure sheaf stalks fibers geometric points points of schemes morphisms of schemes ring homomorphisms schemes morphisms locally ringed maps fiber products fibers of morphisms products of schemes fiber product gluing scheme affine open cover scheme separated scheme proper scheme projective morphism finite type morphism Noetherian schemes dimension of schemes Krull dimension transcendence degree coherent sheaves quasi-coherent sheaves modules over structure sheaf Serre criterion regular local rings finite type algebras dimension theory smooth schemes etale morphisms unramified morphisms formally unramified morphisms separable algebras separable morphisms unramified morphisms etale morphisms smooth morphisms smooth schemes regular local rings geometric fibers regular sequences Cohen-Macaulay rings depth global dimension finite projective dimension regular local rings smooth schemes regular schemes regular schemes local complete intersection schemes Gorenstein rings canonical module Cohen-Macaulay rings dualizing complexes Grothendieck duality Serre duality duality for schemes proper schemes coherent sheaves proper schemes K3 surfaces abelian varieties curves genus arithmetic genus geometric genus canonical divisor canonical class Riemann-Roch theorem Riemann-Roch theorem Riemann-Roch theorem Riemann-Roch theorem Hirzebruch-Riemann-Roch Riemann-Roch theorem Grothendieck-Riemann-Roch Riemann-Roch theorem Noether-Lefschetz theorem Lefschetz hyperplane theorem cohomological",
       "keywords": ["algebraic geometry", "varieties", "schemes", "sheaf cohomology", "divisors", "Riemann-Roch"],
       "priority": 90
@@ -242,15 +224,6 @@
       "content": "real analysis sequences series limits continuity differentiability integration Riemann integral improper integrals uniform convergence power series Taylor series Maclaurin series completeness least upper bound property supremum infimum Cauchy sequence Cauchy criterion compact set Heine-Borel theorem Bolzano-Weierstrass theorem monotone convergence theorem nested interval theorem intermediate value theorem mean value theorem Rolle theorem Taylor theorem LHopital rule fundamental theorem calculus Lebesgue integration measure theory Lebesgue integral measurable function",
       "keywords": ["real analysis", "sequences", "continuity", "differentiation", "integration"],
       "priority": 85
-    },
-    {
-      "title": "Real Analysis",
-      "section": "Research",
-      "url": "research.html#interests",
-      "description": "Real analysis concepts including sequences, series, continuity, and integration.",
-      "content": "real analysis sequences series limits continuity differentiability integration Riemann integral improper integrals uniform convergence power series Taylor series Maclaurin series completeness least upper bound property supremum infimum Cauchy sequence Cauchy criterion compact set Heine-Borel theorem Bolzano-Weierstrass theorem monotone convergence theorem nested interval theorem intermediate value theorem mean value theorem Rolle theorem Taylor theorem LHopital rule fundamental theorem calculus Lebesgue integration measure theory Lebesgue integral measurable function",
-      "keywords": ["real analysis"],
-      "priority": 88
     },
     {
       "title": "Galois Theory",
@@ -378,7 +351,7 @@
           "title": "Commutative Algebra",
           "url": "research.html#interests",
           "section": "Research",
-          "excerpt": "I am interested in the study of ideals, modules, rings, and their structural properties, particularly dimension, factorization, localization, Krull domains, Dedekind domains, primary decomposition, and the Going-Up theorem."
+          "excerpt": "I am interested in the structural theory of commutative rings and modules, particularly ideals, localization, integral extensions, dimension theory, and factorization, with connections to Algebraic Number Theory."
         }
       ]
     },
@@ -390,19 +363,7 @@
           "title": "Algebraic Number Theory",
           "url": "research.html#interests",
           "section": "Research",
-          "excerpt": "I am currently exploring Algebraic Number Theory and its approach to understanding arithmetic through algebraic structures. My interests include number fields, ideals, valuations, factorization, and the behavior of primes."
-        }
-      ]
-    },
-    {
-      "name": "transcendence-theory",
-      "displayName": "Transcendence Theory",
-      "pages": [
-        {
-          "title": "Transcendence Theory",
-          "url": "research.html#interests",
-          "section": "Research",
-          "excerpt": "I am currently exploring Transcendence Theory, with a particular interest in the arithmetic properties of transcendental numbers and their connections to Algebraic Number Theory."
+          "excerpt": "My primary mathematical interest is Algebraic Number Theory, particularly the structural and arithmetic properties of number fields and their extensions."
         }
       ]
     },
@@ -499,18 +460,6 @@
           "url": "teaching.html",
           "section": "Teaching",
           "excerpt": "The Law of Quadratic Reciprocity relates the solvability of quadratic congruences modulo different primes."
-        }
-      ]
-    },
-    {
-      "name": "algebraic-independence",
-      "displayName": "Algebraic Independence",
-      "pages": [
-        {
-          "title": "Transcendence Theory",
-          "url": "research.html#interests",
-          "section": "Research",
-          "excerpt": "A set of complex numbers is algebraically independent over Q if no non-zero polynomial with rational coefficients vanishes at those numbers."
         }
       ]
     },

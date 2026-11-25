@@ -128,8 +128,16 @@ function initMathBackground() {
     document.body.appendChild(container);
     
     // Trigger MathJax to render the equations
-    if (window.MathJax && window.MathJax.typesetPromise) {
-        window.MathJax.typesetPromise([container]).catch(function(){});
+    function typeset() {
+        if (window.MathJax && window.MathJax.typesetPromise) {
+            window.MathJax.typesetPromise([container]).catch(function(){});
+            return true;
+        }
+        return false;
+    }
+    
+    if (!typeset()) {
+        window.addEventListener('load', typeset, { once: true });
     }
 }
 

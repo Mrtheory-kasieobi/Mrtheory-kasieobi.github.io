@@ -1,4 +1,7 @@
-const SEARCH_INDEX_URL = "search-index.json";
+const SITE_ROOT = document.currentScript
+    ? new URL('./', document.currentScript.src)
+    : new URL('/', location.origin);
+const SEARCH_INDEX_URL = new URL('search-index.json', SITE_ROOT).href;
 
 let globalSearchIndex = null;
 let searchIndexLoaded = false;
@@ -121,22 +124,17 @@ function extractSnippet(content, query, maxLength) {
     
     let idx = contentLower.indexOf(queryLower);
     if (idx === -1) {
-        idx = 0;
-        var preview = content.substring(0, maxLength - 3) + '...';
-        return preview;
+        return content.substring(0, maxLength - 3) + '...';
     }
     
-    var start = Math.max(0, idx - Math.floor(maxLength / 3));
-    var end = Math.min(content.length, idx + Math.ceil(maxLength * 2 / 3));
+    const start = Math.max(0, idx - Math.floor(maxLength / 3));
+    const end = Math.min(content.length, idx + Math.ceil(maxLength * 2 / 3));
+    let snippet = content.substring(start, end);
     
-    if (start > 0) {
-        content = '...' + content.substring(start, end);
-    }
-    if (end < content.length) {
-        content = content + '...';
-    }
+    if (start > 0) snippet = '...' + snippet;
+    if (end < content.length) snippet += '...';
     
-    return content;
+    return snippet;
 }
 
 function highlightMatch(text, query) {
@@ -165,6 +163,11 @@ function escapeHtml(str) {
             "'": '&#39;'
         }[c];
     });
+}
+
+function resolveSiteUrl(url) {
+    if (!url) return '#';
+    return new URL(url, SITE_ROOT).href;
 }
 
 function formatSectionName(section) {
@@ -197,6 +200,7 @@ function initEnhancedSearch(searchInput) {
     searchInput.setAttribute("aria-expanded", "false");
     searchInput.setAttribute("aria-autocomplete", "list");
     searchInput.setAttribute("aria-controls", "site-search-results");
+    searchInput.dataset.searchEnhanced = "true";
     resultsBox.id = "site-search-results";
     searchInput.parentElement.style.position = "relative";
     searchInput.parentElement.appendChild(resultsBox);
@@ -285,7 +289,7 @@ function initEnhancedSearch(searchInput) {
                 const item = result.page;
                 const excerpt = extractSnippet(item.content || item.description || '', query, 160);
                 
-                html += '<a class="search-results__item" href="' + item.url + '" id="sr-' + section.replace(/\s+/g, '-') + '-' + itemIdx + '">';
+                html += '<a class="search-results__item" href="' + resolveSiteUrl(item.url) + '" id="sr-' + section.replace(/\s+/g, '-') + '-' + itemIdx + '">';
                 html += '<strong class="search-results__title">' + highlightMatch(item.title, query) + '</strong>';
                 
                 if (item.description) {

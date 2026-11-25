@@ -178,7 +178,7 @@ class ResearchPage {
 
 function initResearchSearch() {
   const searchInput = document.getElementById('site-search');
-  if (!searchInput) return;
+  if (!searchInput || searchInput.dataset.searchEnhanced === 'true') return;
 
   const searchableItems = [
     { label: "Home", url: "index.html", keywords: ["home", "welcome", "about"] },
