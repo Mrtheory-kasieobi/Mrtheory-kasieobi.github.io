@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 10.">
+  <title>Solutions: Problem Set 10 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 10</h1><div class="subtitle">Introduction to Proofs - Lecture 10</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>The sum principle counts disjoint classes; the product principle counts independent choices.</li><li>Binomial coefficients count subsets, which turns algebraic identities into counting arguments.</li><li>Double counting equates two descriptions of the same finite set.</li><li>The pigeonhole principle is proved by contradiction and guarantees existence without locating the object.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove Pascal's identity \(\binom nk=\binom{n-1}{k-1}+\binom{n-1}k\) in two ways: combinatorially and algebraically.</div><div class="step"><strong>Combinatorial.</strong> Count \(k\)-subsets of \(\{1,\ldots,n\}\) by whether they contain \(n\): those that do correspond to \((k-1)\)-subsets of \(\{1,\ldots,n-1\}\), and those that do not are \(k\)-subsets of \(\{1,\ldots,n-1\}\). Disjointness and exhaustiveness give the sum.</div>
+<div class="step"><strong>Algebraic.</strong>
+\[\binom{n-1}{k-1}+\binom{n-1}k=\frac{(n-1)!}{(k-1)!(n-k)!}+\frac{(n-1)!}{k!(n-1-k)!}\]
+\[=\frac{(n-1)!\big(k+(n-k)\big)}{k!(n-k)!}=\frac{n!}{k!(n-k)!}=\binom nk.\]</div>
+<p>Both proofs establish the same identity; the combinatorial one makes the meaning of the terms transparent.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove that a set with \(n\) elements has \(2^n\) subsets by induction, and explain how this relates to Theorem 10.5.</div><div class="step"><strong>Base case.</strong> The empty set has exactly one subset, itself, and \(2^0=1\).</div>
+<div class="step"><strong>Step.</strong> Let \(X\) have \(n+1\) elements and choose \(x\in X\). Subsets not containing \(x\) are exactly the subsets of \(X\setminus\{x\}\), of which there are \(2^n\) by hypothesis. Each such subset \(S\) gives exactly one subset containing \(x\), namely \(S\cup\{x\}\). Hence there are \(2\cdot2^n=2^{n+1}\) subsets.</div>
+<p>Theorem 10.5 groups these subsets by size, giving the same total as \(\sum_{k=0}^n\binom nk\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove that \(\sum_{k=0}^n k^2\binom nk=n(n+1)2^{n-2}\) for \(n\ge2\). (Hint: count triples \((S,a,b)\) with \(a,b\in S\subseteq X\).)</div><p>Count ordered pairs \((a,b)\) chosen from a subset \(S\subseteq X\), where \(|X|=n\). For a fixed subset of size \(k\), there are \(k^2\) ordered pairs, so the total is \(\sum_k k^2\binom nk\).</p>
+<p>Count instead by choosing \(a,b\in X\): there are \(n^2\) ordered pairs \((a,b)\). If \(a\ne b\), there are \(n(n-1)\) such pairs and \(2^{n-2}\) subsets containing both; if \(a=b\), there are \(n\) pairs and \(2^{n-1}\) subsets containing \(a\). Hence the total is
+\[n(n-1)2^{n-2}+n2^{n-1}=n2^{n-2}\big((n-1)+2\big)=n(n+1)2^{n-2}.\]
+Equating the two counts proves the identity.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that in any group of \(n\) people there are at least two people with the same number of acquaintances within the group.</div><p>Assume acquaintance is mutual. Each person has between \(0\) and \(n-1\) acquaintances. The values \(0\) and \(n-1\) cannot both occur: if someone knows everyone, no one can know zero people. Thus the \(n\) people have acquaintance counts drawn from at most \(n-1\) possible values. By the pigeonhole principle, two people share a count.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Prove that \(\binom n0+\binom n1+\cdots+\binom nn=2^n\) using the binomial theorem, and compare with the combinatorial proof.</div><p>Set \(x=y=1\) in \((x+y)^n=\sum_{k=0}^n\binom nk x^{n-k}y^k\). The left side is \(2^n\) and the right side is the sum of the binomial coefficients. The algebraic route is one line, while the combinatorial route explains each term as the number of subsets of a given size. Both are valid; the second gives insight into the meaning of the identity.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove that \(\binom{2n}{n}=\sum_{k=0}^n\binom{n}{k}^2\) by double counting.</div><p>Let \(A,B\) be disjoint \(n\)-element sets and count the \(n\)-element subsets of \(A\cup B\). The total number is \(\binom{2n}{n}\). Alternatively, a subset with exactly \(k\) elements from \(A\) must have \(n-k\) from \(B\); there are \(\binom nk\binom n{n-k}=\binom{n}{k}^2\) such subsets. Summing over \(k=0,\ldots,n\) gives the right-hand side. Since both counts describe the same collection, the identity follows.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Prove that \(\binom n2+\binom{n+1}2=n^2\) for \(n\ge1\) by a counting argument.</div><p>Count ordered pairs \((i,j)\) with \(1\le i,j\le n\) and \(i\ne j\). There are \(n^2-n=n(n-1)\) such pairs, which is \(2\binom n2\), not \(\binom n2+\binom{n+1}2\) in general. Compute the proposed identity directly:
+\[\binom n2+\binom{n+1}2=\frac{n(n-1)}2+\frac{n(n+1)}2=n^2.\]
+So the identity is true algebraically. A counting interpretation: \(n^2\) counts all pairs \((i,j)\) in an \(n\times n\) grid. Split them into those with \(i&lt;j\) and those with \(i\ge j\). The first class has \(\binom n2\) elements. The second has \(\binom n2+n=\binom{n+1}2\) elements, since it consists of the \(\binom n2\) pairs with \(i&gt;j\) plus the \(n\) diagonal pairs. Thus the identity counts the grid by a diagonal split.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Use the pigeonhole principle to prove that every sequence of \(n^2+1\) distinct real numbers contains a subsequence of length \(n+1\) that is strictly increasing or strictly decreasing.</div><p>For each position \(i\), let \(a_i\) be the length of the longest increasing subsequence ending at that term and \(b_i\) the length of the longest decreasing subsequence ending there. If both \(a_i\le n\) and \(b_i\le n\) for all \(i\), then each term gets a pair \((a_i,b_i)\) from an \(n\times n\) grid of \(n^2\) possible pairs. With \(n^2+1\) terms, two terms share the same pair by the pigeonhole principle. For an earlier term \(i&lt;j\), if the values increase then \(a_j&gt;a_i\), and if they decrease then \(b_j&gt;b_i\); both contradict equality of the pairs. Hence some term has \(a_i&gt;n\) or \(b_i&gt;n\), giving the required subsequence.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 9: Prove that the number of ways to distribute \(n\) identical objects into \(k\) distinct boxes is \(\binom{n+k-1}{k-1}\).</div><p>Represent a distribution by a string of \(n\) stars and \(k-1\) bars: the number of stars before the first bar is the contents of box \(1\), between bars the contents of the next box, and after the last bar the contents of box \(k\). Every distribution corresponds to exactly one such string and conversely. The string has \(n+k-1\) positions; choosing which \(k-1\) positions hold bars determines it, giving \(\binom{n+k-1}{k-1}\) possibilities.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Give a double-counting proof that \(\sum_{k=0}^n\binom nk^2=\binom{2n}n\).</div>Split a \(2n\)-element set into two halves \(X\) and \(Y\), each of size \(n\). The right side counts \(n\)-element subsets of \(X\cup Y\). The left side counts the same subsets by choosing \(k\) elements from \(X\) and \(n-k\) elements from \(Y\), giving \(\binom nk\binom n{n-k}=\binom nk^2\) choices for each \(k\). Summing over \(k\) gives the identity.</div>
+
+      <div class="navigation"><a href="problem-set-10-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-10.html">Lecture 10</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

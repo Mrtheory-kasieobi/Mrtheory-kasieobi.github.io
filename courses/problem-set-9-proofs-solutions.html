@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 9.">
+  <title>Solutions: Problem Set 9 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 9</h1><div class="subtitle">Introduction to Proofs - Lecture 9</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Congruence \(a\equiv b\pmod n\) means \(a-b\) is a multiple of \(n\).</li><li>Inverses modulo \(n\) exist exactly for residues coprime to \(n\).</li><li>Squares have restricted residues; these restrictions prove nonexistence results.</li><li>Fermat's little theorem follows from divisibility of intermediate binomial coefficients.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove that if \(a\equiv b\pmod n\) and \(c\equiv d\pmod n\), then \(ac\equiv bd\pmod n\).</div><p>Write \(a=b+kn\) and \(c=d+\ell n\) with \(k,\ell\in\mathbb{Z}\). Then
+\[ac=(b+kn)(d+\ell n)=bd+b\ell n+dk n+k\ell n^2=bd+n(b\ell+dk+k\ell n).\]
+Since the bracket is an integer, \(ac-bd\) is a multiple of \(n\), so \(ac\equiv bd\pmod n\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Solve \(6x\equiv9\pmod{15}\) completely.</div><div class="step"><strong>Solvability.</strong> \(\gcd(6,15)=3\) and \(3\mid9\), so solutions exist. Dividing through by \(3\) gives the equivalent congruence \(2x\equiv3\pmod5\).</div>
+<div class="step"><strong>Inverse.</strong> \(2^{-1}\equiv3\pmod5\) since \(2\cdot3=6\equiv1\pmod5\). Multiplying gives \(x\equiv9\equiv4\pmod5\).</div>
+<div class="step"><strong>Lift back.</strong> The solutions modulo \(15\) are \(x\equiv4,9,14\pmod{15}\), i.e. \(x=4+5t\) with \(t=0,1,2\). There are exactly \(\gcd(6,15)=3\) incongruent solutions modulo \(15\).</div></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove that \(5
+mid(n^2+2)\) for every integer \(n\).</div><p>By Theorem 9.7, \(n^2\equiv0,1,4\pmod5\). Hence \(n^2+2\equiv2,3,1\pmod5\), never \(0\). Therefore \(5\nmid(n^2+2)\) for any integer \(n\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that every prime \(p&gt;3\) satisfies \(p^2\equiv1\pmod{12}\).</div><p>Since \(p&gt;3\) is prime, \(p\) is odd, so \(p^2\equiv1\pmod8\), hence certainly \(p^2\equiv1\pmod4\). Also \(3\nmid p\), so \(p\equiv\pm1\pmod3\), giving \(p^2\equiv1\pmod3\). Since \(3\) and \(4\) are coprime, \(p^2-1\) is divisible by \(12\), i.e. \(p^2\equiv1\pmod{12}\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Use the Chinese remainder theorem to solve \(x\equiv1\pmod4\), \(x\equiv2\pmod7\).</div><p>Since \(\gcd(4,7)=1\), there is a unique solution modulo \(28\). We need \(u\) with \(4u\equiv1\pmod7\): \(u=2\) works since \(8\equiv1\). We need \(v\) with \(7v\equiv1\pmod4\): \(v=3\) works since \(21\equiv1\). Take
+\[x=1\cdot7\cdot3+2\cdot4\cdot2=21+16=37\equiv9\pmod{28}.\]
+Check: \(9\equiv1\pmod4\) and \(9\equiv2\pmod7\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove that if \(p\) is prime and \(a^2\equiv1\pmod p\), then \(a\equiv1\) or \(a\equiv-1\pmod p\).</div><p>From \(a^2\equiv1\pmod p\) we get \(p\mid(a^2-1)=(a-1)(a+1)\). By Euclid's lemma, \(p\mid(a-1)\) or \(p\mid(a+1)\). Hence \(a\equiv1\pmod p\) or \(a\equiv-1\pmod p\). This can fail modulo composite numbers: \(3^2\equiv1\pmod8\) but \(3\not\equiv\pm1\pmod8\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Compute \(7^{222}\) modulo \(13\) using Fermat's little theorem.</div><p>Since \(13\) is prime and \(13\nmid7\), Fermat gives \(7^{12}\equiv1\pmod{13}\). Divide the exponent: \(222=12\cdot18+6\), so \(7^{222}\equiv(7^{12})^{18}\cdot7^6\equiv7^6\pmod{13}\). Now \(7^2=49\equiv10\), \(7^3\equiv10\cdot7=70\equiv5\), and \(7^6\equiv5^2=25\equiv12\equiv-1\pmod{13}\). Thus \(7^{222}\equiv12\pmod{13}\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove that there are infinitely many primes congruent to \(3\pmod4\).</div><p>Suppose there are finitely many, \(p_1,\ldots,p_k\). Let \(N=4p_1p_2\cdots p_k-1\). Then \(N\equiv3\pmod4\), so in the prime factorisation of \(N\) there must be at least one prime \(q\equiv3\pmod4\); otherwise all prime factors would be \(1\pmod4\) (or \(2\), impossible since \(N\) is odd), making \(N\equiv1\pmod4\). But \(q\) cannot be any \(p_i\), because \(N\equiv-1\pmod{p_i}\). This contradicts the assumed completeness of the list, so infinitely many primes are \(3\pmod4\).</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that if \(x\) is odd, then \(x^2\equiv1\pmod8\).</div>Write \(x=2k+1\). Then \(x^2=4k^2+4k+1=4k(k+1)+1\). Since \(k\) and \(k+1\) are consecutive, one is even, so \(k(k+1)\) is even. Hence \(4k(k+1)\) is divisible by \(8\), and \(x^2\equiv1\pmod8\).</div>
+
+      <div class="navigation"><a href="problem-set-9-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-9.html">Lecture 9</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 3 of Introduction to Proofs: Set Theory: Operations and Identities.">
+  <title>Lecture 3: Set Theory: Operations and Identities | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 3: Set Theory: Operations and Identities</h1><div class="subtitle">Introduction to Proofs &middot; Week 3</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 3</span><span class="lecture-topic">Set Theory: Operations and Identities</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Use set notation precisely, including membership, subsets and power sets.</li><li>Interpret union, intersection, difference, complement and symmetric difference.</li><li>Prove set identities by element chasing and by logical equivalences.</li><li>Work with indexed families of sets and generalised De Morgan laws.</li><li>Avoid common errors involving the empty set and unordered versus ordered collections.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>A set is a collection considered as one object. The symbol \(\in\) connects an element to a set, while \(\subseteq\) compares two sets. For example, \(1\in\{1,2\}\) and \(\{1\}\subseteq\{1,2\}\), but \(1\not\subseteq\{1,2\}\) and \(\{1\}\notin\{1,2\}\). When this distinction is clear, set proofs become much easier.</p><p>The empty set \(\varnothing\) has no elements. The statement \(A\subseteq B\) means every element of \(A\) is also an element of \(B\). Because there is no element of \(\varnothing\) to check, \(\varnothing\subseteq B\) is true for every set \(B\).</p></div>
+
+      <div class="lecture-section"><h2>1. Sets, membership and inclusion</h2>
+<div class="definition-box"><strong>Definition 3.1</strong> A <em>set</em> is a well-defined collection of objects, called its <em>elements</em> or <em>members</em>. We write \(x\in A\) if \(x\) is an element of \(A\), and \(x\notin A\) otherwise. The empty set, denoted \(\varnothing\) or \(\{\}\), is the unique set with no elements.</div>
+<p>Sets may be listed, as in \(A=\{1,2,3\}\), or described by a property, as in \(B=\{n\in\mathbb{Z}: n\text{ is even}\}\). Well-definedness means membership can be decided unambiguously; "the set of large numbers" is not a set in this sense unless "large" is specified.</p>
+<div class="definition-box"><strong>Definition 3.2 (Subset and equality)</strong> \(A\subseteq B\) means every element of \(A\) is an element of \(B\), i.e. \(\forall x(x\in A\to x\in B)\). Sets are equal exactly when they have the same elements:
+\[A=B\iff(A\subseteq B\land B\subseteq A).\]
+If \(A\subseteq B\) and \(A\ne B\), write \(A\subsetneq B\).</div>
+<div class="proof-box"><strong>Proof of the extensionality criterion.</strong> If \(A=B\), then every element of \(A\) is an element of \(B\) and conversely, so both inclusions hold. Conversely, suppose \(A\subseteq B\) and \(B\subseteq A\). If \(x\in A\), then \(x\in B\); if \(x\in B\), then \(x\in A\). Thus \(A\) and \(B\) have exactly the same members, so \(A=B\). \(\square\)</div>
+<div class="example-box"><strong>Example 3.3</strong> \(\{1,2\}\subseteq\{1,2,3\}\), and \(\varnothing\subseteq A\) for every set \(A\). The latter holds vacuously: the implication \(x\in\varnothing\to x\in A\) has a false antecedent for every \(x\). Note that \(\varnothing\ne\{\varnothing\}\): the first set has no elements, the second has one element, namely the empty set.</div>
+</div><div class="lecture-section"><h2>2. Power sets and size</h2>
+<div class="definition-box"><strong>Definition 3.4 (Power set)</strong> The power set of \(A\) is
+\[\mathcal{P}(A)=\{X:X\subseteq A\},\]
+the set of all subsets of \(A\).</div>
+<div class="example-box"><strong>Example 3.5</strong> If \(A=\{1,2\}\), then \(\mathcal{P}(A)=\{\varnothing,\{1\},\{2\},\{1,2\}\}\), which has \(4=2^2\) elements. If \(A=\varnothing\), then \(\mathcal{P}(A)=\{\varnothing\}\), which has \(1=2^0\) element.</div>
+<p>For a finite set \(A\) with \(n\) elements, \(|\mathcal{P}(A)|=2^n\). This can be proved by induction on \(n\), or by observing that each subset corresponds to a choice of "include" or "exclude" for each element. We will return to this counting argument in Lecture 10.</p>
+</div><div class="lecture-section"><h2>3. Set operations</h2>
+<div class="definition-box"><strong>Definition 3.6</strong> Let \(A,B\) be subsets of a universal set \(U\).
+<ul>
+<li>\(A\cup B=\{x:x\in A\text{ or }x\in B\}\) (union).</li>
+<li>\(A\cap B=\{x:x\in A\text{ and }x\in B\}\) (intersection).</li>
+<li>\(A\setminus B=\{x:x\in A\text{ and }x\notin B\}\) (difference).</li>
+<li>\(A^{c}=\{x\in U:x\notin A\}\) (complement relative to \(U\)).</li>
+<li>\(A\triangle B=(A\setminus B)\cup(B\setminus A)\) (symmetric difference).</li>
+</ul>
+Sets \(A\) and \(B\) are <em>disjoint</em> if \(A\cap B=\varnothing\).</div>
+<p>The "or" in the union is inclusive: an element in both sets is still in the union. Membership tables for sets parallel truth tables: replace \(p\) by \(x\in A\) and \(q\) by \(x\in B\). For example, \(x\in A\cap B\) corresponds to \(p\land q\), and \(x\in A^c\) corresponds to \(\neg p\).</p>
+<div class="theorem-box"><strong>Theorem 3.7 (De Morgan laws for sets)</strong>
+\[(A\cup B)^c=A^c\cap B^c,\qquad (A\cap B)^c=A^c\cup B^c.\]
+More generally, \(A\setminus(B\cup C)=(A\setminus B)\cap(A\setminus C)\) and \(A\setminus(B\cap C)=(A\setminus B)\cup(A\setminus C)\).</div>
+<div class="proof-box"><strong>Proof of the first law.</strong> For any \(x\in U\),
+\[x\in(A\cup B)^c\iff\neg(x\in A\cup B)\iff\neg(x\in A\text{ or }x\in B)\]
+\[\iff(x\notin A\text{ and }x\notin B)\iff x\in A^c\cap B^c.\]
+The chain of equivalences shows the two sets have exactly the same elements, so they are equal by Definition 3.2. \(\square\)</div>
+</div><div class="lecture-section"><h2>4. Proving set identities</h2>
+<p>An <em>element-chasing proof</em> of \(A=B\) proves both inclusions. To show \(A\subseteq B\), take an arbitrary \(x\in A\) and deduce \(x\in B\). To show \(B\subseteq A\), reverse the process. Each step must be an implication; if you use an equivalence, the reverse inclusion often comes for free.</p>
+<div class="example-box"><strong>Example 3.8</strong> Prove \(A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\).
+<div class="step-box"><strong>Forward inclusion.</strong> Let \(x\in A\cap(B\cup C)\). Then \(x\in A\) and \(x\in B\cup C\), so \(x\in B\) or \(x\in C\). If \(x\in B\), then \(x\in A\cap B\); if \(x\in C\), then \(x\in A\cap C\). Either way \(x\in(A\cap B)\cup(A\cap C)\).</div>
+<div class="step-box"><strong>Reverse inclusion.</strong> Let \(x\in(A\cap B)\cup(A\cap C)\). If \(x\in A\cap B\), then \(x\in A\) and \(x\in B\subseteq B\cup C\), hence \(x\in A\cap(B\cup C)\). The case \(x\in A\cap C\) is identical with \(C\) in place of \(B\).</div>
+<p>Alternatively, the truth-table equivalence \(p\land(q\lor r)\equiv(p\land q)\lor(p\land r)\) proves both inclusions at once.</p></div>
+<p>Some identities fail for subtle reasons. For instance, \(A\setminus(B\setminus C)\) is generally <em>not</em> equal to \((A\setminus B)\cup C\): take \(A=\{1\},B=\{2\},C=\{2\}\). Then the left side is \(\{1\}\) while the right side is \(\{1,2\}\). Always test a proposed identity on small examples before attempting a proof.</p>
+</div><div class="lecture-section"><h2>5. Indexed families</h2>
+<div class="definition-box"><strong>Definition 3.9</strong> If \(I\) is a set and each \(i\in I\) is assigned a set \(A_i\), the collection \(\{A_i:i\in I\}\) is an <em>indexed family</em>, and \(I\) is the index set. Define
+\[\bigcup_{i\in I}A_i=\{x:\exists i\in I,\,x\in A_i\},\qquad \bigcap_{i\in I}A_i=\{x:\forall i\in I,\,x\in A_i\}.\]</div>
+<div class="theorem-box"><strong>Theorem 3.10 (Generalised De Morgan laws)</strong> For any indexed family \(\{A_i\}_{i\in I}\) of subsets of \(U\),
+\[\Big(\bigcup_{i\in I}A_i\Big)^c=\bigcap_{i\in I}A_i^c,\qquad \Big(\bigcap_{i\in I}A_i\Big)^c=\bigcup_{i\in I}A_i^c.\]</div>
+<div class="proof-box"><strong>Proof of the first law.</strong> For \(x\in U\),
+\[x\in\Big(\bigcup_{i\in I}A_i\Big)^c\iff\forall i\in I\,(x\notin A_i)\iff\forall i\in I\,(x\in A_i^c)\iff x\in\bigcap_{i\in I}A_i^c.\]
+The middle equivalence is the quantifier negation law from Lecture 2. \(\square\)</div>
+<p>When \(I=\varnothing\), the empty intersection \(\bigcap_{i\in\varnothing}A_i\) is conventionally the whole universe \(U\), while the empty union is \(\varnothing\). This convention makes the generalised De Morgan laws and the identity \(\bigcap_{i\in I}A_i\subseteq\bigcup_{i\in I}A_i\) behave consistently, and mirrors the truth values of \(\forall\) and \(\exists\) over an empty index set.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: the element-chasing template</h2>
+<div class="step-box"><strong>To prove \(A\subseteq B\):</strong> let \(x\in A\), and deduce \(x\in B\).</div>
+<div class="step-box"><strong>To prove \(A=B\):</strong> prove \(A\subseteq B\) and \(B\subseteq A\) separately.</div>
+<div class="step-box"><strong>To prove \(x\in A\cap B\):</strong> prove \(x\in A\) and \(x\in B\).</div>
+<div class="step-box"><strong>To prove \(x\in A\cup B\):</strong> prove \(x\in A\) or \(x\in B\).</div>
+<p>These templates turn set equalities into implication proofs. For instance, if \(x\in A\cap(B\cup C)\), then \(x\in A\) and either \(x\in B\) or \(x\in C\), which is exactly the statement that \(x\in(A\cap B)\cup(A\cap C)\).</p>
+<div class="theorem-box"><strong>Theorem 3.10</strong> If \(A\) is finite with \(|A|=n\), then \(|\mathcal{P}(A)|=2^n\).</div>
+<div class="proof-box"><strong>Proof.</strong> Each subset is determined by deciding, for each of the \(n\) elements, whether to include it. There are two choices for each element, so the product principle gives \(2^n\) subsets. \(\square\)</div>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>List all elements of \(\mathcal{P}(\{a,b,c\})\).</li><li>Decide whether \(\varnothing\subseteq\{\varnothing\}\), \(\varnothing\in\{\varnothing\}\), and \(\{\varnothing\}\subseteq\mathcal{P}(\varnothing)\).</li><li>Prove \(A\setminus B=A\cap B^c\).</li><li>Prove \((A\cup B)\setminus(A\cap B)=A	riangle B\) by element chasing.</li><li>Give an example with \(A\cap B=A\cap C\) but \(B
+e C\).</li><li>Prove \(A\subseteq B\) if and only if \(A\cap B^c=\varnothing\).</li><li>Let \(A_n=\{n,n+1,n+2,\ldots\}\) for \(n\in\mathbb{N}\). Find \(\bigcup_{n\in\mathbb{N}}A_n\) and \(\bigcap_{n\in\mathbb{N}}A_n\).</li><li>Show that \(A	riangle B=B	riangle A\) and \(A	riangle\varnothing=A\).</li></ol><p>Complete <a href="problem-set-3-proofs.html">Problem Set 3</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-2.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-4.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

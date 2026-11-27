@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 3.">
+  <title>Solutions: Problem Set 3 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 3</h1><div class="subtitle">Introduction to Proofs - Lecture 3</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Set equality is proved by proving two inclusions.</li><li>Membership in a set operation is exactly a logical formula about membership in the component sets.</li><li>De Morgan laws for sets are the quantifier negation laws in disguise.</li><li>The empty set is a subset of every set but is not necessarily an element of it.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove that \(A\subseteq B\) if and only if \(\mathcal{P}(A)\subseteq\mathcal{P}(B)\).</div><div class="step"><strong>Forward direction.</strong> Assume \(A\subseteq B\). Let \(X\in\mathcal{P}(A)\), so \(X\subseteq A\). For any \(x\in X\), we have \(x\in A\), hence \(x\in B\). Thus \(X\subseteq B\), so \(X\in\mathcal{P}(B)\). This proves \(\mathcal{P}(A)\subseteq\mathcal{P}(B)\).</div>
+<div class="step"><strong>Reverse direction.</strong> Assume \(\mathcal{P}(A)\subseteq\mathcal{P}(B)\). Since \(A\subseteq A\), we have \(A\in\mathcal{P}(A)\). Therefore \(A\in\mathcal{P}(B)\), which means \(A\subseteq B\).</div>
+<p>The key observation in the reverse direction is that \(A\) itself is an element of its own power set.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove \((A\cup B)^c=A^c\cap B^c\) using two inclusions rather than a chain of equivalences.</div><div class="step"><strong>First inclusion.</strong> Let \(x\in(A\cup B)^c\). Then \(x\notin A\cup B\). If \(x\in A\), then \(x\in A\cup B\), a contradiction; hence \(x\notin A\), i.e. \(x\in A^c\). Similarly \(x\notin B\), so \(x\in B^c\). Therefore \(x\in A^c\cap B^c\).</div>
+<div class="step"><strong>Second inclusion.</strong> Let \(x\in A^c\cap B^c\). Then \(x\notin A\) and \(x\notin B\). If \(x\in A\cup B\), then \(x\in A\) or \(x\in B\), both impossible. Thus \(x\notin A\cup B\), so \(x\in(A\cup B)^c\).</div>
+<p>Both inclusions hold, so the sets are equal.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Let \(A,B,C\) be sets. Prove \(A\cap(B\setminus C)=(A\cap B)\setminus C\).</div><p>For any \(x\),
+\[x\in A\cap(B\setminus C)\iff x\in A\land(x\in B\land x\notin C)\]
+\[\iff(x\in A\land x\in B)\land x\notin C\iff x\in(A\cap B)\setminus C.\]
+Since membership is equivalent in both sets for every \(x\), the sets are equal. An element-chasing proof gives the same conclusion by proving the two inclusions separately.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Find a counterexample to each false claim: (a) \(A\cup B=A\cup C\implies B=C\); (b) \(A	imes B=A	imes C\implies B=C\) when \(A
+e\varnothing\).</div><div class="step"><strong>(a)</strong> Take \(A=\{1,2\},B=\{1\},C=\{2\}\). Then \(A\cup B=A\cup C=A\), but \(B\ne C\). Union does not cancel.</div>
+<div class="step"><strong>(b)</strong> When \(A\ne\varnothing\), cancellation <em>does</em> hold: choose \(a\in A\). If \((a,b)\in A\times B\), then \((a,b)\in A\times C\), so \(b\in C\); symmetrically \(C\subseteq B\). Thus the statement is true, and there is no counterexample. This illustrates the useful principle that a nonempty factor allows projection of a Cartesian product.</div></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Let \(A_n=[0,1/n]\) for \(n\in\mathbb{N}=\{1,2,3,\ldots\}\). Compute \(\bigcup_{n=1}^\infty A_n\) and \(\bigcap_{n=1}^\infty A_n\), and justify both answers.</div><div class="step"><strong>Union.</strong> Every \(A_n\subseteq[0,1]\), so the union is contained in \([0,1]\). Conversely, if \(x\in[0,1]\), then \(x\in A_1=[0,1]\). Hence \(\bigcup_{n=1}^\infty A_n=[0,1]\).</div>
+<div class="step"><strong>Intersection.</strong> Clearly \(0\in A_n\) for every \(n\), so \(\{0\}\subseteq\bigcap A_n\). If \(x&gt;0\), choose an integer \(n&gt;1/x\); then \(1/n&lt;x\), so \(x\notin A_n\), hence \(x\) is not in the intersection. Negative numbers are in no \(A_n\). Therefore \(\bigcap_{n=1}^\infty A_n=\{0\}\).</div></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove that \(A	riangle B=(A\cup B)\setminus(A\cap B)\).</div><p>For any \(x\),
+\[x\in A\triangle B\iff(x\in A\land x\notin B)\lor(x\in B\land x\notin A).\]
+On the other hand,
+\[x\in(A\cup B)\setminus(A\cap B)\iff(x\in A\lor x\in B)\land\neg(x\in A\land x\in B).\]
+By the distributivity and De Morgan laws from Lecture 1, the second formula is equivalent to
+\[(x\in A\land x\notin B)\lor(x\in B\land x\notin A),\]
+which is the first formula. Hence the sets are equal.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Show that \(A\setminus(B\cap C)=(A\setminus B)\cup(A\setminus C)\) by proving both inclusions.</div><div class="step"><strong>Forward.</strong> If \(x\in A\setminus(B\cap C)\), then \(x\in A\) and \(x\notin B\cap C\). The latter means \(x\notin B\) or \(x\notin C\). In the first case \(x\in A\setminus B\); in the second \(x\in A\setminus C\). Thus \(x\) lies in the union.</div>
+<div class="step"><strong>Reverse.</strong> If \(x\in(A\setminus B)\cup(A\setminus C)\), then \(x\in A\) and either \(x\notin B\) or \(x\notin C\). Hence \(x\) cannot be in both \(B\) and \(C\), so \(x\notin B\cap C\), giving \(x\in A\setminus(B\cap C)\).</div></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Let \(I\) be a nonempty index set. Prove \(\bigcap_{i\in I}A_i\subseteq\bigcup_{i\in I}A_i\). What happens if \(I=\varnothing\)?</div><p>If \(I\ne\varnothing\), fix an index \(j\in I\). If \(x\in\bigcap_{i\in I}A_i\), then \(x\in A_j\). Since \(j\in I\), this gives \(x\in\bigcup_{i\in I}A_i\). Thus the inclusion holds.</p>
+<p>If \(I=\varnothing\), then \(\bigcap_{i\in\varnothing}A_i=U\) while \(\bigcup_{i\in\varnothing}A_i=\varnothing\), so \(U\subseteq\varnothing\) holds only when \(U=\varnothing\). This is why the hypothesis \(I\ne\varnothing\) is necessary.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that \(A\times(B\cap C)=(A\times B)\cap(A\times C)\).</div>If \((x,y)\in A\times(B\cap C)\), then \(x\in A\) and \(y\in B\cap C\), so \(y\in B\) and \(y\in C\). Thus \((x,y)\in A\times B\) and \((x,y)\in A\times C\), hence \((x,y)\in(A\times B)\cap(A\times C)\). Conversely, if \((x,y)\in(A\times B)\cap(A\times C)\), then \(x\in A\), \(y\in B\), and \(y\in C\), so \(y\in B\cap C\) and \((x,y)\in A\times(B\cap C)\).</div>
+
+      <div class="navigation"><a href="problem-set-3-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-3.html">Lecture 3</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

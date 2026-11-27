@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 10 of Introduction to Proofs: Combinatorial Proofs.">
+  <title>Lecture 10: Combinatorial Proofs | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 10: Combinatorial Proofs</h1><div class="subtitle">Introduction to Proofs &middot; Week 10</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 10</span><span class="lecture-topic">Combinatorial Proofs</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Use the sum and product principles to count finite sets.</li><li>Interpret binomial coefficients combinatorially and prove Pascal's identity.</li><li>Prove identities by counting the same set in two ways.</li><li>Prove the pigeonhole principle and apply it to existence results.</li><li>Distinguish bijective, double-counting and algebraic proofs.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>A combinatorial proof proves an algebraic identity by counting the same collection in two different ways. The sum principle counts alternatives from disjoint classes; the product principle counts independent choices; \(\binom nk\) counts \(k\)-element subsets of an \(n\)-element set.</p><p>For example, the number of ways to choose a 2-person committee from 5 people is \(\binom52=10\). If one person is designated chair and the other secretary, there are \(5\cdot4=20\) ordered choices. The distinction is whether order matters.</p></div>
+
+      <div class="lecture-section"><h2>1. Counting principles</h2>
+<div class="theorem-box"><strong>Theorem 10.1 (Sum and product principles)</strong>
+<ol>
+<li>If \(A_1,\ldots,A_k\) are pairwise disjoint finite sets, then \(\left|\bigcup_{i=1}^kA_i\right|=\sum_{i=1}^k|A_i|\).</li>
+<li>If \(A_1,\ldots,A_k\) are finite sets, then \(|A_1\times\cdots\times A_k|=\prod_{i=1}^k|A_i|\).</li>
+</ol></div>
+<p>The product principle counts ordered \(k\)-tuples: there are \(|A_1|\) choices for the first coordinate, then independently \(|A_2|\) choices for the second, and so on. The sum principle applies only when no object is counted twice; overlapping sets require inclusion-exclusion, which we will not need here.</p>
+<div class="definition-box"><strong>Definition 10.2 (Binomial coefficient)</strong> For \(0\le k\le n\), \(\binom nk\) is the number of \(k\)-element subsets of an \(n\)-element set. For \(k&gt;n\) or \(k&lt;0\), set \(\binom nk=0\). The factorial formula is
+\[\binom nk=\frac{n!}{k!(n-k)!}.\]</div>
+</div><div class="lecture-section"><h2>2. Pascal's identity and the binomial theorem</h2>
+<div class="theorem-box"><strong>Theorem 10.3 (Pascal's identity)</strong> For \(1\le k\le n-1\),
+\[\binom nk=\binom{n-1}{k-1}+\binom{n-1}k.\]</div>
+<div class="proof-box"><strong>Combinatorial proof.</strong> Let \(X=\{1,2,\ldots,n\}\) and count the \(k\)-element subsets of \(X\). There are \(\binom nk\) of them. Split them according to whether they contain the element \(n\). Subsets containing \(n\) are obtained by choosing \(k-1\) elements from \(\{1,\ldots,n-1\}\), giving \(\binom{n-1}{k-1}\) choices. Subsets not containing \(n\) are \(k\)-element subsets of \(\{1,\ldots,n-1\}\), giving \(\binom{n-1}k\) choices. The two classes are disjoint and exhaustive, so the sum principle gives the identity. \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 10.4 (Binomial theorem)</strong> For every integer \(n\ge0\),
+\[(x+y)^n=\sum_{k=0}^n\binom nk x^{n-k}y^k.\]</div>
+<div class="proof-box"><strong>Combinatorial proof.</strong> Expanding \((x+y)^n=(x+y)(x+y)\cdots(x+y)\) produces one term for each choice, from each of the \(n\) factors, of either \(x\) or \(y\). A term \(x^{n-k}y^k\) arises exactly when \(y\) is chosen from \(k\) of the \(n\) factors, and there are \(\binom nk\) ways to choose those factors. Summing over \(k\) gives the formula. \(\square\)</div>
+<p>An induction proof is also possible: multiply the formula for \(n\) by \(x+y\), collect like powers, and apply Pascal's identity. The combinatorial proof explains <em>why</em> the coefficients are binomial coefficients.</p>
+</div><div class="lecture-section"><h2>3. Counting the same set twice</h2>
+<div class="theorem-box"><strong>Theorem 10.5</strong> For \(n\ge0\), \(\sum_{k=0}^n\binom nk=2^n\).</div>
+<div class="proof-box"><strong>Proof by double counting.</strong> Let \(X\) be an \(n\)-element set. The power set \(\mathcal{P}(X)\) contains \(2^n\) elements by the product principle: each of the \(n\) elements is either in or out. On the other hand, partition \(\mathcal{P}(X)\) by subset size: there are \(\binom nk\) subsets of size \(k\). Summing over \(k=0,\ldots,n\) counts the same power set. Hence the two expressions are equal. \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 10.6 (Committee-chair identity)</strong> For \(n\ge1\),
+\[\sum_{k=1}^n k\binom nk=n2^{n-1}.\]</div>
+<div class="proof-box"><strong>Proof.</strong> Count pairs \((S,c)\) where \(S\subseteq X\) and \(c\in S\). Counting by subset size: for each \(k\), there are \(\binom nk\) subsets of size \(k\) and \(k\) choices of chair, giving \(\sum_k k\binom nk\). Counting by chair: there are \(n\) choices for \(c\), and then each of the other \(n-1\) elements may be in or out of \(S\), giving \(n2^{n-1}\). Both counts describe the same set of pairs. \(\square\)</div>
+<p>Another useful identity is \(\binom nk=\binom n{n-k}\), proved by the bijection that sends a subset to its complement. Bijective proofs can be even more direct than double counting: exhibit a one-to-one correspondence between the objects being counted.</p>
+<p><strong>Vandermonde's identity.</strong> For nonnegative \(m,n,r\),
+\[\binom{m+n}r=\sum_{k=0}^r\binom mk\binom n{r-k}.\]
+To prove it, count \(r\)-element subsets of a disjoint union \(A\cup B\) with \(|A|=m,|B|=n\), splitting according to how many elements come from \(A\).</p>
+</div><div class="lecture-section"><h2>4. The pigeonhole principle</h2>
+<div class="theorem-box"><strong>Theorem 10.7 (Pigeonhole principle)</strong> If \(n+1\) or more objects are placed into \(n\) boxes, then some box contains at least two objects.</div>
+<div class="proof-box"><strong>Proof by contradiction.</strong> Suppose every box contains at most one object. Then the total number of objects is at most \(n\), contradicting the assumption that there are more than \(n\) objects. \(\square\)</div>
+<div class="example-box"><strong>Example 10.8</strong> Among any \(13\) people, at least two have birthdays in the same month. There are \(12\) months (boxes) and \(13\) people (objects). The principle guarantees existence but does not identify which month.</div>
+<p>A stronger form says: if \(N\) objects are placed into \(n\) boxes, some box contains at least \(\lceil N/n\rceil\) objects. Otherwise every box would contain at most \(\lceil N/n\rceil-1&lt;N/n\) objects, giving a total strictly less than \(n\cdot(N/n)=N\).</p>
+</div><div class="lecture-section"><h2>5. What makes a proof combinatorial?</h2>
+<p>A combinatorial proof establishes an algebraic statement by interpreting both sides as counts of the same finite collection, or by constructing an explicit bijection. Typical structures:</p>
+<div class="step-box"><strong>Double counting.</strong> Count a set of pairs or labelled selections in two different ways; equate the results.</div>
+<div class="step-box"><strong>Bijection.</strong> Define a map between two sets of objects, prove it is injective and surjective, and conclude equal cardinality.</div>
+<div class="step-box"><strong>Class partition.</strong> Split a set into disjoint classes whose sizes are the terms of a sum.</div>
+<p>Combinatorial proofs require precise definitions of what is being counted. State the set explicitly, describe the counting procedure, and verify that no object is counted twice or omitted. When a purely algebraic proof is also available, compare them: the combinatorial one often reveals why an identity has its particular form.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: writing a combinatorial proof</h2>
+<div class="step-box"><strong>Step 1:</strong> name a finite set \(S\) that both sides count.</div>
+<div class="step-box"><strong>Step 2:</strong> explain why the left side counts \(S\).</div>
+<div class="step-box"><strong>Step 3:</strong> explain why the right side counts \(S\).</div>
+<div class="step-box"><strong>Step 4:</strong> conclude the counts are equal.</div>
+<div class="example-box"><strong>Example 10.10</strong> To prove \(\sum_{k=0}^n\binom nk=2^n\), let \(S\) be all subsets of \(\{1,\ldots,n\}\). Counting by size gives the sum; deciding independently for each element whether it belongs gives \(2^n\).</div>
+<p>The hardest part is avoiding double counting. If an object can be produced by two different procedures, adjust the description until each object is produced exactly once. The pigeonhole principle is another counting idea: if \(n+1\) objects are placed into \(n\) boxes, some box contains at least two objects.</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Prove \(\binom nk=\binom n{n-k}\) using complements.</li><li>Prove \(\sum_{k=0}^n(-1)^k\binom nk=0\) for \(n\ge1\) using the binomial theorem.</li><li>Count the number of subsets of an \(n\)-element set with even cardinality using the identity \((1+1)^n\) and \((1-1)^n\).</li><li>Give a combinatorial proof that \(2^n=\sum_{k=0}^n\binom nk\) without referring to the power set.</li><li>Prove that among any \(n+1\) integers there are two whose difference is divisible by \(n\).</li><li>Use double counting to prove \(\sum_{k=0}^n\binom mk\binom n{r-k}=\binom{m+n}r\).</li><li>Find the number of ways to choose a president, vice-president and treasurer from \(n\) people, and express it in factorial notation.</li><li>Prove that \(\binom{2n}{n}=\sum_{k=0}^n\binom{n}{k}^2\) by counting \(n\)-element subsets of a \(2n\)-element set split into two halves.</li></ol><p>Complete <a href="problem-set-10-proofs.html">Problem Set 10</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-9.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-11.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

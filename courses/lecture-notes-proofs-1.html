@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 1 of Introduction to Proofs: Propositional Logic and Truth Tables.">
+  <title>Lecture 1: Propositional Logic and Truth Tables | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 1: Propositional Logic and Truth Tables</h1><div class="subtitle">Introduction to Proofs &middot; Week 1</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 1</span><span class="lecture-topic">Propositional Logic and Truth Tables</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Recognise which sentences are propositions and assign them truth values.</li><li>Translate ordinary mathematical sentences into formulas using logical connectives.</li><li>Construct and read truth tables, and distinguish tautologies from contradictions.</li><li>Use logical equivalences, including De Morgan laws and the contrapositive identity.</li><li>Identify valid argument forms and common fallacies.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>Logic is the grammar of mathematics. A proposition is like a switch with exactly one of two positions: true or false. The connectives combine switches: \(\land\) asks for both, \(\lor\) asks for at least one, \(\neg\) flips, and \(p\to q\) is false only in the single case \(p=T, q=F\). Read \(p\to q\) as a promise: if the hypothesis \(p\) is delivered, the conclusion \(q\) must also be delivered. If \(p\) never happens, the promise has not been broken.</p><p>Example: let \(p\) be “\(n\) is divisible by \(4\)” and \(q\) be “\(n\) is even”. Then \(p\to q\) is true for every integer \(n\). The reverse \(q\to p\) is false, since \(n=6\) is even but not divisible by \(4\).</p></div>
+
+      <div class="lecture-section"><h2>1. Propositions and truth values</h2>
+<div class="definition-box"><strong>Definition 1.1 (Proposition)</strong> A <em>proposition</em> is a declarative statement that is either true or false, but not both. Its truth value is denoted \(T\) (true) or \(F\) (false).</div>
+<p>Questions ("Is 17 prime?"), commands ("Prove the theorem"), opinions ("Analysis is interesting"), and sentences with unresolved variables ("\(x\) is even") are not propositions. The last one becomes a proposition once \(x\) is specified or quantified: "for every integer \(x\), \(x\) is even" is a false proposition.</p>
+<div class="example-box"><strong>Example 1.1</strong>
+<ul>
+<li>"\(7\) is prime" is a proposition with truth value \(T\).</li>
+<li>"\(2+2=5\)" is a proposition with truth value \(F\).</li>
+<li>"This sentence has three words" is a proposition with truth value \(F\).</li>
+<li>"\(n+1\) is prime" is not a proposition until \(n\) is fixed or quantified.</li>
+</ul></div>
+<p>We use lowercase letters \(p,q,r,\ldots\), called <em>propositional variables</em>, to stand for propositions. A compound proposition is built from simpler propositions using connectives.</p>
+</div><div class="lecture-section"><h2>2. The five basic connectives</h2>
+<div class="definition-box"><strong>Definition 1.2 (Connectives)</strong> Let \(p\) and \(q\) be propositions.
+<ul>
+<li><strong>Negation:</strong> \(\neg p\), "not \(p\)", true exactly when \(p\) is false.</li>
+<li><strong>Conjunction:</strong> \(p\land q\), "\(p\) and \(q\)", true exactly when both are true.</li>
+<li><strong>Disjunction:</strong> \(p\lor q\), "\(p\) or \(q\)", the <em>inclusive</em> or: true when at least one of \(p,q\) is true.</li>
+<li><strong>Conditional:</strong> \(p\to q\), "if \(p\), then \(q\)"; \(p\) is the antecedent and \(q\) the consequent.</li>
+<li><strong>Biconditional:</strong> \(p\leftrightarrow q\), "\(p\) if and only if \(q\)".</li>
+</ul></div>
+<p>The conditional is the subtle one. It is false only in the single row \(p=T, q=F\); in particular, when \(p\) is false the statement \(p\to q\) is true <em>regardless</em> of \(q\). This is called <em>vacuous truth</em>. For example, "if \(n\) is a prime divisible by \(4\), then \(n=2\)" is true because no prime is divisible by \(4\). Vacuous truth is not a quirk: it makes universal statements such as "every element of the empty set is positive" true, which is exactly what we need for set theory.</p>
+<div class="theorem-box"><strong>Theorem 1.3 (Equivalent forms of the conditional)</strong> The formula \(p\to q\) is logically equivalent to \(\neg p\lor q\), and to its <em>contrapositive</em> \(\neg q\to\neg p\). It is <em>not</em> equivalent to its converse \(q\to p\) or its inverse \(\neg p\to\neg q\).</div>
+<div class="proof-box"><strong>Proof.</strong> Compare truth values. The formula \(\neg p\lor q\) is false only when \(\neg p=F\) and \(q=F\), i.e. when \(p=T\) and \(q=F\): the same unique false row as \(p\to q\). For the contrapositive, \(\neg q\to\neg p\) is false only when \(\neg q=T\) and \(\neg p=F\), again the row \(p=T,q=F\). For the converse, take \(p=F,q=T\): then \(p\to q\) is true but \(q\to p\) is false. The inverse fails on the same row. \(\square\)</div>
+<p>"Only if" reverses the arrow: "\(p\) only if \(q\)" means \(p\to q\). "\(p\) if \(q\)" means \(q\to p\). Thus "\(n\) is divisible by \(6\) only if \(n\) is even" says \(\text{divisible by }6\to\text{even}\); the converse is false. "\(p\) is sufficient for \(q\)" means \(p\to q\), while "\(p\) is necessary for \(q\)" means \(q\to p\).</p>
+</div><div class="lecture-section"><h2>3. Truth tables and logical equivalence</h2>
+<p>A <em>truth table</em> lists the truth value of a formula for every assignment of truth values to its variables. With \(n\) variables there are \(2^n\) rows. The basic tables are:</p>
+\[\begin{array}{c|c|c}
+p & \neg p & p\land p \\ \hline
+T & F & T \\
+F & T & F
+\end{array}\qquad
+\begin{array}{c|c|c|c|c|c}
+p&q&p\land q&p\lor q&p\to q&p\leftrightarrow q\\ \hline
+T&T&T&T&T&T\\
+T&F&F&T&F&F\\
+F&T&F&T&T&F\\
+F&F&F&F&T&T
+\end{array}\]
+<div class="definition-box"><strong>Definition 1.4</strong> A formula is a <em>tautology</em> if it is true in every row, a <em>contradiction</em> if false in every row, and <em>contingent</em> otherwise. Two formulas \(A\) and \(B\) are <em>logically equivalent</em>, written \(A\equiv B\), if \(A\leftrightarrow B\) is a tautology; equivalently, their truth-table columns agree.</div>
+<div class="theorem-box"><strong>Theorem 1.5 (Core logical equivalences)</strong> For all propositions \(p,q,r\):
+<ol>
+<li>Double negation: \(\neg(\neg p)\equiv p\).</li>
+<li>De Morgan: \(\neg(p\land q)\equiv\neg p\lor\neg q\) and \(\neg(p\lor q)\equiv\neg p\land\neg q\).</li>
+<li>Commutativity, associativity and distributivity of \(\land\) and \(\lor\).</li>
+<li>Idempotence: \(p\land p\equiv p\), \(p\lor p\equiv p\).</li>
+<li>Absorption: \(p\land(p\lor q)\equiv p\), \(p\lor(p\land q)\equiv p\).</li>
+<li>Implication: \(p\to q\equiv\neg p\lor q\equiv\neg q\to\neg p\).</li>
+<li>Negated conditional: \(\neg(p\to q)\equiv p\land\neg q\).</li>
+</ol></div>
+<div class="proof-box"><strong>Proof of the first De Morgan law.</strong> The formula \(\neg(p\land q)\) is false exactly when \(p\land q\) is true, i.e. on the row \(p=T,q=T\). The formula \(\neg p\lor\neg q\) is false exactly when both \(\neg p\) and \(\neg q\) are false, i.e. on the same row \(p=T,q=T\). Since the two columns agree in all four rows, the formulas are equivalent. The second law and the negated conditional are checked the same way. \(\square\)</div>
+<div class="example-box"><strong>Example 1.6</strong> Simplify \(\neg\big((p\to q)\land\neg r\big)\).
+<div class="step-box"><strong>Step 1.</strong> De Morgan: \(\neg(p\to q)\lor\neg(\neg r)\).</div>
+<div class="step-box"><strong>Step 2.</strong> Negated conditional and double negation: \((p\land\neg q)\lor r\).</div>
+<p>This final form is convenient because it shows the formula is true whenever \(r\) is true.</p></div>
+</div><div class="lecture-section"><h2>4. Valid arguments</h2>
+<div class="definition-box"><strong>Definition 1.7</strong> An argument is a sequence of premises \(p_1,\ldots,p_k\) and a conclusion \(q\). The argument is <em>valid</em> if \(q\) is true whenever all premises are true; equivalently, \((p_1\land\cdots\land p_k)\to q\) is a tautology. Validity concerns form, not the actual truth of the premises; an argument with true premises and valid form is <em>sound</em>.</div>
+<div class="theorem-box"><strong>Theorem 1.8 (Standard valid forms)</strong>
+<ul>
+<li>Modus ponens: from \(p\to q\) and \(p\), infer \(q\).</li>
+<li>Modus tollens: from \(p\to q\) and \(\neg q\), infer \(\neg p\).</li>
+<li>Hypothetical syllogism: from \(p\to q\) and \(q\to r\), infer \(p\to r\).</li>
+<li>Disjunctive syllogism: from \(p\lor q\) and \(\neg p\), infer \(q\).</li>
+<li>Proof by cases: from \(p\lor q\), \(p\to r\), and \(q\to r\), infer \(r\).</li>
+</ul></div>
+<p>Two famous invalid forms are <em>affirming the consequent</em> (from \(p\to q\) and \(q\), infer \(p\)) and <em>denying the antecedent</em> (from \(p\to q\) and \(\neg p\), infer \(\neg q\)). To disprove validity, give a single counterexample assignment: for affirming the consequent take \(p=F,q=T\); both premises hold but the conclusion fails.</p>
+<div class="example-box"><strong>Example 1.9</strong> If a number is divisible by \(4\), it is even. The number \(6\) is even. Conclude that \(6\) is divisible by \(4\). This is affirming the consequent: the premise "even" is true, but the conclusion is false, so the argument is invalid even though all the individual statements are true.</div>
+</div><div class="lecture-section"><h2>5. Proof writing begins with logic</h2>
+<p>Every direct proof of an implication \(p\to q\) has the shape: assume \(p\), derive \(q\). A proof of a biconditional \(p\leftrightarrow q\) has two parts: prove \(p\to q\) and prove \(q\to p\), sometimes written "\(\Rightarrow\)" and "\(\Leftarrow\)". A proof by contradiction of \(q\) assumes \(\neg q\) and derives a contradiction such as \(r\land\neg r\); by Theorem 1.5 this establishes \(q\) because \(\neg(\neg q)\equiv q\).</p>
+<div class="definition-box"><strong>Writing principle</strong> A proof is a chain of implications, not a chain of equivalences unless every step really is reversible. When you write \(A=B\), check that equality (or logical equivalence) holds; when you write \(A\implies B\), only one direction is claimed.</div>
+<p>Finally, be careful with the word "or" in mathematics: it is inclusive unless explicitly stated otherwise. "\(n\) is divisible by \(2\) or by \(3\)" includes numbers divisible by \(6\). When the exclusive or is intended, say "exactly one of". </p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: equivalence versus implication</h2>
+<div class="theorem-box"><strong>Theorem 1.10</strong> \(p\to q\equiv\neg p\lor q\), and \(p\to q\not\equiv q\to p\).</div>
+<div class="proof-box"><strong>Proof.</strong> Compare truth values. The formula \(p\to q\) is false only when \(p\) is true and \(q\) is false. The formula \(\neg p\lor q\) is also false only in that row. Hence they agree in every row. The converse \(q\to p\) differs from \(p\to q\) whenever \(p\) and \(q\) have different truth values, so the two are not equivalent. \(\square\)</div>
+<p>This distinction explains why a proof of \(q\to p\) does not prove \(p\to q\). It also explains vacuous truth: a universal statement \(\forall x\in\varnothing\,P(x)\) is true because there is no element that could violate \(P\).</p>
+<div class="concept-callout"><strong>Proof-writing habit.</strong> Before writing a proof, write the logical skeleton. For an implication, begin “Assume \(p\).” For a biconditional, write two separated proofs for \(\Rightarrow\) and \(\Leftarrow\). For a universal statement, begin “Let \(x\) be arbitrary.”</div>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Classify each sentence as a proposition or not: (a) \(3^2=9\); (b) "close the door"; (c) \(x^2\ge 0\); (d) "for all real \(x\), \(x^2\ge 0\)".</li><li>Construct truth tables for \(
+eg(p\lor q)\) and \(
+eg p\land
+eg q\), and confirm they agree.</li><li>Show that \((p	o q)\land(p	o
+eg q)\equiv
+eg p\).</li><li>Show that \(p	o(q	o p)\) is a tautology.</li><li>Write the converse, inverse and contrapositive of "if \(n^2\) is even, then \(n\) is even". Which are logically equivalent to the original?</li><li>Determine whether the argument is valid: "If \(f\) is differentiable then \(f\) is continuous. This function is not differentiable. Therefore it is not continuous."</li><li>Express "\(p\) is necessary and sufficient for \(q\)" using a biconditional and explain which direction is the sufficiency claim.</li><li>Prove that \(p\lor(q\land r)\equiv(p\lor q)\land(p\lor r)\) using a truth table.</li></ol><p>Complete <a href="problem-set-1-proofs.html">Problem Set 1</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><span></span><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-2.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

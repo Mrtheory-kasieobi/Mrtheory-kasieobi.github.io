@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 8 of Introduction to Proofs: Strong Induction and Well-Ordering.">
+  <title>Lecture 8: Strong Induction and Well-Ordering | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 8: Strong Induction and Well-Ordering</h1><div class="subtitle">Introduction to Proofs &middot; Week 8</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 8</span><span class="lecture-topic">Strong Induction and Well-Ordering</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>State strong induction and explain its equivalence with ordinary induction.</li><li>Prove the equivalence of induction and the well-ordering principle.</li><li>Apply strong induction to factorisation and recurrence problems.</li><li>Use minimal-counterexample arguments.</li><li>Choose the correct number of base cases for a strong induction proof.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>Strong induction lets the inductive step use all earlier cases, not just the immediately previous one. This is useful when a problem of size \(n\) breaks into smaller pieces of different sizes, as happens in prime factorization or recurrence relations.</p><p>For a recurrence like \(F_{n+2}=F_{n+1}+F_n\), one base case is usually not enough because computing the next term can require the two previous terms. Always check how many initial values the recurrence needs.</p></div>
+
+      <div class="lecture-section"><h2>1. Strong induction</h2>
+<div class="theorem-box"><strong>Theorem 8.1 (Principle of strong induction)</strong> Let \(P(n)\) be a statement about integers \(n\ge N\). If for every \(n\ge N\),
+\[\big(P(N)\land P(N+1)\land\cdots\land P(n-1)\big)\to P(n),\]
+where the hypothesis is empty when \(n=N\), then \(P(n)\) holds for every \(n\ge N\).</div>
+<p>In words: to prove \(P(n)\), you may assume all earlier instances \(P(N),\ldots,P(n-1)\). For \(n=N\) there are no earlier instances, so \(P(N)\) must be proved directly.</p>
+<p>Strong induction is not logically stronger than ordinary induction. Define \(Q(n)\) to be the statement "\(P(m)\) holds for every \(N\le m\le n\)". If ordinary induction proves \(Q(n)\) for all \(n\ge N\), then in particular \(P(n)\) holds for all \(n\). Conversely, an ordinary-induction proof of \(P(n)\) is automatically a strong-induction proof, because it uses only the immediately preceding instance.</p>
+</div><div class="lecture-section"><h2>2. Well-ordering and the equivalence</h2>
+<div class="definition-box"><strong>Definition 8.2 (Well-ordering principle)</strong> Every nonempty set of positive integers has a least element.</div>
+<div class="theorem-box"><strong>Theorem 8.3</strong> The well-ordering principle implies the principle of mathematical induction.</div>
+<div class="proof-box"><strong>Proof.</strong> Suppose \(P(1)\) holds and \(P(k)\to P(k+1)\) for all \(k\ge1\), but assume for contradiction that \(P(n)\) fails for some positive integer. Let
+\[S=\{n\in\mathbb{N}:P(n)\text{ is false}\}.\\]
+By well-ordering, \(S\) has a least element \(m\). Since \(P(1)\) holds, \(m\ne1\), so \(m&gt;1\). Then \(m-1\) is a positive integer not in \(S\), hence \(P(m-1)\) holds. The inductive step gives \(P(m)\), contradicting \(m\in S\). Therefore \(S=\varnothing\), so \(P(n)\) holds for all \(n\). \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 8.4</strong> The principle of mathematical induction implies the well-ordering principle.</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(S\subseteq\mathbb{N}\) be nonempty, and suppose \(S\) has no least element. Define \(P(n)\) to be "\(n\notin S\)". Since \(1\in S\) would make \(1\) the least element of \(S\), we have \(1\notin S\), so \(P(1)\) holds. Assume \(P(j)\) holds for all \(j\le k\), i.e. \(1,2,\ldots,k\notin S\). If \(k+1\in S\), then \(k+1\) would be the least element of \(S\), since no smaller positive integer lies in \(S\). Hence \(k+1\notin S\), so \(P(k+1)\) holds. By strong induction, \(P(n)\) holds for every \(n\), so \(S=\varnothing\), contradicting the assumption that \(S\) is nonempty. Therefore \(S\) must have a least element. \(\square\)</div>
+<p>These proofs show that induction, strong induction, and well-ordering are equivalent foundations for reasoning about \(\mathbb{N}\). Choose whichever makes a particular proof clearest.</p>
+</div><div class="lecture-section"><h2>3. Existence in the fundamental theorem of arithmetic</h2>
+<div class="theorem-box"><strong>Theorem 8.5 (Existence part of the FTA)</strong> Every integer \(n\ge2\) is a product of primes.</div>
+<div class="proof-box"><strong>Proof by strong induction.</strong> Let \(P(n)\) be "\(n\) is a product of primes".
+<div class="step-box"><strong>Base case \(n=2\).</strong> \(2\) is prime, so it is a product of one prime.</div>
+<div class="step-box"><strong>Inductive step.</strong> Let \(n&gt;2\), and assume \(P(m)\) holds for all \(2\le m&lt;n\). If \(n\) is prime, we are done. Otherwise \(n=ab\) with integers \(1&lt;a&lt;n\) and \(1&lt;b&lt;n\). By the hypothesis, both \(a\) and \(b\) are products of primes. Concatenating those two factorisations expresses \(n\) as a product of primes.</div>
+<p>Strong induction is essential here: knowing only the factorisation of \(n-1\) tells us nothing about the factors \(a,b\). \(\square\)</div>
+<p>Uniqueness of the factorisation is a separate theorem, usually proved using Euclid's lemma: if a prime \(p\mid ab\), then \(p\mid a\) or \(p\mid b\). We will not prove uniqueness here, but the existence argument above is a model of strong induction: split an object into strictly smaller objects and apply the hypothesis to each.</p>
+</div><div class="lecture-section"><h2>4. Recurrences and minimal counterexamples</h2>
+<div class="theorem-box"><strong>Theorem 8.6</strong> Define \(a_0=0,a_1=1\), and \(a_{n+2}=a_{n+1}+a_n\) (Fibonacci numbers). Then \(a_n\le2^n\) for all \(n\ge0\).</div>
+<div class="proof-box"><strong>Proof by strong induction.</strong> Base cases: \(a_0=0\le1\) and \(a_1=1\le2\). For \(n\ge0\), assume \(a_j\le2^j\) for all \(j\le n+1\). Then
+\[a_{n+2}=a_{n+1}+a_n\le2^{n+1}+2^n=3\cdot2^n\le4\cdot2^n=2^{n+2},\]
+since \(3\le4\). Hence the inequality holds at \(n+2\), and strong induction applies. \(\square\)</div>
+<p>Here two base cases are needed because the recurrence looks back two steps. In general, the number of base cases should match the number of previous instances used in the inductive step.</p>
+<div class="concept-callout"><strong>Minimal counterexample method</strong> To prove \(P(n)\) for all \(n\ge N\), suppose the set of counterexamples is nonempty and let \(m\) be the least counterexample. Show that \(m\) cannot be a base case, then use \(P(j)\) for all \(N\le j&lt;m\) to prove \(P(m)\). This contradicts the choice of \(m\). This is well-ordering in action and is often the cleanest presentation of a strong induction proof.</div>
+</div><div class="lecture-section"><h2>5. Recursive definitions and proof strategy</h2>
+<p>A recursively defined function specifies initial values and a rule for later values. For instance, \(n!\) is defined by \(0!=1\) and \((n+1)!=(n+1)n!\). Proofs about recursively defined objects naturally use induction with as many base cases as the definition requires.</p>
+<div class="step-box"><strong>Choosing a method.</strong> Use ordinary induction when \(P(k+1)\) follows from \(P(k)\). Use strong induction when \(P(n)\) depends on several or arbitrary earlier cases. Use well-ordering/minimal counterexample when the contradiction is easiest to phrase in terms of a least failure.</div>
+<p>Whatever the method, verify that every index used in the argument lies in the range where the inductive hypothesis is available. A "strong" hypothesis about \(m&lt;n\) cannot be applied to a factor equal to \(n\), and a recurrence that looks back two steps needs two verified base cases.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: minimal counterexamples</h2>
+<div class="theorem-box"><strong>Theorem 8.10 (Well-ordering form of induction)</strong> If the set of counterexamples to \(P(n)\) were nonempty, it would have a least element \(m\). If one can prove that \(m\) cannot be least, then there are no counterexamples.</div>
+<div class="proof-box"><strong>Reason.</strong> Every nonempty subset of \(\mathbb{N}\) has a least element. The least counterexample is especially useful because any smaller index satisfies \(P\), giving a strong induction hypothesis automatically. \(\square\)</div>
+<div class="example-box"><strong>Example 8.10</strong> To prove every \(n\ge2\) has a prime divisor, suppose \(m\) is the least counterexample. Then \(m\) is composite, so \(m=ab\) with \(1&lt;a&lt;m\). By minimality, \(a\) has a prime divisor \(p\), and \(p\mid a\mid m\), contradicting that \(m\) has no prime divisor.</div>
+<p>Strong induction and minimal-counterexample proofs are two languages for the same structure. Choose whichever makes the written argument clearer.</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Prove by strong induction that every integer \(n\ge2\) can be written as a sum of \(2\)s and \(3\)s.</li><li>Prove by strong induction that \(a_n\le3^n\) for the Fibonacci sequence defined in Theorem 8.6.</li><li>Use well-ordering to prove that every nonempty finite set of integers has a largest element.</li><li>Explain why ordinary induction can prove the strong induction principle.</li><li>Prove by strong induction that \(n\) has a binary representation for every \(n\ge1\).</li><li>Find the flaw: "To prove \(P(n)\) by strong induction, assume \(P(k)\) for all \(k&lt;n\). Then \(P(n)\) follows from \(P(n-1)\), so no base case is needed."</li><li>Prove by minimal counterexample that \(n^2\ge n\) for all integers \(n\ge0\).</li><li>State how many base cases are needed for the recurrence \(b_0=0,b_1=1,b_2=2,b_{n+3}=b_{n+2}+b_{n+1}+b_n\), and prove \(b_n\le3^n\).</li></ol><p>Complete <a href="problem-set-8-proofs.html">Problem Set 8</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-7.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-9.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

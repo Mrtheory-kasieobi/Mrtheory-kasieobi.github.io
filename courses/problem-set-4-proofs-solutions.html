@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 4.">
+  <title>Solutions: Problem Set 4 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 4</h1><div class="subtitle">Introduction to Proofs - Lecture 4</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Equivalence classes partition the underlying set; the proof uses all three defining properties.</li><li>Injectivity is proved by starting from equal outputs; surjectivity by constructing a preimage for an arbitrary output.</li><li>Composition respects injectivity and surjectivity, and inverses exist exactly for bijections.</li><li>Preimages of sets behave better than images because the definition is a membership condition.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Let \(a\sim b\) on \(\mathbb{Z}\) mean \(a\equiv b\pmod 3\). Prove \(\sim\) is an equivalence relation and list its distinct equivalence classes.</div><div class="step"><strong>Reflexivity.</strong> \(a-a=0=0\cdot3\), so \(a\sim a\).</div>
+<div class="step"><strong>Symmetry.</strong> If \(a\sim b\), then \(a-b=3k\), so \(b-a=3(-k)\), hence \(b\sim a\).</div>
+<div class="step"><strong>Transitivity.</strong> If \(a-b=3k\) and \(b-c=3\ell\), then \(a-c=3(k+\ell)\), hence \(a\sim c\).</div>
+<div class="step"><strong>Classes.</strong> By the division algorithm every integer has remainder \(0,1\), or \(2\) modulo \(3\). Thus the distinct classes are \([0]=3\mathbb{Z}\), \([1]=3\mathbb{Z}+1\), \([2]=3\mathbb{Z}+2\); they are pairwise disjoint and cover \(\mathbb{Z}\).</div></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Give an explicit example of a relation on \(\{1,2\}\) that is symmetric and transitive but not reflexive, and explain why this does not contradict Theorem 4.5.</div><p>Take \(R=\varnothing\) on \(A=\{1,2\}\). It is symmetric and transitive vacuously, since there are no pairs \((a,b)\in R\) to test. It is not reflexive because \((1,1)\notin R\) and \((2,2)\notin R\). Theorem 4.5 assumes all three properties, including reflexivity; symmetry and transitivity alone are insufficient. Another example is \(R=\{(1,1)\}\), which is symmetric and transitive but not reflexive at \(2\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove that the relation \(\le\) on \(\mathbb{R}\) is a total order.</div><div class="step"><strong>Reflexivity.</strong> \(a\le a\) for every real \(a\).</div>
+<div class="step"><strong>Antisymmetry.</strong> If \(a\le b\) and \(b\le a\), then \(a=b\) by the basic order property of \(\mathbb{R}\).</div>
+<div class="step"><strong>Transitivity.</strong> If \(a\le b\) and \(b\le c\), then \(a\le c\).</div>
+<div class="step"><strong>Totality.</strong> For any \(a,b\in\mathbb{R}\), either \(a\le b\) or \(b\le a\) by the law of trichotomy. Hence \(\le\) is a total order.</div></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that \(f:\mathbb{R}\setminus\{1\}	o\mathbb{R}\setminus\{2\}\), \(f(x)=\frac{2x}{x-1}\) is injective, and find its range. Is it surjective onto \(\mathbb{R}\setminus\{2\}\)?</div><div class="step"><strong>Injectivity.</strong> Suppose \(\frac{2a}{a-1}=\frac{2b}{b-1}\) with \(a,b\ne1\). Cross-multiplying gives \(2a(b-1)=2b(a-1)\), so \(2ab-2a=2ab-2b\), hence \(a=b\).</div>
+<div class="step"><strong>Range.</strong> Solve \(y=\frac{2x}{x-1}\) for \(x\): \(y(x-1)=2x\), so \(x(y-2)=y\), and \(x=\frac{y}{y-2}\) whenever \(y\ne2\). For \(y=2\) the equation becomes \(2x-2=2x\), impossible. Thus the range is \(\mathbb{R}\setminus\{2\}\).</div>
+<div class="step"><strong>Conclusion.</strong> For each \(y\ne2\), \(x=y/(y-2)\) is defined and not equal to \(1\) (since \(y\ne y-2\)), so \(f(x)=y\). Hence \(f\) is bijective onto the stated codomain.</div></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Let \(f:A	o B\), and let \(S,T\subseteq A\). Prove \(f(S\cup T)=f(S)\cup f(T)\), and give an example where \(f(S\cap T)
+e f(S)\cap f(T)\).</div><div class="step"><strong>Union.</strong> If \(y\in f(S\cup T)\), then \(y=f(x)\) for some \(x\in S\cup T\), so \(x\in S\) or \(x\in T\); hence \(y\in f(S)\) or \(y\in f(T)\). Conversely, if \(y\in f(S)\cup f(T)\), then \(y=f(x)\) with \(x\in S\) or \(x\in T\), so \(x\in S\cup T\) and \(y\in f(S\cup T)\).</div>
+<div class="step"><strong>Intersection counterexample.</strong> Let \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x^2\), \(S=\{-1\}\), \(T=\{1\}\). Then \(S\cap T=\varnothing\), so \(f(S\cap T)=\varnothing\), while \(f(S)=f(T)=\{1\}\), so \(f(S)\cap f(T)=\{1\}\).</div>
+<p>If \(f\) is injective, equality does hold for intersections: a common output \(y=f(s)=f(t)\) forces \(s=t\), so \(s\in S\cap T\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove part (2) of Theorem 4.12: if \(f:A	o B\) and \(g:B	o C\) are surjective, then \(g\circ f\) is surjective.</div><p>Let \(c\in C\) be arbitrary. Since \(g\) is surjective, there exists \(b\in B\) with \(g(b)=c\). Since \(f\) is surjective, there exists \(a\in A\) with \(f(a)=b\). Then \((g\circ f)(a)=g(f(a))=g(b)=c\). Since \(c\) was arbitrary, every element of \(C\) has a preimage under \(g\circ f\), so the composition is surjective.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: A function \(f:A	o B\) satisfies \(f^{-1}(\{b\})=\{a\}\) for every \(b\in B\) and a fixed \(a\in A\). What can you conclude about \(A\), \(B\), and \(f\)? Justify.</div><p>Since every fibre \(f^{-1}(\{b\})\) equals the same singleton \(\{a\}\), there can be only one element \(b\in B\); otherwise two distinct fibres would both contain \(a\), forcing \(f(a)\) to be two different values. Also \(B\ne\varnothing\) because the hypothesis refers to every \(b\in B\). Thus \(B=\{b_0\}\) for some \(b_0\), \(A=\{a\}\), and \(f(a)=b_0\); the function is the unique bijection from a one-element set to a one-element set.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove that if \(g\circ f\) is injective, then \(f\) is injective. Give a counterexample to the claim that \(g\) must also be injective.</div><div class="step"><strong>Proof for \(f\).</strong> Suppose \(f(a_1)=f(a_2)\). Applying \(g\) gives \(g(f(a_1))=g(f(a_2))\), i.e. \((g\circ f)(a_1)=(g\circ f)(a_2)\). Injectivity of \(g\circ f\) gives \(a_1=a_2\), so \(f\) is injective.</div>
+<div class="step"><strong>Counterexample for \(g\).</strong> Let \(f:\{1\}\to\{1,2\}\) be \(f(1)=1\), and \(g:\{1,2\}\to\{1\}\) be constant. Then \(g\circ f\) maps the one-element domain injectively into \(\{1\}\), but \(g\) is not injective since \(g(1)=g(2)\).</div></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that if \(f:A\to B\) and \(g:B\to C\) are injective, then \(g\circ f:A\to C\) is injective.</div>Suppose \((g\circ f)(a_1)=(g\circ f)(a_2)\). Then \(g(f(a_1))=g(f(a_2))\). Since \(g\) is injective, \(f(a_1)=f(a_2)\). Since \(f\) is injective, \(a_1=a_2\). Therefore \(g\circ f\) is injective.</div>
+
+      <div class="navigation"><a href="problem-set-4-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-4.html">Lecture 4</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

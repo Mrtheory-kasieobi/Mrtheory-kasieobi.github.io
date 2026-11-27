@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 2.">
+  <title>Solutions: Problem Set 2 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 2</h1><div class="subtitle">Introduction to Proofs - Lecture 2</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Restricted \(\forall\) becomes an implication; restricted \(\exists\) becomes a conjunction.</li><li>Negating a universal statement produces an existential counterexample, and conversely.</li><li>Quantifier order matters when \(\forall\) and \(\exists\) are mixed.</li><li>A witness introduced by existential instantiation must be a fresh name.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Let the domain be \(\mathbb{Z}\). Symbolise and determine the truth value: "For every integer \(n\), there is an integer \(m\) with \(n&lt;m\)."</div><p>Symbolically, \(\forall n\in\mathbb{Z}\,\exists m\in\mathbb{Z}\,(n&lt;m)\). It is true: given \(n\), take \(m=n+1\), which satisfies \(n&lt;n+1\). The witness \(m\) depends on \(n\), which is why the quantifiers are in the order \(\forall n\exists m\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Negate each statement and simplify: (a) \(\forall x\in\mathbb{R}\,(x^2&gt;0)\); (b) \(\exists n\in\mathbb{N}\,(n^2=2)\); (c) \(\forall x\,\exists y\,(x\cdot y=1)\) over \(\mathbb{R}\).</div><div class="step"><strong>(a)</strong> \(\exists x\in\mathbb{R}\,(x^2\le 0)\). This is true, witnessed by \(x=0\); hence the original statement is false.</div>
+<div class="step"><strong>(b)</strong> \(\forall n\in\mathbb{N}\,(n^2\ne 2)\). This is true because \(\sqrt2\notin\mathbb{N}\); hence the original is false.</div>
+<div class="step"><strong>(c)</strong> \(\exists x\in\mathbb{R}\,\forall y\in\mathbb{R}\,(xy\ne 1)\). This is true, witnessed by \(x=0\), since \(0\cdot y=0\ne1\). Hence the original statement "every real has a multiplicative inverse" is false as written; it becomes true if quantified as \(\forall x\ne0\,\exists y\,(xy=1)\).</div></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Write \(\exists!x\in\mathbb{R}\,(x^2=4)\) in fully expanded form and determine whether it is true.</div><p>By Definition 2.3 the statement is
+\[\exists x\in\mathbb{R}\big(x^2=4\land\forall y\in\mathbb{R}\,(y^2=4\to y=x)\big).\]
+It is false: both \(x=2\) and \(x=-2\) satisfy \(x^2=4\), so uniqueness fails. The statement \(\exists x\in\mathbb{R}\,(x^2=4)\) alone is true.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that \(
+eg\exists x\,P(x)\equiv\forall x\,
+eg P(x)\) for a nonempty domain.</div><p>The statement \(\exists x\,P(x)\) says "at least one object satisfies \(P\)". Its negation says "no object satisfies \(P\)", which is precisely "every object fails to satisfy \(P\)", i.e. \(\forall x\,\neg P(x)\). Equivalently, \(\exists x\,P(x)\) is false exactly when \(P(a)\) is false for every \(a\) in the domain. Both formulas therefore have the same truth value under every interpretation. \(\square\)</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Show that \(\forall x\,\exists y\,(y&gt;x)\) and \(\exists y\,\forall x\,(y&gt;x)\) have different truth values over \(\mathbb{R}\).</div><p>The first is true: for any real \(x\), take \(y=x+1\), so \(y&gt;x\). The second is false: it asserts the existence of a real number \(y\) larger than every real number, but \(y+1&gt;y\) shows no such \(y\) exists. This demonstrates that mixed quantifiers cannot be reordered in general.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Symbolise: "There is exactly one even prime." Use domain \(\mathbb{Z}\) and justify the symbolic form.</div><p>Let \(E(x)\) mean "\(x\) is even" and \(P(x)\) mean "\(x\) is prime". The statement is
+\[\exists!x\in\mathbb{Z}\,\big(E(x)\land P(x)\big),\]
+expanded as \(\exists x[(E(x)\land P(x))\land\forall y((E(y)\land P(y))\to y=x)]\). It is true: \(x=2\) is even and prime, and any even prime must be \(2\) because an even integer greater than \(2\) is divisible by \(2\) and hence composite.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Consider the argument: "Some integers are even. Some integers are odd. Therefore some integer is both even and odd." Identify the fallacy.</div><p>Write the premises as \(\exists x\,E(x)\) and \(\exists x\,O(x)\), and the conclusion as \(\exists x\,(E(x)\land O(x))\). The argument is invalid: existential instantiation introduces <em>different</em> fresh witnesses, say \(a\) with \(E(a)\) and \(b\) with \(O(b)\); nothing licenses \(a=b\). Indeed the conclusion is false, while both premises are true (witnesses \(2\) and \(3\)).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove \(\forall x\,(P(x)	o Q(x))\land\exists x\,P(x)	o\exists x\,Q(x)\). Explain each quantifier rule you use.</div><p>Assume \(\forall x\,(P(x)\to Q(x))\) and \(\exists x\,P(x)\). By existential instantiation, choose a fresh \(c\) with \(P(c)\). By universal instantiation, \(P(c)\to Q(c)\). Modus ponens gives \(Q(c)\). By existential generalization, \(\exists x\,Q(x)\). The witness \(c\) must be fresh so that no extra property of the witness is smuggled into the argument; here only \(P(c)\) is used, which is exactly what existence supplies.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that there is exactly one integer \(n\) satisfying \(n+7=4\).</div>Existence: \(n=-3\) satisfies \(-3+7=4\). Uniqueness: if \(m+7=4\), then subtracting 7 from both sides gives \(m=-3\). Hence the solution is unique.</div>
+
+      <div class="navigation"><a href="problem-set-2-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-2.html">Lecture 2</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 6 of Introduction to Proofs: Proof by Contradiction.">
+  <title>Lecture 6: Proof by Contradiction | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 6: Proof by Contradiction</h1><div class="subtitle">Introduction to Proofs &middot; Week 6</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 6</span><span class="lecture-topic">Proof by Contradiction</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Explain the logical basis of proof by contradiction.</li><li>Negate quantified and conditional hypotheses accurately before assuming them.</li><li>Write contradiction proofs of irrationality and nonexistence.</li><li>Use contradiction to prove uniqueness statements.</li><li>Compare contradiction with contrapositive and choose the more natural method.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>A contradiction proof assumes that the desired statement is false and derives an impossible consequence. The goal is not to find a numerical contradiction by accident; it is to show that the opposite assumption cannot coexist with known facts.</p><p>The classic example is \(\sqrt2\). Assuming \(\sqrt2=a/b\) in lowest terms forces both \(a\) and \(b\) to be even, contradicting lowest terms. The contradiction is not “even numbers are bad”; it is that a reduced fraction cannot have both numerator and denominator divisible by \(2\).</p></div>
+
+      <div class="lecture-section"><h2>1. The logic of contradiction</h2>
+<p>To prove a statement \(q\), assume \(\neg q\) and derive a contradiction, usually a statement of the form \(r\land\neg r\). Since \(\neg q\) leads to an impossibility, \(\neg q\) must be false. Under the classical law of excluded middle, every proposition is either true or false, so \(q\) must be true.</p>
+<p>In symbols, the rule is: from \((\neg q\to F)\) infer \(q\), where \(F\) denotes a false statement. Its validity follows from the tautology \((\neg q\to F)\to q\), whose truth table is left as an exercise. For an implication \(p\to q\), a contradiction proof assumes both \(p\) and \(\neg q\), and derives a contradiction; this is valid because it proves that \(p\land\neg q\) is impossible, i.e. \(p\to q\).</p>
+<div class="step-box"><strong>Standard template.</strong> (i) Suppose, for contradiction, that \(\neg q\) holds. (ii) Use definitions and known theorems to derive consequences. (iii) Obtain a statement that contradicts either \(\neg q\), an assumption, or a known fact. (iv) Conclude that \(q\) holds.</div>
+<div class="concept-callout"><strong>Careful with negation.</strong> The negation of \(\forall x\,P(x)\) is \(\exists x\,\neg P(x)\), not \(\forall x\,\neg P(x)\). The negation of \(p\to q\) is \(p\land\neg q\), not \(p\to\neg q\). Review Lectures 1 and 2 before writing a contradiction proof involving quantifiers.</div>
+</div><div class="lecture-section"><h2>2. A classic example: irrationality of \(\sqrt2\)</h2>
+<div class="definition-box"><strong>Definition 6.1</strong> A real number is <em>rational</em> if it equals \(a/b\) for integers \(a,b\) with \(b\ne0\), and can be written so that \(\gcd(a,b)=1\). It is <em>irrational</em> otherwise.</div>
+<div class="theorem-box"><strong>Theorem 6.2</strong> \(\sqrt2\) is irrational.</div>
+<div class="proof-box"><strong>Proof.</strong> Suppose, for contradiction, that \(\sqrt2=a/b\) where \(a,b\in\mathbb{Z}\), \(b\ne0\), and \(\gcd(a,b)=1\). Squaring gives \(a^2=2b^2\), so \(a^2\) is even, and by Theorem 5.5, \(a\) is even. Write \(a=2k\) with \(k\in\mathbb{Z}\). Then
+\[4k^2=2b^2,\qquad\text{so}\qquad b^2=2k^2.\]
+Thus \(b^2\) is even, so \(b\) is even. But then \(2\mid a\) and \(2\mid b\), contradicting \(\gcd(a,b)=1\). Therefore \(\sqrt2\) is irrational. \(\square\)</div>
+<p>The contradiction is not merely "\(a\) and \(b\) are both even"; it is the violation of the specific reduction assumption \(\gcd(a,b)=1\). Without that assumption, the argument would only show that any representation has both numerator and denominator even, and one could keep dividing by \(2\) forever—an infinite descent, which is another valid way to finish the proof.</p>
+</div><div class="lecture-section"><h2>3. Infinitude of primes and nonexistence statements</h2>
+<div class="theorem-box"><strong>Theorem 6.3</strong> There are infinitely many prime numbers.</div>
+<div class="proof-box"><strong>Proof.</strong> Suppose, for contradiction, that there are only finitely many primes \(p_1,p_2,\ldots,p_n\). Let
+\[N=p_1p_2\cdots p_n+1.\\]
+By the fundamental theorem of arithmetic (proved in Lecture 8), \(N\) has a prime divisor \(p\). But \(p\) must be one of the listed primes \(p_i\), since the list is assumed complete. Then \(p\mid p_1p_2\cdots p_n\) and \(p\mid N\), so \(p\mid(N-p_1p_2\cdots p_n)=1\), which is impossible for a prime. This contradiction shows there are infinitely many primes. \(\square\)</div>
+<p>Note that \(N\) itself need not be prime: \(2\cdot3\cdot5\cdot7\cdot11\cdot13+1=30031=59\cdot509\). We only need the existence of a prime divisor, not that \(N\) is prime. This is a frequent source of incorrect presentations.</p>
+<p>Proof by contradiction is also natural for statements of the form "no object with property \(P\) exists": assume such an object exists and derive an impossibility.</p>
+</div><div class="lecture-section"><h2>4. Uniqueness proofs</h2>
+<p>To prove "there is at most one object with property \(P\)", assume that \(x\) and \(y\) both have property \(P\), and prove \(x=y\). This is often presented as a contradiction proof: assume \(x\ne y\) and derive a contradiction.</p>
+<div class="theorem-box"><strong>Theorem 6.4</strong> The real equation \(x^3+x=0\) has exactly one real solution.</div>
+<div class="proof-box"><strong>Proof.</strong> Existence: \(x=0\) satisfies the equation. Uniqueness: suppose \(a\) and \(b\) are real solutions with \(a\ne b\). Then \(a^3+a=0=b^3+b\), so
+\[0=(a^3-b^3)+(a-b)=(a-b)(a^2+ab+b^2+1).\]
+Since \(a\ne b\), we may divide by \(a-b\) to get \(a^2+ab+b^2+1=0\). But
+\[a^2+ab+b^2+1=\left(a+\tfrac b2\right)^2+\tfrac34b^2+1\ge1&gt;0,\]
+a contradiction. Hence \(a=b\), so the solution is unique. \(\square\)</div>
+<p>An alternative direct proof notes that \(x^3+x=x(x^2+1)\) and \(x^2+1&gt;0\) for all real \(x\), so \(x=0\) is the only real root. Choosing between methods is a matter of clarity: contradiction was not necessary here, and the direct factorisation is shorter.</p>
+</div><div class="lecture-section"><h2>5. Contradiction versus contrapositive</h2>
+<p>Both methods prove an implication by assuming its negation. For \(p\to q\):</p>
+<ul>
+<li><em>Contrapositive:</em> assume \(\neg q\) and derive \(\neg p\). The proof ends with the exact negation of the original hypothesis.</li>
+<li><em>Contradiction:</em> assume \(p\land\neg q\) and derive any impossibility. The proof may use the hypothesis and the negation of the conclusion together.</li>
+</ul>
+<p>Every contrapositive proof can be rewritten as a contradiction proof: once \(\neg p\) is derived, it contradicts the assumed \(p\). The reverse is not always as clean, because a contradiction may arise from a fact unrelated to \(p\). In Theorem 6.2 the contradiction is with coprimality, not directly with a hypothesis about rationality, so contradiction is the more natural framework.</p>
+<div class="concept-callout"><strong>Guideline</strong> If the negation of the conclusion has a useful algebraic form, try contrapositive first. If the negation of the conclusion combines with a hypothesis to produce a contradiction (as with coprimality, minimality, or a positive quantity equal to zero), use contradiction.</div>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: contradiction versus contrapositive</h2>
+<div class="step-box"><strong>Contrapositive for \(P\to Q\):</strong> assume \(\neg Q\) and derive \(\neg P\).</div>
+<div class="step-box"><strong>Contradiction for \(P\to Q\):</strong> assume \(P\land\neg Q\) and derive any impossibility.</div>
+<p>Every contrapositive proof can be rewritten as a contradiction proof: after deriving \(\neg P\), contradict the assumed \(P\). Contradiction is often shorter for existence, nonexistence, and infinitude claims, where there is no convenient contrapositive form.</p>
+<div class="theorem-box"><strong>Theorem 6.10</strong> There is no largest even integer.</div>
+<div class="proof-box"><strong>Proof.</strong> Suppose \(M\) were the largest even integer. Then \(M+2\) is even and \(M+2>M\), contradicting maximality. Hence no largest even integer exists. \(\square\)</div>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Prove by contradiction that there is no largest integer.</li><li>Prove that \(\sqrt3\) is irrational.</li><li>Prove by contradiction: if \(n^2\) is odd, then \(n\) is odd.</li><li>Write the negation of "there exists a unique real \(x\) with \(x^2=0\)" and explain how to disprove it.</li><li>Determine whether there is a rational number \(r\) with \(r^2=4/9\) and \(r&lt;0\), and justify your answer.</li><li>Give a direct proof and a contradiction proof that if \(3n+1\) is even, then \(n\) is odd.</li><li>Prove that the solution to \(2x+5=11\) is unique.</li><li>Explain why a proof by contradiction of \(p	o q\) may assume \(p\) in addition to \(
+eg q\).</li></ol><p>Complete <a href="problem-set-6-proofs.html">Problem Set 6</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-5.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-7.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

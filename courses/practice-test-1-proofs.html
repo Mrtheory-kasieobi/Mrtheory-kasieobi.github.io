@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Introduction to Proofs Practice Test 1 - logic, sets, functions, and core proof techniques.">
+  <title>Practice Test 1 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="site-topbar">
+<header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <p class="site-title">Introduction to Proofs</p>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About me</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="practice-header">
+      <h1>Practice Test 1</h1>
+      <div class="subtitle">Introduction to Proofs &middot; Lectures 1-6 &middot; 20 questions + 1 bonus</div>
+    </div>
+    <div class="practice-intro">
+      <p>This test covers propositional and predicate logic, set theory, functions and relations, direct proof, contrapositive proof, and proof by contradiction. It contains <strong>20 questions</strong>: <strong>Part A</strong> (10 multiple choice, 1 mark each) and <strong>Part B</strong> (10 written response, 2 marks each), plus one optional <strong>bonus problem</strong>.</p>
+      <p>Total: <strong>30 marks</strong>. The bonus is worth <strong>5 extra marks</strong> and is reported separately. Select your answers, write your proofs, then press <strong>Submit Test</strong> to see your grade, the correct answers, and full worked solutions. For written proofs, the grader checks for the key logical steps; a different but equivalent proof should still contain those steps.</p>
+    </div>
+    <div class="test-results" id="test-results" hidden>
+      <h3>Test Results</h3>
+      <p class="test-results__score">Your score: <span id="score-total">0</span> / 30</p>
+      <p>Multiple Choice: <span id="score-mc">0</span> / 10</p>
+      <p>Written Response: <span id="score-written">0</span> / 20</p>
+      <p class="test-results__percent">Percentage: <span id="score-percent">0</span>%</p>
+      <p>Bonus problem: <span id="score-bonus">0</span> / 5 (not included in the total)</p>
+    </div>
+    <section class="test-section">
+      <h2 class="test-title">Practice Test 1 - Introduction to Proofs</h2>
+      <span class="part-label">Part A: Multiple Choice (1 mark each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Choose the best answer for each question.</p>
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">1.</div>
+        <p class="mc-question__text">Which of the following is a proposition?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q1" value="A"> Is 17 prime?</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q1" value="B"> Every prime greater than 2 is odd.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q1" value="C"> Prove that the square root of 2 is irrational.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q1" value="D"> This statement is exciting.</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">2.</div>
+        <p class="mc-question__text">Which is the negation of \(\forall n\in\mathbb{Z}\,(n\text{ even}\to n^2\text{ even})\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q2" value="A"> \(\forall n\in\mathbb{Z}\,(n\text{ even}\to n^2\text{ odd})\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q2" value="B"> \(\exists n\in\mathbb{Z}\,(n\text{ odd}\to n^2\text{ odd})\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q2" value="C"> \(\exists n\in\mathbb{Z}\,(n\text{ even}\land n^2\text{ odd})\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q2" value="D"> \(\exists n\in\mathbb{Z}\,(n\text{ odd}\land n^2\text{ even})\)</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">3.</div>
+        <p class="mc-question__text">Which formula is logically equivalent to \(p\to q\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q3" value="A"> \(\neg p\lor q\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q3" value="B"> \(p\land\neg q\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q3" value="C"> \(\neg p\land q\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q3" value="D"> \(q\to p\)</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="D">
+        <div class="mc-question__num">4.</div>
+        <p class="mc-question__text">If \(p\) is true and \(q\) is false, which compound statement is true?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q4" value="A"> \(p\land q\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q4" value="B"> \(p\leftrightarrow q\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q4" value="C"> \(p\to q\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q4" value="D"> \(\neg q\)</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">5.</div>
+        <p class="mc-question__text">Let \(A=\{1,2,3\}\) and \(B=\{2,3,4\}\). What is \(A\triangle B\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q5" value="A"> \(\{1,4\}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q5" value="B"> \(\{2,3\}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q5" value="C"> \(\{1,2,3,4\}\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q5" value="D"> \(\varnothing\)</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">6.</div>
+        <p class="mc-question__text">Which set identity is always true?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q6" value="A"> \(A\setminus(B\cup C)=(A\setminus B)\cup(A\setminus C)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q6" value="B"> \(A\setminus(B\cap C)=(A\setminus B)\cup(A\setminus C)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q6" value="C"> \(A\cap(B\setminus C)=(A\cap B)\setminus(A\cap C)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q6" value="D"> \((A\cup B)\setminus B=A\)</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">7.</div>
+        <p class="mc-question__text">What does it mean for \(f:A\to B\) to be surjective?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q7" value="A"> If \(f(a_1)=f(a_2)\), then \(a_1=a_2\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q7" value="B"> For every \(a\in A\), \(f(a)\) is defined.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q7" value="C"> For every \(b\in B\), there exists \(a\in A\) with \(f(a)=b\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q7" value="D"> \(A=B\).</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">8.</div>
+        <p class="mc-question__text">The relation on \(\mathbb{Z}\) defined by \(a\sim b\) iff \(a\equiv b\pmod n\) is:</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q8" value="A"> An equivalence relation.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q8" value="B"> A strict order.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q8" value="C"> Functional but not a relation.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q8" value="D"> Neither reflexive nor transitive.</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="D">
+        <div class="mc-question__num">9.</div>
+        <p class="mc-question__text">What is the contrapositive of “if \(n^2\) is even, then \(n\) is even”?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q9" value="A"> If \(n\) is even, then \(n^2\) is even.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q9" value="B"> If \(n^2\) is odd, then \(n\) is odd.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q9" value="C"> If \(n\) is odd, then \(n^2\) is even.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q9" value="D"> If \(n\) is odd, then \(n^2\) is odd.</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">10.</div>
+        <p class="mc-question__text">Which statement is false?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt1q10" value="A"> \(\varnothing\subseteq\{\varnothing\}\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q10" value="B"> \(\varnothing\in\{\varnothing\}\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q10" value="C"> \(\varnothing=\{\varnothing\}\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt1q10" value="D"> \(\{\varnothing\}\subseteq\{\varnothing\}\).</label></li>
+        </ul>
+      </div>
+      <span class="part-label">Part B: Written Response (2 marks each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Write a complete argument in the box provided. State the key definitions you use.</p>
+      <div class="written-question" data-points="2" data-answers="n=2k~n equals 2k|n^2=4k^2~4k^2=2(2k^2)~n^2=2(2k^2)">
+        <div class="written-question__num">11.</div>
+        <p class="written-question__text">Prove directly that if \(n\) is even, then \(n^2\) is even.</p>
+        <textarea class="written-answer" rows="4" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="there exists~some continuous function|continuous~continuous function|not differentiable~not differentiable~fails to be differentiable">
+        <div class="written-question__num">12.</div>
+        <p class="written-question__text">Negate the statement “every continuous function is differentiable” and explain why the negation is correct.</p>
+        <textarea class="written-answer" rows="4" placeholder="Your answer..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="x in A and (x in B or x in C)~x in A cap (B cup C)|x in A cap B~x in B then x in A| x in A cap C~x in C then x in A|conversely~reverse inclusion~other inclusion">
+        <div class="written-question__num">13.</div>
+        <p class="written-question__text">Prove \(A\cap(B\cup C)=(A\cap B)\cup(A\cap C)\) by element chasing.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="contrapositive~if n is even|n=2k~n equals 2k|3n+2=6k+2~3n+2 even~6k+2=2(3k+1)">
+        <div class="written-question__num">14.</div>
+        <p class="written-question__text">Use a contrapositive argument to prove: if \(3n+2\) is odd, then \(n\) is odd.</p>
+        <textarea class="written-answer" rows="4" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="sqrt2=a/b~assume sqrt2 = a/b~suppose sqrt(2) is rational|a^2=2b^2~a squared equals 2 b squared|a even~a is even|b even~b is even|contradiction~lowest terms">
+        <div class="written-question__num">15.</div>
+        <p class="written-question__text">Prove by contradiction that \(\sqrt{2}\) is irrational.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="b=ak~b equals a times k|c=bl~c equals b times l|c=a(kl)~c=a times k times l">
+        <div class="written-question__num">16.</div>
+        <p class="written-question__text">Prove that if \(a\mid b\) and \(b\mid c\), then \(a\mid c\).</p>
+        <textarea class="written-answer" rows="4" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="f(a)=f(b)~suppose f(a)=f(b)|2a+1=2b+1~2a=2b|a=b~a equals b">
+        <div class="written-question__num">17.</div>
+        <p class="written-question__text">Prove that \(f:\mathbb{R}\to\mathbb{R}\) defined by \(f(x)=2x+1\) is injective.</p>
+        <textarea class="written-answer" rows="4" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="y=-x~choose y = -x|no single y works~depends on x|take x=0 and x=1~x=0 x=1">
+        <div class="written-question__num">18.</div>
+        <p class="written-question__text">Explain why \(\forall x\in\mathbb{Z}\,\exists y\in\mathbb{Z}\,(x+y=0)\) is true, while \(\exists y\in\mathbb{Z}\,\forall x\in\mathbb{Z}\,(x+y=0)\) is false.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your answer..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="x in B then x in A cup B~if x in B then x in union|so x in A~therefore x in A|if B subset A then A cup B subset A~B subset A gives union subset A|reverse inclusion~A subset A cup B">
+        <div class="written-question__num">19.</div>
+        <p class="written-question__text">Prove that \(A\cup B=A\) if and only if \(B\subseteq A\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="n even or n odd~two cases|n=2k then n^2=4k^2~even case n^2=4k^2|n=2k+1 then n^2=4k(k+1)+1~odd case n^2=4k^2+4k+1">
+        <div class="written-question__num">20.</div>
+        <p class="written-question__text">Prove by cases that for every integer \(n\), \(n^2\equiv 0\) or \(n^2\equiv 1\pmod 4\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <span class="part-label">Bonus Problem (5 marks, not included in the total)</span>
+      <div class="written-question bonus-question" data-points="5" data-answers="counterexample~not true~false|A empty~A=empty set~A={}|1 in B not C~1 in B but not in C~B={1} C={2}">
+        <div class="written-question__num">21.</div>
+        <p class="written-question__text">Prove or disprove: if \(A\cap B=A\cap C\), then \(B=C\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your answer..."></textarea>
+      </div>
+      <button type="button" class="submit-btn" id="submit-btn">Submit Test</button>
+    </section>
+    <section class="practice-intro" id="solution-bank" hidden>
+      <h3>Worked Solutions</h3>
+      <p>Each solution gives one complete route and notes where a common error can occur.</p>
+      <ol>
+        <li><strong>1.</strong> A proposition is a declarative statement with a definite truth value. “Every prime greater than 2 is odd” is true. The other options are a question, a command, and a subjective opinion.</li>
+        <li><strong>2.</strong> The negation of \(\forall x\,(P(x)\to Q(x))\) is \(\exists x\,\neg(P(x)\to Q(x))\), i.e. \(\exists x\,(P(x)\land\neg Q(x))\). Thus the negation is \(\exists n\in\mathbb{Z}\,(n\text{ even}\land n^2\text{ odd})\).</li>
+        <li><strong>3.</strong> The conditional \(p\to q\) is false only when \(p\) is true and \(q\) is false, which is also when \(\neg p\lor q\) is false. Hence they are logically equivalent.</li>
+        <li><strong>4.</strong> Since \(q\) is false, \(\neg q\) is true. Also \(p\land q\), \(p\leftrightarrow q\), and \(p\to q\) are false in this truth assignment.</li>
+        <li><strong>5.</strong> The symmetric difference contains elements in exactly one of the two sets: \(A\triangle B=(A\setminus B)\cup(B\setminus A)=\{1,4\}\).</li>
+        <li><strong>6.</strong> \(x\in A\setminus(B\cap C)\) means \(x\in A\) and \(x\notin B\cap C\), i.e. \(x\notin B\) or \(x\notin C\). Hence \(x\in(A\setminus B)\cup(A\setminus C)\). The other identities fail in general.</li>
+        <li><strong>7.</strong> Surjectivity means the image equals the codomain: every \(b\in B\) has at least one preimage \(a\in A\). Option A defines injectivity.</li>
+        <li><strong>8.</strong> Congruence modulo \(n\) is reflexive because \(n\mid 0\), symmetric because divisibility is unchanged by sign, and transitive because \(n\mid(a-b)\) and \(n\mid(b-c)\) imply \(n\mid(a-c)\).</li>
+        <li><strong>9.</strong> The contrapositive of \(P\to Q\) is \(\neg Q\to\neg P\). Here \(P\) is “\(n^2\) is even” and \(Q\) is “\(n\) is even”, so the contrapositive is “if \(n\) is odd, then \(n^2\) is odd”.</li>
+        <li><strong>10.</strong> The empty set has no elements, while \(\{\varnothing\}\) has one element, namely \(\varnothing\). Thus they are not equal. The other statements are true.</li>
+        <li><strong>11.</strong> Let \(n=2k\) with \(k\in\mathbb{Z}\). Then \(n^2=(2k)^2=4k^2=2(2k^2)\), and \(2k^2\in\mathbb{Z}\), so \(n^2\) is even.</li>
+        <li><strong>12.</strong> The negation is: there exists a continuous function that is not differentiable. In symbols, \(\exists f\,(f\text{ continuous}\land f\text{ not differentiable})\). For example, \(f(x)=|x|\) is continuous everywhere but not differentiable at \(0\).</li>
+        <li><strong>13.</strong> For \(\subseteq\), take \(x\in A\cap(B\cup C)\). Then \(x\in A\) and \(x\in B\) or \(x\in C\). If \(x\in B\), then \(x\in A\cap B\); if \(x\in C\), then \(x\in A\cap C\). Thus \(x\in(A\cap B)\cup(A\cap C)\). Conversely, if \(x\in(A\cap B)\cup(A\cap C)\), then \(x\in A\) and \(x\in B\cup C\), so \(x\in A\cap(B\cup C)\).</li>
+        <li><strong>14.</strong> Prove the contrapositive: if \(n\) is even, then \(3n+2\) is even. Write \(n=2k\). Then \(3n+2=6k+2=2(3k+1)\), which is even. Hence if \(3n+2\) is odd, \(n\) cannot be even, so \(n\) is odd.</li>
+        <li><strong>15.</strong> Suppose \(\sqrt2=a/b\) in lowest terms with \(a,b\in\mathbb{Z}\), \(b\ne0\). Then \(a^2=2b^2\), so \(a^2\) is even and therefore \(a\) is even. Write \(a=2k\); then \(4k^2=2b^2\), so \(b^2=2k^2\), making \(b\) even. Both \(a\) and \(b\) even contradicts lowest terms. Therefore \(\sqrt2\) is irrational.</li>
+        <li><strong>16.</strong> From \(a\mid b\), choose \(k\in\mathbb{Z}\) with \(b=ak\). From \(b\mid c\), choose \(l\in\mathbb{Z}\) with \(c=bl\). Then \(c=(ak)l=a(kl)\), with \(kl\in\mathbb{Z}\), so \(a\mid c\).</li>
+        <li><strong>17.</strong> Suppose \(f(a)=f(b)\). Then \(2a+1=2b+1\), so \(2a=2b\), and hence \(a=b\). By definition, \(f\) is injective.</li>
+        <li><strong>18.</strong> The first statement is true: given \(x\), choose \(y=-x\), so \(x+y=0\). The second is false because the value of \(y\) would have to work for every \(x\) simultaneously; no fixed integer does. For instance, \(x=0\) forces \(y=0\), while \(x=1\) forces \(y=-1\).</li>
+        <li><strong>19.</strong> Suppose \(A\cup B=A\). If \(x\in B\), then \(x\in A\cup B=A\), so \(B\subseteq A\). Conversely, suppose \(B\subseteq A\). If \(x\in A\cup B\), then \(x\in A\) or \(x\in B\); in the second case \(x\in A\) by inclusion. Hence \(A\cup B\subseteq A\), and \(A\subseteq A\cup B\) always, so equality follows.</li>
+        <li><strong>20.</strong> Every integer is even or odd. If \(n=2k\), then \(n^2=4k^2\equiv0\pmod4\). If \(n=2k+1\), then \(n^2=4k^2+4k+1=4k(k+1)+1\equiv1\pmod4\). These cases exhaust all integers.</li>
+        <li><strong>21.</strong> The statement is false. Let \(A=\varnothing\), \(B=\{1\}\), and \(C=\{2\}\). Then \(A\cap B=A\cap C=\varnothing\), but \(B\ne C\). Equality of the intersections with a fixed set does not determine the original sets.</li>
+      </ol>
+    </section>
+    <div class="navigation no-print">
+      <a href="introduction-to-proofs.html">← Back to Course</a>
+      <a href="practice-test-2-proofs.html">Practice Test 2 →</a>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+  <script>
+    (function () {
+      var submitBtn = document.getElementById('submit-btn');
+      var results = document.getElementById('test-results');
+      var MC_TOTAL = 10;
+      var WRITTEN_TOTAL = 20;
+      var GRAND_TOTAL = MC_TOTAL + WRITTEN_TOTAL;
+      var solutionItems = [];
+      function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+      function solutionHtml(number) {
+        var li = solutionItems[number - 1];
+        if (!li) { return ''; }
+        var clone = li.cloneNode(true);
+        var lead = clone.querySelector('strong');
+        var label = lead ? lead.textContent.trim() : '';
+        if (lead) { lead.remove(); }
+        return '<strong>Solution' + (label ? ' ' + label : '.') + '</strong> ' + clone.innerHTML;
+      }
+      function normalize(s) {
+        return String(s)
+          .toLowerCase()
+          .replace(/π/g, 'pi')
+          .replace(/√/g, 'sqrt')
+          .replace(/\\sqrt/g, 'sqrt')
+          .replace(/−/g, '-')
+          .replace(/\|/g, '').replace(/[()]/g, '').replace(/[=,]/g, '')
+          .replace(/²/g, '^2').replace(/³/g, '^3').replace(/⁴/g, '^4').replace(/⁵/g, '^5')
+          .replace(/⁰/g, '^0').replace(/¹/g, '^1').replace(/⁶/g, '^6').replace(/⁷/g, '^7').replace(/⁸/g, '^8').replace(/⁹/g, '^9')
+          .replace(/\s+/g, '');
+      }
+      function addReveal(q, html) {
+        var ca = document.createElement('div');
+        ca.className = 'correct-answer';
+        ca.innerHTML = html;
+        q.appendChild(ca);
+        return ca;
+      }
+      function gradeWritten(q, reveals, number) {
+        var points = parseInt(q.getAttribute('data-points') || '2', 10);
+        var groups = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
+        var ta = q.querySelector('.written-answer');
+        var normVal = normalize(ta ? ta.value : '');
+        var matchedGroups = 0;
+        groups.forEach(function (group) {
+          var alternatives = group.split('~').filter(Boolean);
+          var ok = alternatives.some(function (a) {
+            return normVal.indexOf(normalize(a)) !== -1;
+          });
+          if (ok) { matchedGroups++; }
+        });
+        var earned = groups.length ? Math.round(points * matchedGroups / groups.length) : 0;
+        var fb = document.createElement('div');
+        fb.className = 'question-feedback';
+        if (matchedGroups === groups.length) {
+          q.classList.add('is-correct');
+          fb.classList.add('correct');
+          fb.textContent = 'Correct! (+' + earned + ')';
+        } else if (matchedGroups === 0) {
+          q.classList.add('is-incorrect');
+          fb.classList.add('incorrect');
+          fb.textContent = 'Review needed.';
+        } else {
+          q.classList.add('is-partial');
+          fb.classList.add('partial');
+          fb.textContent = 'Partial (' + earned + '/' + points + ').';
+        }
+        q.appendChild(fb);
+        var primary = groups.length ? groups[0].split('~')[0] : '';
+        var sol = solutionHtml(number);
+        reveals.push(addReveal(q, '<strong>Expected form:</strong> ' + escapeHtml(primary) + (sol ? '<br>' + sol : '')));
+        return earned;
+      }
+      function grade() {
+        document.querySelectorAll('.question-feedback').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.correct-answer').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.mc-question, .written-question').forEach(function (q) {
+          q.classList.remove('is-correct', 'is-incorrect', 'is-partial', 'is-unanswered');
+        });
+        var reveals = [];
+        solutionItems = document.querySelectorAll('#solution-bank li');
+        var mcMarks = 0;
+        document.querySelectorAll('.mc-question').forEach(function (q, index) {
+          var correct = q.getAttribute('data-correct');
+          var checked = q.querySelector('input[type="radio"]:checked');
+          var fb = document.createElement('div');
+          fb.className = 'question-feedback';
+          if (!checked) {
+            q.classList.add('is-unanswered');
+            fb.classList.add('unanswered');
+            fb.textContent = 'Not answered.';
+          } else if (checked.value === correct) {
+            mcMarks += 1;
+            q.classList.add('is-correct');
+            fb.classList.add('correct');
+            fb.textContent = 'Correct! (+1)';
+          } else {
+            q.classList.add('is-incorrect');
+            fb.classList.add('incorrect');
+            fb.textContent = 'Incorrect.';
+          }
+          q.appendChild(fb);
+          var correctText = '';
+          q.querySelectorAll('.mc-option').forEach(function (label) {
+            var input = label.querySelector('input[type="radio"]');
+            if (input && input.value === correct) { correctText = label.textContent.trim(); }
+          });
+          var sol = solutionHtml(index + 1);
+          reveals.push(addReveal(q, '<strong>Correct answer:</strong> ' + escapeHtml(correctText) + (sol ? '<br>' + sol : '')));
+        });
+        var writtenMarks = 0;
+        document.querySelectorAll('.written-question:not(.bonus-question)').forEach(function (q, index) {
+          writtenMarks += gradeWritten(q, reveals, MC_TOTAL + index + 1);
+        });
+        var bonusMarks = 0;
+        document.querySelectorAll('.bonus-question').forEach(function (q, index) {
+          bonusMarks += gradeWritten(q, reveals, MC_TOTAL + WRITTEN_TOTAL + index + 1);
+        });
+        var total = mcMarks + writtenMarks;
+        document.getElementById('score-total').textContent = total;
+        document.getElementById('score-mc').textContent = mcMarks;
+        document.getElementById('score-written').textContent = writtenMarks;
+        document.getElementById('score-percent').textContent = Math.round(total / GRAND_TOTAL * 100);
+        var bonusScore = document.getElementById('score-bonus');
+        if (bonusScore) { bonusScore.textContent = bonusMarks; }
+        var bank = document.getElementById('solution-bank');
+        if (bank) { bank.hidden = false; reveals.push(bank); }
+        results.hidden = false;
+        results.scrollIntoView({ behavior: 'smooth' });
+        submitBtn.textContent = 'Regrade Test';
+        if (window.MathJax && MathJax.typesetPromise && reveals.length) {
+          MathJax.typesetPromise(reveals);
+        }
+      }
+      if (submitBtn) { submitBtn.addEventListener('click', grade); }
+    })();
+  </script>
+</body>
+</html>

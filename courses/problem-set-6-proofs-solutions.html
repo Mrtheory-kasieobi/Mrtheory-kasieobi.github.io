@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 6.">
+  <title>Solutions: Problem Set 6 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 6</h1><div class="subtitle">Introduction to Proofs - Lecture 6</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Proof by contradiction establishes \(q\) by showing that \(
+eg q\) is impossible.</li><li>The negation of \(p	o q\) is \(p\land
+eg q\).</li><li>Irrationality proofs use a reduced fraction and force a common divisor.</li><li>Uniqueness proofs assume two objects and derive that they are equal.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove by contradiction that there is no smallest positive rational number.</div><p>Suppose, for contradiction, that \(q&gt;0\) is the smallest positive rational. Then \(q/2\) is rational and satisfies \(0&lt;q/2&lt;q\), contradicting the minimality of \(q\). Therefore no smallest positive rational exists.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove that \(\sqrt3\) is irrational.</div><p>Suppose \(\sqrt3=a/b\) with \(a,b\in\mathbb{Z}\), \(b\ne0\), and \(\gcd(a,b)=1\). Squaring gives \(a^2=3b^2\), so \(3\mid a^2\). Since \(3\) is prime, \(3\mid a\) (Euclid's lemma). Write \(a=3k\). Then \(9k^2=3b^2\), hence \(b^2=3k^2\), so \(3\mid b^2\) and therefore \(3\mid b\). Thus \(3\) divides both \(a\) and \(b\), contradicting \(\gcd(a,b)=1\). Hence \(\sqrt3\notin\mathbb{Q}\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove by contradiction: if \(n\in\mathbb{Z}\) and \(n^2\) is odd, then \(n\) is odd.</div><p>Suppose \(n^2\) is odd but \(n\) is not odd, so \(n=2k\) for some integer \(k\). Then \(n^2=4k^2=2(2k^2)\), which is even. This contradicts the assumption that \(n^2\) is odd. Hence \(n\) must be odd.</p>
+<p>The same argument is a contrapositive proof: not odd means even, and even \(n\) gives even \(n^2\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that \(2+\sqrt3\) is irrational.</div><p>Suppose \(2+\sqrt3=r\in\mathbb{Q}\). Then \(\sqrt3=r-2\), which is rational because \(\mathbb{Q}\) is closed under subtraction. This contradicts the irrationality of \(\sqrt3\) proved above. Hence \(2+\sqrt3\) is irrational.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Prove by contradiction that if \(a,b\) are integers and \(a^2+b^2=0\), then \(a=b=0\).</div><p>Suppose \(a^2+b^2=0\) but \((a,b)\ne(0,0)\). Then \(a^2\ge0\) and \(b^2\ge0\), and their sum is \(0\), so \(a^2=0\) and \(b^2=0\). Hence \(a=0\) and \(b=0\), contradicting \((a,b)\ne(0,0)\). Thus \(a=b=0\).</p>
+<p>This example shows that a contradiction proof can be quite short when the negation directly opposes a basic ordered-field fact.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove that there are infinitely many integers \(n\) for which \(n^2+1\) is not a perfect square.</div><p>Consider any integer \(n\ge1\). If \(n^2+1=m^2\) for some integer \(m\), then \(m^2-n^2=1\), so \((m-n)(m+n)=1\). Since \(m+n\ge1\), both factors are positive integers, so \(m-n=m+n=1\). Subtracting gives \(2n=0\), hence \(n=0\), contradicting \(n\ge1\). Therefore every positive integer \(n\) has \(n^2+1\) not a perfect square, so there are infinitely many such \(n\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Prove by contradiction that \(\log_2 3\) is irrational.</div><p>Suppose \(\log_2 3=a/b\) with \(a,b\in\mathbb{Z}\), \(b&gt;0\), in lowest terms. Then \(2^{a/b}=3\), so \(2^a=3^b\). The left side is even (for \(a\ge1\)) and the right side is odd. More rigor: since \(3^b&gt;1\), \(a&gt;0\), so \(2^a\) is even while \(3^b\) is odd, a contradiction. Hence \(\log_2 3\notin\mathbb{Q}\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Analyse the following "proof": "To prove that \(n^2\) even implies \(n\) even, suppose \(n\) is even, \(n=2k\). Then \(n^2=4k^2\), which is even." Is it valid? If not, what method was actually used?</div><p>The argument proves "\(\:n\) even \(\implies n^2\) even", which is the converse of the desired statement. It is not a valid proof of the original implication. A correct contradiction proof assumes \(n^2\) is even and \(n\) is odd, then derives that \(n^2\) is odd. Equivalently, a contrapositive proof assumes \(n\) odd and shows \(n^2\) odd. The given argument starts from the wrong assumption.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that there is no rational number whose square is \(3\).</div>Suppose \(x^2=3\) with \(x=a/b\) in lowest terms and \(b\ne0\). Then \(a^2=3b^2\), so \(3\mid a^2\), and since 3 is prime, \(3\mid a\). Write \(a=3k\). Then \(9k^2=3b^2\), so \(b^2=3k^2\), hence \(3\mid b\). Both \(a\) and \(b\) are divisible by 3, contradicting lowest terms.</div>
+
+      <div class="navigation"><a href="problem-set-6-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-6.html">Lecture 6</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

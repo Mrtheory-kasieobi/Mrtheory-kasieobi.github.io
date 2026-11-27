@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 5 of Introduction to Proofs: Direct Proof and Proof by Contrapositive.">
+  <title>Lecture 5: Direct Proof and Proof by Contrapositive | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 5: Direct Proof and Proof by Contrapositive</h1><div class="subtitle">Introduction to Proofs &middot; Week 5</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 5</span><span class="lecture-topic">Direct Proof and Proof by Contrapositive</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Write a clean direct proof of an implication.</li><li>Use definitions of even, odd, divides, and congruence in algebraic proofs.</li><li>Prove implications by proving their contrapositives.</li><li>Prove biconditional statements by proving both directions.</li><li>Structure proofs by exhaustive cases and avoid common logical errors.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>A direct proof starts with the hypothesis and unfolds definitions until the conclusion appears. A contrapositive proof proves the equivalent statement \(\neg Q\to\neg P\). Use contrapositive when the negated conclusion is easier to work with than the original conclusion.</p><p>For example, to prove “if \(n^2\) is odd, then \(n\) is odd”, the contrapositive is “if \(n\) is even, then \(n^2\) is even”. The second statement is immediate by writing \(n=2k\), so the original follows automatically.</p></div>
+
+      <div class="lecture-section"><h2>1. The shape of a direct proof</h2>
+<p>Most theorems in introductory mathematics are implications. To prove \(p\to q\) directly:</p>
+<div class="step-box"><strong>Step 1.</strong> State the assumption \(p\) ("Suppose \(p\) holds" or "Let \(a,b\in\mathbb{Z}\) satisfy the hypothesis").</div>
+<div class="step-box"><strong>Step 2.</strong> Unpack definitions. "\(a\) is even" means \(a=2k\) for some integer \(k\); "\(a\mid b\)" means \(b=ak\) for some integer \(k\); "\(a\equiv b\pmod n\)" means \(a-b=nk\) for some integer \(k\).</div>
+<div class="step-box"><strong>Step 3.</strong> Derive \(q\) using algebra, previously proved results, and valid logical steps.</div>
+<div class="step-box"><strong>Step 4.</strong> State the conclusion and mark the end of the proof.</div>
+<p>The assumption and the conclusion must match the quantified statement exactly. If the theorem says "for every integer \(n\), if \(P(n)\) then \(Q(n)\)", begin with "Let \(n\in\mathbb{Z}\) and suppose \(P(n)\)"; prove \(Q(n)\) for this arbitrary \(n\).</p>
+<div class="definition-box"><strong>Definition 5.1 (Even and odd)</strong> An integer \(n\) is <em>even</em> if \(n=2k\) for some \(k\in\mathbb{Z}\), and <em>odd</em> if \(n=2k+1\) for some \(k\in\mathbb{Z}\).</div>
+</div><div class="lecture-section"><h2>2. Worked direct proofs</h2>
+<div class="theorem-box"><strong>Theorem 5.2</strong> If \(m\) and \(n\) are even integers, then \(m+n\) is even.</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(m,n\) be even integers. By Definition 5.1 there exist \(a,b\in\mathbb{Z}\) with \(m=2a\) and \(n=2b\). Then
+\[m+n=2a+2b=2(a+b).\]
+Since \(a+b\in\mathbb{Z}\), the number \(m+n\) has the form \(2k\) with \(k=a+b\). Hence \(m+n\) is even. \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 5.3</strong> If \(a\mid b\) and \(b\mid c\), then \(a\mid c\).</div>
+<div class="proof-box"><strong>Proof.</strong> Assume \(a\mid b\) and \(b\mid c\). By the definition of divisibility there exist integers \(r,s\) with \(b=ar\) and \(c=bs\). Substituting,
+\[c=bs=(ar)s=a(rs).\]
+Since \(rs\in\mathbb{Z}\), we conclude \(a\mid c\). \(\square\)</div>
+<p>Notice the pattern: the conclusion is obtained by exhibiting the witness required by a definition. In Theorem 5.2 the witness is \(a+b\); in Theorem 5.3 it is \(rs\). A common error is to say "clearly \(m+n\) is even"; clarity is not a proof unless the algebraic witness is supplied.</p>
+<div class="theorem-box"><strong>Theorem 5.4</strong> If \(n\in\mathbb{Z}\), then \(n^2+n\) is even.</div>
+<div class="proof-box"><strong>Proof.</strong> Factor \(n^2+n=n(n+1)\). The integers \(n\) and \(n+1\) are consecutive, so exactly one of them is even (if \(n=2k\), then \(n\) is even; if \(n=2k+1\), then \(n+1=2(k+1)\) is even). In the first case \(n(n+1)=2k(n+1)\); in the second \(n(n+1)=n\cdot2(k+1)\). Either way the product is twice an integer, hence even. \(\square\)</div>
+</div><div class="lecture-section"><h2>3. Proof by contrapositive</h2>
+<p>From Lecture 1, \(p\to q\equiv\neg q\to\neg p\). Therefore to prove \(p\to q\) we may assume \(\neg q\) and derive \(\neg p\). This is often easier when the negation of the conclusion carries strong algebraic information.</p>
+<div class="theorem-box"><strong>Theorem 5.5</strong> If \(n^2\) is even for an integer \(n\), then \(n\) is even.</div>
+<div class="proof-box"><strong>Proof by contrapositive.</strong> We prove: if \(n\) is not even, then \(n^2\) is not even. Suppose \(n\) is odd, so \(n=2k+1\) for some \(k\in\mathbb{Z}\). Then
+\[n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.\]
+Since \(2k^2+2k\in\mathbb{Z}\), \(n^2\) is odd, hence not even. Therefore \(n^2\) even implies \(n\) even. \(\square\)</div>
+<p>Compare this with a direct proof: assuming \(n^2=2m\) does not immediately reveal that \(n\) is even, because extracting a square root of \(2m\) is not an integer operation. The contrapositive works with the tightly structured form \(2k+1\).</p>
+<div class="theorem-box"><strong>Theorem 5.6</strong> Let \(n\in\mathbb{Z}\). If \(3n+2\) is odd, then \(n\) is odd.</div>
+<div class="proof-box"><strong>Proof by contrapositive.</strong> Suppose \(n\) is even, say \(n=2k\). Then \(3n+2=6k+2=2(3k+1)\), which is even. Hence \(3n+2\) cannot be odd. By contraposition, if \(3n+2\) is odd, then \(n\) is odd. \(\square\)</div>
+<p>Beware the converse error: the fact that \(n\) odd implies \(3n+2\) odd is the <em>converse</em> of Theorem 5.6, and it happens to be true here (\(3(2k+1)+2=6k+5=2(3k+2)+1\)), but it requires its own proof.</p>
+</div><div class="lecture-section"><h2>4. Biconditionals and chains</h2>
+<p>To prove \(p\leftrightarrow q\), prove \(p\to q\) and \(q\to p\). Often one direction is a direct proof and the other is best done by contrapositive.</p>
+<div class="theorem-box"><strong>Theorem 5.7</strong> An integer \(n\) is even if and only if \(n^2\) is even.</div>
+<div class="proof-box"><strong>Proof.</strong>
+<div class="step-box"><strong>Forward (\(\Rightarrow\)).</strong> If \(n=2k\), then \(n^2=4k^2=2(2k^2)\), so \(n^2\) is even.</div>
+<div class="step-box"><strong>Reverse (\(\Leftarrow\)).</strong> This is Theorem 5.5, proved by contrapositive.</div>
+<p>Since both implications hold, \(n\) is even exactly when \(n^2\) is even. \(\square\)</p></div>
+<p>For chains of implications, write \(p\to q\to r\) only when each arrow has been established; the transitivity of implication then gives \(p\to r\). Reversing one arrow invalidates the chain. In written work, label each implication and its justification rather than relying on the reader to infer direction.</p>
+</div><div class="lecture-section"><h2>5. Proof by cases</h2>
+<p>If the hypothesis guarantees \(p_1\lor p_2\lor\cdots\lor p_k\), and each case \(p_i\to q\) can be proved, then \(q\) follows by repeated use of the valid argument "proof by cases" from Lecture 1. The cases must be exhaustive: check that at least one applies in every situation.</p>
+<div class="theorem-box"><strong>Theorem 5.8</strong> For every integer \(n\), \(n^2-n\) is even.</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(n\in\mathbb{Z}\). Every integer is either even or odd.
+<div class="step-box"><strong>Case 1: \(n=2k\).</strong> Then \(n^2-n=4k^2-2k=2(2k^2-k)\), which is even.</div>
+<div class="step-box"><strong>Case 2: \(n=2k+1\).</strong> Then \(n^2-n=(2k+1)^2-(2k+1)=(2k+1)(2k)=2k(2k+1)\), which is even.</div>
+<p>Since every integer falls into one of the two cases, the result holds for all integers. \(\square\)</p></div>
+<p>Other useful case splits include: positive/zero/negative; congruence classes modulo \(m\); \(a&lt;b\), \(a=b\), or \(a&gt;b\) (trichotomy); and membership of an element in a union \(A\cup B\). Overlapping cases are allowed, but gaps are not.</p>
+</div><div class="lecture-section"><h2>6. Pitfalls</h2>
+<div class="concept-callout"><strong>Four mistakes to avoid</strong>
+<ul>
+<li><em>Proof by example.</em> Checking that a statement holds for \(n=1,2,3\) does not prove it for all \(n\).</li>
+<li><em>Circular reasoning.</em> The conclusion (or an equivalent form of it) may not appear among the assumptions.</li>
+<li><em>Incorrect negation.</em> The negation of "all \(A\) are \(B\)" is "some \(A\) is not \(B\)", not "no \(A\) is \(B\)".</li>
+<li><em>Witness omissions.</em> When a definition demands "there exists an integer \(k\)", explicitly identify that integer in terms of the given data.</li>
+</ul></div>
+<p>Finally, ask whether the proof would still work if the hypothesis were weakened. If the argument uses more than the hypothesis provides, it is not a proof of the stated theorem.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: biconditionals and cases</h2>
+<div class="theorem-box"><strong>Theorem 5.10</strong> To prove \(P\leftrightarrow Q\), it is enough to prove \(P\to Q\) and \(Q\to P\).</div>
+<div class="proof-box"><strong>Proof.</strong> The formula \(P\leftrightarrow Q\) is true exactly when \(P\) and \(Q\) have the same truth value. The two implications rule out the two rows where the truth values differ, so together they force equality of truth values. \(\square\)</div>
+<div class="example-box"><strong>Example 5.10</strong> To prove that \(n^2\) is even if and only if \(n\) is even, prove \(n\) even \(\Rightarrow n^2\) even directly by \(n=2k\), and prove \(n^2\) even \(\Rightarrow n\) even by contrapositive using \(n=2k+1\Rightarrow n^2=2(2k^2+2k)+1\).</div>
+<p>Proof by cases is appropriate when the domain splits naturally, for example into even and odd integers. Make sure the cases exhaust every possibility; otherwise the proof covers only part of the domain.</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Give a direct proof: if \(a,b\) are odd integers, then \(a+b\) is even.</li><li>Give a direct proof: if \(a\mid b\) and \(c\mid d\), then \(ac\mid bd\).</li><li>Prove by contrapositive: if \(5n+3\) is even, then \(n\) is odd.</li><li>Prove: \(n\) is odd if and only if \(n^2\) is odd.</li><li>Prove by cases: for every integer \(n\), \(n^3-n\) is divisible by \(3\).</li><li>Find the error: "If \(n^2\) is divisible by \(4\), then \(n\) is even. Proof: let \(n=2k\); then \(n^2=4k^2\)."</li><li>Prove that if \(a&lt;b\) and \(c&lt;d\), then \(a+c&lt;b+d\).</li><li>Prove or disprove: if \(a
+mid b\) and \(b
+mid c\), then \(a
+mid c\).</li></ol><p>Complete <a href="problem-set-5-proofs.html">Problem Set 5</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-4.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-6.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

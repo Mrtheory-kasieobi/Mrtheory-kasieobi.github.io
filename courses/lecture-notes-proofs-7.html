@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 7 of Introduction to Proofs: Mathematical Induction.">
+  <title>Lecture 7: Mathematical Induction | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 7: Mathematical Induction</h1><div class="subtitle">Introduction to Proofs &middot; Week 7</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 7</span><span class="lecture-topic">Mathematical Induction</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>State the principle of mathematical induction and explain why it is valid.</li><li>Write induction proofs for identities, inequalities and divisibility statements.</li><li>Identify the base case, inductive hypothesis and inductive step in a proof.</li><li>Handle statements whose induction starts at an index other than 1.</li><li>Recognise and avoid standard induction errors.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>Induction is a proof method for statements indexed by natural numbers. Think of an infinite row of dominoes: prove the first domino falls, then prove that whenever one domino falls, the next one falls. The induction hypothesis is the assumption that the \(n\)-th case holds for an arbitrary but fixed \(n\); it is not a claim that all cases have already been proved.</p><p>For \(\sum_{i=1}^n i=\frac{n(n+1)}2\), the base case is \(1=1\cdot2/2\). If the formula holds for \(n\), adding \(n+1\) gives \(\frac{n(n+1)}2+(n+1)=\frac{(n+1)(n+2)}2\), completing the step.</p></div>
+
+      <div class="lecture-section"><h2>1. The induction principle</h2>
+<div class="theorem-box"><strong>Theorem 7.1 (Principle of mathematical induction)</strong> Let \(P(n)\) be a statement about positive integers. If
+<ol>
+<li>\(P(1)\) is true, and</li>
+<li>for every \(k\ge1\), \(P(k)\) true implies \(P(k+1)\) true,
+</ol>
+then \(P(n)\) is true for every positive integer \(n\).</div>
+<p>The principle is an axiom for \(\mathbb{N}\) in many treatments, or a consequence of the well-ordering principle: if some positive integer failed to satisfy \(P\), the least such failure \(m\) would be greater than \(1\) (since \(P(1)\) holds), so \(P(m-1)\) holds; the inductive step would then give \(P(m)\), a contradiction. We will make this argument explicit in Lecture 8.</p>
+<div class="step-box"><strong>Proof template.</strong> "We prove \(P(n)\) by induction on \(n\). Base case: verify \(P(1)\). Inductive hypothesis: assume \(P(k)\) for an arbitrary \(k\ge1\). Inductive step: prove \(P(k+1)\) using the hypothesis. Conclusion: by induction \(P(n)\) holds for all \(n\ge1\)."</div>
+<p>The induction need not start at \(1\). If the statement is about all integers \(n\ge N\), verify \(P(N)\) and prove \(P(k)\to P(k+1)\) for \(k\ge N\).</p>
+</div><div class="lecture-section"><h2>2. Summation identities</h2>
+<div class="theorem-box"><strong>Theorem 7.2</strong> For every \(n\ge1\),
+\[1+2+\cdots+n=\frac{n(n+1)}2.\]</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(P(n)\) be the displayed identity.
+<div class="step-box"><strong>Base case.</strong> For \(n=1\), \(1=\frac{1\cdot2}{2}\), so \(P(1)\) holds.</div>
+<div class="step-box"><strong>Inductive hypothesis.</strong> Assume \(1+2+\cdots+k=\frac{k(k+1)}2\) for some \(k\ge1\).</div>
+<div class="step-box"><strong>Inductive step.</strong> Add \(k+1\) to both sides:
+\[1+2+\cdots+k+(k+1)=\frac{k(k+1)}2+(k+1)=\frac{k(k+1)+2(k+1)}2=\frac{(k+1)(k+2)}2.\]
+This is exactly \(P(k+1)\), since replacing \(n\) by \(k+1\) in the formula gives \(\frac{(k+1)((k+1)+1)}2\).</div>
+<p>By the induction principle, \(P(n)\) holds for all \(n\ge1\). \(\square\)</p></div>
+<div class="theorem-box"><strong>Theorem 7.3</strong> For every \(n\ge1\), \(\sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}6\).</div>
+<div class="proof-box"><strong>Proof sketch.</strong> The base case \(n=1\) gives \(1=\frac{1\cdot2\cdot3}{6}\). Assuming \(\sum_{i=1}^k i^2=\frac{k(k+1)(2k+1)}6\), add \((k+1)^2\). The required algebra is
+\[\frac{k(k+1)(2k+1)}6+(k+1)^2=\frac{(k+1)(k+2)(2k+3)}6,\]
+which follows after factoring \(k+1\) and expanding the remaining quadratics. The right side is the formula at \(n=k+1\). \(\square\)</div>
+<p>A helpful habit: write down \(P(k)\) and \(P(k+1)\) explicitly before manipulating. This prevents the most common induction error, which is proving the wrong target.</p>
+</div><div class="lecture-section"><h2>3. Inequalities</h2>
+<div class="theorem-box"><strong>Theorem 7.4</strong> For every \(n\ge1\), \(2^n\ge n+1\).</div>
+<div class="proof-box"><strong>Proof.</strong> Base case: \(2^1=2\ge2\). Assume \(2^k\ge k+1\). Multiplying by \(2&gt;0\) gives
+\[2^{k+1}=2\cdot2^k\ge2(k+1)=2k+2\ge k+2,\]
+where the last inequality uses \(k\ge0\). Thus \(P(k+1)\) holds, and induction applies. \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 7.5</strong> For every \(n\ge5\), \(2^n&gt;n^2\).</div>
+<div class="proof-box"><strong>Proof.</strong> Base case: \(2^4=16&gt;16\) is false, so start at \(n=5\): \(2^5=32&gt;25\). Assume \(2^k&gt;k^2\) for some \(k\ge5\). Then
+\[2^{k+1}=2\cdot2^k&gt;2k^2.\]
+It suffices to check \(2k^2\ge(k+1)^2\), i.e. \(k^2-2k-1\ge0\). For \(k\ge5\), \(k^2-2k-1=k(k-2)-1\ge15-1&gt;0\). Hence \(2^{k+1}&gt;(k+1)^2\), and induction from \(n=5\) proves the claim for all \(n\ge5\). The statement fails at \(n=4\), since \(16=4^2\), so the correct range begins at \(5\).</div>
+<p>This example illustrates why the base case must be verified honestly: a statement that looks plausible may fail at the first candidate index.</p>
+</div><div class="lecture-section"><h2>4. Divisibility statements</h2>
+<div class="theorem-box"><strong>Theorem 7.6</strong> For every \(n\ge1\), \(3\mid(n^3+2n)\).</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(P(n)\) be \(n^3+2n=3m\) for some integer \(m\).
+<div class="step-box"><strong>Base case.</strong> \(1^3+2\cdot1=3\), so \(P(1)\) holds.</div>
+<div class="step-box"><strong>Hypothesis.</strong> Assume \(k^3+2k=3m\) for some \(m\in\mathbb{Z}\).</div>
+<div class="step-box"><strong>Step.</strong> Compute
+\[(k+1)^3+2(k+1)=k^3+3k^2+3k+1+2k+2=(k^3+2k)+3(k^2+k+1).\]
+By the hypothesis the first term is \(3m\), so the sum is \(3(m+k^2+k+1)\), a multiple of \(3\).</div>
+<p>By induction the divisibility holds for all \(n\ge1\). \(\square\)</p></div>
+<p>Notice that the induction step isolates the expression from \(P(k)\), namely \(k^3+2k\), so that the hypothesis can be applied. Searching for that subexpression is the key algebraic move in divisibility inductions.</p>
+</div><div class="lecture-section"><h2>5. Why induction works, and common errors</h2>
+<p>Induction is not "checking a few cases". It proves an infinite family of statements by establishing a mechanism that carries truth from one index to the next, together with a starting point. Without the base case the chain has no anchor; without the inductive step the chain cannot advance.</p>
+<div class="concept-callout"><strong>Common errors</strong>
+<ul>
+<li>Proving \(P(k+1)\) by assuming \(P(k+1)\), often disguised as "we want to show..." followed by manipulations from the target.</li>
+<li>Omitting the base case or verifying it at the wrong index.</li>
+<li>Assuming \(P(k)\) for all \(k\le n\) when only ordinary induction is being used; that is strong induction (Lecture 8).</li>
+<li>Showing \(P(k)\to P(k+1)\) for one particular \(k\) rather than for arbitrary \(k\).</li>
+</ul></div>
+<p>When manipulating an inequality, keep track of the direction: multiplying by a negative number reverses it. When manipulating a divisibility statement, verify that the witness you construct is an integer.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: why the base case matters</h2>
+<div class="example-box"><strong>Example 7.10</strong> The statement \(n=n+1\) has a valid-looking inductive step: if \(n=n+1\), then adding \(1\) gives \(n+1=n+2\). But the base case \(1=2\) is false, so the theorem is false for every \(n\).</div>
+<p>The inductive step is a conditional: \(P(n)\to P(n+1)\). A conditional can be true even when its hypothesis is false. Without a true base case, there is no starting point from which the chain of implications begins.</p>
+<div class="theorem-box"><strong>Theorem 7.11</strong> If \(P(n_0)\) is true and \(P(n)\to P(n+1)\) for all \(n\ge n_0\), then \(P(n)\) is true for all \(n\ge n_0\).</div>
+<div class="proof-box"><strong>Reason.</strong> Repeated application of the step gives \(P(n_0)\to P(n_0+1)\to P(n_0+2)\), and so on. For any particular \(n\ge n_0\), finitely many applications reach \(n\). \(\square\)</div>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Prove by induction that \(1+3+5+\cdots+(2n-1)=n^2\).</li><li>Prove by induction that \(1\cdot2+2\cdot3+\cdots+n(n+1)=\frac{n(n+1)(n+2)}3\).</li><li>Prove by induction that \(n^3+5n\) is divisible by \(6\) for all \(n\ge1\).</li><li>Prove \(2^n&gt;n\) for all \(n\ge0\) by induction starting at \(0\).</li><li>State \(P(k)\) and \(P(k+1)\) explicitly for the statement \(\sum_{i=1}^n i^3=\left(\frac{n(n+1)}2ight)^2\).</li><li>Find and fix the error: "Assume \(1+\cdots+k=k(k+1)/2\). Then \(1+\cdots+k+(k+1)=k(k+1)/2+(k+1)\). Therefore the formula holds for all \(n\)."</li><li>Prove by induction that \(n!&gt;2^n\) for all \(n\ge4\).</li><li>Prove by induction that \(7\mid(2^{3n}-1)\) for all \(n\ge1\).</li></ol><p>Complete <a href="problem-set-7-proofs.html">Problem Set 7</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-6.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-8.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

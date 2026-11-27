@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 8.">
+  <title>Solutions: Problem Set 8 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 8</h1><div class="subtitle">Introduction to Proofs - Lecture 8</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Strong induction allows the hypothesis for all earlier indices, not just the immediately preceding one.</li><li>Well-ordering says every nonempty set of positive integers has a least element.</li><li>Existence of prime factorisations splits \(n\) into smaller factors and applies the hypothesis to each.</li><li>The number of base cases should match how far back the recurrence looks.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove by strong induction that every integer \(n\ge2\) is a sum of copies of \(2\) and \(3\).</div><div class="step"><strong>Base cases.</strong> \(2=2\) and \(3=3\).</div>
+<div class="step"><strong>Step.</strong> Let \(n\ge4\) and assume every integer \(m\) with \(2\le m&lt;n\) has such a representation. Then \(n-2\ge2\), so by the hypothesis \(n-2=2a+3b\) for some nonnegative integers \(a,b\). Hence \(n=2(a+1)+3b\).</div>
+<p>Two base cases are not strictly necessary here (one could handle \(n=4=2+2\) and reduce by \(2\)), but \(2\) and \(3\) make the step uniform. This proof uses the hypothesis for \(n-2\), which ordinary induction would not provide.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove by strong induction that every integer \(n\ge2\) has a prime divisor.</div><div class="step"><strong>Base case.</strong> \(2\) is prime and divides itself.</div>
+<div class="step"><strong>Step.</strong> Let \(n&gt;2\), and assume every integer \(m\) with \(2\le m&lt;n\) has a prime divisor. If \(n\) is prime, it is its own prime divisor. If \(n\) is composite, write \(n=ab\) with \(1&lt;a&lt;n\). By the hypothesis, \(a\) has a prime divisor \(p\). Then \(p\mid a\mid n\), so \(p\mid n\).</div>
+<p>By strong induction every \(n\ge2\) has a prime divisor.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Determine whether the Fibonacci numbers satisfy \(a_n\ge n\) for all \(n\ge1\); if not, give a correct linear lower bound and prove it.</div><div class="step"><strong>Base cases.</strong> \(a_1=1\ge1\) and \(a_2=1\ge2\) is false, so use \(a_2=1\) and start at \(n=3\): \(a_3=2\ge3\) is also false. The claim is false as stated (\(a_4=3&lt;4\)).</div>
+<p>The correct elementary bound is \(a_n\ge n\) for \(n\ge5\), or \(a_n\ge n/2\) for \(n\ge1\). To see \(a_n\ge n/2\): base cases \(a_1=1\ge1/2\), \(a_2=1\ge1\); if \(a_{n+1}\ge(n+1)/2\) and \(a_n\ge n/2\), then \(a_{n+2}\ge(2n+1)/2\ge(n+2)/2\) for \(n\ge1\). This illustrates that a plausible induction claim must be tested against the early terms.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove by strong induction that for \(n\ge1\), \(n\) can be written uniquely as \(2^a\cdot q\) with \(q\) odd.</div><div class="step"><strong>Existence, strong induction.</strong> For \(n=1\), take \(a=0,q=1\). For \(n&gt;1\), if \(n\) is odd take \(a=0,q=n\). If \(n\) is even, write \(n=2m\) with \(1\le m&lt;n\); by the hypothesis \(m=2^a q\) with \(q\) odd, so \(n=2^{a+1}q\).</div>
+<div class="step"><strong>Uniqueness.</strong> Suppose \(2^a q=2^b r\) with \(q,r\) odd and \(a\le b\). Then \(q=2^{b-a}r\). If \(b&gt;a\), the right side is even while \(q\) is odd, impossible. Hence \(a=b\) and \(q=r\).</div>
+<p>This decomposition is the foundation of the 2-adic valuation; strong induction handles existence while a parity argument handles uniqueness.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Use well-ordering to prove: if \(S\subseteq\mathbb{N}\) and \(n\in S\) implies \(n+1\in S\), and \(1\in S\), then \(S=\mathbb{N}\).</div><p>This is precisely the induction principle derived in Theorem 8.3. Suppose \(S\ne\mathbb{N}\), and let \(m\) be the least positive integer not in \(S\) (well-ordering). Since \(1\in S\), \(m&gt;1\). Then \(m-1\in S\), so by the closure hypothesis \(m=(m-1)+1\in S\), contradicting the choice of \(m\). Hence \(S=\mathbb{N}\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Define \(b_0=0,b_1=1,b_2=2\), \(b_{n+3}=b_{n+2}+b_{n+1}+b_n\). Prove \(b_n\le3^n\) for all \(n\ge0\).</div><div class="step"><strong>Base cases.</strong> \(0\le1\), \(1\le3\), \(2\le9\).</div>
+<div class="step"><strong>Step.</strong> Assume \(b_j\le3^j\) for \(j\le n+2\). Then
+\[b_{n+3}=b_{n+2}+b_{n+1}+b_n\le3^{n+2}+3^{n+1}+3^n=3^n(9+3+1)=13\cdot3^n\le27\cdot3^n=3^{n+3}.\]
+Since \(13\le27\), the bound holds.</div>
+<p>Three base cases match the three previous terms used by the recurrence.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Explain the flaw: "For strong induction on \(P(n)\), assume \(P(k)\) for all \(k&lt;n\); since \(P(n)\) follows from \(P(n-1)\), no base case is needed."</div><p>At \(n=1\) there is no \(k&lt;1\) in the range of the statement, so the hypothesis is empty; the implication "empty hypothesis \(\to P(1)\)" would require proving \(P(1)\) directly. Moreover, claiming that \(P(n)\) follows from \(P(n-1)\) is precisely the inductive step and must be proved, not assumed. Without a base case, a chain of implications has no starting point: for example, the false statement "\(n=0\) for all \(n\)" satisfies \(P(k)\to P(k+1)\) only vacuously when \(P(k)\) is false, but fails at the base.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove by strong induction that \(3^n\) can be written as a sum of \(n\) odd positive integers for every \(n\ge1\).</div><div class="step"><strong>Base cases.</strong> \(3=3\) is one odd positive integer, and \(9=1+7\) is a sum of two odd positive integers.</div>
+<div class="step"><strong>Step.</strong> Let \(k\ge2\) and assume \(3^k=o_1+\cdots+o_k\) with every \(o_i\) odd and positive. Then
+\[3^{k+1}=3\cdot3^k=3o_1+o_2+\cdots+o_k.\]
+The number \(3o_1\) is odd and positive, and together with the remaining \(k-1\) terms it gives a sum of exactly \(k+1\) odd positive integers.</div>
+<p>Strong induction from the two base cases proves the claim for every \(n\ge1\). The separate treatment of \(k=1\) is necessary because \(3^{2}=9\) cannot be written as \(3o_1\) using a single term.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove by strong induction that \(2^n>n^2\) for every integer \(n\ge5\).</div>Base case: \(2^5=32>25=5^2\). Inductive step: assume \(2^k>k^2\) for all \(5\le k\le n\), where \(n\ge5\). Then \(2^{n+1}=2\cdot2^n>2n^2\). Since \(n\ge3\), \(2n^2-(n+1)^2=n^2-2n-1>0\), so \(2n^2>(n+1)^2\). Therefore \(2^{n+1}>(n+1)^2\).</div>
+
+      <div class="navigation"><a href="problem-set-8-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-8.html">Lecture 8</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

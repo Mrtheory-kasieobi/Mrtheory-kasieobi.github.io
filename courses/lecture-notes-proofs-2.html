@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 2 of Introduction to Proofs: Predicate Logic and Quantifiers.">
+  <title>Lecture 2: Predicate Logic and Quantifiers | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 2: Predicate Logic and Quantifiers</h1><div class="subtitle">Introduction to Proofs &middot; Week 2</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 2</span><span class="lecture-topic">Predicate Logic and Quantifiers</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Distinguish predicates from propositions and identify the domain of discourse.</li><li>Read and write universal, existential and unique-existence statements.</li><li>Negate quantified statements correctly, including restricted quantifiers.</li><li>Explain why the order of nested quantifiers matters.</li><li>Use universal instantiation and existential instantiation in simple arguments.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>A predicate is a sentence with a blank, such as “\(x\) is even”. Filling the blank or quantifying it turns the predicate into a proposition. The universal quantifier \(\forall\) says “every”, while the existential quantifier \(\exists\) says “at least one”. Always name the domain: “\(\forall x\in\mathbb{Z}\)” and “\(\forall x\in\mathbb{R}\)” are different claims.</p><p>Restricted quantifiers translate mechanically: \(\forall x\in A\,P(x)\) means \(\forall x\,(x\in A\to P(x))\), while \(\exists x\in A\,P(x)\) means \(\exists x\,(x\in A\land P(x))\). The conjunction in the existential statement is the reason membership and the predicate must both be checked.</p></div>
+
+      <div class="lecture-section"><h2>1. Predicates and domains</h2>
+<div class="definition-box"><strong>Definition 2.1 (Predicate)</strong> A <em>predicate</em> \(P(x)\) is a sentence containing a variable \(x\) that becomes a proposition when a value from a specified domain is substituted for \(x\). The set of possible values is the <em>domain of discourse</em>.</div>
+<p>For example, with domain \(\mathbb{Z}\), the expression \(P(x): "x^2&gt;4"\) is a predicate. \(P(3)\) is true and \(P(1)\) is false. A predicate in two variables, such as \(Q(x,y): "x+y=0"\), is a relation; substituting values for both variables gives a proposition.</p>
+<p>Quantifiers turn predicates into propositions. The two classical quantifiers are \(\forall\) ("for all") and \(\exists\) ("there exists").</p>
+</div><div class="lecture-section"><h2>2. Universal and existential quantifiers</h2>
+<div class="definition-box"><strong>Definition 2.2</strong> Let \(P(x)\) be a predicate with domain \(D\).
+<ul>
+<li>\(\forall x\,P(x)\) is true exactly when \(P(a)\) is true for <em>every</em> \(a\in D\).</li>
+<li>\(\exists x\,P(x)\) is true exactly when \(P(a)\) is true for <em>at least one</em> \(a\in D\).</li>
+<li>\(\exists!x\,P(x)\) means "there is exactly one \(x\) such that \(P(x)\)".</li>
+</ul></div>
+<div class="definition-box"><strong>Definition 2.3 (Unique existence)</strong> The statement \(\exists!x\,P(x)\) is an abbreviation for
+\[\exists x\big(P(x)\land\forall y(P(y)\to y=x)\big).\]
+The first conjunct asserts existence; the second asserts uniqueness.</div>
+<div class="example-box"><strong>Example 2.4</strong> With domain \(\mathbb{R}\):
+<ul>
+<li>\(\forall x\,(x^2\ge 0)\) is true.</li>
+<li>\(\exists x\,(x^2=2)\) is true, witnessed by \(x=\sqrt2\).</li>
+<li>\(\exists!x\,(x+3=7)\) is true, witnessed by \(x=4\); uniqueness follows since \(y+3=7\) implies \(y=4\).</li>
+<li>\(\forall x\,\exists y\,(x+y=0)\) is true, with \(y=-x\).</li>
+<li>\(\exists y\,\forall x\,(x+y=0)\) is false: no single real \(y\) is the negative of every real \(x\).</li>
+</ul></div>
+<p>When a statement begins "every", "all", "each", "any", or "for each", expect \(\forall\). Words like "some", "there is", "at least one", and "exists" signal \(\exists\). But context matters: "any" in a conditional hypothesis ("if any \(x\) satisfies...") is often universal.</p>
+</div><div class="lecture-section"><h2>3. Restricted quantifiers</h2>
+<p>Most mathematical statements quantify over a subset of the domain. For a set \(A\) and predicate \(P\):</p>
+\[\forall x\in A,\ P(x)\quad\text{means}\quad \forall x\big(x\in A\to P(x)\big),\]
+\[\exists x\in A,\ P(x)\quad\text{means}\quad \exists x\big(x\in A\land P(x)\big).\]
+<div class="theorem-box"><strong>Theorem 2.5 (Negating restricted quantifiers)</strong>
+\[\neg\big(\forall x\in A,\,P(x)\big)\equiv\exists x\in A,\,\neg P(x),\]
+\[\neg\big(\exists x\in A,\,P(x)\big)\equiv\forall x\in A,\,\neg P(x).\]
+</div>
+<div class="proof-box"><strong>Proof of the first identity.</strong>
+\[\neg\forall x(x\in A\to P(x))\equiv\exists x\,\neg(x\in A\to P(x))\equiv\exists x\,(x\in A\land\neg P(x)),\]
+where the last step uses the negation of a conditional from Lecture 1. The second identity is analogous: \(\neg\exists x(x\in A\land P(x))\equiv\forall x\,\neg(x\in A\land P(x))\equiv\forall x(x\in A\to\neg P(x))\). \(\square\)</div>
+<div class="example-box"><strong>Example 2.6</strong> Negate "every prime greater than \(2\) is odd" in two equivalent ways.
+<p>Symbolically: \(\forall p\in\mathbb{Z}\,[(\text{prime}(p)\land p&gt;2)\to\text{odd}(p)]\). Its negation is \(\exists p\in\mathbb{Z}\,[\text{prime}(p)\land p&gt;2\land\neg\text{odd}(p)]\): "there is a prime greater than \(2\) that is not odd", i.e. an even prime greater than \(2\). Since no such prime exists, the original statement is true.</p></div>
+</div><div class="lecture-section"><h2>4. Scope, free variables, and nested quantifiers</h2>
+<div class="definition-box"><strong>Definition 2.7</strong> The <em>scope</em> of a quantifier is the formula to which it applies. A variable occurrence is <em>bound</em> if it lies in the scope of a quantifier for that variable; otherwise it is <em>free</em>. A formula with no free variables is a sentence.</div>
+<p>For instance, in \(\forall x\big(P(x)\to\exists y\,Q(x,y)\big)\), both \(x\) and \(y\) are bound. In \((\forall x\,P(x))\to Q(x)\), the final \(x\) is free, so the expression is not a sentence until that \(x\) is bound or assigned.</p>
+<p>Nested quantifiers of the same type commute, but mixed quantifiers do not in general:</p>
+\[\forall x\,\forall y\,P(x,y)\equiv\forall y\,\forall x\,P(x,y),\qquad \exists x\,\exists y\,P(x,y)\equiv\exists y\,\exists x\,P(x,y),\]
+\[\forall x\,\exists y\,P(x,y)\ \not\equiv\ \exists y\,\forall x\,P(x,y).\]
+<p>The last pair differs: with domain \(\mathbb{R}\) and \(P(x,y): x+y=0\), the first is true and the second false. Read quantifiers left to right: \(\forall x\exists y\) says the choice of \(y\) may depend on \(x\), while \(\exists y\forall x\) demands one \(y\) that works for all \(x\).</p>
+<p>Here are the classical negation laws for quantified formulas. They assume a nonempty domain (the usual convention in first-order logic); the restricted versions in Theorem 2.5 do not need that assumption.</p>
+\[\neg\forall x\,P(x)\equiv\exists x\,\neg P(x),\qquad \neg\exists x\,P(x)\equiv\forall x\,\neg P(x).\]
+</div><div class="lecture-section"><h2>5. Quantified arguments</h2>
+<div class="theorem-box"><strong>Theorem 2.8 (Four quantifier rules)</strong>
+<ul>
+<li><em>Universal instantiation:</em> from \(\forall x\,P(x)\), infer \(P(a)\) for any \(a\) in the domain.</li>
+<li><em>Universal generalization:</em> if \(P(x)\) has been proved for an arbitrary \(x\) with no special assumptions about it, infer \(\forall x\,P(x)\).</li>
+<li><em>Existential instantiation:</em> from \(\exists x\,P(x)\), introduce a new name \(c\) with \(P(c)\), where \(c\) has not been used before.</li>
+<li><em>Existential generalization:</em> from \(P(a)\), infer \(\exists x\,P(x)\).</li>
+</ul></div>
+<p>The restriction on existential instantiation matters: a witness \(c\) must be fresh, or you may accidentally assume more than existence gives. For example, from \(\exists x\,P(x)\) and \(\exists x\,\neg P(x)\) one cannot conclude that the same object both has and lacks \(P\); two different witnesses may be involved.</p>
+<div class="example-box"><strong>Example 2.9</strong> Prove: if every \(A\) is a \(B\), and no \(B\) is a \(C\), then no \(A\) is a \(C\).
+<div class="step-box"><strong>Symbolise.</strong> Premises: \(\forall x(A(x)\to B(x))\) and \(\forall x(B(x)\to\neg C(x))\). Conclusion: \(\forall x(A(x)\to\neg C(x))\).</div>
+<div class="step-box"><strong>Derive.</strong> Let \(a\) be arbitrary and assume \(A(a)\). Universal instantiation gives \(A(a)\to B(a)\) and \(B(a)\to\neg C(a)\), hence \(B(a)\) by modus ponens, hence \(\neg C(a)\).</div>
+<div class="step-box"><strong>Generalise.</strong> Since \(a\) was arbitrary, \(\forall x(A(x)\to\neg C(x))\).</div></div>
+<p>Common error: from \(\forall x\,(A(x)\to B(x))\) and \(B(a)\), concluding \(A(a)\). That is affirming the consequent with the quantifier instantiated, and it is invalid.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: order of quantifiers</h2>
+<div class="example-box"><strong>Example 2.8</strong> Over \(\mathbb{Z}\), the statement \(\forall x\,\exists y\,(x+y=0)\) is true: choose \(y=-x\). The statement \(\exists y\,\forall x\,(x+y=0)\) is false: no single \(y\) works for every \(x\).</div>
+<p>Quantifiers are read from left to right. In \(\forall x\,\exists y\,P(x,y)\), the value of \(y\) may depend on \(x\). In \(\exists y\,\forall x\,P(x,y)\), one fixed \(y\) must work for all \(x\). Changing the order can change the meaning completely.</p>
+<div class="theorem-box"><strong>Theorem 2.9 (Negation rules)</strong> \(\neg\forall x\,P(x)\equiv\exists x\,\neg P(x)\) and \(\neg\exists x\,P(x)\equiv\forall x\,\neg P(x)\).</div>
+<div class="proof-box"><strong>Reason.</strong> “Not every object has property \(P\)” means at least one object fails \(P\). “There is no object with property \(P\)” means every object fails \(P\). These verbal readings justify the symbolic rules. \(\square\)</div>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>With domain \(\mathbb{Z}\), translate: "There is an integer whose square is less than \(2\)".</li><li>With domain \(\mathbb{R}\), write a symbolic form of "every real number has a real cube root".</li><li>Negate \(\forall x\in\mathbb{R}\,\exists y\in\mathbb{R}\,(x+y=1)\). Is the negation true?</li><li>Negate \(\exists!x\in\mathbb{N}\,(x&lt;1)\).</li><li>Explain why \(\exists y\,\forall x\,(x+y=0)\) is false over \(\mathbb{R}\).</li><li>Identify the free and bound variables in \((\forall x\,P(x,y))	o\exists z\,Q(x,z)\).</li><li>Prove that \(\forall x\,(P(x)\land Q(x))\equiv(\forall x\,P(x))\land(\forall x\,Q(x))\) for a nonempty domain.</li><li>Give an example where \(\exists x\,\forall y\,R(x,y)\) is true but \(\forall y\,\exists x\,R(x,y)\) is false, or explain why this cannot happen.</li></ol><p>Complete <a href="problem-set-2-proofs.html">Problem Set 2</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-1.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-3.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

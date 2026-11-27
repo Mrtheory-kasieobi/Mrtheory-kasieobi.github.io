@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 5.">
+  <title>Solutions: Problem Set 5 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 5</h1><div class="subtitle">Introduction to Proofs - Lecture 5</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>An even integer has the form \(2k\), an odd integer \(2k+1\), and \(a\mid b\) means \(b=ak\).</li><li>Proof by contrapositive replaces \(p	o q\) with the equivalent \(
+eg q	o
+eg p\).</li><li>A biconditional requires two separate proofs.</li><li>Case splits must cover every possibility allowed by the hypotheses.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove directly: if \(a\) is even and \(b\) is odd, then \(a+b\) is odd.</div><p>Write \(a=2k\) and \(b=2\ell+1\) with \(k,\ell\in\mathbb{Z}\). Then
+\[a+b=2k+2\ell+1=2(k+\ell)+1.\]
+Since \(k+\ell\in\mathbb{Z}\), the sum \(a+b\) has the form \(2m+1\), so it is odd.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove: if \(a\mid b\), then \(a\mid bc\) for every integer \(c\).</div><p>Assume \(a\mid b\). Then \(b=ak\) for some \(k\in\mathbb{Z}\). Multiplying by \(c\) gives \(bc=(ak)c=a(kc)\). Since \(kc\in\mathbb{Z}\), the definition of divisibility gives \(a\mid bc\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove by contrapositive: if \(n^2\) is divisible by \(5\), then \(n\) is divisible by \(5\).</div><p>We prove the contrapositive: if \(5\nmid n\), then \(5\nmid n^2\). Every integer is congruent to \(0,1,2,3\), or \(4\) modulo \(5\). If \(5\nmid n\), the residue is \(1,2,3\), or \(4\). Squaring these residues modulo \(5\) gives \(1,4,4,1\) respectively; none is \(0\). Hence \(n^2\not\equiv0\pmod5\), i.e. \(5\nmid n^2\). By contraposition the original implication holds.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that if \(n\) is odd, then \(n^2\equiv1\pmod 8\).</div><p>Let \(n=2k+1\). Then \(n^2=4k^2+4k+1=4k(k+1)+1\). The product \(k(k+1)\) is even because consecutive integers have opposite parity, so \(k(k+1)=2m\) for some \(m\in\mathbb{Z}\). Therefore \(n^2=8m+1\), so \(n^2-1=8m\) and \(n^2\equiv1\pmod8\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Prove or disprove: if \(a\mid b+c\), then \(a\mid b\) or \(a\mid c\).</div><p>The statement is false. Take \(a=2\), \(b=1\), and \(c=1\). Then \(b+c=2\), so \(2\mid2\), but \(2\nmid1\) and \(2\nmid1\). This illustrates that divisibility of a sum does not force divisibility of the summands. The converse statement (if \(a\mid b\) and \(a\mid c\), then \(a\mid b+c\)) is true and was proved in the number theory setting.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove by cases: for every integer \(n\), \(n^2\equiv0\) or \(1\pmod4\).</div><div class="step"><strong>Case 1: \(n\) even.</strong> Write \(n=2k\). Then \(n^2=4k^2\equiv0\pmod4\).</div>
+<div class="step"><strong>Case 2: \(n\) odd.</strong> Write \(n=2k+1\). Then \(n^2=4k^2+4k+1=4(k^2+k)+1\equiv1\pmod4\).</div>
+<p>Every integer is even or odd, so the two cases exhaust all possibilities and the conclusion follows.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Prove that \(2n^2+1\) and \(n^2-1\) cannot both be even for the same integer \(n\).</div><p>Use contrapositive-style reasoning on parity. If \(n\) is even, \(n=2k\), then \(n^2-1=4k^2-1=2(2k^2-1)+1\) is odd. If \(n\) is odd, \(n=2k+1\), then \(2n^2+1=2(2k+1)^2+1\), which is odd. Since \(n\) is either even or odd, at least one of the two expressions is odd; they cannot both be even.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove: \(\gcd(a,b)=1\) if and only if there exist integers \(x,y\) with \(ax+by=1\).</div><div class="step"><strong>Forward (\(\Rightarrow\)).</strong> This is Bézout's identity: applying the Euclidean algorithm to \(a,b\) produces integers \(x,y\) with \(ax+by=\gcd(a,b)=1\).</div>
+<div class="step"><strong>Reverse (\(\Leftarrow\)).</strong> Suppose \(ax+by=1\), and let \(d=\gcd(a,b)\). Then \(d\mid a\) and \(d\mid b\), so \(d\mid(ax+by)=1\). Since \(d\) is a positive divisor of \(1\), \(d=1\).</div>
+<p>Both directions are needed: the forward direction supplies the coefficients, and the reverse direction shows that any such linear combination forces the gcd to be \(1\).</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that if \(a\mid b\) and \(a\mid c\), then \(a\mid mb+nc\) for all integers \(m,n\).</div>Write \(b=ak\) and \(c=al\). Then \(mb+nc=m(ak)+n(al)=a(mk+nl)\). Since \(mk+nl\in\mathbb{Z}\), it follows that \(a\mid mb+nc\).</div>
+
+      <div class="navigation"><a href="problem-set-5-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-5.html">Lecture 5</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

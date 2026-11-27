@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 4 of Introduction to Proofs: Functions and Relations.">
+  <title>Lecture 4: Functions and Relations | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 4: Functions and Relations</h1><div class="subtitle">Introduction to Proofs &middot; Week 4</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 4</span><span class="lecture-topic">Functions and Relations</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Define relations and test reflexivity, symmetry and transitivity.</li><li>Explain equivalence relations, equivalence classes and their connection to partitions.</li><li>Recognise partial orders and total orders.</li><li>Define functions precisely and prove injectivity or surjectivity.</li><li>Compose functions and analyse inverse functions and images of sets.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>A relation is a rule that answers yes or no to “are these two objects related?”. A function is a special relation: every input has exactly one output. On \(\mathbb{Z}\), the rule \(f(n)=2n\) is a function. It is injective because two inputs with the same output must be equal, but it is not surjective onto \(\mathbb{Z}\) because no odd integer is hit.</p><p>An equivalence relation is a relation that behaves like equality after you decide which differences to ignore. Congruence modulo \(n\) ignores differences that are multiples of \(n\), so \(17\equiv2\pmod5\). The resulting equivalence classes group integers by remainder.</p></div>
+
+      <div class="lecture-section"><h2>1. Relations</h2>
+<div class="definition-box"><strong>Definition 4.1 (Relation)</strong> A (binary) relation from a set \(A\) to a set \(B\) is a subset \(R\subseteq A\times B\). If \((a,b)\in R\), write \(aRb\). A relation on \(A\) is a subset of \(A\times A\).</div>
+<p>Since a relation is a set, equality of relations means equality as sets of ordered pairs. The <em>domain</em> of \(R\) is \(\{a\in A:\exists b\in B,\,(a,b)\in R\}\), and its <em>range</em> is \(\{b\in B:\exists a\in A,\,(a,b)\in R\}\).</p>
+<div class="definition-box"><strong>Definition 4.2 (Properties of a relation on \(A\))</strong>
+<ul>
+<li><em>Reflexive:</em> \(\forall a\in A,\,(a,a)\in R\).</li>
+<li><em>Symmetric:</em> \(\forall a,b\in A,\,(a,b)\in R\to(b,a)\in R\).</li>
+<li><em>Antisymmetric:</em> \(\forall a,b\in A,\,[(a,b)\in R\land(b,a)\in R]\to a=b\).</li>
+<li><em>Transitive:</em> \(\forall a,b,c\in A,\,[(a,b)\in R\land(b,c)\in R]\to(a,c)\in R\).</li>
+</ul></div>
+<div class="example-box"><strong>Example 4.3</strong> On \(\mathbb{Z}\), the relation \(\le\) is reflexive, antisymmetric and transitive, but not symmetric. The relation \(=\) has all four properties. The relation "\(a\) divides \(b\)" on \(\mathbb{N}\) is reflexive and transitive, and antisymmetric on \(\mathbb{N}\), but not symmetric. On \(\mathbb{Z}\), divisibility is not antisymmetric because \(2\mid-2\) and \(-2\mid2\) while \(2\ne-2\).</div>
+</div><div class="lecture-section"><h2>2. Equivalence relations and partitions</h2>
+<div class="definition-box"><strong>Definition 4.4 (Equivalence relation)</strong> A relation \(\sim\) on \(A\) that is reflexive, symmetric and transitive is an <em>equivalence relation</em>. For \(a\in A\), the <em>equivalence class</em> of \(a\) is \([a]=\{x\in A:x\sim a\}\). The set of all classes is denoted \(A/{\sim}\) and called the quotient of \(A\) by \(\sim\).</div>
+<div class="theorem-box"><strong>Theorem 4.5</strong> If \(\sim\) is an equivalence relation on \(A\), then:
+<ol>
+<li>\(a\in[a]\) for every \(a\in A\).</li>
+<li>\([a]=[b]\) if and only if \(a\sim b\).</li>
+<li>Any two classes are either equal or disjoint.</li>
+<li>\(\bigcup_{a\in A}[a]=A\).</li>
+</ol>
+Thus the equivalence classes form a <em>partition</em> of \(A\): a collection of nonempty, pairwise disjoint subsets whose union is \(A\).</div>
+<div class="proof-box"><strong>Proof of (2) and (3).</strong> If \([a]=[b]\), then \(a\in[a]=[b]\), so \(a\sim b\) by the definition of \([b]\) and symmetry. Conversely, suppose \(a\sim b\). If \(x\in[a]\), then \(x\sim a\); with \(a\sim b\), transitivity gives \(x\sim b\), so \(x\in[b]\). Hence \([a]\subseteq[b]\); the reverse inclusion follows by symmetry from \(b\sim a\). For (3), suppose \([a]\cap[b]\ne\varnothing\) and choose \(c\) in the intersection. Then \(a\sim c\sim b\), so \(a\sim b\), and by (2) the classes are equal. \(\square\)</div>
+<div class="example-box"><strong>Example 4.6</strong> Congruence modulo \(n\) on \(\mathbb{Z}\), defined by \(a\sim b\iff a\equiv b\pmod n\), is an equivalence relation (proved in Lecture 3 of the number theory course). Its classes are residue classes: \(\mathbb{Z}/{\sim}=\{[0],[1],\ldots,[n-1]\}\), which partition \(\mathbb{Z}\).</div>
+</div><div class="lecture-section"><h2>3. Order relations</h2>
+<div class="definition-box"><strong>Definition 4.7 (Partial order)</strong> A relation \(\preceq\) on \(A\) that is reflexive, antisymmetric and transitive is a <em>partial order</em>, and \((A,\preceq)\) is a poset. If in addition every pair \(a,b\in A\) satisfies \(a\preceq b\) or \(b\preceq a\), the order is <em>total</em> (linear).</div>
+<p>On \(\mathbb{R}\), \(\le\) is a total order. On \(\mathcal{P}(X)\), inclusion \(\subseteq\) is a partial order: \(\{1\}\not\subseteq\{2\}\) and \(\{2\}\not\subseteq\{1\}\), so it is not total. In a poset, an element \(m\) is <em>minimal</em> if no element is strictly below it; it is a <em>least</em> element if it is below every element. A least element is minimal, but a minimal element need not be least: in \(\mathcal{P}(\{1,2\})\setminus\{\varnothing\}\) under inclusion, both \(\{1\}\) and \(\{2\}\) are minimal and neither is least.</p>
+<p>The well-ordering principle states that every nonempty set of positive integers has a least element. This is a fundamental tool for induction, which we study in Lecture 8.</p>
+</div><div class="lecture-section"><h2>4. Functions</h2>
+<div class="definition-box"><strong>Definition 4.8 (Function)</strong> A <em>function</em> \(f:A\to B\) is a relation from \(A\) to \(B\) such that for every \(a\in A\) there is exactly one \(b\in B\) with \((a,b)\in f\). We write \(f(a)=b\), call \(A\) the domain and \(B\) the codomain, and call \(b\) the image of \(a\).</div>
+<p>Two functions are equal exactly when they have the same domain and the same value at every element of that domain. The codomain is part of the data of a function: \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x^2\) and \(g:\mathbb{R}\to[0,\infty)\), \(g(x)=x^2\) are different functions even though their rules agree.</p>
+<div class="definition-box"><strong>Definition 4.9 (Injective, surjective, bijective)</strong> For \(f:A\to B\):
+<ul>
+<li>\(f\) is <em>injective</em> (one-to-one) if \(f(a_1)=f(a_2)\implies a_1=a_2\) for all \(a_1,a_2\in A\).</li>
+<li>\(f\) is <em>surjective</em> (onto) if for every \(b\in B\) there exists \(a\in A\) with \(f(a)=b\).</li>
+<li>\(f\) is <em>bijective</em> if it is both injective and surjective.</li>
+</ul>
+The image of \(f\) is \(f(A)=\{f(a):a\in A\}\), so surjectivity is the statement \(f(A)=B\). For \(S\subseteq B\), the preimage is \(f^{-1}(S)=\{a\in A:f(a)\in S\}\).</div>
+<div class="example-box"><strong>Example 4.10</strong> Let \(f:\mathbb{R}\to\mathbb{R}\), \(f(x)=x^2\). It is not injective, since \(f(-1)=f(1)\), and not surjective, since no real \(x\) satisfies \(x^2=-1\). If the domain is restricted to \([0,\infty)\) and codomain to \([0,\infty)\), the same formula gives a bijection.</div>
+<p>To prove injectivity, start with the equation \(f(a_1)=f(a_2)\) and deduce \(a_1=a_2\). To prove surjectivity, let \(b\in B\) be arbitrary and construct an \(a\in A\) with \(f(a)=b\); the constructed \(a\) may depend on \(b\).</p>
+</div><div class="lecture-section"><h2>5. Composition, inverses, and images</h2>
+<div class="definition-box"><strong>Definition 4.11</strong> If \(f:A\to B\) and \(g:B\to C\), their <em>composition</em> is \(g\circ f:A\to C\), \((g\circ f)(a)=g(f(a))\). A function \(g:B\to A\) is an <em>inverse</em> of \(f\) if \(g\circ f=\operatorname{id}_A\) and \(f\circ g=\operatorname{id}_B\).</div>
+<div class="theorem-box"><strong>Theorem 4.12</strong>
+<ol>
+<li>If \(f\) and \(g\) are injective, then \(g\circ f\) is injective.</li>
+<li>If \(f\) and \(g\) are surjective, then \(g\circ f\) is surjective.</li>
+<li>A function \(f:A\to B\) has an inverse if and only if it is bijective; when the inverse exists it is unique and denoted \(f^{-1}\).</li>
+<li>For any \(f:A\to B\) and \(S,T\subseteq B\): \(f^{-1}(S\cup T)=f^{-1}(S)\cup f^{-1}(T)\) and \(f^{-1}(S\cap T)=f^{-1}(S)\cap f^{-1}(T)\).</li>
+</ol></div>
+<div class="proof-box"><strong>Proof of (1) and (3).</strong> For (1), suppose \(g(f(a_1))=g(f(a_2))\). Injectivity of \(g\) gives \(f(a_1)=f(a_2)\), and injectivity of \(f\) gives \(a_1=a_2\). For (3), if \(g\) is an inverse and \(f(a_1)=f(a_2)\), applying \(g\) gives \(a_1=a_2\), so \(f\) is injective; for \(b\in B\), \(a=g(b)\) satisfies \(f(a)=b\), so \(f\) is surjective. Conversely, if \(f\) is bijective, define \(g(b)\) to be the unique \(a\) with \(f(a)=b\); then \(g(f(a))=a\) and \(f(g(b))=b\). Uniqueness follows because if \(g\) and \(h\) are both inverses, \(g=g\circ\operatorname{id}_B=g\circ(f\circ h)=(g\circ f)\circ h=\operatorname{id}_A\circ h=h\). \(\square\)</div>
+<p>Part (4) is proved by element chasing: \(a\in f^{-1}(S\cup T)\iff f(a)\in S\cup T\iff f(a)\in S\text{ or }f(a)\in T\iff a\in f^{-1}(S)\cup f^{-1}(T)\). Notice that preimages preserve unions and intersections in both directions; images preserve unions but only preserve intersections when \(f\) is injective.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: classes partition the domain</h2>
+<div class="theorem-box"><strong>Theorem 4.10</strong> If \(\sim\) is an equivalence relation on \(A\), then any two equivalence classes are either equal or disjoint.</div>
+<div class="proof-box"><strong>Proof.</strong> Suppose \([a]\cap[b]\ne\varnothing\), and choose \(c\) in the intersection. Then \(c\sim a\) and \(c\sim b\). By symmetry, \(a\sim c\), and by transitivity, \(a\sim b\). If \(x\in[a]\), then \(x\sim a\sim b\), so \(x\in[b]\); hence \([a]\subseteq[b]\). The reverse inclusion follows similarly from \(b\sim a\). Therefore \([a]=[b]\). If the classes do not intersect, they are disjoint. \(\square\)</div>
+<p>This theorem is why equivalence classes form a partition: every element lies in at least one class by reflexivity, and distinct classes do not overlap. For functions, the corresponding structural result is that \(f\) is bijective exactly when there is an inverse function \(f^{-1}:B\to A\).</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>On \(\mathbb{Z}\), define \(a\sim b\) iff \(a-b\) is even. Verify that \(\sim\) is an equivalence relation and describe its classes.</li><li>Give an example of a relation that is symmetric and transitive but not reflexive.</li><li>Decide whether \(\subseteq\) on \(\mathcal{P}(\{1,2,3\})\) is a total order.</li><li>Prove that \(f:\mathbb{R}	o\mathbb{R}\), \(f(x)=3x+1\) is bijective by finding an explicit inverse.</li><li>Let \(f:\mathbb{R}	o\mathbb{R}\), \(f(x)=x^2\). Find \(f^{-1}([4,9])\).</li><li>Prove that a composition of two surjections is surjective.</li><li>Give an example showing that \(f(S\cap T)
+e f(S)\cap f(T)\) can happen.</li><li>If \(f:A	o B\) is injective and \(S\subseteq A\), prove \(f^{-1}(f(S))=S\).</li></ol><p>Complete <a href="problem-set-4-proofs.html">Problem Set 4</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-3.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-5.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

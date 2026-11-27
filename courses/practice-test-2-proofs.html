@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Introduction to Proofs Practice Test 2 - induction, divisibility, combinatorial proofs, cardinality, and proof writing.">
+  <title>Practice Test 2 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body><div class="site-topbar">
+<header>
+    <div class="header-controls">
+      <label class="search-bar" for="site-search">
+        <span class="search-bar__icon">⌕</span>
+        <input id="site-search" type="search" placeholder="Search site" autocomplete="off">
+      </label>
+    </div>
+    <div class="header-content">
+      <p class="site-title">Introduction to Proofs</p>
+    </div>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../about.html">About me</a></li>
+      <li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li>
+      <li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="practice-header">
+      <h1>Practice Test 2</h1>
+      <div class="subtitle">Introduction to Proofs &middot; Lectures 7-12 &middot; 20 questions + 1 bonus</div>
+    </div>
+    <div class="practice-intro">
+      <p>This test covers ordinary and strong induction, well-ordering, divisibility and modular arithmetic, combinatorial proof, cardinality, and proof auditing, with a cumulative review of earlier techniques. It contains <strong>20 questions</strong>: <strong>Part A</strong> (10 multiple choice, 1 mark each) and <strong>Part B</strong> (10 written response, 2 marks each), plus one optional <strong>bonus problem</strong>.</p>
+      <p>Total: <strong>30 marks</strong>. The bonus is worth <strong>5 extra marks</strong> and is reported separately. Select your answers, write your proofs, then press <strong>Submit Test</strong> to see your grade, the correct answers, and full worked solutions. For written proofs, the grader checks for the key logical steps; a different but equivalent proof should still contain those steps.</p>
+    </div>
+    <div class="test-results" id="test-results" hidden>
+      <h3>Test Results</h3>
+      <p class="test-results__score">Your score: <span id="score-total">0</span> / 30</p>
+      <p>Multiple Choice: <span id="score-mc">0</span> / 10</p>
+      <p>Written Response: <span id="score-written">0</span> / 20</p>
+      <p class="test-results__percent">Percentage: <span id="score-percent">0</span>%</p>
+      <p>Bonus problem: <span id="score-bonus">0</span> / 5 (not included in the total)</p>
+    </div>
+    <section class="test-section">
+      <h2 class="test-title">Practice Test 2 - Introduction to Proofs</h2>
+      <span class="part-label">Part A: Multiple Choice (1 mark each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Choose the best answer for each question.</p>
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">1.</div>
+        <p class="mc-question__text">To prove \(\sum_{i=1}^n i=\frac{n(n+1)}2\) by induction for all \(n\ge1\), the base case should verify:</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q1" value="A"> \(n=1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q1" value="B"> \(n=0\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q1" value="C"> \(n=2\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q1" value="D"> No base case is needed.</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">2.</div>
+        <p class="mc-question__text">In the inductive step proving \(P(n)\) for all \(n\ge1\), what is the induction hypothesis?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q2" value="A"> \(P(n+1)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q2" value="B"> \(P(n)\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q2" value="C"> \(P(k)\) for every \(k\ge1\)</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q2" value="D"> \(P(1)\land P(2)\)</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">3.</div>
+        <p class="mc-question__text">In a strong induction proof of \(P(n)\), the induction hypothesis typically assumes:</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q3" value="A"> Only \(P(n)\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q3" value="B"> Only \(P(n-1)\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q3" value="C"> \(P(k)\) for all relevant \(k&lt;n\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q3" value="D"> The conclusion \(P(n)\) without justification.</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="D">
+        <div class="mc-question__num">4.</div>
+        <p class="mc-question__text">The well-ordering principle says that every nonempty subset of \(\mathbb{N}\):</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q4" value="A"> Is finite.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q4" value="B"> Has a maximum element.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q4" value="C"> Contains 0.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q4" value="D"> Has a least element.</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">5.</div>
+        <p class="mc-question__text">For \(F_1=F_2=1\) and \(F_{n+2}=F_{n+1}+F_n\), what is \(F_5\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q5" value="A"> 3</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q5" value="B"> 5</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q5" value="C"> 8</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q5" value="D"> 13</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">6.</div>
+        <p class="mc-question__text">Euclid's lemma states that if \(p\) is prime and \(p\mid ab\), then:</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q6" value="A"> \(p\mid a\) or \(p\mid b\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q6" value="B"> \(p=a\) or \(p=b\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q6" value="C"> \(a\mid b\) or \(b\mid a\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q6" value="D"> \(ab\mid p\).</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="C">
+        <div class="mc-question__num">7.</div>
+        <p class="mc-question__text">Compute \(17\bmod 5\).</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q7" value="A"> 0</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q7" value="B"> 1</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q7" value="C"> 2</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q7" value="D"> 3</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="B">
+        <div class="mc-question__num">8.</div>
+        <p class="mc-question__text">What is \(\binom52\)?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q8" value="A"> 5</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q8" value="B"> 10</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q8" value="C"> 20</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q8" value="D"> 25</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="D">
+        <div class="mc-question__num">9.</div>
+        <p class="mc-question__text">Which condition implies that a set \(A\) is countable?</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q9" value="A"> \(A\) has a proper subset.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q9" value="B"> \(A\) is a subset of \(\mathbb{R}\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q9" value="C"> There is a surjection from \(\mathbb{N}\) onto \(A\) only if \(A\) is finite.</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q9" value="D"> There is an injection \(A\to\mathbb{N}\).</label></li>
+        </ul>
+      </div>
+      <div class="mc-question" data-correct="A">
+        <div class="mc-question__num">10.</div>
+        <p class="mc-question__text">Cantor's theorem states that for every set \(A\):</p>
+        <ul class="mc-options">
+          <li><label class="mc-option"><input type="radio" name="pt2q10" value="A"> \(|A|&lt;|\mathcal{P}(A)|\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q10" value="B"> \(|A|=|\mathcal{P}(A)|\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q10" value="C"> \(A\subseteq\mathcal{P}(A)\).</label></li>
+          <li><label class="mc-option"><input type="radio" name="pt2q10" value="D"> \(\mathcal{P}(A)\) is finite whenever \(A\) is infinite.</label></li>
+        </ul>
+      </div>
+      <span class="part-label">Part B: Written Response (2 marks each)</span>
+      <p class="mc-question__text" style="color:var(--muted);">Write a complete argument in the box provided. State the induction hypothesis or key theorem you use.</p>
+      <div class="written-question" data-points="2" data-answers="base n=1~base case n=1|assume sum n = n(n+1)/2~assume formula for n|add n+1~add n+1 to both sides|(n+1)(n+2)/2~n+1 times n+2 over 2">
+        <div class="written-question__num">11.</div>
+        <p class="written-question__text">Prove by induction that \(\sum_{i=1}^n i=\frac{n(n+1)}2\) for all \(n\ge1\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="n(n-1)(n+1)~product of three consecutive integers|one factor even~divisible by 2|one factor divisible by 3~multiple of 3|gcd(2,3)=1~2 and 3 coprime">
+        <div class="written-question__num">12.</div>
+        <p class="written-question__text">Prove that \(6\mid n^3-n\) for every integer \(n\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="base n=2 prime~base case 2|if n prime done~n prime case|if composite n=ab with a and b smaller than n~composite factorisation|apply induction to a and b~induction on factors|multiply the factorisations~product of prime factorisations">
+        <div class="written-question__num">13.</div>
+        <p class="written-question__text">Use strong induction to prove that every integer \(n\ge2\) is a product of primes.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="suppose a set of counterexamples~assume there is a counterexample|let m be least~least counterexample|m is not prime~m composite|m=ab with a and b smaller than m~factor m|prime divisor of a divides m~contradiction">
+        <div class="written-question__num">14.</div>
+        <p class="written-question__text">Use a minimal-counterexample argument to prove that every integer \(n\ge2\) has a prime divisor.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="Euclid's lemma applied to a*a~p divides a squared|p divides a or p divides a~p|a or p|a|therefore p divides a~so p|a">
+        <div class="written-question__num">15.</div>
+        <p class="written-question__text">Let \(p\) be prime. Prove that if \(p\mid a^2\), then \(p\mid a\).</p>
+        <textarea class="written-answer" rows="4" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="n divides (a-b) and n divides (c-d)~congruence definitions|(a+c)-(b+d)=(a-b)+(c-d)~difference identity|n divides the sum~n divides (a-b)+(c-d)|a+c congruent b+d~a+c = b+d mod n">
+        <div class="written-question__num">16.</div>
+        <p class="written-question__text">Prove that if \(a\equiv b\pmod n\) and \(c\equiv d\pmod n\), then \(a+c\equiv b+d\pmod n\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="count subsets of an n element set~count subsets|sum over sizes k gives sum C(n,k)~group by cardinality|each element in or out gives 2^n~two choices per element|same set counted twice~double counting">
+        <div class="written-question__num">17.</div>
+        <p class="written-question__text">Give a combinatorial proof that \(\sum_{k=0}^n\binom nk=2^n\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="rationals as p/q with q positive~p and q integers|Z times N is countable~pairs of integers are countable|skip unreduced duplicates~remove repeats|enumerate the rationals~list all rationals">
+        <div class="written-question__num">18.</div>
+        <p class="written-question__text">Prove that \(\mathbb{Q}\) is countable.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="assume a countable list~list the numbers|look at diagonal digit d_ii~diagonal digit|choose e_i different from d_ii~different digit|y differs from every x_i~not on the list|contradiction~uncountable">
+        <div class="written-question__num">19.</div>
+        <p class="written-question__text">Use Cantor's diagonal argument to prove that \((0,1)\) is uncountable.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <div class="written-question" data-points="2" data-answers="the step n^2 even implies n=2k assumes the conclusion~circular~assumes what to prove|use Euclid's lemma with p=2~Euclid lemma|or prove contrapositive~contrapositive">
+        <div class="written-question__num">20.</div>
+        <p class="written-question__text">Audit this argument: “If \(n^2\) is even, let \(n=2k\). Then \(n^2=4k^2\), so \(n^2\) is even.” Identify the gap and give a correct proof strategy.</p>
+        <textarea class="written-answer" rows="5" placeholder="Your answer..."></textarea>
+      </div>
+      <span class="part-label">Bonus Problem (5 marks, not included in the total)</span>
+      <div class="written-question bonus-question" data-points="5" data-answers="choose n elements from 2n~count n subsets of 2n set~split into two halves|k from first half and n-k from second half~binom n k squared~k from X and n-k from Y|sum over k~double counting~same set counted twice">
+        <div class="written-question__num">21.</div>
+        <p class="written-question__text">Give a double-counting proof that \(\sum_{k=0}^n\binom nk^2=\binom{2n}n\).</p>
+        <textarea class="written-answer" rows="5" placeholder="Your proof..."></textarea>
+      </div>
+      <button type="button" class="submit-btn" id="submit-btn">Submit Test</button>
+    </section>
+    <section class="practice-intro" id="solution-bank" hidden>
+      <h3>Worked Solutions</h3>
+      <p>Each solution gives one complete route and notes where a common error can occur.</p>
+      <ol>
+        <li><strong>1.</strong> The statement is indexed by \(n\ge1\), so the first case to verify is \(n=1\): \(1=1(2)/2\).</li>
+        <li><strong>2.</strong> To prove \(P(n)\to P(n+1)\), we assume \(P(n)\) for an arbitrary \(n\ge1\) and derive \(P(n+1)\). We do not assume the conclusion \(P(n+1)\).</li>
+        <li><strong>3.</strong> Strong induction assumes \(P(k)\) for all previous values \(k&lt;n\), up to whatever lower bound the statement requires. This is more informative than ordinary induction, which assumes only \(P(n)\).</li>
+        <li><strong>4.</strong> The well-ordering principle for \(\mathbb{N}\) says that every nonempty subset has a least element. It need not have a maximum and need not contain 0.</li>
+        <li><strong>5.</strong> \(F_3=F_2+F_1=2\), \(F_4=F_3+F_2=3\), and \(F_5=F_4+F_3=5\).</li>
+        <li><strong>6.</strong> Euclid's lemma is the key prime property: if a prime divides a product, it divides at least one factor. The other options misstate the result.</li>
+        <li><strong>7.</strong> \(17=3\cdot5+2\), with \(0\le2&lt;5\), so \(17\bmod5=2\).</li>
+        <li><strong>8.</strong> \(\binom52=\frac{5!}{2!3!}=10\). Equivalently, there are 10 two-element subsets of a five-element set.</li>
+        <li><strong>9.</strong> An injection \(A\to\mathbb{N}\) embeds \(A\) into the natural numbers, so \(A\) is finite or countably infinite. A subset of \(\mathbb{R}\) need not be countable, such as \((0,1)\).</li>
+        <li><strong>10.</strong> Cantor's theorem says no set has the same cardinality as its power set; the injection \(a\mapsto\{a\}\) gives \(|A|\le|\mathcal{P}(A)|\), and the diagonal argument rules out a bijection.</li>
+        <li><strong>11.</strong> Base case: \(1=\frac{1\cdot2}{2}\). Inductive step: assume \(\sum_{i=1}^n i=\frac{n(n+1)}2\). Then
+          \(\sum_{i=1}^{n+1}i=\frac{n(n+1)}2+(n+1)=\frac{(n+1)(n+2)}2\), which is the formula for \(n+1\).</li>
+        <li><strong>12.</strong> \(n^3-n=n(n-1)(n+1)\), the product of three consecutive integers. Among any two consecutive integers one is even, and among any three consecutive integers one is divisible by 3. Since \(\gcd(2,3)=1\), the product is divisible by \(6\).</li>
+        <li><strong>13.</strong> Base case: \(2\) is prime. Inductive step: assume every integer from \(2\) up to \(n\) is a product of primes. If \(n+1\) is prime, we are done. If \(n+1\) is composite, write \(n+1=ab\) with \(2\le a,b\le n\). By the induction hypothesis, \(a\) and \(b\) are products of primes, so their product \(n+1\) is also a product of primes.</li>
+        <li><strong>14.</strong> Suppose there is an \(n\ge2\) with no prime divisor. Let \(m\) be the least such integer by well-ordering. Then \(m\) is not prime, so \(m=ab\) with \(1&lt;a&lt;m\) and \(1&lt;b&lt;m\). By minimality, \(a\) has a prime divisor \(p\). Since \(p\mid a\) and \(a\mid m\), we get \(p\mid m\), a contradiction.</li>
+        <li><strong>15.</strong> Since \(a^2=a\cdot a\), Euclid's lemma applied to the prime \(p\) gives \(p\mid a\) or \(p\mid a\). In either case, \(p\mid a\).</li>
+        <li><strong>16.</strong> The hypotheses give \(n\mid(a-b)\) and \(n\mid(c-d)\). Since \((a+c)-(b+d)=(a-b)+(c-d)\), \(n\) divides \((a+c)-(b+d)\), which means \(a+c\equiv b+d\pmod n\).</li>
+        <li><strong>17.</strong> Count all subsets of \(\{1,\ldots,n\}\) in two ways. Grouping subsets by their size \(k\) gives \(\sum_{k=0}^n\binom nk\). Deciding independently for each element whether to include it gives \(2^n\) subsets. Hence the two quantities are equal.</li>
+        <li><strong>18.</strong> Every rational can be written as \(p/q\) with \(p\in\mathbb{Z}\) and \(q\in\mathbb{N}\). The set \(\mathbb{Z}\times\mathbb{N}\) is countable, so list these pairs and delete repetitions such as \(1/2=2/4\). The remaining list contains every rational exactly once, so \(\mathbb{Q}\) is countable.</li>
+        <li><strong>19.</strong> Suppose \((0,1)\) were countable and list it as \(x_1,x_2,\ldots\). Write \(x_i=0.d_{i1}d_{i2}\ldots\), choosing the expansion with no trailing nines. Define \(y=0.e_1e_2\ldots\) by \(e_i=1\) if \(d_{ii}\ne1\) and \(e_i=2\) if \(d_{ii}=1\). Then \(y\in(0,1)\) and \(y\) differs from \(x_i\) in the \(i\)-th decimal place, so \(y\) is missing from the list, a contradiction.</li>
+        <li><strong>20.</strong> The phrase “let \(n=2k\)” assumes the desired conclusion that \(n\) is even; the given information \(n^2\) even does not by itself license that step. Correct strategies: use Euclid's lemma with \(p=2\) applied to \(n\cdot n\), or prove the contrapositive by showing that \(n\) odd implies \(n^2\) odd.</li>
+        <li><strong>21.</strong> Split a \(2n\)-element set into two halves \(X\) and \(Y\), each of size \(n\). The right side counts all \(n\)-element subsets of \(X\cup Y\). The left side counts the same subsets by choosing \(k\) elements from \(X\) and \(n-k\) elements from \(Y\), giving \(\binom nk\binom n{n-k}=\binom nk^2\) choices for each \(k\). Summing over \(k\) gives the identity.</li>
+      </ol>
+    </section>
+    <div class="navigation no-print">
+      <a href="practice-test-1-proofs.html">← Practice Test 1</a>
+      <a href="introduction-to-proofs.html">Back to Course →</a>
+    </div>
+  </main>
+  <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+  <script>
+    (function () {
+      var submitBtn = document.getElementById('submit-btn');
+      var results = document.getElementById('test-results');
+      var MC_TOTAL = 10;
+      var WRITTEN_TOTAL = 20;
+      var GRAND_TOTAL = MC_TOTAL + WRITTEN_TOTAL;
+      var solutionItems = [];
+      function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+      function solutionHtml(number) {
+        var li = solutionItems[number - 1];
+        if (!li) { return ''; }
+        var clone = li.cloneNode(true);
+        var lead = clone.querySelector('strong');
+        var label = lead ? lead.textContent.trim() : '';
+        if (lead) { lead.remove(); }
+        return '<strong>Solution' + (label ? ' ' + label : '.') + '</strong> ' + clone.innerHTML;
+      }
+      function normalize(s) {
+        return String(s)
+          .toLowerCase()
+          .replace(/π/g, 'pi')
+          .replace(/√/g, 'sqrt')
+          .replace(/\\sqrt/g, 'sqrt')
+          .replace(/−/g, '-')
+          .replace(/\|/g, '').replace(/[()]/g, '').replace(/[=,]/g, '')
+          .replace(/²/g, '^2').replace(/³/g, '^3').replace(/⁴/g, '^4').replace(/⁵/g, '^5')
+          .replace(/⁰/g, '^0').replace(/¹/g, '^1').replace(/⁶/g, '^6').replace(/⁷/g, '^7').replace(/⁸/g, '^8').replace(/⁹/g, '^9')
+          .replace(/\s+/g, '');
+      }
+      function addReveal(q, html) {
+        var ca = document.createElement('div');
+        ca.className = 'correct-answer';
+        ca.innerHTML = html;
+        q.appendChild(ca);
+        return ca;
+      }
+      function gradeWritten(q, reveals, number) {
+        var points = parseInt(q.getAttribute('data-points') || '2', 10);
+        var groups = (q.getAttribute('data-answers') || '').split('|').filter(Boolean);
+        var ta = q.querySelector('.written-answer');
+        var normVal = normalize(ta ? ta.value : '');
+        var matchedGroups = 0;
+        groups.forEach(function (group) {
+          var alternatives = group.split('~').filter(Boolean);
+          var ok = alternatives.some(function (a) {
+            return normVal.indexOf(normalize(a)) !== -1;
+          });
+          if (ok) { matchedGroups++; }
+        });
+        var earned = groups.length ? Math.round(points * matchedGroups / groups.length) : 0;
+        var fb = document.createElement('div');
+        fb.className = 'question-feedback';
+        if (matchedGroups === groups.length) {
+          q.classList.add('is-correct');
+          fb.classList.add('correct');
+          fb.textContent = 'Correct! (+' + earned + ')';
+        } else if (matchedGroups === 0) {
+          q.classList.add('is-incorrect');
+          fb.classList.add('incorrect');
+          fb.textContent = 'Review needed.';
+        } else {
+          q.classList.add('is-partial');
+          fb.classList.add('partial');
+          fb.textContent = 'Partial (' + earned + '/' + points + ').';
+        }
+        q.appendChild(fb);
+        var primary = groups.length ? groups[0].split('~')[0] : '';
+        var sol = solutionHtml(number);
+        reveals.push(addReveal(q, '<strong>Expected form:</strong> ' + escapeHtml(primary) + (sol ? '<br>' + sol : '')));
+        return earned;
+      }
+      function grade() {
+        document.querySelectorAll('.question-feedback').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.correct-answer').forEach(function (el) { el.remove(); });
+        document.querySelectorAll('.mc-question, .written-question').forEach(function (q) {
+          q.classList.remove('is-correct', 'is-incorrect', 'is-partial', 'is-unanswered');
+        });
+        var reveals = [];
+        solutionItems = document.querySelectorAll('#solution-bank li');
+        var mcMarks = 0;
+        document.querySelectorAll('.mc-question').forEach(function (q, index) {
+          var correct = q.getAttribute('data-correct');
+          var checked = q.querySelector('input[type="radio"]:checked');
+          var fb = document.createElement('div');
+          fb.className = 'question-feedback';
+          if (!checked) {
+            q.classList.add('is-unanswered');
+            fb.classList.add('unanswered');
+            fb.textContent = 'Not answered.';
+          } else if (checked.value === correct) {
+            mcMarks += 1;
+            q.classList.add('is-correct');
+            fb.classList.add('correct');
+            fb.textContent = 'Correct! (+1)';
+          } else {
+            q.classList.add('is-incorrect');
+            fb.classList.add('incorrect');
+            fb.textContent = 'Incorrect.';
+          }
+          q.appendChild(fb);
+          var correctText = '';
+          q.querySelectorAll('.mc-option').forEach(function (label) {
+            var input = label.querySelector('input[type="radio"]');
+            if (input && input.value === correct) { correctText = label.textContent.trim(); }
+          });
+          var sol = solutionHtml(index + 1);
+          reveals.push(addReveal(q, '<strong>Correct answer:</strong> ' + escapeHtml(correctText) + (sol ? '<br>' + sol : '')));
+        });
+        var writtenMarks = 0;
+        document.querySelectorAll('.written-question:not(.bonus-question)').forEach(function (q, index) {
+          writtenMarks += gradeWritten(q, reveals, MC_TOTAL + index + 1);
+        });
+        var bonusMarks = 0;
+        document.querySelectorAll('.bonus-question').forEach(function (q, index) {
+          bonusMarks += gradeWritten(q, reveals, MC_TOTAL + WRITTEN_TOTAL + index + 1);
+        });
+        var total = mcMarks + writtenMarks;
+        document.getElementById('score-total').textContent = total;
+        document.getElementById('score-mc').textContent = mcMarks;
+        document.getElementById('score-written').textContent = writtenMarks;
+        document.getElementById('score-percent').textContent = Math.round(total / GRAND_TOTAL * 100);
+        var bonusScore = document.getElementById('score-bonus');
+        if (bonusScore) { bonusScore.textContent = bonusMarks; }
+        var bank = document.getElementById('solution-bank');
+        if (bank) { bank.hidden = false; reveals.push(bank); }
+        results.hidden = false;
+        results.scrollIntoView({ behavior: 'smooth' });
+        submitBtn.textContent = 'Regrade Test';
+        if (window.MathJax && MathJax.typesetPromise && reveals.length) {
+          MathJax.typesetPromise(reveals);
+        }
+      }
+      if (submitBtn) { submitBtn.addEventListener('click', grade); }
+    })();
+  </script>
+</body>
+</html>

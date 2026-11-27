@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 12.">
+  <title>Solutions: Problem Set 12 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 12</h1><div class="subtitle">Introduction to Proofs - Lecture 12</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>The logical form of a statement dictates the first line of its proof.</li><li>Existence requires a witness; uniqueness requires comparing two witnesses.</li><li>Counterexamples disprove universal claims with one concrete case.</li><li>Proof audits check quantifiers, reversibility of steps, and completeness of cases.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove: for every real number \(x\), if \(x^2-3x+2=0\), then \(x=1\) or \(x=2\).</div><p>Let \(x\in\mathbb{R}\) satisfy \(x^2-3x+2=0\). Factoring gives \((x-1)(x-2)=0\). By the zero-product property of \(\mathbb{R}\), \(x-1=0\) or \(x-2=0\), so \(x=1\) or \(x=2\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove that there is no integer \(n\) with \(n^2\equiv2\pmod3\).</div><p>Every integer is congruent to \(0,1\), or \(2\) modulo \(3\). Squaring gives residues \(0,1,1\). Thus \(2\) never occurs as a square modulo \(3\), so no such integer exists.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove that \(f:\mathbb{R}	o\mathbb{R}\), \(f(x)=x^3+x\) is bijective.</div><div class="step"><strong>Injectivity.</strong> If \(a^3+a=b^3+b\), then \((a-b)(a^2+ab+b^2+1)=0\). The second factor equals \((a+b/2)^2+3b^2/4+1&gt;0\), so \(a=b\).</div>
+<div class="step"><strong>Surjectivity.</strong> Let \(y\in\mathbb{R}\). The polynomial \(g(x)=x^3+x-y\) satisfies \(\lim_{x\to-\infty}g(x)=-\infty\) and \(\lim_{x\to+\infty}g(x)=+\infty\). Since polynomials are continuous, the intermediate value theorem gives some \(c\) with \(g(c)=0\), i.e. \(f(c)=y\).</div>
+<p>Alternatively, surjectivity can be proved by solving the cubic explicitly, but the continuity argument avoids a complicated formula.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that \(\mathcal{P}(A)\subseteq\mathcal{P}(B)\) if and only if \(A\subseteq B\).</div><div class="step"><strong>Forward direction.</strong> If \(X\in\mathcal{P}(A)\), then \(X\subseteq A\subseteq B\), so \(X\in\mathcal{P}(B)\).</div>
+<div class="step"><strong>Reverse direction.</strong> Assume \(\mathcal{P}(A)\subseteq\mathcal{P}(B)\). Since \(A\subseteq A\), we have \(A\in\mathcal{P}(A)\), hence \(A\in\mathcal{P}(B)\), which means \(A\subseteq B\).</div>
+<p>The reverse direction is short but easy to overlook: the set \(A\) itself is one of its own subsets, so it must belong to \(\mathcal{P}(B)\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Prove that \(\sum_{k=1}^n\frac1{k(k+1)}=\frac{n}{n+1}\) by induction and by telescoping.</div><div class="step"><strong>Induction.</strong> The base case \(n=1\) gives \(1/2=1/2\). Assuming the formula at \(k\), add \(1/((k+1)(k+2))\):
+\[\frac{k}{k+1}+\frac1{(k+1)(k+2)}=\frac{k(k+2)+1}{(k+1)(k+2)}=\frac{k+1}{k+2}.\]</div>
+<div class="step"><strong>Telescoping.</strong> Since \(\frac1{k(k+1)}=\frac1k-\frac1{k+1}\), the sum is
+\[\left(1-\frac12\right)+\left(\frac12-\frac13\right)+\cdots+\left(\frac1n-\frac1{n+1}\right)=1-\frac1{n+1}=\frac{n}{n+1}.\]</div>
+<p>Two methods can prove the same result; telescoping reveals the structure behind the induction.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove that if \(n\ge2\) and \(n\) is not prime, then \(n=ab\) with \(1&lt;a\le b&lt;n\).</div><p>Since \(n\) is not prime and \(n\ge2\), there exist integers \(a,b\) with \(n=ab\), \(1&lt;a&lt;n\), and \(1&lt;b&lt;n\). If \(a\le b\), we are done. Otherwise swap the names of \(a\) and \(b\). Then \(1&lt;a\le b&lt;n\), as required.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Prove that the relation \(R\) on \(\mathbb{Z}\) defined by \(aRb\iff a+b\) is even is an equivalence relation, and describe its classes.</div><div class="step"><strong>Reflexivity.</strong> \(a+a=2a\) is even.</div>
+<div class="step"><strong>Symmetry.</strong> \(a+b=b+a\), so evenness is unchanged.</div>
+<div class="step"><strong>Transitivity.</strong> If \(a+b\) and \(b+c\) are even, then \((a+b)+(b+c)=a+c+2b\) is even. Since \(2b\) is even, \(a+c\) is even.</div>
+<div class="step"><strong>Classes.</strong> \(aRb\) holds exactly when \(a\) and \(b\) have the same parity. Hence there are two classes: the even integers and the odd integers.</div></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove that if \(m,n\) are integers and \(m\) is odd, then \(mn\) is odd if and only if \(n\) is odd.</div><div class="step"><strong>Forward (\(\Rightarrow\)).</strong> Prove the contrapositive: if \(n\) is even, \(n=2k\), then \(mn=2(mk)\) is even, so \(mn\) cannot be odd.</div>
+<div class="step"><strong>Reverse (\(\Leftarrow\)).</strong> If \(m=2a+1\) and \(n=2b+1\), then \(mn=4ab+2a+2b+1=2(2ab+a+b)+1\), which is odd.</div>
+<p>Both directions are necessary for the biconditional; note the different methods used for each.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 9: Prove that there are infinitely many composite positive integers.</div><p>For each integer \(n\ge2\), the number \(4n\) is composite because \(4n=2\cdot(2n)\) with both factors greater than \(1\) and less than \(4n\). The map \(n\mapsto4n\) is injective from \(\{2,3,4,\ldots\}\) into the set of composites, so there are infinitely many composites.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 10: Critique this proof: "To show \(\sqrt2\) is irrational, suppose \(\sqrt2=a/b\). Then \(2=a^2/b^2\), so \(2b^2=a^2\). Thus \(a\) is even, say \(a=2k\), and \(b\) is even too. Contradiction."</div><p>The proof is incomplete. It does not state that \(a/b\) may be assumed in lowest terms, so "both even" is not yet a contradiction; it only shows that one representation leads to another with a common factor. It also does not justify why \(a\) even forces \(b\) even: substituting \(a=2k\) gives \(2b^2=4k^2\), hence \(b^2=2k^2\), so \(b^2\) and therefore \(b\) are even. With the coprimality assumption stated explicitly and this substitution included, the proof is correct.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Audit this claim: “If \(x^2\) is rational, then \(x\) is rational. Indeed, if \(x^2=a/b\), then \(x=\sqrt a/\sqrt b\), which is rational.”</div>The claim is false. A counterexample is \(x=\sqrt2\): \(x^2=2\) is rational, but \(x\) is irrational. The proof's error is the assertion that \(\sqrt a/\sqrt b\) is rational; square roots of integers need not be rational.</div>
+
+      <div class="navigation"><a href="problem-set-12-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-12.html">Lecture 12</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

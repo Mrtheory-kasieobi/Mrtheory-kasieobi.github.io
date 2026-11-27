@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 11.">
+  <title>Solutions: Problem Set 11 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 11</h1><div class="subtitle">Introduction to Proofs - Lecture 11</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Equinumerosity means existence of a bijection; injections compare sizes.</li><li>Subsets and finite products of countable sets remain countable.</li><li>Cantor's diagonal argument constructs an object missing from any proposed enumeration.</li><li>Cantor's theorem uses the diagonal set \(D=\{a:a
+otin f(a)\}\).</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove that the set of all finite sequences of natural numbers is countable.</div><p>For each length \(k\), the set \(\mathbb{N}^k\) of sequences of length \(k\) is countable: use induction on \(k\) and the fact that a finite product of countable sets is countable (list tuples by the sum of their entries, a finite number of tuples at each sum). The set of all finite sequences is \(\bigcup_{k=0}^\infty\mathbb{N}^k\), a countable union of countable sets, hence countable.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove that the interval \((0,1)\) is uncountable using binary expansions, taking care of the non-uniqueness of expansions.</div><p>Suppose \((0,1)=\{x_1,x_2,\ldots\}\). Choose for each \(x_i\) a binary expansion \(x_i=0.b_{i1}b_{i2}\ldots\) that does not end in an infinite string of \(1\)s. Define \(y=0.e_1e_2\ldots\) by \(e_i=1-b_{ii}\), so \(e_i\in\{0,1\}\). Then \(y\) differs from \(x_i\) in the \(i\)-th binary digit. To avoid the ambiguity \(0.0111\ldots=0.1000\ldots\), append a fixed tail such as \(010101\ldots\) after the diagonal digits; the resulting number has a unique expansion with infinitely many \(0\)s and \(1\)s and still differs from every \(x_i\). Thus no enumeration exists.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove that there is no surjection from a set \(A\) onto \(\mathcal{P}(A)\).</div><p>Let \(f:A\to\mathcal{P}(A)\) be any function. Form \(D=\{a\in A:a\notin f(a)\}\in\mathcal{P}(A)\). For every \(a\in A\), \(a\in D\) if and only if \(a\notin f(a)\), so \(D\ne f(a)\). Thus \(D\) is not in the image of \(f\), and \(f\) is not surjective. This is the core of Cantor's theorem and does not require \(f\) to be injective.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove that \(\mathbb{Q}\) is countable by constructing an explicit enumeration strategy.</div><p>Every rational has a unique representation \(a/b\) with \(b&gt;0\) and \(\gcd(a,b)=1\). Group pairs \((a,b)\) by the positive integer \(N=|a|+b\). For each fixed \(N\), only finitely many pairs satisfy this equation, so list them in any order, say by increasing \(a\). Concatenating the finite lists for \(N=1,2,3,\ldots\) gives a sequence containing every reduced pair exactly once, hence an enumeration of \(\mathbb{Q}\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Show that the set of real numbers in \([0,1]\) that have a decimal expansion containing only digits \(0\) and \(1\) is uncountable.</div><p>This set is in bijection with the set of infinite binary sequences: map \(0.e_1e_2\ldots\) with \(e_i\in\{0,1\}\) to the sequence \((e_1,e_2,\ldots)\). These expansions are unique (no trailing nines occur). If the set were countable, the corresponding binary sequences could be enumerated, and the diagonal sequence \(1-e_{ii}\) would differ from the \(i\)-th sequence at position \(i\), contradicting completeness. Hence the set is uncountable.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 6: Prove that if \(A\) is countably infinite and \(B\) is finite, then \(A\cup B\) is countably infinite.</div><p>Since \(A\) is countably infinite, there is a bijection \(f:\mathbb{N}\to A\). List the finitely many elements of \(B\setminus A\) as \(b_1,\ldots,b_m\). Define \(g:\mathbb{N}\to A\cup B\) by \(g(1)=b_1,\ldots,g(m)=b_m\) and \(g(m+i)=f(i)\) for \(i\ge1\). This is a bijection: the first block covers exactly the elements of \(B\setminus A\), the tail covers \(A\), and the two parts are disjoint.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Explain why \(|\mathbb{N}	imes\mathbb{N}|=|\mathbb{N}|\) does not contradict the fact that \(\mathbb{N}\) is a proper subset of \(\mathbb{N}	imes\mathbb{N}\) via \(n\mapsto(n,0)\).</div><p>There is no contradiction: infinite sets can be equinumerous with proper subsets. The map \(n\mapsto(n,0)\) shows \(|\mathbb{N}|\le|\mathbb{N}\times\mathbb{N}|\), while the diagonal enumeration shows the reverse inequality; Schröder-Bernstein gives equality. This behaviour is a defining feature of infinite sets and does not occur for finite sets.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove that the set of all algebraic real numbers is countable.</div><p>For each degree \(d\ge1\) and each \((d+1)\)-tuple of integer coefficients with leading coefficient nonzero, there are at most \(d\) real roots. The set of such coefficient tuples is countable because \(\mathbb{Z}^{d+1}\) is countable. Hence the set of algebraic numbers of degree \(d\) is a countable union of finite sets, therefore countable. Taking the union over all \(d\ge1\) gives a countable union of countable sets, which is countable.</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove that the set of finite binary strings is countable.</div>For each length \(m\), there are \(2^m\) binary strings of length \(m\), so the set \(S_m\) of strings of length \(m\) is finite. The set of all finite binary strings is \(\bigcup_{m=0}^{\infty}S_m\), a countable union of finite sets. List the strings in order of length, and within each length lexicographically, to obtain a enumeration.</div>
+
+      <div class="navigation"><a href="problem-set-11-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-11.html">Lecture 11</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

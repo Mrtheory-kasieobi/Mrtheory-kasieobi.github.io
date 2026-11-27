@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 11 of Introduction to Proofs: Infinite Sets and Cardinality.">
+  <title>Lecture 11: Infinite Sets and Cardinality | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 11: Infinite Sets and Cardinality</h1><div class="subtitle">Introduction to Proofs &middot; Week 11</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 11</span><span class="lecture-topic">Infinite Sets and Cardinality</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Define equinumerosity and compare the sizes of finite and infinite sets.</li><li>Prove that \(\mathbb{Z}\) and \(\mathbb{Q}\) are countable.</li><li>Prove Cantor's diagonal argument that \(\mathbb{R}\) is uncountable.</li><li>State and prove Cantor's theorem about power sets.</li><li>Use injections, surjections and the Schröder-Bernstein idea to compare cardinalities.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>For finite sets, size is a number. For infinite sets, size is compared by pairings. A bijection pairs every element of \(A\) with exactly one element of \(B\) and leaves none unpaired, so \(A\) and \(B\) have the same cardinality. An injection embeds \(A\) into \(B\); a surjection covers all of \(B\).</p><p>The even natural numbers are countably infinite despite being a proper subset of \(\mathbb{N}\), because \(n\mapsto2n\) is a bijection from \(\mathbb{N}\) to the even naturals. Infinite sets can have the same size as proper subsets.</p></div>
+
+      <div class="lecture-section"><h2>1. Equinumerosity</h2>
+<div class="definition-box"><strong>Definition 11.1</strong> Sets \(A\) and \(B\) have the same cardinality, written \(|A|=|B|\) or \(A\sim B\), if there is a bijection \(f:A\to B\). We write \(|A|\le|B|\) if there is an injection \(A\to B\), and \(|A|&lt;|B|\) if \(|A|\le|B|\) but \(|A|\ne|B|\).</div>
+<p>For finite sets this agrees with counting elements. For infinite sets it leads to surprising results: the even integers are equinumerous with all integers via \(n\mapsto2n\), even though they form a proper subset. Indeed, a set is often <em>defined</em> to be infinite if it is equinumerous with a proper subset of itself (Dedekind-infinite); for ordinary sets this agrees with "not finite".</p>
+<div class="theorem-box"><strong>Theorem 11.2</strong> The relation \(\sim\) is an equivalence relation on any collection of sets.</div>
+<div class="proof-box"><strong>Proof.</strong> Reflexivity: the identity map is a bijection. Symmetry: the inverse of a bijection is a bijection. Transitivity: if \(f:A\to B\) and \(g:B\to C\) are bijections, then \(g\circ f:A\to C\) is a bijection by Theorem 4.12. \(\square\)</div>
+</div><div class="lecture-section"><h2>2. Countable sets</h2>
+<div class="definition-box"><strong>Definition 11.3</strong> A set is <em>countably infinite</em> if it is equinumerous with \(\mathbb{N}\), and <em>countable</em> if it is finite or countably infinite. An infinite set that is not countable is <em>uncountable</em>.</div>
+<div class="theorem-box"><strong>Theorem 11.4</strong> \(\mathbb{Z}\) is countable.</div>
+<div class="proof-box"><strong>Proof.</strong> Define \(f:\mathbb{N}\to\mathbb{Z}\) by
+\[f(1)=0,\quad f(2)=1,\quad f(3)=-1,\quad f(4)=2,\quad f(5)=-2,\ldots\]
+In general, \(f(2k)=-k\) and \(f(2k+1)=k\) for \(k\ge1\). Every integer is hit exactly once: \(0\) by \(1\), positive \(k\) by \(2k+1\), negative \(-k\) by \(2k\). Hence \(f\) is a bijection and \(|\mathbb{Z}|=|\mathbb{N}|\). \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 11.5</strong> \(\mathbb{N}\times\mathbb{N}\) is countable.</div>
+<div class="proof-box"><strong>Proof.</strong> List pairs by increasing sum \(a+b\), and within each diagonal by increasing \(a\):
+\[(0,0),(0,1),(1,0),(0,2),(1,1),(2,0),(0,3),\ldots\]
+Every pair \((a,b)\) occurs at the finite stage determined by the sum \(a+b\), and occurs once. This enumeration gives a bijection \(\mathbb{N}\to\mathbb{N}\times\mathbb{N}\); equivalently, the map \((a,b)\mapsto2^a(2b+1)-1\) is an injection into \(\mathbb{N}\). \(\square\)</div>
+<p>To prove \(\mathbb{Q}\) countable, map each rational \(q\) to a pair of integers \((a,b)\) with \(b&gt;0\) and \(\gcd(a,b)=1\). This is an injection \(\mathbb{Q}\to\mathbb{Z}\times\mathbb{N}\). Since \(\mathbb{Z}\) and \(\mathbb{N}\) are countable, their product is countable (list pairs by the sum of their indices), so \(\mathbb{Q}\) is countable. More generally: a subset of a countable set is countable, and a countable union of countable sets is countable.</p>
+</div><div class="lecture-section"><h2>3. Uncountability of the reals</h2>
+<div class="theorem-box"><strong>Theorem 11.6 (Cantor's diagonal argument)</strong> The interval \((0,1)\) is uncountable.</div>
+<div class="proof-box"><strong>Proof.</strong> Suppose \((0,1)\) were countable, listed as \(x_1,x_2,x_3,\ldots\). Write each in decimal form \(x_i=0.d_{i1}d_{i2}d_{i3}\ldots\), choosing the expansion without trailing nines to ensure uniqueness. Construct \(y=0.e_1e_2e_3\ldots\) by
+\[e_i=\begin{cases}1,&d_{ii}\ne1,\\2,&d_{ii}=1.\end{cases}\]
+Then \(y\in(0,1)\), and \(y\) differs from \(x_i\) in the \(i\)-th decimal place for every \(i\). Hence \(y\) is not on the supposed complete list, a contradiction. Therefore \((0,1)\) is uncountable.</div>
+<div class="concept-callout"><strong>Why avoid trailing nines?</strong> The decimal \(0.1999\ldots\) equals \(0.2000\ldots\), so a number can have two expansions. Choosing the expansion with no trailing nines makes the diagonal construction unambiguous; using only digits \(1\) and \(2\) also avoids creating a terminating or eventually-nine expansion for \(y\).</div>
+<p>Since \((0,1)\subseteq\mathbb{R}\), the real numbers are uncountable. Cantor's diagonal method is a proof by contradiction combined with an explicit construction of a missing object.</p>
+</div><div class="lecture-section"><h2>4. Cantor's theorem</h2>
+<div class="theorem-box"><strong>Theorem 11.7 (Cantor)</strong> For every set \(A\), \(|A|&lt;|\mathcal{P}(A)|\).</div>
+<div class="proof-box"><strong>Proof.</strong> The map \(a\mapsto\{a\}\) is an injection \(A\to\mathcal{P}(A)\), so \(|A|\le|\mathcal{P}(A)|\). Suppose there were a bijection \(f:A\to\mathcal{P}(A)\), and define the <em>diagonal set</em>
+\[D=\{a\in A:a\notin f(a)\}.\]
+Since \(f\) is surjective, \(D=f(a_0)\) for some \(a_0\in A\). If \(a_0\in D\), then by definition \(a_0\notin f(a_0)=D\), a contradiction. If \(a_0\notin D\), then \(a_0\notin f(a_0)\), so \(a_0\in D\), again a contradiction. Hence no such bijection exists, so \(|A|\ne|\mathcal{P}(A)|\) and therefore \(|A|&lt;|\mathcal{P}(A)|\). \(\square\)</div>
+<p>For finite sets this says \(n&lt;2^n\). For \(A=\mathbb{N}\) it says there are strictly more sets of natural numbers than natural numbers. Repeatedly taking power sets produces an unbounded hierarchy of infinite cardinalities.</p>
+</div><div class="lecture-section"><h2>5. Comparing cardinalities</h2>
+<div class="theorem-box"><strong>Theorem 11.8 (Schröder-Bernstein)</strong> If there exist injections \(f:A\to B\) and \(g:B\to A\), then \(|A|=|B|\).</div>
+<p>We state this fundamental theorem without proof; its proof constructs a bijection by partitioning the sets according to the ancestry of their elements under \(f\) and \(g\). It is the set-theoretic analogue of the familiar fact that \(a\le b\) and \(b\le a\) imply \(a=b\), but for cardinalities the conclusion requires a genuine construction of a bijection.</p>
+<div class="example-box"><strong>Example 11.9</strong> \(|(0,1)|=|\mathbb{R}|\). Injections in both directions are easy: \((0,1)\to\mathbb{R}\) is the inclusion, and \(\mathbb{R}\to(0,1)\) can be given by \(x\mapsto\frac12+\frac1\pi\arctan x\), whose values lie in \((0,1)\) and which is injective. Schröder-Bernstein gives a bijection. An explicit bijection also exists, e.g. a suitable rescaling of \(\tan\) on \((0,1)\).</div>
+<p>When building an injection or bijection, verify both properties explicitly: injectivity by starting from equal outputs, surjectivity by constructing a preimage. The same techniques from Lecture 4 apply even when the sets are infinite.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: the diagonal construction</h2>
+<div class="theorem-box"><strong>Theorem 11.10 (Cantor)</strong> There is no surjection from a set \(A\) onto \(\mathcal{P}(A)\).</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(f:A\to\mathcal{P}(A)\) be any function and define \(D=\{a\in A:a\notin f(a)\}\). If \(D=f(a_0)\), then \(a_0\in D\) implies \(a_0\notin f(a_0)=D\), while \(a_0\notin D\) implies \(a_0\in f(a_0)=D\). Both are contradictions, so \(D\) is not in the image of \(f\). \(\square\)</div>
+<p>The same idea proves that \((0,1)\) is uncountable: after listing decimals \(x_i\), construct a new decimal whose \(i\)-th digit differs from the \(i\)-th digit of \(x_i\). Use digits \(1\) and \(2\) and avoid trailing nines so the new decimal is unambiguous.</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Give an explicit bijection \(\mathbb{N}	o 2\mathbb{N}\) (the positive even integers).</li><li>Prove that a subset of a countable set is countable.</li><li>Show that \(\mathbb{Q}	imes\mathbb{Q}\) is countable.</li><li>Explain why the decimal expansion convention in Theorem 11.6 is necessary.</li><li>Prove that the set of finite binary strings is countable.</li><li>Use Cantor's theorem to show there is no set of all sets.</li><li>Give injections both ways between \((0,1)\) and \((0,2)\) and conclude they have equal cardinality.</li><li>Prove that the set of algebraic real numbers is countable. (A real is algebraic if it solves a nonzero polynomial with integer coefficients.)</li></ol><p>Complete <a href="problem-set-11-proofs.html">Problem Set 11</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-10.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-12.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

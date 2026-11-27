@@ -202,10 +202,136 @@
       "title": "Introduction to Proofs",
       "section": "Teaching",
       "url": "courses/introduction-to-proofs.html",
-      "description": "Logic, set theory, quantifiers, proof techniques including direct proof, proof by contradiction, and mathematical induction.",
-      "content": "mathematical proofs logic set theory quantifiers universal quantifier existential quantifier negation proof techniques direct proof proof by contradiction proof by contrapositive mathematical induction base case inductive hypothesis inductive step strong induction well-ordering principle equivalence relations reflexive symmetric transitive equivalence classes partitions quotient sets functions injective surjective bijective inverse functions composition of functions identity function domain codomain range image preimage",
-      "keywords": ["proofs", "logic", "set theory", "induction"],
-      "priority": 85
+      "description": "Comprehensive undergraduate course in logic, sets, functions, proof techniques, induction, combinatorics, cardinality, and proof writing, with lecture notes, problem sets, solutions, and practice tests.",
+      "content": "mathematical proofs logic propositional logic predicate logic quantifiers truth tables set theory functions relations direct proof contrapositive contradiction mathematical induction strong induction well-ordering divisibility modular arithmetic combinatorial proofs cardinality Cantor diagonal argument proof writing problem sets solutions practice tests",
+      "keywords": ["introduction to proofs", "logic", "set theory", "induction", "proof writing", "practice tests"],
+      "priority": 95
+    },
+    {
+      "title": "Lecture 1: Propositional Logic and Truth Tables",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-1.html",
+      "description": "Lecture notes on propositions, connectives, truth tables, logical equivalence, and argument validity.",
+      "content": "propositions negation conjunction disjunction conditional biconditional tautology contradiction truth tables De Morgan laws contrapositive valid arguments fallacies",
+      "keywords": ["propositional logic", "truth tables", "logical equivalence"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 2: Predicate Logic and Quantifiers",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-2.html",
+      "description": "Lecture notes on predicates, universal and existential quantifiers, negation, and quantifier order.",
+      "content": "predicates universal quantifier existential quantifier unique existence negation of quantifiers restricted quantifiers scope free variables bound variables",
+      "keywords": ["predicate logic", "quantifiers", "negation"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 3: Set Theory: Operations and Identities",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-3.html",
+      "description": "Lecture notes on sets, subsets, power sets, set operations, identities, and indexed families.",
+      "content": "set theory membership subset power set union intersection difference complement symmetric difference Cartesian product De Morgan laws element chasing indexed families",
+      "keywords": ["set theory", "set identities", "power sets"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 4: Functions and Relations",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-4.html",
+      "description": "Lecture notes on equivalence relations, partial orders, injective and surjective functions, and composition.",
+      "content": "relations reflexive symmetric transitive equivalence relation equivalence class partition partial order total order function domain codomain image preimage injective surjective bijective inverse composition",
+      "keywords": ["functions", "relations", "equivalence classes"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 5: Direct Proof and Proof by Contrapositive",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-5.html",
+      "description": "Lecture notes on direct proof, contrapositive proof, biconditional proof, and proof by cases.",
+      "content": "direct proof contrapositive biconditional proof proof by cases parity divisibility odd even integers examples common errors",
+      "keywords": ["direct proof", "contrapositive", "proof by cases"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 6: Proof by Contradiction",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-6.html",
+      "description": "Lecture notes on contradiction proofs, irrationality, infinitude, uniqueness, and nonexistence.",
+      "content": "proof by contradiction reductio ad absurdum irrational square root two infinitely many primes uniqueness nonexistence minimal counterexample assumptions",
+      "keywords": ["contradiction", "irrationality", "nonexistence proofs"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 7: Mathematical Induction",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-7.html",
+      "description": "Lecture notes on base cases, induction hypotheses, sums, inequalities, and divisibility proofs.",
+      "content": "mathematical induction base case induction hypothesis induction step sums inequalities divisibility recurrence factorial powers common induction errors",
+      "keywords": ["mathematical induction", "inductive step", "sums"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 8: Strong Induction and Well-Ordering",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-8.html",
+      "description": "Lecture notes on strong induction, prime factorization, recurrences, and minimal-counterexample proofs.",
+      "content": "strong induction complete induction well-ordering principle least element prime factorization Fibonacci recurrence minimal counterexample",
+      "keywords": ["strong induction", "well-ordering", "minimal counterexample"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 9: Divisibility and Modular Arithmetic",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-9.html",
+      "description": "Lecture notes on divisibility, Euclid's lemma, congruences, modular inverses, and Fermat's little theorem.",
+      "content": "divisibility Euclid lemma unique factorization greatest common divisor congruences modulo n residue classes modular inverses Chinese remainder theorem Fermat little theorem",
+      "keywords": ["divisibility", "modular arithmetic", "Euclid's lemma"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 10: Combinatorial Proofs",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-10.html",
+      "description": "Lecture notes on counting principles, binomial coefficients, double counting, and pigeonhole arguments.",
+      "content": "sum principle product principle binomial coefficients Pascal identity binomial theorem double counting combinatorial proof pigeonhole principle",
+      "keywords": ["combinatorial proofs", "binomial theorem", "double counting"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 11: Infinite Sets and Cardinality",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-11.html",
+      "description": "Lecture notes on countability, uncountability, diagonal arguments, and comparing infinite cardinalities.",
+      "content": "finite sets infinite sets countable uncountable bijection injection Cantor diagonal argument real numbers rational numbers power set Cantor theorem cardinality",
+      "keywords": ["cardinality", "countability", "Cantor diagonal argument"],
+      "priority": 82
+    },
+    {
+      "title": "Lecture 12: Review and Proof Writing Workshop",
+      "section": "Teaching",
+      "url": "courses/lecture-notes-proofs-12.html",
+      "description": "Lecture notes on proof strategy, proof auditing, counterexamples, and exam preparation.",
+      "content": "proof writing proof strategies proof audit counterexamples logical form quantifiers implication biconditional existence uniqueness mixed proof techniques review",
+      "keywords": ["proof writing", "proof strategies", "counterexamples"],
+      "priority": 82
+    },
+    {
+      "title": "Practice Test 1: Introduction to Proofs",
+      "section": "Teaching",
+      "url": "courses/practice-test-1-proofs.html",
+      "description": "Practice test covering logic, sets, functions, direct proof, contrapositive proof, and contradiction, with grading and worked solutions.",
+      "content": "practice test logic quantifiers set identities functions relations direct proof contrapositive contradiction multiple choice written response worked solutions",
+      "keywords": ["practice test", "proofs", "logic", "contradiction"],
+      "priority": 88
+    },
+    {
+      "title": "Practice Test 2: Introduction to Proofs",
+      "section": "Teaching",
+      "url": "courses/practice-test-2-proofs.html",
+      "description": "Practice test covering induction, divisibility, combinatorial proof, cardinality, and proof auditing, with grading and worked solutions.",
+      "content": "practice test induction strong induction divisibility modular arithmetic combinatorial proof countability Cantor theorem proof audit multiple choice written response worked solutions",
+      "keywords": ["practice test", "induction", "cardinality", "proof audit"],
+      "priority": 88
     },
     {
       "title": "Number Theory",

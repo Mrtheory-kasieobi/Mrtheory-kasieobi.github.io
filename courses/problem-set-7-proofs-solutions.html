@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Full worked solutions for Introduction to Proofs Problem Set 7.">
+  <title>Solutions: Problem Set 7 | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="problem-header"><h1>Solutions: Problem Set 7</h1><div class="subtitle">Introduction to Proofs - Lecture 7</div></div>
+    <div class="lecture-content">
+      <h2>Key ideas used in these solutions</h2>
+      <div class="concept-callout"><ul><li>Induction requires a verified base case and an implication \(P(k)	o P(k+1)\) for arbitrary \(k\).</li><li>For sums, add the next term to the inductive hypothesis and simplify.</li><li>For divisibility, isolate the expression from \(P(k)\) inside the expression for \(P(k+1)\).</li><li>The starting index must match the range in which the statement is actually true.</li></ul></div>
+      <h2>Worked solutions</h2>
+      <div class="solution-box"><div class="problem-number">Problem 1: Prove by induction that \(\sum_{i=1}^n i(i+1)=\frac{n(n+1)(n+2)}3\) for all \(n\ge1\).</div><div class="step"><strong>Base case.</strong> For \(n=1\), the left side is \(1\cdot2=2\) and the right side is \(\frac{1\cdot2\cdot3}{3}=2\).</div>
+<div class="step"><strong>Hypothesis.</strong> Assume \(\sum_{i=1}^k i(i+1)=\frac{k(k+1)(k+2)}3\).</div>
+<div class="step"><strong>Step.</strong> Add \((k+1)(k+2)\):
+\[\sum_{i=1}^{k+1}i(i+1)=\frac{k(k+1)(k+2)}3+(k+1)(k+2)=\frac{(k+1)(k+2)(k+3)}3.\]
+This is the formula with \(n=k+1\), so the induction is complete.</div></div>
+<div class="solution-box"><div class="problem-number">Problem 2: Prove by induction that \(5\mid(3^{2n}+1)\) for all \(n\ge1\).</div><div class="step"><strong>Base case.</strong> \(3^2+1=10\), divisible by \(5\).</div>
+<div class="step"><strong>Hypothesis.</strong> Assume \(3^{2k}+1=5m\) for some \(m\in\mathbb{Z}\).</div>
+<div class="step"><strong>Step.</strong> Since \(3^{2(k+1)}=9\cdot3^{2k}\),
+\[3^{2(k+1)}+1=9\cdot3^{2k}+1=9(5m-1)+1=45m-8=5(9m-2)+2.\]
+This leaves remainder \(2\), so the statement as written is false for \(k+1\). Check directly: \(3^4+1=82\), not divisible by \(5\).</div>
+<p>In fact \(3^{2n}+1\) is divisible by \(5\) exactly when \(n\) is odd. The induction claim "for all \(n\ge1\)" is false; no induction proof exists. This problem illustrates the importance of testing the first few cases before attempting a proof.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 3: Prove by induction that \(n!&gt;2^n\) for all integers \(n\ge4\).</div><div class="step"><strong>Base case.</strong> \(4!=24&gt;16=2^4\).</div>
+<div class="step"><strong>Hypothesis.</strong> Assume \(k!&gt;2^k\) for some \(k\ge4\).</div>
+<div class="step"><strong>Step.</strong> \((k+1)!=(k+1)k!&gt;(k+1)2^k\). Since \(k+1&gt;2\), \((k+1)2^k&gt;2\cdot2^k=2^{k+1}\). Hence \((k+1)!&gt;2^{k+1}\).</div>
+<p>Induction from \(4\) proves the inequality for all \(n\ge4\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 4: Prove by induction that \(8\mid(3^{2n}-1)\) for all \(n\ge1\).</div><div class="step"><strong>Base case.</strong> \(3^2-1=8\).</div>
+<div class="step"><strong>Hypothesis.</strong> Assume \(3^{2k}-1=8m\), so \(3^{2k}=8m+1\).</div>
+<div class="step"><strong>Step.</strong> \(3^{2(k+1)}-1=9\cdot3^{2k}-1=9(8m+1)-1=72m+8=8(9m+1)\), a multiple of \(8\).</div>
+<p>Thus the divisibility holds for all \(n\ge1\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 5: Prove by induction that \(\frac1{1\cdot2}+\frac1{2\cdot3}+\cdots+\frac1{n(n+1)}=\frac{n}{n+1}\).</div><div class="step"><strong>Base case.</strong> \(\frac1{1\cdot2}=\frac12=\frac1{1+1}\).</div>
+<div class="step"><strong>Hypothesis.</strong> Assume the sum through \(k\) equals \(\frac{k}{k+1}\).</div>
+<div class="step"><strong>Step.</strong> Add \(\frac1{(k+1)(k+2)}\):
+\[\frac{k}{k+1}+\frac1{(k+1)(k+2)}=\frac{k(k+2)+1}{(k+1)(k+2)}=\frac{(k+1)^2}{(k+1)(k+2)}=\frac{k+1}{k+2},\]
+which is the desired formula at \(n=k+1\).</div></div>
+<div class="solution-box"><div class="problem-number">Problem 6: A student writes: "Assume \(1+\cdots+k=k(k+1)/2\). Then \(1+\cdots+k+(k+1)=(k+1)(k+2)/2\). Therefore the formula holds." What is missing?</div><p>Two things are missing. First, the base case \(n=1\) was not verified; the implication alone cannot start the chain. Second, the inductive hypothesis should be assumed for an <em>arbitrary</em> \(k\ge1\), and the algebra showing the transition from \(k\) to \(k+1\) should be displayed, not merely asserted. Without these, the argument establishes at most a conditional statement for unspecified \(k\), not the theorem for all positive integers.</p></div>
+<div class="solution-box"><div class="problem-number">Problem 7: Prove by induction that \(n^2+n+41\) is prime is false for some positive integer \(n\); find the smallest such \(n\) and explain why induction cannot prove the universal claim.</div><p>Evaluate at \(n=41\): \(41^2+41+41=41(41+1+1)=41\cdot43\), which is composite. No smaller counterexample is needed to disprove the universal claim, though one can check \(n=1,\ldots,40\) separately if desired. Induction cannot prove the claim because the inductive implication \(P(k)\to P(k+1)\) is false: primality of one value does not imply primality of the next, and indeed the chain breaks at \(n=41\).</p></div>
+<div class="solution-box"><div class="problem-number">Problem 8: Prove by induction that \(\sum_{i=0}^n 2^i=2^{n+1}-1\) for \(n\ge0\).</div><div class="step"><strong>Base case.</strong> For \(n=0\), \(2^0=1=2^1-1\).</div>
+<div class="step"><strong>Hypothesis.</strong> Assume \(\sum_{i=0}^k2^i=2^{k+1}-1\).</div>
+<div class="step"><strong>Step.</strong> \(\sum_{i=0}^{k+1}2^i=(2^{k+1}-1)+2^{k+1}=2\cdot2^{k+1}-1=2^{k+2}-1\), the formula at \(n=k+1\).</div>
+<p>By induction the identity holds for every \(n\ge0\).</p></div>
+<div class="solution-box"><div class="problem-number">Bonus Problem: Prove by induction that \(\sum_{i=1}^n i^2=\frac{n(n+1)(2n+1)}6\) for all \(n\ge1\).</div>Base case: \(1^2=1=1\cdot2\cdot3/6\). Inductive step: assume the formula for \(n\). Then \(\sum_{i=1}^{n+1}i^2=\frac{n(n+1)(2n+1)}6+(n+1)^2=\frac{(n+1)(n(2n+1)+6(n+1))}6=\frac{(n+1)(2n^2+7n+6)}6=\frac{(n+1)(n+2)(2n+3)}6\), which is the formula for \(n+1\).</div>
+
+      <div class="navigation"><a href="problem-set-7-proofs.html">&larr; Problems</a><a href="lecture-notes-proofs-7.html">Lecture 7</a><a href="introduction-to-proofs.html">Back to Course</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 9 of Introduction to Proofs: Divisibility and Modular Arithmetic.">
+  <title>Lecture 9: Divisibility and Modular Arithmetic | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 9: Divisibility and Modular Arithmetic</h1><div class="subtitle">Introduction to Proofs &middot; Week 9</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 9</span><span class="lecture-topic">Divisibility and Modular Arithmetic</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Use divisibility and congruence definitions fluently in proofs.</li><li>Prove Euclid's lemma and apply it to uniqueness of prime factorisation.</li><li>Perform arithmetic in \(\mathbb{Z}/n\mathbb{Z}\) and solve simple congruences.</li><li>Prove statements about squares modulo small integers.</li><li>State and prove Fermat's little theorem via the binomial theorem.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>The notation \(a\mid b\) means “\(a\) divides \(b\)”, i.e. there exists an integer \(k\) with \(b=ak\). Divisibility statements are existence statements, so proofs usually exhibit the integer \(k\).</p><p>Congruence \(a\equiv b\pmod n\) means \(n\mid(a-b)\), equivalently \(a\) and \(b\) have the same remainder after division by \(n\). For example, \(17\equiv2\pmod5\) because \(17-2=15\) is divisible by \(5\). Modular arithmetic is ordinary arithmetic performed on remainders.</p></div>
+
+      <div class="lecture-section"><h2>1. Divisibility and gcd</h2>
+<div class="definition-box"><strong>Definition 9.1</strong> For integers \(a,b\), \(a\mid b\) means \(b=ak\) for some \(k\in\mathbb{Z}\). The greatest common divisor \(\gcd(a,b)\) is the largest positive integer dividing both \(a\) and \(b\); \(\gcd(a,b)=1\) means \(a,b\) are coprime.</div>
+<div class="theorem-box"><strong>Theorem 9.2 (Euclid's lemma)</strong> If \(p\) is prime and \(p\mid ab\), then \(p\mid a\) or \(p\mid b\).</div>
+<div class="proof-box"><strong>Proof.</strong> Let \(d=\gcd(p,a)\). Since \(p\) is prime, \(d=1\) or \(d=p\). If \(d=p\), then \(p\mid a\). If \(d=1\), Bézout's identity (Lecture 5, Problem 8) gives integers \(x,y\) with \(px+ay=1\). Multiplying by \(b\),
+\[pbx+aby=b.\]
+Since \(p\mid pbx\) and \(p\mid ab\) by hypothesis, \(p\) divides the sum \(pbx+aby=b\). Thus \(p\mid b\). \(\square\)</div>
+<div class="theorem-box"><strong>Theorem 9.3 (Uniqueness in the FTA)</strong> If \(n\ge2\) has prime factorisations
+\[n=p_1p_2\cdots p_r=q_1q_2\cdots q_s\]
+with both lists arranged in nondecreasing order, then \(r=s\) and \(p_i=q_i\) for all \(i\).</div>
+<div class="proof-box"><strong>Proof sketch.</strong> Induct on \(r\). Since \(p_1\mid q_1\cdots q_s\), repeated application of Euclid's lemma gives \(p_1\mid q_j\) for some \(j\), hence \(p_1=q_j\) because both are prime. Since the lists are ordered and \(p_1\) is the smallest prime in the first list, one shows \(q_1=p_1\). Cancel this common factor and apply the inductive hypothesis to the remaining products. The base case \(r=1\) is immediate. \(\square\)</div>
+</div><div class="lecture-section"><h2>2. Congruences as an equivalence relation</h2>
+<div class="definition-box"><strong>Definition 9.4</strong> For \(n&gt;0\) and integers \(a,b\), \(a\equiv b\pmod n\) means \(n\mid(a-b)\).</div>
+<div class="theorem-box"><strong>Theorem 9.5</strong> Congruence modulo \(n\) is an equivalence relation on \(\mathbb{Z}\); the equivalence classes are the residue classes \([0],[1],\ldots,[n-1]\).</div>
+<div class="proof-box"><strong>Proof.</strong> Reflexivity: \(a-a=0=n\cdot0\). Symmetry: if \(a-b=nk\), then \(b-a=n(-k)\). Transitivity: if \(a-b=nk\) and \(b-c=n\ell\), then \(a-c=n(k+\ell)\). The division algorithm gives \(a=qn+r\) with \(0\le r&lt;n\), so every class contains exactly one of \(0,1,\ldots,n-1\). \(\square\)</div>
+<p>Arithmetic respects the relation: if \(a\equiv b\pmod n\) and \(c\equiv d\pmod n\), then \(a+c\equiv b+d\) and \(ac\equiv bd\pmod n\). These are the familiar sum and product rules; a proof was given in the number theory lecture notes. Consequently we may compute with residues, reducing after each operation.</p>
+</div><div class="lecture-section"><h2>3. Modular arithmetic and inverses</h2>
+<p>The set \(\mathbb{Z}/n\mathbb{Z}=\{[0],[1],\ldots,[n-1]\}\) with addition and multiplication of classes is a commutative ring. An element \([a]\) has a multiplicative inverse modulo \(n\) precisely when \(\gcd(a,n)=1\). In that case Bézout's identity gives \(ax+ny=1\), so \(ax\equiv1\pmod n\) and \([x]=[a]^{-1}\).</p>
+<div class="example-box"><strong>Example 9.6</strong> Solve \(7x\equiv1\pmod{26}\). Running the Euclidean algorithm:
+\[26=3\cdot7+5,\quad7=1\cdot5+2,\quad5=2\cdot2+1,\]
+so \(1=5-2\cdot2=5-2(7-5)=3\cdot5-2\cdot7=3(26-3\cdot7)-2\cdot7=3\cdot26-11\cdot7\). Thus \(-11\cdot7\equiv1\pmod{26}\), so \(x\equiv-11\equiv15\pmod{26}\). Check: \(7\cdot15=105=4\cdot26+1\).</div>
+<p>The Chinese remainder theorem in its simplest form says: if \(\gcd(m,n)=1\), the system \(x\equiv a\pmod m\), \(x\equiv b\pmod n\) has a solution, unique modulo \(mn\). A constructive solution uses \(u\) with \(um\equiv1\pmod n\) and \(v\) with \(vn\equiv1\pmod m\); then
+\[x=avn+bum\]
+satisfies both congruences. Existence follows from the inverses just constructed; uniqueness follows because two solutions differ by a multiple of both \(m\) and \(n\), hence of \(mn\).</p>
+</div><div class="lecture-section"><h2>4. Squares modulo small integers</h2>
+<div class="theorem-box"><strong>Theorem 9.7</strong>
+<ol>
+<li>Every perfect square is congruent to \(0\) or \(1\pmod4\).</li>
+<li>Every odd square is congruent to \(1\pmod8\).</li>
+<li>Every perfect square is congruent to \(0,1\), or \(4\pmod5\).</li>
+</ol></div>
+<div class="proof-box"><strong>Proof of (3).</strong> Every integer is congruent modulo \(5\) to \(0,\pm1\), or \(\pm2\). Squaring the residues gives \(0,1,4,4,1\), so only \(0,1,4\) occur. The other parts are proved in Lecture 5, Problem 6 and Lecture 5, Problem 4 respectively. \(\square\)</div>
+<p>Modular obstructions are a standard way to prove that equations have no integer solutions. For example, \(x^2+y^2=3\) has no integer solutions because squares modulo \(4\) are \(0\) or \(1\), so \(x^2+y^2\) modulo \(4\) can only be \(0,1,2\), never \(3\).</p>
+</div><div class="lecture-section"><h2>5. Fermat's little theorem</h2>
+<div class="theorem-box"><strong>Theorem 9.8 (Fermat's little theorem)</strong> If \(p\) is prime and \(p\nmid a\), then \(a^{p-1}\equiv1\pmod p\). Equivalently, \(a^p\equiv a\pmod p\) for every integer \(a\).</div>
+<div class="proof-box"><strong>Proof via the binomial theorem.</strong> First prove \(p\mid\binom pk\) for \(1\le k\le p-1\): since
+\[\binom pk=\frac{p!}{k!(p-k)!},\]
+we have \(k!\binom pk=p(p-1)\cdots(p-k+1)\), so \(p\mid k!\binom pk\). Because \(p\) is prime and \(k&lt;p\), \(\gcd(k!,p)=1\); hence \(p\mid\binom pk\).
+<div class="step-box"><strong>Step 1.</strong> For \(a=1\), the congruence \(1^p\equiv1\pmod p\) is immediate.</div>
+<div class="step-box"><strong>Step 2.</strong> If \(a^p\equiv a\pmod p\), then by the binomial theorem
+\[(a+1)^p=\sum_{k=0}^p\binom pk a^k\equiv a^p+1\equiv a+1\pmod p,\]
+since all intermediate binomial coefficients are divisible by \(p\).</div>
+<div class="step-box"><strong>Step 3.</strong> Induction on nonnegative \(a\) gives \(a^p\equiv a\pmod p\) for all \(a\ge0\), and the result extends to negative \(a\) by writing \(a=-b\) and noting that \(p\) is odd, or by reducing \(a\) modulo \(p\).</div>
+<div class="step-box"><strong>Step 4.</strong> If \(p\nmid a\), multiply \(a^p\equiv a\pmod p\) by the inverse of \(a\) modulo \(p\) to obtain \(a^{p-1}\equiv1\pmod p\). \(\square\)</div></div>
+<p>Fermat's little theorem is indispensable for computations with large exponents. For example, \(3^{100}\pmod{101}\) is \(1\) because \(101\) is prime and \(101\nmid3\).</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: inverses and Fermat's little theorem</h2>
+<div class="theorem-box"><strong>Theorem 9.10</strong> If \(\gcd(a,n)=1\), then \(a\) has a multiplicative inverse modulo \(n\).</div>
+<div class="proof-box"><strong>Proof.</strong> By Bezout's identity there are integers \(s,t\) with \(as+nt=1\). Reducing modulo \(n\) gives \(as\equiv1\pmod n\), so \(s\) is an inverse of \(a\) modulo \(n\). \(\square\)</div>
+<p>The coprime condition is essential: \(2\) has no inverse modulo \(6\), because \(2x\) is always even modulo \(6\) and can never be congruent to \(1\). For a prime \(p\), every nonzero residue is coprime to \(p\), and Fermat's little theorem gives the inverse explicitly: \(a^{p-2}\) is an inverse of \(a\) modulo \(p\) because \(a^{p-1}\equiv1\pmod p\).</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Prove that if \(a\equiv b\pmod n\), then \(a^2\equiv b^2\pmod n\).</li><li>Find the inverse of \(11\) modulo \(30\) using Bézout's identity.</li><li>Solve \(4x\equiv6\pmod{10}\).</li><li>Prove that \(n^2\equiv0\) or \(1\pmod3\) for every integer \(n\).</li><li>Show that \(x^2-3y^2=2\) has no integer solutions by reducing modulo \(3\).</li><li>Prove that if \(p\) is prime, then \(2^p\equiv2\pmod p\).</li><li>Use the Chinese remainder theorem to solve \(x\equiv2\pmod3\), \(x\equiv3\pmod5\).</li><li>Prove that if \(a\equiv b\pmod n\), then \(\gcd(a,n)=\gcd(b,n)\).</li></ol><p>Complete <a href="problem-set-9-proofs.html">Problem Set 9</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-8.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="lecture-notes-proofs-10.html">Next Lecture &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>

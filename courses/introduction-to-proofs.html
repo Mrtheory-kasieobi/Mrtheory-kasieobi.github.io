@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Introduction to Proofs - Logic, set theory, and fundamental proof techniques.">
+  <meta name="description" content="Introduction to Proofs - a comprehensive undergraduate course in logic, set theory, proof techniques, induction, combinatorics, cardinality, and proof writing, with lecture notes, problem sets, solutions, and practice tests.">
   <title>Kasieobi Udumaga | Introduction to Proofs</title>
   <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body><div class="site-topbar">
+<body class="no-math-background"><div class="site-topbar">
 <header>
     <div class="header-controls">
       <label class="search-bar" for="site-search">
@@ -25,9 +27,7 @@
       <li><a href="../about.html">About me</a></li>
       <li><a href="../notes.html">Notes</a></li>
       <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
-      <li>
-        <a href="../expository.html">Expository Writing</a>
-      </li>
+      <li><a href="../expository.html">Expository Writing</a></li>
       <li><a href="../research.html">Research</a></li>
       <li><a href="../Track.html">Track and field</a></li>
       <li><a href="../blog.html">Blog</a></li>
@@ -39,7 +39,7 @@
     <div class="course-header">
       <h2 class="course-header__title">Introduction to Proofs</h2><div class="course-header__meta">
         <span class="course-header__meta-item">Level: Undergraduate</span>
-        <span class="course-header__meta-item">Status: In Progress</span>
+        <span class="course-header__meta-item">Status: <span class="status-badge status-badge--near-complete">Near Complete</span></span>
         <span class="course-header__meta-item">Last Updated: 2026</span>
       </div>
     </div>
@@ -49,23 +49,23 @@
       <ul class="course-info__list">
         <li class="course-info__list-item">
           <span class="course-info__label">Level</span>
-          <span class="course-info__value">Undergraduate</span>
+          <span class="course-info__value">Undergraduate, first- and second-year</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Estimated Duration</span>
-          <span class="course-info__value">12 weeks</span>
+          <span class="course-info__value">12 weeks (one lecture and problem set per week)</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Prerequisites</span>
-          <span class="course-info__value">Calculus I (recommended)</span>
+          <span class="course-info__value">High-school algebra; Calculus I is recommended but not required</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Recommended Textbooks</span>
-          <span class="course-info__value">How to Prove It (Velleman)</span>
+          <span class="course-info__value">How to Prove It by Daniel Velleman; Book of Proof by Richard Hammack</span>
         </li>
         <li class="course-info__list-item">
           <span class="course-info__label">Software</span>
-          <span class="course-info__value">None required</span>
+          <span class="course-info__value">None required; MathJax renders the formulas in the browser</span>
         </li>
       </ul>
     </div>
@@ -74,111 +74,85 @@
       <h3 class="course-section__title">Course Description</h3>
       <div class="course-section__content">
         <p>
-          This course introduces the foundational language and methods of mathematical proof. 
-          Students will learn propositional and predicate logic, set theory, and the principal 
-          proof techniques used in advanced mathematics: direct proof, proof by contradiction, 
-          contrapositive, induction, and combinatorial arguments. The course develops the 
-          rigorous thinking essential for all higher mathematics.
+          This is a self-contained introduction to the language and practice of mathematical proof. The course begins with propositional and predicate logic, where we learn exactly what a statement asserts and how it is negated. It then develops naive set theory, relations, and functions, which supply the vocabulary used throughout advanced mathematics. The middle of the course is devoted to the core proof techniques: direct proof, contrapositive, contradiction, proof by cases, ordinary and strong induction, and the well-ordering principle. These methods are applied to divisibility, congruences, combinatorial identities, and infinite sets. The final week consolidates proof writing with a workshop on strategy, counterexamples, and proof auditing.
         </p>
+        <p>
+          Every lecture note states definitions carefully, proves the main results, works through beginner-friendly examples, and identifies common errors. Each lecture has a corresponding problem set with complete worked solutions and a solved bonus problem. Two practice tests with automatic grading, full solutions, and scored bonus problems are provided at the end of the course.
+        </p>
+      </div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Learning Outcomes</h3>
+      <div class="course-section__content">
+        <p>On completing this course, a student should be able to:</p>
+        <ul>
+          <li>translate mathematical sentences into logical notation and negate them correctly;</li>
+          <li>prove set identities and reason about relations, equivalence classes, and functions;</li>
+          <li>choose and execute an appropriate proof strategy for an implication, biconditional, existence claim, or uniqueness claim;</li>
+          <li>write correct induction proofs, including strong induction and minimal-counterexample arguments;</li>
+          <li>apply proof techniques to divisibility, modular arithmetic, counting identities, and cardinality;</li>
+          <li>critique a proof, locate logical gaps, and construct counterexamples to false statements.</li>
+        </ul>
       </div>
     </div>
 
     <div class="course-section">
       <h3 class="course-section__title">Course Syllabus</h3>
       <ol class="course-syllabus">
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 1</span>
-          <span class="course-syllabus__topic">Propositional Logic and Truth Tables</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 2</span>
-          <span class="course-syllabus__topic">Predicate Logic and Quantifiers</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 3</span>
-          <span class="course-syllabus__topic">Set Theory: Operations and Relations</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 4</span>
-          <span class="course-syllabus__topic">Functions and Relations</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 5</span>
-          <span class="course-syllabus__topic">Direct Proof and Proof by Contrapositive</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 6</span>
-          <span class="course-syllabus__topic">Proof by Contradiction</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 7</span>
-          <span class="course-syllabus__topic">Mathematical Induction</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 8</span>
-          <span class="course-syllabus__topic">Strong Induction and Well-Ordering</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 9</span>
-          <span class="course-syllabus__topic">Divisibility and Modular Arithmetic</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 10</span>
-          <span class="course-syllabus__topic">Combinatorial Proofs</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 11</span>
-          <span class="course-syllabus__topic">Infinite Sets and Cardinality</span>
-        </li>
-        <li class="course-syllabus__item">
-          <span class="course-syllabus__week">Week 12</span>
-          <span class="course-syllabus__topic">Review and Proof Writing Workshop</span>
-        </li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 1</span><span class="course-syllabus__topic">Propositional Logic and Truth Tables</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 2</span><span class="course-syllabus__topic">Predicate Logic and Quantifiers</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 3</span><span class="course-syllabus__topic">Set Theory: Operations and Identities</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 4</span><span class="course-syllabus__topic">Functions and Relations</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 5</span><span class="course-syllabus__topic">Direct Proof and Proof by Contrapositive</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 6</span><span class="course-syllabus__topic">Proof by Contradiction</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 7</span><span class="course-syllabus__topic">Mathematical Induction</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 8</span><span class="course-syllabus__topic">Strong Induction and Well-Ordering</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 9</span><span class="course-syllabus__topic">Divisibility and Modular Arithmetic</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 10</span><span class="course-syllabus__topic">Combinatorial Proofs</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 11</span><span class="course-syllabus__topic">Infinite Sets and Cardinality</span></li>
+        <li class="course-syllabus__item"><span class="course-syllabus__week">Week 12</span><span class="course-syllabus__topic">Review and Proof Writing Workshop</span></li>
       </ol>
     </div>
 
     <div class="course-section">
       <h3 class="course-section__title">Lecture Notes</h3>
       <div class="course-notes-grid">
-        <div class="course-note-card">
-          <span class="course-note-card__number">Lecture 1</span>
-          <h4 class="course-note-card__title">Propositional Logic</h4>
-          <p class="course-note-card__description">Logical connectives, truth tables, and logical equivalence.</p>
-          <a href="#" class="course-note-card__button">Open Notes</a>
-        </div>
-        <div class="course-note-card">
-          <span class="course-note-card__number">Lecture 2</span>
-          <h4 class="course-note-card__title">Predicate Logic</h4>
-          <p class="course-note-card__description">Quantifiers, negation, and logical arguments.</p>
-          <a href="#" class="course-note-card__button">Open Notes</a>
-        </div>
-        <div class="course-note-card">
-          <span class="course-note-card__number">Lecture 3</span>
-          <h4 class="course-note-card__title">Proof Techniques</h4>
-          <p class="course-note-card__description">Direct proof, contradiction, and contrapositive methods.</p>
-          <a href="#" class="course-note-card__button">Open Notes</a>
-        </div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 1</span><h4 class="course-note-card__title">Propositional Logic and Truth Tables</h4><p class="course-note-card__description">Statements, connectives, truth tables, logical equivalence, and valid arguments.</p><a href="lecture-notes-proofs-1.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 2</span><h4 class="course-note-card__title">Predicate Logic and Quantifiers</h4><p class="course-note-card__description">Predicates, restricted quantifiers, negation, scope, and quantified arguments.</p><a href="lecture-notes-proofs-2.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 3</span><h4 class="course-note-card__title">Set Theory: Operations and Identities</h4><p class="course-note-card__description">Membership, subsets, power sets, set operations, element chasing, and indexed families.</p><a href="lecture-notes-proofs-3.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 4</span><h4 class="course-note-card__title">Functions and Relations</h4><p class="course-note-card__description">Equivalence relations, partitions, orders, injectivity, surjectivity, and composition.</p><a href="lecture-notes-proofs-4.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 5</span><h4 class="course-note-card__title">Direct Proof and Proof by Contrapositive</h4><p class="course-note-card__description">Algebraic proofs, contrapositives, biconditionals, and exhaustive cases.</p><a href="lecture-notes-proofs-5.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 6</span><h4 class="course-note-card__title">Proof by Contradiction</h4><p class="course-note-card__description">Irrationality, infinitude, uniqueness, and the logic of reductio arguments.</p><a href="lecture-notes-proofs-6.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 7</span><h4 class="course-note-card__title">Mathematical Induction</h4><p class="course-note-card__description">Base cases, inductive hypotheses, sums, inequalities, and divisibility.</p><a href="lecture-notes-proofs-7.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 8</span><h4 class="course-note-card__title">Strong Induction and Well-Ordering</h4><p class="course-note-card__description">Strong induction, prime factorisation, recurrences, and minimal counterexamples.</p><a href="lecture-notes-proofs-8.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 9</span><h4 class="course-note-card__title">Divisibility and Modular Arithmetic</h4><p class="course-note-card__description">Euclid's lemma, unique factorisation, congruences, and Fermat's little theorem.</p><a href="lecture-notes-proofs-9.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 10</span><h4 class="course-note-card__title">Combinatorial Proofs</h4><p class="course-note-card__description">Counting principles, binomial identities, double counting, and pigeonhole arguments.</p><a href="lecture-notes-proofs-10.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 11</span><h4 class="course-note-card__title">Infinite Sets and Cardinality</h4><p class="course-note-card__description">Countability, Cantor's diagonal argument, power sets, and comparing cardinalities.</p><a href="lecture-notes-proofs-11.html" class="course-note-card__button">Open Notes</a></div>
+        <div class="course-note-card"><span class="course-note-card__number">Lecture 12</span><h4 class="course-note-card__title">Review and Proof Writing Workshop</h4><p class="course-note-card__description">Proof strategies, proof auditing, counterexamples, and exam preparation.</p><a href="lecture-notes-proofs-12.html" class="course-note-card__button">Open Notes</a></div>
       </div>
     </div>
 
     <div class="course-section">
-      <h3 class="course-section__title">Problem Sets</h3>
-      <div class="course-problem-set">
-        <div class="course-problem-set__header">
-          <h4 class="course-problem-set__title">Problem Set 1</h4>
-          <span class="course-problem-set__difficulty">Medium</span>
-        </div>
-        <p class="course-problem-set__topics">Topics: Propositional Logic, Truth Tables</p>
-        <a href="#" class="course-problem-set__button">Download/View</a>
-      </div>
-      <div class="course-problem-set">
-        <div class="course-problem-set__header">
-          <h4 class="course-problem-set__title">Problem Set 2</h4>
-          <span class="course-problem-set__difficulty">Hard</span>
-        </div>
-        <p class="course-problem-set__topics">Topics: Proof Techniques, Induction</p>
-        <a href="#" class="course-problem-set__button">Download/View</a>
-      </div>
+      <h3 class="course-section__title">Problem Sets and Solutions</h3>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 1: Propositional Logic</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Truth tables, logical equivalence, argument validity</p><a href="problem-set-1-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-1-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 2: Predicate Logic</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Quantifiers, negation, unique existence, quantifier order</p><a href="problem-set-2-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-2-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 3: Set Theory</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Inclusions, power sets, De Morgan laws, indexed families</p><a href="problem-set-3-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-3-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 4: Functions and Relations</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Equivalence classes, orders, bijections, images and preimages</p><a href="problem-set-4-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-4-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 5: Direct and Contrapositive Proofs</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Parity, divisibility, contrapositives, biconditionals, cases</p><a href="problem-set-5-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-5-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 6: Contradiction</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Irrationality, nonexistence, uniqueness, critique of proofs</p><a href="problem-set-6-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-6-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 7: Induction</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Sums, inequalities, divisibility, base cases, induction errors</p><a href="problem-set-7-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-7-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 8: Strong Induction</h4><span class="course-problem-set__difficulty">Hard</span></div><p class="course-problem-set__topics">Factorisation, recurrences, well-ordering, minimal counterexamples</p><a href="problem-set-8-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-8-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 9: Modular Arithmetic</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Congruences, inverses, CRT, squares mod n, Fermat's little theorem</p><a href="problem-set-9-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-9-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 10: Combinatorial Proofs</h4><span class="course-problem-set__difficulty">Hard</span></div><p class="course-problem-set__topics">Binomial identities, double counting, pigeonhole principle</p><a href="problem-set-10-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-10-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 11: Cardinality</h4><span class="course-problem-set__difficulty">Hard</span></div><p class="course-problem-set__topics">Countability, diagonal arguments, Cantor's theorem</p><a href="problem-set-11-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-11-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Problem Set 12: Proof Writing Review</h4><span class="course-problem-set__difficulty">Hard</span></div><p class="course-problem-set__topics">Mixed problems, proof audits, counterexamples, strategy</p><a href="problem-set-12-proofs.html" class="course-problem-set__button">View Problems</a><a href="problem-set-12-proofs-solutions.html" class="course-problem-set__button">View Solutions</a></div>
+    </div>
+
+    <div class="course-section">
+      <h3 class="course-section__title">Practice Tests</h3>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Practice Test 1: Logic, Sets, and Core Techniques</h4><span class="course-problem-set__difficulty">Medium</span></div><p class="course-problem-set__topics">Covers Lectures 1-6; 10 multiple-choice and 10 written-response questions, plus a solved 5-mark bonus with worked solutions</p><a href="practice-test-1-proofs.html" class="course-problem-set__button">Start Practice Test 1</a></div>
+      <div class="course-problem-set"><div class="course-problem-set__header"><h4 class="course-problem-set__title">Practice Test 2: Induction, Applications, and Cardinality</h4><span class="course-problem-set__difficulty">Hard</span></div><p class="course-problem-set__topics">Covers Lectures 7-12 with a cumulative review; 10 multiple-choice and 10 written-response questions, plus a solved 5-mark bonus with worked solutions</p><a href="practice-test-2-proofs.html" class="course-problem-set__button">Start Practice Test 2</a></div>
     </div>
 
     <div class="course-section">
@@ -187,47 +161,24 @@
         <div class="course-resources__category">
           <h4 class="course-resources__title">Books</h4>
           <ul class="course-resources__list">
-            <li><a href="#">How to Prove It</a> - Daniel Velleman</li>
-            <li><a href="#">Book of Proof</a> - Richard Hammack</li>
+            <li><a href="https://www.cambridge.org/highereducation/books/how-to-prove-it/6D2965D625C6836CD4A785A2C843B3DA" target="_blank" rel="noopener noreferrer">How to Prove It: A Structured Approach by Daniel J. Velleman</a> - Publisher page for the third edition</li>
+            <li><a href="https://richardhammack.github.io/BookOfProof/index.html" target="_blank" rel="noopener noreferrer">Book of Proof by Richard Hammack</a> - Free official PDF and chapter links</li>
+            <li><a href="https://www.cambridge.org/highereducation/books/an-introduction-to-mathematical-reasoning/884E620008388D6452ED9707CBEA0BF0" target="_blank" rel="noopener noreferrer">An Introduction to Mathematical Reasoning by Peter J. Eccles</a> - Publisher page with book details</li>
           </ul>
         </div>
         <div class="course-resources__category">
-          <h4 class="course-resources__title">Lecture Notes</h4>
+          <h4 class="course-resources__title">Further Study</h4>
           <ul class="course-resources__list">
-            <li><a href="#">MIT OpenCourseWare - Mathematics for Computer Science</a></li>
-            <li><a href="#">Harvard Math 55 Notes</a></li>
+            <li><a href="https://matthbeck.github.io/books.html" target="_blank" rel="noopener noreferrer">The Art of Proof by Matthias Beck and Ross Geoghegan</a> - Author page with book information</li>
+            <li><a href="https://richardhammack.github.io/BookOfProof/Main.pdf" target="_blank" rel="noopener noreferrer">Book of Proof full PDF</a> - Free official PDF with readings for logic, sets, induction, relations, functions, and cardinality</li>
+            <li><a href="number-theory.html">Elementary Number Theory course notes on this site</a> - More proofs involving divisibility, primes, and congruences</li>
           </ul>
         </div>
-        <div class="course-resources__category">
-          <h4 class="course-resources__title">Videos</h4>
-          <ul class="course-resources__list">
-            <li><a href="#">3Blue1Brown - How to Prove Stuff</a></li>
-            <li><a href="#">MIT OpenCourseWare - Introduction to Proof</a></li>
-          </ul>
-        </div>
-        <div class="course-resources__category">
-          <h4 class="course-resources__title">Online Resources</h4>
-          <ul class="course-resources__list">
-            <li><a href="#">ProofWiki</a></li>
-            <li><a href="#">StackExchange - Mathematics</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="course-section">
-      <h3 class="course-section__title">Additional Reading</h3>
-      <div class="course-section__content">
-        <p>
-          For further study, explore "The Art of Proof" by W. Ledermann and 
-          "Introduction to Mathematical Thinking" by Keith Devlin. These texts 
-          provide additional perspectives on mathematical reasoning and proof strategies.
-        </p>
       </div>
     </div>
 
     <nav class="course-related" aria-label="Related courses">
-      <a href="calculus-2.html" class="course-related__link">← Calculus II</a>
+      <a href="calculus-1.html" class="course-related__link">← Calculus I</a>
       <span class="course-related__arrow">↓</span>
       <a href="../teaching.html" class="course-related__link">Teaching Home</a>
       <span class="course-related__arrow">↓</span>
@@ -236,6 +187,6 @@
   </main>
   <footer><p class="site-footer">© 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
   <script src="../script.js"></script>
-    <script src="../search-enhancer.js"></script>
+  <script src="../search-enhancer.js"></script>
 </body>
 </html>

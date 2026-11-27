@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lecture 12 of Introduction to Proofs: Review and Proof Writing Workshop.">
+  <title>Lecture 12: Review and Proof Writing Workshop | Introduction to Proofs</title>
+  <link rel="stylesheet" href="../style.css">
+  <script>MathJax = {tex: {inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']], processEscapes: true, processEnvironments: true}, options: {skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']}};</script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body class="no-math-background"><div class="site-topbar">
+<header>
+  <div class="header-controls"><label class="search-bar" for="site-search"><span class="search-bar__icon">⌕</span><input id="site-search" type="search" placeholder="Search site" autocomplete="off"></label></div>
+  <div class="header-content"><p class="site-title">Introduction to Proofs</p></div>
+</header>
+  <nav>
+    <ul>
+      <li><a href="../index.html">Home</a></li><li><a href="../about.html">About me</a></li><li><a href="../notes.html">Notes</a></li>
+      <li><a href="../teaching.html" class="active" aria-current="page">Teaching</a></li>
+      <li><a href="../expository.html">Expository Writing</a></li>
+      <li><a href="../research.html">Research</a></li><li><a href="../Track.html">Track and field</a></li>
+      <li><a href="../blog.html">Blog</a></li><li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+  <main>
+    <div class="lecture-header"><h1>Lecture 12: Review and Proof Writing Workshop</h1><div class="subtitle">Introduction to Proofs &middot; Week 12</div></div>
+    <div class="lecture-content">
+      <p class="lecture-metadata"><span class="lecture-number">Lecture 12</span><span class="lecture-topic">Review and Proof Writing Workshop</span></p>
+      <div class="concept-callout"><strong>Learning objectives</strong><p>By the end of this lecture you should be able to:</p><ul><li>Select an appropriate proof strategy for a given statement.</li><li>Audit a proof for gaps, incorrect quantifiers and unjustified steps.</li><li>Write clear proofs of implications, biconditionals, existence and uniqueness.</li><li>Recognise common invalid argument forms and counterexample opportunities.</li><li>Prepare systematically for a proof-based assessment.</li></ul></div>
+      
+<div class="concept-callout"><strong>Beginner's bridge</strong><p>Proof writing is a planning problem. First identify the logical form: universal statement, implication, biconditional, existence claim, or negation. Then choose a method that matches that form. Finally unfold the relevant definitions and make each implication explicit.</p><p>A useful opening line for many proofs is “Let \(x\) be arbitrary” or “Assume \(P(x)\)”. A clear proof is not necessarily long; it is a proof in which every assertion is justified and the conclusion follows from the assumptions.</p></div>
+
+      <div class="lecture-section"><h2>1. A catalogue of proof strategies</h2>
+<div class="concept-callout"><strong>Choose the strategy from the logical form of the statement.</strong>
+<ul>
+<li>\(p\to q\): direct proof; contrapositive \(\neg q\to\neg p\); contradiction from \(p\land\neg q\); or exhaustive cases if \(p\) splits into cases.</li>
+<li>\(p\leftrightarrow q\): prove both implications, label them \(\Rightarrow\) and \(\Leftarrow\).</li>
+<li>\(\forall x\,P(x)\): let \(x\) be arbitrary and prove \(P(x)\); for integers this often means induction.</li>
+<li>\(\exists x\,P(x)\): exhibit a witness and verify \(P\) for it.</li>
+<li>\(\exists!x\,P(x)\): prove existence, then assume two witnesses and prove they are equal.</li>
+<li>Set equality: prove two inclusions. Function equality: prove equality at an arbitrary argument.</li>
+<li>Identity with binomial coefficients: count the same finite set twice or construct a bijection.</li>
+<li>Uncountability or nonexistence of a bijection: try contradiction and diagonalisation.</li>
+</ul></div>
+<p>These are tools, not recipes to apply mechanically. Before writing, spend a moment identifying the quantifiers and connectives in the statement; the correct first sentence of a proof usually follows from that analysis.</p>
+</div><div class="lecture-section"><h2>2. Structure of a well-written proof</h2>
+<div class="step-box"><strong>Opening.</strong> Restate what must be proved in your own words and fix arbitrary objects. Example: "Let \(a,b\in\mathbb{Z}\) and suppose \(a\mid b\). We must show \(b=ak\) for some \(k\in\mathbb{Z}\)."</div>
+<div class="step-box"><strong>Body.</strong> Give a chain of justified steps. Each step should follow from definitions, hypotheses, or previously proved theorems. Mark case splits explicitly and verify exhaustiveness.</div>
+<div class="step-box"><strong>Closing.</strong> State how the conclusion follows, and mark the end. For a biconditional, summarise the two directions.</div>
+<p>Use notation consistently. Distinguish \(\in\) (membership) from \(\subseteq\) (inclusion), and \(=\) from \(\equiv\) or \(\leftrightarrow\). Do not write "\(\iff\)" when only "\(\implies\)" has been established.</p>
+<div class="example-box"><strong>Example 12.1 (A complete proof)</strong> Claim: for every integer \(n\), if \(n^2\) is even then \(n\) is even.
+<div class="step-box"><strong>Proof.</strong> Let \(n\in\mathbb{Z}\). We prove the contrapositive. Suppose \(n\) is odd, so \(n=2k+1\) for some \(k\in\mathbb{Z}\). Then \(n^2=4k^2+4k+1=2(2k^2+2k)+1\), which is odd. Therefore \(n^2\) is not even. By contraposition, if \(n^2\) is even then \(n\) is even.</div></div>
+</div><div class="lecture-section"><h2>3. Auditing proofs</h2>
+<div class="concept-callout"><strong>Checklist for self-review</strong>
+<ul>
+<li>Did I use every hypothesis that the statement provides, and only those hypotheses?</li>
+<li>Are all variables quantified? Is the witness for an existential claim explicitly constructed?</li>
+<li>When I negated a statement, did I apply the correct quantifier and conditional laws?</li>
+<li>Are the base case and inductive step both verified, at the correct starting index?</li>
+<li>In a case split, is every possibility covered? Are overlapping cases handled consistently?</li>
+<li>Does every claimed equivalence actually go both ways?</li>
+<li>Could a small counterexamplebreak the claim? Testing \(n=0,1,2\) and a few small sets is cheap insurance.</li>
+<li>Is the conclusion exactly the statement requested, rather than its converse or a stronger unproved claim?</li>
+</ul></div>
+<div class="theorem-box"><strong>Common invalid forms to recognise instantly</strong>
+<ul>
+<li>Affirming the consequent: \(p\to q\), \(q\), therefore \(p\).</li>
+<li>Denying the antecedent: \(p\to q\), \(\neg p\), therefore \(\neg q\).</li>
+<li>Quantifier confusion: \(\forall x\,\exists y\) replaced by \(\exists y\,\forall x\).</li>
+<li>Proof by example: checking selected instances of a universal statement.</li>
+<li>Illegal cancellation: \(A\cup B=A\cup C\implies B=C\), or dividing by an expression that may be zero.</li>
+</ul></div>
+</div><div class="lecture-section"><h2>4. Countermodel and counterexample thinking</h2>
+<p>To disprove a universal statement \(\forall x\,P(x)\), find a single counterexample. To disprove an implication \(p\to q\), find a case where \(p\) holds and \(q\) fails. To disprove an existence claim, prove its negation: \(\neg\exists x\,P(x)\equiv\forall x\,\neg P(x)\).</p>
+<div class="example-box"><strong>Example 12.2</strong> Is it true that if \(f\circ g\) is bijective then \(f\) and \(g\) are bijective? Let \(g:\{1\}\to\{1,2\}\), \(g(1)=1\), and \(f:\{1,2\}\to\{1\}\), \(f(1)=f(2)=1\). Then \(f\circ g\) is the identity on \(\{1\}\), hence bijective, but neither \(f\) nor \(g\) is bijective. A single counterexample settles the universal claim.</div>
+<p>When a claim survives small tests, attempt a proof; when a proof stalls, examine where the argument needs more than the hypotheses give. This back-and-forth is a normal part of mathematical work.</p>
+</div><div class="lecture-section"><h2>5. Preparing for an exam</h2>
+<div class="step-box"><strong>Study plan.</strong> Review definitions first: even/odd, divides, congruence, set operations, relation properties, injective/surjective, equivalence classes, binomial coefficients, cardinality. Then review the logical forms and proof templates. Finally, solve problems without looking at solutions, and compare your write-up with a model proof.</div>
+<div class="step-box"><strong>During the exam.</strong> Read the quantifiers, write the negation if doing contradiction, name the strategy you are using, and verify the base case or witness. If stuck, test small cases to guess the correct statement or find a counterexample.</div>
+<div class="step-box"><strong>After writing.</strong> Re-read the proof as a skeptical reader: does each sentence follow from the previous one? If a step says "clearly", supply the missing justification. Check that the proof would fail if a key hypothesis were false; if not, you may have proved something else.</div>
+<p>Use <a href="practice-test-1-proofs.html">Practice Test 1</a> and <a href="practice-test-2-proofs.html">Practice Test 2</a> to simulate timed work. Both tests provide full worked solutions after submission.</p>
+</div>
+      
+<div class="lecture-section"><h2>6. Extra detail: a proof-audit checklist</h2>
+<div class="step-box"><strong>Form:</strong> Does the proof establish exactly the statement claimed?</div>
+<div class="step-box"><strong>Quantifiers:</strong> Was an arbitrary element chosen before proving a universal claim?</div>
+<div class="step-box"><strong>Definitions:</strong> Were key terms such as even, divisible, injective, or countable unfolded?</div>
+<div class="step-box"><strong>Direction:</strong> In a biconditional proof, were both directions proved?</div>
+<div class="step-box"><strong>Edges:</strong> Were base cases, empty sets, zero, and negative integers considered where relevant?</div>
+<div class="example-box"><strong>Example 12.10</strong> The argument “\(n^2\) is even, so let \(n=2k\)” is incomplete because it assumes the conclusion. A correct proof uses the contrapositive or Euclid's lemma with the prime \(2\).</div>
+<p>When a universal statement seems plausible, test small cases and look for counterexamples before attempting a proof. When a counterexample exists, one explicit instance is a complete disproof.</p>
+</div>
+
+      <div class="exercise-box"><strong>Exercises</strong><ol><li>Identify the logical form and an appropriate proof strategy for: "For every integer \(n\ge1\), \(n^3+2n\) is divisible by \(3\)."</li><li>Write the negation of "\(\exists x\in\mathbb{R}\,\forall y\in\mathbb{R}\,(xy=1)\)".</li><li>Give a counterexample to: if \(A\cap B=A\cap C\), then \(B=C\).</li><li>Audit this argument: "Since \(n^2\) is even, let \(n=2k\). Then \(n^2=4k^2\), so \(n^2\) is even."</li><li>Prove that if \(f:A	o B\) is bijective and \(S\subseteq A\), then \(f(A\setminus S)=B\setminus f(S)\).</li><li>Prove that if \(a\equiv b\pmod n\), then \(\gcd(a,n)=\gcd(b,n)\).</li><li>Prove by double counting that \(\sum_{k=0}^n\binom nk=2^n\), then give an algebraic proof.</li><li>Explain how Cantor's diagonal argument combines contradiction with explicit construction.</li></ol><p>Complete <a href="problem-set-12-proofs.html">Problem Set 12</a> for full solutions and additional practice.</p></div>
+      <div class="navigation"><a href="lecture-notes-proofs-11.html">&larr; Previous Lecture</a><a href="introduction-to-proofs.html">Back to Course</a><a href="practice-test-2-proofs.html">Practice Test 2 &rarr;</a></div>
+    </div>
+  </main>
+  <footer><p class="site-footer">&copy; 2026 Kasieobi Udumaga <span class="site-version" data-site-version></span></p></footer>
+  <script src="../script.js"></script>
+  <script src="../search-enhancer.js"></script>
+</body>
+</html>
